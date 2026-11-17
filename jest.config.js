@@ -103,7 +103,7 @@ module.exports = {
   // `build/` und `.deno-cache/` enthalten entpackte Paketquellen, die sonst
   // mehrfach als Haste-Kandidaten auftauchen und die Modulaufloesung brechen.
   modulePathIgnorePatterns: [
-    "<rootDir>/(?:tools|\\.agents|\\.claude|build|\\.deno-cache|\\.push-clean-worktree|\\.tmp)/",
+    "<rootDir>/(?:tools|\\.agents|\\.claude|\\.worktrees|build|\\.deno-cache|\\.push-clean-worktree|\\.tmp)/",
   ],
 
   // Bewusst nicht standardmaessig an: Instrumentierung kostet auf jedem Lauf
