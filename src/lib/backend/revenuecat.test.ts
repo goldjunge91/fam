@@ -18,7 +18,6 @@ import {
   resetPurchasesIdentity,
   restorePurchases,
   selectRevenueCatApiKey,
-  setPurchasesAttributes,
   syncPurchasesIdentity,
   VERIFICATION_RESULT,
 } from './revenuecat';
@@ -337,33 +336,30 @@ describe('purchases security and entitlement checks', () => {
     });
   });
 
-  describe('purchases identity and subscriber attributes', () => {
+  describe('purchases identity checks', () => {
     beforeEach(() => {
       initPurchases();
     });
 
-    it('logs in with the application user ID, then applies attributes', async () => {
+    it('logs in with the application user ID, then applies the purchase household', async () => {
       const customerInfo = { entitlements: { active: {} } } as CustomerInfo;
       (Purchases.logIn as jest.Mock).mockResolvedValueOnce({ customerInfo, created: false });
 
       await expect(
-        syncPurchasesIdentity('user-123', { household: 'household-1', optional: null }),
+        syncPurchasesIdentity('user-123', { household_id: 'household-1' }),
       ).resolves.toBe(customerInfo);
       expect(Purchases.logIn).toHaveBeenCalledWith('user-123');
       expect(Purchases.setAttributes).toHaveBeenCalledWith({
-        household: 'household-1',
-        optional: null,
+        household_id: 'household-1',
       });
     });
 
-    it('returns null and skips attributes when identity login fails', async () => {
+    it('returns null when identity login fails', async () => {
       const error = new Error('Login failed');
       (Purchases.logIn as jest.Mock).mockRejectedValueOnce(error);
       const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-      await expect(syncPurchasesIdentity('user-123', { household: 'household-1' })).resolves.toBe(
-        null,
-      );
+      await expect(syncPurchasesIdentity('user-123')).resolves.toBe(null);
       expect(Purchases.setAttributes).not.toHaveBeenCalled();
       expect(warnSpy).toHaveBeenCalledWith(
         expect.stringContaining('syncPurchasesIdentity fehlgeschlagen:'),
@@ -372,21 +368,16 @@ describe('purchases security and entitlement checks', () => {
       warnSpy.mockRestore();
     });
 
-    it('returns null when setting attributes fails after login', async () => {
+    it('returns null when setting the purchase household fails after login', async () => {
       const customerInfo = { entitlements: { active: {} } } as CustomerInfo;
       (Purchases.logIn as jest.Mock).mockResolvedValueOnce({ customerInfo, created: true });
       (Purchases.setAttributes as jest.Mock).mockRejectedValueOnce(new Error('Attributes failed'));
-      jest.spyOn(console, 'warn').mockImplementation(() => {});
+      const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-      await expect(syncPurchasesIdentity('user-123', { household: 'household-1' })).resolves.toBe(
-        null,
-      );
-    });
-
-    it('sets subscriber attributes for an already identified user', async () => {
-      await setPurchasesAttributes({ household: 'household-1' });
-
-      expect(Purchases.setAttributes).toHaveBeenCalledWith({ household: 'household-1' });
+      await expect(
+        syncPurchasesIdentity('user-123', { household_id: 'household-1' }),
+      ).resolves.toBe(null);
+      warnSpy.mockRestore();
     });
 
     it('logs out only a non-anonymous RevenueCat identity', async () => {

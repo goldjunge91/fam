@@ -22,7 +22,6 @@ import {
   initPurchases,
   isPurchasesConfigured,
   resetPurchasesIdentity,
-  setPurchasesAttributes,
   syncPurchasesIdentity,
 } from '@/lib/backend/revenuecat';
 import { env } from '@/lib/config/env';
@@ -226,30 +225,6 @@ export function PremiumProvider({ children }: { children: ReactNode }) {
       }
     });
   }, [userId, activeHouseholdId, enqueuePurchasesOperation]);
-
-  // Haushaltswechsel an RevenueCat Subscriber Attributes melden
-  useEffect(() => {
-    if (!isPurchasesConfigured() || !userId) return;
-
-    const generation = identitySyncGenerationRef.current;
-    const expectedUserId = userId;
-    void enqueuePurchasesOperation(async () => {
-      if (
-        !mountedRef.current ||
-        identitySyncGenerationRef.current !== generation ||
-        currentUserIdRef.current !== expectedUserId
-      ) {
-        return;
-      }
-      try {
-        await setPurchasesAttributes({
-          household_id: activeHouseholdId ?? null,
-        });
-      } catch (err) {
-        debugWarn('[Premium] RevenueCat-Attribute konnten nicht gesetzt werden:', err);
-      }
-    });
-  }, [activeHouseholdId, userId, enqueuePurchasesOperation]);
 
   const forcePremiumOverride = useForcePremiumOverrideStore((state) => state.override);
   const forceAiOverride = useForceAiOverrideStore((state) => state.override);

@@ -226,21 +226,6 @@ export async function syncPurchasesIdentity(
 }
 
 /**
- * Setzt benutzerdefinierte Subscriber Attributes fuer den aktuellen Nutzer.
- */
-export async function setPurchasesAttributes(
-  attributes: Record<string, string | null>,
-): Promise<void> {
-  if (!isPurchasesConfigured()) return;
-
-  try {
-    await Purchases.setAttributes(attributes);
-  } catch (err) {
-    debugWarn('[Purchases] setPurchasesAttributes fehlgeschlagen:', err);
-  }
-}
-
-/**
  * Loggt den aktuellen RevenueCat-Nutzer aus, sofern er nicht bereits anonym ist.
  */
 export async function resetPurchasesIdentity(): Promise<CustomerInfo | null> {
