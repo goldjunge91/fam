@@ -23,6 +23,34 @@ export type Database = {
   };
   public: {
     Tables: {
+      account_deletion_requests: {
+        Row: {
+          delete_accepted_at: string | null;
+          delete_requested_at: string;
+          delete_verified_at: string | null;
+          posthog_person_ids: string[];
+          updated_at: string;
+          user_id: string;
+        };
+        ComputedFields: never;
+        Insert: {
+          delete_accepted_at?: string | null;
+          delete_requested_at?: string;
+          delete_verified_at?: string | null;
+          posthog_person_ids?: string[];
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          delete_accepted_at?: string | null;
+          delete_requested_at?: string;
+          delete_verified_at?: string | null;
+          posthog_person_ids?: string[];
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       ai_credit_bookings: {
         Row: {
           action: string;

@@ -39,6 +39,8 @@ revoke all on public.revenuecat_plus_assignments from anon, authenticated, servi
 grant delete, insert, select, update on public.revenuecat_plus_assignments to service_role;
 revoke all on public.revenuecat_processed_events from anon, authenticated, service_role;
 grant insert, select on public.revenuecat_processed_events to service_role;
+revoke all on public.account_deletion_requests from anon, authenticated, service_role;
+grant delete, insert, select, update on public.account_deletion_requests to service_role;
 revoke all on public.ai_credit_bookings from anon, authenticated, service_role;
 grant insert, select on public.ai_credit_bookings to service_role;
 revoke all on public.ai_credit_refunds from anon, authenticated, service_role;
