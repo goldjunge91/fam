@@ -6,7 +6,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { DeleteAccountScreen } from '@/features/settings/delete-account-screen';
 import { i18n } from '@/i18n';
 
-const mockInvoke = jest.fn().mockResolvedValue({ data: { success: true }, error: null });
+const mockInvoke = jest.fn().mockResolvedValue({
+  data: { success: true, analyticsDeletion: 'verified' },
+  error: null,
+});
 const mockReplace = jest.fn();
 const mockSignOutAndClearLocalData = jest.fn();
 const mockDisablePostHogCapture = jest.fn();
@@ -71,7 +74,10 @@ describe('DeleteAccountScreen', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
-    mockInvoke.mockResolvedValue({ data: { success: true }, error: null });
+    mockInvoke.mockResolvedValue({
+      data: { success: true, analyticsDeletion: 'verified' },
+      error: null,
+    });
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
     await i18n.changeLanguage('de');
   });
@@ -150,6 +156,22 @@ describe('DeleteAccountScreen', () => {
     );
     expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
     expect(mockReplace).not.toHaveBeenCalled();
+  });
+
+  it('beendet den lokalen Account nicht bei einer nur angenommenen Analytics-Löschung', async () => {
+    mockInvoke.mockResolvedValueOnce({
+      data: { success: true, analyticsDeletion: 'accepted' },
+      error: null,
+    });
+
+    await confirmAccountDeletion();
+
+    expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
+    expect(mockReplace).not.toHaveBeenCalled();
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.failedTitle'),
+      i18n.t('settings.groups.data.deleteAccount.unknownError'),
+    );
   });
 
   it('zeigt Serverfehler und Fehlerdetails aus der Antwort', async () => {

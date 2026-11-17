@@ -47,11 +47,26 @@ export function DeleteAccountScreen() {
         return;
       }
 
-      if (data && (data as { error?: string }).error) {
+      const response = data as {
+        error?: string;
+        message?: string;
+        success?: boolean;
+        analyticsDeletion?: string;
+      } | null;
+      if (response?.error) {
         Alert.alert(
           t('settings.groups.data.deleteAccount.failedTitle'),
-          (data as { message?: string }).message ??
-            t('settings.groups.data.deleteAccount.unknownError'),
+          response.message ?? t('settings.groups.data.deleteAccount.unknownError'),
+        );
+        return;
+      }
+      if (
+        response?.success !== true ||
+        (response.analyticsDeletion !== 'verified' && response.analyticsDeletion !== 'not_found')
+      ) {
+        Alert.alert(
+          t('settings.groups.data.deleteAccount.failedTitle'),
+          t('settings.groups.data.deleteAccount.unknownError'),
         );
         return;
       }

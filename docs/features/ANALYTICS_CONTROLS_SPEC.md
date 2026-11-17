@@ -189,9 +189,13 @@ Keine vollständige Testsuite routinemäßig ausführen; gezielte Tests verwende
 
 ## Open Questions
 
-- Die PostHog-/Supabase-Edge-Function muss mit `POSTHOG_PERSONAL_API_KEY`,
-  `POSTHOG_PROJECT_ID` und `POSTHOG_HOST` konfiguriert und mit einem echten
-  Account-Löschlauf abgenommen werden.
+- Die PostHog-/Supabase-Edge-Function muss mit
+  `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` und `POSTHOG_HOST` konfiguriert
+  und mit einem eindeutig synthetischen Testaccount abgenommen werden. Die
+  Abnahme trennt HTTP-202-Annahme von `deletion_status=completed` mit
+  `delete_verified_at` und einer leeren abschließenden Personenliste.
+  `accepted` ist kein erfolgreicher Abschluss; ein nicht separat belegbarer
+  Recording-Status bleibt offen.
 - Im PostHog-Dashboard müssen EU Cloud, IP-/GeoIP-Einstellungen, Retention,
   DPA und Zugriffrollen separat bestätigt werden.
 - Die RevenueCat-PostHog-Integration bleibt deaktiviert oder muss so gefiltert
