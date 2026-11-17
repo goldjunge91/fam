@@ -115,7 +115,7 @@ Deno.test('does not delete the account while analytics deletion is accepted but 
     analyticsResult: { status: 'accepted' },
   });
   const res = await handler(post());
-  assertEquals(res.status, 425);
+  assertEquals(res.status, 202);
   assertEquals(await res.json(), { error: 'analytics_delete_pending' });
   assertEquals(calls, ['prepare', `analytics:${USER_ID}`]);
 });

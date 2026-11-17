@@ -145,8 +145,9 @@ Redaction und idempotente Wiederholung ab.
 - **Re-enable:** Die Sperre wurde wieder aktiviert; 14 Tests liefen grün.
 
 `not_found` und `verified` sind die einzigen terminalen Ergebnisse. `accepted`
-erzeugt `analytics_delete_pending` mit HTTP 425 und erreicht `deleteUser`
-nicht.
+erzeugt `analytics_delete_pending` mit HTTP 202 und erreicht `deleteUser`
+nicht. Der 2xx-Transportstatus hält den asynchronen Body für Supabase- und
+Standard-Fetch-Clients lesbar; allein das Body-Feld bestimmt den Abschluss.
 
 ### Mobile Grenze
 

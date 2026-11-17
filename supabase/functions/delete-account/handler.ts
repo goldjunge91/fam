@@ -61,7 +61,7 @@ export function createDeleteAccountHandler(
       return json({ error: 'analytics_delete_failed' }, 502);
     }
     if (analyticsResult.status === 'accepted') {
-      return json({ error: 'analytics_delete_pending' }, 425);
+      return json({ error: 'analytics_delete_pending' }, 202);
     }
 
     // Use the service role only after user-scoped and third-party cleanup succeeds.

@@ -55,7 +55,7 @@ Die Statusmaschine ist fail-closed:
 | Status | Beleg | Supabase-Verhalten |
 | --- | --- | --- |
 | `not_found` | Eine strikt validierte Personenabfrage für die Distinct-ID ist leer und es gibt keinen Checkpoint. | Auth-Löschung darf fortfahren. Dieser Status behauptet keine nachträgliche Löschung von Events oder Recordings. |
-| `accepted` | PostHog hat die Bulk-Anforderung mit HTTP 202 angenommen oder der bounded `deletion_status`-Poll bleibt `pending`. | Checkpoint bleibt erhalten. Der Handler antwortet mit `analytics_delete_pending`; `deleteUser` läuft nicht. |
+| `accepted` | PostHog hat die Bulk-Anforderung mit HTTP 202 angenommen oder der bounded `deletion_status`-Poll bleibt `pending`. | Checkpoint bleibt erhalten. Der Handler antwortet lesbar mit HTTP 202 und `analytics_delete_pending`; `deleteUser` läuft nicht. |
 | `verified` | Für jede gespeicherte Person-ID liefert `deletion_status` `completed` mit parsebarem `delete_verified_at`, und die abschließende Personenabfrage ist leer. | Auth-Löschung darf fortfahren. Die Antwort nennt ausdrücklich `analyticsDeletion: verified`. |
 | Fehler oder unbekannt | Timeout, Netzwerkfehler, ungültiger Status, ungültiges JSON, abgeschnittene Pagination, widersprüchliche Zähler oder ein verbleibender Datensatz. | Stabiler redigierter Fehler; kein Auth-Löschen. |
 
