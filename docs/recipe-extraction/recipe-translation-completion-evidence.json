@@ -1,0 +1,65 @@
+{
+  "taskId": "fam-pjqn",
+  "status": "completed",
+  "convergence": {
+    "path": "/Volumes/Programme/github/family_app/fam/.agents/tasks/fam-pjqn-recipe-translation/verdict.json",
+    "verdict": "APPROVED"
+  },
+  "catalog": {
+    "path": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/waivy-fam-catalog-import.de.manual-final-0-7640.json",
+    "recipeCount": 7641,
+    "sortOrderFrom": 0,
+    "sortOrderTo": 7640,
+    "source_note": {"populated": 49036},
+    "savings": {"populated": 2923}
+  },
+  "validator": {
+    "reportPath": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/waivy-fam-catalog-import.de.manual-final-0-7640.validation-report.json",
+    "format": "fam.recipe.translation.slice-report.v1",
+    "status": "passed",
+    "checkedTextFieldCount": 271274,
+    "changedTextPathCount": 244133,
+    "errors": [],
+    "translationFindings": [],
+    "protectedDifferences": [],
+    "numericDifferences": []
+  },
+  "blocks": {
+    "indexPath": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/final-blocks/index.json",
+    "blockGlob": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/final-blocks/block-*.json",
+    "format": "fam.recipe.translation.full-block-index.v1",
+    "blockSize": 5,
+    "blockCount": 1529,
+    "recipeCount": 7641,
+    "sortOrderFrom": 0,
+    "sortOrderTo": 7640,
+    "duplicateSortOrders": 0,
+    "firstBlock": "block-0000-0004.json",
+    "lastBlock": "block-7640-7640.json"
+  },
+  "import": {
+    "target": "https://ivvebtqasotqpikuydov.supabase.co",
+    "endpoint": "POST /api/import",
+    "authorization": "explicitly approved for this exact hosted target",
+    "validateResponsePath": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/final-import-2026-11-07/api-validate-response.json",
+    "importResponsePath": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/final-import-2026-11-07/api-import-response.json",
+    "terminalResponsePath": "/Volumes/Programme/github/family_app/fam/.worktrees/fam-pjqn-recipe-translation/docs/recipe-extraction/translation-work/agent-root_recipe_translation/current/final-import-2026-11-07/api-import-terminal-response.json",
+    "jobId": "230ecbc1-1116-4d05-85cd-99d131910782",
+    "status": "completed",
+    "completed": 7641,
+    "total": 7641,
+    "resultRows": 7641
+  },
+  "verification": {
+    "blockVerification": "bun build/test-tmp/recipe-extraction/verify-final-blocks.ts",
+    "recipeWorkflowTest": "bun run test --runTestsByPath tools/recipe-extraction/recipe-translation-workflow.test.ts --testPathIgnorePatterns=",
+    "batchImportSafetyTest": "bun run test test/batch-import-safety.test.ts",
+    "check": "bun run check",
+    "typecheck": "bun run typecheck"
+  },
+  "bead": {
+    "id": "fam-pjqn",
+    "readyToClose": true,
+    "closedByThisStep": false
+  }
+}
