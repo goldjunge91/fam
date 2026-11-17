@@ -168,8 +168,8 @@ function parsePersonList(payload: unknown): PostHogPersonList | PostHogError {
   }
 
   if (
-    !isNonNegativeSafeInteger(payload.count) ||
-    payload.count !== payload.results.length
+    payload.count !== undefined &&
+    (!isNonNegativeSafeInteger(payload.count) || payload.count !== payload.results.length)
   ) {
     return stableError('posthog_person_list_incomplete', 'PostHog person list was incomplete');
   }

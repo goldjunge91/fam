@@ -396,17 +396,14 @@ Deno.test('rejects malformed or incomplete person-list payloads', async () => {
   }
 });
 
-Deno.test('rejects a person-list payload without a count', async () => {
+Deno.test('accepts the current cursor person-list envelope without a count', async () => {
   const deletePerson = createPostHogPersonDeleter(
     CONFIG,
-    () => Promise.resolve(jsonResponse({ results: [], next: null })),
+    () => Promise.resolve(jsonResponse({ results: [], next: null, previous: null })),
     createCheckpointStore().store,
   );
 
-  assertEquals(await deletePerson?.(DISTINCT_ID), {
-    code: 'posthog_person_list_incomplete',
-    message: 'PostHog person list was incomplete',
-  });
+  assertEquals(await deletePerson?.(DISTINCT_ID), { status: 'not_found' });
 });
 
 Deno.test('rejects duplicate person IDs in the person-list payload', async () => {
@@ -484,7 +481,7 @@ Deno.test('rejects deletion status payloads without count or created_at', async 
   }
 });
 
-Deno.test('rejects a final person-list payload without a count', async () => {
+Deno.test('accepts the cursor person-list envelope during final verification', async () => {
   const clock = { value: Date.parse('2026-01-01T00:00:00.000Z') };
   const checkpoint = createCheckpointStore();
   let listCount = 0;
@@ -507,11 +504,8 @@ Deno.test('rejects a final person-list payload without a count', async () => {
     verificationOptions(clock),
   );
 
-  assertEquals(await deletePerson?.(DISTINCT_ID), {
-    code: 'posthog_person_list_incomplete',
-    message: 'PostHog person list was incomplete',
-  });
-  assertEquals(checkpoint.get()?.deleteVerifiedAt, null);
+  assertEquals(await deletePerson?.(DISTINCT_ID), { status: 'verified' });
+  assertEquals(checkpoint.get()?.deleteVerifiedAt, '2026-01-01T00:00:00.000Z');
 });
 
 Deno.test('rejects missing or empty person-list pagination markers before deletion', async () => {

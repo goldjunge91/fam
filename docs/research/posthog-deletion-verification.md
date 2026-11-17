@@ -56,10 +56,12 @@ Gesamtfrist begrenzen Polling. Wiederholungen lesen die gespeicherten IDs; neue
 IDs werden vereinigt, und ein bereits angenommener Checkpoint löst keinen
 zweiten Bulk-Aufruf aus.
 
-Die Personen- und Statusparser verlangen den vollständigen Antwortumschlag:
-`next: null`, einen `count`, der exakt der Ergebnislänge entspricht, gültige
-und eindeutige Personen-IDs sowie ein gültiges `created_at` je Statusdatensatz.
-Die Bulk-Zähler müssen die gesamte angeforderte ID-Menge abdecken. Teilabdeckung,
+Der Personenparser verlangt `next: null`, gültige eindeutige IDs und prüft ein
+optionales `count` gegen die Ergebnislänge. Damit akzeptiert er sowohl den
+aktuellen cursorbasierten Umschlag ohne `count` als auch ältere gezählte
+Antworten. Der Statusparser verlangt weiterhin `next: null`, ein exaktes
+`count` und ein gültiges `created_at` je Statusdatensatz. Die Bulk-Zähler müssen
+die gesamte angeforderte ID-Menge abdecken. Teilabdeckung,
 `deletion_errors` und provider-kontrollierte Felder werden mit stabilen Codes
 abgewiesen; Response-Bodies werden nie als interne Fehler oder Log-Codes
 weitergereicht.
@@ -164,9 +166,10 @@ Die Review-Korrektur ergänzt drei fail-closed Guards:
   `persons_deleted + persons_queued_for_deletion` müssen exakt die angeforderte
   ID-Menge abdecken. Eine Teilantwort bleibt ein stabiler Fehler und kann den
   Auth-Löschschritt nicht erreichen.
-- Personen- und Statusantworten verlangen `count` passend zur Ergebnislänge.
-  Doppelte Personen-IDs, fehlendes `created_at`, fehlendes `count` oder eine
-  abgeschnittene Pagination werden abgewiesen.
+- Statusantworten verlangen `count` passend zur Ergebnislänge. Die
+  cursorbasierte Personenliste wird ohne `count` akzeptiert und prüft das Feld,
+  wenn es vorhanden ist. Doppelte Personen-IDs, fehlendes `created_at`, ein
+  fehlendes Status-`count` oder abgeschnittene Pagination werden abgewiesen.
 - Externe JSON-Körper werden nicht strukturell als interne Fehler erkannt.
   Ein internes, nicht serialisierbares Fehlermerkmal trennt Provider-Daten von
   stabilen Fehlercodes; deshalb können Provider-Felder nicht in Logs gelangen.

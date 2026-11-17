@@ -70,12 +70,15 @@ Jeder externe Request hat ein Timeout, das Fetch und Response-Body umfasst. Das
 Polling hat zusätzlich eine feste Gesamtfrist.
 
 Personen- und Statusantworten werden nur akzeptiert, wenn der dokumentierte
-Umschlag vollständig ist: `next` muss explizit `null` sein, `count` muss der
-Anzahl der Ergebnisse entsprechen, Personen-IDs müssen gültig und eindeutig
-sein, und ein Statusdatensatz muss ein gültiges `created_at` enthalten. Aus der
-Statushistorie zählt nur genau ein Eintrag, dessen `created_at` zwischen der
-lokal gespeicherten Anforderung und HTTP-202-Annahme liegt; ein fehlender oder
-mehrdeutiger aktueller Eintrag stoppt fail-closed. `delete_verified_at` muss bei
+Umschlag vollständig ist: `next` muss explizit `null` sein. Die aktuelle
+cursorbasierte Personenliste darf `count` weglassen; wenn das Feld vorhanden
+ist, muss es der Ergebnisanzahl entsprechen. Der Status-Endpunkt verlangt
+weiterhin `count` passend zur Ergebnisanzahl. Personen-IDs müssen gültig und
+eindeutig sein, und ein Statusdatensatz muss ein gültiges `created_at`
+enthalten. Aus der Statushistorie zählt nur genau ein Eintrag, dessen
+`created_at` zwischen der lokal gespeicherten Anforderung und HTTP-202-Annahme
+liegt; ein fehlender oder mehrdeutiger aktueller Eintrag stoppt fail-closed.
+`delete_verified_at` muss bei
 `completed` mindestens so neu wie `created_at` sein. Die Bulk-Zähler müssen die
 gesamte angeforderte ID-Menge abdecken; Teilabdeckung, `deletion_errors` und
 provider-kontrollierte Response-Felder führen zu einem stabilen redigierten
