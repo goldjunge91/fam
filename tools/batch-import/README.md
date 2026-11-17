@@ -8,7 +8,7 @@ Vom Projektverzeichnis aus starten:
 bun --env-file=.env.development.local tools/batch-import/server.ts
 ```
 
-Danach `http://localhost:8787` im Browser oeffnen. Eine `catalog.json` der
+Danach `http://127.0.0.1:8787` im Browser oeffnen. Eine `catalog.json` der
 Version 1 kann dort als Datei geladen oder in das Textfeld eingefuegt werden.
 Anschliessend **Validieren** und danach **Importieren** klicken. Bildpfade in
 `cover`, `steps[].images` und v2-`images[].localPath` werden relativ zum
@@ -16,7 +16,13 @@ Projektverzeichnis aufgeloest. V2-`localPath`-Bilder werden in den
 `recipe-catalog`-Bucket hochgeladen; `images[].storagePath` ist ihr stabiler
 Zielpfad in Supabase.
 Die `.env.development.local` muss `EXPO_PUBLIC_SUPABASE_URL` und den
-`SUPABASE_SECRET_KEY` enthalten.
+`SUPABASE_SECRET_KEY` enthalten. Fuer einen schreibenden Batch- oder
+Template-Import muessen ausserdem `RECIPE_IMPORT_TOKEN` und
+`RECIPE_IMPORT_ALLOWED_TARGET` gesetzt sein. Der zweite Wert muss exakt der
+freigegebenen Supabase-URL entsprechen. Der Import verlangt den Header
+`x-recipe-import-token` und akzeptiert den Token pro Serverlauf nur einmal.
+Der Server lauscht nur auf `127.0.0.1`; die Batch-Validierung bleibt ohne Token
+moeglich.
 Validierung und Import zeigen ihren Status direkt im Browser. Batch-Imports
 laufen als Hintergrundjob mit Fortschrittsbalken; im Terminal werden Start,
 Fortschritt, Abschluss und Fehler mit Job-ID protokolliert.

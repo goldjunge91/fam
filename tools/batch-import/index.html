@@ -110,8 +110,15 @@
         }
       }
 
+      function askImportToken() {
+        const token = window.prompt('Einmaligen Import-Token eingeben:');
+        return token?.trim() || null;
+      }
+
       async function importBatch() {
         if (!window.confirm('Batch importieren?')) return;
+        const token = askImportToken();
+        if (!token) return;
         setBusy(true);
         progress.hidden = false;
         progress.value = 0;
@@ -119,7 +126,10 @@
         try {
           const response = await fetch('/api/import', {
             method: 'POST',
-            headers: { 'content-type': 'application/json' },
+            headers: {
+              'content-type': 'application/json',
+              'x-recipe-import-token': token,
+            },
             body: JSON.stringify(await readJson()),
           });
           const payload = await response.json();
@@ -137,12 +147,17 @@
 
       async function importTemplates() {
         if (!window.confirm('Alle vorhandenen Templates in den veröffentlichten Katalog übernehmen?')) return;
+        const token = askImportToken();
+        if (!token) return;
         setBusy(true);
         progress.hidden = false;
         progress.value = 0;
         setStatus('Template-Import wird gestartet …');
         try {
-          const response = await fetch('/api/import-templates', { method: 'POST' });
+          const response = await fetch('/api/import-templates', {
+            method: 'POST',
+            headers: { 'x-recipe-import-token': token },
+          });
           const payload = await response.json();
           if (!response.ok || !payload.jobId) throw new Error(payload.error || 'Template-Import konnte nicht gestartet werden.');
           showResult(payload);

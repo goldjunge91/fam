@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createClient } from '@supabase/supabase-js';
 import { z } from 'zod';
 import { importLegacyTemplates } from './legacy-template-import';
+import { createImportAuthorizer, fetchWithRetry } from './import-safety';
 
 const PORT = Number(process.env.RECIPE_CATALOG_PORT ?? 8787);
 const item = z
@@ -158,18 +159,6 @@ const imageContentType = (imagePath: string) => {
 
 type ImportProgress = { completed: number; total: number; current: string };
 const IMPORT_CONCURRENCY = 8;
-const fetchWithRetry: typeof fetch = async (input, init) => {
-  let lastError: unknown;
-  for (let attempt = 0; attempt < 3; attempt += 1) {
-    try {
-      return await fetch(input, { ...init, signal: AbortSignal.timeout(30_000) });
-    } catch (error) {
-      lastError = error;
-      if (attempt < 2) await Bun.sleep(500 * (attempt + 1));
-    }
-  }
-  throw lastError;
-};
 
 async function importBatch(
   batch: Batch,
@@ -409,17 +398,45 @@ async function importBatch(
   return report;
 }
 
-type ImportJob = { id: string; status: 'running' | 'completed' | 'failed'; completed: number; total: number; current: string; result?: unknown; error?: string };
+type ImportJob = {
+  id: string;
+  status: 'running' | 'completed' | 'failed';
+  completed: number;
+  total: number;
+  current: string;
+  approvedTarget?: string;
+  result?: unknown;
+  error?: string;
+};
 const jobs = new Map<string, ImportJob>();
+const authorizeImport = createImportAuthorizer(process.env);
 const server = Bun.serve({
+  hostname: '127.0.0.1',
   port: PORT,
   idleTimeout: 120,
   async fetch(request) {
     const url = new URL(request.url);
 
     if (request.method === 'POST' && url.pathname === '/api/import-templates') {
+      const authorization = authorizeImport(
+        request,
+        required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'),
+      );
+      if (!authorization.ok) {
+        return Response.json(
+          { ok: false, error: authorization.error },
+          { status: authorization.status },
+        );
+      }
       const id = crypto.randomUUID();
-      const job: ImportJob = { id, status: 'running', completed: 0, total: 0, current: '' };
+      const job: ImportJob = {
+        id,
+        status: 'running',
+        completed: 0,
+        total: 0,
+        current: '',
+        approvedTarget: authorization.approvedTarget,
+      };
       jobs.set(id, job);
       console.log(`[${id}] Template-Import gestartet`);
       void (async () => {
@@ -454,8 +471,26 @@ const server = Bun.serve({
           return Response.json({ valid: true, recipes: parsed.recipes.length });
         }
 
+        const authorization = authorizeImport(
+          request,
+          required('SUPABASE_URL', 'EXPO_PUBLIC_SUPABASE_URL'),
+        );
+        if (!authorization.ok) {
+          return Response.json(
+            { ok: false, error: authorization.error },
+            { status: authorization.status },
+          );
+        }
+
         const id = crypto.randomUUID();
-        const job: ImportJob = { id, status: 'running', completed: 0, total: parsed.recipes.length, current: '' };
+        const job: ImportJob = {
+          id,
+          status: 'running',
+          completed: 0,
+          total: parsed.recipes.length,
+          current: '',
+          approvedTarget: authorization.approvedTarget,
+        };
         jobs.set(id, job);
         console.log(`[${id}] Batch-Import gestartet (${job.total} Rezept(e))`);
         void (async () => {
@@ -492,4 +527,4 @@ const server = Bun.serve({
     return new Response('Nicht gefunden', { status: 404 });
   },
 });
-console.log(`Recipe Catalog Batch Import: http://localhost:${server.port}`);
+console.log(`Recipe Catalog Batch Import: http://127.0.0.1:${server.port}`);
