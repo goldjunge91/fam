@@ -1,4 +1,6 @@
 appId: com.goldjunge91.fam1
+tags:
+  - local-session
 env:
   TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}

@@ -5,19 +5,26 @@ env:
 ---
 # Atomare Aufgabe: genau einen fehlgeschlagenen Loginversuch ausführen und
 # die sichere gemeinsame Credential-Fehlermeldung bestätigen.
-- tapOn: "Anmelden"
+- runFlow:
+    when:
+      visible: "Ich habe schon ein Konto"
+    commands:
+      - tapOn: "Ich habe schon ein Konto"
 - tapOn:
-    id: "onboarding-account-email"
-- eraseText
-- inputText: "${TEST_EMAIL}"
+    id: "sign-in-email"
+- setClipboard: "${TEST_EMAIL}"
+- pasteText
 - tapOn:
-    id: "keyboard.toolbar.next"
-- eraseText
-- inputText: "${TEST_PASSWORD}"
+    id: "sign-in-password"
+- setClipboard: "${TEST_PASSWORD}"
+- pasteText
+- hideKeyboard
 - tapOn:
-    id: "keyboard.toolbar.done"
-- tapOn: "Anmelden & weiter"
-
+    id: "sign-in-submit"
+- extendedWaitUntil:
+    visible: "^(Später|Not Now)$"
+    timeout: 5000
+    optional: true
 - tapOn:
     text: "^(Später|Not Now)$"
     optional: true

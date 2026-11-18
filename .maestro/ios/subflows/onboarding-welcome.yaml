@@ -1,8 +1,9 @@
 appId: com.goldjunge91.fam1
 ---
 # Atomare Aufgabe: Welcome-Carousel bis zum Account-Schritt.
+- waitForAnimationToEnd
 - tapOn:
-    text: "Weiter"
+    point: "50%,60%"
     retryTapIfNoChange: true
     waitToSettleTimeoutMs: 10000
 - waitForAnimationToEnd

@@ -12,37 +12,24 @@ tags:
 #   bun .maestro/scripts/e2e-household-join.ts
 #
 # Der Invite-Token ist laut supabase/schemas/06_household_invites.sql ein
-# UUID, keine 6-stellige Zahl - das Placeholder-Label im UI
-# ("6-stelliger Einladungscode") ist ungenau, aendert aber nichts daran, dass
-# das Feld den kompletten Token entgegennimmt.
+# UUID, keine 6-stellige Zahl - das Placeholder-Label im UI ist ungenau,
+# aendert aber nichts daran, dass das Feld den kompletten Token entgegennimmt.
 
 - runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    file: ../../subflows/onboarding-sign-in.yaml
+    env:
+      TEST_EMAIL: "${EMAIL}"
+      TEST_PASSWORD: "${PASSWORD}"
 
-- tapOn: "Weiter"
-- tapOn: "Weiter"
-- tapOn: "Jetzt starten"
-
-- tapOn: "Anmelden"
-- tapOn:
-    id: "onboarding-account-email"
-- inputText: "${EMAIL}"
-- tapOn:
-    id: "keyboard.toolbar.next"
-- inputText: "${PASSWORD}"
-- tapOn:
-    id: "keyboard.toolbar.done"
-- tapOn: "Anmelden & weiter"
-
-# iOS' eigener Keychain-Dialog ("Passwort sichern?") kann nach dem Absenden
-# erscheinen - kein App-UI, exakter Match damit "Später" nicht versehentlich
-# den folgenden "Später ausfüllen"-Button trifft.
-- tapOn:
-    text: "^(Später|Not Now)$"
-    optional: true
-
-- scrollUntilVisible:
-    element: "Später ausfüllen"
-- tapOn: "Später ausfüllen" # Profil-Step
+- runFlow:
+    when:
+      visible: "Später ausfüllen"
+    commands:
+      - scrollUntilVisible:
+          element: "Später ausfüllen"
+      - tapOn: "Später ausfüllen"
 
 - tapOn: "Einem Haushalt beitreten"
 - tapOn:
@@ -50,11 +37,13 @@ tags:
 - inputText: "${INVITE_TOKEN}"
 - tapOn:
     id: "keyboard.toolbar.done"
-- tapOn: "Weiter"
-
-- tapOn: "Überspringen" # Modul-Auswahl
-- tapOn: "Jetzt nicht" # Berechtigungen
-- tapOn: "Zum Dashboard" # Abschluss-Step
+- scrollUntilVisible:
+    element: "Weiter"
+- tapOn:
+    point: "26%,93%"
+    retryTapIfNoChange: true
+    waitToSettleTimeoutMs: 10000
+- runFlow: ../../subflows/onboarding-finish.yaml
 
 - assertVisible: "Übersicht"
 

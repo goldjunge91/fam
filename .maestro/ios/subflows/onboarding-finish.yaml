@@ -1,9 +1,20 @@
 appId: com.goldjunge91.fam1
 ---
 # Atomare Aufgabe: optionale Onboarding-Schritte bis zum Dashboard abschließen.
-- scrollUntilVisible:
-    element: "Später ausfüllen"
-- tapOn: "Später ausfüllen" # Profil-Step
+- extendedWaitUntil:
+    visible: "^(Später|Not Now)$"
+    timeout: 5000
+    optional: true
+- tapOn:
+    text: "^(Später|Not Now)$"
+    optional: true
+- runFlow:
+    when:
+      visible: "Später ausfüllen"
+    commands:
+      - scrollUntilVisible:
+          element: "Später ausfüllen"
+      - tapOn: "Später ausfüllen" # Profil-Step
 
 # Ein bestehender Testaccount kann bereits einem Haushalt angehören. Ein neuer
 # Account erhält stattdessen die Auswahl zum Erstellen eines Haushalts.
@@ -28,14 +39,16 @@ appId: com.goldjunge91.fam1
     commands:
       - scrollUntilVisible:
           element: "Weiter"
-      - tapOn: "Weiter"
+      - tapOn:
+          point: "26%,93%"
+          retryTapIfNoChange: true
+          waitToSettleTimeoutMs: 10000
 
 - waitForAnimationToEnd
 - scrollUntilVisible:
     element: "Weiter"
 - tapOn:
-    text: "Weiter"
-    index: 0
+    point: "26%,81%"
     retryTapIfNoChange: true
     waitToSettleTimeoutMs: 10000
 - extendedWaitUntil:
