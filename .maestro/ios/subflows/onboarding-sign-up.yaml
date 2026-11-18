@@ -2,7 +2,7 @@ appId: com.goldjunge91.fam1
 env:
   # An optional TEST_EMAIL makes the registration account reproducible; the
   # generated address remains the standalone default.
-  TEST_EMAIL: ${TEST_EMAIL || ""}
+  TEST_EMAIL: ${TEST_EMAIL || "maestro-e2e@example.com"}
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Atomare Aufgabe: einen neuen Account über die echte UI registrieren und die
@@ -47,12 +47,19 @@ env:
       visible: "Bestätigung ausstehend"
     commands:
       - runScript: ../../scripts/auth/read-local-confirmation-code.js
+      - setClipboard: "${output.auth.confirmationCode}"
       - tapOn:
           id: "email-verification-code"
-      - inputText: "${output.auth.confirmationCode}"
+          retryTapIfNoChange: true
+          waitToSettleTimeoutMs: 10000
+      - pasteText
+      - copyTextFrom:
+          id: "email-verification-code"
+      - evalScript: ${output.confirmationCodeInput = maestro.copiedText}
+      - assertTrue: ${output.confirmationCodeInput == output.auth.confirmationCode}
       - tapOn:
-          id: "keyboard.toolbar.done"
-          optional: true
+          text: "^(Done|Fertig)$"
+      - waitForAnimationToEnd
       - tapOn: "Bestätigen"
       - extendedWaitUntil:
           visible: "Später ausfüllen"

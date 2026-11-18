@@ -108,6 +108,20 @@ describe('SignUpScreen', () => {
     expect(router.replace).toHaveBeenCalledWith('/sign-in');
   });
 
+  it('blockiert die Registrierung, wenn die E-Mail kein @ enthält', async () => {
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'maestro-');
+    await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');
+    await fireEvent.changeText(screen.getByLabelText('Passwort wiederholen'), 'supersecret');
+    await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen' }));
+
+    expect(
+      await screen.findByText('Das sieht nicht wie eine E-Mail-Adresse aus.'),
+    ).toBeOnTheScreen();
+    expect(mockSignUp).not.toHaveBeenCalled();
+  });
+
   it('zeigt den Warteraum, wenn signUp ohne Session zurueckkommt (E-Mail-Bestaetigung noetig)', async () => {
     mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
 

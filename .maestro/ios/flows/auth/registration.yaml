@@ -6,7 +6,7 @@ env:
 ---
 # Vollständige Journey: frischer Start -> Onboarding -> Registrierung ->
 # lokale E-Mail-Bestätigung -> optionales Onboarding -> Dashboard.
-- runFlow: ../../subflows/launch-local-dev-client.yaml
+- runFlow: ../../subflows/launch-local-dev-client-preserve-state.yaml
 - runFlow: ../../subflows/onboarding-welcome.yaml
 - runFlow:
     file: ../../subflows/onboarding-sign-up.yaml

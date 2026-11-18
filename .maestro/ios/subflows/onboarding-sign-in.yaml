@@ -4,20 +4,29 @@ env:
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Atomare Aufgabe: einen bestehenden, bestätigten Account im Onboarding anmelden.
-- tapOn: "Ich habe schon ein Konto"
+# Im Account-Step remountet der Umschalter den Sign-in-Zweig; der direkte
+# Sign-in-Zustand darf nur weiterlaufen, wenn die Leerwertprüfung grün ist.
+- runFlow:
+    when:
+      visible: "Ich habe schon ein Konto"
+    commands:
+      - tapOn: "Ich habe schon ein Konto"
+- assertNotVisible: ".*@.*"
 - tapOn:
     id: "sign-in-email"
-- eraseText
-- inputText: "${TEST_EMAIL}"
+- setClipboard: "${TEST_EMAIL}"
+- pasteText
+- copyTextFrom:
+    id: "sign-in-email"
+- evalScript: ${output.signInEmail = maestro.copiedText}
+- assertTrue: ${output.signInEmail == TEST_EMAIL}
 - tapOn:
     id: "sign-in-password"
-- eraseText
-- inputText: "${TEST_PASSWORD}"
-- tapOn:
-    id: "keyboard.toolbar.done"
+- setClipboard: "${TEST_PASSWORD}"
+- pasteText
+- hideKeyboard
 - tapOn:
     id: "sign-in-submit"
-
 # iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
 # erscheinen. Der exakte Match verhindert einen Treffer auf spätere App-Buttons.
 - extendedWaitUntil:

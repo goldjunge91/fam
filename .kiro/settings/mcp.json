@@ -21,9 +21,16 @@
       "disabled": false
     },
     "posthog": {
-  "url": "https://mcp.posthog.com/mcp",
-  "disabled": false
-},
+      "url": "https://mcp.posthog.com/mcp",
+      "disabled": false
+    },
+    "maestro": {
+      "command": "maestro",
+      "args": [
+        "mcp"
+      ],
+      "disabled": false
+    },
     "jev": {
       "command": "npx",
       "args": [
