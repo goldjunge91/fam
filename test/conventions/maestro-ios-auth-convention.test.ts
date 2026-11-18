@@ -6,11 +6,12 @@ const IOS_ROOT = join(REPO_ROOT, '.maestro', 'ios');
 const IOS_SUBFLOWS_ROOT = join(IOS_ROOT, 'subflows');
 const TEST_EMAIL_PLACEHOLDER = '${' + 'TEST_EMAIL}';
 const TEST_PASSWORD_PLACEHOLDER = '${' + 'TEST_PASSWORD}';
+const RESET_PASSWORD_PLACEHOLDER = '${' + 'RESET_PASSWORD}';
 const WRONG_EMAIL_PLACEHOLDER = '${' + 'WRONG_EMAIL}';
 const WRONG_PASSWORD_PLACEHOLDER = '${' + 'WRONG_PASSWORD}';
 const FIXTURE_EMAIL_PLACEHOLDER = '${' + 'EMAIL}';
 const FIXTURE_PASSWORD_PLACEHOLDER = '${' + 'PASSWORD}';
-const RESET_EMAIL_PLACEHOLDER = '${' + 'RESET_EMAIL}';
+const RECOVERY_CODE_OUTPUT = '${' + 'output.recoveryCode}';
 const TEST_ID_PREFIX_PLACEHOLDER = '${' + 'testIDPrefix}';
 const METRO_URL_PLACEHOLDER = '${' + 'METRO_URL}';
 
@@ -259,12 +260,35 @@ describe('iOS Maestro auth flow structure', () => {
     );
     expect(passwordReset).toContain('tapOn: "Passwort vergessen"');
     expect(passwordReset).toContain('id: "forgot-password-email"');
-    expect(passwordReset).toContain(`setClipboard: "${RESET_EMAIL_PLACEHOLDER}"`);
+    expect(passwordReset).toContain('id: "password-recovery-email"');
+    expect(passwordReset).toContain(`setClipboard: "${TEST_EMAIL_PLACEHOLDER}"`);
+    expect(passwordReset).toContain('RESET_PASSWORD: ${' + 'RESET_PASSWORD ||');
+    expect(passwordReset).toContain(`setClipboard: "${RESET_PASSWORD_PLACEHOLDER}"`);
     expect(passwordReset).toContain('../../subflows/launch-local-dev-client-preserve-state.yaml');
     expect(passwordReset).toContain('visible: "Willkommen"');
     expect(passwordReset).toContain('text: "^(Später|Not Now)$"');
     expect(passwordReset).toContain('optional: true');
     expect(passwordReset).toContain('tapOn: "^(Code anfordern|Request code)$"');
+    expect(passwordReset).toContain('Code in der App eingeben');
+    expect(passwordReset).toContain('read-local-password-recovery-code.js');
+    expect(passwordReset).toContain('../../../scripts/auth/read-local-password-recovery-code.js');
+    expect(passwordReset).toContain('visible: "^(E-Mail unterwegs|Email on its way)$"');
+    expect(passwordReset).toContain(
+      '- runFlow:\n    when:\n      visible: "E-Mail-Adresse ändern"\n    commands:',
+    );
+    expect(passwordReset).toContain(
+      '- runFlow:\n    when:\n      visible:\n        id: "password-recovery-code"\n    commands:',
+    );
+    expect(passwordReset).toContain('id: "password-recovery-code"');
+    expect(passwordReset).not.toContain('hideKeyboard');
+    expect(passwordReset).toContain(
+      `- setClipboard: "${RECOVERY_CODE_OUTPUT}"\n      - pasteText\n      - tapOn:\n          text: "Go"`,
+    );
+    expect(passwordReset).toContain('id: "recovery-new-password"');
+    expect(passwordReset).toContain('id: "recovery-password-confirmation"');
+    expect(passwordReset).toContain('tapOn: "Passwort speichern"');
+    expect(passwordReset).toContain('visible: "Passwort geändert"');
+    expect(passwordReset).toMatch(/assertVisible: "\^\(Übersicht\|Overview\)\$"/);
     expect(passwordReset).not.toContain('tapOn: "^(Link anfordern|Request link)$"');
     expect(passwordReset).not.toContain('tapOn: "Anmelden"');
 
