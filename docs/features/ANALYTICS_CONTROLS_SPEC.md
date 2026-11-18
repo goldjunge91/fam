@@ -187,19 +187,22 @@ Keine vollständige Testsuite routinemäßig ausführen; gezielte Tests verwende
 - Die bestehenden Analytics-Aufrufer müssen nicht einzeln angepasst werden.
 - Typecheck, Biome und die betroffenen gezielten Jest-Tests laufen erfolgreich.
 
-## Open Questions
+## Hosted-Status
 
-- Die PostHog-/Supabase-Edge-Function muss mit
-  `POSTHOG_PERSONAL_API_KEY`, `POSTHOG_PROJECT_ID` und `POSTHOG_HOST` konfiguriert
-  und mit einem eindeutig synthetischen Testaccount abgenommen werden. Die
-  Abnahme trennt HTTP-202-Annahme von `deletion_status=completed` mit
-  `delete_verified_at` und einer leeren abschließenden Personenliste.
-  `accepted` ist kein erfolgreicher Abschluss; ein nicht separat belegbarer
-  Recording-Status bleibt offen.
-- Im PostHog-Dashboard müssen EU Cloud, IP-/GeoIP-Einstellungen, Retention,
-  DPA und Zugriffrollen separat bestätigt werden.
-- Die RevenueCat-PostHog-Integration bleibt deaktiviert oder muss so gefiltert
-  werden, dass das notwendige `household_id`-Subscriber-Attribut nicht an
-  PostHog gelangt.
+- Die PostHog-/Supabase-Edge-Function ist mit der bestehenden serverseitigen
+  Konfiguration deployed. Ein synthetischer Production-Lauf belegt HTTP 202,
+  den gespeicherten Annahme-Checkpoint und eine leere Personenliste. PostHogs
+  asynchroner Event-Job blieb im begrenzten Abnahmefenster `pending`; erst
+  `completed` mit `delete_verified_at` ist ein erfolgreicher Abschluss.
+- Session Replay ist deaktiviert und eine Abfrage seit Projektbeginn lieferte
+  keine Recordings. Ein separater Recording-Nachweis ist deshalb nicht nötig.
+- EU Cloud, verworfene rohe IPs, Retention, automatische Exceptions,
+  Organisationszugriff und Integrationen wurden geprüft. GeoIP bleibt nach
+  ausdrücklicher Entscheidung aktiviert. Die DPA-Signatur erfordert weiterhin
+  Firmenangaben und eine menschliche PandaDoc-Signatur.
+- Es ist keine RevenueCat-PostHog-Integration konfiguriert. Das für die
+  Kaufzuordnung notwendige `household_id`-Subscriber-Attribut hat deshalb
+  keinen RevenueCat-PostHog-Datenpfad. Eine spätere Aktivierung braucht vorab
+  einen nachgewiesenen Filter.
 - Ein anderes Consent-, Datenregion- oder Identitätsmodell braucht eine neue
   fachliche Entscheidung.

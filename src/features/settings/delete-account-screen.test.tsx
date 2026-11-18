@@ -158,6 +158,22 @@ describe('DeleteAccountScreen', () => {
     expect(mockReplace).not.toHaveBeenCalled();
   });
 
+  it('behält den lokalen Account bei einer laufenden Analytics-Löschung', async () => {
+    mockInvoke.mockResolvedValueOnce({
+      data: { error: 'analytics_delete_pending' },
+      error: null,
+    });
+
+    await confirmAccountDeletion();
+
+    expect(mockSignOutAndClearLocalData).not.toHaveBeenCalled();
+    expect(mockReplace).not.toHaveBeenCalled();
+    expect(Alert.alert).toHaveBeenLastCalledWith(
+      i18n.t('settings.groups.data.deleteAccount.failedTitle'),
+      i18n.t('settings.groups.data.deleteAccount.unknownError'),
+    );
+  });
+
   it('beendet den lokalen Account nicht bei einer nur angenommenen Analytics-Löschung', async () => {
     mockInvoke.mockResolvedValueOnce({
       data: { success: true, analyticsDeletion: 'accepted' },

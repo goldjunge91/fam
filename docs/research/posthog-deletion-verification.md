@@ -203,35 +203,70 @@ zugehörige Regression sichtbar: Statusbindung 32 grün/2 rot, Wiederaufnahme
 34 Tests wieder grün. Ein zusätzlicher Race-Test erhöhte den finalen Adapterlauf
 auf 35 grüne Tests.
 
-## Aktuelle read-only Hosted-Evidenz
+## Hosted-Deployment und synthetische Abnahme
 
-Vor der Veröffentlichung zeigte Supabase die aktive `delete-account`-Version
-35 mit dem alten terminalen `accepted`-Verhalten; die Tabelle
-`public.account_deletion_requests` fehlte noch in der gehosteten Datenbank.
-Damit waren Migration und Function-Version nachweislich noch nicht
-veröffentlicht.
+Die deklarativ erzeugte Migration `20261117032315_declarative_sync.sql` wurde
+im freigegebenen Production-Projekt angewendet. Die produktive Edge Function
+läuft anschließend mit dem aktuellen Checkpoint-, Status- und Timeout-Pfad.
+Bestehende Function-Secrets wurden nicht geändert; dieser Bericht gibt keine
+Secret-Werte wieder.
+
+Der erste synthetische Lauf fand eine reale PostHog-Cloud-Abweichung: Die
+cursorbasierte Personenliste enthält aktuell `results`, `next` und `previous`,
+aber kein verpflichtendes `count`. Version 36 stoppte deshalb korrekt
+fail-closed mit `posthog_person_list_incomplete`. Der Parser akzeptiert seit der
+Nachbesserung den aktuellen Umschlag ohne `count`, prüft das Feld aber weiterhin,
+wenn es vorhanden ist. Initialer und abschließender Listenpfad haben gezielte
+Tests. Der Rückbau machte beide Tests rot; nach Wiedereinbau liefen 35 Adapter-
+Tests grün.
+
+Ein zweiter Hosted-Befund betraf den Transport des nichtterminalen Zustands:
+HTTP 425 wurde vom verwendeten Standard-Fetch-Client nicht als lesbarer
+Retry-Body geliefert, obwohl die Supabase-Edge-Logs eine 425-Antwort nach rund
+12 Sekunden bestätigten. Der Handler liefert `analytics_delete_pending`
+deshalb als HTTP 202. Das Ergebnis bleibt fachlich nichtterminal und erreicht
+`deleteUser` nicht. Der RED/GREEN/Rückbau/Wiedereinbau-Lauf ergab jeweils
+13/14, 14/14, 13/14 und 14/14 Handler-Tests.
+
+Die aktuelle synthetische Production-Abnahme belegt:
+
+- Der Testaccount und das Testevent wurden erstellt, ohne Identifier oder
+  Zugangsdaten auszugeben.
+- Die Function lieferte den lesbaren nichtterminalen Zustand; der serverseitige
+  Checkpoint enthielt eine bestätigte PostHog-Annahme.
+- Auch nach zwei begrenzten Retry-Fenstern von zusammen mehr als 48 Minuten
+  blieb `deletion_status` providerseitig `pending`. Der Auth-Nutzer blieb dabei
+  wie vorgesehen erhalten und wurde nicht fälschlich als gelöscht gemeldet.
+- Alle synthetischen Personen waren anschließend in exakten PostHog-Lookups
+  nicht mehr sichtbar. Die synthetischen Auth-Accounts und Checkpoints wurden
+  nach den begrenzten Läufen vollständig bereinigt; beide aggregierten
+  Supabase-Zähler waren null.
+- Ein unabhängiger Event-Readback zeigte weiterhin sieben ausschließlich für
+  diese Abnahme erzeugte synthetische Probe-Events. Für alle zugehörigen
+  Personen wurde die Event-Löschung erneut angefordert. PostHog dokumentiert,
+  dass diese Jobs asynchron außerhalb der Spitzenzeiten verarbeitet werden.
+  Der noch ausstehende `completed`-Status ist damit ein konkret beobachteter
+  Provider-Queue-Blocker und keine lokal angenommene Fertigstellung.
 
 PostHog Cloud EU ist aktiv. Die Projektabfrage zeigte verworfene rohe Client-
 IPs, deaktiviertes Session Recording, 30 Tage Recording-Retention,
 12 Monate Event-Retention und deaktivierte automatische Exception-Erfassung.
-Eine Recording-Abfrage vom Projektbeginn bis heute lieferte null Ergebnisse.
-Für dieses Projekt gibt es deshalb keine Recording-Kopie, deren Abschluss
-separat nachgewiesen werden müsste. Es gibt genau einen Organisations-Owner,
-keine benutzerdefinierten Rollen, keine sichtbaren Integrationen und nur die
-aktive GeoIP-Transformation. GeoIP kann den eingehenden IP-Wert vor dessen
-Verwerfen zur Ortsanreicherung verwenden; dieser Zustand ist hier ausdrücklich
-nur dokumentiert und nicht stillschweigend geändert.
+Eine Recording-Abfrage vom Projektbeginn bis heute lieferte null Ergebnisse;
+ein Recording-Abschluss gehört deshalb nicht zum Prüfbedarf. Es gibt genau
+einen Organisations-Owner, keine benutzerdefinierten Rollen und keine
+sichtbaren Integrationen. Die GeoIP-Transformation bleibt nach ausdrücklicher
+Entscheidung aktiviert; sie darf den eingehenden IP-Wert vor dessen Verwerfen
+zur Ortsanreicherung verwenden.
 
 Die PostHog-Rechtsseite verlangt für einen DPA-Abschluss Firmenangaben und die
 Signatur des Empfängers per PandaDoc. Dieser rechtliche Schritt ist nicht über
-die verfügbare API ausführbar.
+die verfügbare API ausführbar und bleibt ein separater menschlicher Abschluss.
 
-## Offene Hosted-Abnahme
+## Verbleibende Hosted-Abnahme
 
-Vor dem Deployment braucht es eine separate Freigabe für die neue
-Edge-Function-Version. Danach ist ausschließlich ein synthetischer Testaccount
-zulässig. Die Abnahme muss HTTP 202, später `deletion_status=completed` mit
-`delete_verified_at` und die leere abschließende Personenliste getrennt prüfen.
-Falls Session Replay kontrolliert aktiv ist, braucht die Recording-Abnahme
-einen eigenen belegbaren Readback. Ein fehlender Readback bleibt
-`unverifiable`. Es wurden keine dieser Schritte ausgeführt.
+Das Deployment, die Secret-Bindung, die HTTP-202-Annahme, der Checkpoint, die
+leeren Personenlisten und das fail-closed Verhalten sind belegt. Offen bleibt
+nur der von PostHog asynchron terminierte Wechsel der synthetischen Event-Jobs
+von `pending` zu `completed` samt `delete_verified_at`. Bis dieser Status
+vorliegt, behauptet die App keinen Abschluss und löscht den Auth-Nutzer nicht.
+Die DPA-Signatur bleibt davon getrennt.
