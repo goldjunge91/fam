@@ -136,6 +136,19 @@ export async function importRecipeSource(input: RecipeImportInput): Promise<Reci
       if (detail === 'ai_credit_limit_exceeded') {
         throw new Error('Das monatliche AI-Credit-Limit ist erreicht.');
       }
+      if (
+        detail === 'food_rule_snapshot_incomplete' ||
+        detail === 'food_rule_snapshot_unavailable'
+      ) {
+        throw new Error(
+          'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
+        );
+      }
+      if (detail === 'food_rule_snapshot_changed') {
+        throw new Error(
+          'Mitessende oder Lebensmittelregeln haben sich während des Imports geändert. Bitte starte ihn erneut.',
+        );
+      }
       if (detail === 'unsafe_source_url') {
         throw new Error('Diese Webadresse kann nicht sicher gelesen werden.');
       }

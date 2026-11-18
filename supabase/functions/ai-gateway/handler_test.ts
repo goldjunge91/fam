@@ -5,6 +5,7 @@ import {
   createAiGatewayHandler,
   type GatewayCookingContext,
   type GatewayCreditAction,
+  type GatewayFoodRules,
   type GatewayInventoryContext,
   type GatewayProvider,
   GROQ_ALLOWED_MODELS,
@@ -148,6 +149,12 @@ function setup(
     usage: unknown;
   }> = [];
   let contextReads = 0;
+  const defaultFoodRules: GatewayFoodRules = options.context?.foodRules ?? {
+    allergies: [],
+    intolerances: [],
+    avoidFoods: [],
+    updatedAt: null,
+  };
   const contextCalls: Array<{
     pageContext: unknown;
     focusedInventoryLotIds: readonly string[] | undefined;
@@ -198,11 +205,12 @@ function setup(
       usageRecords.push(input);
       return Promise.resolve();
     },
+    loadHouseholdFoodRules: () =>
+      Promise.resolve({ ok: true as const, foodRules: defaultFoodRules }),
     loadCookingContext: (
-      _userId,
       _householdId,
       _authorization,
-      _includePersonalFoodRules,
+      foodRules,
       _requestedAllergies,
       pageContext,
       _clientOverride,
@@ -212,9 +220,10 @@ function setup(
       contextReads += 1;
       contextCalls.push({ pageContext, focusedInventoryLotIds, householdRecipeSelection });
       return Promise.resolve(
-        options.contextError
-          ? { ok: false as const, ...options.contextError }
-          : { ok: true as const, context: options.context ?? CONTEXT },
+        options.contextError ? { ok: false as const, ...options.contextError } : {
+          ok: true as const,
+          context: { ...(options.context ?? CONTEXT), foodRules },
+        },
       );
     },
     ...(options.recipePage === undefined

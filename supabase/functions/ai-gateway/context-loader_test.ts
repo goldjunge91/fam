@@ -1,11 +1,24 @@
 import { assertEquals } from 'jsr:@std/assert@1';
 
 import { CONTEXT_LIMITS } from './context-limits.ts';
+import type { GatewayFoodRules } from './handler.ts';
 
 type FakeResponse = {
   data: unknown[] | Record<string, unknown> | null;
   error: { message: string } | null;
   count?: number;
+};
+
+const EMPTY_RULE_SNAPSHOT: GatewayFoodRules = {
+  allergies: [],
+  allergyCodes: [],
+  customAllergies: [],
+  intolerances: [],
+  intoleranceCodes: [],
+  customIntolerances: [],
+  avoidFoods: [],
+  dislikedFoods: [],
+  updatedAt: `hmac-sha256:${'0'.repeat(64)}`,
 };
 
 type FakeOrder = {
@@ -194,7 +207,7 @@ function recipeRows(recipeId = 'recipe-page') {
 async function loadContextModule() {
   Deno.env.set('SUPABASE_URL', 'http://127.0.0.1:54321');
   Deno.env.set('SUPABASE_ANON_KEY', 'local-anon');
-  Deno.env.set('SUPABASE_SECRET_KEY', 'local-service');
+  Deno.env.set('SUPABASE_SECRET_KEYS', JSON.stringify({ default: 'local-service' }));
   return await import('./index.ts');
 }
 
@@ -205,7 +218,6 @@ Deno.test('loads only the explicit page recipe and keeps shopping names as bound
     (_, index) => `Rezept ${index}`,
   );
   const { client, calls } = fakeClient({
-    profile_food_rules: [{ data: null, error: null }],
     fridge_items: [{ data: [], error: null, count: 0 }],
     shopping_list_items: [{
       data: [{
@@ -227,11 +239,10 @@ Deno.test('loads only the explicit page recipe and keeps shopping names as bound
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    true,
-    [],
+    { ...EMPTY_RULE_SNAPSHOT, allergyCodes: ['peanuts'] },
+    ['milk'],
     { kind: 'recipe', recipeId: 'recipe-page' },
     client as never,
     undefined,
@@ -249,6 +260,10 @@ Deno.test('loads only the explicit page recipe and keeps shopping names as bound
   assertEquals(result.context.shoppingList?.[0]?.recipeNamesOmittedCount, 2);
   assertEquals(result.context.shoppingList?.[0]?.productId, null);
   assertEquals(result.context.recipes, []);
+  assertEquals(result.context.householdRecipes?.[0]?.allergenProjection?.allergenIds, [
+    'EU_05_PEANUTS',
+    'EU_07_MILK',
+  ]);
   assertEquals(calls.filter((call) => call.table === 'recipes').length, 1);
   assertEquals(calls.some((call) => call.table === 'catalog_recipe_component_items'), false);
 });
@@ -277,10 +292,9 @@ Deno.test('loads visible meal-plan recipes in date order without an unrelated ho
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     { kind: 'meal_plan', weekStartDate: '2026-11-09' },
     client as never,
@@ -321,10 +335,9 @@ Deno.test('loads a bounded and stable household recipe selection for the general
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     undefined,
     client as never,
@@ -369,10 +382,9 @@ Deno.test('resolves proposal recipe ids only from active recipes in the requeste
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     undefined,
     client as never,
@@ -404,10 +416,9 @@ Deno.test('keeps page-context recipe priority over an additional household selec
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     { kind: 'recipe', recipeId: 'recipe-page' },
     client as never,
@@ -455,10 +466,9 @@ Deno.test('loads inventory by expiry relevance before applying the lot cap', asy
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     undefined,
     client as never,
@@ -562,10 +572,9 @@ Deno.test('omits meal-plan recipe references that are missing, soft-deleted, or 
   });
 
   const result = await loadCookingContext(
-    'user-1',
     'household-1',
     'Bearer user-token',
-    false,
+    null,
     [],
     { kind: 'meal_plan', weekStartDate: '2026-11-09' },
     client as never,

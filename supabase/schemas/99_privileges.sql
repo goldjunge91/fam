@@ -332,6 +332,13 @@ revoke execute on function public.get_ai_credit_status(uuid, integer)
 grant execute on function public.get_ai_credit_status(uuid, integer)
   to service_role;
 
+-- Private Lebensmittelregeln werden nur im AI-Gateway auf eine namenlose
+-- Restriktionsmenge reduziert. Kein Client darf das Roh-RPC direkt aufrufen.
+revoke execute on function public.get_ai_household_food_rule_snapshot(uuid, uuid)
+  from public, anon, authenticated;
+grant execute on function public.get_ai_household_food_rule_snapshot(uuid, uuid)
+  to service_role;
+
 -- household_member_profiles() umgeht die profiles-RLS (SECURITY DEFINER) und
 -- prueft die Mitgliedschaft selbst. Fuer `anon` gaebe es nichts zu pruefen —
 -- ohne auth.uid() ist niemand Mitglied —, aber der Entzug bleibt trotzdem

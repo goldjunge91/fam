@@ -285,6 +285,17 @@ export async function sendAssistantMessage(
     if (code === 'ai_credit_limit_exceeded') {
       throw gatewayError('Das monatliche AI-Credit-Limit ist erreicht.');
     }
+    if (code === 'food_rule_snapshot_incomplete' || code === 'food_rule_snapshot_unavailable') {
+      throw gatewayError(
+        'Die Lebensmittelregeln aller Mitessenden konnten nicht vollständig geprüft werden. Deshalb erstellt der Assistant gerade keinen Essensvorschlag.',
+      );
+    }
+    if (code === 'food_rule_snapshot_changed') {
+      throw gatewayError(
+        'Mitessende oder Lebensmittelregeln haben sich während der Anfrage geändert. Bitte sende sie erneut.',
+        true,
+      );
+    }
     if (code === 'model_not_allowed') {
       throw gatewayError('Dieses AI-Modell ist derzeit nicht verfügbar.');
     }

@@ -147,12 +147,18 @@ function aggregateStatus(entries: readonly FoodRuleCoverageEntry[]): FoodRuleCov
   return 'clear';
 }
 
+function isFoodRuleVersion(value: string | null): value is string {
+  return value !== null && (
+    Number.isFinite(Date.parse(value)) || /^(?:sha256|hmac-sha256):[0-9a-f]{64}$/.test(value)
+  );
+}
+
 function ruleProjectionStatus(
   projection: RecipeAllergenProjection | undefined,
   allergenId: EuAllergenId,
   rulesUpdatedAt: string | null,
 ): Pick<FoodRuleCoverageEntry, 'status' | 'reason'> {
-  if (rulesUpdatedAt === null || !Number.isFinite(Date.parse(rulesUpdatedAt))) {
+  if (!isFoodRuleVersion(rulesUpdatedAt)) {
     return { status: 'unknown', reason: 'rule_version_unavailable' };
   }
   if (
@@ -235,7 +241,7 @@ function legacyIntoleranceCodes(rules: FoodRuleSet): readonly string[] {
   return rules.intolerances ?? [];
 }
 
-/** Resolves the requester's private rules against one recipe's reviewed evidence. */
+/** Resolves the minimized rules of all current diners against reviewed recipe evidence. */
 export function resolveFoodRuleCoverage(input: {
   rules: FoodRuleSet;
   recipe: FoodRuleRecipeEvidence;
@@ -309,8 +315,7 @@ export function resolveFoodRuleCoverage(input: {
     }));
   }
 
-  const hasValidRuleVersion = rules.updatedAt !== null &&
-    Number.isFinite(Date.parse(rules.updatedAt));
+  const hasValidRuleVersion = isFoodRuleVersion(rules.updatedAt);
   const versionCheckedEntries = entries.map((entry) =>
     entry.status === 'clear' && !hasValidRuleVersion
       ? {

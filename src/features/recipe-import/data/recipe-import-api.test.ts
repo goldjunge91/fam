@@ -408,6 +408,18 @@ describe('recipe import API', () => {
   it.each([
     ['ai_subscription_required', 'Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.'],
     ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
+    [
+      'food_rule_snapshot_incomplete',
+      'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
+    ],
+    [
+      'food_rule_snapshot_unavailable',
+      'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
+    ],
+    [
+      'food_rule_snapshot_changed',
+      'Mitessende oder Lebensmittelregeln haben sich während des Imports geändert. Bitte starte ihn erneut.',
+    ],
     ['unsafe_source_url', 'Diese Webadresse kann nicht sicher gelesen werden.'],
     [
       'instagram_video_unavailable',

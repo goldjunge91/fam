@@ -31,6 +31,7 @@ import {
   toReviewedRecipeIngredientMapping,
 } from './ingredient-knowledge.ts';
 import { fingerprintRecipeIngredientMappings } from './food-rule-coverage.ts';
+import { projectHouseholdFoodRuleSnapshot } from './household-food-rule-snapshot.ts';
 import { SlidingWindowRateLimiter } from '../enrich-off-product/rate-limiter.ts';
 import { createRevenueCatSubscriberStatusReader } from '../revenuecat-webhook/subscriber-status.ts';
 import {
@@ -128,30 +129,6 @@ function hasCurrentIngredientReview(
     mapping.reviewedAt !== null && Number.isFinite(Date.parse(mapping.reviewedAt)) &&
     mapping.reviewedBy !== null && mapping.reviewedBy.trim().length > 0;
 }
-
-const ALLERGY_RULE_LABELS: Record<string, string> = {
-  'gluten-containing-cereals': 'glutenhaltiges Getreide',
-  crustaceans: 'Krebstiere',
-  eggs: 'Eier',
-  fish: 'Fisch',
-  peanuts: 'Erdnüsse',
-  soybeans: 'Soja',
-  milk: 'Milch / Milcheiweiß',
-  'tree-nuts': 'Schalenfrüchte',
-  celery: 'Sellerie',
-  mustard: 'Senf',
-  sesame: 'Sesam',
-  'sulphur-dioxide-sulphites': 'Schwefeldioxid und Sulfite',
-  lupin: 'Lupinen',
-  molluscs: 'Weichtiere',
-};
-
-const INTOLERANCE_RULE_LABELS: Record<string, string> = {
-  lactose: 'Laktose',
-  'fructose-malabsorption': 'Fruktosemalabsorption',
-  'sorbitol-malabsorption': 'Sorbitmalabsorption',
-  'celiac-gluten': 'Zöliakie / Gluten strikt meiden',
-};
 
 function userClient(request: Request) {
   const authorization = request.headers.get('Authorization');
@@ -375,11 +352,50 @@ function normalizeDate(value: unknown): string | null {
   return value;
 }
 
-export async function loadCookingContext(
+/** Reads every current diner through the service-only RPC, then removes person identifiers. */
+export async function loadHouseholdFoodRules(
   userId: string,
   householdId: string,
+  clientOverride?: unknown,
+) {
+  const client = clientOverride === undefined
+    ? createClient(supabaseUrl, supabaseSecretKey)
+    : clientOverride as ReturnType<typeof createClient>;
+  const { data, error } = await client.rpc('get_ai_household_food_rule_snapshot', {
+    p_household_id: householdId,
+    p_requester_user_id: userId,
+  });
+  if (error) {
+    return {
+      ok: false as const,
+      status: 503,
+      error: 'food_rule_snapshot_unavailable',
+    };
+  }
+
+  const result = await projectHouseholdFoodRuleSnapshot(householdId, supabaseSecretKey, data);
+  if (!result.ok) return result;
+  const snapshot = result.snapshot;
+  return {
+    ok: true as const,
+    foodRules: {
+      allergies: [],
+      allergyCodes: snapshot.allergyCodes,
+      customAllergies: snapshot.customAllergies,
+      intolerances: [],
+      intoleranceCodes: snapshot.intoleranceCodes,
+      customIntolerances: snapshot.customIntolerances,
+      avoidFoods: snapshot.dislikedFoods,
+      dislikedFoods: snapshot.dislikedFoods,
+      updatedAt: snapshot.version,
+    } satisfies GatewayFoodRules,
+  };
+}
+
+export async function loadCookingContext(
+  householdId: string,
   authorization: string,
-  includePersonalFoodRules: boolean,
+  householdFoodRules: GatewayFoodRules | null,
   requestedAllergies: string[] = [],
   pageContext?: AssistantPageContext,
   clientOverride?: unknown,
@@ -392,69 +408,33 @@ export async function loadCookingContext(
     })
     : clientOverride as ReturnType<typeof createClient>;
 
-  let foodRules: GatewayFoodRules = {
+  const hasHouseholdFoodRuleSnapshot = householdFoodRules !== null;
+  const foodRules: GatewayFoodRules = householdFoodRules ?? {
     allergies: [],
     intolerances: [],
     avoidFoods: [],
     updatedAt: null,
   };
-  if (includePersonalFoodRules) {
-    // RLS on profile_food_rules permits this caller to see only their own row.
-    const { data: foodRuleRow, error: foodRulesError } = await client
-      .from('profile_food_rules')
-      .select(
-        'allergy_codes, custom_allergies, intolerance_codes, custom_intolerances, disliked_foods, updated_at',
-      )
-      .eq('user_id', userId)
-      .maybeSingle();
-    if (foodRulesError) {
-      return {
-        ok: false as const,
-        status: 500,
-        error: 'profile_food_rules_lookup_failed',
-        message: foodRulesError.message,
-      };
-    }
-    foodRules = {
-      allergies: [
-        ...(foodRuleRow?.allergy_codes ?? []).map((code: string) =>
-          ALLERGY_RULE_LABELS[code] ?? code
-        ),
-        ...(foodRuleRow?.custom_allergies ?? []),
-      ],
-      allergyCodes: foodRuleRow?.allergy_codes ?? [],
-      customAllergies: foodRuleRow?.custom_allergies ?? [],
-      intolerances: [
-        ...(foodRuleRow?.intolerance_codes ?? []).map((code: string) =>
-          INTOLERANCE_RULE_LABELS[code] ?? code
-        ),
-        ...(foodRuleRow?.custom_intolerances ?? []),
-      ],
-      intoleranceCodes: foodRuleRow?.intolerance_codes ?? [],
-      customIntolerances: foodRuleRow?.custom_intolerances ?? [],
-      avoidFoods: foodRuleRow?.disliked_foods ?? [],
-      dislikedFoods: foodRuleRow?.disliked_foods ?? [],
-      updatedAt: foodRuleRow?.updated_at ?? null,
-    };
-  }
 
   const activeAllergenIds = [
     ...new Set(
-      (includePersonalFoodRules
-        ? [
-          ...(foodRules.allergyCodes ?? []),
-          ...(foodRules.customAllergies ?? []).filter((label) =>
-            allergenIdForProfileRule(label) !== null
-          ),
-        ]
-        : requestedAllergies)
-        .map(allergenIdForProfileRule)
+      [
+        ...(hasHouseholdFoodRuleSnapshot
+          ? [
+            ...(foodRules.allergyCodes ?? []),
+            ...(foodRules.customAllergies ?? []).filter((label) =>
+              allergenIdForProfileRule(label) !== null
+            ),
+          ]
+          : []),
+        ...requestedAllergies,
+      ].map(allergenIdForProfileRule)
         .filter((allergenId): allergenId is EuAllergenId => allergenId !== null),
     ),
   ];
 
   const ingredientAliases: IngredientAliasRecord[] = [];
-  const needsCanonicalRuleAliases = includePersonalFoodRules && (
+  const needsCanonicalRuleAliases = hasHouseholdFoodRuleSnapshot && (
     (foodRules.customAllergies ?? []).some((label) => allergenIdForProfileRule(label) === null) ||
     (foodRules.dislikedFoods ?? []).length > 0
   );
@@ -576,7 +556,7 @@ export async function loadCookingContext(
     (inventoryCount ?? allLots.length) - boundedLots.values.length,
   );
 
-  const shoppingListResult = includePersonalFoodRules
+  const shoppingListResult = hasHouseholdFoodRuleSnapshot
     ? await client
       .from('shopping_list_items')
       .select(
@@ -1062,7 +1042,7 @@ export async function loadCookingContext(
               ingredients: ingredientRevisions,
               facts: ingredientFacts,
               activeAllergenIds,
-              rulesUpdatedAt: includePersonalFoodRules ? foodRules.updatedAt : null,
+              rulesUpdatedAt: hasHouseholdFoodRuleSnapshot ? foodRules.updatedAt : null,
             }),
           }
           : {}),
@@ -1140,7 +1120,7 @@ export async function loadCookingContext(
       ? { shoppingListTruncated: true, shoppingListOmittedCount }
       : {}),
     ...(mealPlan ? { mealPlan } : {}),
-    foodRules: includePersonalFoodRules ? { ...foodRules, ingredientAliases } : foodRules,
+    foodRules: hasHouseholdFoodRuleSnapshot ? { ...foodRules, ingredientAliases } : foodRules,
   };
   return { ok: true as const, context };
 }
@@ -1153,6 +1133,7 @@ const handler = createAiGatewayHandler({
   refundAiCredit,
   getAiCreditStatus,
   recordAiUsage,
+  loadHouseholdFoodRules,
   loadCookingContext,
   loadRecipePage,
   validatePublicUrl: isPublicHttpsUrl,

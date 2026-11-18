@@ -358,7 +358,7 @@ export type GatewayRecipe = {
 
 export type GatewayFoodRules = {
   allergies: string[];
-  /** Stable profile_food_rules codes; custom allergy labels remain in allergies. */
+  /** Stable rule codes and private labels stay in separate server-only fields. */
   allergyCodes?: string[];
   customAllergies?: string[];
   intolerances: string[];
@@ -368,6 +368,7 @@ export type GatewayFoodRules = {
   dislikedFoods?: string[];
   /** Request-local, globally curated aliases; never serialized to the model. */
   ingredientAliases?: IngredientAliasRecord[];
+  /** Opaque household snapshot version; timestamps remain valid for older snapshots. */
   updatedAt: string | null;
 };
 
@@ -381,7 +382,7 @@ export type GatewayCookingContext = {
   shoppingListTruncated?: boolean;
   shoppingListOmittedCount?: number;
   mealPlan?: GatewayMealPlanContext;
-  /** Private rules for the requesting account only, loaded under its own RLS. */
+  /** Minimized rules for every current diner; person identifiers stay server-side. */
   foodRules?: GatewayFoodRules;
 };
 
@@ -408,6 +409,10 @@ type CreditStatusResult =
 type ContextResult =
   | { ok: true; context: GatewayCookingContext }
   | { ok: false; status: number; error: string; message?: string };
+
+type FoodRulesResult =
+  | { ok: true; foodRules: GatewayFoodRules }
+  | { ok: false; status: number; error: string };
 
 type RecipePageResult =
   | {
@@ -453,11 +458,14 @@ type Dependencies = {
   refundAiCredit: (subscriberUserId: string, requestId: string) => Promise<void>;
   getAiCreditStatus?: (householdId: string) => Promise<CreditStatusResult>;
   recordAiUsage?: (input: AiUsageRecordInput) => Promise<void>;
-  loadCookingContext: (
+  loadHouseholdFoodRules: (
     userId: string,
     householdId: string,
+  ) => Promise<FoodRulesResult>;
+  loadCookingContext: (
+    householdId: string,
     authorization: string,
-    includePersonalFoodRules: boolean,
+    foodRules: GatewayFoodRules,
     requestedAllergies?: string[],
     pageContext?: AssistantPageContext,
     clientOverride?: unknown,
@@ -1079,7 +1087,9 @@ function buildSystemPrompt(
       request.includeHouseholdContext
         ? 'Der Nutzer hat diesen Haushaltskontext ausdrücklich für diese Anfrage freigegeben. Nutze für gezielte Suche die bereitgestellten Werkzeuge: ' +
           JSON.stringify(householdSummary)
-        : 'Es wurde kein Haushaltskontext und keine persönliche Ernährungsregel freigegeben. Behaupte nicht, Haushaltsrezepte, Vorräte oder gespeicherte Regeln geprüft zu haben. Bitte bei persönlicher Haushaltsplanung um die konkreten Zutaten und Einschränkungen; gib bis dahin keine konkrete persönliche Rezept- oder Zutatenempfehlung.',
+        : 'Es wurde kein optionaler Haushaltskontext freigegeben. Die serverseitige Sicherheitsprüfung ist auf diesen minimierten Status begrenzt: ' +
+          JSON.stringify({ foodRules: householdSummary.foodRules }) +
+          '. Behaupte nicht, Haushaltsrezepte oder Vorräte geprüft zu haben. Bei aktiven Regeln ohne konkretes Rezept mit clear-Prüfung gib keine konkrete Rezept- oder Zutatenempfehlung.',
     ].join('\n');
   }
 
@@ -1559,8 +1569,10 @@ function recipeReferencesMentionedInText(
       source: recipe.source ?? ('catalog' as const),
     })),
   ];
+  const foodRules = context.foodRules ?? EMPTY_FOOD_RULES;
   return candidates
     .filter(({ recipe }) => normalizedText.includes(recipe.title.toLocaleLowerCase('de-DE')))
+    .filter(({ recipe }) => !recipeConflictsWithFoodRules(recipe, foodRules))
     .map(({ recipe, source }) => toAssistantRecipeReference(recipe, source))
     .filter((recipe): recipe is AssistantRecipeReference => recipe !== null)
     .filter((recipe, index, recipes) =>
@@ -1594,6 +1606,27 @@ function sanitizeUnverifiedRecipeClaims(text: string, hasVerifiedRecipe: boolean
     return `${verifiedPrefix}\n\nWeitere nicht verifizierte Rezeptideen wurden ausgeblendet.`;
   }
   return 'Ich habe kein vollständig verifiziertes Rezept für diesen Vorschlag gefunden.';
+}
+
+function assistantTextForActiveFoodRules(
+  recipeReferenceCount: number,
+  proposals: readonly AssistantProposal[],
+): string {
+  if (proposals.some((proposal) => proposal.kind === 'meal_plan_proposal.v1')) {
+    return 'Ich habe einen mit den Lebensmittelregeln aller Mitessenden abgeglichenen Wochenplan zur Bestätigung vorbereitet.';
+  }
+  if (recipeReferenceCount > 0) {
+    return 'Die angezeigten Rezepte wurden mit den Lebensmittelregeln aller Mitessenden abgeglichen.';
+  }
+  if (
+    proposals.some((proposal) =>
+      proposal.kind === 'shopping_list_item_proposal.v1' ||
+      proposal.kind === 'shopping_list_proposal.v1'
+    )
+  ) {
+    return 'Die Einkaufsartikel konnten nicht vollständig gegen alle Lebensmittelregeln geprüft werden. Prüfe sie vor dem Übernehmen.';
+  }
+  return 'Ich habe gerade keinen Bestand oder ein Rezept zum Abgleich. Nenne mir konkrete Zutaten oder füge ein Rezept hinzu.';
 }
 
 function normalizeAssistantProviderResult(result: JsonRecord): void {
@@ -1795,7 +1828,7 @@ function runAssistantTool(
         recipeVersions,
       },
       safetyNote:
-        'Die verfügbare Zutatenliste wurde mit deinen hinterlegten Regeln abgeglichen (sofern vorhanden). Produktkennzeichnung und Kreuzkontamination werden nicht geprüft.',
+        'Die verfügbare Zutatenliste wurde mit den hinterlegten Regeln aller Mitessenden abgeglichen. Produktkennzeichnung und Kreuzkontamination werden nicht geprüft.',
     };
     return { result: proposal, proposal, toolName: 'propose_meal_plan' };
   }
@@ -1899,7 +1932,7 @@ function runAssistantTool(
       replacement: args.replacement.trim(),
       rationale: args.rationale.trim(),
       safetyNote:
-        'Der Ersatz und die verfügbare Zutatenliste wurden mit deinen hinterlegten Regeln abgeglichen (sofern vorhanden). Produktkennzeichnung und Kreuzkontamination werden nicht geprüft.',
+        'Der Ersatz und die verfügbare Zutatenliste wurden mit den hinterlegten Regeln aller Mitessenden abgeglichen. Produktkennzeichnung und Kreuzkontamination werden nicht geprüft.',
     };
     return { result: proposal, proposal, toolName: 'suggest_ingredient_swap' };
   }
@@ -2479,12 +2512,30 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       return json({ skill: parsedRequest.skill, status: creditStatus.status });
     }
 
-    if (parsedRequest.skill === 'fam-assistant-proposal-validation') {
-      const contextResult = await dependencies.loadCookingContext(
+    const needsHouseholdFoodRules = parsedRequest.skill === 'fam-assistant' ||
+      parsedRequest.skill === 'fam-cook-from-inventory' ||
+      parsedRequest.skill === 'fam-recipe-import' ||
+      parsedRequest.skill === 'fam-assistant-proposal-validation';
+    let householdFoodRules: GatewayFoodRules | null = null;
+    if (needsHouseholdFoodRules) {
+      const rulesResult = await dependencies.loadHouseholdFoodRules(
         auth.userId,
         parsedRequest.householdId,
+      );
+      if (!rulesResult.ok) {
+        return json({ error: rulesResult.error }, rulesResult.status);
+      }
+      householdFoodRules = rulesResult.foodRules;
+    }
+
+    if (parsedRequest.skill === 'fam-assistant-proposal-validation') {
+      if (householdFoodRules === null) {
+        return json({ error: 'food_rule_snapshot_unavailable' }, 503);
+      }
+      const contextResult = await dependencies.loadCookingContext(
+        parsedRequest.householdId,
         auth.authorization,
-        true,
+        householdFoodRules,
         [],
         undefined,
         undefined,
@@ -2602,6 +2653,19 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         recipePageText = page.text;
         const structuredDraft = isRecord(page.draft) ? parseRecipeImportDraft(page.draft) : null;
         if (structuredDraft) {
+          if (householdFoodRules === null) {
+            return json({ error: 'food_rule_snapshot_unavailable' }, 503);
+          }
+          const currentRules = await dependencies.loadHouseholdFoodRules(
+            auth.userId,
+            parsedRequest.householdId,
+          );
+          if (!currentRules.ok) {
+            return json({ error: currentRules.error }, currentRules.status);
+          }
+          if (currentRules.foodRules.updatedAt !== householdFoodRules.updatedAt) {
+            return json({ error: 'food_rule_snapshot_changed' }, 409);
+          }
           return json({
             requestId: requestId(),
             skill: parsedRequest.skill,
@@ -2634,29 +2698,37 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         parsedRequest.includeHouseholdContext && parsedRequest.pageContext === undefined
       ? { mode: 'all' } as const
       : undefined;
-    const contextResult = parsedRequest.skill === 'fam-cook-from-inventory' || assistantNeedsContext
-      ? await dependencies.loadCookingContext(
-        auth.userId,
+    const needsCookingContext = parsedRequest.skill === 'fam-cook-from-inventory' ||
+      assistantNeedsContext;
+    let contextResult: ContextResult;
+    if (needsCookingContext) {
+      if (householdFoodRules === null) {
+        return json({ error: 'food_rule_snapshot_unavailable' }, 503);
+      }
+      contextResult = await dependencies.loadCookingContext(
         parsedRequest.householdId,
         auth.authorization,
-        parsedRequest.skill === 'fam-assistant' && parsedRequest.includeHouseholdContext,
+        householdFoodRules,
         parsedRequest.skill === 'fam-cook-from-inventory' ? parsedRequest.allergies : [],
         parsedRequest.skill === 'fam-assistant' ? parsedRequest.pageContext : undefined,
         undefined,
         parsedRequest.skill === 'fam-assistant' ? parsedRequest.focusedInventoryLotIds : undefined,
         householdRecipeSelection,
-      )
-      : {
-        ok: true as const,
+      );
+    } else {
+      contextResult = {
+        ok: true,
         context: {
           inventory: {
-            source: 'inventory' as const,
+            source: 'inventory',
             fetchedAt: now(),
             lots: [],
           },
           recipes: [],
+          ...(householdFoodRules ? { foodRules: householdFoodRules } : {}),
         },
       };
+    }
     if (!contextResult.ok) {
       return json({ error: contextResult.error }, contextResult.status);
     }
@@ -2897,6 +2969,26 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         typeof parsedResult.text === 'string' ? parsedResult.text : '',
         assistantRecipeReferences.size > 0,
       );
+      if (hasFoodRules(preparedContext.foodRules ?? EMPTY_FOOD_RULES)) {
+        parsedResult.text = assistantTextForActiveFoodRules(
+          assistantRecipeReferences.size,
+          proposals,
+        );
+        parsedResult.suggestions = [];
+      }
+    }
+
+    if (householdFoodRules) {
+      const currentRules = await dependencies.loadHouseholdFoodRules(
+        auth.userId,
+        parsedRequest.householdId,
+      );
+      if (!currentRules.ok) {
+        return await refundAndRespond({ error: currentRules.error }, currentRules.status);
+      }
+      if (currentRules.foodRules.updatedAt !== householdFoodRules.updatedAt) {
+        return await refundAndRespond({ error: 'food_rule_snapshot_changed' }, 409);
+      }
     }
 
     return json({

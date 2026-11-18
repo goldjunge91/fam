@@ -188,6 +188,18 @@ describe('assistant API', () => {
   it.each([
     ['ai_subscription_required', 'Für den Assistant brauchst du das AI-Abo dieses Haushalts.'],
     ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
+    [
+      'food_rule_snapshot_incomplete',
+      'Die Lebensmittelregeln aller Mitessenden konnten nicht vollständig geprüft werden. Deshalb erstellt der Assistant gerade keinen Essensvorschlag.',
+    ],
+    [
+      'food_rule_snapshot_unavailable',
+      'Die Lebensmittelregeln aller Mitessenden konnten nicht vollständig geprüft werden. Deshalb erstellt der Assistant gerade keinen Essensvorschlag.',
+    ],
+    [
+      'food_rule_snapshot_changed',
+      'Mitessende oder Lebensmittelregeln haben sich während der Anfrage geändert. Bitte sende sie erneut.',
+    ],
     ['model_not_allowed', 'Dieses AI-Modell ist derzeit nicht verfügbar.'],
     ['provider_invalid_json', 'Die KI konnte gerade keine passende Antwort erstellen.'],
     [

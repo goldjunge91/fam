@@ -4069,6 +4069,10 @@ export type Database = {
           warning_reached: boolean;
         }[];
       };
+      get_ai_household_food_rule_snapshot: {
+        Args: { p_household_id: string; p_requester_user_id: string };
+        Returns: Json;
+      };
       get_brochure_zip_scan_status: {
         Args: { p_zip_code: string };
         Returns: {
