@@ -1,44 +1,45 @@
 appId: com.goldjunge91.fam1
 env:
+  # An optional TEST_EMAIL makes the registration account reproducible; the
+  # generated address remains the standalone default.
+  TEST_EMAIL: ${TEST_EMAIL || ""}
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Atomare Aufgabe: einen neuen Account über die echte UI registrieren und die
-# lokale E-Mail-Bestätigung mit dem Inbucket-OTP abschließen.
+# lokale E-Mail-Bestätigung mit dem Mailpit-OTP abschließen.
 - runScript:
     file: ../../scripts/auth/generate-registration-data.js
     env:
       TEST_PASSWORD: "${TEST_PASSWORD}"
-
+- evalScript: ${output.auth.email = TEST_EMAIL || output.auth.email}
 - tapOn:
-    id: "onboarding-account-email"
+    id: "sign-up-email"
 - inputText: "${output.auth.email}"
 - tapOn:
-    id: "keyboard.toolbar.next"
+    id: "sign-up-password"
 - inputText: "${output.auth.password}"
 - scrollUntilVisible:
     element:
-      id: "onboarding-account-password-confirmation"
+      id: "sign-up-password-confirmation"
     direction: DOWN
 - tapOn:
-    id: "onboarding-account-password-confirmation"
+    id: "sign-up-password-confirmation"
     retryTapIfNoChange: true
     waitToSettleTimeoutMs: 10000
 - waitForAnimationToEnd
 - inputText: "${output.auth.password}"
 - tapOn:
     id: "keyboard.toolbar.done"
-- tapOn: "Konto erstellen & weiter"
-
+- tapOn:
+    id: "sign-up-submit"
 # iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
 # erscheinen. Der exakte Match trifft nicht den späteren Profil-Button.
 - tapOn:
     text: "^(Später|Not Now)$"
     optional: true
-
 - extendedWaitUntil:
     visible: "^(Bestätigung ausstehend|Später ausfüllen)$"
     timeout: 30000
-
 # Je nach lokaler Supabase-Konfiguration liefert signUp bereits eine Session
 # (direkt weiter) oder verlangt zuerst die E-Mail-Bestätigung.
 - runFlow:

@@ -167,6 +167,7 @@ export function SignInForm({ onSuccess, submitLabel, testIDPrefix = 'sign-in' }:
 
       <Button
         title={submitLabel ?? t('auth.signIn.submit')}
+        testID={`${testIDPrefix}-submit`}
         onPress={() => requestSubmit('button')}
         loading={isSubmitting}
       />

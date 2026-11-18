@@ -1,17 +1,31 @@
 appId: com.goldjunge91.fam1
 env:
-  # URL-encoded because the Dev Client receives it as the `url` query value.
-  METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || "http%3A%2F%2F127.0.0.1%3A8081"}
+  # METRO_URL is the single plain URL source for manual entry. The encoded
+  # override remains available for callers that already have a manifest value.
+  METRO_URL: ${METRO_URL || "http://127.0.0.1:8081"}
+  METRO_MANIFEST_URL: ${METRO_MANIFEST_URL || ""}
 ---
-# Lokaler iOS-Startvertrag: Metro läuft auf dem Simulator unter 127.0.0.1:8081.
-# Der installierte fam-Development-Client wird über seinen eigenen Launcher-
-# Scheme geöffnet. Expo Go und exp:// werden nicht verwendet.
+# Lokaler iOS-Startvertrag: Metro läuft auf dem Simulator unter METRO_URL.
+# expo-dev-client registriert exp+fam; the installed app keeps fam for app links.
+- evalScript: ${output.metroManifestUrl = METRO_MANIFEST_URL || encodeURIComponent(METRO_URL)}
 - stopApp
 - launchApp:
     clearState: true
     clearKeychain: true
-- openLink:
-    link: "fam://expo-development-client/?url=${METRO_MANIFEST_URL}"
+# simctl openurl can time out after the Dev Client has opened its launcher. The
+# following readiness assertion remains hard, and the manual route is explicit.
+- runFlow:
+    optional: true
+    commands:
+      - openLink:
+          link: "exp+fam://expo-development-client/?url=${output.metroManifestUrl}"
+- runFlow:
+    when:
+      visible: "Enter URL manually"
+    commands:
+      - tapOn: "Enter URL manually"
+      - inputText: "${METRO_URL}"
+      - tapOn: "Connect"
 - runFlow:
     when:
       visible: '^(Open in "fam"|In .* öffnen\?)$'
@@ -52,5 +66,4 @@ env:
       - tapOn:
           text: "^(Close|Schließen)$"
       - waitForAnimationToEnd
-
 #„fam" möchte dir Mitteilungen senden

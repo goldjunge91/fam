@@ -30,12 +30,17 @@ appId: com.goldjunge91.fam1
           element: "Weiter"
       - tapOn: "Weiter"
 
-- scrollUntilVisible:
-    element: "Überspringen"
-- tapOn: "Überspringen" # Modul-Auswahl
 - waitForAnimationToEnd
 - scrollUntilVisible:
-    element: "Jetzt nicht"
+    element: "Weiter"
+- tapOn:
+    text: "Weiter"
+    index: 0
+    retryTapIfNoChange: true
+    waitToSettleTimeoutMs: 10000
+- extendedWaitUntil:
+    visible: "Jetzt nicht"
+    timeout: 20000
 - tapOn: "Jetzt nicht" # Berechtigungen
 - waitForAnimationToEnd
 - tapOn: "Zum Dashboard" # Abschluss-Step

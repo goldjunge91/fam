@@ -177,6 +177,7 @@ export function SignUpForm({
 
       <Button
         title={submitLabel ?? t('auth.signUp.submit')}
+        testID={`${testIDPrefix}-submit`}
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting}
       />

@@ -1,6 +1,8 @@
 appId: com.goldjunge91.fam1
 env:
-  REGISTRATION_PASSWORD: ${REGISTRATION_PASSWORD || "Passwort123!"}
+  # TEST_EMAIL overrides the generated address when a fixed account is needed.
+  TEST_EMAIL: ${TEST_EMAIL || ""}
+  TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Vollständige Journey: frischer Start -> Onboarding -> Registrierung ->
 # lokale E-Mail-Bestätigung -> optionales Onboarding -> Dashboard.
@@ -9,6 +11,7 @@ env:
 - runFlow:
     file: ../../subflows/onboarding-sign-up.yaml
     env:
-      TEST_PASSWORD: "${REGISTRATION_PASSWORD}"
+      TEST_EMAIL: "${TEST_EMAIL}"
+      TEST_PASSWORD: "${TEST_PASSWORD}"
 - runFlow: ../../subflows/onboarding-finish.yaml
 - assertVisible: "^(Übersicht|Overview)$"

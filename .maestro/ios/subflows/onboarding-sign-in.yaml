@@ -4,18 +4,19 @@ env:
   TEST_PASSWORD: ${TEST_PASSWORD || "Passwort123!"}
 ---
 # Atomare Aufgabe: einen bestehenden, bestätigten Account im Onboarding anmelden.
-- tapOn: "Anmelden"
+- tapOn: "Ich habe schon ein Konto"
 - tapOn:
-    id: "onboarding-account-email"
+    id: "sign-in-email"
 - eraseText
 - inputText: "${TEST_EMAIL}"
 - tapOn:
-    id: "keyboard.toolbar.next"
+    id: "sign-in-password"
 - eraseText
 - inputText: "${TEST_PASSWORD}"
 - tapOn:
     id: "keyboard.toolbar.done"
-- tapOn: "Anmelden & weiter"
+- tapOn:
+    id: "sign-in-submit"
 
 # iOS' eigener Keychain-Dialog ist kein App-UI und kann nach dem Absenden
 # erscheinen. Der exakte Match verhindert einen Treffer auf spätere App-Buttons.
