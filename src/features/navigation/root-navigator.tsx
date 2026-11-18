@@ -55,7 +55,7 @@ export function RootNavigator() {
   }, [accountReady, error, isLoading, session?.user.id]);
 
   if (isLoading && !isRecoveryEntryPath) return null;
-  if (error && !isRecoveryEntryPath) return <CrashFallback resetError={retry} />;
+  if (error && !isRecoveryEntryPath) return <CrashFallback error={error} resetError={retry} />;
 
   // Der Dev-Override gilt nur bis zum Abschluss in dieser App-Sitzung:
   // Neustarts erzwingen den Flow erneut, der Dashboard-Übergang bleibt möglich.

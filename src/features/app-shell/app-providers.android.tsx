@@ -63,7 +63,9 @@ export function AppProviders({ children }: { children: ReactNode }) {
             error_code: 'react_error_boundary',
           })
         }
-        fallback={({ resetError }) => <CrashFallback resetError={resetError} />}>
+        fallback={({ error, resetError }) => (
+          <CrashFallback error={error} resetError={resetError} />
+        )}>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <KeyboardProvider>
             <QueryClientProvider client={queryClient}>

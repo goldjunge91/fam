@@ -222,7 +222,7 @@ describe('RootNavigator', () => {
 
     await render(<RootNavigator />);
 
-    expect(screen.getByText('Etwas ist schiefgelaufen')).toBeOnTheScreen();
+    expect(screen.getByText('App konnte nicht gestartet werden')).toBeOnTheScreen();
     expect(screen.queryByText('household')).not.toBeOnTheScreen();
   });
 
