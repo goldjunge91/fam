@@ -5,6 +5,7 @@ const REPO_ROOT = process.cwd();
 const IOS_ROOT = join(REPO_ROOT, '.maestro', 'ios');
 const IOS_SUBFLOWS_ROOT = join(IOS_ROOT, 'subflows');
 const TEST_EMAIL_PLACEHOLDER = '${' + 'TEST_EMAIL}';
+const REMOTE_CONFIRMED_EMAIL_PLACEHOLDER = '${' + 'REMOTE_CONFIRMED_EMAIL}';
 const TEST_PASSWORD_PLACEHOLDER = '${' + 'TEST_PASSWORD}';
 const RESET_PASSWORD_PLACEHOLDER = '${' + 'RESET_PASSWORD}';
 const WRONG_EMAIL_PLACEHOLDER = '${' + 'WRONG_EMAIL}';
@@ -12,6 +13,12 @@ const WRONG_PASSWORD_PLACEHOLDER = '${' + 'WRONG_PASSWORD}';
 const FIXTURE_EMAIL_PLACEHOLDER = '${' + 'EMAIL}';
 const FIXTURE_PASSWORD_PLACEHOLDER = '${' + 'PASSWORD}';
 const RECOVERY_CODE_OUTPUT = '${' + 'output.recoveryCode}';
+const RECOVERY_LINK_OUTPUT = '${' + 'output.recoveryLink}';
+const REMOTE_EMAIL_OUTPUT = '${' + 'output.testEmail}';
+const CONFIRMED_REMOTE_EMAIL_OUTPUT = '${' + 'output.confirmedRecoveryEmail}';
+const REMOTE_REQUEST_STARTED_OUTPUT = '${' + 'output.recoveryRequestStartedAt}';
+const MAILOSAUR_ADDRESS_SUFFIX_PLACEHOLDER = '${' + 'MAILOSAUR_ADDRESS_SUFFIX}';
+const MAILOSAUR_ADDRESS_TYPO = ['MAILOSAUR', 'ADRESS'].join('_');
 const TEST_ID_PREFIX_PLACEHOLDER = '${' + 'testIDPrefix}';
 const METRO_URL_PLACEHOLDER = '${' + 'METRO_URL}';
 
@@ -298,6 +305,119 @@ describe('iOS Maestro auth flow structure', () => {
     expect(wrongPassword).toContain('WRONG_PASSWORD: ${WRONG_PASSWORD ||');
     expect(wrongPassword).toContain(`TEST_EMAIL: "${TEST_EMAIL_PLACEHOLDER}"`);
     expect(wrongPassword).toContain(`TEST_PASSWORD: "${WRONG_PASSWORD_PLACEHOLDER}"`);
+  });
+
+  it('keeps local Mailpit recovery separate from explicit remote iOS journeys', () => {
+    const localFlow = readFlow(join(IOS_ROOT, 'flows', 'auth', 'password-reset.yaml'));
+    const localHelper = readFlow(
+      join(REPO_ROOT, '.maestro', 'scripts', 'auth', 'read-local-password-recovery-code.js'),
+    );
+
+    expect(localFlow).toContain('read-local-password-recovery-code.js');
+    expect(localHelper).toContain('http://127.0.0.1:54324/api/v1/');
+    expect(localFlow).not.toContain('read-remote-password-recovery.js');
+
+    for (const [fileName, mode] of [
+      ['password-reset-remote-link.yaml', 'link'],
+      ['password-reset-remote-code.yaml', 'code'],
+    ] as const) {
+      const flow = readFlow(join(IOS_ROOT, 'flows', 'auth', fileName));
+
+      expect(flow).toContain('appId: com.goldjunge91.fam1');
+      expect(flow).toContain('tags:\n  - remote-recovery\n  - ios-only');
+      expect(flow).toContain('read-remote-password-recovery.js');
+      expect(flow).toContain(`TEST_EMAIL: ${TEST_EMAIL_PLACEHOLDER}`);
+      expect(flow).toContain(`REMOTE_CONFIRMED_EMAIL: ${REMOTE_CONFIRMED_EMAIL_PLACEHOLDER}`);
+      expect(flow).toContain('RECOVERY_MODE: "preflight"');
+      expect(flow).toContain(`CONFIRMED_RECOVERY_EMAIL: "${REMOTE_CONFIRMED_EMAIL_PLACEHOLDER}"`);
+      expect(flow).toContain(`RECOVERY_EMAIL: "${TEST_EMAIL_PLACEHOLDER}"`);
+      expect(flow).toContain(`RECOVERY_MODE: "${mode}"`);
+      expect(flow).toContain(`RECOVERY_EMAIL: "${CONFIRMED_REMOTE_EMAIL_OUTPUT}"`);
+      expect(flow).toContain(`RECOVERY_REQUEST_STARTED_AT: "${REMOTE_REQUEST_STARTED_OUTPUT}"`);
+      expect(flow).toContain(`setClipboard: "${CONFIRMED_REMOTE_EMAIL_OUTPUT}"`);
+      expect(flow).toMatch(/^[ ]{2}TEST_EMAIL: ["']?\$\{TEST_EMAIL\}["']?$/m);
+      expect(flow).toMatch(
+        /^[ ]{2}MAILOSAUR_SERVER_DOMAIN: ["']?\$\{MAILOSAUR_SERVER_DOMAIN \|\| ["']opbingdz\.mailosaur\.net["']\}["']?$/m,
+      );
+      expect(flow).toMatch(/^[ ]{2}RESET_PASSWORD: ["']?\$\{RESET_PASSWORD\}["']?$/m);
+      expect(flow).toMatch(/^[ ]{2}MAILOSAUR_API_KEY: ["']?\$\{MAILOSAUR_API_KEY\}["']?$/m);
+      expect(flow).toMatch(
+        /^[ ]{2}MAILOSAUR_SERVER_ID: ["']?\$\{MAILOSAUR_SERVER_ID \|\| ["']opbingdz["']\}["']?$/m,
+      );
+      expect(flow).not.toContain(REMOTE_EMAIL_OUTPUT);
+      expect(flow).not.toContain(MAILOSAUR_ADDRESS_SUFFIX_PLACEHOLDER);
+      const preflightIndex = flow.indexOf('RECOVERY_MODE: "preflight"');
+      const appStartIndex = flow.indexOf(
+        '../../subflows/launch-local-dev-client-preserve-state.yaml',
+      );
+      expect(preflightIndex).toBeGreaterThanOrEqual(0);
+      expect(preflightIndex).toBeLessThan(appStartIndex);
+      expect(flow).not.toMatch(/\$\{(?:TEST_EMAIL|RESET_PASSWORD|MAILOSAUR_API_KEY)\s*\|\|/);
+      expect(flow).not.toContain(MAILOSAUR_ADDRESS_SUFFIX_PLACEHOLDER);
+      expect(flow).not.toContain(`RECOVERY_REQUEST_STARTED_AT: \${RECOVERY_REQUEST_STARTED_AT}`);
+      expect(flow).not.toContain(`${TEST_EMAIL_PLACEHOLDER} ||`);
+      expect(flow).not.toContain(MAILOSAUR_ADDRESS_TYPO);
+      expect(flow).toContain(`setClipboard: "${CONFIRMED_REMOTE_EMAIL_OUTPUT}"`);
+      expect(flow).toContain(`RECOVERY_EMAIL: "${CONFIRMED_REMOTE_EMAIL_OUTPUT}"`);
+      expect(flow).not.toContain('read-local-password-recovery-code.js');
+      expect(flow).not.toContain('127.0.0.1:54324');
+      expect(flow).not.toContain('clearState');
+      expect(flow).not.toContain('launchApp');
+      expect(flow).not.toContain('stopApp');
+      expect(flow).toContain('tapOn: "^(Code anfordern|Request code)$"');
+      expect(flow).toContain('id: "recovery-new-password"');
+      expect(flow).toContain('id: "recovery-password-confirmation"');
+      expect(flow).toContain('visible: "Passwort geändert"');
+      expect(flow).toMatch(/assertVisible: "\^\(Übersicht\|Overview\)\$"/);
+
+      if (mode === 'link') {
+        expect(flow).toContain('openLink:');
+        expect(flow).toContain(`link: "${RECOVERY_LINK_OUTPUT}"`);
+        expect(flow).toContain(`visible: '^(Open in "fam"|In .* öffnen\\?)$'`);
+        expect(flow).toContain('point: "67%,54%"');
+        expect(flow).not.toContain('password-recovery-code');
+      } else {
+        expect(flow).toContain('Code in der App eingeben');
+        expect(flow).toContain('id: "password-recovery-code"');
+        expect(flow).toContain(`setClipboard: "${RECOVERY_CODE_OUTPUT}"`);
+        expect(flow).not.toContain('output.recoveryLink');
+      }
+    }
+  });
+
+  it('keeps remote Mailosaur signup explicitly iOS-only and opt-in', () => {
+    const flow = readFlow(join(IOS_ROOT, 'flows', 'auth', 'registration-remote-mailosaur.yaml'));
+
+    expect(flow).toContain('appId: com.goldjunge91.fam1');
+    expect(flow).toContain('tags:\n  - remote-setup\n  - ios-only');
+    expect(flow).toContain(`MAILOSAUR_API_KEY: \${MAILOSAUR_API_KEY}`);
+    expect(flow).toContain(`MAILOSAUR_SERVER_ID: \${MAILOSAUR_SERVER_ID || "opbingdz"}`);
+    expect(flow).toContain(
+      `MAILOSAUR_SERVER_DOMAIN: \${MAILOSAUR_SERVER_DOMAIN || "opbingdz.mailosaur.net"}`,
+    );
+    expect(flow).toContain(
+      `MAILOSAUR_ADDRESS_SUFFIX: \${MAILOSAUR_ADDRESS_SUFFIX || "@opbingdz.mailosaur.net"}`,
+    );
+    expect(flow).toContain(`TEST_PASSWORD: \${TEST_PASSWORD}`);
+    expect(flow).toContain('RECOVERY_MODE: "address"');
+    expect(flow).toContain(`- inputText: "\${output.testEmail}"`);
+    expect(flow).toContain(`SIGNUP_EMAIL: "${REMOTE_EMAIL_OUTPUT}"`);
+    expect(flow).toContain('REMOTE_CONFIRMED_EMAIL');
+    expect(flow).toContain('signup OTP is accepted and the dashboard is reached');
+    expect(flow).toContain(
+      'visible: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"',
+    );
+    expect(flow).toContain(
+      'text: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"',
+    );
+    expect(flow).toContain('assertNotVisible:');
+    expect(flow).toContain('visible: "Bestätigung ausstehend"');
+    expect(flow).not.toContain('MAILOSAUR_API_KEY ||');
+    expect(flow).not.toContain('Passwort123!');
+    expect(flow).not.toContain('clearState');
+    expect(flow).not.toContain('127.0.0.1:54324');
+    expect(flow).not.toContain('deleteUser');
+    expect(flow).not.toContain('cleanup');
   });
 
   it('composes household fixture journeys from atomic iOS onboarding subflows', () => {

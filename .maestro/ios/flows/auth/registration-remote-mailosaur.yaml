@@ -1,0 +1,81 @@
+appId: com.goldjunge91.fam1
+tags:
+  - remote-setup
+  - ios-only
+env:
+  MAILOSAUR_API_KEY: ${MAILOSAUR_API_KEY}
+  MAILOSAUR_SERVER_ID: ${MAILOSAUR_SERVER_ID || "opbingdz"}
+  MAILOSAUR_SERVER_DOMAIN: ${MAILOSAUR_SERVER_DOMAIN || "opbingdz.mailosaur.net"}
+  MAILOSAUR_ADDRESS_SUFFIX: ${MAILOSAUR_ADDRESS_SUFFIX || "@opbingdz.mailosaur.net"}
+  TEST_PASSWORD: ${TEST_PASSWORD}
+---
+# Opt-in: creates a fresh remote Supabase account through the real iOS UI.
+# Existing accounts are not deleted or reused. If Supabase reports a duplicate,
+# the intentional failing assertion below stops this setup run. Only after the
+# signup OTP is accepted and the dashboard is reached may the unchanged
+# output.testEmail be handed to a later recovery flow as both TEST_EMAIL and
+# REMOTE_CONFIRMED_EMAIL.
+- runScript:
+    file: ../../../scripts/auth/read-remote-password-recovery.js
+    env:
+      MAILOSAUR_ADDRESS_SUFFIX: "${MAILOSAUR_ADDRESS_SUFFIX}"
+      MAILOSAUR_SERVER_DOMAIN: "${MAILOSAUR_SERVER_DOMAIN}"
+      RECOVERY_MODE: "address"
+- evalScript: ${output.signupStartedAt = new Date().toISOString()}
+# output.testEmail is the unique per-run TEST_EMAIL used by the real signup UI.
+- runFlow: ../../subflows/launch-local-dev-client-preserve-state.yaml
+- runFlow:
+    when:
+      visible: "Willkommen"
+    commands:
+      - runFlow: ../../subflows/onboarding-welcome.yaml
+- tapOn:
+    id: "sign-up-email"
+- inputText: "${output.testEmail}"
+- tapOn:
+    id: "sign-up-password"
+- inputText: "${TEST_PASSWORD}"
+- scrollUntilVisible:
+    element:
+      id: "sign-up-password-confirmation"
+    direction: DOWN
+- tapOn:
+    id: "sign-up-password-confirmation"
+- inputText: "${TEST_PASSWORD}"
+- tapOn:
+    text: "^(Done|Fertig)$"
+    optional: true
+- tapOn:
+    id: "sign-up-submit"
+- runFlow:
+    when:
+      visible: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"
+    commands:
+      # A duplicate is never silently resumed or deleted. This deliberate
+      # failure points the operator to the explicit TEST_EMAIL recovery path.
+      - assertNotVisible:
+          text: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"
+- extendedWaitUntil:
+    visible: "Bestätigung ausstehend"
+    timeout: 30000
+- runScript:
+    file: ../../../scripts/auth/read-remote-signup-otp.js
+    env:
+      MAILOSAUR_API_KEY: "${MAILOSAUR_API_KEY}"
+      MAILOSAUR_SERVER_ID: "${MAILOSAUR_SERVER_ID}"
+      MAILOSAUR_SERVER_DOMAIN: "${MAILOSAUR_SERVER_DOMAIN}"
+      SIGNUP_EMAIL: "${output.testEmail}"
+      SIGNUP_STARTED_AT: "${output.signupStartedAt}"
+- tapOn:
+    id: "email-verification-code"
+- setClipboard: "${output.signupCode}"
+- pasteText
+- tapOn:
+    text: "^(Done|Fertig)$"
+    optional: true
+- tapOn: "Bestätigen"
+- extendedWaitUntil:
+    visible: "Später ausfüllen"
+    timeout: 30000
+- runFlow: ../../subflows/onboarding-finish.yaml
+- assertVisible: "^(Übersicht|Overview)$"
