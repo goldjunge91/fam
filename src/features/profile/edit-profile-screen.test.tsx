@@ -336,6 +336,17 @@ describe.each([
 
   afterEach(() => jest.restoreAllMocks());
 
+  it('keeps long email addresses fully visible and preserves the auth value', async () => {
+    const longEmail = 'maestro-123456789012345678901234567890@example.invalid';
+    await renderScreen(null, Screen, { user: { id: 'user-1', email: longEmail } });
+
+    const emailField = screen.getByLabelText('E-Mail-Adresse');
+    expect(emailField).toHaveProp('value', longEmail);
+    expect(emailField).toHaveProp('multiline', true);
+    expect(emailField).toHaveProp('numberOfLines', 3);
+    expect(emailField).toHaveProp('scrollEnabled', false);
+  });
+
   it('uploads a selected avatar and reports a picker cancellation and upload failure', async () => {
     const user = userEvent.setup();
     const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => {});

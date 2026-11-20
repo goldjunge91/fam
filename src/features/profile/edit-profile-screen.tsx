@@ -316,6 +316,10 @@ export function EditProfileScreen() {
             error={translateAuthValidationMessage(errors.email?.message, t)}
             autoCapitalize="none"
             keyboardType="email-address"
+            multiline
+            numberOfLines={3}
+            scrollEnabled={false}
+            textAlignVertical="top"
             placeholder="deine.email@beispiel.de"
           />
         </View>
