@@ -19,6 +19,17 @@ import {
   resolveFoodRuleCoverage,
 } from './food-rule-coverage.ts';
 import type { AiUsageRecordInput } from './usage.ts';
+import { buildCatalogSuggestions } from './catalog-suggestions.ts';
+import {
+  type RecipeSuggestionContext,
+  type RecipeSuggestionResponse,
+  validateRecipeSuggestionResponse,
+} from './recipe-suggestion-contract.ts';
+import {
+  buildRecipeSuggestionContext,
+  type RecipeSuggestionGatewayInput,
+} from './recipe-suggestion-context.ts';
+import { createCookingSuggestionResponseFormat } from './openrouter-request.ts';
 import {
   boundGatewayCookingContext,
   CONTEXT_LIMITS,
@@ -62,6 +73,8 @@ type CookingRequest = {
   maxMinutes: number | null;
   dietaryPattern: string | null;
   allergies: string[];
+  shoppingDecision: 'yes' | 'no' | null;
+  selectedInventoryItemIds?: string[];
 } & ModelSelection;
 
 export type AssistantPageContext =
@@ -174,6 +187,11 @@ export type ProviderContentPart =
   | { type: 'image_url'; image_url: { url: string } }
   | { type: 'file'; file: { filename: string; file_data: string } }
   | { type: 'video_url'; video_url: { url: string } };
+
+export type ProviderResponseFormat =
+  | 'json_object'
+  | null
+  | { readonly [key: string]: unknown };
 
 export type ProviderMessage = {
   role: 'system' | 'user' | 'assistant' | 'tool';
@@ -345,6 +363,8 @@ export type GatewayRecipe = {
     quantity: number | null;
     unit: string | null;
   }>;
+  /** Ordered source-backed instructions when the catalog exposes them. */
+  steps?: string[];
   /** IDs from each current, reviewed recipe ingredient mapping. */
   canonicalIngredientIds?: string[];
   canonicalIngredientMappingComplete?: boolean;
@@ -480,7 +500,7 @@ type Dependencies = {
     model: string;
     messages: ProviderMessage[];
     tools?: ProviderTool[];
-    responseFormat?: 'json_object' | null;
+    responseFormat?: ProviderResponseFormat;
     hideReasoning?: boolean;
     maxTokens?: number;
   }) => Promise<ProviderResult>;
@@ -828,6 +848,8 @@ function parseRequest(value: unknown): GatewayRequest | null {
     'maxMinutes',
     'dietaryPattern',
     'allergies',
+    'shoppingDecision',
+    'selectedInventoryItemIds',
     'provider',
     'model',
   ]);
@@ -836,15 +858,24 @@ function parseRequest(value: unknown): GatewayRequest | null {
     candidate: unknown,
   ): candidate is number | null =>
     candidate === null ||
-    (typeof candidate === 'number' && Number.isInteger(candidate) &&
-      candidate > 0);
+    (typeof candidate === 'number' && Number.isInteger(candidate) && candidate > 0);
+  const selectedInventoryItemIds = value.selectedInventoryItemIds;
+  const validSelectedInventoryItemIds = selectedInventoryItemIds === undefined || (
+    Array.isArray(selectedInventoryItemIds) &&
+    selectedInventoryItemIds.length <= 50 &&
+    selectedInventoryItemIds.every(nonEmptyString) &&
+    new Set(selectedInventoryItemIds).size === selectedInventoryItemIds.length
+  );
+  const shoppingDecision = value.shoppingDecision === undefined ? 'no' : value.shoppingDecision;
 
   return nonEmptyString(value.userText) &&
       validNullableInteger(value.servings) &&
       validNullableInteger(value.maxMinutes) &&
       (value.dietaryPattern === null || nonEmptyString(value.dietaryPattern)) &&
       Array.isArray(value.allergies) &&
-      value.allergies.every(nonEmptyString)
+      value.allergies.every(nonEmptyString) &&
+      (shoppingDecision === 'yes' || shoppingDecision === 'no' || shoppingDecision === null) &&
+      validSelectedInventoryItemIds
     ? {
       skill: value.skill,
       householdId: value.householdId.trim(),
@@ -853,6 +884,10 @@ function parseRequest(value: unknown): GatewayRequest | null {
       maxMinutes: value.maxMinutes,
       dietaryPattern: value.dietaryPattern === null ? null : value.dietaryPattern.trim(),
       allergies: value.allergies.map((allergy) => allergy.trim()),
+      shoppingDecision,
+      ...(selectedInventoryItemIds === undefined
+        ? {}
+        : { selectedInventoryItemIds: selectedInventoryItemIds.map((id) => id.trim()) }),
       ...modelSelection,
     }
     : null;
@@ -948,11 +983,40 @@ function assistantPageContextSummary(
   };
 }
 
+function buildRecipeSuggestionSystemPrompt(
+  context: RecipeSuggestionContext,
+): string {
+  // Keep private household rule labels out of the provider prompt. The full
+  // context remains server-side for the post-response validator.
+  const providerContext = {
+    ...context,
+    constraints: {
+      ...context.constraints,
+      forbidden_ingredients: [],
+    },
+  };
+  return [
+    'Du bist der read-only Kochvorschlagsdienst von fam.',
+    'Antworte ausschließlich als gültiges JSON ohne Markdown, Kommentare oder zusätzliche Felder.',
+    'Nutze nur die im Kontext genannten Vorratsartikel, Einkaufsartikel und Rezeptkandidaten.',
+    'Erfinde keine IDs, Mengen oder Zutaten. Ein Vorratsartikel darf nur mit kompatibler Einheit und höchstens seiner verfügbaren Menge verwendet werden.',
+    'Wenn Rezeptkandidaten vorhanden sind, verwende ausschließlich catalog oder template mit passender recipe_id. model_generated ist dann verboten.',
+    'Wenn keine Rezeptkandidaten vorhanden sind, darfst du genau eine bis drei model_generated Mahlzeiten ohne recipe_id liefern.',
+    'shopping_needs enthält höchstens zwei positive fehlende Mengen. additional_ingredients enthält höchstens zwei freigegebene Zutaten.',
+    'Vertrag: schema_version 1 und meals mit title, source, recipe_id, servings, used_items, shopping_needs, additional_ingredients, steps und notes.',
+    `Freigegebener Kontext:\n${JSON.stringify(providerContext)}`,
+  ].join('\n');
+}
+
 function buildSystemPrompt(
   request: ModelGatewayRequest,
   context: GatewayCookingContext,
+  recipeSuggestionContext?: RecipeSuggestionContext,
 ): string {
   context = boundGatewayCookingContext(context);
+  if (request.skill === 'fam-cook-from-inventory' && recipeSuggestionContext !== undefined) {
+    return buildRecipeSuggestionSystemPrompt(recipeSuggestionContext);
+  }
   if (request.skill === 'fam-recipe-import') {
     const isInstagramImport = request.sourceType === 'video' &&
       nonEmptyString(request.sourceUrl) && isInstagramSourceUrl(request.sourceUrl);
@@ -1239,7 +1303,7 @@ function logProviderResponseShape(input: {
   provider: GatewayProvider;
   model: string;
   providerCallIndex: number;
-  responseFormat: 'json_object' | null | undefined;
+  responseFormat: ProviderResponseFormat | undefined;
   content: string | null;
   toolCallCount: number;
 }): void {
@@ -2741,11 +2805,50 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }
     }
 
-    const rawPreparedContext = parsedRequest.skill === 'fam-cook-from-inventory'
-      ? prepareCookingContext(contextResult.context, parsedRequest)
-      : contextResult.context;
-    if (rawPreparedContext === null) return json({ error: 'no_safe_recipe' }, 422);
-    const preparedContext = boundGatewayCookingContext(rawPreparedContext);
+    let recipeSuggestionContext: RecipeSuggestionContext | null = null;
+    if (parsedRequest.skill === 'fam-cook-from-inventory') {
+      const context = contextResult.context;
+      const foodRules = context.foodRules ?? EMPTY_FOOD_RULES;
+      const recipeInput: RecipeSuggestionGatewayInput = {
+        inventory: { lots: context.inventory.lots },
+        recipes: context.recipes.map((recipe) => ({
+          ...recipe,
+          source: recipe.source === 'household' ? 'template' : 'catalog',
+        })),
+        shoppingItems: (context.shoppingList ?? []).map((item) => ({
+          shoppingItemId: item.itemId,
+          name: item.name,
+          quantity: item.quantity,
+          unit: item.unit,
+        })),
+        servings: parsedRequest.servings ?? 2,
+        maxMinutes: parsedRequest.maxMinutes,
+        dietaryPattern: parsedRequest.dietaryPattern,
+        allergies: [
+          ...(foodRules.allergyCodes ?? []),
+          ...parsedRequest.allergies,
+        ],
+        preferences: [],
+        forbiddenIngredients: [
+          ...foodRules.avoidFoods,
+          ...(foodRules.dislikedFoods ?? []),
+        ],
+        selectedInventoryItemIds: parsedRequest.selectedInventoryItemIds,
+        shoppingDecision: parsedRequest.shoppingDecision,
+        foodRulesUpdatedAt: foodRules.updatedAt,
+        today: new Date(now()),
+      };
+      recipeSuggestionContext = buildRecipeSuggestionContext(recipeInput)?.context ?? null;
+      if (recipeSuggestionContext === null) return json({ error: 'no_safe_recipe' }, 422);
+    }
+
+    const preparedContext = boundGatewayCookingContext(contextResult.context);
+    const catalogMeals = recipeSuggestionContext === null ? null : buildCatalogSuggestions(
+      recipeSuggestionContext,
+      contextResult.context.recipes,
+      parsedRequest.skill === 'fam-cook-from-inventory' &&
+        parsedRequest.shoppingDecision === 'yes',
+    );
 
     const currentRequestId = requestId();
     const booking = await dependencies.bookAiCredit({
@@ -2773,6 +2876,22 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }
       return json(body, status);
     };
+
+    if (
+      parsedRequest.skill === 'fam-cook-from-inventory' &&
+      recipeSuggestionContext !== null &&
+      catalogMeals !== null &&
+      catalogMeals.length > 0
+    ) {
+      return json({
+        requestId: currentRequestId,
+        skill: parsedRequest.skill,
+        provider: 'catalog',
+        model: model,
+        result: { schema_version: 1, meals: catalogMeals },
+        generatedAt: now(),
+      });
+    }
 
     if (isInstagramWhisperImport) {
       if (!recipeVideoUrl || !dependencies.transcribeAudio) {
@@ -2802,7 +2921,11 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       : [
         {
           role: 'system',
-          content: buildSystemPrompt(parsedRequest, preparedContext),
+          content: buildSystemPrompt(
+            parsedRequest,
+            preparedContext,
+            recipeSuggestionContext ?? undefined,
+          ),
         },
         ...(parsedRequest.skill === 'fam-assistant'
           ? parsedRequest.history.map((item) => ({
@@ -2826,13 +2949,21 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     const canUseTools = parsedRequest.skill === 'fam-assistant' &&
       parsedRequest.includeHouseholdContext;
     for (let round = 0; round <= 6; round += 1) {
-      const responseFormat = canUseTools && round < 6 ? null : undefined;
+      const responseFormat = parsedRequest.skill === 'fam-cook-from-inventory' &&
+          recipeSuggestionContext !== null
+        ? activeProvider === 'openrouter'
+          ? createCookingSuggestionResponseFormat(recipeSuggestionContext)
+          : 'json_object'
+        : canUseTools && round < 6
+        ? null
+        : undefined;
       try {
         provider = await dependencies.complete({
           provider: activeProvider,
           model,
           messages: providerMessages,
-          ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS, responseFormat } : {}),
+          ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS } : {}),
+          ...(responseFormat === undefined ? {} : { responseFormat }),
           ...(parsedRequest.skill === 'fam-recipe-import' ? { hideReasoning: true } : {}),
         });
       } catch {
@@ -2929,13 +3060,33 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
     const recipeImportDraft = parsedRequest.skill === 'fam-recipe-import'
       ? parseRecipeImportDraft(parsedResult)
       : null;
+    let recipeSuggestionResult: RecipeSuggestionResponse | null = null;
+    if (parsedRequest.skill === 'fam-cook-from-inventory') {
+      if (recipeSuggestionContext === null) {
+        return await refundAndRespond({ error: 'gateway_context_invalid' }, 500);
+      }
+      const validation = validateRecipeSuggestionResponse(recipeSuggestionContext, parsedResult);
+      if (!validation.ok) {
+        console.warn(JSON.stringify({
+          event: 'ai_gateway_provider_contract_violation',
+          requestId: currentRequestId,
+          issues: validation.issues.map(({ code, path }) => ({ code, path })),
+        }));
+        return await refundAndRespond({
+          error: 'provider_contract_violation',
+          issues: validation.issues.map(({ code, path }) => ({ code, path })),
+        }, 502);
+      }
+      recipeSuggestionResult = validation.value;
+    }
+
     const validationError = parsedRequest.skill === 'fam-inventory-capture'
       ? validateCaptureResult(parsedResult, parsedRequest)
       : parsedRequest.skill === 'fam-assistant'
       ? (isValidAssistantResult(parsedResult) ? null : 'invalid_assistant_reply')
       : parsedRequest.skill === 'fam-recipe-import'
       ? (recipeImportDraft ? null : 'invalid_recipe_import_draft')
-      : validateCookingResult(parsedResult, preparedContext, parsedRequest);
+      : null;
     if (validationError) {
       if (validationError === 'invalid_assistant_reply') {
         logProviderResponseShape({
@@ -3002,6 +3153,8 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
           recipeReferences: [...assistantRecipeReferences.values()].slice(0, 8),
           toolTrace: [...toolTrace],
         }
+        : parsedRequest.skill === 'fam-cook-from-inventory'
+        ? recipeSuggestionResult
         : recipeImportDraft ?? parsedResult,
       generatedAt: now(),
     });

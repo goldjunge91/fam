@@ -1,11 +1,17 @@
-import type { GatewayProvider, ProviderMessage, ProviderResult, ProviderTool } from './handler.ts';
+import type {
+  GatewayProvider,
+  ProviderMessage,
+  ProviderResponseFormat,
+  ProviderResult,
+  ProviderTool,
+} from './handler.ts';
 
 export type ProviderCompletionInput = {
   provider?: GatewayProvider;
   model: string;
   messages: ProviderMessage[];
   tools?: ProviderTool[];
-  responseFormat?: 'json_object' | null;
+  responseFormat?: ProviderResponseFormat;
   hideReasoning?: boolean;
   maxTokens?: number;
 };
@@ -174,7 +180,7 @@ export function createProviderCompleter(
         : { max_tokens: input.maxTokens ?? 1_536 }),
       ...((input.responseFormat === null || input.tools?.length)
         ? {}
-        : { response_format: { type: input.responseFormat ?? 'json_object' } }),
+        : { response_format: input.responseFormat ?? { type: 'json_object' } }),
       ...(groqQwenJsonCompletion ? { reasoning_format: 'hidden', reasoning_effort: 'none' } : {}),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),
       ...(provider === 'openrouter' ? { usage: { include: true } } : {}),

@@ -58,6 +58,12 @@ function numberOrNull(value: unknown): number | null {
   return typeof value === 'number' && Number.isFinite(value) ? value : null;
 }
 
+function recipeSteps(value: unknown): string[] {
+  return typeof value === 'string'
+    ? value.split(/\r?\n+/).map((step) => step.trim()).filter((step) => step.length > 0)
+    : [];
+}
+
 function relationProductName(value: unknown): string | null {
   if (Array.isArray(value)) {
     const first = value.find(isRecord);
@@ -148,7 +154,7 @@ export async function loadRelevantCatalogRecipes(
       client
         .from('catalog_recipes')
         .select(
-          'id, slug, title, cook_time_minutes, default_servings, dietary_tags, sort_order, matched_items:catalog_recipe_component_items!inner()',
+          'id, slug, title, instructions, cook_time_minutes, default_servings, dietary_tags, sort_order, matched_items:catalog_recipe_component_items!inner()',
         )
         .eq('status', 'published')
         .eq('matched_items.product_id', productId)
@@ -266,6 +272,7 @@ export async function loadRelevantCatalogRecipes(
         : [],
       allergens: null,
       ingredients,
+      steps: recipeSteps(row.instructions),
       ingredientDataComplete: true,
     });
   }

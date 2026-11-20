@@ -10,6 +10,7 @@ import {
   type GatewayProvider,
   GROQ_ALLOWED_MODELS,
   type HouseholdRecipeSelection,
+  type ProviderResponseFormat,
 } from './handler.ts';
 
 const CONTEXT: GatewayCookingContext = {
@@ -50,15 +51,18 @@ const CONTEXT: GatewayCookingContext = {
 };
 
 const COOKING_RESULT = {
-  kind: 'cooking_suggestion.v1',
-  recipeId: 'recipe-1',
-  title: 'Tomatenpfanne',
-  usedLots: ['lot-tomato'],
-  missingIngredients: [],
-  estimatedMinutes: 20,
-  servings: 2,
-  rationale: 'Die Tomate wird zuerst verwendet.',
-  constraintChecks: { allergies: 'pass', dietaryPattern: 'pass', time: 'pass' },
+  schema_version: 1,
+  meals: [{
+    title: 'Tomatenpfanne',
+    source: 'model_generated',
+    recipe_id: null,
+    servings: 2,
+    used_items: [],
+    shopping_needs: [],
+    additional_ingredients: [],
+    steps: ['Tomaten garen.'],
+    notes: [],
+  }],
 };
 
 const RECIPE_IMPORT_RESULT = {
@@ -119,7 +123,7 @@ function setup(
   const calls: Array<{
     model: string;
     provider: GatewayProvider | undefined;
-    responseFormat: 'json_object' | null | undefined;
+    responseFormat: ProviderResponseFormat | undefined;
     hideReasoning: boolean | undefined;
     system: string;
     user: string;
@@ -1321,6 +1325,7 @@ Deno.test('cooking accepts a recipe only when the projection covers the exact ac
       ...CONTEXT,
       recipes: [{
         ...CONTEXT.recipes[0]!,
+        steps: ['Tomaten garen.'],
         allergenProjection: {
           status: 'clear',
           allergenIds: ['EU_05_PEANUTS'],
@@ -1343,14 +1348,17 @@ Deno.test('cooking accepts a recipe only when the projection covers the exact ac
   }));
 
   assertEquals(response.status, 200);
-  assertEquals(calls.length, 1);
+  assertEquals(calls.length, 0);
 });
 
 Deno.test('rejects provider output that invents an inventory lot', async () => {
   const { handler, refunds } = setup({
     providerContent: JSON.stringify({
       ...COOKING_RESULT,
-      usedLots: ['lot-invented'],
+      meals: [{
+        ...COOKING_RESULT.meals[0],
+        used_items: [{ inventory_item_id: 'lot-invented', quantity: 1, unit: 'piece' }],
+      }],
     }),
   });
   const response = await handler(
@@ -1366,7 +1374,9 @@ Deno.test('rejects provider output that invents an inventory lot', async () => {
   );
 
   assertEquals(response.status, 502);
-  assertEquals(await response.json(), { error: 'lot_not_allowed' });
+  const body = await response.json();
+  assertEquals(body.error, 'provider_contract_violation');
+  assert(body.issues.some((issue: { code: string }) => issue.code === 'invalid_reference'));
   assertEquals(refunds, [{ requestId: 'request-1', subscriberUserId: 'subscriber-1' }]);
 });
 
