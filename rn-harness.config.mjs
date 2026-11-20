@@ -8,6 +8,23 @@ import {
 } from '@react-native-harness/platform-apple';
 import { webPlatform, chromium } from '@react-native-harness/platform-web';
 
+import {
+  IOS_TARGET_NAME,
+  IOS_TARGET_SYSTEM_VERSION,
+  IOS_TARGET_UDID,
+} from './harness/ios-target.mjs';
+
+const iosRunner = applePlatform({
+  name: 'ios',
+  device: appleSimulator(IOS_TARGET_NAME, IOS_TARGET_SYSTEM_VERSION),
+  bundleId: 'com.goldjunge91.fam1',
+  appLaunchOptions: {
+    arguments: ['--initialUrl', 'http://localhost:8081'],
+  },
+});
+iosRunner.config.targetUdid = IOS_TARGET_UDID;
+iosRunner.runner = new URL('./harness/ios-target-runner.mjs', import.meta.url).href;
+
 const config = {
   // Expo Router owns the app entry point. Harness replaces this entry with
   // its runtime while keeping Expo's normal native bootstrap intact.
@@ -28,18 +45,7 @@ const config = {
       }),
       bundleId: 'com.goldjunge91.fam',
     }),
-    applePlatform({
-      name: 'ios',
-      // The harness resolves the simulator by name and system version, not by
-      // UDID. iPhone 12 mini is the OCR reference device: its screen keeps
-      // receipt line heights high enough for Vision to keep prices attached to
-      // their own row.
-      device: appleSimulator('iPhone 12 mini', '26.2'),
-      bundleId: 'com.goldjunge91.fam1',
-      appLaunchOptions: {
-        arguments: ['--initialUrl', 'http://localhost:8081'],
-      },
-    }),
+    iosRunner,
     webPlatform({
       name: 'web',
       browser: chromium('http://localhost:8081/index.html'),

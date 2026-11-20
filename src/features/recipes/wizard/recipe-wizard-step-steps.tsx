@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
-import { memo, useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { memo, type Ref, useState } from 'react';
+import { type FlatList, TextInput, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
@@ -331,6 +331,7 @@ interface RecipeWizardStepStepsProps {
   components: IngredientComponentGroup[];
   onBack: () => void;
   onNext: () => void;
+  listRef?: Ref<FlatList<WizardStepItem>>;
 }
 
 interface StepCardProps {
@@ -651,6 +652,7 @@ export function RecipeWizardStepSteps({
   components,
   onBack,
   onNext,
+  listRef,
 }: RecipeWizardStepStepsProps) {
   const { colors } = useTheme();
   const ingredients = flattenIngredients(components);
@@ -714,6 +716,7 @@ export function RecipeWizardStepSteps({
       <IngredientLedger ingredients={ingredients} used={used} />
 
       <ReorderableList
+        ref={listRef}
         style={styles.reorderable}
         contentContainerStyle={styles.reorderableContent}
         showsVerticalScrollIndicator={false}

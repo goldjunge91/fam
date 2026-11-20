@@ -1,0 +1,3 @@
+export const IOS_TARGET_UDID = '0EA1E894-BD5C-4F8E-A9BC-8813B16CF2ED';
+export const IOS_TARGET_NAME = 'iPhone 12 mini';
+export const IOS_TARGET_SYSTEM_VERSION = '26.2';
