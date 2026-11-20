@@ -1,6 +1,5 @@
 import * as Linking from 'expo-linking';
 import { getSupabase, type TypedSupabaseClient } from '@/lib/backend/supabase/remote-client';
-import { env } from '@/lib/config/env';
 
 export async function signUp(email: string, password: string) {
   const { data, error } = await getSupabase().auth.signUp({ email, password });
@@ -32,8 +31,9 @@ export async function signOut() {
 }
 
 export async function requestPasswordReset(email: string) {
-  const redirectTo = env.passwordRecoveryUrl ?? Linking.createURL('/password-recovery');
-  const { error } = await getSupabase().auth.resetPasswordForEmail(email, { redirectTo });
+  const { error } = await getSupabase().auth.resetPasswordForEmail(email, {
+    redirectTo: Linking.createURL('/password-recovery'),
+  });
   return { error };
 }
 

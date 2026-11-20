@@ -1,13 +1,23 @@
 // Reads one fresh Supabase recovery message from Mailosaur without exposing its
 // credentials or recovery value in Maestro logs.
 var MAILOSAUR_API_URL = 'https://mailosaur.com/api/messages';
-var RECOVERY_SUBJECT = 'Setze dein Passwort für fam zurück';
+var RECOVERY_SUBJECT_VARIANTS = [
+  'Setze dein Passwort zurück',
+  'Setze dein Passwort für fam zurück',
+  'Reset your password',
+];
 var MAX_ATTEMPTS = 8;
 var POLL_TIMEOUT_MS = 30000;
 var POLL_INTERVAL_MS = 3000;
 
+function isMissingRuntimeValue(value) {
+  if (typeof value !== 'string') return true;
+  var normalized = value.trim().toLowerCase();
+  return normalized === '' || normalized === 'undefined' || normalized === 'null';
+}
+
 function required(name, value) {
-  if (typeof value !== 'string' || value.trim() === '') {
+  if (isMissingRuntimeValue(value)) {
     throw new Error('Fehlende Mailosaur-Laufzeitkonfiguration.');
   }
   return value.trim();
@@ -34,6 +44,7 @@ function validateRecoveryEmail(value, domain) {
   var domainSuffix = '@' + domain.toLowerCase();
   if (
     email.indexOf('@') <= 0 ||
+    email.indexOf('@') !== email.lastIndexOf('@') ||
     email.toLowerCase().slice(-domainSuffix.length) !== domainSuffix
   ) {
     throw new Error('Ungueltige Mailosaur-Empfaengeradresse.');
@@ -46,6 +57,7 @@ function validateConfirmedRecoveryEmail(value, domain) {
   var domainSuffix = '@' + domain.toLowerCase();
   if (
     email.indexOf('@') <= 0 ||
+    email.indexOf('@') !== email.lastIndexOf('@') ||
     email.toLowerCase().slice(-domainSuffix.length) !== domainSuffix
   ) {
     throw new Error('Ungueltige bestaetigte Mailosaur-Empfaengeradresse.');
@@ -71,15 +83,20 @@ function generateRecoveryEmail(addressSuffix, configuredDomain) {
   return localPart + suffix.toLowerCase();
 }
 
+var configuredTestEmail =
+  typeof TEST_EMAIL === 'string' ? TEST_EMAIL.trim() : '';
 var apiKey = '';
 var serverId = '';
 var recipient = '';
 var requestStartedAt = '';
 
 if (mode !== 'address' && mode !== 'preflight') {
+  var normalApiKey = typeof MAILOSAUR_API_KEY === 'string' ? MAILOSAUR_API_KEY : '';
+  var maestroApiKey =
+    typeof MAESTRO_MAILOSAUR_API_KEY === 'string' ? MAESTRO_MAILOSAUR_API_KEY : '';
   apiKey = required(
     'MAILOSAUR_API_KEY',
-    typeof MAILOSAUR_API_KEY === 'string' ? MAILOSAUR_API_KEY : '',
+    isMissingRuntimeValue(normalApiKey) ? maestroApiKey : normalApiKey,
   );
   serverId = required(
     'MAILOSAUR_SERVER_ID',
@@ -108,7 +125,11 @@ if (mode === 'preflight') {
       : '',
     serverDomain,
   );
-  if (recoveryEmail !== confirmedRecoveryEmail) {
+  var setupRecoveryEmail = validateRecoveryEmail(configuredTestEmail, serverDomain);
+  if (
+    recoveryEmail !== confirmedRecoveryEmail ||
+    setupRecoveryEmail !== confirmedRecoveryEmail
+  ) {
     throw new Error('Recovery-Adresse und bestaetigte Adresse stimmen nicht ueberein.');
   }
   output.confirmedRecoveryEmail = confirmedRecoveryEmail;
@@ -169,7 +190,6 @@ function listMessages() {
   var query = [
     'server=' + encodeURIComponent(serverId),
     'sentTo=' + encodeURIComponent(recipient),
-    'subject=' + encodeURIComponent(RECOVERY_SUBJECT),
     'receivedAfter=' + encodeURIComponent(requestStartedAt),
   ];
   if (configuredSender) {
@@ -226,6 +246,14 @@ function messageReceivedAt(message) {
   return message && (message.received || message.Received || message.created || message.Created || '');
 }
 
+function isRecoverySubject(value) {
+  var normalized = String(value).trim().toLowerCase();
+  for (var index = 0; index < RECOVERY_SUBJECT_VARIANTS.length; index += 1) {
+    if (normalized === RECOVERY_SUBJECT_VARIANTS[index].toLowerCase()) return true;
+  }
+  return false;
+}
+
 function isFresh(message) {
   var receivedAt = Date.parse(messageReceivedAt(message));
   return isFinite(receivedAt) && receivedAt >= parsedRequestStart;
@@ -239,7 +267,7 @@ function isRecoveryMessage(summary, detail) {
   if (!recipientMatches) return false;
 
   var subject = messageSubject(message) || messageSubject(summary);
-  if (String(subject).trim().toLowerCase() !== RECOVERY_SUBJECT.toLowerCase()) {
+  if (!isRecoverySubject(subject)) {
     return false;
   }
 
@@ -287,7 +315,7 @@ function recoveryBodyValues(message) {
 
 function extractLink(message) {
   var values = recoveryBodyValues(message);
-  var linkPattern = /fam:\/\/\/password-recovery\?[^\s"'<>]+/gi;
+  var linkPattern = /fam:\/\/\/?password-recovery\?[^\s"'<>]+/gi;
 
   for (var valueIndex = 0; valueIndex < values.length; valueIndex += 1) {
     var normalized = values[valueIndex].replace(/&amp;/g, '&');
@@ -351,10 +379,12 @@ function findRecoveryValue() {
 }
 
 if (mode === 'address') {
-  output.testEmail = generateRecoveryEmail(
-    typeof MAILOSAUR_ADDRESS_SUFFIX === 'string' ? MAILOSAUR_ADDRESS_SUFFIX : '',
-    serverDomain,
-  );
+  output.testEmail = configuredTestEmail
+    ? validateRecoveryEmail(configuredTestEmail, serverDomain)
+    : generateRecoveryEmail(
+        typeof MAILOSAUR_ADDRESS_SUFFIX === 'string' ? MAILOSAUR_ADDRESS_SUFFIX : '',
+        serverDomain,
+      );
   console.log('Eindeutige Mailosaur-Testadresse erzeugt: ' + output.testEmail);
 } else if (mode !== 'preflight') {
   var recoveryValue = null;

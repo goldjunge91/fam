@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { delimiter, join } from 'node:path';
+import { basename, delimiter, join } from 'node:path';
 import { runMaestro } from './lib/run-maestro';
 
 function findAdb(): string | null {
@@ -41,6 +41,12 @@ function findConnectedAndroidDevice(): string | null {
   );
 }
 
+const REMOTE_FLOW_NAMES = new Set([
+  'registration-remote-mailosaur.yaml',
+  'password-reset-remote-code.yaml',
+  'password-reset-remote-link.yaml',
+]);
+
 const root = '.maestro/android/flows';
 const args = process.argv.slice(2);
 const requestedFlow = args.find(
@@ -49,6 +55,12 @@ const requestedFlow = args.find(
 const relativeFlow = requestedFlow?.startsWith(`${root}/`)
   ? requestedFlow.slice(root.length + 1)
   : requestedFlow;
+
+if (requestedFlow && REMOTE_FLOW_NAMES.has(basename(requestedFlow))) {
+  console.error('Remote Mailosaur-Flows sind ausschließlich für iOS freigegeben.');
+  process.exit(1);
+}
+
 const flowPath = relativeFlow ? `${root}/${relativeFlow}` : root;
 const forwardedArgs = args.filter((arg) => arg !== requestedFlow);
 const excludedTags = requestedFlow ? [] : ['--exclude-tags', 'fixture,local-session,manual'];

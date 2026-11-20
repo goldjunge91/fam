@@ -1,8 +1,5 @@
 import type { ConfigContext, ExpoConfig } from 'expo/config';
 
-const { normalizeAccountDomain }: typeof import('./src/lib/config/account-domain') =
-  require('./src/lib/config/account-domain.ts');
-
 type UpdateChannel = 'development' | 'preview' | 'preview-testflight' | 'production';
 const famAppGroup = 'group.com.goldjunge91.fam1';
 
@@ -24,7 +21,6 @@ function getUpdateChannel(): UpdateChannel {
 
 export default ({ config }: ConfigContext): ExpoConfig => {
   const iosMlKitOcrEnabled = process.env.FAM_IOS_MLKIT_OCR === '1';
-  const accountDomain = normalizeAccountDomain(process.env.EXPO_PUBLIC_ACCOUNT_DOMAIN);
   const existingAppGroups = config.ios?.entitlements?.['com.apple.security.application-groups'];
   const appGroups = [
     ...(Array.isArray(existingAppGroups)
@@ -45,20 +41,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
       : []),
     keychainGroup,
   ];
-  const associatedDomains = accountDomain
-    ? [...new Set([...(config.ios?.associatedDomains ?? []), `applinks:${accountDomain}`])]
-    : config.ios?.associatedDomains;
-  const androidIntentFilters = accountDomain
-    ? [
-        ...(config.android?.intentFilters ?? []),
-        {
-          action: 'VIEW',
-          autoVerify: true,
-          data: [{ scheme: 'https', host: accountDomain, path: '/password-recovery' }],
-          category: ['BROWSABLE', 'DEFAULT'],
-        },
-      ]
-    : config.android?.intentFilters;
   // expo-ai-kit provides Apple Vision; expo-mlkit-ocr provides the optional
   // Google ML Kit path. iosEngine only configures the latter package.
   //
@@ -100,7 +82,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     ...config,
     ios: {
       ...config.ios,
-      ...(associatedDomains ? { associatedDomains } : {}),
       entitlements: {
         ...config.ios?.entitlements,
         'com.apple.security.application-groups': [...new Set(appGroups)],
@@ -109,7 +90,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     },
     android: {
       ...config.android,
-      ...(androidIntentFilters ? { intentFilters: androidIntentFilters } : {}),
     },
     plugins: [
       ...(config.plugins ?? []),

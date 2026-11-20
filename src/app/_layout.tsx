@@ -1,4 +1,4 @@
-import { ObserveRoot } from 'expo-observe';
+import { Observe, ObserveRoot } from 'expo-observe';
 
 import { ScreenshotDriver } from '@/components/ScreenshotDriver';
 import { AppProviders } from '@/features/app-shell/app-providers';
@@ -10,6 +10,10 @@ import '@/i18n';
 import { Sentry } from '@/lib/observability/providers/sentry';
 import { PerformanceMonitorDevTools } from '@/lib/optionals/PerformanceMonitorDevTools';
 import { RozeniteDevTools } from '@/lib/optionals/RozeniteDevTools';
+
+Observe.configure({
+  integrations: { 'expo-router': true },
+});
 
 function RootLayout() {
   initializeAppRuntime();

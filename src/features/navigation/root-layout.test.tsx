@@ -9,9 +9,19 @@ const mockRootNavigator = jest.fn(() => null);
 const mockScreenshotDriver = jest.fn(() => null);
 const mockPerformanceTools = jest.fn(() => null);
 const mockRozeniteTools = jest.fn(() => null);
+const observeInitializationEvents: string[] = [];
+const mockConfigureObserve = jest.fn(() => {
+  observeInitializationEvents.push('configure');
+});
 
 jest.doMock('expo-observe', () => ({
-  ObserveRoot: { wrap: (component: unknown) => component },
+  Observe: { configure: mockConfigureObserve },
+  ObserveRoot: {
+    wrap: (component: unknown) => {
+      observeInitializationEvents.push('wrap');
+      return component;
+    },
+  },
 }));
 
 jest.doMock('@/components/ScreenshotDriver', () => ({
@@ -47,6 +57,13 @@ describe('root Expo layout', () => {
       value: enabled,
     });
   };
+
+  it('configures the Expo Router integration before wrapping the root', () => {
+    expect(mockConfigureObserve).toHaveBeenCalledWith({
+      integrations: { 'expo-router': true },
+    });
+    expect(observeInitializationEvents).toEqual(['configure', 'wrap']);
+  });
 
   it('initializes foreground services only when the root view mounts', async () => {
     setDevelopmentMode(false);

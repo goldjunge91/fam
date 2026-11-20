@@ -1,4 +1,3 @@
-const mockConfigureObserve = jest.fn();
 const mockPreventAutoHide = jest.fn();
 const mockConfigureReanimated = jest.fn();
 const mockInitMobileAds = jest.fn();
@@ -13,9 +12,6 @@ const mockInitSentry = jest.fn();
 const mockShoppingListSnapshot = jest.fn();
 const mockQuickAddSnapshot = jest.fn();
 
-jest.mock('expo-observe', () => ({
-  Observe: { configure: (...args: unknown[]) => mockConfigureObserve(...args) },
-}));
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: (...args: unknown[]) => mockPreventAutoHide(...args),
 }));
@@ -78,9 +74,6 @@ describe('initializeAppRuntime', () => {
     expect(mockInitMobileAds).toHaveBeenCalledTimes(1);
     expect(mockShoppingListSnapshot).toHaveBeenCalledWith({ openCount: 0 });
     expect(mockQuickAddSnapshot).toHaveBeenCalledWith({ articleName: 'Milch hinzufügen' });
-    expect(mockConfigureObserve).toHaveBeenCalledWith({
-      integrations: { 'expo-router': true },
-    });
     expect(mockFinishPerformance).toHaveBeenCalledWith('completed', { initialized: true });
   });
 

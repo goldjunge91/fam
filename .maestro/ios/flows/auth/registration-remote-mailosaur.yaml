@@ -7,46 +7,69 @@ env:
   MAILOSAUR_SERVER_ID: ${MAILOSAUR_SERVER_ID || "opbingdz"}
   MAILOSAUR_SERVER_DOMAIN: ${MAILOSAUR_SERVER_DOMAIN || "opbingdz.mailosaur.net"}
   MAILOSAUR_ADDRESS_SUFFIX: ${MAILOSAUR_ADDRESS_SUFFIX || "@opbingdz.mailosaur.net"}
-  TEST_PASSWORD: ${TEST_PASSWORD}
+  TEST_EMAIL: ${TEST_EMAIL || ""}
+  TEST_PASSWORD: ${TEST_PASSWORD || ""}
 ---
 # Opt-in: creates a fresh remote Supabase account through the real iOS UI.
 # Existing accounts are not deleted or reused. If Supabase reports a duplicate,
 # the intentional failing assertion below stops this setup run. Only after the
-# signup OTP is accepted and the dashboard is reached may the unchanged
-# output.testEmail be handed to a later recovery flow as both TEST_EMAIL and
-# REMOTE_CONFIRMED_EMAIL.
+# After either signup OTP acceptance or direct Hosted-Supabase confirmation,
+# the dashboard must be reached before unchanged output.testEmail is handed to
+# a later recovery flow as both TEST_EMAIL and REMOTE_CONFIRMED_EMAIL.
 - runScript:
     file: ../../../scripts/auth/read-remote-password-recovery.js
     env:
       MAILOSAUR_ADDRESS_SUFFIX: "${MAILOSAUR_ADDRESS_SUFFIX}"
       MAILOSAUR_SERVER_DOMAIN: "${MAILOSAUR_SERVER_DOMAIN}"
+      TEST_EMAIL: "${TEST_EMAIL}"
       RECOVERY_MODE: "address"
 - evalScript: ${output.signupStartedAt = new Date().toISOString()}
 # output.testEmail is the unique per-run TEST_EMAIL used by the real signup UI.
-- runFlow: ../../subflows/launch-local-dev-client-preserve-state.yaml
+- runFlow: ../../subflows/launch-local-dev-client-remote-preserve-state.yaml
 - runFlow:
     when:
       visible: "Willkommen"
     commands:
       - runFlow: ../../subflows/onboarding-welcome.yaml
+- runFlow:
+    when:
+      visible: '^(Noch kein Konto\? Registrieren|No account yet\? Sign up)$'
+    commands:
+      - tapOn:
+          text: '^(Noch kein Konto\? Registrieren|No account yet\? Sign up)$'
+# Welcome -> Jetzt starten lands on the default registration branch of the
+# account step; the sign-in entry above reaches the same form via its toggle.
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible:
+      id: "sign-up-email"
+    timeout: 30000
+- runScript:
+    file: ../../../scripts/auth/generate-remote-signup-password.js
+    env:
+      TEST_PASSWORD: "${TEST_PASSWORD}"
 - tapOn:
     id: "sign-up-email"
 - inputText: "${output.testEmail}"
 - tapOn:
     id: "sign-up-password"
-- inputText: "${TEST_PASSWORD}"
+- inputText: "${output.remoteSignupPassword}"
 - scrollUntilVisible:
     element:
       id: "sign-up-password-confirmation"
     direction: DOWN
 - tapOn:
     id: "sign-up-password-confirmation"
-- inputText: "${TEST_PASSWORD}"
+- inputText: "${output.remoteSignupPassword}"
 - tapOn:
     text: "^(Done|Fertig)$"
     optional: true
 - tapOn:
     id: "sign-up-submit"
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*|Bestätigung ausstehend|Dein Profil)$"
+    timeout: 30000
 - runFlow:
     when:
       visible: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"
@@ -55,27 +78,34 @@ env:
       # failure points the operator to the explicit TEST_EMAIL recovery path.
       - assertNotVisible:
           text: "^(Für diese Adresse gibt es schon ein Konto.*|An account already exists for this address.*)$"
-- extendedWaitUntil:
-    visible: "Bestätigung ausstehend"
-    timeout: 30000
-- runScript:
-    file: ../../../scripts/auth/read-remote-signup-otp.js
-    env:
-      MAILOSAUR_API_KEY: "${MAILOSAUR_API_KEY}"
-      MAILOSAUR_SERVER_ID: "${MAILOSAUR_SERVER_ID}"
-      MAILOSAUR_SERVER_DOMAIN: "${MAILOSAUR_SERVER_DOMAIN}"
-      SIGNUP_EMAIL: "${output.testEmail}"
-      SIGNUP_STARTED_AT: "${output.signupStartedAt}"
-- tapOn:
-    id: "email-verification-code"
-- setClipboard: "${output.signupCode}"
-- pasteText
-- tapOn:
-    text: "^(Done|Fertig)$"
-    optional: true
-- tapOn: "Bestätigen"
-- extendedWaitUntil:
-    visible: "Später ausfüllen"
-    timeout: 30000
+- runFlow:
+    when:
+      visible: "Bestätigung ausstehend"
+    commands:
+      - runScript:
+          file: ../../../scripts/auth/read-remote-signup-otp.js
+          env:
+            MAILOSAUR_API_KEY: "${MAILOSAUR_API_KEY}"
+            MAILOSAUR_SERVER_ID: "${MAILOSAUR_SERVER_ID}"
+            MAILOSAUR_SERVER_DOMAIN: "${MAILOSAUR_SERVER_DOMAIN}"
+            SIGNUP_EMAIL: "${output.testEmail}"
+            SIGNUP_STARTED_AT: "${output.signupStartedAt}"
+      - tapOn:
+          id: "email-verification-code"
+      - setClipboard: "${output.signupCode}"
+      - pasteText
+      - tapOn:
+          text: "^(Done|Fertig)$"
+          optional: true
+      - tapOn: "Bestätigen"
+      - extendedWaitUntil:
+          visible: "Dein Profil"
+          timeout: 30000
+- runFlow:
+    when:
+      visible: "Dein Profil"
+    commands:
+      - assertVisible: "Schritt 3 von 7"
+      - assertVisible: "Weiter"
 - runFlow: ../../subflows/onboarding-finish.yaml
 - assertVisible: "^(Übersicht|Overview)$"

@@ -95,6 +95,19 @@ describe('SignInScreen', () => {
     expect(mockSignIn).not.toHaveBeenCalled();
   });
 
+  it('blockiert die Anmeldung bei einer unvollständigen E-Mail-Adresse', async () => {
+    await renderScreen();
+
+    await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'maestro@');
+    await fireEvent.changeText(screen.getByLabelText('Passwort'), 'password123');
+    await fireEvent.press(screen.getByRole('button', { name: 'Anmelden' }));
+
+    expect(
+      await screen.findByText('Das sieht nicht wie eine E-Mail-Adresse aus.'),
+    ).toBeOnTheScreen();
+    expect(mockSignIn).not.toHaveBeenCalled();
+  });
+
   it('zeigt Validierungsfehler auf Englisch an', async () => {
     await i18n.changeLanguage('en');
     await renderScreen();

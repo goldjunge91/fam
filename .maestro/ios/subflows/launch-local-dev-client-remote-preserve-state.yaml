@@ -1,0 +1,46 @@
+appId: com.goldjunge91.fam1
+env:
+  METRO_URL: ${METRO_URL || "http://127.0.0.1:8081"}
+---
+# Remote journeys launch the installed Dev Client without deleting its state.
+# If the client has no bundle selected yet, connect it to the already running
+# Metro instance before waiting for an app auth, recovery, or onboarding marker.
+- launchApp:
+    clearState: false
+- runFlow:
+    when:
+      visible: "Enter URL manually"
+    commands:
+      - tapOn: "Enter URL manually"
+      - eraseText: 100
+      - inputText: "${METRO_URL}"
+      - tapOn: "Connect"
+- runFlow:
+    when:
+      visible: '^(Open in "fam"|In .* öffnen\?)$'
+    commands:
+      - tapOn:
+          point: "67%,54%"
+- runFlow:
+    when:
+      visible: "^(Continue|Fortfahren)$"
+    commands:
+      - tapOn:
+          text: "^(Continue|Fortfahren)$"
+      - waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "^(Close|Schließen)$"
+    commands:
+      - tapOn:
+          text: "^(Close|Schließen)$"
+      - waitForAnimationToEnd
+- waitForAnimationToEnd
+- extendedWaitUntil:
+    visible: '^(Willkommen|Weiter|Anmelden|Sign in|Ich habe schon ein Konto|Noch kein Konto\? Registrieren|No account yet\? Sign up|Passwort vergessen|Forgot password|Konto erstellen|Create account|Passwort zurücksetzen|Reset password|E-Mail unterwegs|Email on its way|E-Mail-Adresse ändern|E-Mail-Code eingeben|Enter email code|Neues Passwort|New password|Bestätigung ausstehend|Dein Profil|Passwort geändert|Password changed|Übersicht|Overview)$'
+    timeout: 120000
+- runFlow:
+    when:
+      visible: "^(Übersicht|Overview)$"
+    commands:
+      - runFlow: sign-out.yaml

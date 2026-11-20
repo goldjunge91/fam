@@ -33,19 +33,9 @@ const mockRecoveryAuth = {
   signOut: jest.fn(),
 };
 const mockRecoveryClient = { auth: mockRecoveryAuth };
-let mockRecoveryUrl: string | undefined;
-
 jest.mock('@/lib/backend/supabase/remote-client', () => ({
   createPasswordRecoveryClient: () => mockRecoveryClient,
   getSupabase: () => ({ auth: mockPrimaryAuth }),
-}));
-
-jest.mock('@/lib/config/env', () => ({
-  env: {
-    get passwordRecoveryUrl() {
-      return mockRecoveryUrl;
-    },
-  },
 }));
 
 jest.mock('expo-linking', () => ({
@@ -55,7 +45,6 @@ jest.mock('expo-linking', () => ({
 describe('auth API', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    mockRecoveryUrl = undefined;
   });
 
   it('forwards signup, verification, resend, password sign-in and sign-out', async () => {
@@ -107,17 +96,6 @@ describe('auth API', () => {
       redirectTo: 'fam:///password-recovery',
     });
     expect(mockPrimaryAuth.updateUser).toHaveBeenCalledWith({ password: 'new-secret' });
-  });
-
-  it('uses the configured HTTPS recovery URL when available', async () => {
-    mockRecoveryUrl = 'https://account.example.test/password-recovery';
-    mockPrimaryAuth.resetPasswordForEmail.mockResolvedValue({ error: null });
-
-    await requestPasswordReset('person@example.test');
-
-    expect(mockPrimaryAuth.resetPasswordForEmail).toHaveBeenCalledWith('person@example.test', {
-      redirectTo: 'https://account.example.test/password-recovery',
-    });
   });
 
   it('verifies the recovery code on the isolated client and updates there', async () => {

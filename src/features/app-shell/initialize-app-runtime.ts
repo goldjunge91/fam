@@ -1,4 +1,3 @@
-import { Observe } from 'expo-observe';
 import * as SplashScreen from 'expo-splash-screen';
 import { configureReanimatedLogger } from 'react-native-reanimated';
 
@@ -31,10 +30,6 @@ export function initializeAppRuntime(): void {
     initMobileAds();
     ShoppingListWidget.updateSnapshot({ openCount: 0 });
     QuickAddShoppingWidget.updateSnapshot({ articleName: 'Milch hinzufügen' });
-
-    Observe.configure({
-      integrations: { 'expo-router': true },
-    });
 
     finishPerformance('completed', { initialized: true });
   } catch (error) {

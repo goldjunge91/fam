@@ -17,7 +17,9 @@ type HttpConfig = {
 
 type ScriptContext = {
   MAILOSAUR_ADDRESS_SUFFIX?: string;
+  TEST_EMAIL?: string;
   MAILOSAUR_API_KEY?: string;
+  MAESTRO_MAILOSAUR_API_KEY?: string;
   MAILOSAUR_SERVER_DOMAIN?: string;
   MAILOSAUR_SERVER_ID?: string;
   MAILOSAUR_SENDER?: string;
@@ -74,6 +76,8 @@ function runHelper({
   responseForMissingMessages = false,
   allowFailure = false,
   recoveryEmail = recipient,
+  apiKeyValue = apiKey,
+  maestroApiKeyValue,
 }: {
   mode: 'code' | 'link';
   messages?: unknown[];
@@ -83,11 +87,16 @@ function runHelper({
   responseForMissingMessages?: boolean;
   allowFailure?: boolean;
   recoveryEmail?: string;
+  apiKeyValue?: string;
+  maestroApiKeyValue?: string;
 }): ScriptContext {
   const output: ScriptContext['output'] = {};
   let listRequestCount = 0;
   const context: ScriptContext = {
-    MAILOSAUR_API_KEY: apiKey,
+    ...(apiKeyValue !== undefined ? { MAILOSAUR_API_KEY: apiKeyValue } : {}),
+    ...(maestroApiKeyValue !== undefined
+      ? { MAESTRO_MAILOSAUR_API_KEY: maestroApiKeyValue }
+      : {}),
     MAILOSAUR_SERVER_DOMAIN: serverDomain,
     MAILOSAUR_SERVER_ID: serverId,
     RECOVERY_EMAIL: recoveryEmail,
@@ -127,11 +136,13 @@ function runHelper({
 }
 
 function runPreflight({
+  testEmail,
   recoveryEmail = recipient,
   confirmedRecoveryEmail = recipient,
   serverDomainValue = serverDomain,
   allowFailure = false,
 }: {
+  testEmail?: string;
   recoveryEmail?: string;
   confirmedRecoveryEmail?: string;
   serverDomainValue?: string;
@@ -139,6 +150,7 @@ function runPreflight({
 }): ScriptContext {
   const output: ScriptContext['output'] = {};
   const context: ScriptContext = {
+    ...(testEmail ? { TEST_EMAIL: testEmail } : {}),
     MAILOSAUR_SERVER_DOMAIN: serverDomainValue,
     RECOVERY_EMAIL: recoveryEmail,
     CONFIRMED_RECOVERY_EMAIL: confirmedRecoveryEmail,
@@ -160,6 +172,7 @@ function runPreflight({
 describe('read-remote-password-recovery Maestro helper', () => {
   it('accepts the confirmed setup handoff without contacting Mailosaur', () => {
     const context = runPreflight({
+      testEmail: 'reset-123@mailosaur.example',
       recoveryEmail: '  reset-123@mailosaur.example  ',
       confirmedRecoveryEmail: 'reset-123@mailosaur.example',
     });
@@ -179,6 +192,43 @@ describe('read-remote-password-recovery Maestro helper', () => {
     expect(different.output.confirmedRecoveryEmail).toBeUndefined();
     expect(missing.http.get).not.toHaveBeenCalled();
     expect(different.http.get).not.toHaveBeenCalled();
+  });
+
+  it('rejects a missing TEST_EMAIL before handing the confirmed address to recovery', () => {
+    const context = runPreflight({ allowFailure: true });
+
+    expect(context.output.confirmedRecoveryEmail).toBeUndefined();
+    expect(context.http.get).not.toHaveBeenCalled();
+  });
+
+  it('rejects a duplicated complete address before exposing a recovery output', () => {
+    const duplicatedEmail =
+      'fam-e2e-mwosk2db-9z1kn4mc@opbingdz.mailosaur.net9z1kn4mc@opbingdz.mailosaur.net';
+    const context = runPreflight({
+      recoveryEmail: duplicatedEmail,
+      confirmedRecoveryEmail: duplicatedEmail,
+      serverDomainValue: 'opbingdz.mailosaur.net',
+      allowFailure: true,
+    });
+
+    expect(context.output.confirmedRecoveryEmail).toBeUndefined();
+    expect(context.http.get).not.toHaveBeenCalled();
+  });
+
+  it('rejects a duplicated TEST_EMAIL before handing the confirmed address to recovery', () => {
+    const completeEmail = 'fam-e2e-mwosk2db-9z1kn4mc@opbingdz.mailosaur.net';
+    const duplicatedEmail =
+      'fam-e2e-mwosk2db-9z1kn4mc@opbingdz.mailosaur.net9z1kn4mc@opbingdz.mailosaur.net';
+    const context = runPreflight({
+      testEmail: duplicatedEmail,
+      recoveryEmail: completeEmail,
+      confirmedRecoveryEmail: completeEmail,
+      serverDomainValue: 'opbingdz.mailosaur.net',
+      allowFailure: true,
+    });
+
+    expect(context.output.confirmedRecoveryEmail).toBeUndefined();
+    expect(context.http.get).not.toHaveBeenCalled();
   });
 
   it('rejects an address outside the configured Mailosaur domain before any request', () => {
@@ -217,6 +267,30 @@ describe('read-remote-password-recovery Maestro helper', () => {
     expect(context.http.get).not.toHaveBeenCalled();
   });
 
+  it('fails closed when Maestro interpolates a missing API key sentinel', () => {
+    expect(() =>
+      runHelper({
+        mode: 'code',
+        apiKeyValue: 'undefined',
+      }),
+    ).toThrow('Fehlende Mailosaur-Laufzeitkonfiguration.');
+  });
+
+  it('accepts the automatically injected MAESTRO API key when the normal key is absent', () => {
+    const context = runHelper({
+      mode: 'code',
+      apiKeyValue: '',
+      maestroApiKeyValue: apiKey,
+      details: {
+        'recovery-message': messageDetail({
+          text: { body: 'Dein Einmalcode\\n654321' },
+        }),
+      },
+    });
+
+    expect(context.output.recoveryCode).toBe('654321');
+  });
+
   it('generates a unique full TEST_EMAIL from the configured Mailosaur suffix', () => {
     function generateAddress() {
       const context = {
@@ -237,6 +311,23 @@ describe('read-remote-password-recovery Maestro helper', () => {
     expect(firstAddress).toMatch(/^fam-e2e-[a-z0-9]+-[a-z0-9]{8}@opbingdz\.mailosaur\.net$/);
     expect(secondAddress).toMatch(/^fam-e2e-[a-z0-9]+-[a-z0-9]{8}@opbingdz\.mailosaur\.net$/);
     expect(firstAddress).not.toBe(secondAddress);
+  });
+
+  it('preserves a complete TEST_EMAIL instead of composing another address', () => {
+    const completeEmail = 'fam-e2e-mwosk2db-9z1kn4mc@opbingdz.mailosaur.net';
+    const context = {
+      TEST_EMAIL: completeEmail,
+      MAILOSAUR_ADDRESS_SUFFIX: '@opbingdz.mailosaur.net',
+      MAILOSAUR_SERVER_DOMAIN: 'opbingdz.mailosaur.net',
+      RECOVERY_MODE: 'address',
+      console: { log: jest.fn() },
+      output: {} as { testEmail?: string },
+    };
+
+    runInNewContext(helperSource, context);
+
+    expect(context.output.testEmail).toBe(completeEmail);
+  expect(context.output.testEmail).not.toContain(`${completeEmail}${completeEmail}`);
   });
 
   it('prints only the generated address for the later confirmed-account handoff', () => {
@@ -300,6 +391,7 @@ describe('read-remote-password-recovery Maestro helper', () => {
     );
     const [listUrl, listConfig] = context.http.get.mock.calls[0] ?? [];
     expect(listUrl).toContain('https://mailosaur.com/api/messages?');
+    expect(listUrl).toContain(`server=${encodeURIComponent(serverId)}`);
     expect(listUrl).toContain(`sentTo=${encodeURIComponent(recipient)}`);
     expect(listUrl).toContain(`receivedAfter=${encodeURIComponent(requestStartedAt)}`);
     expect(listUrl).toContain(`sentFrom=${encodeURIComponent(sender)}`);
@@ -307,6 +399,41 @@ describe('read-remote-password-recovery Maestro helper', () => {
       `Basic ${Buffer.from(`${apiKey}:`).toString('base64')}`,
     );
     expect(context.http.get.mock.calls.some(([url]) => url.endsWith('/valid'))).toBe(true);
+  });
+
+  it('extracts a direct two-slash fam recovery link from the hosted message', () => {
+    const context = runHelper({
+      mode: 'link',
+      details: {
+        'recovery-message': messageDetail({
+          html: {
+            links: [
+              {
+                href: 'fam://password-recovery?token_hash=hash-456&type=recovery',
+              },
+            ],
+          },
+        }),
+      },
+    });
+
+    expect(context.output.recoveryLink).toBe(
+      'fam://password-recovery?token_hash=hash-456&type=recovery',
+    );
+  });
+
+  it('accepts the actual German hosted recovery subject', () => {
+    const context = runHelper({
+      mode: 'code',
+      details: {
+        'recovery-message': messageDetail({
+          subject: 'Setze dein Passwort zurück',
+          text: { body: 'Dein Einmalcode\n654321' },
+        }),
+      },
+    });
+
+    expect(context.output.recoveryCode).toBe('654321');
   });
 
   it('extracts the six-digit value from the rendered German template label', () => {
