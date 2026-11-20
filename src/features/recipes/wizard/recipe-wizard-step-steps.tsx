@@ -1,6 +1,6 @@
 import { Image } from 'expo-image';
 import { memo, type Ref, useState } from 'react';
-import { type FlatList, TextInput, View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
   reorderItems,
@@ -325,13 +325,17 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   );
 }
 
+export type RecipeWizardStepListRef = {
+  scrollToEnd: (params?: { animated?: boolean }) => void;
+};
+
 interface RecipeWizardStepStepsProps {
   steps: WizardStepItem[];
   onStepsChange: (steps: WizardStepItem[]) => void;
   components: IngredientComponentGroup[];
   onBack: () => void;
   onNext: () => void;
-  listRef?: Ref<FlatList<WizardStepItem>>;
+  listRef?: Ref<RecipeWizardStepListRef>;
 }
 
 interface StepCardProps {
@@ -715,8 +719,19 @@ export function RecipeWizardStepSteps({
 
       <IngredientLedger ingredients={ingredients} used={used} />
 
-      <ReorderableList
-        ref={listRef}
+      <ReorderableList<WizardStepItem>
+        ref={(instance) => {
+          const listHandle = instance
+            ? {
+                scrollToEnd: (params?: { animated?: boolean }) => instance.scrollToEnd(params),
+              }
+            : null;
+          if (typeof listRef === 'function') {
+            listRef(listHandle);
+          } else if (listRef) {
+            listRef.current = listHandle;
+          }
+        }}
         style={styles.reorderable}
         contentContainerStyle={styles.reorderableContent}
         showsVerticalScrollIndicator={false}
