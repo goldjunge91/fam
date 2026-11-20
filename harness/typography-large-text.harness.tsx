@@ -2,13 +2,7 @@ import { File, Paths } from 'expo-file-system';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { I18nextProvider } from 'react-i18next';
 import { createRef, type ReactNode, type RefObject, useEffect, useRef, useState } from 'react';
-import {
-  Platform,
-  ScrollView,
-  type FlatList,
-  type LayoutChangeEvent,
-  View,
-} from 'react-native';
+import { Platform, ScrollView, type LayoutChangeEvent, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { beforeEach, describe, expect, it, mock, render } from 'react-native-harness';
 import { screen, userEvent } from '@react-native-harness/ui';
@@ -16,7 +10,10 @@ import { screen, userEvent } from '@react-native-harness/ui';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { i18n } from '@/i18n';
 import type { IngredientComponentGroup, WizardStepItem } from '@/features/recipes/wizard/types';
-import { RecipeWizardStepSteps } from '@/features/recipes/wizard/recipe-wizard-step-steps';
+import {
+  RecipeWizardStepSteps,
+  type RecipeWizardStepListRef,
+} from '@/features/recipes/wizard/recipe-wizard-step-steps';
 
 mock('@/features/auth/api', () => ({
   confirmSignUpWithCode: async (_email: string, code: string) => ({
@@ -221,7 +218,7 @@ async function captureEvidence(
   expect(fontScale).toBe(2);
 }
 
-async function scrollListToEnd(listRef: RefObject<FlatList<WizardStepItem> | null>) {
+async function scrollListToEnd(listRef: RefObject<RecipeWizardStepListRef | null>) {
   const list = listRef.current;
   if (!list) throw new Error('Recipe ReorderableList was not mounted');
   list.scrollToEnd({ animated: false });
@@ -234,7 +231,7 @@ function RecipeFixture({
   onNext,
   onStepsChange,
 }: {
-  listRef: RefObject<FlatList<WizardStepItem> | null>;
+  listRef: RefObject<RecipeWizardStepListRef | null>;
   onBack: () => void;
   onNext: () => void;
   onStepsChange: (steps: WizardStepItem[]) => void;
@@ -326,7 +323,7 @@ describe('large-text typography on the iOS product surfaces', () => {
     const changes: WizardStepItem[][] = [];
     let backPressed = 0;
     let nextPressed = 0;
-    const recipeListRef = createRef<FlatList<WizardStepItem>>();
+    const recipeListRef = createRef<RecipeWizardStepListRef>();
     const { layoutWidth, viewport } = await renderViewport(
       <RecipeFixture
         listRef={recipeListRef}
