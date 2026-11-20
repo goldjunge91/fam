@@ -566,7 +566,7 @@ $$;
 create table if not exists public.ai_credit_bookings (
   subscriber_user_id uuid not null references public.profiles (id) on delete cascade,
   request_id uuid not null,
-  action text not null check (action in ('suggestion', 'recipe', 'voice')),
+  action text not null check (action in ('suggestion', 'recipe', 'recipe_import', 'voice')),
   household_id uuid references public.households (id) on delete cascade,
   credits smallint not null check (credits > 0),
   created_at timestamptz not null default now(),
@@ -688,6 +688,7 @@ begin
   v_weight := case p_action
     when 'suggestion' then 1
     when 'recipe' then 3
+    when 'recipe_import' then 1
     when 'voice' then 2
     else null
   end;

@@ -392,7 +392,7 @@ type AuthResult =
   | { ok: true; userId: string; authorization: string }
   | { ok: false; status: number; error: string; message?: string };
 
-export type GatewayCreditAction = 'suggestion' | 'recipe';
+export type GatewayCreditAction = 'suggestion' | 'recipe' | 'recipe_import';
 
 type EntitlementResult =
   | { ok: true; subscriberUserId: string }
@@ -886,10 +886,8 @@ function supportsRecipeSource(
 }
 
 function creditActionFor(request: ModelGatewayRequest): GatewayCreditAction {
-  return request.skill === 'fam-cook-from-inventory' ||
-      request.skill === 'fam-recipe-import'
-    ? 'recipe'
-    : 'suggestion';
+  if (request.skill === 'fam-recipe-import') return 'recipe_import';
+  return request.skill === 'fam-cook-from-inventory' ? 'recipe' : 'suggestion';
 }
 
 function assistantSearchableRecipes(context: GatewayCookingContext): GatewayRecipe[] {

@@ -677,7 +677,7 @@ Deno.test('imports recipe text and sends a source-grounded recipe prompt', async
   assertEquals(body.source, 'ai');
   assertEquals(body.result, RECIPE_IMPORT_RESULT);
   assertEquals(calls[0]?.hideReasoning, true);
-  assertEquals(bookings[0]?.action, 'recipe');
+  assertEquals(bookings[0]?.action, 'recipe_import');
   assertStringIncludes(calls[0]?.system ?? '', 'Erfinde keine Mengen');
   assertStringIncludes(calls[0]?.user ?? '', 'Linsen weich kochen.');
 });
@@ -731,6 +731,7 @@ Deno.test('imports an Instagram recipe found only in the Whisper transcript thro
   assertEquals((calls[0]?.transcript ?? '').includes(mediaUrl), false);
   assertEquals((calls[0]?.transcript ?? '').includes('video_url'), false);
   assertEquals(bookings.length, 1);
+  assertEquals(bookings[0]?.action, 'recipe_import');
   assertEquals(refunds, []);
 });
 
@@ -767,7 +768,7 @@ Deno.test('prioritizes exact Instagram caption facts and adds Whisper preparatio
     notes: null,
     warnings: [],
   };
-  const { handler, calls, transcriptionUrls } = setup({
+  const { handler, calls, bookings, transcriptionUrls } = setup({
     publicUrlAllowed: true,
     recipePage: {
       ok: true,
@@ -793,6 +794,7 @@ Deno.test('prioritizes exact Instagram caption facts and adds Whisper preparatio
   assertEquals(calls[0]?.provider, 'groq');
   assertEquals(calls[0]?.model, 'qwen/qwen3.8-27b');
   assertEquals(transcriptionUrls, [mediaUrl]);
+  assertEquals(bookings[0]?.action, 'recipe_import');
   assertStringIncludes(calls[0]?.user ?? '', '150 g Gurke');
   assertStringIncludes(calls[0]?.user ?? '', '10 Minuten ziehen lassen.');
   assertStringIncludes(
@@ -1049,7 +1051,7 @@ Deno.test('keeps missing and unclear ingredient amounts empty instead of combini
 Deno.test('imports an Instagram recipe caption when Whisper finds no speech', async () => {
   const mediaUrl = 'https://scontent.cdninstagram.com/music.mp4?token=signed';
   const caption = 'Linsensuppe: 200 g Linsen. Linsen weich kochen.';
-  const { handler, calls, transcriptionUrls } = setup({
+  const { handler, calls, bookings, transcriptionUrls } = setup({
     publicUrlAllowed: true,
     recipePage: {
       ok: true,
@@ -1071,6 +1073,7 @@ Deno.test('imports an Instagram recipe caption when Whisper finds no speech', as
 
   assertEquals(response.status, 200);
   assertEquals(transcriptionUrls, [mediaUrl]);
+  assertEquals(bookings[0]?.action, 'recipe_import');
   assertStringIncludes(calls[0]?.transcript ?? '', caption);
   assertStringIncludes(calls[0]?.transcript ?? '', 'Keine verwertbare Sprache erkannt.');
 });

@@ -5,10 +5,11 @@
 begin;
 \ir helpers.sql
 
-select plan(57);
+select plan(58);
 
 select tests.create_user('44444444-4444-4444-4444-444444444444', 'alice-credits@example.com');
 select tests.create_user('55555555-5555-5555-5555-555555555555', 'bob-credits@example.com');
+select tests.create_user('66666666-6666-6666-6666-666666666666', 'cara-credits@example.com');
 
 select tests.authenticate_as('44444444-4444-4444-4444-444444444444');
 select public.create_household('Credits Haushalt Eins') as hid_one \gset
@@ -16,6 +17,9 @@ select public.create_household('Credits Haushalt Vier') as hid_four \gset
 
 select tests.authenticate_as('55555555-5555-5555-5555-555555555555');
 select public.create_household('Credits Haushalt Zwei') as hid_two \gset
+
+select tests.authenticate_as('66666666-6666-6666-6666-666666666666');
+select public.create_household('Credits Haushalt Import') as hid_import \gset
 
 select tests.as_postgres();
 insert into public.household_members (household_id, user_id, role)
@@ -28,6 +32,9 @@ select public.assign_ai_household(
 );
 select public.assign_ai_household(
   '55555555-5555-5555-5555-555555555555', :'hid_two'::uuid, '2099-01-01T00:00:00Z'::timestamptz
+);
+select public.assign_ai_household(
+  '66666666-6666-6666-6666-666666666666', :'hid_import'::uuid, '2099-01-01T00:00:00Z'::timestamptz
 );
 reset role;
 
@@ -357,6 +364,15 @@ select ok(
 select ok(
   (select not plus_active from public.households where id = :'hid_two'),
   'ein ausgeschoepftes AI-Kontingent aendert Plus nicht (Plus war hier ohnehin nie aktiv)'
+);
+
+select is(
+  (select credits_used
+   from public.book_ai_credit(
+     :'hid_import'::uuid, 'recipe_import', 'b0000000-0000-0000-0000-000000000007'::uuid, 11
+   )),
+  1,
+  'ein Rezeptimport kostet 1 Credit'
 );
 
 -- ---------------------------------------------------------------- kein Rollover

@@ -329,6 +329,7 @@ describe('RecipeImportScreen', () => {
     await waitFor(() =>
       expect(screen.getByText(/Das monatliche Credit-Limit ist erreicht/u)).toBeOnTheScreen(),
     );
+    expect(screen.getByText(/KI-Auswertung: 1 Credit\./u)).toBeOnTheScreen();
     expect(screen.getByText(/Verbraucht: 10\/10 diesen Monat/u)).toBeOnTheScreen();
   });
 

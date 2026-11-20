@@ -804,7 +804,7 @@ export function RecipeImportScreen() {
           ) : null}
           {isAiImportView && hasAI ? (
             <Txt variant="caption" tone="secondary">
-              KI-Auswertung: 3 Credits.
+              KI-Auswertung: 1 Credit.
               {credits
                 ? ' Verbraucht: ' +
                   String(credits.creditsUsed) +
