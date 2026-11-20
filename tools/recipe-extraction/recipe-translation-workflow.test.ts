@@ -8,9 +8,19 @@ type TestCatalog = {
     externalId: string;
     title: string;
     instructions: string;
+    substitutions: Array<{
+      forIngredientId: string;
+      swap: string;
+      savings: string;
+    }>;
     components: Array<{
       name: string;
-      items: Array<{ ingredientName: string; quantity: number; unit: string }>;
+      items: Array<{
+        ingredientName: string;
+        quantity: number;
+        unit: string;
+        source_note: string;
+      }>;
     }>;
     steps: Array<{ text: string }>;
     images: Array<{ sourceUrl: string; altText: string }>;
@@ -28,10 +38,22 @@ const sourceCatalog: TestCatalog = {
       externalId: "waivy:apple-pancakes",
       title: "Apple Pancakes",
       instructions: "Bake for 10 minutes.",
+      substitutions: [
+        {
+          forIngredientId: "flour",
+          swap: "Whole-wheat flour",
+          savings: "Saves 3 minutes.",
+        },
+      ],
       components: [
         {
           name: "Batter",
-          items: [{ ingredientName: "Flour", quantity: 1, unit: "cup" }],
+          items: [{
+            ingredientName: "Flour",
+            quantity: 1,
+            unit: "cup",
+            source_note: "Use 2 tablespoons of water.",
+          }],
         },
       ],
       steps: [{ text: "Cook until golden." }],
@@ -51,10 +73,22 @@ const translatedCatalog: TestCatalog = {
       ...sourceCatalog.recipes[0],
       title: "Apfelpfannkuchen",
       instructions: "10 Minuten backen.",
+      substitutions: [
+        {
+          forIngredientId: "flour",
+          swap: "Whole-wheat flour",
+          savings: "Spart 3 Minuten.",
+        },
+      ],
       components: [
         {
           name: "Teig",
-          items: [{ ingredientName: "Mehl", quantity: 1, unit: "cup" }],
+          items: [{
+            ingredientName: "Mehl",
+            quantity: 1,
+            unit: "cup",
+            source_note: "2 EL Wasser verwenden.",
+          }],
         },
       ],
       steps: [{ text: "Kochen, bis alles goldbraun ist." }],
@@ -135,7 +169,10 @@ describe("recipe translation workflow", () => {
     expect(JSON.parse(readFileSync(reportPath, "utf8"))).toMatchObject({
       status: "passed",
       recipeCount: 1,
-      changedTextPathCount: 6,
+      changedTextPathCount: 8,
+      translationFindings: [],
+      protectedDifferences: [],
+      numericDifferences: [],
     });
 
     const status = runWorkflow(["status", "--dir", workDir]);

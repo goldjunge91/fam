@@ -1,4 +1,5 @@
 import { createImportAuthorizer, fetchWithRetry } from '../tools/batch-import/import-safety';
+import { batchSchema } from '../tools/batch-import/schema';
 
 describe('batch import safety', () => {
   it('accepts one approved target token only once', () => {
@@ -46,5 +47,38 @@ describe('batch import safety', () => {
       ),
     ).rejects.toThrow('remote write was accepted');
     expect(calls).toBe(1);
+  });
+
+  it('preserves source notes and savings in a version two batch', () => {
+    const parsed = batchSchema.parse({
+      schemaVersion: 2,
+      recipes: [
+        {
+          externalId: 'recipe-1',
+          slug: 'recipe-1',
+          title: 'Lentil soup',
+          substitutions: [{
+            forIngredientId: 'ingredient-1',
+            swap: 'Green lentils',
+            savings: 'Saves 3 minutes.',
+          }],
+          components: [{
+            key: 'main',
+            name: 'Main',
+            items: [{
+              key: 'ingredient-1',
+              ingredientName: 'Lentils',
+              grams: 200,
+              source_note: 'Use 2 tablespoons of water.',
+            }],
+          }],
+        },
+      ],
+    });
+
+    expect(parsed.recipes[0]?.components[0]?.items[0]?.source_note).toBe(
+      'Use 2 tablespoons of water.',
+    );
+    expect(parsed.recipes[0]?.substitutions[0]?.savings).toBe('Saves 3 minutes.');
   });
 });
