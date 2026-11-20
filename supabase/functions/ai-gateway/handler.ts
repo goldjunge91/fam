@@ -6,10 +6,7 @@
  */
 
 import {
-  allergenIdForProfileRule,
-  type EuAllergenId,
   type IngredientAliasRecord,
-  projectionIsClearForRules,
   type RecipeAllergenProjection,
 } from './ingredient-knowledge.ts';
 import {
@@ -2255,60 +2252,6 @@ function validMissingFields(value: unknown): value is string[] {
   return validStringArray(value) && value.every((field) => allowed.has(field));
 }
 
-function prepareCookingContext(
-  context: GatewayCookingContext,
-  request: CookingRequest,
-): GatewayCookingContext | null {
-  const recipes = context.recipes
-    .filter((recipe) => {
-      if (request.allergies.length > 0) {
-        const allergenIds = request.allergies.map(allergenIdForProfileRule);
-        if (
-          allergenIds.some((allergenId) => allergenId === null) ||
-          !projectionIsClearForRules(recipe.allergenProjection, allergenIds as EuAllergenId[])
-        ) return false;
-      }
-      if (
-        recipeConflictsWithFoodRules(
-          recipe,
-          context.foodRules ?? EMPTY_FOOD_RULES,
-        )
-      ) return false;
-      if (
-        request.dietaryPattern !== null &&
-        !recipe.dietaryTags.some((tag) =>
-          tag.toLocaleLowerCase('de-DE') ===
-            request.dietaryPattern?.toLocaleLowerCase('de-DE')
-        )
-      ) {
-        return false;
-      }
-      if (
-        request.maxMinutes !== null &&
-        (recipe.estimatedMinutes === null ||
-          recipe.estimatedMinutes > request.maxMinutes)
-      ) {
-        return false;
-      }
-      return !(request.servings !== null && recipe.servings === null);
-    })
-    .sort((a, b) => {
-      if (a.estimatedMinutes === null && b.estimatedMinutes !== null) return 1;
-      if (a.estimatedMinutes !== null && b.estimatedMinutes === null) return -1;
-      if (
-        a.estimatedMinutes !== null && b.estimatedMinutes !== null &&
-        a.estimatedMinutes !== b.estimatedMinutes
-      ) {
-        return a.estimatedMinutes - b.estimatedMinutes;
-      }
-      return a.title.localeCompare(b.title, 'de') ||
-        a.recipeId.localeCompare(b.recipeId);
-    })
-    .slice(0, 3);
-
-  return recipes.length === 0 ? null : { ...context, recipes };
-}
-
 function validateCaptureResult(
   result: JsonRecord,
   request: CaptureRequest,
@@ -2362,80 +2305,6 @@ function validateCaptureResult(
     ) {
       return 'invalid_capture_confidence';
     }
-  }
-
-  return null;
-}
-
-function validateCookingResult(
-  result: JsonRecord,
-  context: GatewayCookingContext,
-  request: CookingRequest,
-): string | null {
-  if (result.kind !== 'cooking_suggestion.v1') return 'invalid_cooking_kind';
-  const required = [
-    'kind',
-    'recipeId',
-    'title',
-    'usedLots',
-    'missingIngredients',
-    'estimatedMinutes',
-    'servings',
-    'rationale',
-    'constraintChecks',
-  ];
-  if (
-    Object.keys(result).some((key) => !required.includes(key)) ||
-    required.some((key) => !(key in result))
-  ) {
-    return 'invalid_cooking_fields';
-  }
-  if (!nonEmptyString(result.recipeId) || !nonEmptyString(result.title)) {
-    return 'invalid_cooking_shape';
-  }
-  if (
-    !validStringArray(result.usedLots) ||
-    !validStringArray(result.missingIngredients)
-  ) {
-    return 'invalid_cooking_arrays';
-  }
-  if (!nonEmptyString(result.rationale)) return 'invalid_cooking_shape';
-  if (!isRecord(result.constraintChecks)) return 'invalid_cooking_constraints';
-  if (
-    result.constraintChecks.allergies !== 'pass' ||
-    !['pass', 'unknown'].includes(
-      String(result.constraintChecks.dietaryPattern),
-    ) ||
-    !['pass', 'unknown'].includes(String(result.constraintChecks.time))
-  ) {
-    return 'invalid_cooking_constraints';
-  }
-  if (
-    request.dietaryPattern !== null &&
-    result.constraintChecks.dietaryPattern !== 'pass'
-  ) {
-    return 'dietary_gate_failed';
-  }
-  if (request.maxMinutes !== null && result.constraintChecks.time !== 'pass') {
-    return 'time_gate_failed';
-  }
-
-  const recipe = context.recipes.find((candidate) => candidate.recipeId === result.recipeId);
-  if (!recipe) return 'recipe_not_allowed';
-  if (result.title.trim() !== recipe.title) return 'recipe_title_mismatch';
-
-  const seenLots = new Set<string>();
-  const allowedLots = new Set(context.inventory.lots.map((lot) => lot.lotId));
-  for (const lotId of result.usedLots) {
-    if (!allowedLots.has(lotId)) return 'lot_not_allowed';
-    if (seenLots.has(lotId)) return 'duplicate_lot';
-    seenLots.add(lotId);
-  }
-
-  if (
-    request.allergies.length > 0 && result.constraintChecks.allergies !== 'pass'
-  ) {
-    return 'allergy_gate_failed';
   }
 
   return null;
