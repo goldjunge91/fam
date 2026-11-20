@@ -1,6 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   type NativeScrollEvent,
@@ -406,6 +407,7 @@ function EmptyPanel({ children }: { children: string }) {
 }
 
 export function RecipesScreen() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
@@ -564,6 +566,15 @@ export function RecipesScreen() {
     <>
       {view === 'discover' || view === 'household' ? (
         <View style={styles.aiActions}>
+          <Press
+            accessibilityRole="button"
+            accessibilityLabel={t('dashboard.chefKoch.entry')}
+            onPress={() => router.push('/chef-koch')}
+            style={styles.aiAction}>
+            <Txt variant="body" weight="700">
+              {t('dashboard.chefKoch.entry')}
+            </Txt>
+          </Press>
           <Press
             accessibilityRole="button"
             onPress={() => router.push('/assistant')}

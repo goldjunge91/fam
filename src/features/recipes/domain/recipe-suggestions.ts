@@ -27,6 +27,7 @@ const recipeSuggestionMealSchema = z
           unit: nonEmptyStringSchema,
         }),
       )
+      .max(2)
       .optional(),
     additional_ingredients: z.array(nonEmptyStringSchema).max(2),
     steps: z.array(nonEmptyStringSchema).min(1),

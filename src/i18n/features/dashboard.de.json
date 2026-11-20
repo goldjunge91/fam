@@ -59,6 +59,11 @@
         "dinner": "Abend"
       }
     },
+    "chefKoch": {
+      "title": "Aus Vorrat kochen",
+      "description": "Passende Mahlzeiten aus eurem Bestand.",
+      "accessibility": "Chef-Koch aus dem Vorrat öffnen"
+    },
     "calories": {
       "ringLabel": "Kalorien",
       "titleSmall": "KALORIEN",
@@ -87,6 +92,23 @@
       "daysShort_other": "Tage",
       "accessibility": "Streak: {{count}} {{unit}}, {{status}}, {{best}}"
     }
+  },
+  "chefKoch": {
+    "entry": "Aus Vorrat kochen",
+    "intro": "Finde passende Mahlzeiten aus eurem Bestand.",
+    "select": "Lebensmittel auswählen",
+    "selected_one": "{{count}} ausgewählt",
+    "selected_other": "{{count}} ausgewählt",
+    "submit": "Vorschläge anzeigen",
+    "loading": "Passende Mahlzeiten werden gesucht.",
+    "empty": "Keine passenden Lebensmittel im Vorrat.",
+    "noHousehold": "Wähle zuerst einen Haushalt aus.",
+    "noAi": "Für Chef-Koch ist ein aktives Fam KI-Abo erforderlich.",
+    "error": "Vorschläge konnten nicht geladen werden.",
+    "retry": "Erneut versuchen",
+    "resultTitle": "Vorschläge aus eurem Vorrat",
+    "used": "Verwendet: {{items}}",
+    "steps": "Zubereitung"
   },
   "gallery": {
     "title": "Karten anpassen",

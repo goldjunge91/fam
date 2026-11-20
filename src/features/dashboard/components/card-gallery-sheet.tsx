@@ -19,7 +19,8 @@ type DashboardCardMetadataKey =
   | 'calories'
   | 'mealPlanner'
   | 'inventory'
-  | 'shoppingList';
+  | 'shoppingList'
+  | 'chefKoch';
 
 const CARD_METADATA: Record<string, { key: DashboardCardMetadataKey; icon: string }> = {
   streak: {
@@ -41,6 +42,10 @@ const CARD_METADATA: Record<string, { key: DashboardCardMetadataKey; icon: strin
   shoppingList: {
     key: 'shoppingList',
     icon: '🛒',
+  },
+  chefKoch: {
+    key: 'chefKoch',
+    icon: '🍳',
   },
 };
 

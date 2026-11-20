@@ -59,6 +59,11 @@
         "dinner": "Dinner"
       }
     },
+    "chefKoch": {
+      "title": "Cook from pantry",
+      "description": "Find meals that fit your current stock.",
+      "accessibility": "Open Chef-Koch from pantry"
+    },
     "calories": {
       "ringLabel": "Calories",
       "titleSmall": "CALORIES",
@@ -87,6 +92,23 @@
       "daysShort_other": "days",
       "accessibility": "Streak: {{count}} {{unit}}, {{status}}, {{best}}"
     }
+  },
+  "chefKoch": {
+    "entry": "Cook from pantry",
+    "intro": "Find meals that fit your current stock.",
+    "select": "Choose ingredients",
+    "selected_one": "{{count}} selected",
+    "selected_other": "{{count}} selected",
+    "submit": "Show suggestions",
+    "loading": "Looking for matching meals.",
+    "empty": "No suitable ingredients in the pantry.",
+    "noHousehold": "Choose a household first.",
+    "noAi": "Chef-Koch requires an active Fam AI subscription.",
+    "error": "Suggestions could not be loaded.",
+    "retry": "Try again",
+    "resultTitle": "Suggestions from your pantry",
+    "used": "Uses: {{items}}",
+    "steps": "Preparation"
   },
   "gallery": {
     "title": "Customize cards",

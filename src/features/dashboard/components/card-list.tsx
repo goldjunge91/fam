@@ -27,6 +27,7 @@ import '@/features/meal-planner/components/dashboard-card';
 import '@/features/inventory/components/dashboard-card';
 import '@/features/shopping-list/components/ui/dashboard-card';
 import '@/features/dashboard/components/streak-dashboard-card';
+import '@/features/dashboard/components/chef-koch-dashboard-card';
 
 const styles = StyleSheet.create({
   emptyCard: {
