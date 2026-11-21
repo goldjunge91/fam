@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
 
+import { RecipeSuggestionGatewayError } from '@/features/recipes/data/recipe-suggestion-gateway';
 import { ChefKochScreen } from './chef-koch-screen';
 
 const mockMutate = jest.fn();
@@ -224,6 +225,19 @@ describe('ChefKochScreen', () => {
     expect(screen.getByText('Tomatenpfanne')).toBeOnTheScreen();
     expect(screen.getByText(/Tomate garen/)).toBeOnTheScreen();
     expect(screen.queryByRole('button', { name: /speichern|save/i })).not.toBeOnTheScreen();
+  });
+
+  it('shows the specific message for safe-recipe failures', async () => {
+    mockSuggestion.isError = true;
+    mockSuggestion.error = new RecipeSuggestionGatewayError(
+      'gateway_request_failed',
+      400,
+      'no_safe_recipe',
+    );
+
+    await render(<ChefKochScreen />);
+
+    expect(screen.getByRole('alert')).toHaveTextContent('Keine passenden Lebensmittel im Vorrat.');
   });
 
   it('keeps the screen behind the current AI entitlement gate', async () => {

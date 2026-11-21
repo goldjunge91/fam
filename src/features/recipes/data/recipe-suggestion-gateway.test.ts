@@ -104,6 +104,25 @@ describe('requestRecipeSuggestions', () => {
     expect((error as Error).message).not.toContain('private provider details');
   });
 
+  it('classifies a plain-object 400 error without remote details', async () => {
+    const functions = invoker({
+      data: null,
+      error: { context: { status: 400 } },
+    });
+
+    const error = await requestRecipeSuggestions(request, functions).catch(
+      (value: unknown) => value,
+    );
+    expect(error).toBeInstanceOf(RecipeSuggestionGatewayError);
+    expect(error).toMatchObject({
+      code: 'gateway_request_failed',
+      status: 400,
+      remoteCode: null,
+      issues: null,
+      requestId: null,
+    });
+  });
+
   it('normalizes transport failures', async () => {
     const functions: FunctionsInvoker = {
       invoke: jest.fn().mockRejectedValue(new Error('offline')),

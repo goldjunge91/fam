@@ -58,3 +58,12 @@ test('registers an accessible dashboard entry that opens Chef-Koch', async () =>
   expect(router.push).toHaveBeenCalledWith('/chef-koch');
   expect(screen.getByText('Aus Vorrat kochen')).toBeOnTheScreen();
 });
+
+test('shows the description twice in the large dashboard layout', async () => {
+  const card = getCards().find((candidate) => candidate.id === 'chefKoch');
+  if (card === undefined) throw new Error('chefKoch card was not registered');
+  const Card = card.component;
+  await render(<Card size="large" />);
+
+  expect(screen.getAllByText('Passende Mahlzeiten aus eurem Bestand.')).toHaveLength(2);
+});
