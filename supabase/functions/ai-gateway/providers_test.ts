@@ -186,6 +186,27 @@ Deno.test('keeps Groq Qwen reasoning controls off for ordinary JSON completions'
   assertEquals('reasoning_effort' in body, false);
 });
 
+Deno.test('serializes the explicit JSON mode marker as an object', async () => {
+  let requestBody = '';
+  const complete = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, (_url, init) => {
+    requestBody = String(init?.body);
+    return Promise.resolve(okResponse());
+  });
+
+  await complete({
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+    messages: [{ role: 'user', content: 'Gib JSON zurück.' }],
+    responseFormat: 'json_object',
+  });
+
+  const body = JSON.parse(requestBody) as Record<string, unknown>;
+  assertEquals(body.response_format, { type: 'json_object' });
+});
+
 Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and token parameter', async () => {
   let url = '';
   let init: RequestInit | undefined;

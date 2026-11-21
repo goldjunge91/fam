@@ -38,6 +38,12 @@ function providerKey(provider: GatewayProvider, config: ProviderConfiguration): 
   return value?.trim() || undefined;
 }
 
+function normalizedResponseFormat(value: ProviderResponseFormat | undefined) {
+  return value === 'json_object'
+    ? { type: 'json_object' as const }
+    : value ?? { type: 'json_object' as const };
+}
+
 function parseProviderResult(body: unknown, model: string): ProviderResult {
   if (typeof body !== 'object' || body === null || Array.isArray(body)) {
     return { ok: false, status: 502, error: 'provider_invalid_response' };
@@ -180,7 +186,7 @@ export function createProviderCompleter(
         : { max_tokens: input.maxTokens ?? 1_536 }),
       ...((input.responseFormat === null || input.tools?.length)
         ? {}
-        : { response_format: input.responseFormat ?? { type: 'json_object' } }),
+        : { response_format: normalizedResponseFormat(input.responseFormat) }),
       ...(groqQwenJsonCompletion ? { reasoning_format: 'hidden', reasoning_effort: 'none' } : {}),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),
       ...(provider === 'openrouter' ? { usage: { include: true } } : {}),
