@@ -79,21 +79,25 @@ public final class FamSharedStoreLifecycleOwner {
     let token = reserveLeaseLocked(name: name, kind: .writer)
     lock.unlock()
 
-    return attachBackgroundTask(token: token, name: name, allowedState: .active)
+    return attachBackgroundTask(token: token, name: name, allowedStates: [.active])
   }
 
   public func beginBackgroundContext(name: String) -> String? {
     guard Self.isValidName(name) else { return nil }
 
     lock.lock()
-    guard state == .background else {
+    guard state == .resigning || state == .background else {
       lock.unlock()
       return nil
     }
     let token = reserveLeaseLocked(name: name, kind: .background)
     lock.unlock()
 
-    return attachBackgroundTask(token: token, name: name, allowedState: .background)
+    return attachBackgroundTask(
+      token: token,
+      name: name,
+      allowedStates: [.resigning, .background]
+    )
   }
 
   public func endLease(token: String) {
@@ -147,14 +151,14 @@ public final class FamSharedStoreLifecycleOwner {
   private func attachBackgroundTask(
     token: String,
     name: String,
-    allowedState: FamSharedStoreLifecycleState
+    allowedStates: [FamSharedStoreLifecycleState]
   ) -> String? {
     // Admission and beginBackgroundTask run in one main-queue critical section.
     // This closes the gap in which applicationWillResignActive could otherwise
     // win after the state check but before the UIKit assertion starts.
     let taskIdentifier = performOnMain {
       lock.lock()
-      guard let lease = leases[token], !lease.ended, state == allowedState else {
+      guard let lease = leases[token], !lease.ended, allowedStates.contains(state) else {
         lock.unlock()
         return UIBackgroundTaskIdentifier.invalid
       }

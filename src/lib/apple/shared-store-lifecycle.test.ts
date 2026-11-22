@@ -67,6 +67,23 @@ describe('shared store lifecycle adapter', () => {
     expect(native.beginWriterLease).not.toHaveBeenCalled();
   });
 
+  it('allows a background context to bridge the resigning transition', () => {
+    const native = nativeModule({ getState: jest.fn().mockReturnValue('resigning') });
+    loadAdapter(native);
+
+    const context = adapter.beginBackgroundContext('db.lifecycle.close');
+
+    expect(context).toMatchObject({
+      kind: 'background',
+      name: 'db.lifecycle.close',
+      token: 'background-token-1',
+    });
+    expect(native.beginBackgroundContext).toHaveBeenCalledWith('db.lifecycle.close');
+
+    context?.end();
+    expect(native.endLease).toHaveBeenCalledWith('background-token-1');
+  });
+
   it('passes the writer name through and ends a native lease exactly once', () => {
     const native = nativeModule();
     loadAdapter(native);

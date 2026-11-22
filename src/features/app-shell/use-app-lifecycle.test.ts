@@ -20,6 +20,15 @@ const mockSuspendForegroundSync = jest.fn();
 const mockResumeForegroundSync = jest.fn();
 const mockSuspendOffDumpOperations = jest.fn();
 const mockResumeOffDumpOperations = jest.fn();
+const mockEndBackgroundContext = jest.fn();
+const mockBeginBackgroundContext = jest.fn((_name: string) => ({
+  kind: 'background' as const,
+  name: 'db.lifecycle.close',
+  token: 'background-token-1',
+  signal: new AbortController().signal,
+  ended: false,
+  end: mockEndBackgroundContext,
+}));
 const mockRemoveAppStateListener = jest.fn();
 let appStateListener: ((state: AppStateStatus) => void) | undefined;
 const mockAddDiagnosticStep = jest.fn();
@@ -54,6 +63,9 @@ jest.mock('@/lib/observability/providers/sentry', () => ({
 jest.mock('@/lib/db/local-client', () => ({
   closeDatabaseForLifecycle: () => mockCloseDatabaseForLifecycle(),
 }));
+jest.mock('@/lib/apple/shared-store-lifecycle', () => ({
+  beginBackgroundContext: (name: string) => mockBeginBackgroundContext(name),
+}));
 jest.mock('@/lib/off-dump/off-dump', () => ({
   resumeOffDumpOperations: () => mockResumeOffDumpOperations(),
   suspendOffDumpOperations: () => mockSuspendOffDumpOperations(),
@@ -87,6 +99,8 @@ describe('useAppLifecycle', () => {
       return { remove: mockRemoveAppStateListener } as ReturnType<typeof AppState.addEventListener>;
     });
     mockCloseDatabaseForLifecycle.mockResolvedValue(undefined);
+    mockBeginBackgroundContext.mockClear();
+    mockEndBackgroundContext.mockClear();
     mockStartQueryEnvironmentSync.mockReturnValue(mockStopQueryEnvironmentSync);
     mockRegisterBackgroundSync.mockReset().mockResolvedValue(undefined);
     mockStartSessionDiagnostics
@@ -125,6 +139,84 @@ describe('useAppLifecycle', () => {
 
     await unmount();
     expect(mockRemoveAppStateListener).toHaveBeenCalledTimes(1);
+  });
+
+  it('admits the close context before closing SQLite and ends it after resolution', async () => {
+    const events: string[] = [];
+    mockBeginBackgroundContext.mockImplementationOnce((name) => {
+      events.push('context-admitted');
+      return {
+        kind: 'background' as const,
+        name,
+        token: 'background-token-1',
+        signal: new AbortController().signal,
+        ended: false,
+        end: mockEndBackgroundContext,
+      };
+    });
+    mockEndBackgroundContext.mockImplementationOnce(() => {
+      events.push('context-ended');
+    });
+
+    let resolveClose!: () => void;
+    const closePromise = new Promise<void>((resolve) => {
+      resolveClose = resolve;
+    });
+    mockCloseDatabaseForLifecycle.mockImplementationOnce(() => {
+      events.push('close-started');
+      return closePromise;
+    });
+
+    const { unmount } = await renderHook(() => useAppLifecycle());
+
+    appStateListener?.('inactive');
+
+    expect(mockBeginBackgroundContext).toHaveBeenCalledWith('db.lifecycle.close');
+    expect(mockEndBackgroundContext).not.toHaveBeenCalled();
+    expect(events).toEqual(['context-admitted', 'close-started']);
+
+    resolveClose();
+    await waitFor(() => expect(mockEndBackgroundContext).toHaveBeenCalledTimes(1));
+    expect(events).toEqual(['context-admitted', 'close-started', 'context-ended']);
+
+    await unmount();
+  });
+
+  it('admits the close context before closing SQLite and ends it after rejection', async () => {
+    const events: string[] = [];
+    mockBeginBackgroundContext.mockImplementationOnce((name) => {
+      events.push('context-admitted');
+      return {
+        kind: 'background' as const,
+        name,
+        token: 'background-token-1',
+        signal: new AbortController().signal,
+        ended: false,
+        end: mockEndBackgroundContext,
+      };
+    });
+    mockEndBackgroundContext.mockImplementationOnce(() => {
+      events.push('context-ended');
+    });
+
+    const error = new Error('close failed');
+    mockCloseDatabaseForLifecycle.mockImplementationOnce(() => {
+      events.push('close-started');
+      return Promise.reject(error);
+    });
+
+    const { unmount } = await renderHook(() => useAppLifecycle());
+
+    appStateListener?.('inactive');
+
+    await waitFor(() => expect(mockEndBackgroundContext).toHaveBeenCalledTimes(1));
+    expect(events).toEqual(['context-admitted', 'close-started', 'context-ended']);
+    expect(mockDebugWarn).toHaveBeenCalledWith(
+      '[AppLifecycle] Datenbank-Close fehlgeschlagen:',
+      error,
+    );
+
+    await unmount();
   });
 
   it('registers startup services, records lifecycle events, and disposes them on unmount', async () => {

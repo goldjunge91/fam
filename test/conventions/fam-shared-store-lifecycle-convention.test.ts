@@ -66,6 +66,7 @@ describe('shared store lifecycle native module contract', () => {
     expect(becameActiveIndex).toBeGreaterThan(resigningIndex);
     expect(activeStateIndex).toBeGreaterThan(becameActiveIndex);
     expect(swiftSource).toMatch(/guard state == \.active else/);
+    expect(swiftSource).toMatch(/guard state == \.resigning \|\| state == \.background else/);
   });
 
   it('keeps foreground admission suspended until every expired lease has finished cleanup', () => {
@@ -108,14 +109,12 @@ describe('shared store lifecycle native module contract', () => {
   });
 
   it('rechecks admission on the main queue before beginning a background task', () => {
-    expect(swiftSource).toContain('allowedState: FamSharedStoreLifecycleState');
-    expect(swiftSource).toContain('state == allowedState');
+    expect(swiftSource).toContain('allowedStates: [FamSharedStoreLifecycleState]');
+    expect(swiftSource).toContain('allowedStates.contains(state)');
     expect(swiftSource).toContain(
-      'attachBackgroundTask(token: token, name: name, allowedState: .active)',
+      'attachBackgroundTask(token: token, name: name, allowedStates: [.active])',
     );
-    expect(swiftSource).toContain(
-      'attachBackgroundTask(token: token, name: name, allowedState: .background)',
-    );
+    expect(swiftSource).toContain('allowedStates: [.resigning, .background]');
   });
 
   it('keeps UIKit lifecycle assertions out of Siri and Android surfaces', () => {

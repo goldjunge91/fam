@@ -82,7 +82,7 @@ function canBegin(kind: SharedStoreLeaseKind): boolean {
   if (!nativeModule) return true;
 
   const state = readNativeState();
-  return kind === 'writer' ? state === 'active' : state === 'background';
+  return kind === 'writer' ? state === 'active' : state === 'resigning' || state === 'background';
 }
 
 function createFallbackToken(kind: SharedStoreLeaseKind): string {

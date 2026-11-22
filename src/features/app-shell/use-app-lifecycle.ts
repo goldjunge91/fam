@@ -1,6 +1,7 @@
 import { useNavigationContainerRef } from 'expo-router';
 import { useEffect } from 'react';
 import { AppState } from 'react-native';
+import { beginBackgroundContext } from '@/lib/apple/shared-store-lifecycle';
 import { startQueryEnvironmentSync } from '@/lib/data/query-client';
 import { closeDatabaseForLifecycle } from '@/lib/db/local-client';
 import { debugLog, debugWarn } from '@/lib/observability/debug-log';
@@ -57,9 +58,12 @@ export function useAppLifecycle(): void {
       // leert der Datenbank-Close die verbleibende Statement-Warteschlange.
       suspendForegroundSync();
       suspendOffDumpOperations();
-      void closeDatabaseForLifecycle().catch((error) => {
-        debugWarn('[AppLifecycle] Datenbank-Close fehlgeschlagen:', error);
-      });
+      const closeContext = beginBackgroundContext('db.lifecycle.close');
+      void closeDatabaseForLifecycle()
+        .catch((error) => {
+          debugWarn('[AppLifecycle] Datenbank-Close fehlgeschlagen:', error);
+        })
+        .finally(() => closeContext?.end());
     });
 
     return () => subscription.remove();
