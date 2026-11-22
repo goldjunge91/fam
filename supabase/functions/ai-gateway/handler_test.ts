@@ -978,6 +978,36 @@ Deno.test('accepts raw import values without mapping or quantity gates', async (
   assertStringIncludes(configured.calls[0]?.system ?? '', 'endliche Zahl oder null');
   assertStringIncludes(configured.calls[0]?.system ?? '', 'unbekannte Einheiten als Text');
 });
+Deno.test('accepts an Instagram draft with a source unit and missing quantity', async () => {
+  const mediaUrl = 'https://scontent.cdninstagram.com/redacted-recipe.mp4?token=signed';
+  const result = {
+    ...RECIPE_IMPORT_RESULT,
+    ingredients: [{ name: 'Zutat', quantity: null, unit: 'EL', confidence: 'medium' }],
+  };
+  const configured = setup({
+    publicUrlAllowed: true,
+    recipePage: {
+      ok: true,
+      text: 'Instagram',
+      draft: null,
+      videoUrl: mediaUrl,
+      instagramCaption: 'Rezept mit unklarer Menge.',
+    },
+    transcriptionText: 'Zutat nach Gefühl verwenden.',
+    providerContent: JSON.stringify(result),
+  });
+
+  const response = await configured.handler(request({
+    skill: 'fam-recipe-import',
+    householdId: 'household-1',
+    sourceType: 'video',
+    sourceUrl: 'https://www.instagram.com/reel/redacted/',
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals((await response.json()).result, result);
+  assertEquals(configured.bookings[0]?.action, 'recipe_import');
+});
 Deno.test('keeps signed quantities and unknown units in legacy import lines', async () => {
   const configured = setup({
     providerContent: JSON.stringify({
