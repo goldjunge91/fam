@@ -1,6 +1,10 @@
+import {
+  AI_GATEWAY_FLOWS,
+  DEFAULT_AI_GATEWAY_PROVIDER,
+  MAX_GATEWAY_OUTPUT_TOKENS,
+  resolveAiGatewayFlowConfig,
+} from './config.ts';
 import type { RecipeSuggestionContext } from './recipe-suggestion-contract.ts';
-
-const MAX_GATEWAY_OUTPUT_TOKENS = 8_192;
 
 const usedItemSchema = {
   type: 'object',
@@ -172,8 +176,12 @@ export function createOpenRouterChatBody(input: {
   maxTokens?: number;
   temperature?: number;
 }) {
-  const maxTokens = input.maxTokens ?? 4_096;
-  const temperature = input.temperature ?? 0;
+  const cookingConfig = resolveAiGatewayFlowConfig(AI_GATEWAY_FLOWS.cookingFromInventory, {
+    provider: DEFAULT_AI_GATEWAY_PROVIDER,
+    model: input.model,
+  });
+  const maxTokens = input.maxTokens ?? cookingConfig.maxTokens;
+  const temperature = input.temperature ?? cookingConfig.temperature;
   if (!validMaxTokens(maxTokens)) {
     throw new RangeError(`maxTokens must be between 1 and ${MAX_GATEWAY_OUTPUT_TOKENS}`);
   }

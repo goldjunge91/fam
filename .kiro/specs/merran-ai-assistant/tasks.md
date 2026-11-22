@@ -15,9 +15,12 @@ Das Capability-Inventar enthält genau diese dreizehn IDs: `assistant`, `import`
 `notes`, `swaps`, `nutrition`, `shopping`, `receipts`, `discover`,
 `reminders`, `image-generation`, `speech-to-text`, `text-to-speech` und
 `media-processing`. Bereits ausreichende Flächen erhalten ausschließlich
-Regressionen, Kompatibilitätsprüfungen oder zwingende Metadaten. Es gibt keinen
-zweiten Gateway-, Chat-, Storage-, Billing- oder Providerpfad, keine neue
-allgemeine Assistant-UI, keine neue AI-Outbox und keine stillen Migrationen.
+Regressionen, Kompatibilitätsprüfungen oder zwingende Metadaten. Das gilt für
+die vorhandenen Swap-Modi und den bestehenden `recipe_import_draft.v1`-Contract.
+`image-generation` bleibt ohne belegte Provider-Fähigkeit ein
+`capability_unavailable`-Fall. Es gibt keinen zweiten Gateway-, Chat-, Storage-,
+Billing- oder Providerpfad, keine neue allgemeine Assistant-UI, keine neue
+AI-Outbox und keine stillen Migrationen.
 
 `recipe_suggestion.v1` und `fam-y918` werden nicht implementiert oder verändert.
 Sie werden nur durch fokussierte Regression und Isolation geschützt. Eine
@@ -105,9 +108,9 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehender `assistant-api`-Transport, RevenueCat-Entitlement, Credit Booking und Household-Berechtigungen.
 
   - [ ] 2.3 Consent-Einrichtung, Einstellungen und Datenschutzbestimmungen verknüpfen
-    - **Dateien/Module:** additive Komponente unter `src/features/ai-assistant/consent/consent-settings.tsx`, `src/features/ai-assistant/screens/assistant-screen.tsx`, `src/features/settings/settings-screen.tsx`, `src/features/settings/privacy-screen.tsx`, `src/i18n/features/settings.de.json`, `src/i18n/features/settings.en.json`, `docs/architecture/DATENSCHUTZ.md` sowie die zugehörigen fokussierten Tests.
-    - **Aktion:** Im vorhandenen Assistant-/Settings-Einstieg eine einmalige Einrichtung mit Kurzfassung zu Daten, Zweck und Provider-Rahmen anbieten. Nur leere Auswahl, `intolerances` und `dislikedFoods` rendern. Den vollständigen Text zu erlaubten Daten, Zweck, Anbietern, Aufbewahrung und Widerruf in die bestehende Datenschutzbestimmung einbinden und aus Einrichtung sowie Einstellungen erreichbar machen. Status, Rahmen und Widerruf nach der Einrichtung erreichbar halten.
-    - **Akzeptanz:** Es gibt keinen Bestätigungsdialog vor jedem Modellaufruf; aktuelle Präferenzwerte erscheinen nicht im Consent Record; die UI zeigt keine Tracking-, Kind-, Gewichts-, Kalorien-, Medikamenten-, Symptom-, Vital-, Fasten-, Workout- oder Zielkategorie; bestehende Settings- und Privacy-Navigation bleibt erhalten.
+    - **Dateien/Module:** additive Komponente unter `src/features/ai-assistant/consent/consent-settings.tsx`, `src/features/ai-assistant/consent/consent-settings.test.tsx`, `src/features/ai-assistant/screens/assistant-screen.tsx`, `src/features/settings/settings-screen.tsx`, `src/features/settings/settings-screen.test.tsx`, `src/features/settings/privacy-screen.tsx`, `src/features/settings/privacy-screen.test.tsx`, `src/i18n/features/settings.de.json`, `src/i18n/features/settings.en.json`, `docs/architecture/DATENSCHUTZ.md`.
+    - **Aktion:** Im vorhandenen Assistant-/Settings-Einstieg eine einmalige Einrichtung mit Kurzfassung zu Daten, Zweck und Provider-Rahmen anbieten. Nur leere Auswahl, `intolerances` und `dislikedFoods` rendern. Den vollständigen Text zu erlaubten Daten, Zweck, Anbietern, Aufbewahrung und Widerruf in die bestehende Datenschutzbestimmung einbinden. Einrichtung und bestehender Privacy-Screen zeigen jeweils einen sichtbaren Link beziehungsweise Einstieg in denselben vollständigen AI-Abschnitt; Status, Rahmen und Widerruf bleiben nach der Einrichtung erreichbar.
+    - **Akzeptanz:** Es gibt keinen Bestätigungsdialog vor jedem Modellaufruf; aktuelle Präferenzwerte erscheinen nicht im Consent Record; die UI zeigt keine Tracking-, Kind-, Gewichts-, Kalorien-, Medikamenten-, Symptom-, Vital-, Fasten-, Workout- oder Zielkategorie; Setup und Settings verknüpfen den vollständigen Privacy-Abschnitt; bestehende Settings- und Privacy-Navigation bleibt erhalten.
     - **Requirements:** 3.1-3.4, 3.7-3.10, 10.1-10.2.
     - **Design-Anker:** Mobile Components 5, Data Flow 11, Consent 20-21, Nicht-property-basierte Schutztests.
     - **Abhängigkeiten:** 2.2.
@@ -123,7 +126,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehende `profile_food_rules`-Semantik, `get_ai_household_food_rule_snapshot`, Household Membership/RLS und Tracking-Tabellen.
 
   - [ ] 2.5 Consent-, Scope-, Food-Rule- und Account-Ownership-Tests als Pflichtnachweis schreiben
-    - **Dateien/Module:** `src/features/ai-assistant/data/consent-api.test.ts`, `src/features/ai-assistant/consent/consent-settings.test.tsx`, `supabase/functions/ai-gateway/consent-loader_test.ts`, `supabase/functions/ai-gateway/scope-builder_test.ts`, `supabase/functions/ai-gateway/tracking-safety_test.ts`, `supabase/tests/ai_assistant_consents.test.sql`.
+    - **Dateien/Module:** `src/features/ai-assistant/data/consent-api.test.ts`, `src/features/ai-assistant/consent/consent-settings.test.tsx`, `src/features/settings/settings-screen.test.tsx`, `src/features/settings/privacy-screen.test.tsx`, `supabase/functions/ai-gateway/consent-loader_test.ts`, `supabase/functions/ai-gateway/scope-builder_test.ts`, `supabase/functions/ai-gateway/tracking-safety_test.ts`, `supabase/tests/ai_assistant_consents.test.sql`.
     - **Aktion:** Save mit leerer Auswahl, unveränderte Wiederverwendung ohne Einzelbestätigung, Scope-/Zweck-/Provider-Wechsel, Revoke, Re-enable, zwei Accounts im selben Haushalt, Household-Food-Rule-Abdeckung und bekannte Tracking-/Child-Quellen testen. Prüfen, dass Vorprüfungsfehler keine Credit-, Provider-, Storage- oder Usage-Spies auslösen.
     - **Akzeptanz:** Die Account-Ownership des Consent Records ist nachgewiesen, Household-Mitglieder erhalten keine privaten Consent-Daten, Food-Rule-Mitgliederabdeckung bleibt vollständig, Tracking-Inhalte werden nicht echoed oder geloggt und keine bestehende Household-Policy wird gelockert oder künstlich gesperrt.
     - **Requirements:** 3.1-3.10, 4.1-4.9, 10.1-10.9.
@@ -163,6 +166,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehende Tracking-Storage-, Analytics- und Usage-Verträge.
 
   - [ ] 2.9 Checkpoint: Consent-, Scope- und RLS-Nachweise ausführen
+    - **Dateien/Module:** `src/features/ai-assistant/data/consent-api.test.ts`, `src/features/ai-assistant/consent/consent-settings.test.tsx`, `supabase/functions/ai-gateway/consent-loader_test.ts`, `supabase/functions/ai-gateway/scope-builder_test.ts`, `supabase/functions/ai-gateway/tracking-safety_test.ts`, `src/features/ai-assistant/consent/consent-reuse.property.test.ts`, `supabase/functions/ai-gateway/scope-ownership.property.test.ts`, `supabase/functions/ai-gateway/tracking-exclusion.property.test.ts`, `supabase/tests/ai_assistant_consents.test.sql`.
     - **Aktion:** Die Pflicht-Tests aus 2.5 sowie die verfügbaren fokussierten Property-Tests aus 2.6-2.8 ausführen und nur bei grünen, zielgerichteten Nachweisen weitergehen.
     - **Akzeptanz:** Consent-Lifecycle, Privacy-Link, Owner-Isolation, Food-Rule-Abdeckung und Tracking-Grenze sind durch fokussierte Tests abgedeckt; kein Test schwächt bestehende Assertions.
     - **Requirements:** 3.1-3.10, 4.1-4.9, 10.1-10.9.
@@ -181,8 +185,8 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
 
   - [ ] 3.1 Capability-Metadaten, Provider-Allowlist und rückwärtskompatibles Usage Logging implementieren
     - **Dateien/Module:** `supabase/functions/ai-gateway/providers.ts`, `supabase/functions/ai-gateway/handler.ts`, `supabase/functions/ai-gateway/usage.ts`, `supabase/schemas/28_ai_usage.sql`, `src/lib/database.types.ts` als Generatorausgabe.
-    - **Aktion:** Optionale `capabilityId`-, `contractVersion`- und `purposeCode`-Felder content-frei an bestehende Usage Events ergänzen. Capability-spezifische Provider-Fähigkeiten gegen die vorhandene OpenRouter-/Groq-Allowlist prüfen. Secret-Bindings ausschließlich aus `SUPABASE_SECRET_KEYS.default` serverseitig lesen; fehlende Konfiguration als stabile unavailable-Fehler melden und keinen stillen Providerwechsel ausführen. Bestehende Entitlement-, atomare Booking- und Refund-Helfer additiv für neue Capability-Requests aufrufen.
-    - **Akzeptanz:** Legacy Rows und Legacy Skill-Werte bleiben gültig; neue Metadaten enthalten keinen Prompt, keine Antwort, keine Rohbytes, keine Präferenz- oder Trackingwerte; Provider-, Modell- oder Output-Mismatch stoppt vor Provider/Booking beziehungsweise refundiert höchstens einmal nach vorhandener Regel; der Mobile Client enthält keine Secrets oder Credit-Counter.
+    - **Aktion:** Optionale `capabilityId`-, `contractVersion`- und `purposeCode`-Felder content-frei an bestehende Usage Events ergänzen. Neue Capability-Events behalten einen bestehenden Transport-Skill wie `fam-assistant` oder `fam-recipe-import`; die Capability-ID wird nicht in das bestehende `skill`-Feld umgedeutet. Capability-spezifische Provider-Fähigkeiten gegen die vorhandene OpenRouter-/Groq-Allowlist prüfen. Secret-Bindings ausschließlich aus `SUPABASE_SECRET_KEYS.default` serverseitig lesen; fehlende Konfiguration als stabile unavailable-Fehler melden und keinen stillen Providerwechsel ausführen. Bestehende Entitlement-, atomare Booking- und Refund-Helfer additiv für neue Capability-Requests aufrufen.
+    - **Akzeptanz:** Legacy Rows, Legacy Skill-Werte und die bestehende `ai_usage_events.skill`-Prüfung bleiben gültig; neue Metadaten enthalten keinen Prompt, keine Antwort, keine Rohbytes, keine Präferenz- oder Trackingwerte; Provider-, Modell- oder Output-Mismatch stoppt vor Provider/Booking beziehungsweise refundiert höchstens einmal nach vorhandener Regel; der Mobile Client enthält keine Secrets oder Credit-Counter.
     - **Requirements:** 7.12, 8.2-8.4, 9.1-9.10, 10.1, 10.9.
     - **Design-Anker:** Minimal additive Vertragsformen 10, Serverkomponenten 6, Provider 17-19.
     - **Abhängigkeiten:** 2.9, 1.1.
@@ -191,8 +195,8 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
 
   - [ ] 3.2 Provider-, Credit-, Refund- und Usage-Tests als Pflichtnachweis schreiben
     - **Dateien/Module:** `supabase/functions/ai-gateway/providers_test.ts`, `supabase/functions/ai-gateway/usage_test.ts`, `supabase/functions/ai-gateway/handler_test.ts`, `supabase/tests/ai_usage_capability_metadata.test.sql`.
-    - **Aktion:** OpenRouter/Groq-Allowlist, fehlendes `SUPABASE_SECRET_KEYS.default`, unavailable ohne stilles Failover, Booking-Reihenfolge, strukturierte Quelle ohne Booking, genau ein Refund und content-freie additive Usage-Metadaten testen. Mobile-Code statisch auf Provider-/Supabase-/RevenueCat-Secret-Keys prüfen.
-    - **Akzeptanz:** Kein Vorprüfungsfehler erreicht Booking oder Provider; ein terminal nutzloses Ergebnis refundiert höchstens einmal; Legacy Usage Rows und `recipe_suggestion.v1`-Semantik bleiben unverändert.
+    - **Aktion:** OpenRouter/Groq-Allowlist, fehlendes `SUPABASE_SECRET_KEYS.default`, unavailable ohne stilles Failover, Booking-Reihenfolge, strukturierte Quelle ohne Booking, genau ein Refund, bestehende Transport-Skill-Werte und content-freie additive Usage-Metadaten testen. Mobile-Code statisch auf Provider-/Supabase-/RevenueCat-Secret-Keys prüfen.
+    - **Akzeptanz:** Kein Vorprüfungsfehler erreicht Booking oder Provider; ein terminal nutzloses Ergebnis refundiert höchstens einmal; neue Capability-IDs stehen ausschließlich in den additiven Metadaten; Legacy Usage Rows, `fam-cook-from-inventory` und der geschützte `recipe_suggestion.v1`-Verkehr bleiben unverändert.
     - **Requirements:** 8.2-8.4, 9.1-9.10, 10.1, 10.9.
     - **Design-Anker:** Testing Strategy 26-28, Error Handling 22-23.
     - **Abhängigkeiten:** 3.1.
@@ -210,6 +214,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** RevenueCat-, Credit-, Refund- und Legacy-Usage-Verträge.
 
   - [ ] 3.4 Checkpoint: Gateway-Basis und Kostenpfad gezielt verifizieren
+    - **Dateien/Module:** `supabase/functions/ai-gateway/providers_test.ts`, `supabase/functions/ai-gateway/usage_test.ts`, `supabase/functions/ai-gateway/handler_test.ts`, `supabase/tests/ai_usage_capability_metadata.test.sql`.
     - **Aktion:** Die Pflicht-Tests aus 3.2 und den verfügbaren Property-Test aus 3.3 ausführen, ohne einen Provider oder Hosted-Zustand außerhalb der gezielten Testumgebung aufzurufen.
     - **Akzeptanz:** Additive Metadaten, Provider-Allowlist, Secret-Binding, Credit-Reihenfolge, Refund-Idempotenz und Usage-Kompatibilität sind grün nachgewiesen.
     - **Requirements:** 9.1-9.10.
@@ -256,6 +261,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehende Attachment-Limits, Proposal-Validatoren und Domain Apply-Owner.
 
   - [ ] 4.4 Checkpoint: Bestehenden Assistant und Apply-Owner absichern
+    - **Dateien/Module:** die Pflicht-Regressionen aus 4.2 und `src/features/ai-assistant/request-boundaries.property.test.ts`.
     - **Aktion:** Die Pflicht-Regression aus 4.2 und den verfügbaren Property-Test aus 4.3 ausführen.
     - **Akzeptanz:** Bestehende Assistant-Flächen sind ohne parallelen Chatpfad kompatibel; alle Apply-Owner bleiben die einzigen Mutationsgrenzen.
     - **Requirements:** 2.2-2.3, 5.1-5.8.
@@ -273,8 +279,8 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
   - **Unverändert:** `fam-recipe-import`, vorhandene Text-/URL-/Bild-/PDF-/Video-Eingänge, bestehende Import-UI, Recipe-Apply-Owner und Receipt-/Media-Owner.
 
   - [ ] 5.1 Import-Draft-Envelope und expliziten Review-Übergang implementieren
-    - **Dateien/Module:** `src/features/recipe-import/types.ts`, `src/features/recipe-import/data/recipe-import-api.ts`, `src/features/recipe-import/data/recipe-import-storage.ts`, `src/features/recipe-import/screens/*`, `supabase/functions/ai-gateway/recipe-source.ts`, `supabase/functions/ai-gateway/handler.ts`.
-    - **Aktion:** Einen separat versionierten Draft-Envelope mit Source Type, Source Reference, extracted fields, Confidence, Warnings und Review Status am vorhandenen Importpfad ergänzen. Strukturierte Quellen vor Providerzugriff verwenden. Capability-/Contract-Metadaten und Purpose-/Input-/Retention-/Error-Grenzen an den bestehenden Pfad geben. Save als einzige Übergabe an den vorhandenen Recipe-Apply-Owner verdrahten.
+    - **Dateien/Module:** `src/features/recipe-import/types.ts`, `src/features/recipe-import/data/recipe-import-api.ts`, `src/features/recipe-import/data/recipe-import-storage.ts`, `src/features/recipe-import/screens/recipe-import-screen.tsx`, `supabase/functions/ai-gateway/recipe-source.ts`, `supabase/functions/ai-gateway/handler.ts`.
+    - **Aktion:** Den bestehenden `recipe_import_draft.v1`-/`RecipeImportDraftRecord`-Envelope ausschließlich um optionale Source-/Review-/Statusmetadaten ergänzen. Es entsteht weder ein neuer Draft-Contract noch eine neue Version. Strukturierte Quellen vor Providerzugriff verwenden. Capability-/Contract-Metadaten und Purpose-/Input-/Retention-/Error-Grenzen an den bestehenden Pfad geben. Save als einzige Übergabe an den vorhandenen Recipe-Apply-Owner verdrahten.
     - **Akzeptanz:** Kein Draft erzeugt oder verändert ohne ausdrückliches Save ein Household-Rezept; fehlende Medien-Vertragsfelder liefern `media_contract_incomplete`; externe Verarbeitung prüft Consent, Entitlement, Credit und Provider vor Übermittlung; kein zweiter Import-Transport entsteht.
     - **Requirements:** 6.1-6.8, 7.11-7.13.
     - **Design-Anker:** Components 4 `import`, Data Flow 13, Error Handling 22-23.
@@ -302,6 +308,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** `fam-recipe-import`-Eingänge, Draft-Review und Recipe-Apply-Owner.
 
   - [ ] 5.4 Checkpoint: Import- und Draft-Vertrag absichern
+    - **Dateien/Module:** `src/features/recipe-import/data/recipe-import-api.test.ts`, `src/features/recipe-import/data/recipe-import-storage.test.ts`, `src/features/recipe-import/data/extract-video-recipe-frames.test.ts`, `supabase/functions/ai-gateway/recipe-source_test.ts`, `src/features/recipe-import/data/import-draft.property.test.ts`.
     - **Aktion:** Die Pflicht-Regression aus 5.2 und den verfügbaren Property-Test aus 5.3 ausführen.
     - **Akzeptanz:** Kein zweiter Importpfad, kein implizites Save und kein Offline-External-Call ist durch die fokussierten Tests möglich.
     - **Requirements:** 6.1-6.8, 8.1-8.4.
@@ -310,9 +317,9 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Prüfung:** gezieltes `bun run test <betroffene-testdatei>`.
     - **Unverändert:** `fam-recipe-import`, bestehende Import-UI und Recipe-Apply-Owner.
 
-- [ ] 6. Notes, Swaps, Nutrition und Shopping nur an ihren dokumentierten Lücken ergänzen
-  - Diese Phase implementiert keine neuen allgemeinen Mutationsebenen. Jede dauerhafte Änderung bleibt beim passenden vorhandenen Domain Owner; ein Proposal ohne Owner bleibt read-only.
-  - **Akzeptanz:** Notes sind reviewbare Proposals, Swaps unterscheiden Kochmodus und dauerhafte Speicherung, Nutrition bleibt Estimate-only und Shopping erhält nur zwingende Metadaten/Regression.
+- [ ] 6. Notes und Nutrition an ihren dokumentierten Lücken, Swaps und Shopping nur additiv und regressiv erweitern
+  - Diese Phase implementiert keine neuen allgemeinen Mutationsebenen. Notes und Nutrition bleiben bei ihren dokumentierten read-only Grenzen. Die bereits vorhandenen Swap-Modi und Shopping-Merge-/Apply-Pfade erhalten nur additive Metadaten und fokussierte Regression; jede dauerhafte Änderung bleibt beim passenden vorhandenen Domain Owner.
+  - **Akzeptanz:** Notes sind reviewbare Proposals, die vorhandenen Swap-Aktionen bleiben unverändert nutzbar, Nutrition bleibt Estimate-only und Shopping erhält nur zwingende Metadaten/Regression.
   - **Requirements:** 7.1-7.4, 7.12-7.13, 9.6-9.9.
   - **Design-Anker:** Capability Inventory `notes`, `swaps`, `nutrition`, `shopping`, Capability-Übergänge 14, Proposal- und Apply-Grenzen 15-16, Correctness Property 7.
   - **Abhängigkeiten:** 3.4, 4.4, 5.4.
@@ -337,24 +344,24 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Prüfung:** `bun run test src/features/ai-assistant/contracts/recipe-notes-proposal.test.ts src/features/ai-assistant/screens/assistant-screen.test.tsx`; `bun run test:functions -- notes_test.ts`.
     - **Unverändert:** bestehende Recipe-Apply-Owner und `recipe_suggestion.v1`.
 
-  - [ ] 6.3 `swaps` um additive Kochmodus-Information erweitern
-    - **Dateien/Module:** `src/features/ai-assistant/types.ts`, `src/features/ai-assistant/data/assistant-api.ts`, `src/features/ai-assistant/data/apply-ingredient-swap-proposal.ts`, `supabase/functions/ai-gateway/handler.ts`.
-    - **Aktion:** Im vorhandenen beziehungsweise separat versionierten Swap-Vertrag `applyMode: 'one_cooking' | 'persist_recipe'` ergänzen. Vor dem bestehenden Apply-Owner den Modus explizit reviewbar machen. `one_cooking` darf nur den aktuellen Kochkontext bedienen; `persist_recipe` darf ausschließlich den vorhandenen Recipe-Apply-Path mit erneuter Version-, Permission- und Food-Rule-Prüfung auslösen.
-    - **Akzeptanz:** Kein Modus wird implizit gewählt; stale Version, unzureichende Food-Rule-Evidence oder fehlende Berechtigung verändern kein Rezept; der bestehende Swap-Apply-Path bleibt die einzige Persistenzgrenze.
-    - **Requirements:** 7.2, 4.5, 4.9, 5.5-5.8.
-    - **Design-Anker:** Components 4 `swaps`, Proposal- und Apply-Grenzen 15-16, Capability-Übergänge 14.
+  - [ ] 6.3 `swaps` nur um additive Capability-/Contract-Metadaten ergänzen
+    - **Dateien/Module:** `src/features/ai-assistant/types.ts`, `src/features/ai-assistant/data/assistant-api.ts`, `supabase/functions/ai-gateway/handler.ts`, `supabase/functions/ai-gateway/usage.ts`.
+    - **Aktion:** Die vorhandenen `ingredient_swap_proposal.v1`- und Apply-Verträge unverändert lassen und höchstens optionale capability-spezifische Metadaten am bestehenden Request-/Usage-Envelope ergänzen. Die bereits vorhandene Trennung „Für dieses Mal“ über `/recipe/cook` und „Speichern“ über `apply-ingredient-swap-proposal.ts` wird nicht in ein neues `applyMode`-Feld, einen neuen Contract oder einen neuen Apply Path migriert.
+    - **Akzeptanz:** Bestehende Swap-Requests und Antworten bleiben ohne neue Metadaten gültig; der bestehende Persistenzpfad bleibt der einzige mutierende Owner; die einmalige Kochverwendung bleibt ein lokaler, nicht persistierender Übergang.
+    - **Requirements:** 1.3-1.4, 2.3, 7.2, 9.6-9.8.
+    - **Design-Anker:** Capability Inventory und additive Lücken, Components 4, Proposal- und Apply-Grenzen 15-16, Provider 19.
     - **Abhängigkeiten:** 4.4.
-    - **Unverändert:** `ingredient_swap_proposal.v1`-Kompatibilität, `apply-ingredient-swap-proposal.ts`, Recipe-RLS und Reverse-State-Regeln.
+    - **Unverändert:** `ingredient_swap_proposal.v1`, `assistant-screen.tsx`, `/recipe/cook`, `apply-ingredient-swap-proposal.ts`, Recipe-RLS und Reverse-State-Regeln.
 
-  - [ ] 6.4 Swap-Modus-, Stale- und Food-Rule-Regression als Pflichtnachweis schreiben
-    - **Dateien/Module:** `src/features/ai-assistant/data/apply-ingredient-swap-proposal.test.ts`, `src/features/ai-assistant/contracts/ingredient-swap-proposal.test.ts`, `supabase/functions/ai-gateway/handler_test.ts`.
-    - **Aktion:** Beide Modi, fehlenden Modus, stale Recipe-Version, veränderte Food-Rule-Evidence, fehlende Berechtigung und erfolgreiche Nutzung des bestehenden Apply-Owners testen.
-    - **Akzeptanz:** Einmaliges Kochen persistiert nichts; dauerhafte Speicherung nutzt nur den bestehenden Owner; jeder Konflikt endet ohne Domainmutation.
-    - **Requirements:** 7.2, 4.5, 4.9, 5.7-5.8.
-    - **Design-Anker:** Testing Strategy 26, Proposal- und Apply-Grenzen 16.
+  - [ ] 6.4 Bestehende Swap-Modi-, Stale- und Food-Rule-Grenzen regressiv testen
+    - **Dateien/Module:** `src/features/ai-assistant/screens/assistant-screen.test.tsx`, `src/features/recipes/screens/cooking-mode-screen.test.tsx`, `src/features/ai-assistant/data/apply-ingredient-swap-proposal.test.ts`, `supabase/functions/ai-gateway/handler_test.ts`.
+    - **Aktion:** Die bestehende Aktion „Für dieses Mal“ mit den `/recipe/cook`-Parametern `swapIngredient`/`swapReplacement`, die dauerhafte Aktion über den bestehenden Apply-Owner, stale Recipe-Version, veränderte Food-Rule-Evidence, fehlende Berechtigung und Legacy-Requests ohne Metadaten testen.
+    - **Akzeptanz:** Einmaliges Kochen persistiert nichts; dauerhafte Speicherung nutzt nur den bestehenden Owner; jeder Konflikt endet ohne Domainmutation; alte `ingredient_swap_proposal.v1`-Shapes bleiben gültig.
+    - **Requirements:** 1.3-1.4, 4.5, 4.9, 5.5-5.8, 7.2, 9.6-9.8.
+    - **Design-Anker:** Testing Strategy 26, Proposal- und Apply-Grenzen 15-16, Correctness Property 5 und 7.
     - **Abhängigkeiten:** 6.3.
-    - **Prüfung:** `bun run test src/features/ai-assistant/data/apply-ingredient-swap-proposal.test.ts src/features/ai-assistant/contracts/ingredient-swap-proposal.test.ts supabase/functions/ai-gateway/handler_test.ts`.
-    - **Unverändert:** vorhandener Swap-Vertrag und Apply-Owner.
+    - **Prüfung:** `bun run test src/features/ai-assistant/screens/assistant-screen.test.tsx src/features/recipes/screens/cooking-mode-screen.test.tsx src/features/ai-assistant/data/apply-ingredient-swap-proposal.test.ts`; `bun run test:functions -- handler_test.ts`.
+    - **Unverändert:** vorhandener Swap-Vertrag, Kochmodus und Apply-Owner.
 
   - [ ] 6.5 `nutrition` als read-only Estimate-Vertrag ergänzen
     - **Dateien/Module:** additive `src/features/ai-assistant/contracts/nutrition-estimate.ts`, `src/features/ai-assistant/data/assistant-api.ts`, additive `supabase/functions/ai-gateway/nutrition.ts`, `supabase/functions/ai-gateway/handler.ts`.
@@ -366,7 +373,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehende Nutrition-Tracking-Domäne, private Tracking-RLS und Rezept-/Produkt-Reads.
 
   - [ ] 6.6 Nutrition-Estimate- und No-tracking-write-Tests als Pflichtnachweis schreiben
-    - **Dateien/Module:** `src/features/ai-assistant/contracts/nutrition-estimate.test.ts`, `supabase/functions/ai-gateway/nutrition_test.ts`, `src/features/calorie-tracking/*` nur als unveränderter Sink-Spy im Test.
+    - **Dateien/Module:** `src/features/ai-assistant/contracts/nutrition-estimate.test.ts`, `supabase/functions/ai-gateway/nutrition_test.ts`, `src/features/calorie-tracking/api.ts` nur als unveränderter Sink-Spy im Test.
     - **Aktion:** `isEstimate`-Invariante, Quellen-/Unsicherheitsvalidierung, fehlende Providerfähigkeit, fehlende Tracking-Reads und fehlende Tracking-Mutation testen.
     - **Akzeptanz:** Ein Estimate ohne Label ist ungültig; Tracking-Queries und Tracking-Writer werden in jedem neuen Nutrition-Pfad nicht aufgerufen; unzulässige Providerresultate werden vollständig verworfen.
     - **Requirements:** 7.3, 10.1, 10.4, 10.9.
@@ -395,6 +402,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** Shopping-Proposal-Verträge, Merge-/Idempotenzlogik und Apply-Owner.
 
   - [ ] 6.9 Checkpoint: Fachliche Proposal-Grenzen gezielt verifizieren
+    - **Dateien/Module:** `src/features/ai-assistant/contracts/recipe-notes-proposal.test.ts`, `supabase/functions/ai-gateway/notes_test.ts`, `src/features/ai-assistant/screens/assistant-screen.test.tsx`, `src/features/recipes/screens/cooking-mode-screen.test.tsx`, `src/features/ai-assistant/data/apply-ingredient-swap-proposal.test.ts`, `supabase/functions/ai-gateway/handler_test.ts`, `src/features/ai-assistant/contracts/nutrition-estimate.test.ts`, `supabase/functions/ai-gateway/nutrition_test.ts`, `src/features/ai-assistant/data/apply-shopping-list-proposal.test.ts`, `src/features/ai-assistant/data/assistant-api.test.ts`, `supabase/functions/ai-gateway/usage_test.ts`.
     - **Aktion:** Pflichtnachweise 6.2, 6.4, 6.6 und 6.8 ausführen.
     - **Akzeptanz:** Notes, Swaps und Nutrition bleiben capability-spezifisch; Shopping ist ausschließlich additiv erweitert; kein Proposal mutiert außerhalb seines vorhandenen Owners.
     - **Requirements:** 7.1-7.4, 7.12-7.13.
@@ -469,6 +477,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** bestehende Notification-/Reminder-Tests und Scheduling-/Cancel-Owner.
 
   - [ ] 7.7 Checkpoint: Review- und Herkunftsgrenzen der drei Proposals verifizieren
+    - **Dateien/Module:** `src/features/ocr/processing/review/model.test.ts`, `src/features/ocr/processing/review/receipt-review-modal.test.tsx`, `src/features/ocr/processing/workflow.test.ts`, `src/features/ocr/authority/api.test.ts`, `supabase/functions/ai-gateway/receipt_test.ts`, `src/features/ai-assistant/contracts/discover-result.test.ts`, `supabase/functions/ai-gateway/catalog-suggestions.test.ts`, `src/features/recipes/catalog/use-recipe-catalog.test.ts`, `src/features/recipe-import/data/recipe-import-api.test.ts`, `src/features/ai-assistant/contracts/reminder-proposal.test.ts`, `src/features/ai-assistant/data/reminder-proposal.test.ts`, `src/lib/platform/notifications.test.ts`, `src/features/settings/notifications-screen.test.tsx`.
     - **Aktion:** Pflichtnachweise 7.2, 7.4 und 7.6 ausführen.
     - **Akzeptanz:** Receipt bleibt vor Review ohne Mutation, Discover zeigt Herkunft vor Draft und Reminder schedult nur nach vollständiger Bestätigung.
     - **Requirements:** 7.5-7.7.
@@ -477,36 +486,36 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Prüfung:** gezieltes `bun run test <betroffene-testdatei>` und `bun run test:functions -- <betroffene-function-testdatei>`.
     - **Unverändert:** Receipt-/OCR-, Katalog-, Import- und Notification-Owner.
 
-- [ ] 8. Bild, Speech-to-Text, Text-to-Speech und Media-Processing an vorhandene Medienbausteine binden
-  - Diese Phase implementiert ausschließlich die vier dokumentierten Medienlücken auf dem vorhandenen Provider-, Attachment-, OCR-, Speech- und Storage-Rahmen. Sie führt keinen allgemeinen Medienjob und keine neue Medien-Outbox ein.
-  - **Akzeptanz:** Bildresultate sind als generiert markiert und werden erst nach Attach/Save persistiert; Transkription startet nur explizit und wird vor Folgeaktionen geprüft; TTS liest nur sichtbaren Text lokal; Media-Processing bleibt zweckgebunden und online-only.
+- [ ] 8. Medienfunktionen an vorhandene Medienbausteine binden, Bildgenerierung aber nur als Availability-Gate führen
+  - Diese Phase ergänzt `speech-to-text`, `text-to-speech` und `media-processing` auf dem vorhandenen Provider-, Attachment-, OCR-, Speech- und Storage-Rahmen. `image-generation` erhält ausschließlich einen Contract-/Unavailable-Nachweis, weil der aktuelle OpenRouter-/Groq-Pfad keine belegte Bildfähigkeit besitzt. Es entsteht kein allgemeiner Medienjob und keine neue Medien-Outbox.
+  - **Akzeptanz:** `image-generation` bleibt ohne separat freigegebene Providerfähigkeit unavailable; Transkription startet nur explizit und wird vor Folgeaktionen geprüft; TTS liest nur sichtbaren Text lokal; Media-Processing bleibt zweckgebunden und online-only.
   - **Requirements:** 6.3-6.8, 7.8-7.11, 7.12, 8.1-8.4, 9.1-9.9.
   - **Design-Anker:** Components 4 Medien-IDs, Data Flow 13-14, Provider 17, Online-/Storage-Grenzen 24-25, Correctness Property 7.
   - **Abhängigkeiten:** 7.7.
   - **Unverändert:** Assistant-Attachment-Validator, `fam-recipe-import`, OCR-/Receipt-Owner, vorhandener Groq-Transkriptionsbaustein, `expo-speech`, bestehender Storage-Owner und Domain-Outbox.
 
-  - [ ] 8.1 `image-generation` als begrenztes, gekennzeichnetes Resultat implementieren
-    - **Dateien/Module:** additive `src/features/ai-assistant/contracts/generated-image.ts`, `src/features/ai-assistant/data/image-generation.ts`, `src/features/ai-assistant/screens/assistant-screen.tsx`, `supabase/functions/ai-gateway/providers.ts`, `supabase/functions/ai-gateway/handler.ts`.
-    - **Aktion:** `generated_image.v1` mit Provider-Referenz, Zweck, Generated-Label, Ablauf und Attach-/Save-Option ergänzen. Eine Bildfähigkeit nur über die vorhandene Provider-Allowlist aufrufen. Das Resultat bis zu ausdrücklichem Attach/Save im bestehenden Attachment-/Storage-Owner halten; fehlende Bildfähigkeit als unavailable melden.
-    - **Akzeptanz:** Kein Bild wird automatisch gespeichert oder angehängt; das Generated-Label ist unveränderlich sichtbar; keine neue Medienjob- oder Provider-Credential-Basis entsteht.
-    - **Requirements:** 7.8, 7.12, 9.1-9.4, 9.6-9.10.
-    - **Design-Anker:** Components 4 `image-generation`, Capability-Übergänge 14, Provider 17-19.
+  - [ ] 8.1 `image-generation` als Availability-Gate und unverbindlichen Resultatvertrag ergänzen
+    - **Dateien/Module:** additive `src/features/ai-assistant/contracts/generated-image.ts`, `src/features/ai-assistant/capability-registry.ts`, `supabase/functions/ai-gateway/handler.ts`.
+    - **Aktion:** `generated_image.v1` nur als capability-spezifischen, später separat freigebbaren Resultatvertrag beschreiben. Den Status `fehlend` und `capability_unavailable` vor Context-Read, Credit Booking und Providerzugriff registrieren. Keinen Bild-Endpoint, kein Bildmodell, keinen Provideradapter und keine Provider-Credential-Basis hinzufügen. Attach-/Save-Verhalten bleibt bis zu einer separaten Providerfreigabe außerhalb dieses Tasks.
+    - **Akzeptanz:** Der aktuelle Gatewaypfad führt für `image-generation` keinen External Model Call und keine Credit Booking aus; eine fehlende Bildfähigkeit liefert stabil `capability_unavailable`; es entsteht kein Storage-Write, keine AI-Outbox und kein neuer Providerpfad.
+    - **Requirements:** 1.3-1.5, 7.8, 7.12, 9.1-9.2, 9.9-9.10.
+    - **Design-Anker:** Capability Inventory und additive Lücken, Components 4, Provider 17, Error Handling 22-23.
     - **Abhängigkeiten:** 3.4, 4.4, 7.7.
-    - **Unverändert:** vorhandene Provider-/Credit-/Usage-Adapter, Attachment-/Storage-Owner, keine AI-Outbox.
+    - **Unverändert:** vorhandene Provider-/Credit-/Usage-Adapter, Attachment-/Storage-Owner, keine AI-Outbox und keine Bildanbieterentscheidung.
 
-  - [ ] 8.2 Bildresultat-, Availability- und No-save-Tests als Pflichtnachweis schreiben
-    - **Dateien/Module:** `src/features/ai-assistant/contracts/generated-image.test.ts`, `src/features/ai-assistant/data/image-generation.test.ts`, `supabase/functions/ai-gateway/providers_test.ts`, `src/features/ai-assistant/screens/assistant-screen.test.tsx`.
-    - **Aktion:** Generated-Label, Zweck/Ablauf, fehlende Bildfähigkeit, Providerfehler, Credit-/Refund-Übergang, Attach/Save-Aktion und fehlendes automatisches Storage testen.
-    - **Akzeptanz:** Ohne explizite Aktion entsteht kein Attachment oder Storage-Write; unsupported Provider erzeugt keinen External Model Call und keine Booking.
-    - **Requirements:** 7.8, 7.12, 9.3-9.9.
-    - **Design-Anker:** Testing Strategy 26, Error Handling 22-23.
+  - [ ] 8.2 Image-Generation-Availability- und No-call-Tests als Pflichtnachweis schreiben
+    - **Dateien/Module:** `src/features/ai-assistant/capability-registry.test.ts`, `src/features/ai-assistant/contracts/generated-image.test.ts`, `supabase/functions/ai-gateway/handler_test.ts`.
+    - **Aktion:** Den fehlenden Providervertrag, den stabilen `capability_unavailable`-Fehler vor Credit/Provider, den unveränderten Legacy-Transport und fehlende Attach-/Save-/Storage-/Outbox-Nebenwirkungen testen. Ein späteres Bildresultat wird nicht simuliert oder als Produktentscheidung vorweggenommen.
+    - **Akzeptanz:** `image-generation` erreicht ohne separate Providerfreigabe weder External Model Call noch Credit Booking, Usage-Resultat, Attachment oder Storage; bestehende Legacy-Requests bleiben unverändert.
+    - **Requirements:** 1.3-1.5, 7.8, 7.12, 9.1-9.10.
+    - **Design-Anker:** Testing Strategy 26-28, Provider 17-19, Error Handling 22-23.
     - **Abhängigkeiten:** 8.1.
-    - **Prüfung:** `bun run test src/features/ai-assistant/contracts/generated-image.test.ts src/features/ai-assistant/data/image-generation.test.ts src/features/ai-assistant/screens/assistant-screen.test.tsx`; `bun run test:functions -- providers_test.ts`.
-    - **Unverändert:** bestehender Storage-/Attachment-Owner und Provider-/Credit-Verträge.
+    - **Prüfung:** `bun run test src/features/ai-assistant/capability-registry.test.ts src/features/ai-assistant/contracts/generated-image.test.ts`; `bun run test:functions -- handler_test.ts`.
+    - **Unverändert:** bestehender Storage-/Attachment-Owner, Provider-/Credit-Verträge und alle Legacy-Skill-Werte.
 
   - [ ] 8.3 Produktive `speech-to-text`-Review für Assistant/Import verdrahten
-    - **Dateien/Module:** additive `src/features/ai-assistant/contracts/transcript.ts`, `src/features/ai-assistant/data/speech-to-text.ts`, `src/features/ai-assistant/screens/assistant-screen.tsx`, `src/features/recipe-import/data/recipe-import-api.ts`, `src/lib/platform/microphone-permissions.ts`, `supabase/functions/ai-gateway/providers.ts`, `supabase/functions/ai-gateway/handler.ts`.
-    - **Aktion:** `transcript.v1` mit Audio-Referenz, Text, Sprache, Confidence und Review Status ergänzen. Externe Transkription nur nach ausdrücklicher Nutzeraktion, aktiver Verbindung, Consent-/Scope-/Provider-/Credit-Prüfung und Nutzung des bestehenden Groq-Transkriptionsbausteins starten. Das Transcript vor jeder weiteren Assistant- oder Import-Verarbeitung sichtbar prüfen lassen.
+    - **Dateien/Module:** additive `src/features/ai-assistant/contracts/transcript.ts`, `src/features/ai-assistant/data/speech-to-text.ts`, `src/features/ai-assistant/screens/assistant-screen.tsx`, `src/features/recipe-import/data/recipe-import-api.ts`, `src/lib/platform/microphone-permissions.ts`, `supabase/functions/ai-gateway/providers.ts`, `supabase/functions/ai-gateway/handler.ts`, `supabase/functions/ai-gateway/tracking-safety.ts`.
+    - **Aktion:** `transcript.v1` mit Audio-Referenz, Text, Sprache, Confidence und Review Status ergänzen. Externe Transkription nur nach ausdrücklicher Nutzeraktion, aktiver Verbindung, Consent-/Scope-/Provider-/Credit-Prüfung und Nutzung des bestehenden Groq-Transkriptionsbausteins starten. Das Transcript vor jeder weiteren Assistant- oder Import-Verarbeitung sichtbar prüfen und durch denselben Tracking-/Kind-Tracking-Safety-Gate wie andere neue externe Inputs führen.
     - **Akzeptanz:** Keine automatische Aufnahme oder Upload; unbestätigtes Transcript startet keinen Folge-Call; Offline bleibt der Vorgang unavailable und wird nicht gepuffert; Roh-Audio bleibt außerhalb von Threads und Usage.
     - **Requirements:** 7.9, 6.3-6.8, 8.1-8.4, 9.1-9.9.
     - **Design-Anker:** Components 4 `speech-to-text`, Data Flow 13-14, Provider 17, Online-/Storage-Grenzen 24-25.
@@ -514,8 +523,8 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** vorhandene Microphone-Permission, Groq-Transkription, Assistant-Attachment-Validator, Importpfad und accountbezogener Thread-Storage.
 
   - [ ] 8.4 Speech-to-Text-Action-, Review- und Online-only-Tests als Pflichtnachweis schreiben
-    - **Dateien/Module:** `src/features/ai-assistant/contracts/transcript.test.ts`, `src/features/ai-assistant/data/speech-to-text.test.ts`, `src/lib/platform/microphone-permissions.test.ts`, `src/features/recipe-import/data/recipe-import-api.test.ts`, `supabase/functions/ai-gateway/providers_test.ts`.
-    - **Aktion:** Permission, expliziten Start, Audio-Input, Transcript-Review, Folgeaktion, Provider-/Credit-Gates, Offline und fehlende Rohbyte-Persistenz testen.
+    - **Dateien/Module:** `src/features/ai-assistant/contracts/transcript.test.ts`, `src/features/ai-assistant/data/speech-to-text.test.ts`, `src/lib/platform/microphone-permissions.test.ts`, `src/features/recipe-import/data/recipe-import-api.test.ts`, `supabase/functions/ai-gateway/providers_test.ts`, `supabase/functions/ai-gateway/tracking-safety_test.ts`.
+    - **Aktion:** Permission, expliziten Start, Audio-Input, Transcript-Review, Folgeaktion, Provider-/Credit-Gates, Online-only, bekannte Tracking-/Kind-Tracking-Quellen und fehlende Rohbyte-Persistenz testen.
     - **Akzeptanz:** Upload geschieht nur nach Nutzeraktion und online; Transcript ist vor Folgeaktionen sichtbar; ein abgelehnter oder ungültiger Transkriptvertrag erreicht weder weitere Capability noch Storage/Usage.
     - **Requirements:** 7.9, 8.1-8.4, 8.7, 9.3-9.9.
     - **Design-Anker:** Testing Strategy 26, Capability-Übergänge 14, Online-/Storage-Grenzen 24-25.
@@ -561,9 +570,10 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Prüfung:** `bun run test src/features/ai-assistant/data/assistant-attachments.test.ts src/features/recipe-import/data/recipe-import-api.test.ts src/features/ocr/processing/workflow.test.ts`; `bun run test:functions -- context-limits_test.ts media-processing_test.ts`.
     - **Unverändert:** bestehende Attachment-, Import-, OCR-, Outbox- und Storage-Tests.
 
-  - [ ] 8.9 Checkpoint: Medienfunktionen ohne Job- oder Providerneubau verifizieren
+  - [ ] 8.9 Checkpoint: Medienfunktionen mit Availability-Gate ohne Job- oder Providerneubau verifizieren
+    - **Dateien/Module:** die Testdateien aus 8.2, 8.4, 8.6 und 8.8.
     - **Aktion:** Pflichtnachweise 8.2, 8.4, 8.6 und 8.8 ausführen.
-    - **Akzeptanz:** Bild, Speech-to-Text, Text-to-Speech und Media-Processing erfüllen jeweils ihren Zweck-, Review-, Online- und Mutationsvertrag; keine neue Medien-Outbox oder allgemeine Plattform ist vorhanden.
+    - **Akzeptanz:** `image-generation` bleibt ohne separate Providerfreigabe unavailable; Speech-to-Text, Text-to-Speech und Media-Processing erfüllen jeweils ihren Zweck-, Review-, Online- und Mutationsvertrag; keine neue Medien-Outbox oder allgemeine Plattform ist vorhanden.
     - **Requirements:** 7.8-7.11, 8.1-8.4.
     - **Design-Anker:** Testing Strategy 26-28.
     - **Abhängigkeiten:** 8.2, 8.4, 8.6, 8.8.
@@ -618,6 +628,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** vorhandener `account-storage`-Owner, Thread-Limit und Attachment-Metadatenvertrag.
 
   - [ ] 9.5 Checkpoint: Online-/Offline- und Retention-Vertrag verifizieren
+    - **Dateien/Module:** `src/features/ai-assistant/data/assistant-api.test.ts`, `src/features/ai-assistant/data/assistant-storage.test.ts`, `src/features/recipe-import/data/recipe-import-api.test.ts`, `src/lib/data/query-client.test.ts`, `src/lib/db/outbox.test.ts`, `src/lib/db/outbox-retry.test.ts`, `src/features/ai-assistant/online-only.property.test.ts`, `src/features/ai-assistant/data/assistant-storage.property.test.ts`.
     - **Aktion:** Pflichtnachweis 9.2 und die verfügbaren Property-Tests aus 9.3-9.4 ausführen.
     - **Akzeptanz:** Keine neue AI-/Media-Outbox, kein Auto-Resume, kein Rohbyte-Thread und kein Apply eines ungültigen Last Local Result ist durch die Tests möglich.
     - **Requirements:** 8.1-8.9.
@@ -675,6 +686,7 @@ zusätzliche Property- oder Vertiefungstests. Alle Testaufträge sind gezielt
     - **Unverändert:** `recipe_suggestion.v1`, `fam-y918` und alle vorhandenen Legacy-Tests.
 
   - [ ] 10.5 Finaler Checkpoint: fokussierte Qualitätsgates ausführen
+    - **Dateien/Module:** alle Pflicht-Testdateien aus 1.2, 2.5, 3.2, 4.2, 5.2, 6.2, 6.4, 6.6, 6.8, 7.2, 7.4, 7.6, 8.2, 8.4, 8.6, 8.8, 9.2, 10.1 und 10.2 sowie die optional ausgewählten Testdateien aus 1.3-1.4, 2.6-2.8, 3.3, 4.3, 5.3, 9.3-9.4 und 10.3-10.4.
     - **Aktion:** Die Pflicht-Regressionen und die gewählten optionalen Nachweise aus den vorherigen Phasen gezielt ausführen. Danach `bun run typecheck`, `bun run check:functions`, `bun run check` und `git diff --check` starten.
     - **Akzeptanz:** Alle geänderten Coding-/Testflächen sind typisiert und formatiert; die Tests decken Consent, Scope, Tracking-/Kind-Tracking-Grenze, Provider/Credits/Refunds/Usage, 13 Capabilities, Online-only/Retention, bestehende Apply-Owner und Legacy-Isolation ab; keine neue Basis oder ausgeschlossene Capability-ID ist im Ergebnis enthalten.
     - **Requirements:** 1.1-1.7, 2.1-2.6, 3.1-3.10, 4.1-4.9, 5.1-5.9, 6.1-6.8, 7.1-7.13, 8.1-8.9, 9.1-9.10, 10.1-10.9, 11.1-11.6.

@@ -1829,6 +1829,13 @@ export function AssistantScreen() {
                     Was möchtest du heute kochen?
                   </Txt>
                   <View style={styles.starterPrompts}>
+                    <Button
+                      title="Aus Vorrat kochen"
+                      onPress={() => router.push('/chef-koch')}
+                      variant="secondary"
+                      full
+                      flat
+                    />
                     {STARTER_PROMPTS.map((prompt) => (
                       <Button
                         key={prompt}

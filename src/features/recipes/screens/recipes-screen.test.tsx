@@ -159,13 +159,12 @@ describe('RecipesScreen — Entdecken', () => {
     ];
   });
 
-  it('opens the persistent pantry cooking entry', async () => {
-    const user = userEvent.setup();
+  it('entfernt den persistenten Einstieg zum Kochen aus dem Vorrat', async () => {
     await render(<RecipesScreen />);
 
-    await user.press(screen.getByRole('button', { name: 'dashboard.chefKoch.entry' }));
-
-    expect(router.push).toHaveBeenCalledWith('/chef-koch');
+    expect(
+      screen.queryByRole('button', { name: 'dashboard.chefKoch.entry' }),
+    ).not.toBeOnTheScreen();
   });
 
   it('zeigt Kategorien, Kalorien und Mahlzeiten ohne Trending-Bereich', async () => {

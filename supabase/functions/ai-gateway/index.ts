@@ -1,7 +1,6 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 
 import {
-  ALLOWED_MODELS,
   type AssistantPageContext,
   createAiGatewayHandler,
   type GatewayCookingContext,
@@ -11,13 +10,20 @@ import {
   type GatewayInventoryContext,
   type GatewayLot,
   type GatewayMealPlanContext,
-  type GatewayProvider,
   type GatewayRecipe,
   type GatewayShoppingListItem,
-  GROQ_ALLOWED_MODELS,
   type HouseholdRecipeSelection,
   nonEmptyString,
 } from './handler.ts';
+import {
+  type AiGatewayProjectDefaults,
+  ALLOWED_MODELS,
+  DEFAULT_AI_GATEWAY_PROVIDER,
+  DEFAULT_MEDIA_FALLBACK,
+  type GatewayProvider,
+  GROQ_ALLOWED_MODELS,
+  PROVIDER_DEFAULT_MODELS,
+} from './config.ts';
 import { createGroqAudioTranscriber, createProviderCompleter } from './providers.ts';
 import { type AiUsageRecordInput, toAiUsageEvent } from './usage.ts';
 import {
@@ -54,7 +60,7 @@ const openRouterKey = Deno.env.get('OPENROUTER_API_KEY');
 const groqKey = Deno.env.get('GROQ_API_KEY');
 const configuredProvider: GatewayProvider = Deno.env.get('AI_GATEWAY_PROVIDER') === 'groq'
   ? 'groq'
-  : 'openrouter';
+  : DEFAULT_AI_GATEWAY_PROVIDER;
 function modelList(value: string | undefined, fallback: readonly string[]): readonly string[] {
   const configured = (value ?? '').split(',').map((model) => model.trim()).filter(Boolean);
   return configured.length > 0 ? configured : fallback;
@@ -70,14 +76,16 @@ const groqModels = modelList(
   GROQ_ALLOWED_MODELS,
 );
 const providerModels = { openrouter: openRouterModels, groq: groqModels };
-const providerDefaultModels: Record<GatewayProvider, string> = {
-  openrouter: 'z-ai/glm-5.3-flash',
-  groq: 'qwen/qwen3.8-27b',
+const providerDefaultModels = PROVIDER_DEFAULT_MODELS;
+const projectDefaults: AiGatewayProjectDefaults = {
+  provider: configuredProvider,
+  model: Deno.env.get('AI_GATEWAY_MODEL') ?? providerDefaultModels[configuredProvider],
 };
-const defaultModel = Deno.env.get('AI_GATEWAY_MODEL') ?? providerDefaultModels[configuredProvider];
+const defaultModel = projectDefaults.model;
 const configuredAllowedModels = configuredProvider === 'groq' ? groqModels : openRouterModels;
 const allowedModels = configuredAllowedModels;
 const providerComplete = createProviderCompleter({
+  projectDefaults,
   defaultProvider: configuredProvider,
   openRouterKey,
   openRouterBaseUrl: Deno.env.get('OPENROUTER_BASE_URL'),
@@ -1150,8 +1158,8 @@ const handler = createAiGatewayHandler({
   modelTestingEnabled: isRevenueCatSandboxAllowed(supabaseUrl),
   modelTestModels: providerModels,
   mediaFallback: {
-    provider: 'openrouter',
-    model: Deno.env.get('AI_GATEWAY_MEDIA_FALLBACK_MODEL') ?? 'qwen/qwen3.8-flash',
+    ...DEFAULT_MEDIA_FALLBACK,
+    model: Deno.env.get('AI_GATEWAY_MEDIA_FALLBACK_MODEL') ?? DEFAULT_MEDIA_FALLBACK.model,
   },
 });
 

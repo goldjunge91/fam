@@ -1,5 +1,6 @@
 import { assertEquals } from 'jsr:@std/assert@1';
 
+import { AI_GATEWAY_FLOWS } from './config.ts';
 import { createGroqAudioTranscriber, createProviderCompleter } from './providers.ts';
 
 function okResponse(overrides: Record<string, unknown> = {}): Response {
@@ -107,6 +108,7 @@ Deno.test('sends OpenRouter requests with existing JSON mode and attribution hea
   });
 
   const result = await complete({
+    flow: AI_GATEWAY_FLOWS.assistant,
     model: 'z-ai/glm-5.3-flash',
     messages: [{ role: 'user', content: 'Hallo' }],
   });
@@ -148,10 +150,10 @@ Deno.test('hides Groq Qwen reasoning for opted-in JSON completions and keeps ded
   });
 
   const result = await complete({
+    flow: AI_GATEWAY_FLOWS.recipeImport,
     provider: 'groq',
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Extrahiere das Rezept.' }],
-    hideReasoning: true,
   });
 
   const body = JSON.parse(requestBody) as Record<string, unknown>;
@@ -161,6 +163,59 @@ Deno.test('hides Groq Qwen reasoning for opted-in JSON completions and keeps ded
   assertEquals(result.ok, true);
   if (result.ok) {
     assertEquals(result.content, '{"kind":"recipe_import_draft.v1"}');
+  }
+});
+
+Deno.test('hides Groq Qwen reasoning for explicit JSON completions', async () => {
+  let requestBody = '';
+  const recipeContent = JSON.stringify({
+    schema_version: 1,
+    meals: [{
+      title: 'Tomatenpfanne',
+      source: 'model_generated',
+      recipe_id: null,
+      servings: 2,
+      used_items: [],
+      shopping_needs: [],
+      additional_ingredients: [],
+      steps: ['Tomaten garen.'],
+      notes: [],
+    }],
+  });
+  const complete = createProviderCompleter({
+    defaultProvider: 'groq',
+    groqKey: 'groq-test-key',
+  }, (_url, init) => {
+    requestBody = String(init?.body);
+    const body = JSON.parse(requestBody) as Record<string, unknown>;
+    const hasExpectedReasoningControls = body.reasoning_format === 'hidden' &&
+      body.reasoning_effort === 'none';
+    return Promise.resolve(okResponse({
+      choices: [{
+        message: hasExpectedReasoningControls
+          ? { content: recipeContent }
+          : { content: null, reasoning: 'private schema deliberation' },
+      }],
+    }));
+  });
+
+  const result = await complete({
+    flow: AI_GATEWAY_FLOWS.cookingFromInventory,
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
+    messages: [{ role: 'user', content: 'Was kann ich aus dem Vorrat kochen?' }],
+    responseFormat: 'json_object',
+  });
+
+  const body = JSON.parse(requestBody) as Record<string, unknown>;
+  assertEquals(body.response_format, { type: 'json_object' });
+  assertEquals(body.reasoning_format, 'hidden');
+  assertEquals(body.reasoning_effort, 'none');
+  assertEquals(body.max_completion_tokens, 4_096);
+  assertEquals('tools' in body, false);
+  assertEquals(result.ok, true);
+  if (result.ok) {
+    assertEquals(result.content, recipeContent);
   }
 });
 
@@ -175,6 +230,7 @@ Deno.test('keeps Groq Qwen reasoning controls off for ordinary JSON completions'
   });
 
   await complete({
+    flow: AI_GATEWAY_FLOWS.assistant,
     provider: 'groq',
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Was ist noch im Vorrat?' }],
@@ -197,6 +253,7 @@ Deno.test('serializes the explicit JSON mode marker as an object', async () => {
   });
 
   await complete({
+    flow: AI_GATEWAY_FLOWS.assistant,
     provider: 'groq',
     model: 'openai/gpt-oss-120b',
     messages: [{ role: 'user', content: 'Gib JSON zurück.' }],
@@ -231,6 +288,7 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
   });
 
   const result = await complete({
+    flow: AI_GATEWAY_FLOWS.assistant,
     provider: 'groq',
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Was ist noch im Vorrat?' }],
@@ -248,7 +306,7 @@ Deno.test('routes Groq tool calls through its OpenAI-compatible endpoint and tok
   assertEquals(new Headers(init?.headers).get('authorization'), 'Bearer groq-test-key');
   const body = JSON.parse(String(init?.body));
   assertEquals(body.model, 'qwen/qwen3.8-27b');
-  assertEquals(body.max_completion_tokens, 1536);
+  assertEquals(body.max_completion_tokens, 1_536);
   assertEquals('response_format' in body, false);
   assertEquals('reasoning_format' in body, false);
   assertEquals('reasoning_effort' in body, false);
@@ -271,10 +329,10 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
     return Promise.resolve(okResponse());
   });
   const result = await withKey({
+    flow: AI_GATEWAY_FLOWS.localModelTest,
     model: 'openai/gpt-oss-120b',
     messages: [{ role: 'user', content: 'Test' }],
     responseFormat: null,
-    maxTokens: 1024,
   });
   assertEquals(result.ok, true);
   assertEquals('response_format' in JSON.parse(String(init?.body)), false);
@@ -290,6 +348,7 @@ Deno.test('omits JSON mode for plain text model tests and reports a missing prov
     return Promise.resolve(okResponse());
   });
   const missing = await withoutKey({
+    flow: AI_GATEWAY_FLOWS.assistant,
     provider: 'groq',
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Test' }],
@@ -309,6 +368,7 @@ Deno.test('treats whitespace-only provider keys as unconfigured without making a
       return Promise.resolve(okResponse());
     });
     const result = await complete({
+      flow: AI_GATEWAY_FLOWS.assistant,
       model: 'test-model',
       messages: [{ role: 'user', content: 'Test' }],
     });
@@ -324,6 +384,7 @@ Deno.test('normalizes provider request failures without leaking upstream respons
   }, () => Promise.resolve(new Response('secret upstream details', { status: 401 })));
 
   const result = await complete({
+    flow: AI_GATEWAY_FLOWS.assistant,
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Test' }],
   });
@@ -348,6 +409,7 @@ Deno.test('logs safe metadata when a successful provider response is not JSON', 
         }),
       ));
     const result = await complete({
+      flow: AI_GATEWAY_FLOWS.assistant,
       model: 'z-ai/glm-5.3-flash',
       messages: [{ role: 'user', content: 'private prompt' }],
     });
@@ -371,6 +433,7 @@ Deno.test('normalizes fetch throws and upstream status failures without exposing
   }, () => Promise.reject(new Error('private upstream failure')));
   assertEquals(
     await thrown({
+      flow: AI_GATEWAY_FLOWS.assistant,
       model: 'qwen/qwen3.8-27b',
       messages: [{ role: 'user', content: 'Test' }],
     }),
@@ -389,6 +452,7 @@ Deno.test('normalizes fetch throws and upstream status failures without exposing
     }, () => Promise.resolve(new Response('private upstream body', { status })));
     assertEquals(
       await complete({
+        flow: AI_GATEWAY_FLOWS.assistant,
         model: 'z-ai/glm-5.3-flash',
         messages: [{ role: 'user', content: 'Test' }],
       }),
@@ -418,6 +482,7 @@ Deno.test('fails closed for empty, non-object, and malformed tool-call responses
       openRouterKey: 'openrouter-test-key',
     }, () => Promise.resolve(new Response(JSON.stringify(body), { status: 200 })));
     const result = await complete({
+      flow: AI_GATEWAY_FLOWS.assistant,
       model: 'z-ai/glm-5.3-flash',
       messages: [{ role: 'user', content: 'Test' }],
     });
@@ -449,6 +514,7 @@ Deno.test('fails closed for empty, non-object, and malformed tool-call responses
       ),
     ));
   const mixed = await mixedToolCalls({
+    flow: AI_GATEWAY_FLOWS.assistant,
     model: 'z-ai/glm-5.3-flash',
     messages: [{ role: 'user', content: 'Test' }],
   });
@@ -470,14 +536,14 @@ Deno.test('keeps provider-specific token and JSON options bounded for both provi
     return Promise.resolve(okResponse());
   });
   await openRouter({
+    flow: AI_GATEWAY_FLOWS.assistant,
     model: 'ibm-granite/granite-4.2-8b',
     messages: [{ role: 'user', content: 'Test' }],
-    maxTokens: 77,
   });
   assertEquals(openRouterBody, {
     model: 'ibm-granite/granite-4.2-8b',
     messages: [{ role: 'user', content: 'Test' }],
-    max_tokens: 77,
+    max_tokens: 1_536,
     response_format: { type: 'json_object' },
     usage: { include: true },
     reasoning: { enabled: false },
@@ -492,14 +558,14 @@ Deno.test('keeps provider-specific token and JSON options bounded for both provi
     return Promise.resolve(okResponse());
   });
   await groq({
+    flow: AI_GATEWAY_FLOWS.cookingFromInventory,
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Test' }],
     responseFormat: null,
-    maxTokens: 88,
   });
   assertEquals(groqBody, {
     model: 'qwen/qwen3.8-27b',
     messages: [{ role: 'user', content: 'Test' }],
-    max_completion_tokens: 88,
+    max_completion_tokens: 4_096,
   });
 });

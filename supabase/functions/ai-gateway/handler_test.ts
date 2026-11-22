@@ -12,6 +12,12 @@ import {
   type HouseholdRecipeSelection,
   type ProviderResponseFormat,
 } from './handler.ts';
+import {
+  AI_GATEWAY_FLOWS,
+  type AiGatewayFlow,
+  resolveAiGatewayFlowConfig,
+  SHARED_COMPLETION_MAX_TOKENS,
+} from './config.ts';
 
 const CONTEXT: GatewayCookingContext = {
   inventory: {
@@ -89,6 +95,7 @@ function request(body: unknown, method = 'POST') {
 function setup(
   options: {
     providerContent?: string;
+    providerEmptyBelowCookingBudget?: boolean;
     providerToolCalls?: Array<{ id: string; name: string; arguments: string }>;
     context?: GatewayCookingContext;
     contextError?: { status: number; error: string; message?: string };
@@ -121,10 +128,12 @@ function setup(
   } = {},
 ) {
   const calls: Array<{
+    flow: AiGatewayFlow;
     model: string;
     provider: GatewayProvider | undefined;
+    maxTokens: number;
     responseFormat: ProviderResponseFormat | undefined;
-    hideReasoning: boolean | undefined;
+    hideReasoning: boolean;
     system: string;
     user: string;
     transcript: string;
@@ -244,15 +253,21 @@ function setup(
     ...(options.publicUrlAllowed === undefined
       ? {}
       : { validatePublicUrl: () => Promise.resolve(options.publicUrlAllowed!) }),
-    complete: ({ provider, model, messages, responseFormat, hideReasoning }) => {
+    complete: ({ flow, provider, model, messages, responseFormat }) => {
       const contentAsText = (content: unknown) =>
         typeof content === 'string' ? content : JSON.stringify(content ?? '');
+      const resolved = resolveAiGatewayFlowConfig(flow, {
+        provider: provider ?? 'openrouter',
+        model,
+      });
       const callIndex = calls.length;
       calls.push({
+        flow,
         model,
         provider,
+        maxTokens: resolved.maxTokens,
         responseFormat,
-        hideReasoning,
+        hideReasoning: resolved.reasoning.groq !== undefined,
         system: contentAsText(messages[0]?.content),
         user: contentAsText(messages[1]?.content),
         transcript: messages.map((message) => contentAsText(message.content)).join('\n'),
@@ -280,9 +295,15 @@ function setup(
           model: options.providerModel ?? model,
         });
       }
+      const content = options.providerEmptyBelowCookingBudget &&
+          provider === 'openrouter' &&
+          model === 'z-ai/glm-5.3-flash' &&
+          (resolved.maxTokens < 4_096)
+        ? ''
+        : options.providerContent ?? JSON.stringify(COOKING_RESULT);
       return Promise.resolve({
         ok: true as const,
-        content: options.providerContent ?? JSON.stringify(COOKING_RESULT),
+        content,
         model: options.providerModel ?? model,
         usage: { prompt_tokens: 12, completion_tokens: 7, total_tokens: 19, cost: 0.0001 },
       });
@@ -376,6 +397,8 @@ Deno.test('model test endpoint is local-only, allowlisted, and does not bill hou
   assertEquals(body.model, 'qwen/qwen3.8-27b');
   assertEquals(body.text, JSON.stringify(COOKING_RESULT));
   assertEquals(enabled.calls[0]?.provider, 'groq');
+  assertEquals(enabled.calls[0]?.flow, AI_GATEWAY_FLOWS.localModelTest);
+  assertEquals(enabled.calls[0]?.maxTokens, 1_024);
   assertEquals(enabled.calls[0]?.responseFormat, null);
   assertEquals(enabled.bookings, []);
   assertEquals(enabled.getContextReads(), 0);
@@ -434,6 +457,8 @@ Deno.test('applies the local provider and model selection to the regular assista
   assertEquals(body.model, 'openai/gpt-oss-120b');
   assertEquals(calls[0]?.provider, 'groq');
   assertEquals(calls[0]?.model, 'openai/gpt-oss-120b');
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.assistant);
+  assertEquals(calls[0]?.maxTokens, SHARED_COMPLETION_MAX_TOKENS);
   assertEquals(bookings.length, 1);
   assertEquals(usageRecords, [{
     userId: 'user-1',
@@ -469,6 +494,8 @@ Deno.test('uses OpenRouter media fallback for Groq sources the selected model ca
   assertEquals(body.model, 'qwen/qwen3.8-flash');
   assertEquals(calls[0]?.provider, 'openrouter');
   assertEquals(calls[0]?.model, 'qwen/qwen3.8-flash');
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.recipeImport);
+  assertEquals(calls[0]?.maxTokens, SHARED_COMPLETION_MAX_TOKENS);
 });
 
 Deno.test('rejects provider and model overrides outside the local developer gateway', async () => {
@@ -680,7 +707,8 @@ Deno.test('imports recipe text and sends a source-grounded recipe prompt', async
   const body = await response.json();
   assertEquals(body.source, 'ai');
   assertEquals(body.result, RECIPE_IMPORT_RESULT);
-  assertEquals(calls[0]?.hideReasoning, true);
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.recipeImport);
+  assertEquals(calls[0]?.maxTokens, SHARED_COMPLETION_MAX_TOKENS);
   assertEquals(bookings[0]?.action, 'recipe_import');
   assertStringIncludes(calls[0]?.system ?? '', 'Erfinde keine Mengen');
   assertStringIncludes(calls[0]?.user ?? '', 'Linsen weich kochen.');
@@ -1294,6 +1322,8 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   const body = await response.json();
   assertEquals(body.requestId, 'request-1');
   assertEquals(calls.length, 1);
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.cookingFromInventory);
+  assertEquals(calls[0]?.maxTokens, 4_096);
   assertEquals(bookings, [{
     action: 'recipe',
     householdId: 'household-1',
@@ -1304,6 +1334,26 @@ Deno.test('builds a cooking prompt from gateway context and returns validated JS
   assertEquals(getContextReads(), 1);
   assertStringIncludes(calls[0]?.system ?? '', 'lot-tomato');
   assertStringIncludes(calls[0]?.user ?? '', 'vegetarian');
+});
+
+Deno.test('gives OpenRouter cooking completions enough budget for structured recipe output', async () => {
+  const { handler, calls } = setup({ providerEmptyBelowCookingBudget: true });
+  const response = await handler(request({
+    skill: 'fam-cook-from-inventory',
+    householdId: 'household-1',
+    userText: 'Was kann ich heute kochen?',
+    servings: 2,
+    maxMinutes: 30,
+    dietaryPattern: 'vegetarian',
+    allergies: [],
+  }));
+
+  assertEquals(response.status, 200);
+  assertEquals(calls[0]?.provider, 'openrouter');
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.cookingFromInventory);
+  assertEquals(calls[0]?.maxTokens, 4_096);
+  const body = await response.json();
+  assertEquals(body.result, COOKING_RESULT);
 });
 
 Deno.test('returns a context lookup error before booking credits or calling the provider', async () => {
@@ -1591,7 +1641,7 @@ Deno.test('capture remains read-only and does not load inventory context', async
     questions: [],
     warnings: [],
   };
-  const { handler, bookings, getContextReads } = setup({
+  const { handler, calls, bookings, getContextReads } = setup({
     providerContent: JSON.stringify(capture),
   });
   const response = await handler(
@@ -1604,6 +1654,8 @@ Deno.test('capture remains read-only and does not load inventory context', async
   );
 
   assertEquals(response.status, 200);
+  assertEquals(calls[0]?.flow, AI_GATEWAY_FLOWS.inventoryCapture);
+  assertEquals(calls[0]?.maxTokens, SHARED_COMPLETION_MAX_TOKENS);
   assert((await response.json()).result.items.length === 1);
   assertEquals(bookings[0]?.action, 'suggestion');
   assertEquals(getContextReads(), 0);

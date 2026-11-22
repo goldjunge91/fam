@@ -145,6 +145,9 @@ Die Ist-/Lückenbewertung stützt sich auf folgende read-only geprüfte Quellen:
 - `src/app/assistant.tsx` und
   `src/features/ai-assistant/screens/assistant-screen.tsx` belegen den
   bestehenden `fam-assistant`-Pfad und die vorhandene Assistant-Oberfläche.
+  Der Screen trennt bereits den einmaligen Kochmodus über den bestehenden
+  `/recipe/cook`-Einstieg vom dauerhaften Speichern über den vorhandenen
+  Recipe-Apply-Owner; diese Swap-Modi sind keine neue Lücke.
 - `src/features/ai-assistant/types.ts` und
   `src/features/ai-assistant/data/assistant-api.ts` belegen versionierte
   Assistant-Antworten, Recipe- und Meal-Plan-Kontext, read-only Tool-Namen,
@@ -165,7 +168,10 @@ Die Ist-/Lückenbewertung stützt sich auf folgende read-only geprüfte Quellen:
   Proposal-Validation. `fam-recipe-import` akzeptiert aktuell Text, URL, Bild,
   PDF und Video.
 - `supabase/functions/ai-gateway/providers.ts` belegt den bestehenden
-  OpenRouter-/Groq-Providerpfad und einen Groq-Transkriptionsbaustein.
+  OpenRouter-/Groq-Providerpfad und einen Groq-Transkriptionsbaustein. Eine
+  Bildgenerierungs-API oder ein entsprechender Providervertrag ist dort nicht
+  vorhanden; `image-generation` bleibt deshalb bis zu einer separaten
+  Freigabe unavailable.
 - `supabase/schemas/03_households.sql` und der bestehende Gateway-Code belegen
   RevenueCat-Entitlement, Credit-Buchung und Refund-Grenzen.
 - `supabase/schemas/28_ai_usage.sql` belegt, dass das aktuelle Usage-Schema
@@ -182,9 +188,11 @@ Die Ist-/Lückenbewertung stützt sich auf folgende read-only geprüfte Quellen:
 - `src/features/recipes/hooks/use-cooking-mode-voice.ts`, die vorhandenen
   Speech-Permissions und `providers.ts` belegen einzelne Sprachbausteine,
   aber keine vollständige Assistant-Sprach-Capability.
-- `docs/features/rezeptimport-produktziel.md` beschreibt den bestehenden
-  Importrahmen, Review vor Speicherung und die getrennte Behandlung von
-  Quelle, Entwurf und Haushaltsrezept.
+- `docs/architecture/DATENSCHUTZ.md` enthält bereits den aktuellen
+  OpenRouter-/Groq-Hinweis, beschreibt aber noch nicht den einmaligen Consent-
+  Rahmen, die zulässigen persönlichen Kategorien, Aufbewahrung und Widerruf.
+  Die Privacy-Verknüpfung ist deshalb eine belegte additive Lücke und kein
+  neuer Datenschutz- oder Storage-Pfad.
 
 ## Ist-/Lückenmodell
 
@@ -193,13 +201,13 @@ Die Ist-/Lückenbewertung stützt sich auf folgende read-only geprüfte Quellen:
 | `assistant` | teilweise vorhanden | `fam-assistant`, Assistant-Screen, lokale Account-Threads, Recipe-/Meal-Plan-Kontext, Anhänge, read-only Tools und getrennte Apply Paths | Einrichtungsfreigabe für Consent Frame, additive Capability-/Vertragsmetadaten und die fehlenden Scope-/Provider-Grenzen ergänzen. Bestehende UI, Threads, API und Apply Paths bleiben erhalten. |
 | `import` | teilweise vorhanden | `fam-recipe-import` mit Text, URL, Bild, PDF und Video, bestehende Import-Oberfläche, strukturierte Quelle und validierter Draft | Fehlende einheitliche Draft-/Quellen-/Statusgrenzen, Capability-Metadaten und additive Review-Übergänge ergänzen. Kein zweiter Importpfad. |
 | `notes` | fehlend | Bestehende Recipe-Domäne und Recipe-Apply-Owner | Read-only Notizvorschlag und sichtbarer Apply Path ergänzen; bestehende Recipe-Mutation bleibt Owner. |
-| `swaps` | teilweise vorhanden | Assistant-Tool, `ingredient_swap_proposal.v1`, serverseitige Validierung und lokaler Apply Path | Einmalige Kochverwendung und dauerhafte Rezeptänderung als getrennte Modi ergänzen, ohne den bestehenden Apply Path zu ersetzen. |
+| `swaps` | bestehend | Assistant-Tool, `ingredient_swap_proposal.v1`, serverseitige Validierung, die beiden bestehenden Assistant-Aktionen „Für dieses Mal“ und „Speichern“ sowie der lokale Recipe-Apply Path sind vorhanden. | Nur additive Capability-/Contract-/Usage-Metadaten und fokussierte Regression; kein neuer Swap-Vertrag und kein neuer Apply Path. |
 | `nutrition` | teilweise vorhanden | Rezept-/Produktdaten und bestehende private Nutrition-Tracking-Domäne | Read-only Nährwertschätzung mit Kennzeichnung und ohne Tracking-Schreibzugriff ergänzen. Bestehende Tracking-Daten bleiben außerhalb des AI-Scope. |
 | `shopping` | teilweise vorhanden | Assistant-Shopping-Proposals, `shopping_list_proposal.v1`, Shopping-Merge und Idempotenz-Apply | Capability-spezifische Scope-/Usage-Metadaten und verbleibende Review-Grenzen ergänzen; die bestehende Shopping-Logik bleibt Owner. |
 | `receipts` | teilweise vorhanden | Receipt-OCR, Receipt-Speicher, Review und bestehende Receipt-/Inventory-Domänenpfade | AI-gestützte Receipt-Erkennung als reviewbares Proposal ergänzen; kein automatisches Verbuchen und kein Ersatz des OCR-/Review-Pfads. |
 | `discover` | teilweise vorhanden | Rezeptkatalog und `search_recipes` als bestehendes read-only Assistant-Tool | Externe Suche, Quellenherkunft und Übergang in den bestehenden Import-Draft ergänzen. |
 | `reminders` | teilweise vorhanden | Bestehende lokale Notification- und Reminder-Infrastruktur | AI-spezifischen Trigger-, Zeitpunkt-, Benachrichtigungs- und Datenrahmen ergänzen; keine ungefragten Modellaufrufe. |
-| `image-generation` | fehlend | Vorhandene Medien- und Storage-Bausteine ohne produktiven Bildgenerierungsvertrag | Einen klar begrenzten, gekennzeichneten Bildvorschlag auf dem bestehenden Provider-, Credit- und Storage-Rahmen ergänzen. |
+| `image-generation` | fehlend | Medien- und Storage-Bausteine existieren, aber der aktuelle `ai-gateway`-/OpenRouter-/Groq-Pfad enthält keine belegte Bildgenerierungsfähigkeit. | Nur capability-spezifischer Contract und `capability_unavailable`-Guard bis eine separate Provider-Fähigkeit ausdrücklich freigegeben und belegt ist; keine neue Providerbasis und kein Bildaufruf in dieser Spec. |
 | `speech-to-text` | teilweise vorhanden | Native Speech-Permissions, Entwicklungsbausteine und Groq-Transkription | Eine produktive, ausdrücklich gestartete Assistant-/Import-Nutzung mit sichtbarer Transkriptprüfung ergänzen. |
 | `text-to-speech` | teilweise vorhanden | `expo-speech` im Cooking-Mode und vorhandene Vorleselogik | Sichtbares Vorlesen von Assistant-Antworten oder Kochschritten ergänzen, ohne verborgene Modell- oder Hintergrundverarbeitung. |
 | `media-processing` | teilweise vorhanden | Bild-/PDF-/Video-Eingänge, Assistant-Anhänge, Import und OCR | Capability-spezifische Zweck-, Status-, Fehler- und Aufbewahrungsgrenzen ergänzen, ohne eine allgemeine Medienjob-Outbox einzuführen. |
@@ -249,7 +257,7 @@ Bestandsflächen neu baut oder ausgeschlossene Arbeit einführt.
 1. THE Consent Settings SHALL offer only `intolerances`, `dislikedFoods` and an explicit empty selection as personal categories.
 2. WHEN an Account opens the AI setup, THE Mobile Assistant SHALL show a short explanation of the allowed data, purpose and Provider frame.
 3. THE Privacy Policy SHALL contain the complete explanation of allowed data, purpose, Provider frame, retention and revocation.
-4. THE Settings SHALL keep the current Consent Frame, active status and explanation reachable after setup.
+4. THE Settings SHALL keep the current Consent Frame, active status and explanation reachable after setup, and the setup plus Settings privacy entry SHALL expose a reachable link to the complete AI explanation in the Privacy Policy.
 5. WHEN an Account saves a Consent Frame, THE Fam AI System SHALL store the Account ID, selected categories, purpose version, Provider frame, contract version, timestamp and active status.
 6. THE Consent Record SHALL exclude current preference values, free-form personal content, Tracking Data and Child Profile Data.
 7. WHEN a Consent Frame remains unchanged, THE AI Gateway SHALL permit an External Model Call without a new per-call confirmation.
@@ -354,7 +362,7 @@ die Daten- oder Mutationsgrenze einer anderen Capability übernimmt.
 4. WHEN a new Capability produces no usable result after a Credit Booking, THE AI Gateway SHALL reuse the existing one-time Refund rule for the request.
 5. WHEN a structured source completes without an External Model Call, THE AI Gateway SHALL not book AI credits for the source.
 6. WHEN a new Capability needs a Usage Event, THE Usage Event SHALL retain the existing content-free fields and SHALL add Capability ID or contract metadata only additively.
-7. THE Usage Log SHALL preserve existing Legacy Skill values and existing `recipe_suggestion.v1` usage semantics.
+7. THE Usage Log SHALL preserve existing Legacy Skill values, SHALL record new Capability IDs only in nullable additive metadata, and SHALL preserve the existing `fam-cook-from-inventory`/`recipe_suggestion.v1` behavior without using `recipe_suggestion.v1` as a new general usage or response envelope.
 8. IF a new Capability requires a credit action or Usage field not covered by the existing contract, THEN THE Fam AI System SHALL preserve existing rows, fields and tests before acceptance.
 9. IF a Provider, model or Capability is not configured for the declared contract, THEN THE AI Gateway SHALL return a stable unavailable error without silent Provider failover.
 10. THE Fam AI System SHALL not introduce a new billing architecture, client-side credit counter or second Provider credential path.

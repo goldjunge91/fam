@@ -6,6 +6,16 @@
  */
 
 import {
+  AI_GATEWAY_FLOWS,
+  type AiGatewayFlow,
+  ALLOWED_MODELS,
+  DEFAULT_AI_GATEWAY_PROVIDER,
+  type GatewayProvider,
+  PROVIDER_DEFAULT_MODELS,
+} from './config.ts';
+export { ALLOWED_MODELS, GROQ_ALLOWED_MODELS } from './config.ts';
+export type { GatewayProvider } from './config.ts';
+import {
   type IngredientAliasRecord,
   type RecipeAllergenProjection,
 } from './ingredient-knowledge.ts';
@@ -32,26 +42,6 @@ import {
   CONTEXT_LIMITS,
   limitContextString,
 } from './context-limits.ts';
-
-export const ALLOWED_MODELS = [
-  'ibm-granite/granite-4.2-8b',
-  'google/gemma-4-26b-a4b-it',
-  'qwen/qwen3.8-flash',
-  'z-ai/glm-5.3-flash',
-  'google/gemma-4-31b-it',
-  'minimax/minimax-m3:free',
-] as const;
-
-export const GROQ_ALLOWED_MODELS = [
-  'qwen/qwen3.8-27b',
-  'openai/gpt-oss-120b',
-  'openai/gpt-oss-20b',
-  'openai/gpt-oss-safeguard-20b',
-  'meta-llama/llama-prompt-guard-2-22m',
-  'meta-llama/llama-prompt-guard-2-86m',
-] as const;
-
-export type GatewayProvider = 'openrouter' | 'groq';
 
 type ModelSelection = { provider?: GatewayProvider; model?: string };
 
@@ -178,6 +168,19 @@ type ModelGatewayRequest = Exclude<
   | AssistantProposalValidationRequest
   | AiModelTestRequest
 >;
+
+function flowForCompletionSkill(skill: ModelGatewayRequest['skill']): AiGatewayFlow {
+  switch (skill) {
+    case 'fam-assistant':
+      return AI_GATEWAY_FLOWS.assistant;
+    case 'fam-inventory-capture':
+      return AI_GATEWAY_FLOWS.inventoryCapture;
+    case 'fam-cook-from-inventory':
+      return AI_GATEWAY_FLOWS.cookingFromInventory;
+    case 'fam-recipe-import':
+      return AI_GATEWAY_FLOWS.recipeImport;
+  }
+}
 
 export type ProviderContentPart =
   | { type: 'text'; text: string }
@@ -493,13 +496,12 @@ type Dependencies = {
   validatePublicUrl?: (url: string) => Promise<boolean>;
   transcribeAudio?: (url: string) => Promise<AudioTranscriptionResult>;
   complete: (input: {
-    provider?: GatewayProvider;
+    flow: AiGatewayFlow;
+    provider: GatewayProvider;
     model: string;
     messages: ProviderMessage[];
     tools?: ProviderTool[];
     responseFormat?: ProviderResponseFormat;
-    hideReasoning?: boolean;
-    maxTokens?: number;
   }) => Promise<ProviderResult>;
   isRateLimited?: () => boolean;
   recordRateLimitAttempt?: () => void;
@@ -2313,8 +2315,8 @@ function validateCaptureResult(
 /** Builds the HTTP handler used by the Deno entrypoint and its tests. */
 export function createAiGatewayHandler(dependencies: Dependencies) {
   const allowedModels = dependencies.allowedModels ?? ALLOWED_MODELS;
-  const defaultModel = dependencies.defaultModel ?? 'z-ai/glm-5.3-flash';
-  const defaultProvider = dependencies.defaultProvider ?? 'openrouter';
+  const defaultProvider = dependencies.defaultProvider ?? DEFAULT_AI_GATEWAY_PROVIDER;
+  const defaultModel = dependencies.defaultModel ?? PROVIDER_DEFAULT_MODELS[defaultProvider];
   const now = dependencies.now ?? (() => new Date().toISOString());
   const nowMilliseconds = dependencies.nowMilliseconds ?? (() => Date.now());
   const requestId = dependencies.requestId ?? (() => crypto.randomUUID());
@@ -2373,6 +2375,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       let result: ProviderResult;
       try {
         result = await dependencies.complete({
+          flow: AI_GATEWAY_FLOWS.localModelTest,
           provider: parsedRequest.provider,
           model: parsedRequest.model,
           messages: [
@@ -2384,7 +2387,6 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
             { role: 'user', content: parsedRequest.prompt },
           ],
           responseFormat: null,
-          maxTokens: 1_024,
         });
       } catch {
         return json({ error: 'provider_unavailable' }, 502);
@@ -2541,6 +2543,7 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
       }
     }
 
+    const flow = flowForCompletionSkill(parsedRequest.skill);
     if (dependencies.isRateLimited?.()) {
       return json({ error: 'rate_limited' }, 429);
     }
@@ -2828,12 +2831,12 @@ export function createAiGatewayHandler(dependencies: Dependencies) {
         : undefined;
       try {
         provider = await dependencies.complete({
+          flow,
           provider: activeProvider,
           model,
           messages: providerMessages,
           ...(canUseTools && round < 6 ? { tools: ASSISTANT_TOOLS } : {}),
           ...(responseFormat === undefined ? {} : { responseFormat }),
-          ...(parsedRequest.skill === 'fam-recipe-import' ? { hideReasoning: true } : {}),
         });
       } catch {
         return await refundAndRespond({ error: 'provider_unavailable' }, 502);

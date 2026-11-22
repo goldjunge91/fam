@@ -620,6 +620,15 @@ describe('AssistantScreen', () => {
     expect(screen.queryByText('Rezept.pdf')).toBeNull();
   });
 
+  it('öffnet das bestehende Vorratsauswahlmenü aus dem Assistant', async () => {
+    await renderAssistant();
+    const user = userEvent.setup();
+
+    await user.press(screen.getByRole('button', { name: 'Aus Vorrat kochen' }));
+
+    expect(mockRouterPush).toHaveBeenCalledWith('/chef-koch');
+  });
+
   it('shows starter prompts without an expiring picker in an empty chat', async () => {
     const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
     mockInventoryItems = [

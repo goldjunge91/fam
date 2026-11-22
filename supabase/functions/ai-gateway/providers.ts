@@ -1,5 +1,13 @@
+import {
+  type AiGatewayFlow,
+  type AiGatewayProjectDefaults,
+  DEFAULT_AI_GATEWAY_PROVIDER,
+  type GatewayProvider,
+  GROQ_TRANSCRIPTION_PROFILE,
+  PROVIDER_DEFAULT_MODELS,
+  resolveAiGatewayFlowConfig,
+} from './config.ts';
 import type {
-  GatewayProvider,
   ProviderMessage,
   ProviderResponseFormat,
   ProviderResult,
@@ -7,17 +15,18 @@ import type {
 } from './handler.ts';
 
 export type ProviderCompletionInput = {
+  flow: AiGatewayFlow;
   provider?: GatewayProvider;
-  model: string;
+  model?: string;
   messages: ProviderMessage[];
   tools?: ProviderTool[];
   responseFormat?: ProviderResponseFormat;
-  hideReasoning?: boolean;
-  maxTokens?: number;
 };
 
 export type ProviderConfiguration = {
-  defaultProvider: GatewayProvider;
+  projectDefaults?: AiGatewayProjectDefaults;
+  defaultProvider?: GatewayProvider;
+  defaultModel?: string;
   openRouterKey?: string;
   openRouterBaseUrl?: string;
   openRouterSiteUrl?: string;
@@ -110,7 +119,7 @@ export function createGroqAudioTranscriber(
 
     const form = new FormData();
     form.set('url', url);
-    form.set('model', 'whisper-large-v3-turbo');
+    form.set('model', GROQ_TRANSCRIPTION_PROFILE.model);
     form.set('response_format', 'json');
 
     let response: Response;
@@ -160,8 +169,19 @@ export function createProviderCompleter(
   config: ProviderConfiguration,
   fetcher: typeof fetch = fetch,
 ): (input: ProviderCompletionInput) => Promise<ProviderResult> {
+  const defaultProvider = config.projectDefaults?.provider ?? config.defaultProvider ??
+    DEFAULT_AI_GATEWAY_PROVIDER;
+  const projectDefaults = config.projectDefaults ?? {
+    provider: defaultProvider,
+    model: config.defaultModel ?? PROVIDER_DEFAULT_MODELS[defaultProvider],
+  };
+
   return async (input) => {
-    const provider = input.provider ?? config.defaultProvider;
+    const flowConfig = resolveAiGatewayFlowConfig(input.flow, {
+      provider: input.provider ?? projectDefaults.provider,
+      model: input.model ?? projectDefaults.model,
+    });
+    const { provider, model } = flowConfig;
     const key = providerKey(provider, config);
     if (!key) return { ok: false, status: 503, error: 'provider_not_configured' };
 
@@ -173,25 +193,23 @@ export function createProviderCompleter(
       if (config.openRouterSiteUrl) headers['HTTP-Referer'] = config.openRouterSiteUrl;
       if (config.openRouterSiteName) headers['X-Title'] = config.openRouterSiteName;
     }
-    const groqQwenJsonCompletion = input.hideReasoning === true &&
-      provider === 'groq' &&
-      input.model === 'qwen/qwen3.8-27b' &&
+    const groqQwenJsonCompletion = flowConfig.reasoning.groq !== undefined &&
       input.responseFormat !== null &&
       !input.tools?.length;
     const body = {
-      model: input.model,
+      model,
       messages: input.messages,
       ...(provider === 'groq'
-        ? { max_completion_tokens: input.maxTokens ?? 1_536 }
-        : { max_tokens: input.maxTokens ?? 1_536 }),
+        ? { max_completion_tokens: flowConfig.maxTokens }
+        : { max_tokens: flowConfig.maxTokens }),
       ...((input.responseFormat === null || input.tools?.length)
         ? {}
         : { response_format: normalizedResponseFormat(input.responseFormat) }),
-      ...(groqQwenJsonCompletion ? { reasoning_format: 'hidden', reasoning_effort: 'none' } : {}),
+      ...(groqQwenJsonCompletion ? flowConfig.reasoning.groq : {}),
       ...(input.tools ? { tools: input.tools, tool_choice: 'auto' } : {}),
       ...(provider === 'openrouter' ? { usage: { include: true } } : {}),
-      ...(provider === 'openrouter' && input.model === 'ibm-granite/granite-4.2-8b'
-        ? { reasoning: { enabled: false } }
+      ...(provider === 'openrouter' && flowConfig.reasoning.openrouter
+        ? { reasoning: flowConfig.reasoning.openrouter }
         : {}),
     };
 
@@ -220,19 +238,19 @@ export function createProviderCompleter(
       console.warn(JSON.stringify({
         event: 'ai_provider_response_unusable',
         provider,
-        model: input.model,
+        model,
         status: response.status,
         contentType: response.headers.get('content-type'),
         reason: 'invalid_json',
       }));
       return { ok: false, status: 502, error: 'provider_invalid_response' };
     }
-    const result = parseProviderResult(responseBody, input.model);
+    const result = parseProviderResult(responseBody, model);
     if (!result.ok) {
       console.warn(JSON.stringify({
         event: 'ai_provider_response_unusable',
         provider,
-        model: input.model,
+        model,
         status: response.status,
         contentType: response.headers.get('content-type'),
         reason: result.error,
