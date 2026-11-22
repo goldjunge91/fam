@@ -109,11 +109,6 @@ const styles = StyleSheet.create((theme) => ({
     paddingVertical: theme.space.lg,
   },
   mentionPanel: {
-    position: 'absolute',
-    top: '100%',
-    left: 0,
-    right: 0,
-    zIndex: 20,
     marginTop: theme.space.xs,
     borderRadius: theme.radius.sm,
     borderWidth: theme.borderWidth.base,
@@ -144,6 +139,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   timerRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: theme.space.sm,
   },
@@ -456,7 +452,9 @@ const StepCard = memo(function StepCard({
               <Press
                 key={ing.itemId}
                 style={[styles.mentionRow, { borderBottomColor: colors.border }]}
-                onPress={() => insertMention(ing)}>
+                onPress={() => insertMention(ing)}
+                accessibilityRole="button"
+                accessibilityLabel={`${ing.name} · ${ing.quantity}${ing.unit ?? ''}`}>
                 <Txt variant="body" weight="700">
                   {ing.name}{' '}
                   <Txt variant="caption" tone="secondary">
@@ -599,6 +597,8 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
     return (
       <View style={styles.timerRow}>
         <TextInput
+          testID="recipe-step-timer-input"
+          accessibilityLabel="Min."
           style={[
             styles.timerInput,
             inputTextStyles.recipeStep,

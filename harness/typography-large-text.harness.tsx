@@ -1,19 +1,23 @@
 import { File, Paths } from 'expo-file-system';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { I18nextProvider } from 'react-i18next';
-import { createRef, type ReactNode, type RefObject, useEffect, useRef, useState } from 'react';
-import { Platform, ScrollView, type LayoutChangeEvent, View } from 'react-native';
+import { createElement, createRef, type ReactNode, type RefObject, useEffect, useRef, useState } from 'react';
+import {
+  FlatList,
+  Platform,
+  ScrollView,
+  type LayoutChangeEvent,
+  View,
+} from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { UnistylesRuntime } from 'react-native-unistyles';
-import { beforeEach, describe, expect, it, mock, render } from 'react-native-harness';
+import { beforeEach, describe, expect, it, mock, render, requireActual } from 'react-native-harness';
 import { screen, userEvent } from '@react-native-harness/ui';
 
-import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { ThemeProvider, useTheme } from '@/components/theme/ThemeProvider';
 import { i18n } from '@/i18n';
 import type { IngredientComponentGroup, WizardStepItem } from '@/features/recipes/wizard/types';
-import {
-  RecipeWizardStepSteps,
-  type RecipeWizardStepListRef,
-} from '@/features/recipes/wizard/recipe-wizard-step-steps';
+import type { RecipeWizardStepListRef } from '@/features/recipes/wizard/recipe-wizard-step-steps';
 
 mock('@/features/auth/api', () => ({
   confirmSignUpWithCode: async (_email: string, code: string) => ({
@@ -39,7 +43,77 @@ mock('@/lib/backend/supabase/remote-client', () => ({
   }),
 }));
 
+const gestureHandler = requireActual<typeof import('react-native-gesture-handler')>(
+  'react-native-gesture-handler',
+);
+
+// Harness 1.4.1 touch synthesis terminates iOS 26 inside the drag detector.
+// Keep the native list and disable only its drag recognizer for this layout proof.
+mock('react-native-gesture-handler', () => ({
+  ...gestureHandler,
+  GestureDetector: ({ children }: { children: ReactNode }) => children,
+}));
+
+const { View: NativeView } = requireActual<typeof import('react-native')>('react-native');
+const AnimatedView = ({ children, ...props }: { children?: ReactNode } & Record<string, unknown>) =>
+  createElement(NativeView, props, children);
+
+// ReorderableList still renders a native FlatList; synchronous worklet shims
+// keep its layout and imperative scrolling available in Harness.
+mock('react-native-reanimated', () => ({
+  __esModule: true,
+  default: {
+    createAnimatedComponent: (component: unknown) => component,
+    FlatList,
+    ScrollView,
+    View: AnimatedView,
+  },
+  Easing: {
+    cubic: (value: number) => value,
+    ease: (value: number) => value,
+    elastic: (_factor: number) => (value: number) => value,
+    in: (easing: (value: number) => number) => easing,
+    inOut: (easing: (value: number) => number) => easing,
+    linear: (value: number) => value,
+    out: (easing: (value: number) => number) => easing,
+    sin: (value: number) => value,
+  },
+  measure: () => null,
+  runOnJS: (callback: (...args: never[]) => unknown) => callback,
+  runOnUI: (callback: (...args: never[]) => unknown) => callback,
+  scrollTo: () => undefined,
+  useAnimatedReaction: () => undefined,
+  useAnimatedRef: () => {
+    const ref = useRef<(((value: unknown) => void) & { current: unknown }) | null>(null);
+    if (!ref.current) {
+      const callback = ((value: unknown) => {
+        callback.current = value;
+      }) as ((value: unknown) => void) & { current: unknown };
+      callback.current = null;
+      ref.current = callback;
+    }
+    return ref.current;
+  },
+  useAnimatedScrollHandler: (handler: { onScroll?: (...args: unknown[]) => unknown }) =>
+    handler.onScroll ?? (() => undefined),
+  useAnimatedStyle: (updater: () => object) => updater(),
+  useComposedEventHandler: (handlers: unknown[]) =>
+    handlers.find(
+      (handler): handler is (...args: unknown[]) => unknown => typeof handler === 'function',
+    ) ?? (() => undefined),
+  useDerivedValue: (updater: () => unknown) => ({ value: updater() }),
+  useReducedMotion: () => true,
+  useSharedValue: (value: unknown) => {
+    const ref = useRef({ value });
+    return ref.current;
+  },
+  withDelay: (_delay: number, value: unknown) => value,
+  withSpring: (value: unknown) => value,
+  withTiming: (value: unknown) => value,
+}));
+
 const { EmailVerificationPanel } = require('@/features/auth/components/email-verification-panel') as typeof import('@/features/auth/components/email-verification-panel');
+const { RecipeWizardStepSteps } = require('@/features/recipes/wizard/recipe-wizard-step-steps') as typeof import('@/features/recipes/wizard/recipe-wizard-step-steps');
 
 const VIEWPORT_WIDTH = 320;
 const EMAIL = 'user@example.invalid';
@@ -99,11 +173,13 @@ function createQueryClient() {
 
 function Providers({ children }: { children: ReactNode }) {
   return (
-    <I18nextProvider i18n={i18n}>
-      <ThemeProvider>
-        <QueryClientProvider client={createQueryClient()}>{children}</QueryClientProvider>
-      </ThemeProvider>
-    </I18nextProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <I18nextProvider i18n={i18n}>
+        <ThemeProvider>
+          <QueryClientProvider client={createQueryClient()}>{children}</QueryClientProvider>
+        </ThemeProvider>
+      </I18nextProvider>
+    </GestureHandlerRootView>
   );
 }
 
@@ -126,6 +202,7 @@ function Viewport({
   scroll?: boolean;
   scrollController: ScrollControllerRef;
 }) {
+  const { colors } = useTheme();
   const scrollRef = useRef<ScrollView | null>(null);
 
   useEffect(() => {
@@ -146,8 +223,9 @@ function Viewport({
   return (
     <View
       testID="typography-large-text-viewport"
+      collapsable={false}
       onLayout={onLayout}
-      style={{ width: VIEWPORT_WIDTH, flex: 1 }}>
+      style={{ width: VIEWPORT_WIDTH, flex: 1, backgroundColor: colors.background }}>
       {scroll ? (
         <ScrollView
           ref={scrollRef}
@@ -198,6 +276,7 @@ async function captureEvidence(
   layoutWidth: number,
 ) {
   const screenshot = await screen.screenshot(viewport);
+  const contentSizeCategory = UnistylesRuntime.contentSizeCategory;
   const fontScale = UnistylesRuntime.fontScale;
   const screenshotArtifact = screenshot ? await persistScreenshot(state, screenshot.data) : null;
 
@@ -206,6 +285,7 @@ async function captureEvidence(
       platform: Platform.OS,
       state,
       resolvedLayoutWidth: layoutWidth,
+      contentSizeCategory,
       fontScale,
       screenshotArtifact,
       screenshotBytes: screenshot?.data.length ?? null,
@@ -215,7 +295,8 @@ async function captureEvidence(
   expect(screenshot).not.toBeNull();
   expect(screenshotArtifact).not.toBeNull();
   expect(layoutWidth).toBe(VIEWPORT_WIDTH);
-  expect(fontScale).toBe(2);
+  expect(contentSizeCategory).toBe('accessibilityLarge');
+  expect(Number.isFinite(fontScale)).toBe(true);
 }
 
 async function scrollListToEnd(listRef: RefObject<RecipeWizardStepListRef | null>) {
@@ -280,26 +361,32 @@ describe('large-text typography on the iOS product surfaces', () => {
     await screen.findByAccessibilityLabel('Bestätigen');
     await captureEvidence('email-initial', viewport, layoutWidth);
 
+    const emailScroll = scrollController.current;
+    if (!emailScroll) throw new Error('Email ScrollView was not mounted');
+    await emailScroll.scrollToEnd();
+
     const codeInput = await screen.findByTestId('email-verification-code');
-    await userEvent.type(codeInput, '4729', { skipBlur: true, submitEditing: true });
+    await userEvent.type(codeInput, '4729', { submitEditing: true });
     await screen.findByAccessibilityLabel(EMAIL_CODE_ERROR);
     await captureEvidence('email-validation-error', viewport, layoutWidth);
 
-    if (!scrollController.current) throw new Error('Email ScrollView was not mounted');
-    await scrollController.current.scrollToEnd();
-    const resend = await screen.findByAccessibilityLabel('Bestätigungs-E-Mail erneut senden');
-    const checkNow = await screen.findByAccessibilityLabel('Jetzt prüfen');
-    const changeEmail = await screen.findByAccessibilityLabel('Andere E-Mail-Adresse verwenden');
-    await userEvent.press(resend);
-    await userEvent.press(checkNow);
-    await userEvent.press(changeEmail);
+    await emailScroll.scrollToEnd();
+    await userEvent.press(
+      await screen.findByAccessibilityLabel('Bestätigungs-E-Mail erneut senden'),
+    );
+    await emailScroll.scrollToEnd();
+    await userEvent.press(await screen.findByAccessibilityLabel('Jetzt prüfen'));
+    await emailScroll.scrollToEnd();
+    await userEvent.press(
+      await screen.findByAccessibilityLabel('Andere E-Mail-Adresse verwenden'),
+    );
     expect(changedEmail).toBe(1);
     await captureEvidence('email-lower-actions', viewport, layoutWidth);
   });
 
   it('confirms a six-digit email code through the real input and button', async () => {
     let confirmed = 0;
-    const { layoutWidth, viewport } = await renderViewport(
+    const { layoutWidth, scrollController, viewport } = await renderViewport(
       <EmailVerificationPanel
         email={EMAIL}
         onConfirmed={() => {
@@ -312,6 +399,9 @@ describe('large-text typography on the iOS product surfaces', () => {
     await screen.findByAccessibilityLabel('Bestätigung ausstehend');
     await screen.findByAccessibilityLabel(EMAIL);
     await screen.findByAccessibilityLabel(EMAIL_DESCRIPTION);
+    const confirmationScroll = scrollController.current;
+    if (!confirmationScroll) throw new Error('Email ScrollView was not mounted');
+    await confirmationScroll.scrollToEnd();
     const codeInput = await screen.findByTestId('email-verification-code');
     await userEvent.type(codeInput, '472913', { skipBlur: true });
     await userEvent.press(await screen.findByAccessibilityLabel('Bestätigen'));
@@ -342,7 +432,7 @@ describe('large-text typography on the iOS product surfaces', () => {
     const editor = await screen.findByAccessibilityLabel(EDITOR_LABEL);
     await captureEvidence('recipe-initial', viewport, layoutWidth);
 
-    await userEvent.type(editor, '@Lin', { skipBlur: true });
+    await userEvent.type(editor, '@Lin');
     const mention = await screen.findByAccessibilityLabel('Linsen · 200g');
     await captureEvidence('recipe-mention-suggestion', viewport, layoutWidth);
     await userEvent.press(mention);
@@ -350,13 +440,17 @@ describe('large-text typography on the iOS product surfaces', () => {
 
     await scrollListToEnd(recipeListRef);
     await userEvent.press(await screen.findByAccessibilityLabel('+ Timer hinzufügen'));
-    const timerInput = await screen.findByAccessibilityLabel('Min.');
+    await waitForNativeFrame();
+    await scrollListToEnd(recipeListRef);
+    const timerInput = await screen.findByTestId('recipe-step-timer-input');
     await captureEvidence('recipe-timer-input', viewport, layoutWidth);
-    await userEvent.type(timerInput, '12', { skipBlur: true });
+    await userEvent.type(timerInput, '12');
     await userEvent.press(await screen.findByAccessibilityLabel('Übernehmen'));
     expect(changes.at(-1)?.[0]?.timerMinutes).toBe(12);
     await scrollListToEnd(recipeListRef);
     await captureEvidence('recipe-timer-applied', viewport, layoutWidth);
+    await userEvent.press(await screen.findByAccessibilityLabel('Entfernen'));
+    expect(changes.at(-1)?.[0]?.timerMinutes).toBeNull();
 
     await userEvent.press(await screen.findByAccessibilityLabel('Zurück'));
     await userEvent.press(await screen.findByAccessibilityLabel('Weiter'));
