@@ -26,7 +26,7 @@
     "ml:smoke": "bun scripts/smoke-ml.ts",
     "db:diff": "supabase db diff --use-pg-delta",
     "db:push": "supabase db push --linked",
-    "db:types": "supabase gen types typescript --project-id pmudmfywcigzeeddnenv --schema public > src/database.types.ts"
+    "db:types": "supabase gen types typescript --schema public > src/database.types.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.112.3",

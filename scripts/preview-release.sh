@@ -5,7 +5,7 @@ readonly DEFAULT_PROJECT_REF='ivvebtqasotqpikuydov'
 readonly DEFAULT_OTA_BRANCH='preview-testflight'
 readonly DEFAULT_OTA_ENVIRONMENT='preview'
 readonly DEFAULT_OTA_PLATFORM='ios'
-readonly DEFAULT_OTA_MESSAGE='Testing Supabase mit Update-Screen'
+readonly DEFAULT_OTA_MESSAGE='Preview-Update mit Update-Screen'
 readonly DEFAULT_EDGE_FUNCTIONS='ai-gateway'
 
 project_ref="${FAM_SUPABASE_PROJECT_REF:-$DEFAULT_PROJECT_REF}"
