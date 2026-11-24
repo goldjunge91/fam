@@ -54,7 +54,10 @@ describe('web fallbacks for native integrations', () => {
 
   it('keeps widget updates and background task registration inert', async () => {
     expect(
-      quickAddWidget.default.updateSnapshot({ articleName: 'Milch' }),
+      quickAddWidget.default.updateSnapshot({
+        articleName: 'Milch',
+        title: 'Schnell hinzufügen',
+      }),
     ).toBeUndefined();
     expect(
       shoppingListWidget.default.updateSnapshot({ openCount: 0, nextItem: undefined }),
