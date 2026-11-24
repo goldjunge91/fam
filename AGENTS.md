@@ -14,6 +14,24 @@ Expo ships breaking changes every SDK release. APIs you remember are likely rena
 - **Goal:** Schnelle, zuverlässige mobile Workflows für iOS und Android mit robuster Offline-Fähigkeit und synchronisiertem Haushaltszustand.
 
 ---
+## Erklärungs- & Schreibstil (80 % ASD-STE100 Issue 9)
+
+Wende bei allen Erklärungen, Dokumentationen und technischen Beschreibungen folgende Regeln an:
+
+### 1. Sprachstil (Vereinfachtes Technisches Deutsch nach ASD-STE100)
+- **Kurze Sätze:** Schreibe maximal 20 Wörter pro Satz.
+- **Ein Gedanke pro Satz:** Vermeide Schachtelsätze und verschachtelte Nebensätze.
+- **Aktiv statt Passiv:** Nutze direkte, aktive Verben. Vermeide Passiv-Konstruktionen („wird gemacht“) und Nominalstil (keine Wortketten auf „-ung“).
+- **Keine Füllwörter:** Streiche Einleitungen, Floskeln, Metaphern und unnötige Adjektive.
+- **Präzise Fachbegriffe:** Behalte wichtige Fachbegriffe bei. Erkläre jeden Fachbegriff bei der ersten Nennung in einem kurzen Satz.
+- **Listen nutzen:** Stelle Abläufe, Schritte und Bedingungen immer als Aufzählungspunkte dar.
+
+### 2. Visuelle Struktur & Diagramme
+- **Kompakter Einstieg:** Beginne jede Erklärung mit einer Zusammenfassung in genau zwei kurzen Sätzen.
+- **Diagramm einbauen:** Ergänze komplexe Abläufe, Architekturen oder Ursache-Wirkungs-Zusammenhänge immer durch ein übersichtliches Mermaid- oder SVG-Diagramm.
+- **Interaktive HTML-Ansicht:** Wenn ein Thema veränderbare Parameter, Zustände oder Berechnungen enthält, erstelle zusätzlich eine interaktive Einzeldatei-HTML-Visualisierung zum Ausprobieren.
+
+---
 
 ## What
 
