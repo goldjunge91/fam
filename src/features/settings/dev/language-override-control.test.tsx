@@ -35,7 +35,7 @@ describe('LanguageOverrideControl', () => {
 
     await user.press(screen.getByRole('radio', { name: 'Englisch' }));
 
-    expect(screen.getByRole('radio', { name: 'Englisch', selected: true })).toBeOnTheScreen();
+    expect(screen.getByRole('radio', { name: 'English', selected: true })).toBeOnTheScreen();
     expect(mockValues.get(LANGUAGE_OVERRIDE_STORAGE_KEY)).toBe('en');
     expect(i18n.language).toBe('en');
   });
