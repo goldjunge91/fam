@@ -386,7 +386,7 @@ describe('CookingModeScreen', () => {
     await renderScreen();
 
     expect(screen.getByText('Voice bereit')).toBeOnTheScreen();
-    expect(screen.getByText('50 g Tomaten')).toBeOnTheScreen();
+    expect(screen.getByText('50 Gramm (g) Tomaten')).toBeOnTheScreen();
     expect(screen.queryByText('300 g Hackfleisch')).not.toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Vorlesen' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Zuhören' })).toBeOnTheScreen();

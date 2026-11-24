@@ -480,12 +480,12 @@ describe('RecipeCreateScreen', () => {
 
     await user.paste(screen.getByLabelText('Titel'), 'Tomatensuppe');
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
-    await user.press(screen.getByRole('button', { name: 'Add Componente' }));
+    await user.press(screen.getByRole('button', { name: '+ Zutaten-Gruppe hinzufügen' }));
     const groupName = screen.getAllByLabelText('Gruppenname')[1];
     await user.clear(groupName);
     await user.type(groupName, 'Garnitur');
     await user.press(screen.getAllByText('+ Zutat hinzufügen')[1]);
-    await user.press(screen.getAllByRole('button', { name: 'Delete ingredient' })[2]);
+    await user.press(screen.getAllByRole('button', { name: 'Zutat löschen' })[2]);
     await user.press(screen.getAllByRole('button', { name: 'Zutaten-Gruppe entfernen' })[1]);
     await user.paste(screen.getByLabelText('Zutat'), 'Tomaten');
     await user.press(screen.getByRole('button', { name: 'Testprodukt auswählen' }));
@@ -635,7 +635,7 @@ describe('RecipeCreateScreen', () => {
 
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Zutaten' }));
     await user.press(screen.getByRole('button', { name: 'Weiter zu den Schritten' }));
-    await user.press(screen.getAllByRole('button', { name: 'Delete step' })[1]);
+    await user.press(screen.getAllByRole('button', { name: 'Schritt löschen' })[1]);
     await user.press(screen.getByRole('button', { name: 'Weiter' }));
     await user.press(screen.getByRole('button', { name: 'Speichern' }));
 

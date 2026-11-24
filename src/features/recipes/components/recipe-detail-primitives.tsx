@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { useTranslation } from 'react-i18next';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -6,19 +7,21 @@ import { recipeArtworkColors } from '@/components/theme/index';
 import { Txt } from '@/constants/ui';
 
 export function HeroArtwork({ coverUrl, title }: { coverUrl?: string | null; title: string }) {
+  const { t } = useTranslation();
+
   if (coverUrl) {
     return (
       <Image
         source={{ uri: coverUrl }}
         style={StyleSheet.absoluteFill}
         contentFit="cover"
-        accessibilityLabel={`Bild von ${title}`}
+        accessibilityLabel={t('recipes.card.coverImage', { title })}
       />
     );
   }
 
   return (
-    <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
+    <Svg width="100%" height="100%" accessibilityLabel={t('recipes.card.illustration', { title })}>
       <Defs>
         <LinearGradient id="recipe-hero-cover" x1="0%" y1="0%" x2="100%" y2="100%">
           <Stop offset="0%" stopColor={recipeArtworkColors.heroGradient[0]} />

@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { useTranslation } from 'react-i18next';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { recipeArtworkColors } from '@/components/theme/index';
@@ -14,6 +15,7 @@ export function CookingModeArtwork({
 }) {
   const firstImagePath = step.images?.[0]?.storage_path ?? step.image_path;
   const { data: householdImageUrl } = useRecipeStepImageUrl(firstImagePath);
+  const { t } = useTranslation();
   const imageUrl = providedImageUrl ?? householdImageUrl;
 
   if (imageUrl) {
@@ -31,7 +33,7 @@ export function CookingModeArtwork({
     <Svg
       width="100%"
       height="100%"
-      accessibilityLabel={`Illustration für Schritt ${step.position + 1}`}>
+      accessibilityLabel={t('recipes.detail.stepImage', { step: step.position + 1 })}>
       <Defs>
         <LinearGradient id="cooking-art" x1="0%" y1="0%" x2="100%" y2="100%">
           <Stop offset="0%" stopColor={recipeArtworkColors.cookingGradient[0]} />

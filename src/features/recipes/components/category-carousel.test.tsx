@@ -36,7 +36,7 @@ describe('CategoryCarousel', () => {
   it.each(MATCHING_RECIPES)('matches the %s recipe category', (key, recipe) => {
     const tile = CATEGORY_TILES.find((item) => item.key === key);
     expect(tile?.matches({ ...BASE_RECIPE, ...recipe })).toBe(true);
-    expect(tile?.label).toBeTruthy();
+    expect(tile?.labelKey).toBeTruthy();
     expect(tile?.emoji).toBeTruthy();
   });
 

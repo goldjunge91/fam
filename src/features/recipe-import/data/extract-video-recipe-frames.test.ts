@@ -9,6 +9,10 @@ const mockCreatePlayer = jest.fn();
 const mockManipulate = jest.fn();
 const mockRequireOptionalNativeModule = jest.fn();
 
+jest.mock('expo-localization', () => ({
+  getLocales: () => [{ languageCode: 'de', languageTag: 'de-DE' }],
+}));
+
 jest.mock('expo-modules-core', () => ({
   ...jest.requireActual('expo-modules-core'),
   requireOptionalNativeModule: (...args: unknown[]) => mockRequireOptionalNativeModule(...args),

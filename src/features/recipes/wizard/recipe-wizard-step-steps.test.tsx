@@ -128,7 +128,7 @@ describe('RecipeWizardStepSteps', () => {
       expect.arrayContaining([expect.objectContaining({ text: '' })]),
     );
 
-    await user.press(screen.getAllByRole('button', { name: 'Delete step' })[1]);
+    await user.press(screen.getAllByRole('button', { name: 'Schritt löschen' })[1]);
     expect(screen.getAllByPlaceholderText(/Was ist in Schritt/)).toHaveLength(1);
     await user.press(screen.getByText('Zurück'));
     await user.press(screen.getByText('Weiter'));

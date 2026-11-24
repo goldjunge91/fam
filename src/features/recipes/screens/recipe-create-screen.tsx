@@ -5,6 +5,7 @@ import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Alert, KeyboardAvoidingView, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -197,6 +198,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function RecipeCreateScreen() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { id, importDraftId } = useLocalSearchParams<{ id?: string; importDraftId?: string }>();
   const { session } = useSession();
@@ -254,7 +256,12 @@ export function RecipeCreateScreen() {
   const { data: existingCoverUrl } = useRecipeCoverUrl(existingCoverPath);
 
   const [components, setComponents] = useState<IngredientComponentGroup[]>([
-    { id: 'comp-1', title: 'Zutaten', items: [newIngredient()], existingComponentId: null },
+    {
+      id: 'comp-1',
+      title: t('recipes.wizard.ingredientsTab'),
+      items: [newIngredient()],
+      existingComponentId: null,
+    },
   ]);
 
   const [wizardSteps, setWizardSteps] = useState<WizardStepItem[]>([newWizardStep()]);
@@ -357,8 +364,8 @@ export function RecipeCreateScreen() {
         const imported = drafts.find((candidate) => candidate.id === importDraftId);
         if (!imported) {
           Alert.alert(
-            'Importentwurf fehlt',
-            'Der lokal gespeicherte Entwurf ist nicht mehr verfügbar.',
+            t('recipes.wizard.importDraftMissing'),
+            t('recipes.wizard.importDraftMissingMessage'),
           );
           return;
         }
@@ -372,7 +379,7 @@ export function RecipeCreateScreen() {
         setComponents([
           {
             id: 'imported-ingredients',
-            title: 'Zutaten',
+            title: t('recipes.wizard.ingredientsTab'),
             existingComponentId: null,
             items: imported.draft.ingredients.map((ingredient) => ({
               ...newIngredient(),
@@ -397,15 +404,15 @@ export function RecipeCreateScreen() {
       .catch((loadError: unknown) => {
         if (current) {
           Alert.alert(
-            'Importentwurf konnte nicht geöffnet werden',
-            loadError instanceof Error ? loadError.message : 'Bitte versuche es erneut.',
+            t('recipes.wizard.importDraftOpenError'),
+            loadError instanceof Error ? loadError.message : t('common.fallback.retry'),
           );
         }
       });
     return () => {
       current = false;
     };
-  }, [data, importDraftId, reset, userId]);
+  }, [data, importDraftId, reset, userId, t]);
 
   async function handlePickCover() {
     const uri = await pickRecipeImage();
@@ -555,7 +562,7 @@ export function RecipeCreateScreen() {
       ...prev,
       {
         id: `comp-${Date.now()}`,
-        title: `Zutaten-Gruppe ${prev.length + 1}`,
+        title: t('recipes.wizard.groupDefault', { count: prev.length + 1 }),
         items: [newIngredient()],
         existingComponentId: null,
       },
@@ -581,9 +588,9 @@ export function RecipeCreateScreen() {
       router.back();
       return;
     }
-    Alert.alert('Änderungen verwerfen?', 'Deine Eingaben gehen verloren.', [
-      { text: 'Zurück', style: 'cancel' },
-      { text: 'Verwerfen', style: 'destructive', onPress: () => router.back() },
+    Alert.alert(t('recipes.wizard.discardTitle'), t('recipes.wizard.discardMessage'), [
+      { text: t('recipes.wizard.back'), style: 'cancel' },
+      { text: t('recipes.wizard.discard'), style: 'destructive', onPress: () => router.back() },
     ]);
   }
 
@@ -725,8 +732,8 @@ export function RecipeCreateScreen() {
         setComponents(validatedComponents);
         setWizardStep(2);
         Alert.alert(
-          'Zutaten prüfen',
-          'Wähle für jede ausgefüllte Zeile eine Zutat und eine gültige, umrechenbare Menge.',
+          t('recipes.wizard.invalidIngredientsTitle'),
+          t('recipes.wizard.invalidIngredientsMessage'),
         );
         return;
       }
@@ -925,7 +932,7 @@ export function RecipeCreateScreen() {
           keptStepIds.add(step.serverId);
           stepId = step.serverId;
           if (step.existingImages.length + step.localImageUris.length > MAX_RECIPE_STEP_IMAGES) {
-            throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
+            throw new Error(t('recipes.wizard.maxImages'));
           }
 
           const originalImages = data?.steps.find((item) => item.id === stepId)?.images ?? [];
@@ -963,7 +970,7 @@ export function RecipeCreateScreen() {
           ];
           for (const [imagePosition, image] of imagesToKeep.entries()) {
             if (imagePosition >= MAX_RECIPE_STEP_IMAGES) {
-              throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
+              throw new Error(t('recipes.wizard.maxImages'));
             }
             const existing = originalImages.find((item) => item.id === image.id);
             if (existing) {
@@ -1018,7 +1025,7 @@ export function RecipeCreateScreen() {
           stepId = created.id;
 
           if (step.localImageUris.length > MAX_RECIPE_STEP_IMAGES) {
-            throw new Error('Ein Rezeptschritt darf höchstens drei Bilder enthalten.');
+            throw new Error(t('recipes.wizard.maxImages'));
           }
           for (const [imagePosition, uri] of step.localImageUris.entries()) {
             const imageId = Crypto.randomUUID();
@@ -1066,7 +1073,10 @@ export function RecipeCreateScreen() {
       }
       router.replace({ pathname: '/recipe/[id]', params: { id: newRecipeId } });
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Konnte nicht speichern.');
+      Alert.alert(
+        t('recipes.wizard.error'),
+        err instanceof Error ? err.message : t('recipes.wizard.saveError'),
+      );
     }
   }
 
@@ -1080,9 +1090,15 @@ export function RecipeCreateScreen() {
         {/* Header mit Titel (Erstellen/Bearbeiten) und Abbrechen-Button */}
         <PageHeader
           title={
-            importedDraft ? 'Import prüfen' : isEditing ? 'Rezept bearbeiten' : 'Rezept erstellen'
+            importedDraft
+              ? t('recipes.wizard.importReview')
+              : isEditing
+                ? t('recipes.wizard.editTitle')
+                : t('recipes.wizard.createTitle')
           }
-          leading={<BackButton label="Zurück" variant="header" onPress={handleCancel} />}
+          leading={
+            <BackButton label={t('recipes.wizard.back')} variant="header" onPress={handleCancel} />
+          }
         />
 
         {/* 4-stufiger Wizard-Fortschrittsbalken */}
@@ -1116,7 +1132,7 @@ export function RecipeCreateScreen() {
                     {importedDraft.sourceLabel}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    Prüfe die erkannten Zutaten und ergänze fehlende Angaben.
+                    {t('recipes.wizard.reviewHint')}
                   </Txt>
                   {importedDraft.mediaUris[0] ? (
                     <Image
@@ -1136,11 +1152,12 @@ export function RecipeCreateScreen() {
                     (ingredient) => ingredient.confidence !== 'high',
                   ) ? (
                     <Txt variant="caption" tone="secondary">
-                      Bitte prüfe die erkannten Zutaten:{' '}
-                      {importedDraft.draft.ingredients
-                        .filter((ingredient) => ingredient.confidence !== 'high')
-                        .map((ingredient) => ingredient.name)
-                        .join(' · ')}
+                      {t('recipes.wizard.checkIngredients', {
+                        ingredients: importedDraft.draft.ingredients
+                          .filter((ingredient) => ingredient.confidence !== 'high')
+                          .map((ingredient) => ingredient.name)
+                          .join(' · '),
+                      })}
                     </Txt>
                   ) : null}
                   {importedDraft.originalText ? (
@@ -1149,7 +1166,9 @@ export function RecipeCreateScreen() {
                         accessibilityRole="button"
                         onPress={() => setShowOriginalText((visible) => !visible)}>
                         <Txt variant="caption" weight="700">
-                          {showOriginalText ? 'Originaltext ausblenden' : 'Originaltext anzeigen'}
+                          {showOriginalText
+                            ? t('recipes.wizard.hideOriginal')
+                            : t('recipes.wizard.showOriginal')}
                         </Txt>
                       </Press>
                       {showOriginalText ? (

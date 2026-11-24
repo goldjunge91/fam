@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -57,6 +58,7 @@ const styles = StyleSheet.create((theme) => ({
 
 export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const [score, setScore] = useState(0);
@@ -95,9 +97,13 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
   }
 
   return (
-    <RecipeBottomSheet visible={visible} onClose={onClose} title="Rezept bewerten" avoidKeyboard>
+    <RecipeBottomSheet
+      visible={visible}
+      onClose={onClose}
+      title={t('recipes.rating.title')}
+      avoidKeyboard>
       <Txt variant="body" tone="secondary" weight="500">
-        Wie hat dir das Rezept gefallen?
+        {t('recipes.rating.question')}
       </Txt>
 
       <View style={styles.scoreRow}>
@@ -108,7 +114,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
               key={value}
               onPress={() => setScore(value)}
               accessibilityRole="button"
-              accessibilityLabel={`${value} von 10 Sternen`}
+              accessibilityLabel={t('recipes.rating.stars', { score: value })}
               accessibilityState={{ selected: isSelected }}
               style={[
                 styles.scoreButton,
@@ -125,15 +131,15 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
         })}
       </View>
       <Txt variant="caption" tone="primary" weight="700" style={styles.scoreHint}>
-        {score > 0 ? `${score} / 10` : 'Noch keine Bewertung gewählt'}
+        {score > 0 ? t('recipes.rating.stars', { score }) : t('recipes.rating.notSelected')}
       </Txt>
 
       <View style={styles.noteContainer}>
         <TextField
-          accessibilityLabel="Rezeptnotiz"
+          accessibilityLabel={t('recipes.rating.noteLabel')}
           value={note}
           onChangeText={setNote}
-          placeholder="Optional: Was war besonders gut?"
+          placeholder={t('recipes.rating.notePlaceholder')}
           multiline
           maxLength={500}
           textAlignVertical="top"
@@ -154,7 +160,7 @@ export function RecipeRatingSheet({ recipeId, visible, onClose }: Props) {
           <ActivityIndicator color={colors.onAccent} />
         ) : (
           <Txt variant="caption" tone="onAccent" weight="700">
-            Bewertung speichern
+            {t('recipes.rating.save')}
           </Txt>
         )}
       </Press>

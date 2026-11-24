@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -67,6 +68,7 @@ export function CookingModeTimer({
   onReset,
 }: CookingModeTimerProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   if (!durationSeconds) return null;
 
   return (
@@ -74,14 +76,20 @@ export function CookingModeTimer({
       <View style={styles.copy}>
         <Txt variant="heading">{formatTimer(remainingSeconds)}</Txt>
         <Txt variant="caption" tone="secondary" style={styles.status}>
-          {remainingSeconds === 0 ? 'Abgelaufen' : running ? 'Läuft' : 'Pausiert'}
+          {remainingSeconds === 0
+            ? t('recipes.cooking.timerExpired')
+            : running
+              ? t('recipes.cooking.timerRunning')
+              : t('recipes.cooking.timerPaused')}
         </Txt>
       </View>
       <Press
         onPress={() => (running ? onPause() : onStart())}
         disabled={remainingSeconds === 0}
         accessibilityRole="button"
-        accessibilityLabel={running ? 'Timer pausieren' : 'Timer fortsetzen'}
+        accessibilityLabel={
+          running ? t('recipes.cooking.timerPause') : t('recipes.cooking.timerResume')
+        }
         style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           {running ? 'Ⅱ' : '▶'}
@@ -90,7 +98,7 @@ export function CookingModeTimer({
       <Press
         onPress={onReset}
         accessibilityRole="button"
-        accessibilityLabel="Timer zurücksetzen"
+        accessibilityLabel={t('recipes.cooking.timerReset')}
         style={[styles.action, { backgroundColor: colors.backgroundSoft }]}>
         <Txt variant="caption" tone="primary" weight="700">
           ↺

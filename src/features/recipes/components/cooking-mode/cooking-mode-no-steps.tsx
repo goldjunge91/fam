@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -34,6 +35,7 @@ const styles = StyleSheet.create((theme) => ({
 
 export function CookingModeNoSteps({ recipe, onFinish }: CookingModeNoStepsProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <ScrollView contentContainerStyle={styles.content}>
@@ -41,14 +43,14 @@ export function CookingModeNoSteps({ recipe, onFinish }: CookingModeNoStepsProps
         {recipe.title}
       </Txt>
       <Txt variant="caption" tone="secondary" style={styles.instructions}>
-        {recipe.instructions ?? 'Für dieses Rezept sind noch keine Schritte hinterlegt.'}
+        {recipe.instructions ?? t('recipes.cooking.noSteps')}
       </Txt>
       <Press
         onPress={onFinish}
         accessibilityRole="button"
         style={[styles.finish, { backgroundColor: colors.accent }]}>
         <Txt variant="caption" tone="onAccent" weight="700" center>
-          Zubereitung abschließen
+          {t('recipes.cooking.finish')}
         </Txt>
       </Press>
     </ScrollView>

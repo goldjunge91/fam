@@ -225,7 +225,7 @@ describe('recipe import API', () => {
         sourceType: 'text',
         sourceText: 'Milch erhitzen und Grieß einrühren.',
       }),
-    ).rejects.toThrow('Der Rezeptentwurf konnte nicht gelesen werden.');
+    ).rejects.toMatchObject({ code: 'draftInvalid' });
     expect(mockTrackAnalyticsEvent).toHaveBeenNthCalledWith(1, 'recipe_import.started', {
       source: 'text',
     });
@@ -335,10 +335,10 @@ describe('recipe import API', () => {
   });
 
   it.each([
-    [{ exists: false, size: 100 }, 'Die ausgewählte Datei ist nicht mehr verfügbar.'],
-    [{ exists: true, size: 0 }, 'Die Datei ist zu groß. Wähle eine Datei bis 5,5 MB.'],
-    [{ exists: true, size: 5_500_001 }, 'Die Datei ist zu groß. Wähle eine Datei bis 5,5 MB.'],
-  ])('rejects a missing or oversized attachment', async (fileConfig, message) => {
+    [{ exists: false, size: 100 }, 'fileUnavailable'],
+    [{ exists: true, size: 0 }, 'fileTooLarge'],
+    [{ exists: true, size: 5_500_001 }, 'fileTooLarge'],
+  ])('rejects a missing or oversized attachment', async (fileConfig, errorCode) => {
     mockFileConfig.set('image://one', fileConfig);
     await expect(
       importRecipeSource({
@@ -346,7 +346,7 @@ describe('recipe import API', () => {
         sourceType: 'image',
         media: [{ uri: 'image://one', name: 'photo.jpg', mimeType: 'image/jpeg' }],
       }),
-    ).rejects.toThrow(message);
+    ).rejects.toMatchObject({ code: errorCode });
     expect(mockInvoke).not.toHaveBeenCalled();
   });
 
@@ -406,67 +406,31 @@ describe('recipe import API', () => {
   });
 
   it.each([
-    ['ai_subscription_required', 'Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.'],
-    ['ai_credit_limit_exceeded', 'Das monatliche AI-Credit-Limit ist erreicht.'],
-    [
-      'food_rule_snapshot_incomplete',
-      'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
-    ],
-    [
-      'food_rule_snapshot_unavailable',
-      'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
-    ],
-    [
-      'food_rule_snapshot_changed',
-      'Mitessende oder Lebensmittelregeln haben sich während des Imports geändert. Bitte starte ihn erneut.',
-    ],
-    ['unsafe_source_url', 'Diese Webadresse kann nicht sicher gelesen werden.'],
-    [
-      'instagram_video_unavailable',
-      'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
-    ],
-    [
-      'instagram_recipe_not_found',
-      'Weder in der Sprache noch in der Instagram-Beschreibung wurde ein Rezept gefunden.',
-    ],
-    [
-      'groq_transcription_not_configured',
-      'Die Sprachauswertung für Instagram-Rezepte ist derzeit nicht eingerichtet.',
-    ],
-    [
-      'groq_transcription_rate_limited',
-      'Die Sprachauswertung ist gerade ausgelastet. Versuche es später erneut.',
-    ],
-    [
-      'groq_transcription_rejected',
-      'Die Audiospur des Instagram-Videos konnte nicht verarbeitet werden.',
-    ],
-    [
-      'groq_transcription_unavailable',
-      'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
-    ],
-    [
-      'groq_transcription_invalid_response',
-      'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
-    ],
-    [
-      'provider_request_failed',
-      'Die Rezeptanalyse ist derzeit nicht verfügbar. Versuche es später erneut.',
-    ],
-    [
-      'invalid_recipe_import_draft',
-      'Der Rezeptentwurf konnte nicht zuverlässig erstellt werden. Versuche es erneut.',
-    ],
-    ['source_unavailable', 'Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.'],
-    ['source_not_a_webpage', 'Der Link führt nicht zu einer lesbaren Webseite.'],
-    ['source_too_large', 'Die Webseite ist zu groß, um sie zu importieren.'],
-    ['source_has_no_recipe_text', 'Auf der Webseite wurde kein lesbarer Rezeptinhalt gefunden.'],
-    ['model_unsupported_input', 'Das ausgewählte Modell kann diese Quelle nicht verarbeiten.'],
-  ])('maps import error %s', async (code, message) => {
+    ['ai_subscription_required', 'aiSubscriptionRequired'],
+    ['ai_credit_limit_exceeded', 'creditLimitExceeded'],
+    ['food_rule_snapshot_incomplete', 'foodRuleSnapshotUnavailable'],
+    ['food_rule_snapshot_unavailable', 'foodRuleSnapshotUnavailable'],
+    ['food_rule_snapshot_changed', 'foodRuleSnapshotChanged'],
+    ['unsafe_source_url', 'unsafeSourceUrl'],
+    ['instagram_video_unavailable', 'instagramVideoUnavailable'],
+    ['instagram_recipe_not_found', 'instagramRecipeNotFound'],
+    ['groq_transcription_not_configured', 'transcriptionNotConfigured'],
+    ['groq_transcription_rate_limited', 'transcriptionRateLimited'],
+    ['groq_transcription_rejected', 'transcriptionRejected'],
+    ['groq_transcription_unavailable', 'transcriptionUnavailable'],
+    ['groq_transcription_invalid_response', 'transcriptionUnavailable'],
+    ['provider_request_failed', 'providerUnavailable'],
+    ['invalid_recipe_import_draft', 'draftCreationFailed'],
+    ['source_unavailable', 'sourceUnavailable'],
+    ['source_not_a_webpage', 'sourceNotWebpage'],
+    ['source_too_large', 'sourceTooLarge'],
+    ['source_has_no_recipe_text', 'sourceNoRecipeText'],
+    ['model_unsupported_input', 'modelUnsupportedInput'],
+  ])('maps import error %s', async (code, errorCode) => {
     mockInvoke.mockResolvedValue({ data: { error: code }, error: { message: 'gateway failed' } });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow(message);
+    ).rejects.toMatchObject({ code: errorCode });
   });
 
   it('reads response error codes, falls back to invoke errors and rejects malformed envelopes', async () => {
@@ -483,9 +447,7 @@ describe('recipe import API', () => {
     });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow(
-      'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
-    );
+    ).rejects.toMatchObject({ code: 'instagramVideoUnavailable' });
 
     const unknownResponse = {
       clone: () => ({ json: () => Promise.resolve({ error: 'future_gateway_error' }) }),
@@ -496,7 +458,7 @@ describe('recipe import API', () => {
     });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow('Der Rezeptimport ist fehlgeschlagen. Versuche es erneut.');
+    ).rejects.toMatchObject({ code: 'importFailed' });
 
     mockInvoke.mockResolvedValueOnce({
       data: null,
@@ -504,16 +466,16 @@ describe('recipe import API', () => {
     });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow('Der Rezeptimport ist fehlgeschlagen.');
+    ).rejects.toMatchObject({ code: 'importFailed' });
 
     mockInvoke.mockResolvedValueOnce({ data: [], error: null });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow('Die Importantwort hatte ein ungültiges Format.');
+    ).rejects.toMatchObject({ code: 'invalidResponse' });
     mockInvoke.mockResolvedValueOnce({ data: { source: 'unknown', result: {} }, error: null });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'url' }),
-    ).rejects.toThrow('Die Importantwort hatte ein ungültiges Format.');
+    ).rejects.toMatchObject({ code: 'invalidResponse' });
   });
 
   it.each([
@@ -656,6 +618,6 @@ describe('recipe import API', () => {
     mockInvoke.mockResolvedValue({ data: { source: 'ai', result: draft }, error: null });
     await expect(
       importRecipeSource({ householdId: 'household-1', sourceType: 'text' }),
-    ).rejects.toThrow('Der Rezeptentwurf konnte nicht gelesen werden.');
+    ).rejects.toMatchObject({ code: 'draftInvalid' });
   });
 });

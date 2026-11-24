@@ -15,6 +15,7 @@
  */
 import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Modal, ScrollView, Share, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
@@ -23,6 +24,7 @@ import { borderWidth, radius, rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { HeaderIconButton } from '@/components/ui/header-icon-button';
 import { Press, Txt } from '@/constants/ui';
+import { getUnitLabel } from '@/lib/units';
 import { HeartGlyph, HeroArtwork } from '../components/recipe-detail-primitives';
 import { RecipeRatingSheet } from '../components/recipe-rating-sheet';
 import { RecipeShoppingSheet } from '../components/recipe-shopping-sheet';
@@ -35,9 +37,9 @@ import { useRecipeRating } from '../domain/recipe-ratings';
 import type { RecipeStep } from '../hooks/use-recipe-steps';
 import { type RecipeDetail, useDeleteRecipeMutation, useRecipeDetail } from '../hooks/use-recipes';
 import {
-  DIETARY_TAG_LABELS,
-  DIFFICULTY_LABELS,
-  DISH_TYPE_LABELS,
+  getDietaryTagLabel,
+  getDifficultyLabel,
+  getDishTypeLabel,
 } from '../wizard/recipe-metadata-options';
 
 const styles = StyleSheet.create((theme) => ({
@@ -344,6 +346,7 @@ function RecipeStepItem({
   ingredients: MentionableIngredient[];
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <View
@@ -363,15 +366,18 @@ function RecipeStepItem({
                     path: image.storage_path,
                     accessibilityLabel:
                       imageIndex === 0
-                        ? `Bild für Schritt ${index + 1}`
-                        : `Bild ${imageIndex + 1} für Schritt ${index + 1}`,
+                        ? t('recipes.detail.stepImage', { step: index + 1 })
+                        : t('recipes.detail.stepImageNumbered', {
+                            image: imageIndex + 1,
+                            step: index + 1,
+                          }),
                   }))
                 : step.image_path
                   ? [
                       {
                         key: step.image_path,
                         path: step.image_path,
-                        accessibilityLabel: `Bild für Schritt ${index + 1}`,
+                        accessibilityLabel: t('recipes.detail.stepImage', { step: index + 1 }),
                       },
                     ]
                   : []
@@ -381,7 +387,7 @@ function RecipeStepItem({
           />
           {step.timer_minutes !== null ? (
             <Txt variant="caption" tone="secondary">
-              ⏱ {step.timer_minutes} Min. Timer
+              {t('recipes.detail.timer', { count: step.timer_minutes })}
             </Txt>
           ) : null}
         </View>
@@ -440,6 +446,7 @@ function isImportedTextItem(item: RecipeDetail['items'][number]): boolean {
 function formatIngredientAmount(
   item: RecipeDetail['items'][number],
   servings: number,
+  t: ReturnType<typeof useTranslation>['t'],
 ): string | null {
   const amount =
     item.quantity !== null
@@ -450,7 +457,7 @@ function formatIngredientAmount(
   const unit = item.quantity !== null || item.grams === null ? item.unit : 'g';
   const parts = [
     amount === null ? null : String(Number.isInteger(amount) ? amount : Number(amount.toFixed(6))),
-    unit?.trim() || null,
+    unit?.trim() ? getUnitLabel(unit, t) : null,
   ].filter((part): part is string => part !== null);
   return parts.length > 0 ? parts.join(' ') : null;
 }
@@ -462,6 +469,7 @@ function formatIngredientAmount(
  */
 function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: number }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const importedComponentIds = new Set(
     data.items.filter(isImportedTextItem).map((item) => item.component_id),
   );
@@ -472,7 +480,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
   if (groups.length === 0) {
     return (
       <Txt variant="body" tone="secondary" style={styles.emptyIngredients}>
-        Noch keine Zutaten hinterlegt.
+        {t('recipes.detail.noIngredients')}
       </Txt>
     );
   }
@@ -500,12 +508,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
               </Txt>
               {preparedGrams !== null ? (
                 <Txt variant="caption" tone="secondary">
-                  {String(
-                    Number.isInteger(preparedGrams)
-                      ? preparedGrams
-                      : Number(preparedGrams.toFixed(6)),
-                  )}{' '}
-                  g zubereitet
+                  {t('recipes.detail.prepared', { count: preparedGrams })}
                 </Txt>
               ) : null}
             </View>
@@ -516,7 +519,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                 item.sourceText?.trim() ??
                 item.ingredient_name?.trim() ??
                 (item.sub_component_id ? componentNames.get(item.sub_component_id) : undefined) ??
-                'Zutat';
+                t('recipes.detail.ingredientFallback');
               const substitution = data.recipe.substitutions?.find(
                 (candidate) =>
                   candidate.forIngredientId === item.id ||
@@ -524,9 +527,12 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
                     originalName.toLocaleLowerCase('de-DE'),
               );
               const name = substitution
-                ? `${substitution.swap} (statt ${originalName})`
+                ? t('recipes.detail.instead', {
+                    replacement: substitution.swap,
+                    original: originalName,
+                  })
                 : originalName;
-              const amount = formatIngredientAmount(item, servings);
+              const amount = formatIngredientAmount(item, servings, t);
               return (
                 <View
                   key={item.id}
@@ -550,7 +556,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
             })}
             {items.length === 0 ? (
               <Txt variant="body" tone="secondary" style={styles.emptyIngredientGroup}>
-                Noch keine Zutaten in dieser Gruppe.
+                {t('recipes.detail.noIngredientsInGroup')}
               </Txt>
             ) : null}
           </View>
@@ -566,6 +572,7 @@ function IngredientGroups({ data, servings }: { data: RecipeDetail; servings: nu
  * Nährwerte und Zutatenmengen werden aus baseServing × servings berechnet.
  */
 export function RecipeDetailScreen() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { id } = useLocalSearchParams<{ id: string }>();
   const [servings, setServings] = useState(1);
@@ -593,26 +600,33 @@ export function RecipeDetailScreen() {
 
   function deleteRecipe() {
     if (!data) return;
-    Alert.alert('Rezept löschen', `„${data.recipe.title}“ wird dauerhaft entfernt.`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: () =>
-          deleteMutation.mutate(
-            { id: data.recipe.id, household_id: data.recipe.household_id },
-            { onSuccess: () => router.back() },
-          ),
-      },
-    ]);
+    Alert.alert(
+      t('recipes.detail.deleteTitle'),
+      t('recipes.detail.deleteMessage', { title: data.recipe.title }),
+      [
+        { text: t('common.actions.cancel'), style: 'cancel' },
+        {
+          text: t('recipes.detail.delete'),
+          style: 'destructive',
+          onPress: () =>
+            deleteMutation.mutate(
+              { id: data.recipe.id, household_id: data.recipe.household_id },
+              { onSuccess: () => router.back() },
+            ),
+        },
+      ],
+    );
   }
 
   if (isLoading || !data) {
     return (
       <HubScreen
-        header={{ title: 'Rezept', leading: <BackButton label="Zurück" variant="header" /> }}>
+        header={{
+          title: t('recipes.detail.title'),
+          leading: <BackButton label={t('recipes.detail.back')} variant="header" />,
+        }}>
         <Txt variant="body" tone="secondary" style={styles.loading}>
-          Rezept wird geladen…
+          {t('recipes.detail.loading')}
         </Txt>
       </HubScreen>
     );
@@ -623,8 +637,8 @@ export function RecipeDetailScreen() {
   const favorite = isFavorite(favoriteKey);
   const tags = Array.from(
     new Set([
-      ...recipe.dish_types.map((tag) => DISH_TYPE_LABELS[tag]),
-      ...recipe.dietary_tags.map((tag) => DIETARY_TAG_LABELS[tag] ?? tag),
+      ...recipe.dish_types.map((tag) => getDishTypeLabel(t, tag)),
+      ...recipe.dietary_tags.map((tag) => getDietaryTagLabel(t, tag)),
       ...recipe.hashtags.map((tag) => `#${tag}`),
     ]),
   );
@@ -633,17 +647,19 @@ export function RecipeDetailScreen() {
   return (
     <HubScreen
       header={{
-        title: 'Rezept',
-        leading: <BackButton label="Zurück" variant="header" />,
+        title: t('recipes.detail.title'),
+        leading: <BackButton label={t('recipes.detail.back')} variant="header" />,
         trailing: (
           <>
             <HeaderIconButton
-              label={favorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
+              label={
+                favorite ? t('recipes.detail.favoriteRemove') : t('recipes.detail.favoriteAdd')
+              }
               onPress={() => void toggleFavorite(favoriteKey)}>
               <HeartGlyph filled={favorite} />
             </HeaderIconButton>
             <HeaderIconButton
-              label="Assistant mit Rezeptkontext öffnen"
+              label={t('recipes.detail.assistantContext')}
               onPress={() =>
                 router.push({
                   pathname: '/assistant',
@@ -654,7 +670,9 @@ export function RecipeDetailScreen() {
                 ✦
               </Txt>
             </HeaderIconButton>
-            <HeaderIconButton label="Rezept verwalten" onPress={() => setManageOpen(true)}>
+            <HeaderIconButton
+              label={t('recipes.detail.manage')}
+              onPress={() => setManageOpen(true)}>
               <MoreGlyph />
             </HeaderIconButton>
           </>
@@ -678,7 +696,8 @@ export function RecipeDetailScreen() {
         <View style={[styles.tabs, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
           {(['details', 'ratings'] as const).map((tab) => {
             const selected = activeTab === tab;
-            const label = tab === 'details' ? 'Details' : 'Bewertungen';
+            const label =
+              tab === 'details' ? t('recipes.detail.details') : t('recipes.detail.ratings');
             return (
               <Press
                 key={tab}
@@ -705,17 +724,23 @@ export function RecipeDetailScreen() {
             <View
               style={[styles.facts, { borderBottomColor: colors.border, borderBottomWidth: 1 }]}>
               <DetailFact
-                value={scaledServing ? `${round(scaledServing.kcal)} kcal` : '–'}
-                label="pro Portion"
+                value={
+                  scaledServing ? t('recipes.log.kcal', { value: round(scaledServing.kcal) }) : '–'
+                }
+                label={t('recipes.detail.kcalPerServing')}
               />
               <DetailFact
-                value={recipe.cook_time_minutes ? `${recipe.cook_time_minutes} Min` : '–'}
-                label="Zeit"
+                value={
+                  recipe.cook_time_minutes
+                    ? t('recipes.card.minutes', { count: recipe.cook_time_minutes })
+                    : '–'
+                }
+                label={t('recipes.detail.time')}
                 withDivider
               />
               <DetailFact
-                value={recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : '–'}
-                label="Schwierigkeit"
+                value={recipe.difficulty ? getDifficultyLabel(t, recipe.difficulty) : '–'}
+                label={t('recipes.detail.difficulty')}
                 withDivider
               />
             </View>
@@ -740,12 +765,14 @@ export function RecipeDetailScreen() {
                     onPress={() => setShowAllTags((visible) => !visible)}
                     accessibilityRole="button"
                     accessibilityLabel={
-                      showAllTags ? 'Weniger Tags anzeigen' : 'Alle Tags anzeigen'
+                      showAllTags ? t('recipes.detail.fewerTags') : t('recipes.detail.allTags')
                     }
                     accessibilityState={{ expanded: showAllTags }}
                     hitSlop={8}>
                     <Txt variant="caption" tone="secondary" style={styles.tagMore} weight="500">
-                      {showAllTags ? 'Weniger' : `+${tags.length - 3} mehr`}
+                      {showAllTags
+                        ? t('recipes.detail.fewer')
+                        : t('recipes.detail.moreTags', { count: tags.length - 3 })}
                     </Txt>
                   </Press>
                 ) : null}
@@ -758,12 +785,12 @@ export function RecipeDetailScreen() {
                 styles.ingredientHeaderRow,
                 { borderBottomColor: colors.border, borderBottomWidth: 1 },
               ]}>
-              <Txt variant="heading">Zutaten</Txt>
+              <Txt variant="heading">{t('recipes.detail.ingredients')}</Txt>
               <View style={[styles.stepper, { backgroundColor: colors.backgroundElement }]}>
                 <Press
                   onPress={() => setServings((value) => Math.max(1, value - 1))}
                   accessibilityRole="button"
-                  accessibilityLabel="Weniger Portionen"
+                  accessibilityLabel={t('recipes.detail.lessServings')}
                   containerStyle={styles.stepperButtonContainer}
                   style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
@@ -771,12 +798,12 @@ export function RecipeDetailScreen() {
                   </Txt>
                 </Press>
                 <Txt variant="body" weight="700" style={styles.servings}>
-                  {servings} Portionen
+                  {t('recipes.card.servings', { count: servings })}
                 </Txt>
                 <Press
                   onPress={() => setServings((value) => value + 1)}
                   accessibilityRole="button"
-                  accessibilityLabel="Mehr Portionen"
+                  accessibilityLabel={t('recipes.detail.moreServings')}
                   containerStyle={styles.stepperButtonContainer}
                   style={styles.stepperButton}>
                   <Txt variant="subheading" tone="secondary" weight="500">
@@ -792,14 +819,14 @@ export function RecipeDetailScreen() {
             {/* Button zur Übernahme fehlender Zutaten in die Einkaufsliste */}
             <Press
               accessibilityRole="button"
-              accessibilityLabel="Fehlende Zutaten zur Einkaufsliste hinzufügen"
+              accessibilityLabel={t('recipes.detail.missingIngredients')}
               onPress={() => setShoppingOpen(true)}
               style={[
                 styles.missingButton,
                 { borderColor: colors.border, borderWidth: borderWidth.base },
               ]}>
               <Txt variant="heading" tone="primary" center>
-                Fehlende Zutaten zur Einkaufsliste
+                {t('recipes.detail.missingIngredients')}
               </Txt>
             </Press>
 
@@ -815,10 +842,22 @@ export function RecipeDetailScreen() {
                     borderBottomWidth: 1,
                   },
                 ]}>
-                <NutritionStat value={String(round(scaledServing.kcal))} label="kcal" />
-                <NutritionStat value={`${round(scaledServing.protein_g)} g`} label="Protein" />
-                <NutritionStat value={`${round(scaledServing.carbs_g)} g`} label="Kohlenhydrate" />
-                <NutritionStat value={`${round(scaledServing.fat_g)} g`} label="Fett" />
+                <NutritionStat
+                  value={String(round(scaledServing.kcal))}
+                  label={t('recipes.calorie.kcal')}
+                />
+                <NutritionStat
+                  value={`${round(scaledServing.protein_g)} g`}
+                  label={t('recipes.detail.protein')}
+                />
+                <NutritionStat
+                  value={`${round(scaledServing.carbs_g)} g`}
+                  label={t('recipes.detail.carbs')}
+                />
+                <NutritionStat
+                  value={`${round(scaledServing.fat_g)} g`}
+                  label={t('recipes.detail.fat')}
+                />
               </View>
             ) : null}
 
@@ -828,9 +867,9 @@ export function RecipeDetailScreen() {
                 styles.preparationHeader,
                 { borderBottomColor: colors.border, borderBottomWidth: 1 },
               ]}>
-              <Txt variant="heading">Zubereitung</Txt>
+              <Txt variant="heading">{t('recipes.detail.preparation')}</Txt>
               <Txt variant="caption" tone="secondary" weight="500">
-                {data.steps.length} {data.steps.length === 1 ? 'Schritt' : 'Schritte'}
+                {t('recipes.detail.step', { count: data.steps.length })}
               </Txt>
             </View>
             {data.steps.length > 0 ? (
@@ -847,7 +886,7 @@ export function RecipeDetailScreen() {
               </View>
             ) : (
               <Txt variant="body" tone="secondary" style={styles.emptySteps}>
-                Noch keine Zubereitungsschritte hinterlegt.
+                {t('recipes.detail.noSteps')}
               </Txt>
             )}
           </View>
@@ -869,14 +908,14 @@ export function RecipeDetailScreen() {
                     </Txt>
                   </Txt>
                   <Txt variant="caption" tone="secondary" weight="500">
-                    Deine Bewertung
+                    {t('recipes.detail.yourRating')}
                   </Txt>
                 </View>
                 {/* Eigene persönliche Notiz zum Rezept */}
                 {rating.note ? (
                   <>
                     <Txt variant="heading" style={styles.noteTitle}>
-                      Deine Notiz
+                      {t('recipes.detail.yourNote')}
                     </Txt>
                     <Txt variant="body" weight="500" style={styles.noteBody}>
                       {rating.note}
@@ -887,9 +926,9 @@ export function RecipeDetailScreen() {
             ) : (
               /* Leerzustand für Bewertungen */
               <View style={styles.ratingEmpty}>
-                <Txt variant="heading">Noch keine Bewertung</Txt>
+                <Txt variant="heading">{t('recipes.detail.noRating')}</Txt>
                 <Txt variant="body" tone="secondary" weight="500" style={styles.ratingHint}>
-                  Halte fest, wie dir dieses Rezept gefallen hat.
+                  {t('recipes.detail.ratingHint')}
                 </Txt>
               </View>
             )}
@@ -897,10 +936,12 @@ export function RecipeDetailScreen() {
             <Press
               onPress={() => setRatingOpen(true)}
               accessibilityRole="button"
-              accessibilityLabel={rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+              accessibilityLabel={
+                rating ? t('recipes.detail.ratingEdit') : t('recipes.detail.rate')
+              }
               style={[styles.ratingButton, { backgroundColor: colors.accent }]}>
               <Txt variant="heading" tone="onAccent">
-                {rating ? 'Bewertung bearbeiten' : 'Rezept bewerten'}
+                {rating ? t('recipes.detail.ratingEdit') : t('recipes.detail.rate')}
               </Txt>
             </Press>
           </View>
@@ -912,10 +953,10 @@ export function RecipeDetailScreen() {
         <Press
           onPress={() => router.push({ pathname: '/recipe/cook', params: { id: recipe.id } })}
           accessibilityRole="button"
-          accessibilityLabel="Kochmodus starten"
+          accessibilityLabel={t('recipes.detail.startCooking')}
           style={[styles.floatingButton, { backgroundColor: colors.accent }]}>
           <Txt variant="heading" tone="onAccent">
-            Kochmodus starten
+            {t('recipes.detail.startCooking')}
           </Txt>
         </Press>
       </View>
@@ -941,12 +982,12 @@ export function RecipeDetailScreen() {
             <View style={[styles.manageHandle, { backgroundColor: colors.border }]} />
             <View style={styles.manageHeader}>
               <Txt variant="heading" weight="700">
-                Rezept verwalten
+                {t('recipes.detail.manage')}
               </Txt>
               <Press
                 onPress={() => setManageOpen(false)}
                 accessibilityRole="button"
-                accessibilityLabel="Schließen"
+                accessibilityLabel={t('recipes.detail.close')}
                 style={[styles.manageClose, { backgroundColor: colors.backgroundSoft }]}>
                 <Txt variant="heading" tone="secondary">
                   ×
@@ -954,14 +995,14 @@ export function RecipeDetailScreen() {
               </Press>
             </View>
             <ManageRow
-              label="Bearbeiten"
+              label={t('recipes.detail.edit')}
               onPress={() => {
                 setManageOpen(false);
                 router.push({ pathname: '/recipe/create', params: { id: recipe.id } });
               }}
             />
             <ManageRow
-              label="Mit Community teilen"
+              label={t('recipes.detail.share')}
               onPress={async () => {
                 setManageOpen(false);
                 const ingredientLines = data.items.map((item) => {
@@ -972,8 +1013,8 @@ export function RecipeDetailScreen() {
                     product?.name ??
                     item.sourceText?.trim() ??
                     item.ingredient_name?.trim() ??
-                    'Zutat';
-                  const amount = formatIngredientAmount(item, 1);
+                    t('recipes.detail.ingredientFallback');
+                  const amount = formatIngredientAmount(item, 1, t);
                   return `• ${ingredientName}${amount ? `: ${amount}` : ''}`;
                 });
                 await Share.share({
@@ -981,7 +1022,9 @@ export function RecipeDetailScreen() {
                   message: [
                     recipe.title,
                     recipe.instructions,
-                    ingredientLines.length > 0 ? `Zutaten:\n${ingredientLines.join('\n')}` : null,
+                    ingredientLines.length > 0
+                      ? `${t('recipes.detail.ingredients')}:\n${ingredientLines.join('\n')}`
+                      : null,
                   ]
                     .filter(Boolean)
                     .join('\n\n'),
@@ -989,17 +1032,14 @@ export function RecipeDetailScreen() {
               }}
             />
             <ManageRow
-              label="Original-Aktualisierung prüfen"
+              label={t('recipes.detail.checkUpdate')}
               onPress={() => {
                 setManageOpen(false);
-                Alert.alert(
-                  'Aktualisierung',
-                  'Dieses eigene Rezept besitzt keine verknüpfte Vorlage.',
-                );
+                Alert.alert(t('recipes.detail.updateTitle'), t('recipes.detail.updateMessage'));
               }}
             />
             <ManageRow
-              label="Löschen"
+              label={t('recipes.detail.delete')}
               danger
               isLast
               onPress={() => {

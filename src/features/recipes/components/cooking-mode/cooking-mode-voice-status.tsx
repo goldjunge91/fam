@@ -1,23 +1,39 @@
+import type { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { i18n } from '@/i18n';
 import type { CookingModeVoiceStatus as CookingModeVoiceState } from '../../hooks/use-cooking-mode-voice';
 
-const STATUS_COPY: Record<CookingModeVoiceState, string> = {
-  ready: 'Voice bereit',
-  reading: 'Vorlesen läuft',
-  listening: 'Zuhören läuft',
-  processing: 'Befehl wird verarbeitet',
-  paused: 'Hands-free pausiert',
-  denied: 'Mikrofonzugriff verweigert',
-  unavailable: 'Voice nicht verfügbar',
-  error: 'Voice-Fehler',
-};
+type CookingModeVoiceStatusKey =
+  | 'recipes.cooking.voiceReady'
+  | 'recipes.cooking.voiceReading'
+  | 'recipes.cooking.voiceListening'
+  | 'recipes.cooking.voiceProcessing'
+  | 'recipes.cooking.voicePaused'
+  | 'recipes.cooking.voiceDenied'
+  | 'recipes.cooking.voiceUnavailable'
+  | 'recipes.cooking.voiceError';
 
-export function getCookingModeVoiceStatusCopy(status: CookingModeVoiceState): string {
-  return STATUS_COPY[status];
+const STATUS_KEYS = {
+  ready: 'recipes.cooking.voiceReady',
+  reading: 'recipes.cooking.voiceReading',
+  listening: 'recipes.cooking.voiceListening',
+  processing: 'recipes.cooking.voiceProcessing',
+  paused: 'recipes.cooking.voicePaused',
+  denied: 'recipes.cooking.voiceDenied',
+  unavailable: 'recipes.cooking.voiceUnavailable',
+  error: 'recipes.cooking.voiceError',
+} as const satisfies Record<CookingModeVoiceState, CookingModeVoiceStatusKey>;
+
+export function getCookingModeVoiceStatusCopy(
+  status: CookingModeVoiceState,
+  t: TFunction = i18n.t,
+): string {
+  return t(STATUS_KEYS[status]);
 }
 
 const styles = StyleSheet.create((theme) => ({
@@ -97,6 +113,7 @@ export function CookingModeVoiceStatus({
   onEndHandsFree,
 }: CookingModeVoiceStatusProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const isListening = status === 'listening' || status === 'processing';
   const hasError = status === 'denied' || status === 'unavailable' || status === 'error';
 
@@ -105,13 +122,13 @@ export function CookingModeVoiceStatus({
       <View style={styles.heading} accessible accessibilityRole="text">
         <View style={[styles.dot, { backgroundColor: statusColor(status, colors) }]} />
         <Txt variant="caption" weight="700">
-          {STATUS_COPY[status]}
+          {getCookingModeVoiceStatusCopy(status, t)}
         </Txt>
       </View>
 
       {transcript ? (
         <Txt variant="caption" tone="secondary" style={styles.transcript}>
-          Gehört: {transcript}
+          {t('recipes.cooking.heard', { transcript })}
         </Txt>
       ) : null}
       {hasError && error ? (
@@ -126,28 +143,32 @@ export function CookingModeVoiceStatus({
         <Press
           onPress={status === 'reading' ? onStopReading : onReadStep}
           accessibilityRole="button"
-          accessibilityLabel={status === 'reading' ? 'Vorlesen stoppen' : 'Vorlesen'}
+          accessibilityLabel={
+            status === 'reading' ? t('recipes.cooking.readStop') : t('recipes.cooking.read')
+          }
           style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
           <Txt variant="caption" weight="700">
-            {status === 'reading' ? 'Vorlesen stoppen' : 'Vorlesen'}
+            {status === 'reading' ? t('recipes.cooking.readStop') : t('recipes.cooking.read')}
           </Txt>
         </Press>
         <Press
           onPress={onReadIngredients}
           accessibilityRole="button"
-          accessibilityLabel="Zutaten dieses Schritts vorlesen"
+          accessibilityLabel={t('recipes.cooking.readIngredients')}
           style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
           <Txt variant="caption" weight="700">
-            Zutaten vorlesen
+            {t('recipes.cooking.readIngredients')}
           </Txt>
         </Press>
         <Press
           onPress={isListening ? onStopListening : onStartListening}
           accessibilityRole="button"
-          accessibilityLabel={isListening ? 'Zuhören beenden' : 'Zuhören'}
+          accessibilityLabel={
+            isListening ? t('recipes.cooking.listenEnd') : t('recipes.cooking.listen')
+          }
           style={[styles.action, { backgroundColor: colors.accent }]}>
           <Txt variant="caption" tone="onAccent" weight="700">
-            {isListening ? 'Zuhören beenden' : 'Zuhören'}
+            {isListening ? t('recipes.cooking.listenEnd') : t('recipes.cooking.listen')}
           </Txt>
         </Press>
         {handsFreeEnabled ? (
@@ -156,20 +177,24 @@ export function CookingModeVoiceStatus({
               onPress={status === 'paused' ? onResumeHandsFree : onPauseHandsFree}
               accessibilityRole="button"
               accessibilityLabel={
-                status === 'paused' ? 'Hands-free fortsetzen' : 'Hands-free pausieren'
+                status === 'paused'
+                  ? t('recipes.cooking.resumeHandsFree')
+                  : t('recipes.cooking.pauseHandsFree')
               }
               style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
               <Txt variant="caption" weight="700">
-                {status === 'paused' ? 'Hands-free fortsetzen' : 'Hands-free pausieren'}
+                {status === 'paused'
+                  ? t('recipes.cooking.resumeHandsFree')
+                  : t('recipes.cooking.pauseHandsFree')}
               </Txt>
             </Press>
             <Press
               onPress={onEndHandsFree}
               accessibilityRole="button"
-              accessibilityLabel="Hands-free beenden"
+              accessibilityLabel={t('recipes.cooking.endHandsFree')}
               style={[styles.action, { backgroundColor: colors.backgroundElement }]}>
               <Txt variant="caption" weight="700">
-                Hands-free beenden
+                {t('recipes.cooking.endHandsFree')}
               </Txt>
             </Press>
           </>

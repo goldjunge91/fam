@@ -25,6 +25,45 @@ export type RecipeImportResult = {
   method: RecipeImportMethod;
 };
 
+export type RecipeImportErrorCode =
+  | 'draftInvalid'
+  | 'fileUnavailable'
+  | 'fileTooLarge'
+  | 'aiSubscriptionRequired'
+  | 'creditLimitExceeded'
+  | 'foodRuleSnapshotUnavailable'
+  | 'foodRuleSnapshotChanged'
+  | 'unsafeSourceUrl'
+  | 'instagramVideoUnavailable'
+  | 'instagramRecipeNotFound'
+  | 'transcriptionNotConfigured'
+  | 'transcriptionRateLimited'
+  | 'transcriptionRejected'
+  | 'transcriptionUnavailable'
+  | 'providerUnavailable'
+  | 'draftCreationFailed'
+  | 'sourceUnavailable'
+  | 'sourceNotWebpage'
+  | 'sourceTooLarge'
+  | 'sourceNoRecipeText'
+  | 'modelUnsupportedInput'
+  | 'importFailed'
+  | 'invalidResponse';
+
+export class RecipeImportError extends Error {
+  readonly code: RecipeImportErrorCode;
+
+  constructor(code: RecipeImportErrorCode) {
+    super(code);
+    this.name = 'RecipeImportError';
+    this.code = code;
+  }
+}
+
+export function isRecipeImportError(error: unknown): error is RecipeImportError {
+  return error instanceof RecipeImportError;
+}
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
@@ -59,7 +98,7 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     !Array.isArray(value.warnings) ||
     !value.warnings.every((warning) => typeof warning === 'string')
   ) {
-    throw new Error('Der Rezeptentwurf konnte nicht gelesen werden.');
+    throw new RecipeImportError('draftInvalid');
   }
 
   const ingredients = value.ingredients.flatMap((ingredient) => {
@@ -67,7 +106,7 @@ function parseRecipeImportDraft(value: unknown): RecipeImportDraft {
     return normalized ? [normalized] : [];
   });
   if (ingredients.length !== value.ingredients.length) {
-    throw new Error('Der Rezeptentwurf konnte nicht gelesen werden.');
+    throw new RecipeImportError('draftInvalid');
   }
 
   return {
@@ -92,11 +131,11 @@ async function encodeMedia(
   const attachments = [];
   for (const item of media) {
     const file = new File(item.uri);
-    if (!file.exists) throw new Error('Die ausgewählte Datei ist nicht mehr verfügbar.');
+    if (!file.exists) throw new RecipeImportError('fileUnavailable');
     const size = file.size ?? 0;
     totalSize += size;
     if (size <= 0 || size > 5_500_000 || totalSize > 5_500_000) {
-      throw new Error('Die Datei ist zu groß. Wähle eine Datei bis 5,5 MB.');
+      throw new RecipeImportError('fileTooLarge');
     }
     attachments.push({
       filename: item.name.slice(0, 100),
@@ -131,90 +170,75 @@ export async function importRecipeSource(input: RecipeImportInput): Promise<Reci
     if (error) {
       const detail = await getErrorCode(error, data);
       if (detail === 'ai_subscription_required') {
-        throw new Error('Für die KI-Auswertung brauchst du das AI-Abo dieses Haushalts.');
+        throw new RecipeImportError('aiSubscriptionRequired');
       }
       if (detail === 'ai_credit_limit_exceeded') {
-        throw new Error('Das monatliche AI-Credit-Limit ist erreicht.');
+        throw new RecipeImportError('creditLimitExceeded');
       }
       if (
         detail === 'food_rule_snapshot_incomplete' ||
         detail === 'food_rule_snapshot_unavailable'
       ) {
-        throw new Error(
-          'Der Rezeptimport wurde gestoppt, weil die Lebensmittelregeln aller Mitessenden nicht vollständig geprüft werden konnten.',
-        );
+        throw new RecipeImportError('foodRuleSnapshotUnavailable');
       }
       if (detail === 'food_rule_snapshot_changed') {
-        throw new Error(
-          'Mitessende oder Lebensmittelregeln haben sich während des Imports geändert. Bitte starte ihn erneut.',
-        );
+        throw new RecipeImportError('foodRuleSnapshotChanged');
       }
       if (detail === 'unsafe_source_url') {
-        throw new Error('Diese Webadresse kann nicht sicher gelesen werden.');
+        throw new RecipeImportError('unsafeSourceUrl');
       }
       if (detail === 'instagram_video_unavailable') {
-        throw new Error(
-          'Das Instagram-Video konnte nicht direkt geladen werden. Speichere es mit deinem Shortcut in Fotos und wähle es über „Video aus Fotos auswählen“ aus.',
-        );
+        throw new RecipeImportError('instagramVideoUnavailable');
       }
       if (detail === 'instagram_recipe_not_found') {
-        throw new Error(
-          'Weder in der Sprache noch in der Instagram-Beschreibung wurde ein Rezept gefunden.',
-        );
+        throw new RecipeImportError('instagramRecipeNotFound');
       }
       if (detail === 'groq_transcription_not_configured') {
-        throw new Error(
-          'Die Sprachauswertung für Instagram-Rezepte ist derzeit nicht eingerichtet.',
-        );
+        throw new RecipeImportError('transcriptionNotConfigured');
       }
       if (detail === 'groq_transcription_rate_limited') {
-        throw new Error('Die Sprachauswertung ist gerade ausgelastet. Versuche es später erneut.');
+        throw new RecipeImportError('transcriptionRateLimited');
       }
       if (detail === 'groq_transcription_rejected') {
-        throw new Error('Die Audiospur des Instagram-Videos konnte nicht verarbeitet werden.');
+        throw new RecipeImportError('transcriptionRejected');
       }
       if (
         detail === 'groq_transcription_unavailable' ||
         detail === 'groq_transcription_invalid_response'
       ) {
-        throw new Error(
-          'Die Sprachauswertung ist derzeit nicht verfügbar. Versuche es später erneut.',
-        );
+        throw new RecipeImportError('transcriptionUnavailable');
       }
       if (detail?.startsWith('provider_')) {
-        throw new Error(
-          'Die Rezeptanalyse ist derzeit nicht verfügbar. Versuche es später erneut.',
-        );
+        throw new RecipeImportError('providerUnavailable');
       }
       if (detail === 'invalid_recipe_import_draft') {
-        throw new Error(
-          'Der Rezeptentwurf konnte nicht zuverlässig erstellt werden. Versuche es erneut.',
-        );
+        throw new RecipeImportError('draftCreationFailed');
       }
       if (detail === 'source_unavailable') {
-        throw new Error('Die Webseite ist nicht erreichbar. Füge den Rezepttext ein.');
+        throw new RecipeImportError('sourceUnavailable');
       }
       if (detail === 'source_not_a_webpage') {
-        throw new Error('Der Link führt nicht zu einer lesbaren Webseite.');
+        throw new RecipeImportError('sourceNotWebpage');
       }
       if (detail === 'source_too_large') {
-        throw new Error('Die Webseite ist zu groß, um sie zu importieren.');
+        throw new RecipeImportError('sourceTooLarge');
       }
       if (detail === 'source_has_no_recipe_text') {
-        throw new Error('Auf der Webseite wurde kein lesbarer Rezeptinhalt gefunden.');
+        throw new RecipeImportError('sourceNoRecipeText');
       }
       if (detail === 'model_unsupported_input') {
-        throw new Error('Das ausgewählte Modell kann diese Quelle nicht verarbeiten.');
+        throw new RecipeImportError('modelUnsupportedInput');
       }
       if (error instanceof FunctionsHttpError) {
-        throw new Error('Der Rezeptimport ist fehlgeschlagen. Versuche es erneut.');
+        throw new RecipeImportError('importFailed');
       }
-      throw new Error(error.message || 'Der Rezeptimport ist fehlgeschlagen.');
+      if (error.message) throw new Error(error.message);
+      throw new RecipeImportError('importFailed');
     }
 
     stage = 'parse';
     if (!isRecord(data) || (data.source !== 'structured' && data.source !== 'ai')) {
-      throw new Error('Die Importantwort hatte ein ungültiges Format.');
+      throw new RecipeImportError('invalidResponse');
     }
 
     const result = {

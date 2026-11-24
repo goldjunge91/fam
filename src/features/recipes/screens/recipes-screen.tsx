@@ -1,6 +1,8 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   type NativeScrollEvent,
@@ -40,14 +42,26 @@ import {
 import { RecipePreviewCard } from '../components/recipe-preview-card';
 import { type RecipeFavoriteKey, useRecipeFavorites } from '../domain/recipe-favorites';
 import { type DishType, type RecipeListItem, useRecipes } from '../hooks/use-recipes';
-import { DIFFICULTY_LABELS } from '../wizard/recipe-metadata-options';
+import { type Difficulty, getDifficultyLabel } from '../wizard/recipe-metadata-options';
 
 /** Reihenfolge der "Nach Mahlzeiten"-Carousels — Snack und Dessert teilen sich eine Reihe. */
-const MEAL_SECTIONS: { key: string; title: string; dishTypes: DishType[] }[] = [
-  { key: 'breakfast', title: 'Frühstück', dishTypes: ['breakfast'] },
-  { key: 'lunch', title: 'Mittagessen', dishTypes: ['lunch'] },
-  { key: 'dinner', title: 'Abendessen', dishTypes: ['dinner'] },
-  { key: 'snackDessert', title: 'Snacks & Dessert', dishTypes: ['snack', 'dessert'] },
+const MEAL_SECTIONS: {
+  key: string;
+  titleKey:
+    | 'recipes.mealSections.breakfast'
+    | 'recipes.mealSections.lunch'
+    | 'recipes.mealSections.dinner'
+    | 'recipes.mealSections.snackDessert';
+  dishTypes: DishType[];
+}[] = [
+  { key: 'breakfast', titleKey: 'recipes.mealSections.breakfast', dishTypes: ['breakfast'] },
+  { key: 'lunch', titleKey: 'recipes.mealSections.lunch', dishTypes: ['lunch'] },
+  { key: 'dinner', titleKey: 'recipes.mealSections.dinner', dishTypes: ['dinner'] },
+  {
+    key: 'snackDessert',
+    titleKey: 'recipes.mealSections.snackDessert',
+    dishTypes: ['snack', 'dessert'],
+  },
 ];
 
 type RecipeView = 'discover' | 'favorites' | 'filtered' | 'household' | 'templates';
@@ -70,7 +84,18 @@ type RecipeEntry = {
   carbsGPerServing: number | null;
 };
 
-function recipeEntry(recipe: RecipeListItem): RecipeEntry {
+function recipeDifficultyLabel(t: TFunction, value: Difficulty | string | null): string | null {
+  switch (value) {
+    case 'easy':
+    case 'medium':
+    case 'hard':
+      return getDifficultyLabel(t, value);
+    default:
+      return value ?? null;
+  }
+}
+
+function recipeEntry(recipe: RecipeListItem, t: TFunction): RecipeEntry {
   return {
     key: `recipe-${recipe.id}`,
     id: recipe.id,
@@ -78,7 +103,7 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
     title: recipe.title,
     coverImagePath: recipe.cover_image_path,
     cookTimeMinutes: recipe.cook_time_minutes,
-    difficultyLabel: recipe.difficulty ? DIFFICULTY_LABELS[recipe.difficulty] : null,
+    difficultyLabel: recipeDifficultyLabel(t, recipe.difficulty),
     servings: recipe.default_servings,
     dishTypes: recipe.dish_types,
     dietaryTags: recipe.dietary_tags,
@@ -89,7 +114,7 @@ function recipeEntry(recipe: RecipeListItem): RecipeEntry {
   };
 }
 
-function templateEntry(template: CatalogRecipe): RecipeEntry {
+function templateEntry(template: CatalogRecipe, t: TFunction): RecipeEntry {
   return {
     key: `template-${template.id}`,
     id: template.id,
@@ -98,7 +123,7 @@ function templateEntry(template: CatalogRecipe): RecipeEntry {
     title: template.title,
     coverImagePath: template.cover_image_path,
     cookTimeMinutes: template.cook_time_minutes,
-    difficultyLabel: template.difficulty ? DIFFICULTY_LABELS[template.difficulty] : null,
+    difficultyLabel: recipeDifficultyLabel(t, template.difficulty),
     servings: template.default_servings,
     dishTypes: template.dish_types as DishType[],
     dietaryTags: template.dietary_tags,
@@ -282,6 +307,7 @@ function MealSection({
   searchQuery: string;
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { width: windowWidth } = useWindowDimensions();
   const {
     data: templates = [],
@@ -292,7 +318,10 @@ function MealSection({
     isFetchingNextPage,
     isFetchNextPageError,
   } = useCatalogRecipes({ dishTypes, searchQuery });
-  const entries = useMemo(() => templates.map(templateEntry), [templates]);
+  const entries = useMemo(
+    () => templates.map((template) => templateEntry(template, t)),
+    [t, templates],
+  );
   const requestedMore = useRef(false);
   const previousEntries = useRef(entries);
   const contentWidth = Math.min(windowWidth, 800) - 30;
@@ -325,7 +354,7 @@ function MealSection({
       <View style={styles.section}>
         <SectionHeading title={title} titleVariant="body" />
         <ActivityIndicator
-          accessibilityLabel={`${title} Rezepte werden geladen`}
+          accessibilityLabel={t('recipes.list.mealLoading', { title })}
           color={colors.accent}
           style={styles.mealLoading}
         />
@@ -338,7 +367,7 @@ function MealSection({
       <View style={styles.section}>
         <SectionHeading title={title} titleVariant="body" />
         <Txt variant="body" tone="secondary">
-          Rezepte konnten nicht geladen werden.
+          {t('recipes.list.mealError')}
         </Txt>
       </View>
     );
@@ -352,7 +381,7 @@ function MealSection({
       <ScrollView
         horizontal
         accessibilityRole="list"
-        accessibilityLabel={`${title} Rezepte`}
+        accessibilityLabel={t('recipes.list.mealList', { title })}
         testID={`meal-section-${title}`}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.mealScrollContent}
@@ -379,13 +408,13 @@ function MealSection({
         ))}
         {isFetchingNextPage ? (
           <ActivityIndicator
-            accessibilityLabel={`${title}: weitere Rezepte werden geladen`}
+            accessibilityLabel={t('recipes.list.moreMealLoading', { title })}
             color={colors.accent}
             style={styles.mealLoading}
           />
         ) : isFetchNextPageError ? (
           <Txt variant="body" tone="secondary" style={styles.mealLoading}>
-            Weitere Rezepte konnten nicht geladen werden.
+            {t('recipes.list.moreError')}
           </Txt>
         ) : null}
       </ScrollView>
@@ -406,6 +435,7 @@ function EmptyPanel({ children }: { children: string }) {
 }
 
 export function RecipesScreen() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const [view, setView] = useState<RecipeView>('discover');
@@ -438,16 +468,19 @@ export function RecipesScreen() {
   const householdEntries = useMemo(
     () =>
       recipes
-        .map(recipeEntry)
+        .map((recipe) => recipeEntry(recipe, t))
         .filter((entry) => !query || entry.title.toLocaleLowerCase('de').includes(query)),
-    [recipes, query],
+    [recipes, query, t],
   );
 
   const searchedTemplates = useMemo(
     () => templates.filter((t) => !query || t.title.toLocaleLowerCase('de').includes(query)),
     [templates, query],
   );
-  const templateEntries = useMemo(() => searchedTemplates.map(templateEntry), [searchedTemplates]);
+  const templateEntries = useMemo(
+    () => searchedTemplates.map((template) => templateEntry(template, t)),
+    [searchedTemplates, t],
+  );
 
   const filteredTemplateEntries = useMemo(() => {
     if (!templateCategoryFilter && templateCalorieFilter === null) return templateEntries;
@@ -466,9 +499,9 @@ export function RecipesScreen() {
             carbsGPerServing: null,
           }),
       )
-      .map(templateEntry)
+      .map((template) => templateEntry(template, t))
       .filter((entry) => !bucket || matchesTemplateCalorieBucket(entry, bucket));
-  }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter]);
+  }, [searchedTemplates, templateEntries, templateCategoryFilter, templateCalorieFilter, t]);
 
   const allEntries = [...householdEntries, ...templateEntries];
   const availableTags = [...new Set(recipes.flatMap((recipe) => recipe.hashtags))].sort((a, b) =>
@@ -505,13 +538,13 @@ export function RecipesScreen() {
     isLoading || isError
       ? null
       : view === 'favorites'
-        ? { entries: favoriteEntries, empty: 'Noch keine Favoriten gespeichert.' }
+        ? { entries: favoriteEntries, empty: t('recipes.list.emptyFavorites') }
         : view === 'filtered'
-          ? { entries: filteredEntries, empty: 'Keine Rezepte für diese Filter.' }
+          ? { entries: filteredEntries, empty: t('recipes.list.emptyFiltered') }
           : view === 'household'
-            ? { entries: householdEntries, empty: 'Noch keine eigenen Rezepte.' }
+            ? { entries: householdEntries, empty: t('recipes.list.emptyHouseholdView') }
             : view === 'templates'
-              ? { entries: filteredTemplateEntries, empty: 'Keine Vorlagen für diesen Filter.' }
+              ? { entries: filteredTemplateEntries, empty: t('recipes.list.emptyTemplates') }
               : null;
 
   function selectCategoryTile(key: string | null) {
@@ -551,14 +584,16 @@ export function RecipesScreen() {
     templateCalorieFilter !== null ? CALORIE_BUCKETS[templateCalorieFilter] : null;
   const screenTitle =
     view === 'favorites'
-      ? 'Meine Favoriten'
+      ? t('recipes.list.favoritesTitle')
       : view === 'filtered'
-        ? 'Gefilterte Rezepte'
+        ? t('recipes.list.filteredTitle')
         : view === 'household'
-          ? 'Eigene Rezepte'
+          ? t('recipes.list.householdTitle')
           : view === 'templates'
-            ? (activeCategoryTile?.label ?? activeCalorieBucket?.label ?? 'Vorlagen')
-            : 'Rezepte';
+            ? activeCategoryTile
+              ? t(activeCategoryTile.labelKey)
+              : (activeCalorieBucket?.label ?? t('recipes.list.templatesTitle'))
+            : t('recipes.list.title');
 
   const headerContent = (
     <>
@@ -569,7 +604,7 @@ export function RecipesScreen() {
             onPress={() => router.push('/assistant')}
             style={styles.aiAction}>
             <Txt variant="body" weight="700">
-              Assistant
+              {t('recipes.list.assistant')}
             </Txt>
           </Press>
           <Press
@@ -577,7 +612,7 @@ export function RecipesScreen() {
             onPress={() => router.push('/recipe/import')}
             style={styles.aiAction}>
             <Txt variant="body" weight="700">
-              Import Recipe
+              {t('recipes.list.import')}
             </Txt>
           </Press>
         </View>
@@ -590,8 +625,8 @@ export function RecipesScreen() {
             value={searchQuery}
             onChangeText={setSearchQuery}
             accessibilityRole="search"
-            accessibilityLabel="Rezepte durchsuchen"
-            placeholder="Rezepte durchsuchen…"
+            accessibilityLabel={t('recipes.list.searchLabel')}
+            placeholder={t('recipes.list.searchPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             autoFocus
             style={[styles.searchInput, inputTextStyles.recipeSearch, { color: colors.text }]}
@@ -603,12 +638,12 @@ export function RecipesScreen() {
       {view === 'discover' || view === 'favorites' || view === 'household' ? (
         <View style={styles.tabRow}>
           <SegmentedControl
-            label="Rezeptansicht"
+            label={t('recipes.list.viewLabel')}
             selectionRole="tab"
             options={[
-              { value: 'discover', label: 'Entdecken' },
-              { value: 'household', label: 'Eigene Rezepte' },
-              { value: 'favorites', label: 'Meine Favoriten' },
+              { value: 'discover', label: t('recipes.list.discover') },
+              { value: 'household', label: t('recipes.list.household') },
+              { value: 'favorites', label: t('recipes.list.favorites') },
             ]}
             selected={view}
             onSelect={setView}
@@ -627,20 +662,24 @@ export function RecipesScreen() {
           view === 'discover' || view === 'favorites' || view === 'household' ? (
             <MenuButton onPress={openDrawer} />
           ) : (
-            <BackButton label="Zurück zu Rezepte" variant="header" onPress={goBackToDiscover} />
+            <BackButton
+              label={t('recipes.list.backTo', { label: t('recipes.list.title') })}
+              variant="header"
+              onPress={goBackToDiscover}
+            />
           ),
         trailing: (
           <View style={styles.headerActions}>
             <HeaderIconButton
-              label="Rezepte durchsuchen"
+              label={t('recipes.list.searchLabel')}
               onPress={() => setShowSearch((visible) => !visible)}>
               <SearchIcon size={space.xl} color={colors.text} />
             </HeaderIconButton>
             <HeaderIconButton
               label={
                 activeFilterCount > 0
-                  ? `Rezepte filtern, ${activeFilterCount} aktiv`
-                  : 'Rezepte filtern'
+                  ? t('recipes.list.filterActive', { count: activeFilterCount })
+                  : t('recipes.list.filterLabel')
               }
               onPress={() => setShowFilters(true)}
               style={activeFilterCount > 0 ? { backgroundColor: colors.accent } : undefined}>
@@ -673,13 +712,13 @@ export function RecipesScreen() {
           ListFooterComponent={
             view !== 'household' && isFetchingNextCatalogPage ? (
               <ActivityIndicator
-                accessibilityLabel="Weitere Katalogrezepte werden geladen"
+                accessibilityLabel={t('recipes.list.moreCatalogLoading')}
                 color={colors.accent}
                 style={styles.mealLoading}
               />
             ) : view !== 'household' && isFetchNextCatalogPageError ? (
               <Txt variant="body" tone="secondary" style={styles.mealLoading}>
-                Weitere Rezepte konnten nicht geladen werden.
+                {t('recipes.list.moreError')}
               </Txt>
             ) : null
           }
@@ -698,18 +737,18 @@ export function RecipesScreen() {
           {headerContent}
           {isLoading ? (
             <ActivityIndicator
-              accessibilityLabel="Rezepte werden geladen"
+              accessibilityLabel={t('recipes.list.loading')}
               color={colors.accent}
               style={{ marginTop: space.xxxl }}
             />
           ) : isError ? (
-            <EmptyPanel>Rezepte konnten nicht geladen werden. Bitte Anmeldung prüfen.</EmptyPanel>
+            <EmptyPanel>{t('recipes.list.error')}</EmptyPanel>
           ) : householdEntries.length > 0 || templates.length > 0 ? (
             /* Standard Entdecken-Ansicht mit Karussells und Mahlzeitenbereichen */
             <>
               {/* Karussell: Themenkategorien (z. B. Vegan, Schnell, High-Protein) */}
               <View style={styles.section}>
-                <SectionHeading title="Kategorien" titleVariant="body" />
+                <SectionHeading title={t('recipes.list.categoriesHeading')} titleVariant="body" />
                 <CategoryCarousel
                   selectedKey={templateCategoryFilter}
                   onSelect={selectCategoryTile}
@@ -718,7 +757,7 @@ export function RecipesScreen() {
 
               {/* Karussell: Kalorien-Buckets (<400 kcal, 400-600 kcal, etc.) */}
               <View style={styles.section}>
-                <SectionHeading title="Rezepte nach Kalorien" titleVariant="body" />
+                <SectionHeading title={t('recipes.list.caloriesHeading')} titleVariant="body" />
                 <CalorieCarousel
                   selectedIndex={templateCalorieFilter}
                   onSelect={selectCalorieTile}
@@ -726,11 +765,11 @@ export function RecipesScreen() {
               </View>
 
               <View style={styles.section}>
-                <SectionHeading title="Nach Mahlzeiten" titleVariant="heading" />
+                <SectionHeading title={t('recipes.list.mealsHeading')} titleVariant="heading" />
                 {MEAL_SECTIONS.map((section) => (
                   <MealSection
                     key={section.key}
-                    title={section.title}
+                    title={t(section.titleKey)}
                     dishTypes={section.dishTypes}
                     searchQuery={query}
                   />
@@ -739,7 +778,7 @@ export function RecipesScreen() {
             </>
           ) : (
             /* Leerzustand wenn keine Rezepte/Vorlagen vorhanden sind */
-            <EmptyPanel>Noch keine Rezepte im Haushalt.</EmptyPanel>
+            <EmptyPanel>{t('recipes.list.emptyHousehold')}</EmptyPanel>
           )}
         </ScrollView>
       )}

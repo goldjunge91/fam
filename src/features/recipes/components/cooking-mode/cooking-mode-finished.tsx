@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -54,23 +55,27 @@ export function CookingModeFinished({
 }: CookingModeFinishedProps) {
   const [ratingOpen, setRatingOpen] = useState(false);
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
-    <CookingModeShell title="Fertig" backLabel="Zurück zum letzten Schritt" onBack={onBack}>
+    <CookingModeShell
+      title={t('recipes.cooking.finished')}
+      backLabel={t('recipes.cooking.backLast')}
+      onBack={onBack}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={[styles.artwork, { backgroundColor: colors.backgroundSoft }]} />
         <Txt variant="heading" style={styles.title}>
-          Guten Appetit!
+          {t('recipes.cooking.appetite')}
         </Txt>
         <Txt variant="caption" tone="secondary" center style={styles.hint}>
-          Alles Weitere ist freiwillig und kann übersprungen werden.
+          {t('recipes.cooking.optional')}
         </Txt>
 
         {!isCatalog ? (
           <View style={styles.actions}>
             <CookingModeFinishAction
-              title="Zubereitete Gruppen wiegen"
-              subtitle="Werte im eigenen Rezept verbessern"
+              title={t('recipes.cooking.weighGroups')}
+              subtitle={t('recipes.cooking.weighGroupsHint')}
               onPress={() =>
                 router.push({
                   pathname: '/recipe/log',
@@ -79,13 +84,13 @@ export function CookingModeFinished({
               }
             />
             <CookingModeFinishAction
-              title="Ins Tagebuch eintragen"
-              subtitle="Portionsmengen getrennt anpassen"
+              title={t('recipes.cooking.logDiary')}
+              subtitle={t('recipes.cooking.logDiaryHint')}
               onPress={() => router.push({ pathname: '/recipe/log', params: { id: recipe.id } })}
             />
             <CookingModeFinishAction
-              title="Rezept bewerten"
-              subtitle="1–10 Sterne und optionaler Text"
+              title={t('recipes.cooking.rateRecipe')}
+              subtitle={t('recipes.cooking.rateRecipeHint')}
               onPress={() => setRatingOpen(true)}
             />
           </View>
@@ -93,7 +98,7 @@ export function CookingModeFinished({
 
         <Press onPress={() => router.back()} accessibilityRole="button" style={styles.close}>
           <Txt variant="caption" tone="secondary">
-            Ohne Angaben schließen
+            {t('recipes.cooking.closeWithout')}
           </Txt>
         </Press>
       </ScrollView>

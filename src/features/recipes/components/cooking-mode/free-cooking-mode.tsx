@@ -1,10 +1,12 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { getUnitLabel } from '@/lib/units';
 import { flattenRecipeItems } from '../../domain/ingredient-mentions';
 import {
   replaceIngredientInText,
@@ -87,6 +89,7 @@ export function FreeCookingMode({
   temporarySwap?: TemporaryIngredientSwap | null;
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { recipe, steps } = data;
   const mentionIngredients = flattenRecipeItems(data.items, data.productsById).map(
     (ingredient) => ({
@@ -96,14 +99,17 @@ export function FreeCookingMode({
   );
 
   return (
-    <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
+    <CookingModeShell title={t('recipes.cooking.title')} backLabel={t('recipes.cooking.close')}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <Txt variant="heading" style={styles.title}>
           {recipe.title}
         </Txt>
         {temporarySwap ? (
           <Txt variant="caption" tone="secondary">
-            Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
+            {t('recipes.cooking.temporarySwap', {
+              ingredient: temporarySwap.ingredientName,
+              replacement: temporarySwap.replacement,
+            })}
           </Txt>
         ) : null}
 
@@ -132,15 +138,20 @@ export function FreeCookingMode({
                           path: image.storage_path,
                           accessibilityLabel:
                             imageIndex === 0
-                              ? `Bild für Schritt ${step.position + 1}`
-                              : `Bild ${imageIndex + 1} für Schritt ${step.position + 1}`,
+                              ? t('recipes.detail.stepImage', { step: step.position + 1 })
+                              : t('recipes.detail.stepImageNumbered', {
+                                  image: imageIndex + 1,
+                                  step: step.position + 1,
+                                }),
                         }))
                       : step.image_path
                         ? [
                             {
                               key: step.image_path,
                               path: step.image_path,
-                              accessibilityLabel: `Bild für Schritt ${step.position + 1}`,
+                              accessibilityLabel: t('recipes.detail.stepImage', {
+                                step: step.position + 1,
+                              }),
                             },
                           ]
                         : []
@@ -162,7 +173,7 @@ export function FreeCookingMode({
           containerStyle={styles.unlockContainer}
           style={[styles.unlock, { backgroundColor: colors.accent }]}>
           <Txt variant="caption" tone="onAccent" weight="700" center>
-            Geführten Kochmodus freischalten
+            {t('recipes.cooking.unlock')}
           </Txt>
         </Press>
       </ScrollView>
@@ -181,12 +192,15 @@ function isImportedTextItem(item: RecipeDetail['items'][number]): boolean {
   );
 }
 
-function formatIngredientAmount(item: RecipeDetail['items'][number]): string | null {
+function formatIngredientAmount(
+  item: RecipeDetail['items'][number],
+  t: ReturnType<typeof useTranslation>['t'],
+): string | null {
   const amount = item.quantity !== null ? item.quantity : item.grams;
   const unit = item.quantity !== null || item.grams === null ? item.unit : 'g';
   const parts = [
     amount === null ? null : String(Number.isInteger(amount) ? amount : Number(amount.toFixed(6))),
-    unit?.trim() || null,
+    unit?.trim() ? getUnitLabel(unit, t) : null,
   ].filter((part): part is string => part !== null);
   return parts.length > 0 ? parts.join(' ') : null;
 }
@@ -199,6 +213,7 @@ function IngredientGroups({
   temporarySwap: TemporaryIngredientSwap | null;
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const groupsWithServingWeight = data.components.filter(
     (component) => component.serving_grams !== null,
   );
@@ -235,7 +250,7 @@ function IngredientGroups({
               </Txt>
               {component.serving_grams !== null || !hasImportedItems ? (
                 <Txt variant="caption" tone="secondary">
-                  {round(component.serving_grams ?? 0)} g zubereitet
+                  {t('recipes.cooking.prepared', { count: round(component.serving_grams ?? 0) })}
                 </Txt>
               ) : null}
             </View>
@@ -246,9 +261,9 @@ function IngredientGroups({
                 item.sourceText?.trim() ??
                 item.ingredient_name ??
                 (item.sub_component_id ? componentNames.get(item.sub_component_id) : undefined) ??
-                'Zutat';
+                t('recipes.detail.ingredientFallback');
               const name = replaceIngredientName(originalName, temporarySwap);
-              const amount = formatIngredientAmount(item);
+              const amount = formatIngredientAmount(item, t);
 
               return (
                 <View

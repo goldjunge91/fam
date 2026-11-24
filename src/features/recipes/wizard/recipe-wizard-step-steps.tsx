@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { memo, type Ref, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TextInput, View } from 'react-native';
 import ReorderableList, {
   type ReorderableListReorderEvent,
@@ -237,6 +238,7 @@ interface IngredientLedgerProps {
 
 function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [expanded, setExpanded] = useState(true);
   if (ingredients.length === 0) return null;
 
@@ -250,14 +252,19 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
         style={styles.ledgerToggle}
         onPress={() => setExpanded((prev) => !prev)}
         accessibilityRole="button"
-        accessibilityLabel={expanded ? 'Zutatenliste einklappen' : 'Zutatenliste ausklappen'}>
+        accessibilityLabel={
+          expanded ? t('recipes.wizard.collapseIngredients') : t('recipes.wizard.expandIngredients')
+        }>
         <Txt variant="eyebrow" tone="secondary" weight="700">
-          ZUTATEN
+          {t('recipes.wizard.ingredientLedger')}
         </Txt>
         <View style={styles.ledgerSummary}>
           {!expanded ? (
             <Txt variant="caption" tone="secondary">
-              {doneCount}/{ingredients.length} aufgebraucht
+              {t('recipes.wizard.remainingCount', {
+                used: doneCount,
+                total: ingredients.length,
+              })}
             </Txt>
           ) : null}
           <Txt variant="caption" tone="secondary">
@@ -278,8 +285,6 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
             const full = usableQuantity !== null && usedAmount >= usableQuantity;
             const remaining =
               usableQuantity === null ? null : Math.max(0, usableQuantity - usedAmount);
-            const rawAmount =
-              ing.quantity === null ? ing.unit : `${ing.quantity}${ing.unit ? ` ${ing.unit}` : ''}`;
             return (
               <View key={ing.itemId}>
                 <View style={styles.ledgerRow}>
@@ -298,10 +303,16 @@ function IngredientLedger({ ingredients, used }: IngredientLedgerProps) {
                     tone={full ? 'success' : 'secondary'}
                     weight={full ? '600' : undefined}>
                     {full
-                      ? 'aufgebraucht'
+                      ? t('recipes.wizard.used')
                       : remaining !== null
-                        ? `${remaining}${ing.unit ?? ''} übrig`
-                        : rawAmount}
+                        ? t('recipes.wizard.remaining', {
+                            amount: remaining,
+                            unit: ing.unit ?? '',
+                          })
+                        : t('recipes.wizard.amount', {
+                            amount: ing.quantity === null ? '' : ing.quantity,
+                            unit: ing.unit ?? '',
+                          })}
                   </Txt>
                 </View>
                 <View style={[styles.progress, { backgroundColor: colors.border }]}>
@@ -353,6 +364,7 @@ const StepCard = memo(function StepCard({
 }: StepCardProps) {
   const drag = useReorderableDrag();
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const autocomplete = pendingAutocomplete(step.text, ingredients);
   const [selection, setSelection] = useState({ start: step.text.length, end: step.text.length });
 
@@ -400,19 +412,19 @@ const StepCard = memo(function StepCard({
         <Press
           onLongPress={drag}
           style={styles.dragButton}
-          accessibilityLabel="Schritt verschieben">
+          accessibilityLabel={t('recipes.wizard.moveStep')}>
           <Txt variant="heading" tone="secondary">
             ≡
           </Txt>
         </Press>
         <Txt variant="label" tone="primary" weight="700" style={styles.stepTitle}>
-          Schritt {index + 1}
+          {t('recipes.wizard.stepLabel', { step: index + 1 })}
         </Txt>
         <Press
           onPress={() => onRemoveStep(step.id)}
           style={styles.deleteStep}
           accessibilityRole="button"
-          accessibilityLabel="Delete step">
+          accessibilityLabel={t('recipes.wizard.deleteStep')}>
           <View style={[styles.deleteStepFace, { backgroundColor: colors.backgroundSoft }]}>
             <Svg width={16} height={16} viewBox="0 0 24 24" fill="none">
               <Path
@@ -437,7 +449,7 @@ const StepCard = memo(function StepCard({
           value={step.text}
           onChangeText={handleChangeText}
           onSelectionChange={({ nativeEvent }) => setSelection(nativeEvent.selection)}
-          placeholder={`Was ist in Schritt ${index + 1} zu tun? Zutat mit @ einfügen, z. B. @Wurst50`}
+          placeholder={t('recipes.wizard.stepPlaceholder', { step: index + 1 })}
           placeholderTextColor={colors.textSecondary}
           multiline
           textAlignVertical="top"
@@ -454,7 +466,11 @@ const StepCard = memo(function StepCard({
                 style={[styles.mentionRow, { borderBottomColor: colors.border }]}
                 onPress={() => insertMention(ing)}
                 accessibilityRole="button"
-                accessibilityLabel={`${ing.name} · ${ing.quantity}${ing.unit ?? ''}`}>
+                accessibilityLabel={t('recipes.wizard.mentionAccessibility', {
+                  name: ing.name,
+                  quantity: ing.quantity,
+                  unit: ing.unit ?? '',
+                })}>
                 <Txt variant="body" weight="700">
                   {ing.name}{' '}
                   <Txt variant="caption" tone="secondary">
@@ -466,7 +482,7 @@ const StepCard = memo(function StepCard({
             ))}
             <View style={styles.mentionHint}>
               <Txt variant="caption" tone="secondary">
-                Danach direkt eine Zahl tippen, z. B. „{autocomplete.matches[0].name}50“
+                {t('recipes.wizard.mentionHint', { name: autocomplete.matches[0].name })}
               </Txt>
             </View>
           </View>
@@ -514,7 +530,7 @@ const StepCard = memo(function StepCard({
       {step.existingImages.length + step.localImageUris.length < MAX_RECIPE_STEP_IMAGES ? (
         <Press style={styles.inlineLink} onPress={() => onPickImage(step.id)}>
           <Txt variant="label" tone="primary" weight="600">
-            + Bild hinzufügen
+            {t('recipes.wizard.addImage')}
           </Txt>
         </Press>
       ) : null}
@@ -542,6 +558,7 @@ function StepImage({
   testID?: string;
   onRemove: () => void;
 }) {
+  const { t } = useTranslation();
   const { data: signedUrl } = useRecipeStepImageUrl(uri ? null : path);
   const imageUri = uri ?? signedUrl;
   if (!imageUri) return null;
@@ -556,12 +573,12 @@ function StepImage({
       />
       <Press style={styles.inlineLink} onPress={onInsert}>
         <Txt variant="label" tone="primary" weight="600">
-          Bild {imageIndex + 1} im Text einfügen
+          {t('recipes.wizard.insertImage', { image: imageIndex + 1 })}
         </Txt>
       </Press>
       <Press style={styles.inlineLink} onPress={onRemove}>
         <Txt variant="label" tone="primary" weight="600">
-          Bild entfernen
+          {t('recipes.wizard.removeImage')}
         </Txt>
       </Press>
     </View>
@@ -575,6 +592,7 @@ interface StepTimerFieldProps {
 
 function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [draft, setDraft] = useState('');
   const [editing, setEditing] = useState(false);
 
@@ -582,11 +600,11 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
     return (
       <View style={styles.timerRow}>
         <Txt variant="label" tone="primary" weight="600">
-          ⏱ {minutes} Min. Timer
+          {t('recipes.wizard.timer', { count: minutes })}
         </Txt>
         <Press onPress={() => onChange(null)}>
           <Txt variant="label" tone="primary" weight="600">
-            Entfernen
+            {t('recipes.wizard.removeTimer')}
           </Txt>
         </Press>
       </View>
@@ -598,7 +616,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
       <View style={styles.timerRow}>
         <TextInput
           testID="recipe-step-timer-input"
-          accessibilityLabel="Min."
+          accessibilityLabel={t('recipes.wizard.timerMinutes')}
           style={[
             styles.timerInput,
             inputTextStyles.recipeStep,
@@ -606,7 +624,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
           ]}
           value={draft}
           onChangeText={setDraft}
-          placeholder="Min."
+          placeholder={t('recipes.wizard.timerMinutes')}
           placeholderTextColor={colors.textSecondary}
           keyboardType="number-pad"
           autoFocus
@@ -625,7 +643,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setEditing(false);
           }}>
           <Txt variant="label" tone="primary" weight="600">
-            Übernehmen
+            {t('recipes.wizard.applyTimer')}
           </Txt>
         </Press>
         <Press
@@ -634,7 +652,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
             setEditing(false);
           }}>
           <Txt variant="label" tone="secondary" weight="600">
-            Abbrechen
+            {t('recipes.wizard.cancelTimer')}
           </Txt>
         </Press>
       </View>
@@ -644,7 +662,7 @@ function StepTimerField({ minutes, onChange }: StepTimerFieldProps) {
   return (
     <Press style={styles.inlineLink} onPress={() => setEditing(true)}>
       <Txt variant="label" tone="primary" weight="600">
-        + Timer hinzufügen
+        {t('recipes.wizard.addTimer')}
       </Txt>
     </Press>
   );
@@ -659,6 +677,7 @@ export function RecipeWizardStepSteps({
   listRef,
 }: RecipeWizardStepStepsProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const ingredients = flattenIngredients(components);
   const used = computeMentionUsage(
     steps.map((s) => s.text),
@@ -707,14 +726,13 @@ export function RecipeWizardStepSteps({
   return (
     <View style={styles.screen}>
       <Txt variant="eyebrow" tone="secondary" style={styles.screenEyebrow} weight="500">
-        SCHRITT 3 VON 4
+        {t('recipes.wizard.stepOf', { current: 3 })}
       </Txt>
       <Txt variant="heading" style={styles.screenTitle}>
-        Zubereitungsschritte
+        {t('recipes.wizard.steps')}
       </Txt>
       <Txt variant="label" tone="secondary" style={styles.screenHint}>
-        Zutat mit @ einfügen (z. B. @Wurst50 = 50 g Wurst). Zum Umsortieren einen Schritt gedrückt
-        halten und ziehen.
+        {t('recipes.wizard.stepHint')}
       </Txt>
 
       <IngredientLedger ingredients={ingredients} used={used} />
@@ -754,7 +772,7 @@ export function RecipeWizardStepSteps({
               style={[styles.addStep, { backgroundColor: colors.backgroundElement }]}
               onPress={addStep}>
               <Txt variant="caption" tone="primary" weight="600">
-                + Schritt hinzufügen
+                {t('recipes.wizard.addStep')}
               </Txt>
             </Press>
 
@@ -764,7 +782,7 @@ export function RecipeWizardStepSteps({
                 style={[styles.action, { backgroundColor: colors.backgroundElement }]}
                 onPress={onBack}>
                 <Txt variant="caption" tone="primary" weight="600">
-                  Zurück
+                  {t('recipes.wizard.back')}
                 </Txt>
               </Press>
               <Press
@@ -773,7 +791,7 @@ export function RecipeWizardStepSteps({
                 accessibilityRole="button"
                 onPress={onNext}>
                 <Txt variant="caption" tone="onAccent" weight="600">
-                  Weiter
+                  {t('recipes.wizard.next')}
                 </Txt>
               </Press>
             </View>

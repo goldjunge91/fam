@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -41,6 +42,7 @@ const styles = StyleSheet.create((theme) => ({
 /** "Rezepte nach Kalorien": 2 Reihen, horizontal scrollend, 10 Buckets a 100 kcal. */
 export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const columns = Array.from({ length: Math.ceil(CALORIE_BUCKETS.length / 2) }, (_, column) =>
     CALORIE_BUCKETS.slice(column * 2, column * 2 + 2),
   );
@@ -62,7 +64,7 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                 key={bucket.label}
                 onPress={() => onSelect(selected ? null : index)}
                 accessibilityRole="button"
-                accessibilityLabel={`${bucket.label} Kilokalorien`}
+                accessibilityLabel={`${bucket.label} ${t('recipes.calorie.kilocalories')}`}
                 accessibilityState={{ selected: selected }}
                 style={[
                   styles.tile,
@@ -81,7 +83,7 @@ export function CalorieCarousel({ selectedIndex, onSelect }: CalorieCarouselProp
                   {bucket.label}
                 </Txt>
                 <Txt variant="caption" tone={selected ? 'onAccent' : 'secondary'}>
-                  kcal
+                  {t('recipes.calorie.kcal')}
                 </Txt>
               </Press>
             );

@@ -282,7 +282,7 @@ describe('RecipeDetailScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Mehr Portionen' }));
     expect(screen.getByText('2 Portionen')).toBeOnTheScreen();
     expect(screen.getByText('200 kcal')).toBeOnTheScreen();
-    expect(screen.getByText('200 g')).toBeOnTheScreen();
+    expect(screen.getByText('200 Gramm (g)')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Weniger Portionen' }));
     await user.press(screen.getByRole('button', { name: 'Weniger Portionen' }));
     expect(screen.getByText('1 Portionen')).toBeOnTheScreen();
@@ -449,7 +449,7 @@ describe('RecipeDetailScreen', () => {
       expect(share).toHaveBeenCalledWith(
         expect.objectContaining({
           title: 'Geröstetes Ofengemüse',
-          message: expect.stringContaining('Kartoffeln: 100 g'),
+          message: expect.stringContaining('Kartoffeln: 100 Gramm (g)'),
         }),
       ),
     );

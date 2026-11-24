@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -13,10 +14,22 @@ type CategoryMatchInput = {
   carbsGPerServing: number | null;
 };
 
+export type CategoryLabelKey =
+  | 'recipes.categories.breakfast'
+  | 'recipes.categories.lunch'
+  | 'recipes.categories.dinner'
+  | 'recipes.categories.snack'
+  | 'recipes.categories.vegan'
+  | 'recipes.categories.vegetarian'
+  | 'recipes.categories.highProtein'
+  | 'recipes.categories.lowCarb'
+  | 'recipes.categories.quick'
+  | 'recipes.categories.dessert';
+
 export type CategoryTile = {
   key: string;
   emoji: string;
-  label: string;
+  labelKey: CategoryLabelKey;
   matches: (recipe: CategoryMatchInput) => boolean;
 };
 
@@ -24,33 +37,43 @@ export const CATEGORY_TILES: CategoryTile[] = [
   {
     key: 'breakfast',
     emoji: '☕',
-    label: 'Frühstück',
+    labelKey: 'recipes.categories.breakfast',
     matches: (t) => t.dish_types.includes('breakfast'),
   },
   {
     key: 'lunch',
     emoji: '🍜',
-    label: 'Mittagessen',
+    labelKey: 'recipes.categories.lunch',
     matches: (t) => t.dish_types.includes('lunch'),
   },
   {
     key: 'dinner',
     emoji: '🍗',
-    label: 'Abendessen',
+    labelKey: 'recipes.categories.dinner',
     matches: (t) => t.dish_types.includes('dinner'),
   },
-  { key: 'snack', emoji: '🥪', label: 'Snack', matches: (t) => t.dish_types.includes('snack') },
-  { key: 'vegan', emoji: '🌱', label: 'Vegan', matches: (t) => t.dietary_tags.includes('vegan') },
+  {
+    key: 'snack',
+    emoji: '🥪',
+    labelKey: 'recipes.categories.snack',
+    matches: (t) => t.dish_types.includes('snack'),
+  },
+  {
+    key: 'vegan',
+    emoji: '🌱',
+    labelKey: 'recipes.categories.vegan',
+    matches: (t) => t.dietary_tags.includes('vegan'),
+  },
   {
     key: 'vegetarian',
     emoji: '🥗',
-    label: 'Vegetarisch',
+    labelKey: 'recipes.categories.vegetarian',
     matches: (t) => t.dietary_tags.includes('vegetarian'),
   },
   {
     key: 'high_protein',
     emoji: '💪',
-    label: 'High Protein',
+    labelKey: 'recipes.categories.highProtein',
     matches: (r) =>
       !!r.kcalPerServing &&
       !!r.proteinGPerServing &&
@@ -59,19 +82,19 @@ export const CATEGORY_TILES: CategoryTile[] = [
   {
     key: 'low_carb',
     emoji: '🥦',
-    label: 'Low Carb',
+    labelKey: 'recipes.categories.lowCarb',
     matches: (r) => r.carbsGPerServing !== null && r.carbsGPerServing < 20,
   },
   {
     key: 'quick',
     emoji: '⏱️',
-    label: 'Schnell',
+    labelKey: 'recipes.categories.quick',
     matches: (t) => t.cook_time_minutes !== null && t.cook_time_minutes <= 20,
   },
   {
     key: 'dessert',
     emoji: '🍰',
-    label: 'Dessert',
+    labelKey: 'recipes.categories.dessert',
     matches: (t) => t.dish_types.includes('dessert'),
   },
 ];
@@ -102,6 +125,7 @@ const styles = StyleSheet.create((theme) => ({
 /** Horizontale Kategorie-Kacheln mit Icon und Label. */
 export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   return (
     <ScrollView
       horizontal
@@ -114,7 +138,7 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
             key={tile.key}
             onPress={() => onSelect(selected ? null : tile.key)}
             accessibilityRole="button"
-            accessibilityLabel={tile.label}
+            accessibilityLabel={t(tile.labelKey)}
             accessibilityState={{ selected: selected }}
             style={[
               styles.tile,
@@ -130,7 +154,7 @@ export function CategoryCarousel({ selectedKey, onSelect }: CategoryCarouselProp
               weight="600"
               center
               numberOfLines={1}>
-              {tile.label}
+              {t(tile.labelKey)}
             </Txt>
           </Press>
         );

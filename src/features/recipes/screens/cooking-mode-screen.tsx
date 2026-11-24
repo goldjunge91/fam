@@ -1,5 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -32,10 +33,11 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 function CookingModeLoading() {
+  const { t } = useTranslation();
   return (
-    <CookingModeShell title="Kochmodus" backLabel="Zurück">
+    <CookingModeShell title={t('recipes.cooking.title')} backLabel={t('recipes.cooking.back')}>
       <Txt variant="caption" tone="secondary" style={styles.loading}>
-        Kochmodus wird geladen…
+        {t('recipes.cooking.loading')}
       </Txt>
     </CookingModeShell>
   );
@@ -53,6 +55,7 @@ export function CookingModeScreen() {
     swapIngredient?: string;
     swapReplacement?: string;
   }>();
+  const { t } = useTranslation();
   const temporarySwap = useMemo<TemporaryIngredientSwap | null>(() => {
     const ingredientName = firstSearchParam(swapIngredient);
     const replacement = firstSearchParam(swapReplacement);
@@ -111,22 +114,18 @@ export function CookingModeScreen() {
 
     handsFreePromptedRef.current = handsFreePromptKey;
     setHandsFreeChoice({ key: handsFreePromptKey, enabled: false });
-    Alert.alert(
-      'Hands-free im Kochmodus?',
-      'Soll der aktuelle Schritt vorgelesen werden und danach auf einen Sprachbefehl warten?',
-      [
-        {
-          text: 'Nein',
-          style: 'cancel',
-          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: false }),
-        },
-        {
-          text: 'Hands-free aktivieren',
-          onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: true }),
-        },
-      ],
-    );
-  }, [handsFreePromptKey, hasPlus]);
+    Alert.alert(t('recipes.cooking.handsFreeTitle'), t('recipes.cooking.handsFreeMessage'), [
+      {
+        text: t('recipes.cooking.no'),
+        style: 'cancel',
+        onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: false }),
+      },
+      {
+        text: t('recipes.cooking.enableHandsFree'),
+        onPress: () => setHandsFreeChoice({ key: handsFreePromptKey, enabled: true }),
+      },
+    ]);
+  }, [handsFreePromptKey, hasPlus, t]);
 
   useEffect(() => {
     const recipeId = data?.recipe.id;
@@ -136,12 +135,12 @@ export function CookingModeScreen() {
     const result = recordActivity();
     if (result.milestone) {
       try {
-        celebrate(`🔥 ${result.count} Tage Streak!`);
+        celebrate(t('recipes.cooking.streak', { count: result.count }));
       } catch {
         // Optionale Celebration darf den erfolgreichen Kochabschluss nicht blockieren.
       }
     }
-  }, [data?.recipe.id, finished]);
+  }, [data?.recipe.id, finished, t]);
 
   if (isLoading || !data) return <CookingModeLoading />;
   if (!hasPlus) return <FreeCookingMode data={data} temporarySwap={temporarySwap} />;
@@ -156,10 +155,13 @@ export function CookingModeScreen() {
   }
 
   return (
-    <CookingModeShell title="Kochmodus" backLabel="Kochmodus schließen">
+    <CookingModeShell title={t('recipes.cooking.title')} backLabel={t('recipes.cooking.close')}>
       {temporarySwap ? (
         <Txt variant="caption" tone="secondary" style={styles.context}>
-          Einmalig ersetzt: {temporarySwap.ingredientName} → {temporarySwap.replacement}
+          {t('recipes.cooking.temporarySwap', {
+            ingredient: temporarySwap.ingredientName,
+            replacement: temporarySwap.replacement,
+          })}
         </Txt>
       ) : null}
       <CookingModePlusFlow

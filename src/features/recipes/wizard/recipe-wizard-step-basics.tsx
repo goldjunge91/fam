@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { type Control, Controller, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
@@ -10,10 +11,14 @@ import { MIN_TOUCH_SIZE, Press, TextField, Txt } from '@/constants/ui';
 import { ProductSearchDropdown } from '@/features/inventory/product-search-dropdown';
 import type { CatalogProduct } from '@/features/product-search/types';
 import type { RecipeFormValues } from '@/lib/db/zod/recipe-form-schema.zod';
-import { UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions } from '@/lib/units';
 import { IngredientMappingEditor } from '../components/ingredient-mapping-editor';
 import type { IngredientMappingReview } from '../domain/ingredient-mapping';
-import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
+import {
+  getDietaryTagOptions,
+  getDifficultyOptions,
+  getDishTypeOptions,
+} from './recipe-metadata-options';
 import type { IngredientComponentGroup } from './types';
 
 const styles = StyleSheet.create((theme) => ({
@@ -232,15 +237,20 @@ export function RecipeWizardStepBasics({
   onNext,
 }: RecipeWizardStepBasicsProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const title = useWatch({ control, name: 'title' });
+  const difficulties = getDifficultyOptions(t);
+  const dishTypes = getDishTypeOptions(t);
+  const dietaryTags = getDietaryTagOptions(t);
+  const unitOptions = getUnitOptions(t);
 
   return (
     <>
       <Txt variant="eyebrow" tone="secondary" style={styles.eyebrow} weight="500">
-        SCHRITT {mode === 'details' ? '1' : '2'} VON 4
+        {t('recipes.wizard.stepOf', { current: mode === 'details' ? 1 : 2 })}
       </Txt>
       <Txt variant="heading" style={styles.heading}>
-        {mode === 'details' ? 'Rezeptdetails' : 'Gruppen und Zutaten'}
+        {mode === 'details' ? t('recipes.wizard.details') : t('recipes.wizard.groups')}
       </Txt>
 
       {mode === 'details' ? (
@@ -264,7 +274,7 @@ export function RecipeWizardStepBasics({
                   </Svg>
                 </View>
                 <Txt variant="body" weight="500" style={styles.coverActionText}>
-                  Titelbild hinzufügen
+                  {t('recipes.wizard.coverAdd')}
                 </Txt>
               </View>
             )}
@@ -272,19 +282,19 @@ export function RecipeWizardStepBasics({
 
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Titel
+              {t('recipes.wizard.title')}
             </Txt>
             <Controller
               control={control}
               name="title"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
                 <TextField
-                  accessibilityLabel="Titel"
+                  accessibilityLabel={t('recipes.wizard.titleLabel')}
                   style={styles.inputLayout}
                   value={value}
                   onBlur={onBlur}
                   onChangeText={onChange}
-                  placeholder="Rezepttitel"
+                  placeholder={t('recipes.wizard.titlePlaceholder')}
                   error={error?.message}
                 />
               )}
@@ -293,19 +303,19 @@ export function RecipeWizardStepBasics({
 
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Beschreibung
+              {t('recipes.wizard.description')}
             </Txt>
             <Controller
               control={control}
               name="description"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
                 <TextField
-                  accessibilityLabel="Beschreibung"
+                  accessibilityLabel={t('recipes.wizard.descriptionLabel')}
                   style={[styles.inputLayout, styles.descriptionField]}
                   value={value}
                   onBlur={onBlur}
                   onChangeText={onChange}
-                  placeholder="Kurze Beschreibung des Rezepts"
+                  placeholder={t('recipes.wizard.descriptionPlaceholder')}
                   multiline
                   numberOfLines={3}
                   textAlignVertical="top"
@@ -318,19 +328,19 @@ export function RecipeWizardStepBasics({
           <View style={styles.detailsRow}>
             <View style={styles.detailsColumn}>
               <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-                Kochzeit (Minuten)
+                {t('recipes.wizard.cookTime')}
               </Txt>
               <Controller
                 control={control}
                 name="cookTimeMinutes"
                 render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
                   <TextField
-                    accessibilityLabel="Kochzeit in Minuten"
+                    accessibilityLabel={t('recipes.wizard.cookTimeLabel')}
                     style={styles.inputLayout}
                     value={value}
                     onBlur={onBlur}
                     onChangeText={onChange}
-                    placeholder="30"
+                    placeholder={t('recipes.wizard.cookTimePlaceholder')}
                     keyboardType="numeric"
                     error={error?.message}
                   />
@@ -340,7 +350,7 @@ export function RecipeWizardStepBasics({
 
             <View style={styles.servingsColumn}>
               <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-                Portionen
+                {t('recipes.wizard.servings')}
               </Txt>
               <Controller
                 control={control}
@@ -354,7 +364,7 @@ export function RecipeWizardStepBasics({
                       ]}>
                       <Press
                         accessibilityRole="button"
-                        accessibilityLabel="Eine Portion weniger"
+                        accessibilityLabel={t('recipes.wizard.lessServing')}
                         onPress={() => onChange(Math.max(1, value - 1))}>
                         <Txt variant="heading" tone="secondary" weight="700">
                           −
@@ -365,7 +375,7 @@ export function RecipeWizardStepBasics({
                       </Txt>
                       <Press
                         accessibilityRole="button"
-                        accessibilityLabel="Eine Portion mehr"
+                        accessibilityLabel={t('recipes.wizard.moreServing')}
                         onPress={() => onChange(value + 1)}>
                         <Txt variant="heading" tone="secondary" weight="700">
                           +
@@ -382,14 +392,14 @@ export function RecipeWizardStepBasics({
           {/* Schwierigkeit */}
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Schwierigkeit
+              {t('recipes.wizard.difficulty')}
             </Txt>
             <Controller
               control={control}
               name="difficulty"
               render={({ field: { onChange, value } }) => (
                 <View style={styles.tagWrap}>
-                  {DIFFICULTIES.map((difficulty) => {
+                  {difficulties.map((difficulty) => {
                     const selected = value === difficulty.value;
                     return (
                       <Press
@@ -421,14 +431,14 @@ export function RecipeWizardStepBasics({
           {/* Rezepttyp */}
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Art des Gerichts
+              {t('recipes.wizard.dishType')}
             </Txt>
             <Controller
               control={control}
               name="dishTypes"
               render={({ field: { onChange, value } }) => (
                 <View style={styles.tagWrap}>
-                  {DISH_TYPES.map((dishType) => {
+                  {dishTypes.map((dishType) => {
                     const selected = value.includes(dishType.value);
                     return (
                       <Press
@@ -460,14 +470,14 @@ export function RecipeWizardStepBasics({
           {/* Ernaehrung */}
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Ernährung
+              {t('recipes.wizard.dietary')}
             </Txt>
             <Controller
               control={control}
               name="dietaryTags"
               render={({ field: { onChange, value } }) => (
                 <View style={styles.tagWrap}>
-                  {DIETARY_TAGS.map((dietaryTag) => {
+                  {dietaryTags.map((dietaryTag) => {
                     const selected = value.includes(dietaryTag.value);
                     return (
                       <Press
@@ -499,19 +509,19 @@ export function RecipeWizardStepBasics({
           {/* Hashtags */}
           <View style={styles.fieldGroup}>
             <Txt variant="caption" weight="700" style={styles.fieldLabel}>
-              Hashtags
+              {t('recipes.wizard.hashtags')}
             </Txt>
             <Controller
               control={control}
               name="hashtagsInput"
               render={({ field: { onBlur, onChange, value }, fieldState: { error } }) => (
                 <TextField
-                  accessibilityLabel="Hashtags"
+                  accessibilityLabel={t('recipes.wizard.hashtags')}
                   style={styles.inputLayout}
                   value={value}
                   onBlur={onBlur}
                   onChangeText={onChange}
-                  placeholder="#vegan #schnell"
+                  placeholder={t('recipes.wizard.hashtagsPlaceholder')}
                   error={error?.message}
                 />
               )}
@@ -528,11 +538,11 @@ export function RecipeWizardStepBasics({
               <View style={styles.componentHeader}>
                 <View style={styles.componentTitle}>
                   <TextField
-                    accessibilityLabel="Gruppenname"
+                    accessibilityLabel={t('recipes.wizard.groupName')}
                     weight={font.weight.bold}
                     value={comp.title}
                     onChangeText={(val) => onUpdateComponentTitle(comp.id, val)}
-                    placeholder="Gruppenname, z. B. Für den Teig"
+                    placeholder={t('recipes.wizard.groupPlaceholder')}
                   />
                 </View>
                 {components.length > 1 ? (
@@ -540,7 +550,7 @@ export function RecipeWizardStepBasics({
                     style={styles.squareButton}
                     onPress={() => onRemoveComponentGroup(comp.id)}
                     accessibilityRole="button"
-                    accessibilityLabel="Zutaten-Gruppe entfernen">
+                    accessibilityLabel={t('recipes.wizard.removeGroup')}>
                     <View
                       style={[styles.squareButtonFace, { backgroundColor: colors.backgroundSoft }]}>
                       <Txt variant="subheading" tone="secondary" weight="500">
@@ -554,8 +564,8 @@ export function RecipeWizardStepBasics({
               {comp.items.map((item) => (
                 <View key={item.id} style={styles.ingredientRow}>
                   <ProductSearchDropdown
-                    label="Zutat"
-                    placeholder="Zutat suchen…"
+                    label={t('recipes.wizard.ingredient')}
+                    placeholder={t('recipes.wizard.ingredientSearch')}
                     value={item.productQuery}
                     onChangeText={(val) => onUpdateIngredientQuery(comp.id, item.id, val)}
                     onSelectProduct={(product) => onSelectProduct(comp.id, item.id, product)}
@@ -586,17 +596,17 @@ export function RecipeWizardStepBasics({
                   <View style={styles.ingredientFields}>
                     <View style={styles.ingredientInput}>
                       <TextField
-                        accessibilityLabel="Menge"
+                        accessibilityLabel={t('recipes.wizard.quantity')}
                         value={item.quantity}
                         onChangeText={(val) => onUpdateQuantity(comp.id, item.id, val)}
-                        placeholder="Menge"
+                        placeholder={t('recipes.wizard.quantity')}
                         keyboardType="numeric"
                       />
                     </View>
                     <View style={styles.unitField}>
                       <WheelPickerField
                         value={item.unit}
-                        options={UNIT_OPTIONS}
+                        options={unitOptions}
                         onChange={(unit) => onUpdateUnit(comp.id, item.id, unit)}
                       />
                     </View>
@@ -604,7 +614,7 @@ export function RecipeWizardStepBasics({
                       style={styles.squareButton}
                       onPress={() => onRemoveIngredient(comp.id, item.id)}
                       accessibilityRole="button"
-                      accessibilityLabel="Delete ingredient">
+                      accessibilityLabel={t('recipes.wizard.deleteIngredient')}>
                       <View
                         style={[
                           styles.squareButtonFace,
@@ -624,8 +634,7 @@ export function RecipeWizardStepBasics({
                   </View>
                   {item.notConvertible ? (
                     <Txt variant="caption" tone="danger">
-                      Automatische Umrechnung in Gramm für diese Einheit nicht möglich (Produkt hat
-                      kein bekanntes Stückgewicht) — diese Zutat wurde beim Speichern übersprungen.
+                      {t('recipes.wizard.conversionWarning')}
                     </Txt>
                   ) : null}
                 </View>
@@ -633,7 +642,7 @@ export function RecipeWizardStepBasics({
 
               <Press style={styles.addIngredient} onPress={() => onAddIngredient(comp.id)}>
                 <Txt variant="caption" tone="primary" weight="600">
-                  + Zutat hinzufügen
+                  {t('recipes.wizard.addIngredient')}
                 </Txt>
               </Press>
             </View>
@@ -643,9 +652,9 @@ export function RecipeWizardStepBasics({
             style={[styles.addGroup, { backgroundColor: colors.backgroundElement }]}
             onPress={onAddComponentGroup}
             accessibilityRole="button"
-            accessibilityLabel="Add Componente">
+            accessibilityLabel={t('recipes.wizard.addGroup')}>
             <Txt variant="caption" tone="primary" weight="600">
-              + Zutaten-Gruppe hinzufügen
+              {t('recipes.wizard.addGroup')}
             </Txt>
           </Press>
         </>
@@ -657,7 +666,7 @@ export function RecipeWizardStepBasics({
           style={[styles.action, { backgroundColor: colors.backgroundElement }]}
           onPress={onCancel}>
           <Txt variant="caption" tone="primary" weight="600">
-            {mode === 'details' ? 'Abbrechen' : 'Zurück'}
+            {mode === 'details' ? t('recipes.wizard.cancel') : t('recipes.wizard.back')}
           </Txt>
         </Press>
         <Press
@@ -674,10 +683,10 @@ export function RecipeWizardStepBasics({
           disabled={!title.trim() || saving}>
           <Txt variant="caption" tone="onAccent" weight="600">
             {saving
-              ? 'Speichert…'
+              ? t('recipes.wizard.saving')
               : mode === 'details'
-                ? 'Weiter zu den Zutaten'
-                : 'Weiter zu den Schritten'}
+                ? t('recipes.wizard.nextIngredients')
+                : t('recipes.wizard.nextSteps')}
           </Txt>
         </Press>
       </View>

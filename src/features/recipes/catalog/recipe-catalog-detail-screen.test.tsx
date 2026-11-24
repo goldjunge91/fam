@@ -348,8 +348,8 @@ it('zeigt Details, skaliert Zutaten, erweitert Tags und öffnet Kochmodus sowie 
   expect(screen.getByText('3', { exact: true })).toBeOnTheScreen();
   expect(screen.getByText('225 g zubereitet')).toBeOnTheScreen();
   expect(screen.getByText('2 Stück')).toBeOnTheScreen();
-  expect(screen.getByText('75 g')).toBeOnTheScreen();
-  expect(screen.getByText('38 g')).toBeOnTheScreen();
+  expect(screen.getByText('75 Gramm (g)')).toBeOnTheScreen();
+  expect(screen.getByText('38 Gramm (g)')).toBeOnTheScreen();
   expect(screen.getByText('3 Prise')).toBeOnTheScreen();
 
   await user.press(screen.getByRole('button', { name: 'Zu Favoriten hinzufügen' }));
@@ -410,7 +410,7 @@ it('deaktiviert die Übernahme ohne Haushalt oder Anmeldung', async () => {
   mockCopyPending = true;
   await render(<RecipeCatalogDetailScreen />);
 
-  const copyButton = screen.getByRole('button', { name: 'Rezept in meine Rezepte übernehmen' });
+  const copyButton = screen.getByRole('button', { name: 'In meine Rezepte übernehmen' });
   expect(copyButton).toBeDisabled();
 });
 
@@ -420,7 +420,7 @@ it('kopiert ins eigene Rezeptarchiv und meldet verständliche Fehler', async () 
   mockIsLoading = false;
   await render(<RecipeCatalogDetailScreen />);
 
-  await user.press(screen.getByRole('button', { name: 'Rezept in meine Rezepte übernehmen' }));
+  await user.press(screen.getByRole('button', { name: 'In meine Rezepte übernehmen' }));
   expect(mockCopyMutateAsync).toHaveBeenCalledWith(mockDetail);
   await waitFor(() =>
     expect(router.replace).toHaveBeenCalledWith({
@@ -431,7 +431,7 @@ it('kopiert ins eigene Rezeptarchiv und meldet verständliche Fehler', async () 
 
   const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
   mockCopyMutateAsync.mockRejectedValueOnce(new Error('Katalogkopie nicht möglich'));
-  await user.press(screen.getByRole('button', { name: 'Rezept in meine Rezepte übernehmen' }));
+  await user.press(screen.getByRole('button', { name: 'In meine Rezepte übernehmen' }));
   await waitFor(() =>
     expect(alert).toHaveBeenCalledWith(
       'Rezept konnte nicht übernommen werden',
@@ -440,7 +440,7 @@ it('kopiert ins eigene Rezeptarchiv und meldet verständliche Fehler', async () 
   );
 
   mockCopyMutateAsync.mockRejectedValueOnce('offline');
-  await user.press(screen.getByRole('button', { name: 'Rezept in meine Rezepte übernehmen' }));
+  await user.press(screen.getByRole('button', { name: 'In meine Rezepte übernehmen' }));
   await waitFor(() =>
     expect(alert).toHaveBeenLastCalledWith(
       'Rezept konnte nicht übernommen werden',

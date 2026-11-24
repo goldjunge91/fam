@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, KeyboardAvoidingView, ScrollView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
@@ -14,12 +15,18 @@ import { calculateAdjustedServingNutrition } from '../domain/nutrition';
 import { useUpdateComponentMutation } from '../hooks/use-recipe-components';
 import { useRecipeDetail } from '../hooks/use-recipes';
 
-const MEAL_OPTIONS: { value: MealType; label: string }[] = [
-  { value: 'breakfast', label: 'Frühstück' },
-  { value: 'lunch', label: 'Mittag' },
-  { value: 'dinner', label: 'Abend' },
-  { value: 'snack', label: 'Snacks' },
-];
+type RecipeLogMealLabelKey =
+  | 'recipes.log.mealBreakfast'
+  | 'recipes.log.mealLunch'
+  | 'recipes.log.mealDinner'
+  | 'recipes.log.mealSnack';
+
+const MEAL_OPTIONS = [
+  { value: 'breakfast', labelKey: 'recipes.log.mealBreakfast' },
+  { value: 'lunch', labelKey: 'recipes.log.mealLunch' },
+  { value: 'dinner', labelKey: 'recipes.log.mealDinner' },
+  { value: 'snack', labelKey: 'recipes.log.mealSnack' },
+] as const satisfies readonly { value: MealType; labelKey: RecipeLogMealLabelKey }[];
 
 const styles = StyleSheet.create((theme) => ({
   keyboard: {
@@ -146,6 +153,7 @@ function round(value: number): number {
 
 export function RecipeLogScreen() {
   const { colors } = useTheme();
+  const { t, i18n } = useTranslation();
   const { id, mode } = useLocalSearchParams<{ id: string; mode?: string }>();
   const isWeighMode = mode === 'weigh';
   const { data, isLoading } = useRecipeDetail(id);
@@ -182,6 +190,8 @@ export function RecipeLogScreen() {
     [data, gramsMap],
   );
 
+  const formatNumber = (value: number) => new Intl.NumberFormat(i18n.language).format(value);
+
   function updateGrams(componentId: string, raw: string) {
     const value = raw.trim() === '' ? 0 : Number(raw.replace(',', '.'));
     if (Number.isNaN(value) || value < 0) return;
@@ -204,8 +214,8 @@ export function RecipeLogScreen() {
         router.back();
       } catch (error) {
         Alert.alert(
-          'Gewichte konnten nicht gespeichert werden',
-          error instanceof Error ? error.message : 'Bitte versuche es erneut.',
+          t('recipes.log.saveErrorTitle'),
+          error instanceof Error ? error.message : t('recipes.detail.copyError'),
         );
       }
       return;
@@ -229,7 +239,10 @@ export function RecipeLogScreen() {
 
   return (
     <HubScreen
-      header={{ title: 'Fertig', leading: <BackButton label="Zurück" variant="header" /> }}>
+      header={{
+        title: t('recipes.log.title'),
+        leading: <BackButton label={t('recipes.log.back')} variant="header" />,
+      }}>
       <KeyboardAvoidingView
         style={styles.keyboard}
         behavior={process.env.EXPO_OS === 'ios' ? 'padding' : undefined}>
@@ -237,12 +250,10 @@ export function RecipeLogScreen() {
         <View style={styles.hero}>
           <View style={[styles.heroIcon, { backgroundColor: colors.backgroundSoft }]} />
           <Txt variant="heading" style={styles.heroTitle}>
-            Guten Appetit!
+            {t('recipes.log.appetite')}
           </Txt>
           <Txt variant="caption" tone="secondary" style={styles.heroSubtitle} weight="500">
-            {isWeighMode
-              ? 'Verbessere die Mengen deines Haushaltsrezepts.'
-              : 'Trage deine tatsächliche Portion ins Tagebuch ein.'}
+            {isWeighMode ? t('recipes.log.weighHint') : t('recipes.log.diaryHint')}
           </Txt>
         </View>
 
@@ -252,18 +263,16 @@ export function RecipeLogScreen() {
           <View style={styles.sheetHeader}>
             <View style={styles.sheetHeaderCopy}>
               <Txt variant="heading">
-                {isWeighMode ? 'Zubereitete Gewichte' : 'Ins Tagebuch eintragen'}
+                {isWeighMode ? t('recipes.log.weighTitle') : t('recipes.log.diaryTitle')}
               </Txt>
               <Txt variant="caption" tone="secondary" style={styles.sheetSubtitle} weight="500">
-                {isWeighMode
-                  ? 'Diese Werte verbessern die Berechnung in deinem Haushaltsrezept.'
-                  : 'Wie viel davon war auf deinem Teller?'}
+                {isWeighMode ? t('recipes.log.weighSubtitle') : t('recipes.log.diarySubtitle')}
               </Txt>
             </View>
             <Press
               onPress={() => router.back()}
               accessibilityRole="button"
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('recipes.detail.close')}
               style={styles.close}>
               <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
                 <Txt variant="body" tone="secondary" weight="500">
@@ -276,7 +285,7 @@ export function RecipeLogScreen() {
           {isLoading || !data ? (
             /* Ladezustand */
             <Txt variant="body" tone="secondary" style={styles.loading}>
-              Rezept wird geladen…
+              {t('recipes.detail.loading')}
             </Txt>
           ) : (
             <ScrollView
@@ -286,8 +295,11 @@ export function RecipeLogScreen() {
               {/* Mahlzeitenfilter (Frühstück, Mittag, Abend, Snacks) im Tagebuch-Modus */}
               {!isWeighMode ? (
                 <FilterChipBar
-                  label="Mahlzeit"
-                  options={MEAL_OPTIONS}
+                  label={t('recipes.log.meal')}
+                  options={MEAL_OPTIONS.map((option) => ({
+                    value: option.value,
+                    label: t(option.labelKey),
+                  }))}
                   selected={mealType}
                   onSelect={setMealType}
                 />
@@ -305,12 +317,12 @@ export function RecipeLogScreen() {
                         value={String(gramsById?.[component.id] ?? component.serving_grams ?? 0)}
                         onChangeText={(value) => updateGrams(component.id, value)}
                         keyboardType="decimal-pad"
-                        accessibilityLabel={`Grammmenge für ${component.name}`}
+                        accessibilityLabel={t('recipes.log.gramsFor', { name: component.name })}
                         style={[styles.gramsInput, inputTextStyles.grams, { color: colors.text }]}
                         placeholderTextColor={colors.textSecondary}
                       />
                       <Txt variant="caption" tone="secondary" style={styles.gramsUnit}>
-                        g
+                        {t('recipes.log.grams')}
                       </Txt>
                     </View>
                   </View>
@@ -320,18 +332,21 @@ export function RecipeLogScreen() {
               {total && !isWeighMode ? (
                 <View style={[styles.total, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="body" weight="700">
-                    {round(total.kcal)} kcal
+                    {t('recipes.log.kcal', { value: formatNumber(round(total.kcal)) })}
                   </Txt>
                   <Txt variant="caption" tone="secondary" style={styles.totalDetails} weight="500">
-                    {round(total.protein_g)} g Protein · {round(total.carbs_g)} g Kohlenhydrate ·{' '}
-                    {round(total.fat_g)} g Fett
+                    {t('recipes.log.nutrition', {
+                      protein: formatNumber(round(total.protein_g)),
+                      carbs: formatNumber(round(total.carbs_g)),
+                      fat: formatNumber(round(total.fat_g)),
+                    })}
                   </Txt>
                 </View>
               ) : null}
 
               {/* Übernehmen-/Speichern-Aktionsbutton */}
               <Button
-                title={isWeighMode ? 'Gewichte speichern' : 'Ins Tagebuch übernehmen'}
+                title={isWeighMode ? t('recipes.log.saveWeights') : t('recipes.log.addToDiary')}
                 onPress={handleSubmit}
                 disabled={!total || updateComponent.isPending}
                 loading={updateComponent.isPending}

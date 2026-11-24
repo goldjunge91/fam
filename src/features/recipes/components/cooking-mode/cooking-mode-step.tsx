@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { rs } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
+import { getUnitLabel } from '@/lib/units';
 import type { MentionableIngredient } from '../../domain/ingredient-mentions';
 import { splitStepImageMarkers } from '../../domain/step-image-markers';
 import type { CookingModeVoice } from '../../hooks/use-cooking-mode-voice';
@@ -105,12 +107,15 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-function formatIngredientLabel(ingredient: MentionableIngredient): string {
+function formatIngredientLabel(
+  ingredient: MentionableIngredient,
+  t: ReturnType<typeof useTranslation>['t'],
+): string {
   const hasQuantity =
     ingredient.quantity !== null && Number.isFinite(ingredient.quantity) && ingredient.quantity > 0;
   if (!hasQuantity) return ingredient.name;
   return ingredient.unit
-    ? `${ingredient.quantity} ${ingredient.unit} ${ingredient.name}`
+    ? `${ingredient.quantity} ${getUnitLabel(ingredient.unit, t)} ${ingredient.name}`
     : `${ingredient.quantity} ${ingredient.name}`;
 }
 
@@ -135,6 +140,7 @@ export function CookingModeStep({
   onEndHandsFree,
 }: CookingModeStepProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const scrollRef = useRef<ScrollView>(null);
   useEffect(() => {
     if (!currentStep.id) return;
@@ -147,15 +153,18 @@ export function CookingModeStep({
           path: image.storage_path,
           accessibilityLabel:
             imageIndex === 0
-              ? `Bild für Schritt ${stepIndex + 1}`
-              : `Bild ${imageIndex + 1} für Schritt ${stepIndex + 1}`,
+              ? t('recipes.detail.stepImage', { step: stepIndex + 1 })
+              : t('recipes.detail.stepImageNumbered', {
+                  image: imageIndex + 1,
+                  step: stepIndex + 1,
+                }),
         }))
       : currentStep.image_path
         ? [
             {
               key: currentStep.image_path,
               path: currentStep.image_path,
-              accessibilityLabel: `Bild für Schritt ${stepIndex + 1}`,
+              accessibilityLabel: t('recipes.detail.stepImage', { step: stepIndex + 1 }),
             },
           ]
         : [];
@@ -184,7 +193,7 @@ export function CookingModeStep({
         </View>
 
         <Txt variant="eyebrow" tone="secondary" weight="500">
-          SCHRITT {stepIndex + 1} VON {steps.length}
+          {t('recipes.cooking.stepOf', { current: stepIndex + 1, total: steps.length })}
         </Txt>
         <StepRichContent
           text={currentStep.text}
@@ -198,7 +207,7 @@ export function CookingModeStep({
         {stepIngredients.length > 0 ? (
           <View style={styles.ingredients}>
             <Txt variant="eyebrow" tone="secondary" weight="500">
-              FÜR DIESEN SCHRITT
+              {t('recipes.cooking.forStep')}
             </Txt>
             <View style={styles.ingredientLabels}>
               {stepIngredients.map((ingredient) => (
@@ -208,7 +217,7 @@ export function CookingModeStep({
                   tone="secondary"
                   weight="500"
                   style={styles.ingredientLabel}>
-                  {formatIngredientLabel(ingredient)}
+                  {formatIngredientLabel(ingredient, t)}
                 </Txt>
               ))}
             </View>
@@ -251,7 +260,7 @@ export function CookingModeStep({
           onPress={onPreviousStep}
           disabled={stepIndex === 0}
           accessibilityRole="button"
-          accessibilityLabel="Vorheriger Schritt"
+          accessibilityLabel={t('recipes.cooking.previous')}
           style={[
             styles.previous,
             { backgroundColor: colors.backgroundSoft },
@@ -267,7 +276,9 @@ export function CookingModeStep({
           containerStyle={styles.nextContainer}
           style={[styles.next, { backgroundColor: colors.accent }]}>
           <Txt variant="caption" tone="onAccent" weight="700" center>
-            {stepIndex === steps.length - 1 ? 'Zubereitung abschließen' : 'Nächster Schritt'}
+            {stepIndex === steps.length - 1
+              ? t('recipes.cooking.nextFinish')
+              : t('recipes.cooking.next')}
           </Txt>
         </Press>
       </View>

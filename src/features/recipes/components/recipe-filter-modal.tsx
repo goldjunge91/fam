@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -25,10 +26,10 @@ export const EMPTY_RECIPE_FILTERS: RecipeFilters = {
 };
 
 export const MEAL_FILTERS = [
-  { key: 'breakfast', label: 'Frühstück', emoji: '☕' },
-  { key: 'lunch', label: 'Mittagessen', emoji: '🍜' },
-  { key: 'dinner', label: 'Abendessen', emoji: '🍗' },
-  { key: 'snackDessert', label: 'Snacks & Dessert', emoji: '🥪' },
+  { key: 'breakfast', labelKey: 'recipes.filter.breakfast', emoji: '☕' },
+  { key: 'lunch', labelKey: 'recipes.filter.lunch', emoji: '🍜' },
+  { key: 'dinner', labelKey: 'recipes.filter.dinner', emoji: '🍗' },
+  { key: 'snackDessert', labelKey: 'recipes.filter.snackDessert', emoji: '🥪' },
 ] as const;
 
 const styles = StyleSheet.create((theme) => ({
@@ -123,6 +124,7 @@ export function RecipeFilterModal({
   onClose,
 }: RecipeFilterModalProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [draft, setDraft] = useState(filters);
 
   useEffect(() => {
@@ -131,7 +133,10 @@ export function RecipeFilterModal({
 
   const filterCount = recipeFilterCount(draft);
   const resultCount = getResultCount(draft);
-  const resultLabel = `${resultCount} ${resultCount === 1 ? 'Rezept' : 'Rezepte'} anzeigen`;
+  const resultLabel = t(
+    resultCount === 1 ? 'recipes.filter.result_one' : 'recipes.filter.result_other',
+    { count: resultCount },
+  );
 
   return (
     <Modal
@@ -145,12 +150,14 @@ export function RecipeFilterModal({
           style={styles.safeArea}
           edges={['top', 'bottom', 'left', 'right']}>
           <PageHeader
-            title="Rezepte filtern"
+            title={t('recipes.filter.title')}
             align="center"
-            leading={<BackButton label="Filter schließen" variant="header" onPress={onClose} />}
+            leading={
+              <BackButton label={t('recipes.filter.close')} variant="header" onPress={onClose} />
+            }
             trailing={
               <Button
-                title="Zurücksetzen"
+                title={t('recipes.filter.reset')}
                 variant="link"
                 onPress={() => setDraft(EMPTY_RECIPE_FILTERS)}
                 disabled={filterCount === 0}
@@ -159,12 +166,12 @@ export function RecipeFilterModal({
           />
 
           <ScrollView
-            accessibilityLabel="Filterauswahl"
+            accessibilityLabel={t('recipes.filter.selection')}
             style={styles.scroll}
             contentContainerStyle={styles.scrollContent}
             showsVerticalScrollIndicator={false}>
             <View style={styles.filterSection}>
-              <SectionHeading title="Kategorien" titleVariant="body" />
+              <SectionHeading title={t('recipes.filter.categories')} titleVariant="body" />
               <CategoryCarousel
                 selectedKey={draft.categoryKey}
                 onSelect={(categoryKey) => setDraft((current) => ({ ...current, categoryKey }))}
@@ -172,7 +179,7 @@ export function RecipeFilterModal({
             </View>
 
             <View style={styles.filterSection}>
-              <SectionHeading title="Rezepte nach Kalorien" titleVariant="body" />
+              <SectionHeading title={t('recipes.filter.calories')} titleVariant="body" />
               <CalorieCarousel
                 selectedIndex={draft.calorieIndex}
                 onSelect={(calorieIndex) => setDraft((current) => ({ ...current, calorieIndex }))}
@@ -180,18 +187,19 @@ export function RecipeFilterModal({
             </View>
 
             <View style={styles.filterSection}>
-              <SectionHeading title="Nach Mahlzeiten" titleVariant="body" />
+              <SectionHeading title={t('recipes.filter.meals')} titleVariant="body" />
               <ScrollView
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.mealScrollContent}>
                 {MEAL_FILTERS.map((meal) => {
                   const selected = meal.key === draft.mealKey;
+                  const label = t(meal.labelKey);
                   return (
                     <Press
                       key={meal.key}
                       accessibilityRole="button"
-                      accessibilityLabel={meal.label}
+                      accessibilityLabel={label}
                       accessibilityState={{ selected: selected }}
                       onPress={() =>
                         setDraft((current) => ({
@@ -215,7 +223,7 @@ export function RecipeFilterModal({
                         center
                         weight="600"
                         numberOfLines={1}>
-                        {meal.label}
+                        {label}
                       </Txt>
                     </Press>
                   );
@@ -225,7 +233,7 @@ export function RecipeFilterModal({
 
             {tags.length > 0 ? (
               <View style={styles.filterSection}>
-                <SectionHeading title="Tags aus deinen Rezepten" titleVariant="body" />
+                <SectionHeading title={t('recipes.filter.tags')} titleVariant="body" />
                 <View style={styles.tagRow}>
                   {tags.map((tag) => {
                     const selected = draft.tags.includes(tag);
@@ -233,7 +241,7 @@ export function RecipeFilterModal({
                       <Press
                         key={tag}
                         accessibilityRole="button"
-                        accessibilityLabel={`Tag ${tag}`}
+                        accessibilityLabel={t('recipes.filter.tag', { tag })}
                         accessibilityState={{ selected: selected }}
                         onPress={() =>
                           setDraft((current) => ({

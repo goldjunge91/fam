@@ -4,6 +4,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, KeyboardAvoidingView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
@@ -17,7 +18,7 @@ import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
 import { usePremium } from '@/features/premium/premium-provider';
 import { extractVideoRecipeFrames } from '../data/extract-video-recipe-frames';
-import { importRecipeSource } from '../data/recipe-import-api';
+import { importRecipeSource, isRecipeImportError } from '../data/recipe-import-api';
 import {
   findSavedRecipeImportSource,
   loadRecipeImportDrafts,
@@ -261,16 +262,74 @@ function linkSourceType(url: string): Extract<RecipeImportSourceType, 'url' | 'v
   return VIDEO_LINK.test(url) ? 'video' : 'url';
 }
 
-function queueStatusText(item: QueueItem): string {
+function queueStatusText(item: QueueItem, t: ReturnType<typeof useTranslation>['t']): string {
   switch (item.status) {
     case 'processing':
-      return 'Wird ausgewertet';
+      return t('recipeImport.status.processing');
     case 'imported':
-      return 'Entwurf bereit';
+      return t('recipeImport.status.imported');
     case 'duplicate':
-      return 'Quelle wurde schon importiert';
+      return t('recipeImport.status.duplicate');
     case 'failed':
-      return item.error ?? 'Import fehlgeschlagen';
+      return item.error ?? t('recipeImport.status.failed');
+  }
+}
+
+function localizeRecipeImportError(
+  error: unknown,
+  t: ReturnType<typeof useTranslation>['t'],
+): string {
+  if (!isRecipeImportError(error)) {
+    return error instanceof Error ? error.message : t('recipeImport.errors.generic');
+  }
+
+  switch (error.code) {
+    case 'draftInvalid':
+      return t('recipeImport.errors.draftInvalid');
+    case 'fileUnavailable':
+      return t('recipeImport.errors.fileUnavailable');
+    case 'fileTooLarge':
+      return t('recipeImport.errors.fileTooLarge');
+    case 'aiSubscriptionRequired':
+      return t('recipeImport.errors.aiSubscriptionRequired');
+    case 'creditLimitExceeded':
+      return t('recipeImport.errors.creditLimitExceeded');
+    case 'foodRuleSnapshotUnavailable':
+      return t('recipeImport.errors.foodRuleSnapshotUnavailable');
+    case 'foodRuleSnapshotChanged':
+      return t('recipeImport.errors.foodRuleSnapshotChanged');
+    case 'unsafeSourceUrl':
+      return t('recipeImport.errors.unsafeSourceUrl');
+    case 'instagramVideoUnavailable':
+      return t('recipeImport.errors.instagramVideoUnavailable');
+    case 'instagramRecipeNotFound':
+      return t('recipeImport.errors.instagramRecipeNotFound');
+    case 'transcriptionNotConfigured':
+      return t('recipeImport.errors.transcriptionNotConfigured');
+    case 'transcriptionRateLimited':
+      return t('recipeImport.errors.transcriptionRateLimited');
+    case 'transcriptionRejected':
+      return t('recipeImport.errors.transcriptionRejected');
+    case 'transcriptionUnavailable':
+      return t('recipeImport.errors.transcriptionUnavailable');
+    case 'providerUnavailable':
+      return t('recipeImport.errors.providerUnavailable');
+    case 'draftCreationFailed':
+      return t('recipeImport.errors.draftCreationFailed');
+    case 'sourceUnavailable':
+      return t('recipeImport.errors.sourceUnavailable');
+    case 'sourceNotWebpage':
+      return t('recipeImport.errors.sourceNotWebpage');
+    case 'sourceTooLarge':
+      return t('recipeImport.errors.sourceTooLarge');
+    case 'sourceNoRecipeText':
+      return t('recipeImport.errors.sourceNoRecipeText');
+    case 'modelUnsupportedInput':
+      return t('recipeImport.errors.modelUnsupportedInput');
+    case 'importFailed':
+      return t('recipeImport.errors.importFailed');
+    case 'invalidResponse':
+      return t('recipeImport.errors.invalidResponse');
   }
 }
 
@@ -280,6 +339,7 @@ function statusTone(item: QueueItem): 'secondary' | 'danger' {
 
 export function RecipeImportScreen() {
   const { colors } = useTheme();
+  const { t, i18n } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHouseholdId } = useActiveHousehold();
@@ -330,9 +390,7 @@ export function RecipeImportScreen() {
       .catch((loadError: unknown) => {
         if (current) {
           setError(
-            loadError instanceof Error
-              ? loadError.message
-              : 'Importentwürfe konnten nicht geladen werden.',
+            loadError instanceof Error ? loadError.message : t('recipeImport.errors.draftLoad'),
           );
         }
       })
@@ -342,7 +400,7 @@ export function RecipeImportScreen() {
     return () => {
       current = false;
     };
-  }, [userId]);
+  }, [userId, t]);
 
   const updateQueueItem = useCallback((id: string, update: Partial<QueueItem>) => {
     setQueue((current) => current.map((item) => (item.id === id ? { ...item, ...update } : item)));
@@ -351,7 +409,7 @@ export function RecipeImportScreen() {
   async function pickImages() {
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permission.granted) {
-      setError('Erlaube den Zugriff auf Fotos, um Rezeptseiten auszuwählen.');
+      setError(t('recipeImport.errors.photosPermission'));
       return;
     }
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -363,13 +421,13 @@ export function RecipeImportScreen() {
     if (result.canceled) return;
     const selected = result.assets.map((asset, index) => ({
       uri: asset.uri,
-      name: asset.fileName ?? `Rezeptseite ${String(index + 1)}`,
+      name: asset.fileName ?? t('recipeImport.screen.imageName', { index: index + 1 }),
       mimeType: asset.mimeType ?? 'image/jpeg',
     }));
     if (
       selected.some((asset) => !['image/jpeg', 'image/png', 'image/webp'].includes(asset.mimeType))
     ) {
-      setError('Bitte wähle JPEG-, PNG- oder WebP-Bilder aus.');
+      setError(t('recipeImport.errors.imageTypes'));
       return;
     }
     setMedia(selected);
@@ -379,12 +437,12 @@ export function RecipeImportScreen() {
 
   async function pickVideo() {
     if (!hasAI) {
-      setError('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.');
+      setError(t('recipeImport.errors.videoSubscription'));
       return;
     }
     const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permission.granted) {
-      setError('Erlaube den Zugriff auf Fotos, um ein gespeichertes Rezeptvideo auszuwählen.');
+      setError(t('recipeImport.errors.videoPermission'));
       return;
     }
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -406,8 +464,8 @@ export function RecipeImportScreen() {
       const message = videoError instanceof Error ? videoError.message : '';
       setError(
         message.includes('Cannot find native module')
-          ? 'Die Videoverarbeitung ist in dieser lokalen App-Version noch nicht verfügbar. Der Development Build muss neu erstellt werden.'
-          : message || 'Das Video konnte nicht für den Rezeptimport vorbereitet werden.',
+          ? t('recipeImport.errors.videoUnavailable')
+          : message || t('recipeImport.errors.videoPrepare'),
       );
     }
   }
@@ -508,7 +566,7 @@ export function RecipeImportScreen() {
     } catch (importError: unknown) {
       updateQueueItem(queueId, {
         status: 'failed',
-        error: importError instanceof Error ? importError.message : 'Import fehlgeschlagen.',
+        error: localizeRecipeImportError(importError, t),
       });
     }
   }
@@ -520,38 +578,40 @@ export function RecipeImportScreen() {
     try {
       if (view === 'home' || view === 'multipleLinks') {
         const links = splitLinks(sourceValue);
-        if (links.length === 0) throw new Error('Füge mindestens einen Rezeptlink ein.');
+        if (links.length === 0) throw new Error(t('recipeImport.errors.linkRequired'));
         if (view === 'home' && links.length > 1) {
-          throw new Error('Für mehrere Links nutze „Mehrere Links importieren“.');
+          throw new Error(t('recipeImport.errors.multipleLinksHint'));
         }
         if (view === 'multipleLinks' && links.length > 20) {
-          throw new Error('Importiere höchstens 20 Links auf einmal.');
+          throw new Error(t('recipeImport.errors.linkLimit'));
         }
         if (links.some((link) => linkSourceType(link) === 'video') && !hasAI) {
-          throw new Error('Für den Videoimport brauchst du das AI-Abo dieses Haushalts.');
+          throw new Error(t('recipeImport.errors.videoSubscription'));
         }
         for (const link of links) {
           await importOne(link, { sourceType: linkSourceType(link), sourceUrl: link });
         }
       } else if (view === 'text') {
         const text = sourceValue.trim();
-        if (!text) throw new Error('Füge zuerst den Rezepttext ein.');
-        if (!hasAI) throw new Error('Für den Textimport brauchst du das AI-Abo dieses Haushalts.');
-        await importOne('Eingefügter Rezepttext', { sourceType: 'text', sourceText: text });
+        if (!text) throw new Error(t('recipeImport.errors.textRequired'));
+        if (!hasAI) throw new Error(t('recipeImport.errors.textSubscription'));
+        await importOne(t('recipeImport.screen.pastedText'), {
+          sourceType: 'text',
+          sourceText: text,
+        });
       } else {
-        if (media.length === 0) throw new Error('Wähle zuerst Fotos, ein Video oder ein PDF aus.');
-        if (!hasAI)
-          throw new Error('Für den Medienimport brauchst du das AI-Abo dieses Haushalts.');
+        if (media.length === 0) throw new Error(t('recipeImport.errors.mediaRequired'));
+        if (!hasAI) throw new Error(t('recipeImport.errors.mediaSubscription'));
         const sourceType = mediaSourceType ?? 'image';
         await importOne(
           media.length === 1
-            ? (media[0]?.name ?? 'Rezeptseite')
-            : `${String(media.length)} Rezeptseiten`,
+            ? (media[0]?.name ?? t('recipeImport.screen.imageName', { index: 1 }))
+            : t('recipeImport.screen.mediaLabel', { count: media.length }),
           { sourceType, media },
         );
       }
     } catch (importError: unknown) {
-      setError(importError instanceof Error ? importError.message : 'Import fehlgeschlagen.');
+      setError(localizeRecipeImportError(importError, t));
     } finally {
       setIsImporting(false);
     }
@@ -581,20 +641,20 @@ export function RecipeImportScreen() {
   const isAiImportView = view === 'text' || view === 'media' || (view === 'multipleLinks' && hasAI);
   const activeTitle =
     view === 'multipleLinks'
-      ? 'Mehrere Links importieren'
+      ? t('recipeImport.screen.multipleLinks')
       : view === 'text'
-        ? 'Text einfügen'
+        ? t('recipeImport.screen.textSource')
         : view === 'media'
-          ? 'Foto oder PDF'
-          : 'Rezept hinzufügen';
+          ? t('recipeImport.screen.mediaSource')
+          : t('recipeImport.screen.title');
   const submitLabel =
     view === 'home'
-      ? 'Link importieren'
+      ? t('recipeImport.screen.importLink')
       : view === 'multipleLinks'
-        ? 'Links importieren'
+        ? t('recipeImport.screen.importLinks')
         : view === 'text'
-          ? 'Text importieren'
-          : 'Import starten';
+          ? t('recipeImport.screen.importText')
+          : t('recipeImport.screen.startImport');
   const submitButton = (
     <Press
       accessibilityRole="button"
@@ -618,14 +678,14 @@ export function RecipeImportScreen() {
       {view === 'home' ? (
         <>
           <Txt variant="title" weight="700" center style={styles.homeTitle}>
-            Rezept hinzufügen
+            {t('recipeImport.screen.title')}
           </Txt>
           <Txt variant="body" weight="500" center style={styles.homeSubtitle}>
-            Rezeptlink einfügen oder eine andere Quelle wählen.
+            {t('recipeImport.screen.subtitle')}
           </Txt>
           <View style={[styles.formSection, styles.homeFormSection]}>
             <Txt variant="heading" weight="700" style={styles.inputLabel}>
-              Rezeptlink
+              {t('recipeImport.screen.recipeLink')}
             </Txt>
             <TextField
               value={sourceValue}
@@ -634,9 +694,9 @@ export function RecipeImportScreen() {
                 setError(null);
               }}
               maxLength={2_048}
-              placeholder="https://…"
+              placeholder={t('recipeImport.screen.linkPlaceholder')}
               placeholderTextColor={colors.textSecondary}
-              accessibilityLabel="Rezeptlink"
+              accessibilityLabel={t('recipeImport.screen.recipeLink')}
               keyboardType="url"
               autoCapitalize="none"
               autoCorrect={false}
@@ -656,13 +716,13 @@ export function RecipeImportScreen() {
             onPress={() => changeView('multipleLinks')}
             style={[styles.secondaryTextButton, styles.homeSecondaryLink]}>
             <Txt variant="heading" weight="700" style={styles.secondaryText}>
-              Mehrere Links importieren
+              {t('recipeImport.screen.multipleLinks')}
             </Txt>
           </Press>
           <View style={[styles.separatorRow, styles.homeSeparatorRow]}>
             <Divider style={styles.separatorLine} />
             <Txt variant="body" tone="secondary" weight="700">
-              ODER
+              {t('recipeImport.screen.or')}
             </Txt>
             <Divider style={styles.separatorLine} />
           </View>
@@ -674,7 +734,7 @@ export function RecipeImportScreen() {
               style={({ pressed }) => [styles.sourceCard, pressed && styles.sourceCardPressed]}>
               <Feather name="file-text" size={rs(44)} color={colors.text} accessible={false} />
               <Txt variant="heading" weight="700" style={styles.sourceCardText}>
-                Text einfügen
+                {t('recipeImport.screen.textSource')}
               </Txt>
             </Press>
             <Press
@@ -684,13 +744,13 @@ export function RecipeImportScreen() {
               style={({ pressed }) => [styles.sourceCard, pressed && styles.sourceCardPressed]}>
               <Feather name="camera" size={rs(44)} color={colors.text} accessible={false} />
               <Txt variant="heading" weight="700" style={styles.sourceCardText}>
-                Foto oder PDF
+                {t('recipeImport.screen.mediaSource')}
               </Txt>
             </Press>
           </View>
           <Press accessibilityRole="button" onPress={openManualRecipe} style={styles.manualEntry}>
             <Txt variant="heading" weight="700" style={styles.secondaryText}>
-              Rezept manuell eingeben
+              {t('recipeImport.screen.manual')}
             </Txt>
           </Press>
         </>
@@ -702,7 +762,7 @@ export function RecipeImportScreen() {
             style={styles.backAction}>
             <Feather name="arrow-left" size={18} color={colors.text} accessible={false} />
             <Txt variant="body" weight="700">
-              Zurück
+              {t('recipeImport.screen.back')}
             </Txt>
           </Press>
           <Txt variant="title" weight="700">
@@ -711,7 +771,7 @@ export function RecipeImportScreen() {
           {view === 'multipleLinks' ? (
             <View style={styles.formSection}>
               <Txt variant="body" weight="700" style={styles.inputLabel}>
-                Rezeptlinks
+                {t('recipeImport.screen.recipeLinks')}
               </Txt>
               <TextField
                 value={sourceValue}
@@ -722,9 +782,9 @@ export function RecipeImportScreen() {
                 maxLength={20_000}
                 multiline
                 numberOfLines={5}
-                placeholder="Ein Rezeptlink pro Zeile"
+                placeholder={t('recipeImport.screen.multipleLinksPlaceholder')}
                 placeholderTextColor={colors.textSecondary}
-                accessibilityLabel="Rezeptlinks"
+                accessibilityLabel={t('recipeImport.screen.recipeLinks')}
                 keyboardType="url"
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -736,7 +796,7 @@ export function RecipeImportScreen() {
           {view === 'text' ? (
             <View style={styles.formSection}>
               <Txt variant="body" weight="700" style={styles.inputLabel}>
-                Rezepttext
+                {t('recipeImport.screen.recipeText')}
               </Txt>
               <TextField
                 value={sourceValue}
@@ -747,9 +807,9 @@ export function RecipeImportScreen() {
                 maxLength={50_000}
                 multiline
                 numberOfLines={8}
-                placeholder="Rezepttext hier einfügen"
+                placeholder={t('recipeImport.screen.textPlaceholder')}
                 placeholderTextColor={colors.textSecondary}
-                accessibilityLabel="Rezepttext"
+                accessibilityLabel={t('recipeImport.screen.recipeText')}
                 style={[styles.input, styles.multilineInput]}
                 textAlignVertical="top"
               />
@@ -763,7 +823,7 @@ export function RecipeImportScreen() {
                   onPress={() => void pickImages()}
                   style={styles.mediaPickerButton}>
                   <Txt variant="body" weight="700">
-                    Fotos auswählen
+                    {t('recipeImport.screen.selectPhotos')}
                   </Txt>
                 </Press>
                 <Press
@@ -771,7 +831,7 @@ export function RecipeImportScreen() {
                   onPress={() => void pickPdf()}
                   style={styles.mediaPickerButton}>
                   <Txt variant="body" weight="700">
-                    PDF auswählen
+                    {t('recipeImport.screen.selectPdf')}
                   </Txt>
                 </Press>
               </View>
@@ -780,12 +840,11 @@ export function RecipeImportScreen() {
                 onPress={() => void pickVideo()}
                 style={styles.videoPickerButton}>
                 <Txt variant="body" weight="700">
-                  Video aus Fotos auswählen
+                  {t('recipeImport.screen.selectVideo')}
                 </Txt>
               </Press>
               <Txt variant="caption" tone="secondary">
-                Speichere das Reel zuerst mit deinem Shortcut in Fotos. fam liest bis zu fünf
-                aussagekräftige Videobilder für den Rezeptentwurf aus.
+                {t('recipeImport.screen.videoHint')}
               </Txt>
               {media.length > 0 ? (
                 <View style={styles.mediaList}>
@@ -797,26 +856,26 @@ export function RecipeImportScreen() {
                 </View>
               ) : null}
               <Txt variant="caption" tone="secondary">
-                Bis zu fünf Fotos oder ein PDF mit maximal 5,5 MB. Videos werden als Standbilder
-                importiert.
+                {t('recipeImport.screen.mediaHint', {
+                  size: new Intl.NumberFormat(i18n.language).format(5.5),
+                })}
               </Txt>
             </>
           ) : null}
           {isAiImportView && hasAI ? (
             <Txt variant="caption" tone="secondary">
-              KI-Auswertung: 1 Credit.
+              {t('recipeImport.screen.aiCredit')}
               {credits
-                ? ' Verbraucht: ' +
-                  String(credits.creditsUsed) +
-                  '/' +
-                  String(credits.creditLimit) +
-                  ' diesen Monat.'
+                ? ` ${t('recipeImport.screen.creditUsage', {
+                    used: credits.creditsUsed,
+                    limit: credits.creditLimit,
+                  })}`
                 : ''}
             </Txt>
           ) : null}
           {!hasAI && (view === 'text' || view === 'media') ? (
             <Txt variant="caption" tone="secondary">
-              Die KI-Auswertung benötigt das AI-Abo des aktiven Haushalts.
+              {t('recipeImport.screen.aiRequired')}
             </Txt>
           ) : null}
           {submitButton}
@@ -827,8 +886,7 @@ export function RecipeImportScreen() {
           ) : null}
           {credits?.blocked && isAiImportView ? (
             <Txt variant="caption" tone="danger">
-              Das monatliche Credit-Limit ist erreicht. Vollständige strukturierte Weblinks bleiben
-              kostenlos.
+              {t('recipeImport.screen.creditLimit')}
             </Txt>
           ) : null}
         </>
@@ -836,7 +894,7 @@ export function RecipeImportScreen() {
       {queue.length > 0 ? (
         <View style={styles.queueBlock}>
           <Txt variant="body" weight="700">
-            Importverlauf
+            {t('recipeImport.screen.history')}
           </Txt>
           {queue.map((item) => (
             <View key={item.id} style={styles.queueRow}>
@@ -844,7 +902,7 @@ export function RecipeImportScreen() {
                 {item.label}
               </Txt>
               <Txt variant="caption" tone={statusTone(item)}>
-                {queueStatusText(item)}
+                {queueStatusText(item, t)}
               </Txt>
               {item.status === 'duplicate' || item.status === 'imported' ? (
                 <Press
@@ -852,7 +910,9 @@ export function RecipeImportScreen() {
                   onPress={() => openQueueItem(item)}
                   style={styles.smallButton}>
                   <Txt variant="caption" weight="700">
-                    {item.status === 'duplicate' ? 'Öffnen' : 'Entwurf prüfen'}
+                    {item.status === 'duplicate'
+                      ? t('recipeImport.screen.open')
+                      : t('recipeImport.screen.reviewDraft')}
                   </Txt>
                 </Press>
               ) : null}
@@ -866,7 +926,7 @@ export function RecipeImportScreen() {
                   }}
                   style={styles.smallButton}>
                   <Txt variant="caption" weight="700">
-                    Erneut versuchen
+                    {t('recipeImport.screen.retry')}
                   </Txt>
                 </Press>
               ) : null}
@@ -876,7 +936,7 @@ export function RecipeImportScreen() {
       ) : null}
       {drafts.length > 0 ? (
         <Txt variant="title" weight="700" style={styles.sectionTitle}>
-          Importentwürfe
+          {t('recipeImport.screen.drafts')}
         </Txt>
       ) : null}
     </View>
@@ -888,7 +948,13 @@ export function RecipeImportScreen() {
         title: 'fam',
         titleVariant: 'brand',
         align: 'center',
-        leading: <BackButton label="Zurück" variant="header" onPress={() => router.back()} />,
+        leading: (
+          <BackButton
+            label={t('recipeImport.screen.back')}
+            variant="header"
+            onPress={() => router.back()}
+          />
+        ),
       }}
       showProfile={false}>
       <KeyboardAvoidingView
@@ -897,7 +963,7 @@ export function RecipeImportScreen() {
         {!userId ? (
           <View style={styles.centered}>
             <Txt variant="body" center>
-              Bitte melde dich an, um Rezepte zu importieren.
+              {t('recipeImport.screen.signedOut')}
             </Txt>
           </View>
         ) : isLoading ? (
@@ -907,7 +973,7 @@ export function RecipeImportScreen() {
         ) : !activeHouseholdId ? (
           <View style={styles.centered}>
             <Txt variant="body" center>
-              Wähle zuerst einen aktiven Haushalt.
+              {t('recipeImport.screen.noHousehold')}
             </Txt>
           </View>
         ) : (
@@ -923,12 +989,14 @@ export function RecipeImportScreen() {
                 </Txt>
                 <Txt variant="caption" tone="secondary" numberOfLines={1}>
                   {item.sourceLabel} ·{' '}
-                  {item.method === 'structured' ? 'Webseitendaten' : 'KI-Auswertung'}
+                  {item.method === 'structured'
+                    ? t('recipeImport.screen.draftMethodStructured')
+                    : t('recipeImport.screen.draftMethodAi')}
                 </Txt>
                 {item.draft.warnings.length > 0 ||
                 item.draft.ingredients.some((ingredient) => ingredient.confidence !== 'high') ? (
                   <Txt variant="caption" tone="secondary">
-                    Angaben prüfen
+                    {t('recipeImport.screen.draftWarning')}
                   </Txt>
                 ) : null}
                 <View style={styles.rowActions}>
@@ -937,14 +1005,14 @@ export function RecipeImportScreen() {
                     onPress={() => openDraft(item.id)}
                     style={styles.smallButton}>
                     <Txt variant="caption" weight="700">
-                      Prüfen
+                      {t('recipeImport.screen.review')}
                     </Txt>
                   </Press>
                   <Press
                     accessibilityRole="button"
                     onPress={() => void handleDeleteDraft(item.id)}
                     style={styles.smallButton}>
-                    <Txt variant="caption">Entfernen</Txt>
+                    <Txt variant="caption">{t('recipeImport.screen.remove')}</Txt>
                   </Press>
                 </View>
               </View>

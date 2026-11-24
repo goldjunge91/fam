@@ -20,12 +20,12 @@ export function getUnitOptions(t: TFunction): readonly UnitOption[] {
   }));
 }
 
-export function getUnitLabel(rawUnit: string, t: TFunction): string {
-  return t(`common.units.${normalizeUnit(rawUnit)}`);
+function isUnitValue(value: string): value is UnitValue {
+  return UNIT_VALUES.includes(value as UnitValue);
 }
 
-export function normalizeUnit(rawUnit: string | undefined | null): UnitValue {
-  if (!rawUnit) return 'piece';
+function resolveKnownUnit(rawUnit: string | undefined | null): UnitValue | null {
+  if (!rawUnit) return null;
   const u = rawUnit.toLowerCase().trim();
   if (u === 'l' || u === 'liter' || u === 'litre') return 'l';
   if (u === 'g' || u === 'gramm' || u === 'gram') return 'g';
@@ -35,8 +35,17 @@ export function normalizeUnit(rawUnit: string | undefined | null): UnitValue {
     return 'piece';
   if (u === 'package' || u === 'packung' || u === 'pkg') return 'package';
   if (u === 'portion' || u === 'pck') return 'portion';
-  if (UNIT_VALUES.includes(u as UnitValue)) return u;
-  return 'piece';
+  return isUnitValue(u) ? u : null;
+}
+
+export function getUnitLabel(rawUnit: string, t: TFunction): string {
+  const trimmed = rawUnit.trim();
+  const normalized = resolveKnownUnit(trimmed);
+  return normalized ? t(`common.units.${normalized}`) : trimmed || t('common.units.piece');
+}
+
+export function normalizeUnit(rawUnit: string | undefined | null): UnitValue {
+  return resolveKnownUnit(rawUnit) ?? 'piece';
 }
 
 export type GramsEquivalentOptions = { servingWeightG?: number };

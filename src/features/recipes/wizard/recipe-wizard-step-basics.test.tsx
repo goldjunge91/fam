@@ -251,9 +251,9 @@ describe('RecipeWizardStepBasics', () => {
     await user.press(screen.getAllByRole('button', { name: 'Einheit ändern' })[0]);
     await user.press(screen.getAllByRole('button', { name: 'Produkt auswählen' })[0]);
     await user.press(screen.getAllByText('+ Zutat hinzufügen')[0]);
-    await user.press(screen.getAllByRole('button', { name: 'Delete ingredient' })[0]);
+    await user.press(screen.getAllByRole('button', { name: 'Zutat löschen' })[0]);
     await user.press(screen.getAllByRole('button', { name: 'Zutaten-Gruppe entfernen' })[0]);
-    await user.press(screen.getByRole('button', { name: 'Add Componente' }));
+    await user.press(screen.getByRole('button', { name: '+ Zutaten-Gruppe hinzufügen' }));
     await user.press(screen.getByText('Weiter zu den Schritten'));
 
     expect(onUpdateComponentTitle).toHaveBeenCalledWith('group-1', 'Teig');

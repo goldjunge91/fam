@@ -198,7 +198,7 @@ describe('RecipeShoppingSheet', () => {
     await renderSheet();
 
     expect(screen.getByText('Salz')).toBeTruthy();
-    expect(screen.getByText('50g / 50g')).toBeTruthy();
+    expect(screen.getByText('50 g / 50 g')).toBeTruthy();
   });
 
   it('waehlt nur Zutaten mit echtem Fehlbetrag vor, gedeckte Zutaten bleiben abgewaehlt', async () => {

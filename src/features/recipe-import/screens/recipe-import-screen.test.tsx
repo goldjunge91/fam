@@ -175,6 +175,7 @@ jest.mock('@/features/premium/premium-provider', () => ({
 }));
 jest.mock('../data/recipe-import-api', () => ({
   importRecipeSource: (...args: unknown[]) => mockImportSource(...args),
+  isRecipeImportError: () => false,
 }));
 jest.mock('../data/recipe-import-storage', () => ({
   findSavedRecipeImportSource: (...args: unknown[]) => mockFindSavedSource(...args),

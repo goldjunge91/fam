@@ -1,5 +1,7 @@
 import { Image } from 'expo-image';
+import type { TFunction } from 'i18next';
 import { useId } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
@@ -9,6 +11,7 @@ import { Press, Txt } from '@/constants/ui';
 import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { useCatalogImageUrl } from '../catalog/use-recipe-catalog';
 import { useRecipeCoverUrl } from '../data/household-recipe-images';
+import { getRecipeNumber } from '../wizard/recipe-metadata-options';
 
 type RecipePreview = {
   title: string;
@@ -124,6 +127,7 @@ export function RecipeArtwork({
   title: string;
   testID?: string;
 }) {
+  const { t } = useTranslation();
   const rawId = useId();
   const gradientId = `recipe-art-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const source = coverUrl ? { uri: coverUrl } : null;
@@ -137,7 +141,7 @@ export function RecipeArtwork({
         transition={180}
         // expo-image unterstützt kein NativeWind className für absolute Fill
         style={{ position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }}
-        accessibilityLabel={`Bild von ${title}`}
+        accessibilityLabel={t('recipes.card.coverImage', { title })}
         onLoad={({ cacheType }) => {
           logRecipeImageLoaded({ title, cacheType });
         }}
@@ -155,7 +159,7 @@ export function RecipeArtwork({
   }
 
   return (
-    <Svg width="100%" height="100%" accessibilityLabel={`Illustration für ${title}`}>
+    <Svg width="100%" height="100%" accessibilityLabel={t('recipes.card.illustration', { title })}>
       <Defs>
         <LinearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <Stop offset="0%" stopColor={recipeArtworkColors.previewPalette[0]} />
@@ -197,15 +201,26 @@ function FadeShade({ height }: { height: `${number}%` }) {
   );
 }
 
-function formatMeta({
-  cookTimeMinutes,
-  difficultyLabel,
-  servings,
-}: Pick<RecipePreview, 'cookTimeMinutes' | 'difficultyLabel' | 'servings'>) {
-  const left = [cookTimeMinutes ? `${cookTimeMinutes} Min` : null, difficultyLabel]
+function formatMeta(
+  {
+    cookTimeMinutes,
+    difficultyLabel,
+    servings,
+  }: Pick<RecipePreview, 'cookTimeMinutes' | 'difficultyLabel' | 'servings'>,
+  t: TFunction,
+  locale: string,
+) {
+  const left = [
+    cookTimeMinutes
+      ? t('recipes.card.minutes', { count: getRecipeNumber(cookTimeMinutes, locale, 0) })
+      : null,
+    difficultyLabel,
+  ]
     .filter(Boolean)
     .join(' · ');
-  const right = servings ? `${servings} Port.` : null;
+  const right = servings
+    ? t('recipes.card.servingsShort', { count: getRecipeNumber(servings, locale, 0) })
+    : null;
   return { left, right };
 }
 
@@ -218,10 +233,11 @@ export function RecipePreviewCard({
   servings,
   onPress,
 }: RecipePreviewCardProps) {
+  const { t, i18n } = useTranslation();
   const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
   const catalogCover = useCatalogImageUrl(coverSource === 'catalog' ? coverImagePath : null);
   const coverUrl = coverSource === 'catalog' ? catalogCover.data : householdCover.data;
-  const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
+  const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings }, t, i18n.language);
 
   return (
     <Press
@@ -237,7 +253,7 @@ export function RecipePreviewCard({
           {title}
         </Txt>
         <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>
-          {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Rezept'}
+          {[meta.left, meta.right].filter(Boolean).join(' · ') || t('recipes.card.default')}
         </Txt>
       </View>
     </Press>
@@ -257,12 +273,13 @@ export function RecipeHeroCard({
   difficultyLabel,
   servings,
   onPress,
-  eyebrow = 'Community',
+  eyebrow,
 }: RecipeHeroCardProps) {
+  const { t, i18n } = useTranslation();
   const householdCover = useRecipeCoverUrl(coverSource === 'household' ? coverImagePath : null);
   const catalogCover = useCatalogImageUrl(coverSource === 'catalog' ? coverImagePath : null);
   const coverUrl = coverSource === 'catalog' ? catalogCover.data : householdCover.data;
-  const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings });
+  const meta = formatMeta({ cookTimeMinutes, difficultyLabel, servings }, t, i18n.language);
 
   return (
     <Press
@@ -275,13 +292,13 @@ export function RecipeHeroCard({
       <View style={styles.heroOverlay} />
       <View style={styles.copy}>
         <Txt variant="eyebrow" tone="onAccent" weight="700" style={styles.eyebrow}>
-          {eyebrow}
+          {eyebrow ?? t('recipes.card.community')}
         </Txt>
         <Txt variant="body" tone="onAccent" weight="700" style={styles.heroTitle} numberOfLines={2}>
           {title}
         </Txt>
         <Txt variant="caption" tone="onAccent" weight="600" style={styles.meta} numberOfLines={1}>
-          {[meta.left, meta.right].filter(Boolean).join(' · ') || 'Entdecke dieses Rezept'}
+          {[meta.left, meta.right].filter(Boolean).join(' · ') || t('recipes.card.discover')}
         </Txt>
       </View>
     </Press>

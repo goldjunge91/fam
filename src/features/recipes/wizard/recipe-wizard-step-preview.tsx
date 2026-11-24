@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { rs } from '@/components/theme/index';
@@ -7,7 +8,11 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { StepRichContent } from '@/features/recipes/components/step-rich-content';
 import type { DietaryTag, Difficulty, DishType } from '@/features/recipes/hooks/use-recipes';
-import { DIETARY_TAGS, DIFFICULTIES, DISH_TYPES } from './recipe-metadata-options';
+import {
+  getDietaryTagOptions,
+  getDifficultyOptions,
+  getDishTypeOptions,
+} from './recipe-metadata-options';
 import type { IngredientComponentGroup, WizardStepItem } from './types';
 
 function labelFor<T extends string>(
@@ -46,11 +51,12 @@ function RecipeStepPreview({
   ingredientLabelById: Map<string, string>;
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <View style={[styles.stepCard, { backgroundColor: colors.backgroundElement }]}>
       <Txt variant="label" tone="primary" weight="700">
-        Schritt {index + 1}
+        {t('recipes.wizard.stepLabel', { step: index + 1 })}
       </Txt>
       <StepRichContent
         text={step.text}
@@ -73,7 +79,7 @@ function RecipeStepPreview({
       />
       {step.timerMinutes !== null ? (
         <Txt variant="caption" tone="secondary">
-          ⏱ {step.timerMinutes} Min. Timer
+          {t('recipes.wizard.timer', { count: step.timerMinutes })}
         </Txt>
       ) : null}
       {step.ingredientIds.length > 0 ? (
@@ -210,6 +216,10 @@ export function RecipeWizardStepPreview({
   onSave,
 }: RecipeWizardStepPreviewProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
+  const difficulties = getDifficultyOptions(t);
+  const dishTypesOptions = getDishTypeOptions(t);
+  const dietaryTagsOptions = getDietaryTagOptions(t);
   const [tab, setTab] = useState<PreviewTab>('ingredients');
 
   // Schluessel ist die lokale IngredientItem.id, nicht die (erst beim
@@ -236,10 +246,10 @@ export function RecipeWizardStepPreview({
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
       <Txt variant="eyebrow" tone="secondary" style={styles.eyebrow} weight="500">
-        SCHRITT 4 VON 4
+        {t('recipes.wizard.stepOf', { current: 4 })}
       </Txt>
       <Txt variant="heading" style={styles.heading}>
-        Vorschau
+        {t('recipes.wizard.preview')}
       </Txt>
       <View style={[styles.cover, { backgroundColor: colors.backgroundElement }]}>
         {coverPreviewUri ? (
@@ -251,13 +261,13 @@ export function RecipeWizardStepPreview({
           />
         ) : (
           <Txt variant="body" tone="secondary">
-            Kein Titelbild
+            {t('recipes.wizard.noCover')}
           </Txt>
         )}
       </View>
 
       <Txt variant="heading" style={styles.title}>
-        {title || 'Ohne Titel'}
+        {title || t('recipes.wizard.withoutTitle')}
       </Txt>
 
       <View style={[styles.tabs, { backgroundColor: colors.backgroundElement }]}>
@@ -271,7 +281,7 @@ export function RecipeWizardStepPreview({
             { backgroundColor: tab === 'ingredients' ? colors.accent : 'transparent' },
           ]}>
           <Txt variant="body" tone={tab === 'ingredients' ? 'onAccent' : 'primary'} weight="600">
-            Zutaten
+            {t('recipes.wizard.ingredientsTab')}
           </Txt>
         </Press>
         <Press
@@ -284,7 +294,7 @@ export function RecipeWizardStepPreview({
             { backgroundColor: tab === 'instructions' ? colors.accent : 'transparent' },
           ]}>
           <Txt variant="body" tone={tab === 'instructions' ? 'onAccent' : 'primary'} weight="600">
-            Anleitung
+            {t('recipes.wizard.instructionsTab')}
           </Txt>
         </Press>
       </View>
@@ -297,19 +307,19 @@ export function RecipeWizardStepPreview({
             {cookTimeMinutes ? (
               <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
                 <Txt variant="label" weight="600">
-                  ⏱ {cookTimeMinutes} Min.
+                  {t('recipes.wizard.minutes', { count: cookTimeMinutes })}
                 </Txt>
               </View>
             ) : null}
             <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
               <Txt variant="label" weight="600">
-                🍽 {defaultServings} Portionen
+                {t('recipes.wizard.servingsSummary', { count: defaultServings })}
               </Txt>
             </View>
             {difficulty ? (
               <View style={[styles.infoChip, { backgroundColor: colors.backgroundElement }]}>
                 <Txt variant="label" weight="600">
-                  {labelFor(DIFFICULTIES, difficulty)}
+                  {labelFor(difficulties, difficulty)}
                 </Txt>
               </View>
             ) : null}
@@ -320,14 +330,14 @@ export function RecipeWizardStepPreview({
               {dishTypes.map((d) => (
                 <View key={d} style={[styles.tagChip, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="caption" tone="primary" weight="600">
-                    {labelFor(DISH_TYPES, d)}
+                    {labelFor(dishTypesOptions, d)}
                   </Txt>
                 </View>
               ))}
               {dietaryTags.map((d) => (
                 <View key={d} style={[styles.tagChip, { backgroundColor: colors.backgroundSoft }]}>
                   <Txt variant="caption" tone="primary" weight="600">
-                    {labelFor(DIETARY_TAGS, d)}
+                    {labelFor(dietaryTagsOptions, d)}
                   </Txt>
                 </View>
               ))}
@@ -355,7 +365,9 @@ export function RecipeWizardStepPreview({
                 .map((item) => {
                   const name =
                     item.product?.name ??
-                    (item.productQuery.trim() || item.sourceText?.trim() || 'Zutat');
+                    (item.productQuery.trim() ||
+                      item.sourceText?.trim() ||
+                      t('recipes.detail.ingredientFallback'));
                   const amount = item.quantity.trim();
                   const unit = item.unit.trim();
                   const amountLabel = [amount, unit].filter(Boolean).join(' ');
@@ -390,7 +402,7 @@ export function RecipeWizardStepPreview({
           style={[styles.action, { backgroundColor: colors.backgroundElement }]}
           onPress={onBack}>
           <Txt variant="caption" tone="primary" weight="600">
-            Zurück
+            {t('recipes.wizard.back')}
           </Txt>
         </Press>
         <Press
@@ -400,7 +412,7 @@ export function RecipeWizardStepPreview({
           onPress={onSave}
           disabled={saving}>
           <Txt variant="caption" tone="onAccent" weight="600">
-            {saving ? 'Speichert…' : 'Speichern'}
+            {saving ? t('recipes.wizard.saving') : t('recipes.wizard.save')}
           </Txt>
         </Press>
       </View>

@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -79,6 +80,7 @@ const styles = StyleSheet.create((theme) => ({
 
 export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Props) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { hasPlus } = usePremium();
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Marktzuweisung pro Zeile, vom Nutzer manuell ueberschrieben (Fallback:
@@ -155,13 +157,18 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
       }
       onClose();
       Alert.alert(
-        'Einkaufsliste aktualisiert',
-        `${selectedItems.length} ${selectedItems.length === 1 ? 'Zutat wurde' : 'Zutaten wurden'} ergänzt.`,
+        t('recipes.shopping.updatedTitle'),
+        t(
+          selectedItems.length === 1
+            ? 'recipes.shopping.updated_one'
+            : 'recipes.shopping.updated_other',
+          { count: selectedItems.length },
+        ),
       );
     } catch (error) {
       Alert.alert(
-        'Übernahme fehlgeschlagen',
-        error instanceof Error ? error.message : 'Die Zutaten konnten nicht übernommen werden.',
+        t('recipes.shopping.failedTitle'),
+        error instanceof Error ? error.message : t('recipes.shopping.failedMessage'),
       );
     } finally {
       setIsSubmitting(false);
@@ -172,37 +179,38 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
     <RecipeBottomSheet
       visible={visible}
       onClose={onClose}
-      title={hasPlus ? 'Fehlende Zutaten' : 'Mit Plus einkaufen'}
+      title={hasPlus ? t('recipes.shopping.missingTitle') : t('recipes.shopping.plusTitle')}
       sheetStyle={styles.sheet}>
       {!hasPlus ? (
         <>
           <Txt variant="caption" tone="secondary">
-            fam vergleicht die Rezeptzutaten mit deinem Vorrat und übernimmt nur Fehlendes in die
-            Einkaufsliste.
+            {t('recipes.shopping.plusHint')}
           </Txt>
-          <SheetButton label="Plus ansehen" onPress={openPlusPaywall} />
+          <SheetButton label={t('recipes.shopping.plusAction')} onPress={openPlusPaywall} />
         </>
       ) : isLoading ? (
         <ActivityIndicator style={{ height: 76 }} color={colors.accent} />
       ) : missing.length === 0 ? (
         <>
           <Txt variant="caption" tone="secondary">
-            Dein Vorrat deckt alle Zutaten für {servings} {servings === 1 ? 'Portion' : 'Portionen'}{' '}
-            ab.
+            {t(
+              servings === 1 ? 'recipes.shopping.allCovered' : 'recipes.shopping.allCovered_other',
+              { count: servings },
+            )}
           </Txt>
-          <SheetButton label="Schließen" onPress={onClose} />
+          <SheetButton label={t('recipes.shopping.close')} onPress={onClose} />
         </>
       ) : (
         <>
           <Txt variant="caption" tone="secondary">
-            Bereits vorhandene Mengen wurden abgezogen. Wähle aus, was auf die Einkaufsliste soll.
+            {t('recipes.shopping.selectHint')}
           </Txt>
           {/* Bulk-Aktion: allen Zutaten auf einen Schlag denselben Markt zuweisen (#342) */}
           <View style={styles.bulkRow}>
             <RowStorePicker
               householdId={detail.recipe.household_id}
               storeId={null}
-              label="Allen einen Markt zuweisen"
+              label={t('recipes.shopping.assignStore')}
               onChange={(storeId) =>
                 setStoreOverrides(
                   Object.fromEntries(missing.map((item) => [item.productId, storeId])),
@@ -249,8 +257,8 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
                     </Txt>
                     <Txt variant="caption" tone="secondary">
                       {item.missingGrams > 0
-                        ? `${item.missingGrams} g`
-                        : `${item.neededGrams}g / ${item.availableGrams}g`}
+                        ? `${item.missingGrams} ${t('recipes.shopping.unitGram')}`
+                        : `${item.neededGrams} ${t('recipes.shopping.unitGram')} / ${item.availableGrams} ${t('recipes.shopping.unitGram')}`}
                     </Txt>
                   </Press>
                   <RowStorePicker
@@ -266,7 +274,12 @@ export function RecipeShoppingSheet({ visible, detail, servings, onClose }: Prop
             })}
           </View>
           <SheetButton
-            label={`${selected.size} ${selected.size === 1 ? 'Zutat' : 'Zutaten'} übernehmen`}
+            label={t(
+              selected.size === 1
+                ? 'recipes.shopping.selected_one'
+                : 'recipes.shopping.selected_other',
+              { count: selected.size },
+            )}
             loading={isSubmitting}
             disabled={selected.size === 0 || isSubmitting}
             onPress={addSelected}

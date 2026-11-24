@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Modal, type StyleProp, View, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -79,6 +80,7 @@ export function RecipeBottomSheet({
   children,
 }: RecipeBottomSheetProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   if (!visible) return null;
 
   const body = (
@@ -102,7 +104,7 @@ export function RecipeBottomSheet({
           <Press
             onPress={onClose}
             accessibilityRole="button"
-            accessibilityLabel="Schließen"
+            accessibilityLabel={t('recipes.detail.close')}
             style={styles.close}>
             <View style={[styles.closeFace, { backgroundColor: colors.backgroundSoft }]}>
               <Txt variant="subheading" tone="secondary" weight="500">

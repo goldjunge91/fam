@@ -191,7 +191,7 @@ it('zeigt gespeicherte Gruppen, Varianten von Zutaten und Schrittbilder', async 
   expect(screen.getByText('Tomate')).toBeOnTheScreen();
   expect(screen.getByText('2 Stück')).toBeOnTheScreen();
   expect(screen.getByText('Zwiebel')).toBeOnTheScreen();
-  expect(screen.getByText('50 g')).toBeOnTheScreen();
+  expect(screen.getByText('50 Gramm (g)')).toBeOnTheScreen();
   expect(screen.getByText('Zutat')).toBeOnTheScreen();
   expect(screen.getByText(/Tomaten schneiden.*Bild für Schritt 1/)).toBeOnTheScreen();
   expect(screen.getByText(/Kurz köcheln lassen.*Bild für Schritt 2/)).toBeOnTheScreen();
@@ -298,7 +298,7 @@ it('blendet beim temporären Zutatenwechsel die Menge der Originalzutat aus', as
   expect(screen.getByText('Paprika')).toBeOnTheScreen();
   expect(screen.queryByText('2 Stück')).not.toBeOnTheScreen();
   expect(screen.getByText('Zwiebel')).toBeOnTheScreen();
-  expect(screen.getByText('50 g')).toBeOnTheScreen();
+  expect(screen.getByText('50 Gramm (g)')).toBeOnTheScreen();
 });
 
 it('blendet die Gruppendarstellung aus, wenn keine Komponenten vorhanden sind', async () => {
