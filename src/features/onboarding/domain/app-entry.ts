@@ -14,6 +14,7 @@ export function resolveAppEntry(input: {
 
   householdsError?: boolean;
   profileError?: boolean;
+  profileMissing?: boolean;
 }): AppEntryDecision {
   // Der explizite Entwicklungs-Override respektiert weiterhin das
   // Startup-Gate, überschreibt danach aber Session- und Geraetezustand.
@@ -32,7 +33,7 @@ export function resolveAppEntry(input: {
   if (input.isLoading) return { kind: 'warten' };
 
   // Profilfehler gehören nicht zum Offline-Fallback des Haushalts-Pulls.
-  if (input.profileError) return { kind: 'fehler' };
+  if (input.profileError || input.profileMissing) return { kind: 'fehler' };
 
   // Ohne lokalen Haushalt kann ein Fehler nicht sicher von einem leeren
   // Haushalt unterschieden werden. Mit lokalem Bestand bleibt Offline-Start

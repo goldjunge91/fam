@@ -45,11 +45,11 @@ describe('web onboarding completion storage', () => {
     setWindow({ localStorage });
     const completion = loadWebCompletion();
 
-    await completion.persistOnboardingCompleted();
+    await completion.persistOnboardingCompleted('user-1');
 
     expect(localStorage.setItem).toHaveBeenCalledWith('fam_onboarding_completed_v1', 'true');
     await expect(completion.hasSeenOnboarding()).resolves.toBe(true);
-    expect(completion.isOnboardingSessionCompleted()).toBe(true);
+    expect(completion.isOnboardingSessionCompleted('user-1')).toBe(true);
     expect(mockReportError).not.toHaveBeenCalled();
   });
 
@@ -67,7 +67,7 @@ describe('web onboarding completion storage', () => {
     const completion = loadWebCompletion();
 
     await expect(completion.hasSeenOnboarding()).resolves.toBe(false);
-    await completion.persistOnboardingCompleted();
+    await completion.persistOnboardingCompleted('user-1');
     await expect(completion.hasSeenOnboarding()).resolves.toBe(true);
     expect(mockReportError).not.toHaveBeenCalled();
   });
@@ -77,7 +77,7 @@ describe('web onboarding completion storage', () => {
     const completion = loadWebCompletion();
 
     await expect(completion.hasSeenOnboarding()).resolves.toBe(false);
-    await completion.persistOnboardingCompleted();
+    await completion.persistOnboardingCompleted('user-1');
     await expect(completion.hasSeenOnboarding()).resolves.toBe(true);
   });
 });

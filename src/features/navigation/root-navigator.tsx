@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { CrashFallback } from '@/features/app-shell/crash-fallback';
 import { useSession } from '@/features/auth/session-provider';
+import { useAppEntryReadiness } from '@/features/onboarding/app-entry-readiness';
 import { isOnboardingSessionCompleted } from '@/features/onboarding/onboarding-completion';
 import { env } from '@/lib/config/env';
 import { getDatabase } from '@/lib/db/local-client';
@@ -13,6 +14,7 @@ import { initOffDump } from '@/lib/off-dump/off-dump';
 /** Wechselt zwischen Onboarding, Auth und den sessiongeschützten App-Routen. */
 export function RootNavigator() {
   const { session, accountReady, isLoading, seenOnboarding, error, retry } = useSession();
+  const { decision } = useAppEntryReadiness();
   const { markInteractive } = useObserve();
   const pathname = usePathname();
   const isRecoveryEntryPath =
@@ -57,10 +59,12 @@ export function RootNavigator() {
   if (isLoading && !isRecoveryEntryPath) return null;
   if (error && !isRecoveryEntryPath) return <CrashFallback error={error} resetError={retry} />;
 
-  // Der Dev-Override gilt nur bis zum Abschluss in dieser App-Sitzung:
+  // Der Dev-Override gilt nur bis zum Abschluss für den aktuellen Account:
   // Neustarts erzwingen den Flow erneut, der Dashboard-Übergang bleibt möglich.
-  const forceOnboarding = env.forceOnboarding && !isOnboardingSessionCompleted();
-  const isNewUser = !seenOnboarding || forceOnboarding;
+  const forceOnboarding = env.forceOnboarding && !isOnboardingSessionCompleted(session?.user.id);
+  const appEntryAllowsOnboarding = decision.kind === 'umleiten' && decision.to === '/onboarding';
+  const isNewUser = !session && !seenOnboarding;
+  const canEnterOnboarding = forceOnboarding || appEntryAllowsOnboarding;
   // Developer tools may exercise the real auth screens without changing the production guard.
   const authPreviewEnabled = __DEV__ && env.devTools;
 
@@ -75,7 +79,7 @@ export function RootNavigator() {
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Protected guard={!!session || isNewUser}>
+      <Stack.Protected guard={canEnterOnboarding}>
         <Stack.Screen name="onboarding" />
       </Stack.Protected>
 

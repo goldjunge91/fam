@@ -35,7 +35,7 @@ jest.mock('@/features/onboarding/api', () => ({
 }));
 
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
-  persistOnboardingCompleted: () => mockPersistOnboardingCompleted(),
+  persistOnboardingCompleted: (...args: unknown[]) => mockPersistOnboardingCompleted(...args),
 }));
 
 jest.mock('@/features/profile/api', () => ({
@@ -150,7 +150,7 @@ describe('completeOnboarding', () => {
     expect(mockSaveModulePreferences).toHaveBeenCalled();
     expect(mockTriggerHouseholdsPull).toHaveBeenCalled();
     expect(mockMarkOnboardingCompleted).toHaveBeenCalledWith('user-1');
-    expect(mockPersistOnboardingCompleted).toHaveBeenCalled();
+    expect(mockPersistOnboardingCompleted).toHaveBeenCalledWith('user-1');
     expect(mockTrackAnalyticsEvent).toHaveBeenCalledWith('onboarding.flow.completed');
   });
 

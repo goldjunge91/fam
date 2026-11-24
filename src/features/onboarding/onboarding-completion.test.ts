@@ -24,27 +24,34 @@ describe('Onboarding-Abschluss', () => {
   });
 
   it('persistiert und liest den Abschlussmarker erfolgreich', async () => {
-    await persistOnboardingCompleted();
+    await persistOnboardingCompleted('user-1');
     jest.mocked(SecureStore.getItemAsync).mockResolvedValue('true');
 
     await expect(hasSeenOnboarding()).resolves.toBe(true);
 
     expect(SecureStore.setItemAsync).toHaveBeenCalledWith('fam_onboarding_completed_v1', 'true');
-    expect(isOnboardingSessionCompleted()).toBe(true);
+    expect(isOnboardingSessionCompleted('user-1')).toBe(true);
     expect(reportError).not.toHaveBeenCalled();
+  });
+
+  it('bindet den Sitzungsabschluss an den Account', async () => {
+    await persistOnboardingCompleted('user-a');
+
+    expect(isOnboardingSessionCompleted('user-a')).toBe(true);
+    expect(isOnboardingSessionCompleted('user-b')).toBe(false);
   });
 
   it('meldet Schreibfehler, ohne den In-Memory-Abschluss zurückzunehmen', async () => {
     const error = new Error('SecureStore write failed');
     jest.mocked(SecureStore.setItemAsync).mockRejectedValue(error);
 
-    await expect(persistOnboardingCompleted()).resolves.toBeUndefined();
+    await expect(persistOnboardingCompleted('user-1')).resolves.toBeUndefined();
 
     expect(reportError).toHaveBeenCalledWith(error, {
       operation: 'onboarding.completion.write',
       error_code: 'onboarding_completion_write_failed',
     });
-    expect(isOnboardingSessionCompleted()).toBe(true);
+    expect(isOnboardingSessionCompleted('user-1')).toBe(true);
   });
 
   it('meldet Lesefehler und behandelt den Marker als nicht gesehen', async () => {

@@ -32,7 +32,7 @@ const mockSetFabPosition = jest.fn((position: 'left' | 'right') => {
   mockFabPosition = position;
 });
 const mockSignOutAndClearLocalData = jest.fn();
-const mockPersistOnboardingCompleted = jest.fn();
+const mockPersistSeenOnboarding = jest.fn();
 
 jest.mock('@/features/auth/session-provider', () => ({
   useSession: () => ({
@@ -58,7 +58,7 @@ jest.mock('@/features/auth/sign-out', () => ({
 }));
 
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
-  persistOnboardingCompleted: (...args: unknown[]) => mockPersistOnboardingCompleted(...args),
+  persistSeenOnboarding: (...args: unknown[]) => mockPersistSeenOnboarding(...args),
 }));
 
 jest.mock('@/features/household/active-household-provider', () => ({
@@ -165,9 +165,9 @@ describe('SettingsScreen', () => {
     jest.mocked(router.replace).mockClear();
     mockSetFabPosition.mockClear();
     mockSignOutAndClearLocalData.mockClear();
-    mockPersistOnboardingCompleted.mockClear();
+    mockPersistSeenOnboarding.mockClear();
     mockSignOutAndClearLocalData.mockResolvedValue({ error: null });
-    mockPersistOnboardingCompleted.mockResolvedValue(undefined);
+    mockPersistSeenOnboarding.mockResolvedValue(undefined);
     process.env.EXPO_PUBLIC_DEV_TOOLS = 'false';
     process.env.EXPO_PUBLIC_SUPABASE_URL = 'http://127.0.0.1:54321';
   });
@@ -365,7 +365,7 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Abmelden' }));
 
     expect(mockSignOutAndClearLocalData).toHaveBeenCalledTimes(1);
-    expect(mockPersistOnboardingCompleted).toHaveBeenCalledTimes(1);
+    expect(mockPersistSeenOnboarding).toHaveBeenCalledTimes(1);
     expect(router.replace).toHaveBeenCalledWith('/sign-in');
   });
 
@@ -416,7 +416,7 @@ describe('SettingsScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Abmelden' }));
 
     expect(alert).toHaveBeenCalledWith('Abmelden fehlgeschlagen', 'logout failed');
-    expect(mockPersistOnboardingCompleted).not.toHaveBeenCalled();
+    expect(mockPersistSeenOnboarding).not.toHaveBeenCalled();
     expect(router.replace).not.toHaveBeenCalled();
   });
 
@@ -434,7 +434,7 @@ describe('SettingsScreen', () => {
       'Abmelden fehlgeschlagen',
       'Offline (2 Änderungen ausstehend)\n1 Änderungen konnten nicht synchronisiert werden.',
     );
-    expect(mockPersistOnboardingCompleted).not.toHaveBeenCalled();
+    expect(mockPersistSeenOnboarding).not.toHaveBeenCalled();
     expect(router.replace).not.toHaveBeenCalled();
   });
 });

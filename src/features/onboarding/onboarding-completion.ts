@@ -5,22 +5,20 @@ import { reportError } from '@/lib/telemetry';
 const ONBOARDING_KEY = 'fam_onboarding_completed_v1';
 
 /** In-Memory-Flag: verhindert Onboarding-Schleife innerhalb einer App-Sitzung. */
-let completedInCurrentSession = false;
+let completedForUserId: string | null = null;
 
-export function markOnboardingSessionCompleted() {
-  completedInCurrentSession = true;
+export function markOnboardingSessionCompleted(userId: string) {
+  completedForUserId = userId;
 }
 
-export function isOnboardingSessionCompleted() {
-  return completedInCurrentSession;
+export function isOnboardingSessionCompleted(userId: string | undefined) {
+  return userId !== undefined && completedForUserId === userId;
 }
 
 /**
- * Persistiert den Onboarding-Abschluss in SecureStore.
- * Aufzurufen nach erfolgreichem Abschluss des Onboardings.
+ * Persistiert den geräteweiten Hinweis, dass der Onboarding-Einstieg gesehen wurde.
  */
-export async function persistOnboardingCompleted(): Promise<void> {
-  markOnboardingSessionCompleted();
+export async function persistSeenOnboarding(): Promise<void> {
   try {
     await SecureStore.setItemAsync(ONBOARDING_KEY, 'true');
   } catch (error) {
@@ -31,6 +29,15 @@ export async function persistOnboardingCompleted(): Promise<void> {
     // Graceful Fallback: Im Schlimmsten Fall sieht der User das Onboarding
     // beim nächsten Kaltstart erneut — kein datenverlust.
   }
+}
+
+/**
+ * Persistiert den Onboarding-Abschluss in SecureStore.
+ * Aufzurufen nach erfolgreichem Abschluss des Onboardings.
+ */
+export async function persistOnboardingCompleted(userId: string): Promise<void> {
+  markOnboardingSessionCompleted(userId);
+  await persistSeenOnboarding();
 }
 
 export async function hasSeenOnboarding(): Promise<boolean> {

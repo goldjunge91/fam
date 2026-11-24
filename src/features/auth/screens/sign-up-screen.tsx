@@ -20,7 +20,7 @@ export function SignUpScreen() {
         <EmailVerificationPanel
           email={pendingSignUp.email}
           password={pendingSignUp.password}
-          onConfirmed={() => router.replace('/onboarding')}
+          onConfirmed={() => router.replace('/')}
           onChangeEmail={() => setPendingSignUp(null)}
         />
       </Screen>
@@ -33,7 +33,7 @@ export function SignUpScreen() {
       back={{ label: t('auth.signIn.title'), href: '/sign-in' }}>
       <AuthFormCard
         mode="sign_up"
-        onSuccess={() => router.replace('/onboarding')}
+        onSuccess={() => router.replace('/')}
         onPendingVerification={setPendingSignUp}
         onSwitchToSignIn={() => router.replace('/sign-in')}
       />

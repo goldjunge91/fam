@@ -5,7 +5,9 @@ import AppLayout from '@/app/(app)/_layout';
 import { AppEntryReadinessProvider } from '@/features/onboarding/app-entry-readiness';
 
 let mockProfileResult: {
-  data: { onboarding_completed_at: string | null } | undefined;
+  data:
+    | { onboarding_completed_at: string | null; onboarding_required_at?: string | null }
+    | undefined;
   isLoading: boolean;
   error: Error | null;
 };
@@ -32,7 +34,7 @@ const mockUseSyncEngine = jest.fn();
 const mockUseRealtimeSync = jest.fn();
 const mockRedeemInvite = { mutateAsync: jest.fn() };
 const mockRouterReplace = jest.fn();
-const mockPersistOnboardingCompleted = jest.fn();
+const mockPersistSeenOnboarding = jest.fn();
 const mockPeekPendingInviteToken = jest.fn(async () => mockPendingInviteToken);
 const mockClearPendingInviteToken = jest.fn();
 const mockRetryPendingReceiptAssetUpload = jest.fn();
@@ -89,7 +91,7 @@ jest.mock('@/features/household/api', () => ({
 }));
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
   isOnboardingSessionCompleted: () => mockOnboardingSessionCompleted,
-  persistOnboardingCompleted: () => mockPersistOnboardingCompleted(),
+  persistSeenOnboarding: () => mockPersistSeenOnboarding(),
 }));
 jest.mock('@/features/profile/api', () => ({
   useProfile: () => mockProfileResult,
@@ -164,7 +166,7 @@ describe('AppLayout startup gate', () => {
     mockUseRealtimeSync.mockClear();
     mockRedeemInvite.mutateAsync.mockReset();
     mockRouterReplace.mockReset();
-    mockPersistOnboardingCompleted.mockReset();
+    mockPersistSeenOnboarding.mockReset();
     mockPeekPendingInviteToken.mockReset().mockImplementation(async () => mockPendingInviteToken);
     mockClearPendingInviteToken.mockReset();
     mockRetryPendingReceiptAssetUpload.mockReset();
@@ -212,8 +214,19 @@ describe('AppLayout startup gate', () => {
     expect(mockUseRealtimeSync).not.toHaveBeenCalled();
   });
 
-  it('leitet ein unvollständiges Profil nach dem Gate ins vollständige Onboarding', async () => {
+  it('startet einen bestehenden Account ohne Onboarding-Nachweis regulär', async () => {
     mockProfileResult.data = { onboarding_completed_at: null };
+    await renderLayout();
+
+    expect(screen.getByText('app-shell')).toBeOnTheScreen();
+    expect(screen.queryByText('redirect:/onboarding')).not.toBeOnTheScreen();
+  });
+
+  it('leitet eine nachgewiesene offene Neuregistrierung ins Onboarding', async () => {
+    mockProfileResult.data = {
+      onboarding_required_at: '2026-09-16T00:00:00.000Z',
+      onboarding_completed_at: null,
+    };
     await renderLayout();
 
     expect(screen.getByText('redirect:/onboarding')).toBeOnTheScreen();
@@ -247,7 +260,7 @@ describe('AppLayout startup gate', () => {
     expect(mockUseHouseholdsBootstrapSync).toHaveBeenLastCalledWith('user-1', queryClient, 1);
   });
 
-  it('skips onboarding redirects when the session or profile data is absent', async () => {
+  it('zeigt bei einem fehlenden Profil den sicheren Retry-Zustand', async () => {
     mockSessionResult = { session: null, accountReady: true, seenOnboarding: false };
     await renderLayout();
     expect(screen.getByText('redirect:/onboarding')).toBeOnTheScreen();
@@ -259,14 +272,15 @@ describe('AppLayout startup gate', () => {
     };
     mockProfileResult.data = undefined;
     await renderLayout();
-    expect(screen.getByText('app-shell')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Erneut versuchen' })).toBeOnTheScreen();
+    expect(screen.queryByText('app-shell')).not.toBeOnTheScreen();
   });
 
   it('persists completion when an existing account has no device completion flag', async () => {
     mockSessionResult.seenOnboarding = false;
     await renderLayout();
 
-    await waitFor(() => expect(mockPersistOnboardingCompleted).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(mockPersistSeenOnboarding).toHaveBeenCalledTimes(1));
     expect(screen.getByText('app-shell')).toBeOnTheScreen();
   });
 

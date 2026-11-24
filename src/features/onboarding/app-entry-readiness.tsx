@@ -43,10 +43,18 @@ export function AppEntryReadinessProvider({ children }: { children: ReactNode })
   } = useHouseholds();
   const householdBootstrap = useHouseholdsBootstrapSync(userId, queryClient, retryToken);
 
-  const isUncompleted = profile
-    ? (profile as { onboarding_completed_at?: string | null }).onboarding_completed_at == null
-    : false;
-  const shouldPrompt = isUncompleted && !isOnboardingSessionCompleted();
+  const profileMissing = Boolean(userId) && !profileLoading && !profileError && profile == null;
+  const profileOnboardingState = profile as
+    | {
+        onboarding_required_at?: string | null;
+        onboarding_completed_at?: string | null;
+      }
+    | null
+    | undefined;
+  const shouldPrompt =
+    profileOnboardingState?.onboarding_required_at != null &&
+    profileOnboardingState.onboarding_completed_at == null &&
+    !isOnboardingSessionCompleted(userId);
   const isLoading =
     !accountReady ||
     profileLoading ||
@@ -61,6 +69,7 @@ export function AppEntryReadinessProvider({ children }: { children: ReactNode })
     householdCount: households.length,
     householdsError: householdsError || householdBootstrap.isInitialSyncError,
     profileError: Boolean(profileError),
+    profileMissing,
   });
 
   const retry = useCallback(() => {

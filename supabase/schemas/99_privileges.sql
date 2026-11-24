@@ -24,7 +24,9 @@ alter default privileges for role postgres in schema public
 -- Tabellenrechte sind bewusst grob: Welche ZEILEN jemand sieht, entscheidet
 -- ausschliesslich RLS. Ohne das Tabellenrecht kaeme die Policy gar nicht erst
 -- zum Zuge, mit dem Recht allein sieht niemand fremde Daten.
-grant delete, insert, select, update on public.profiles to anon, authenticated, service_role;
+grant delete, select, update on public.profiles to authenticated;
+grant delete, insert, select, update on public.profiles to service_role;
+revoke all on public.profiles from anon;
 revoke all on public.profile_food_rules from anon, authenticated, service_role;
 grant insert, select, update on public.profile_food_rules to authenticated;
 grant delete, insert, select, update on public.profile_food_rules to service_role;
@@ -195,6 +197,7 @@ revoke execute on function private.is_household_admin(uuid) from public, anon;
 -- Trigger-Funktionen ruft niemand direkt auf; sie laufen unter den Rechten des
 -- Eigentuemers, wenn der Trigger feuert.
 revoke execute on function private.set_updated_at() from public, anon, authenticated;
+revoke execute on function private.guard_profile_onboarding_state() from public, anon, authenticated;
 revoke execute on function private.handle_new_user() from public, anon, authenticated;
 revoke execute on function private.guard_last_admin() from public, anon, authenticated;
 revoke execute on function private.delete_orphaned_household() from public, anon, authenticated;

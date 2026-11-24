@@ -12,10 +12,7 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { useRedeemInviteMutation } from '@/features/household/api';
 import { retryPendingReceiptAssetUpload } from '@/features/ocr/capture/api';
 import { useAppEntryReadiness } from '@/features/onboarding/app-entry-readiness';
-import {
-  isOnboardingSessionCompleted,
-  persistOnboardingCompleted,
-} from '@/features/onboarding/onboarding-completion';
+import { persistSeenOnboarding } from '@/features/onboarding/onboarding-completion';
 import { WatchShoppingToggleListener } from '@/features/shopping-list/watch/watch-toggle-listener';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugError } from '@/lib/observability/debug-log';
@@ -50,8 +47,8 @@ function AppLayoutContent() {
   // Ein vollständiger App-Zustand gilt als eingerichtet; das Geräte-Flag wird nachgetragen.
   const istEingerichtet = decision.kind === 'weiter';
   useEffect(() => {
-    if (istEingerichtet && !seenOnboarding && !isOnboardingSessionCompleted()) {
-      persistOnboardingCompleted();
+    if (istEingerichtet && !seenOnboarding) {
+      void persistSeenOnboarding();
     }
   }, [istEingerichtet, seenOnboarding]);
 

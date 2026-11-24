@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
@@ -52,11 +52,10 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
 
   const [authMode, setAuthMode] = useState<'sign_up' | 'sign_in'>('sign_up');
   const [pendingSignUp, setPendingSignUp] = useState<PendingSignUp | null>(null);
-  const [oauthAttempted, setOAuthAttempted] = useState(false);
 
-  useEffect(() => {
-    if (session && oauthAttempted) onNext();
-  }, [session, oauthAttempted, onNext]);
+  function enterAppAfterSignIn() {
+    router.replace('/');
+  }
 
   return (
     <KeyboardAwareScrollView
@@ -100,14 +99,14 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
                   mode="sign_up"
                   onSuccess={onNext}
                   onPendingVerification={setPendingSignUp}
-                  onAuthAttempt={() => setOAuthAttempted(true)}
+                  onAuthAttempt={enterAppAfterSignIn}
                   onSwitchToSignIn={() => setAuthMode('sign_in')}
                 />
               ) : (
                 <AuthFormCard
                   mode="sign_in"
-                  onSuccess={onNext}
-                  onAuthAttempt={() => setOAuthAttempted(true)}
+                  onSuccess={enterAppAfterSignIn}
+                  onAuthAttempt={enterAppAfterSignIn}
                 />
               )}
 

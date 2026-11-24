@@ -3,7 +3,7 @@
 begin;
 \ir helpers.sql
 
-select plan(8);
+select plan(13);
 
 select tests.create_user('11111111-1111-1111-1111-111111111111', 'alice@example.com');
 select tests.create_user('22222222-2222-2222-2222-222222222222', 'bob@example.com');
@@ -27,6 +27,13 @@ select is(
   (select display_name from public.profiles where id = '11111111-1111-1111-1111-111111111111'),
   'alice',
   'display_name wird aus dem lokalen Teil der E-Mail vorbelegt'
+);
+
+select is(
+  (select onboarding_required_at is not null from public.profiles
+   where id = '11111111-1111-1111-1111-111111111111'),
+  true,
+  'ein neues Profil erhält einen positiven Onboarding-Nachweis'
 );
 
 -- --------------------------------------------------------------- Isolation
@@ -68,6 +75,49 @@ select is(
   'Alice kann ihr eigenes Profil aendern'
 );
 
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+
+select throws_ok(
+  $$ insert into public.profiles (id, display_name)
+     values ('22222222-2222-2222-2222-222222222222', 'nicht erlaubt') $$,
+  '42501',
+  null,
+  'ein authentifizierter Client kann kein Profil direkt anlegen'
+);
+
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+select throws_ok(
+  $$ update public.profiles
+     set onboarding_required_at = '2000-01-01T00:00:00Z'::timestamptz
+     where id = '11111111-1111-1111-1111-111111111111' $$,
+  '42501',
+  null,
+  'der Onboarding-Nachweis bleibt serverseitig verwaltet'
+);
+
+update public.profiles
+set onboarding_completed_at = now()
+where id = '11111111-1111-1111-1111-111111111111';
+
+select is(
+  (select onboarding_completed_at is not null from public.profiles
+   where id = '11111111-1111-1111-1111-111111111111'),
+  true,
+  'der Onboarding-Abschluss kann einmalig gesetzt werden'
+);
+
+select tests.authenticate_as('11111111-1111-1111-1111-111111111111');
+select throws_ok(
+  $$ update public.profiles
+     set onboarding_completed_at = null
+     where id = '11111111-1111-1111-1111-111111111111' $$,
+  '42501',
+  null,
+  'ein gesetzter Abschluss darf nicht zurückgesetzt werden'
+);
+
+select tests.as_postgres();
+
 select throws_ok(
   $$ update public.profiles
      set tracking_day_start_time = '24:00'
@@ -80,9 +130,11 @@ select throws_ok(
 -- ----------------------------------------------------------------- anonym
 select tests.authenticate_as_anon();
 
-select is_empty(
+select throws_ok(
   $$ select id from public.profiles $$,
-  'ein anonymer Client sieht keine Profile'
+  '42501',
+  null,
+  'ein anonymer Client kann Profile nicht abfragen'
 );
 
 select tests.as_postgres();

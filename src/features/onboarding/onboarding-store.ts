@@ -12,6 +12,7 @@ import {
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugWarn } from '@/lib/observability/debug-log';
+import { registerLocalAccountCache } from '@/lib/storage/local-account-cache-registry';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import type {
   HouseholdOnboardingData,
@@ -68,6 +69,10 @@ export const useOnboardingStore = create<OnboardingStore>((set) => ({
   setStatus: (status) => set(status),
   reset: () => set({ state: initialState, isLoading: false, error: null }),
 }));
+
+registerLocalAccountCache('onboarding-store', () => {
+  useOnboardingStore.getState().reset();
+});
 
 export function useOnboarding() {
   const store = useOnboardingStore();
@@ -129,7 +134,7 @@ export function useOnboarding() {
       const { error } = await markOnboardingCompleted(session.user.id);
       if (error) throw error;
       await queryClient.invalidateQueries({ queryKey: ['profile', session.user.id] });
-      await persistOnboardingCompleted();
+      await persistOnboardingCompleted(session.user.id);
       trackAnalyticsEvent('onboarding.flow.completed');
       store.setStatus({ isLoading: false });
       return true;

@@ -29,6 +29,10 @@ create table if not exists public.profiles (
     activity_level in ('sedentary', 'light', 'moderate', 'active', 'very_active')
   ),
 
+  -- Positiver, serverseitiger Nachweis einer neuen Registrierung. Bestehende
+  -- Profile bleiben NULL und werden dadurch nicht als offene Einrichtung
+  -- umgedeutet.
+  onboarding_required_at timestamptz,
   onboarding_completed_at timestamptz,
 
   -- Modul-Aktivierung (#95): welche Bereiche der Nutzer im Onboarding
@@ -59,6 +63,37 @@ comment on table public.profiles is
 comment on column public.profiles.sex is
   'Berechnungsbasis fuer Grundumsatz-Formeln, nicht die Geschlechtsidentitaet.';
 
+create or replace function private.guard_profile_onboarding_state()
+returns trigger
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+begin
+  if (select auth.uid()) is not null then
+    if new.onboarding_required_at is distinct from old.onboarding_required_at then
+      raise exception using
+        errcode = '42501',
+        message = 'onboarding_required_at wird serverseitig verwaltet';
+    end if;
+
+    if old.onboarding_completed_at is not null
+      and new.onboarding_completed_at is null then
+      raise exception using
+        errcode = '42501',
+        message = 'onboarding_completed_at kann nicht zurückgesetzt werden';
+    end if;
+  end if;
+
+  return new;
+end;
+$$;
+
+create or replace trigger profiles_guard_onboarding_state
+  before update on public.profiles
+  for each row
+  execute function private.guard_profile_onboarding_state();
+
 create or replace trigger profiles_set_updated_at
   before update on public.profiles
   for each row
@@ -80,12 +115,13 @@ security definer
 set search_path = ''
 as $$
 begin
-  insert into public.profiles (id, display_name)
+  insert into public.profiles (id, display_name, onboarding_required_at)
   values (
     new.id,
     -- Beim E-Mail-Signup ist noch kein Name bekannt; der lokale Teil der
     -- Adresse ist ein brauchbarer Startwert, den der Nutzer in #57 ueberschreibt.
-    coalesce(new.raw_user_meta_data ->> 'display_name', split_part(new.email, '@', 1))
+    coalesce(new.raw_user_meta_data ->> 'display_name', split_part(new.email, '@', 1)),
+    new.created_at
   )
   on conflict (id) do nothing;
 
@@ -107,10 +143,6 @@ alter table public.profiles enable row level security;
 create policy profiles_select_own on public.profiles
   for select to authenticated
   using ((select auth.uid()) = id);
-
-create policy profiles_insert_own on public.profiles
-  for insert to authenticated
-  with check ((select auth.uid()) = id);
 
 create policy profiles_update_own on public.profiles
   for update to authenticated

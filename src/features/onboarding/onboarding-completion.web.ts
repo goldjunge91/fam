@@ -3,7 +3,7 @@ import { reportError } from '@/lib/telemetry';
 const ONBOARDING_KEY = 'fam_onboarding_completed_v1';
 
 /** In-Memory-Flag: verhindert Onboarding-Schleife innerhalb einer App-Sitzung. */
-let completedInCurrentSession = false;
+let completedForUserId: string | null = null;
 
 const memoryStorage = new Map<string, string>();
 
@@ -28,20 +28,18 @@ function writeValue(key: string, value: string): void {
   memoryStorage.set(key, value);
 }
 
-export function markOnboardingSessionCompleted(): void {
-  completedInCurrentSession = true;
+export function markOnboardingSessionCompleted(userId: string): void {
+  completedForUserId = userId;
 }
 
-export function isOnboardingSessionCompleted(): boolean {
-  return completedInCurrentSession;
+export function isOnboardingSessionCompleted(userId: string | undefined): boolean {
+  return userId !== undefined && completedForUserId === userId;
 }
 
 /**
- * Persists the onboarding marker in browser storage. Native builds use the
- * platform SecureStore implementation from the sibling native file.
+ * Persists the device-wide onboarding marker in browser storage.
  */
-export async function persistOnboardingCompleted(): Promise<void> {
-  markOnboardingSessionCompleted();
+export async function persistSeenOnboarding(): Promise<void> {
   try {
     writeValue(ONBOARDING_KEY, 'true');
   } catch (error) {
@@ -50,6 +48,16 @@ export async function persistOnboardingCompleted(): Promise<void> {
       error_code: 'onboarding_completion_write_failed',
     });
   }
+}
+
+/**
+ * Persists the onboarding marker in browser storage after the account completed
+ * the flow. Native builds use the platform SecureStore implementation from the
+ * sibling native file.
+ */
+export async function persistOnboardingCompleted(userId: string): Promise<void> {
+  markOnboardingSessionCompleted(userId);
+  await persistSeenOnboarding();
 }
 
 export async function hasSeenOnboarding(): Promise<boolean> {

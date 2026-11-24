@@ -14,6 +14,14 @@ let mockSessionState: {
 let mockDevTools = false;
 let mockForceOnboarding = false;
 let mockOnboardingSessionCompleted = false;
+let mockAppEntryDecision:
+  | { kind: 'warten' }
+  | { kind: 'fehler' }
+  | { kind: 'weiter' }
+  | { kind: 'umleiten'; to: '/onboarding' | '/sign-in' | '/household/create' } = {
+  kind: 'umleiten',
+  to: '/onboarding',
+};
 let mockPathname = '/';
 const mockGetDatabase = jest.fn().mockResolvedValue({});
 const mockInitOffDump = jest.fn();
@@ -36,7 +44,11 @@ jest.mock('expo-router', () => {
 jest.mock('expo-observe', () => ({ useObserve: () => ({ markInteractive: jest.fn() }) }));
 jest.mock('@/features/auth/session-provider', () => ({ useSession: () => mockSessionState }));
 jest.mock('@/features/onboarding/onboarding-completion', () => ({
-  isOnboardingSessionCompleted: () => mockOnboardingSessionCompleted,
+  isOnboardingSessionCompleted: (userId: string | undefined) =>
+    mockOnboardingSessionCompleted && userId === 'user-1',
+}));
+jest.mock('@/features/onboarding/app-entry-readiness', () => ({
+  useAppEntryReadiness: () => ({ decision: mockAppEntryDecision }),
 }));
 jest.mock('@/lib/db/local-client', () => ({
   getDatabase: (...args: unknown[]) => mockGetDatabase(...args),
@@ -71,6 +83,7 @@ describe('RootNavigator', () => {
     mockDevTools = false;
     mockForceOnboarding = false;
     mockOnboardingSessionCompleted = false;
+    mockAppEntryDecision = { kind: 'umleiten', to: '/onboarding' };
     mockPathname = '/';
   });
 
@@ -127,6 +140,7 @@ describe('RootNavigator', () => {
   it('registriert private Root-Routen ausschließlich mit einer Session', async () => {
     jest.clearAllMocks();
     mockDevTools = false;
+    mockAppEntryDecision = { kind: 'umleiten', to: '/sign-in' };
     mockSessionState = {
       session: null,
       accountReady: true,
@@ -149,6 +163,7 @@ describe('RootNavigator', () => {
       isLoading: false,
       seenOnboarding: true,
     };
+    mockAppEntryDecision = { kind: 'weiter' };
     await view.rerender(<RootNavigator />);
 
     expect(mockGetDatabase).toHaveBeenCalledTimes(1);
@@ -156,9 +171,23 @@ describe('RootNavigator', () => {
     for (const route of privateRootRoutes) {
       expect(screen.getByText(route)).toBeOnTheScreen();
     }
-    expect(screen.getByText('onboarding')).toBeOnTheScreen();
+    expect(screen.queryByText('onboarding')).not.toBeOnTheScreen();
     expect(screen.queryByText('meal-planner')).not.toBeOnTheScreen();
     expect(screen.queryByText('(auth)')).not.toBeOnTheScreen();
+  });
+
+  it('registriert Onboarding für eine offene Neuregistrierung', async () => {
+    mockAppEntryDecision = { kind: 'umleiten', to: '/onboarding' };
+    mockSessionState = {
+      session: { user: { id: 'user-1' } },
+      accountReady: true,
+      isLoading: false,
+      seenOnboarding: true,
+    };
+
+    await render(<RootNavigator />);
+
+    expect(screen.getByText('onboarding')).toBeOnTheScreen();
   });
 
   it('priorisiert das erzwungene Onboarding vor dem gespeicherten Login-Zustand', async () => {

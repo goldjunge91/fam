@@ -56,8 +56,9 @@ describe('resolveAppEntry', () => {
   });
 
   it('schickt einen angemeldeten Nutzer mit unvollstaendigem Konto trotzdem ins Onboarding', () => {
-    // Diese Entscheidung haengt am Konto (`profiles.onboarding_completed_at`),
-    // nicht am Geraet — deshalb ueber `shouldPromptOnboarding`.
+    // Diese Entscheidung haengt am positiven Registrierungsnachweis und am
+    // kontoabhängigen Abschluss, nicht am Gerät — deshalb über
+    // `shouldPromptOnboarding`.
     expect(
       resolveAppEntry({
         ...angemeldetUndEingerichtet,
@@ -109,6 +110,15 @@ describe('resolveAppEntry', () => {
         householdCount: 0,
         shouldPromptOnboarding: true,
         householdsError: true,
+      }),
+    ).toEqual({ kind: 'fehler' });
+  });
+
+  it('zeigt bei einem fehlenden Profil den Retry-Zustand', () => {
+    expect(
+      resolveAppEntry({
+        ...angemeldetUndEingerichtet,
+        profileMissing: true,
       }),
     ).toEqual({ kind: 'fehler' });
   });

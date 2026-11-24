@@ -5,10 +5,14 @@ import { AccountStepForm } from './account-step';
 const mockSignUp = jest.fn();
 const mockSignIn = jest.fn();
 const mockPush = jest.fn();
+const mockReplace = jest.fn();
 let mockSession: { user: { email: string } } | null = null;
 
 jest.mock('expo-router', () => ({
-  router: { push: (...args: unknown[]) => mockPush(...args) },
+  router: {
+    push: (...args: unknown[]) => mockPush(...args),
+    replace: (...args: unknown[]) => mockReplace(...args),
+  },
 }));
 
 jest.mock('@/features/auth/api', () => ({
@@ -63,11 +67,18 @@ async function fillAndSubmit() {
   await fireEvent.press(screen.getByRole('button', { name: 'Konto erstellen' }));
 }
 
+async function fillAndSubmitSignIn() {
+  await fireEvent.changeText(screen.getByLabelText('E-Mail'), 'family@example.com');
+  await fireEvent.changeText(screen.getByLabelText('Passwort'), 'supersecret');
+  await fireEvent.press(screen.getByRole('button', { name: 'Anmelden' }));
+}
+
 describe('AccountStepForm', () => {
   beforeEach(async () => {
     mockSignUp.mockReset();
     mockSignIn.mockReset();
     mockPush.mockReset();
+    mockReplace.mockReset();
     mockSession = null;
     await i18n.changeLanguage('de');
   });
@@ -114,18 +125,32 @@ describe('AccountStepForm', () => {
     expect(onNext).toHaveBeenCalled();
   });
 
-  it('wechselt nach Google-Login weiter, sobald die OAuth-Session eintrifft', async () => {
+  it('führt einen bestehenden E-Mail-Login zum regulären App-Einstieg', async () => {
+    mockSignIn.mockResolvedValue({ data: { session: { access_token: 'x' } }, error: null });
+    const onNext = jest.fn();
+
+    await render(<AccountStepForm onNext={onNext} />);
+    await fireEvent.press(screen.getByRole('button', { name: 'Ich habe schon ein Konto' }));
+    await fillAndSubmitSignIn();
+
+    expect(mockReplace).toHaveBeenCalledWith('/');
+    expect(onNext).not.toHaveBeenCalled();
+  });
+
+  it('wechselt nach Google-Login zum regulären App-Einstieg', async () => {
     const user = userEvent.setup();
     const onNext = jest.fn();
     const view = await render(<AccountStepForm onNext={onNext} />);
 
     await user.press(screen.getByRole('button', { name: 'Mit Google anmelden' }));
+
+    expect(mockReplace).toHaveBeenCalledWith('/');
     expect(onNext).not.toHaveBeenCalled();
 
     mockSession = { user: { email: 'family@example.com' } };
     await view.rerender(<AccountStepForm onNext={onNext} />);
 
-    expect(onNext).toHaveBeenCalledTimes(1);
+    expect(onNext).not.toHaveBeenCalled();
   });
 
   it('zeigt ein bereits angemeldetes Konto und kann direkt fortfahren', async () => {

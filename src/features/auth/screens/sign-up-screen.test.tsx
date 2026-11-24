@@ -135,14 +135,14 @@ describe('SignUpScreen', () => {
     expect(screen.getByRole('button', { name: 'Konto erstellen' })).toBeOnTheScreen();
   });
 
-  it('navigiert nach bestaetigter E-Mail zum Onboarding', async () => {
+  it('navigiert nach bestaetigter E-Mail zum App-Einstieg', async () => {
     mockSignUp.mockResolvedValue({ data: { session: null }, error: null });
 
     await renderScreen();
     await fillAndSubmit();
     await fireEvent.press(await screen.findByRole('button', { name: 'E-Mail bestätigt' }));
 
-    expect(router.replace).toHaveBeenCalledWith('/onboarding');
+    expect(router.replace).toHaveBeenCalledWith('/');
   });
 
   it('kann Passwort und Bestätigung beim Erstellen eines Kontos anzeigen', async () => {
@@ -186,6 +186,6 @@ describe('SignUpScreen', () => {
     await renderScreen();
     await fillAndSubmit();
 
-    await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/onboarding'));
+    await waitFor(() => expect(router.replace).toHaveBeenCalledWith('/'));
   });
 });

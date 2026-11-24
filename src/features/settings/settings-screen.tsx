@@ -21,7 +21,7 @@ import {
 } from '@/features/navigation/fab-position-settings';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfileInitials } from '@/features/navigation/use-profile-initials';
-import { persistOnboardingCompleted } from '@/features/onboarding/onboarding-completion';
+import { persistSeenOnboarding } from '@/features/onboarding/onboarding-completion';
 import { useProfile } from '@/features/profile/api';
 import { AvatarImage } from '@/features/profile/avatar-image';
 import { classifySupabaseTarget } from '@/features/settings/dev/dev-info';
@@ -125,7 +125,7 @@ export function SettingsScreen() {
     } else {
       // Bekannte Nutzer starten nach dem Logout direkt im Auth-Screen,
       // statt beim naechsten Kaltstart erneut das Welcome-Onboarding zu sehen.
-      await persistOnboardingCompleted();
+      await persistSeenOnboarding();
       router.replace('/sign-in');
     }
   }
