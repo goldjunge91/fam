@@ -1,15 +1,30 @@
-/** Die vom Schema zugelassenen Einheiten mit deutscher Anzeige-Beschriftung. */
-export const UNIT_OPTIONS: readonly { value: string; label: string }[] = [
-  { value: 'piece', label: 'Stück' },
-  { value: 'g', label: 'Gramm (g)' },
-  { value: 'kg', label: 'Kilogramm (kg)' },
-  { value: 'ml', label: 'Milliliter (ml)' },
-  { value: 'l', label: 'Liter (l)' },
-  { value: 'package', label: 'Packung' },
-  { value: 'portion', label: 'Portion' },
-];
+import type { TFunction } from 'i18next';
 
-export function normalizeUnit(rawUnit: string | undefined | null): string {
+/** Canonical unit values stored in local and remote data. */
+export const UNIT_VALUES = ['piece', 'g', 'kg', 'ml', 'l', 'package', 'portion'] as const;
+export type UnitValue = (typeof UNIT_VALUES)[number];
+
+export type UnitOption = {
+  value: UnitValue;
+  label: string;
+};
+
+/**
+ * Builds display options from the active translation function. Values stay
+ * canonical so callers can persist and normalize them without locale data.
+ */
+export function getUnitOptions(t: TFunction): readonly UnitOption[] {
+  return UNIT_VALUES.map((value) => ({
+    value,
+    label: t(`common.units.${value}`),
+  }));
+}
+
+export function getUnitLabel(rawUnit: string, t: TFunction): string {
+  return t(`common.units.${normalizeUnit(rawUnit)}`);
+}
+
+export function normalizeUnit(rawUnit: string | undefined | null): UnitValue {
   if (!rawUnit) return 'piece';
   const u = rawUnit.toLowerCase().trim();
   if (u === 'l' || u === 'liter' || u === 'litre') return 'l';
@@ -20,7 +35,7 @@ export function normalizeUnit(rawUnit: string | undefined | null): string {
     return 'piece';
   if (u === 'package' || u === 'packung' || u === 'pkg') return 'package';
   if (u === 'portion' || u === 'pck') return 'portion';
-  if (['g', 'kg', 'ml', 'l', 'piece', 'package', 'portion'].includes(u)) return u;
+  if (UNIT_VALUES.includes(u as UnitValue)) return u;
   return 'piece';
 }
 

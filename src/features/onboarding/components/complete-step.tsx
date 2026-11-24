@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Surface, Txt } from '@/constants/ui';
@@ -31,6 +32,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function CompleteStepForm() {
+  const { t } = useTranslation();
   const { state, completeOnboarding, isLoading, error } = useOnboarding();
   const { data: households } = useHouseholds();
 
@@ -45,10 +47,10 @@ export function CompleteStepForm() {
   const householdName =
     households?.[0]?.name ||
     (state.household.choice === 'create'
-      ? state.household.name || 'deinen neuen Haushalt'
+      ? state.household.name || t('onboarding.complete.newHousehold')
       : state.household.choice === 'join'
-        ? 'deinen Haushalt'
-        : 'deinen persönlichen Bereich');
+        ? t('onboarding.complete.household')
+        : t('onboarding.complete.personal'));
 
   return (
     <View style={styles.root}>
@@ -59,10 +61,10 @@ export function CompleteStepForm() {
       </Surface>
 
       <Txt variant="title" weight="700" center>
-        Alles bereit!
+        {t('onboarding.complete.title')}
       </Txt>
       <Txt variant="body" tone="secondary" center style={styles.subtitle}>
-        {`Dein Profil ist eingerichtet und du bist startklar für ${householdName}.`}
+        {t('onboarding.complete.description', { household: householdName })}
       </Txt>
 
       {error ? (
@@ -73,7 +75,7 @@ export function CompleteStepForm() {
 
       <View style={styles.buttonContainer}>
         <Button
-          title={isLoading ? 'Speichern...' : 'Zum Dashboard'}
+          title={isLoading ? t('onboarding.complete.save') : t('onboarding.complete.dashboard')}
           onPress={handleFinish}
           loading={isLoading}
         />

@@ -1,6 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -103,6 +104,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function MembersScreen() {
+  const { t } = useTranslation();
   const { session } = useSession();
   const currentUserId = session?.user.id;
 
@@ -128,45 +130,27 @@ export function MembersScreen() {
     if (!isAdmin || !householdId) return;
     const newRole = currentRole === 'admin' ? 'member' : 'admin';
     const actionText =
-      newRole === 'admin' ? 'zum Administrator ernennen' : 'die Admin-Rolle entziehen';
+      newRole === 'admin' ? t('household.members.promote') : t('household.members.demote');
 
-    Alert.alert('Rolle ändern', `Möchtest du "${name}" ${actionText}?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Bestätigen',
-        onPress: async () => {
-          try {
-            await updateRoleMutation.mutateAsync({
-              householdId,
-              userId,
-              role: newRole,
-            });
-          } catch (err) {
-            Alert.alert(
-              'Fehler',
-              err instanceof Error ? err.message : 'Fehler beim Ändern der Rolle',
-            );
-          }
-        },
-      },
-    ]);
-  }
-
-  async function handleRemoveMember(userId: string, name: string) {
-    if (!isAdmin || !householdId) return;
     Alert.alert(
-      'Mitglied entfernen',
-      `Möchtest du "${name}" wirklich aus dem Haushalt entfernen?`,
+      t('household.members.roleChange'),
+      t('household.members.roleChangeConfirm', { name, action: actionText }),
       [
-        { text: 'Abbrechen', style: 'cancel' },
+        { text: t('common.actions.cancel'), style: 'cancel' },
         {
-          text: 'Entfernen',
-          style: 'destructive',
+          text: t('common.actions.confirm'),
           onPress: async () => {
             try {
-              await removeMemberMutation.mutateAsync({ householdId, userId });
+              await updateRoleMutation.mutateAsync({
+                householdId,
+                userId,
+                role: newRole,
+              });
             } catch (err) {
-              Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Entfernen');
+              Alert.alert(
+                t('common.errors.generic'),
+                err instanceof Error ? err.message : t('common.errors.generic'),
+              );
             }
           },
         },
@@ -174,20 +158,41 @@ export function MembersScreen() {
     );
   }
 
+  async function handleRemoveMember(userId: string, name: string) {
+    if (!isAdmin || !householdId) return;
+    Alert.alert(t('household.members.remove'), t('household.members.removeConfirm', { name }), [
+      { text: t('common.actions.cancel'), style: 'cancel' },
+      {
+        text: t('common.actions.remove'),
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            await removeMemberMutation.mutateAsync({ householdId, userId });
+          } catch (err) {
+            Alert.alert(
+              t('common.errors.generic'),
+              err instanceof Error ? err.message : t('common.errors.generic'),
+            );
+          }
+        },
+      },
+    ]);
+  }
+
   async function handleLeave() {
     if (!householdId) return;
     if (isAdmin && !canAdminLeave) {
       Alert.alert(
-        'Haushalt verlassen nicht möglich',
-        'Du bist der einzige Administrator dieses Haushalts. Ernenne zuerst ein anderes Mitglied zum Admin, bevor du den Haushalt verlässt.',
+        t('household.members.leaveNotPossibleTitle'),
+        t('household.members.leaveNotPossibleBody'),
       );
       return;
     }
 
-    Alert.alert('Haushalt verlassen', 'Möchtest du den Haushalt wirklich verlassen?', [
-      { text: 'Abbrechen', style: 'cancel' },
+    Alert.alert(t('household.members.leave'), t('household.members.leaveConfirm'), [
+      { text: t('common.actions.cancel'), style: 'cancel' },
       {
-        text: 'Verlassen',
+        text: t('household.members.leaveAction'),
         style: 'destructive',
         onPress: async () => {
           setLoadingAction('leave');
@@ -195,7 +200,10 @@ export function MembersScreen() {
             await leaveMutation.mutateAsync(householdId);
             router.replace('/');
           } catch (err: unknown) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler');
+            Alert.alert(
+              t('common.errors.generic'),
+              err instanceof Error ? err.message : t('common.errors.generic'),
+            );
           } finally {
             setLoadingAction(null);
           }
@@ -206,44 +214,45 @@ export function MembersScreen() {
 
   async function handleDelete() {
     if (!householdId) return;
-    Alert.alert(
-      'Haushalt löschen',
-      'Dieser Schritt löscht den kompletten Haushalt für alle Mitglieder und kann nicht rückgängig gemacht werden.',
-      [
-        { text: 'Abbrechen', style: 'cancel' },
-        {
-          text: 'Löschen',
-          style: 'destructive',
-          onPress: async () => {
-            setLoadingAction('delete');
-            try {
-              await deleteMutation.mutateAsync(householdId);
-              router.replace('/');
-            } catch (err: unknown) {
-              Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler');
-            } finally {
-              setLoadingAction(null);
-            }
-          },
+    Alert.alert(t('household.members.delete'), t('household.members.deleteConfirm'), [
+      { text: t('common.actions.cancel'), style: 'cancel' },
+      {
+        text: t('household.members.delete'),
+        style: 'destructive',
+        onPress: async () => {
+          setLoadingAction('delete');
+          try {
+            await deleteMutation.mutateAsync(householdId);
+            router.replace('/');
+          } catch (err: unknown) {
+            Alert.alert(
+              t('common.errors.generic'),
+              err instanceof Error ? err.message : t('common.errors.generic'),
+            );
+          } finally {
+            setLoadingAction(null);
+          }
         },
-      ],
-    );
+      },
+    ]);
   }
 
   return (
     <Screen
-      title="Mitglieder"
+      title={t('household.members.title')}
       subtitle={currentHousehold?.name}
       scroll={false}
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      back={{ label: t('household.members.backToSettings'), href: '/settings' }}
       backStyle="icon">
       {/* Button zum Wechseln oder Beitreten eines anderen Haushalts */}
       <View style={styles.switcher}>
         <Button
           title={
             households.length > 1
-              ? `🏠 Haushalt wechseln (${currentHousehold?.name ?? ''})`
-              : '🏠 Haushalt wechseln / beitreten'
+              ? t('household.members.switcherMultiple', {
+                  name: currentHousehold?.name ?? '',
+                })
+              : t('household.members.switcherJoin')
           }
           variant="secondary"
           onPress={() => setShowSwitcherModal(true)}
@@ -254,10 +263,13 @@ export function MembersScreen() {
       {isAdmin && currentHousehold && (
         <View style={styles.adminActions}>
           <View style={styles.flex}>
-            <Button title="+ Mitglied einladen" onPress={() => setShowInviteModal(true)} />
+            <Button
+              title={t('household.members.invite')}
+              onPress={() => setShowInviteModal(true)}
+            />
           </View>
           <Button
-            title="👶 Kinder-Profile"
+            title={t('household.members.children')}
             variant="secondary"
             onPress={() => router.push('/household/children')}
           />
@@ -275,7 +287,7 @@ export function MembersScreen() {
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => {
           const isMe = item.user_id === currentUserId;
-          const displayName = item.display_name || 'Unbekanntes Mitglied';
+          const displayName = item.display_name || t('household.members.unknownMember');
           const initials = displayName.substring(0, 2).toUpperCase();
 
           return (
@@ -285,7 +297,7 @@ export function MembersScreen() {
                 {item.avatar_url ? (
                   <AvatarImage
                     reference={item.avatar_url}
-                    accessibilityLabel={`Profilbild von ${displayName}`}
+                    accessibilityLabel={t('household.members.profileImage', { name: displayName })}
                     style={styles.avatarImage}
                     contentFit="cover"
                   />
@@ -298,10 +310,15 @@ export function MembersScreen() {
 
               <View style={styles.memberCopy}>
                 <Txt variant="body" weight={isMe ? '700' : '400'}>
-                  {displayName} {isMe ? '(Du)' : ''}
+                  {displayName} {isMe ? `(${t('household.members.you')})` : ''}
                 </Txt>
                 <Txt variant="body" tone="secondary">
-                  Rolle: {item.role === 'admin' ? 'Administrator' : 'Mitglied'}
+                  {t('household.members.roleLabel', {
+                    role:
+                      item.role === 'admin'
+                        ? t('household.members.admin')
+                        : t('household.members.member'),
+                  })}
                 </Txt>
               </View>
 
@@ -310,19 +327,28 @@ export function MembersScreen() {
                   <Press
                     onPress={() => handleToggleRole(item.user_id, item.role, displayName)}
                     accessibilityRole="button"
-                    accessibilityLabel={`${item.role === 'admin' ? 'Admin' : 'Mitglied'}-Rolle ändern`}
+                    accessibilityLabel={t('household.members.roleAccessibility', {
+                      role:
+                        item.role === 'admin'
+                          ? t('household.members.admin')
+                          : t('household.members.member'),
+                    })}
                     style={styles.roleTag}>
                     <Txt variant="caption" tone="primary">
-                      {item.role === 'admin' ? 'Admin ▾' : 'Mitglied ▾'}
+                      {item.role === 'admin'
+                        ? `${t('household.members.admin')} ▾`
+                        : `${t('household.members.member')} ▾`}
                     </Txt>
                   </Press>
                   <Press
                     onPress={() => handleRemoveMember(item.user_id, displayName)}
                     accessibilityRole="button"
-                    accessibilityLabel={`${displayName} entfernen`}
+                    accessibilityLabel={t('household.members.removeAccessibility', {
+                      name: displayName,
+                    })}
                     style={styles.removeTag}>
                     <Txt variant="caption" tone="danger">
-                      Entfernen
+                      {t('household.members.remove')}
                     </Txt>
                   </Press>
                 </View>
@@ -337,7 +363,7 @@ export function MembersScreen() {
               {!isAdmin && (
                 <View style={styles.footerButton}>
                   <Button
-                    title="👶 Kinder-Profile verwalten"
+                    title={t('household.members.childrenManage')}
                     variant="secondary"
                     onPress={() => router.push('/household/children')}
                   />
@@ -347,7 +373,7 @@ export function MembersScreen() {
               {isAdmin ? (
                 <View style={styles.destructiveActions}>
                   <Button
-                    title="Haushalt verlassen"
+                    title={t('household.members.leave')}
                     variant="danger"
                     onPress={handleLeave}
                     loading={loadingAction === 'leave'}
@@ -357,11 +383,11 @@ export function MembersScreen() {
                   />
                   {!canAdminLeave && (
                     <Txt variant="caption" tone="secondary" center>
-                      Ernenne zuerst einen weiteren Admin, um den Haushalt zu verlassen.
+                      {t('household.members.anotherAdminHint')}
                     </Txt>
                   )}
                   <Button
-                    title="Haushalt löschen"
+                    title={t('household.members.delete')}
                     variant="danger"
                     onPress={handleDelete}
                     loading={loadingAction === 'delete'}
@@ -370,7 +396,7 @@ export function MembersScreen() {
                 </View>
               ) : (
                 <Button
-                  title="Haushalt verlassen"
+                  title={t('household.members.leave')}
                   variant="danger"
                   onPress={handleLeave}
                   loading={loadingAction === 'leave'}

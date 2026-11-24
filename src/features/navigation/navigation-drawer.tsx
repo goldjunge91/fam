@@ -1,5 +1,6 @@
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import Animated, {
   interpolate,
@@ -107,6 +108,7 @@ export function NavigationDrawer() {
   const { isDrawerOpen, closeDrawer } = useNavigationChrome();
   const mounted = useDeferredMount(isDrawerOpen);
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
 
   const translateX = useSharedValue(-1);
@@ -136,7 +138,7 @@ export function NavigationDrawer() {
           style={[styles.backdrop, { backgroundColor: withAlpha(colors.text, 0.3) }]}
           onPress={closeDrawer}
           accessibilityRole="button"
-          accessibilityLabel="Menü schließen"
+          accessibilityLabel={t('navigation.actions.closeMenu')}
         />
         <Animated.View
           // Laufzeitwerte für Insets, Breite, Hintergrund und Schatten.
@@ -160,6 +162,7 @@ export function NavigationDrawer() {
 
 // Beim Schließen den Drawer-Inhalt vollständig unmounten.
 function DrawerContent() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const pathname = usePathname();
   const { closeDrawer } = useNavigationChrome();
@@ -183,11 +186,11 @@ function DrawerContent() {
   return (
     <>
       <View style={[styles.header, { borderBottomColor: withAlpha(colors.text, 0.15) }]}>
-        <Txt variant="brand">fam</Txt>
+        <Txt variant="brand">{t('common.app.name')}</Txt>
         <Press
           onPress={closeDrawer}
           accessibilityRole="button"
-          accessibilityLabel="Menü schließen"
+          accessibilityLabel={t('navigation.actions.closeMenu')}
           style={[styles.closeButton, { backgroundColor: colors.backgroundSoft }]}
           hitSlop={8}>
           <Txt variant="glyph">×</Txt>
@@ -207,7 +210,7 @@ function DrawerContent() {
             ]}>
             {group.hideTitle ? null : (
               <Txt variant="eyebrow" style={styles.groupTitle}>
-                {group.title.toUpperCase()}
+                {t(group.title).toUpperCase()}
               </Txt>
             )}
             {group.routes.map((route) => {
@@ -235,7 +238,7 @@ function DrawerContent() {
                     tone="primary"
                     weight={isActive ? '700' : '500'}
                     style={styles.navLabel}>
-                    {route.label}
+                    {t(route.label)}
                   </Txt>
                   <Txt tone="secondary">›</Txt>
                 </Press>
@@ -259,7 +262,7 @@ function DrawerContent() {
           tone="primary"
           weight={settingsActive ? '700' : '500'}
           style={styles.navLabel}>
-          Einstellungen
+          {t('settings.title')}
         </Txt>
         <Txt tone="secondary">›</Txt>
       </Press>

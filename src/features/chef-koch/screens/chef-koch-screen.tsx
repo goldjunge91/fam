@@ -196,7 +196,7 @@ export function ChefKochScreen() {
         header={{
           title: t('dashboard.chefKoch.title'),
           align: 'center',
-          leading: <BackButton label="Zurück" href="/" variant="header" />,
+          leading: <BackButton label={t('common.actions.back')} href="/" variant="header" />,
         }}>
         <Surface tone="soft" style={styles.status}>
           <Txt variant="body" tone="danger" accessibilityRole="alert">
@@ -213,7 +213,7 @@ export function ChefKochScreen() {
         header={{
           title: t('dashboard.chefKoch.title'),
           align: 'center',
-          leading: <BackButton label="Zurück" href="/" variant="header" />,
+          leading: <BackButton label={t('common.actions.back')} href="/" variant="header" />,
         }}>
         <Surface tone="soft" style={styles.status}>
           <Txt variant="body">{t('dashboard.chefKoch.noHousehold')}</Txt>
@@ -234,7 +234,7 @@ export function ChefKochScreen() {
       header={{
         title: t('dashboard.chefKoch.title'),
         align: 'center',
-        leading: <BackButton label="Zurück" href="/" variant="header" />,
+        leading: <BackButton label={t('common.actions.back')} href="/" variant="header" />,
       }}>
       <View style={styles.root}>
         <FlashList

@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -24,6 +25,7 @@ export function ProfileSheet() {
 }
 
 function ProfileSheetContent() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { isProfileOpen, closeProfile } = useNavigationChrome();
@@ -31,7 +33,7 @@ function ProfileSheetContent() {
   const { data: profile } = useProfile(session?.user.id);
   const { hasPlus, hasAI } = usePremium();
 
-  const displayName = profile?.display_name || 'Ohne Namen';
+  const displayName = profile?.display_name || t('navigation.profile.fallbackName');
   const email = session?.user.email ?? '';
   const avatarUrl = profile?.avatar_url;
 
@@ -50,7 +52,7 @@ function ProfileSheetContent() {
           style={[StyleSheet.absoluteFill, { backgroundColor: colors.scrim }]}
           onPress={closeProfile}
           accessibilityRole="button"
-          accessibilityLabel="Profil schließen"
+          accessibilityLabel={t('navigation.profile.close')}
         />
         <View
           style={[
@@ -63,7 +65,7 @@ function ProfileSheetContent() {
           <Press
             onPress={closeProfile}
             accessibilityRole="button"
-            accessibilityLabel="Profil schließen"
+            accessibilityLabel={t('navigation.profile.close')}
             hitSlop={12}
             style={styles.handleArea}>
             <View style={[styles.handle, { backgroundColor: colors.border }]} />
@@ -74,7 +76,7 @@ function ProfileSheetContent() {
               {avatarUrl ? (
                 <AvatarImage
                   reference={avatarUrl}
-                  accessibilityLabel="Profilbild im Profilmenü"
+                  accessibilityLabel={t('common.profile.imageInMenu')}
                   style={styles.avatarImage}
                   contentFit="cover"
                 />
@@ -98,22 +100,26 @@ function ProfileSheetContent() {
 
           <ProfileRow
             icon="profile"
-            title="Mein Profil"
-            subtitle="Persönliche Daten und Einstellungen"
+            title={t('navigation.profile.myProfile')}
+            subtitle={t('navigation.profile.myProfileSubtitle')}
             onPress={() => go('/profile/edit')}
             borderColor={colors.border}
           />
           <ProfileRow
             icon="household"
-            title="Familie"
-            subtitle="Haushalt verwalten"
+            title={t('navigation.profile.family')}
+            subtitle={t('navigation.profile.familySubtitle')}
             onPress={() => go('/household/members')}
             borderColor={colors.border}
           />
           <ProfileRow
             icon="premium"
-            title="Plus & KI"
-            subtitle={hasPlus || hasAI ? 'Aktiv für den Haushalt' : 'Jetzt freischalten'}
+            title={t('navigation.profile.plusAi')}
+            subtitle={
+              hasPlus || hasAI
+                ? t('navigation.profile.activeForHousehold')
+                : t('navigation.profile.unlock')
+            }
             onPress={() => go('/settings/plus-and-ai')}
             borderColor="transparent"
             isLast

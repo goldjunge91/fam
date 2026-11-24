@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -12,13 +13,10 @@ interface DatePickerProps {
   error?: string;
 }
 
-export function DatePicker({
-  label = 'Geburtsdatum',
-  value,
-  onChangeText,
-  placeholder = 'JJJJ-MM-TT (z.B. 2020-05-14)',
-  error,
-}: DatePickerProps) {
+export function DatePicker({ label, value, onChangeText, placeholder, error }: DatePickerProps) {
+  const { i18n, t } = useTranslation();
+  const resolvedLabel = label ?? t('common.datePicker.birthDate');
+  const resolvedPlaceholder = placeholder ?? t('common.datePicker.placeholder');
   const [showModal, setShowModal] = useState(false);
 
   // Default year/month/day selection state in modal
@@ -47,7 +45,7 @@ export function DatePicker({
   if (/^\d{4}-\d{2}-\d{2}$/.test(value.trim())) {
     const dateObj = new Date(value.trim());
     if (!Number.isNaN(dateObj.getTime())) {
-      formattedDisplay = dateObj.toLocaleDateString('de-DE', {
+      formattedDisplay = dateObj.toLocaleDateString(i18n.language, {
         day: 'numeric',
         month: 'long',
         year: 'numeric',
@@ -60,8 +58,8 @@ export function DatePicker({
       <View style={styles.dateRow}>
         <View style={styles.flex}>
           <TextField
-            label={label}
-            placeholder={placeholder}
+            label={resolvedLabel}
+            placeholder={resolvedPlaceholder}
             value={value}
             onChangeText={handleChange}
             keyboardType="numeric"
@@ -71,7 +69,9 @@ export function DatePicker({
         <Press
           onPress={() => setShowModal(true)}
           accessibilityRole="button"
-          accessibilityLabel="Datum auswählen"
+          accessibilityLabel={t('common.datePicker.choose', {
+            label: label ?? t('common.datePicker.defaultLabel'),
+          })}
           style={styles.calendarButton}>
           <Txt variant="body">📅</Txt>
         </Press>
@@ -92,20 +92,20 @@ export function DatePicker({
         <View style={styles.modalBackdrop}>
           <View style={styles.modalSheet}>
             <Txt variant="title" weight="600">
-              Datum auswählen
+              {t('common.datePicker.heading')}
             </Txt>
 
             <View style={styles.dateColumns}>
               {/* Year Adjust */}
               <View style={styles.column}>
                 <Txt variant="body" weight="700">
-                  Jahr
+                  {t('common.datePicker.year')}
                 </Txt>
                 <View style={styles.adjustments}>
                   <Press
                     onPress={() => setSelYear((y) => Math.max(1900, y - 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Jahr verringern"
+                    accessibilityLabel={t('common.datePicker.decreaseYear')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
@@ -117,7 +117,7 @@ export function DatePicker({
                   <Press
                     onPress={() => setSelYear((y) => Math.min(2100, y + 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Jahr erhöhen"
+                    accessibilityLabel={t('common.datePicker.increaseYear')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
@@ -129,13 +129,13 @@ export function DatePicker({
               {/* Month Adjust */}
               <View style={styles.column}>
                 <Txt variant="body" weight="700">
-                  Monat
+                  {t('common.datePicker.month')}
                 </Txt>
                 <View style={styles.adjustments}>
                   <Press
                     onPress={() => setSelMonth((m) => (m <= 1 ? 12 : m - 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Monat verringern"
+                    accessibilityLabel={t('common.datePicker.decreaseMonth')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
@@ -147,7 +147,7 @@ export function DatePicker({
                   <Press
                     onPress={() => setSelMonth((m) => (m >= 12 ? 1 : m + 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Monat erhöhen"
+                    accessibilityLabel={t('common.datePicker.increaseMonth')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
@@ -159,13 +159,13 @@ export function DatePicker({
               {/* Day Adjust */}
               <View style={styles.column}>
                 <Txt variant="body" weight="700">
-                  Tag
+                  {t('common.datePicker.day')}
                 </Txt>
                 <View style={styles.adjustments}>
                   <Press
                     onPress={() => setSelDay((d) => (d <= 1 ? 31 : d - 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Tag verringern"
+                    accessibilityLabel={t('common.datePicker.decreaseDay')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       -
@@ -177,7 +177,7 @@ export function DatePicker({
                   <Press
                     onPress={() => setSelDay((d) => (d >= 31 ? 1 : d + 1))}
                     accessibilityRole="button"
-                    accessibilityLabel="Tag erhöhen"
+                    accessibilityLabel={t('common.datePicker.increaseDay')}
                     style={styles.adjustButton}>
                     <Txt variant="body" weight="700">
                       +
@@ -189,10 +189,14 @@ export function DatePicker({
 
             <View style={styles.footerRow}>
               <View style={styles.flex}>
-                <Button title="Übernehmen" onPress={handleApplyModal} />
+                <Button title={t('common.actions.apply')} onPress={handleApplyModal} />
               </View>
               <View style={styles.flex}>
-                <Button title="Abbrechen" variant="secondary" onPress={() => setShowModal(false)} />
+                <Button
+                  title={t('common.actions.cancel')}
+                  variant="secondary"
+                  onPress={() => setShowModal(false)}
+                />
               </View>
             </View>
           </View>

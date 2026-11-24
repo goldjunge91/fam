@@ -23,10 +23,14 @@ export function toIsoDate(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
-/** `YYYY-MM-DD` → `DD.MM.YYYY` für die Anzeige. */
-export function formatIsoDate(isoDate: string): string {
-  const [year, month, day] = isoDate.split('-');
-  return `${day}.${month}.${year}`;
+/** `YYYY-MM-DD` → lokales Datumsformat für die Anzeige. */
+export function formatIsoDate(isoDate: string, locale = 'de-DE'): string {
+  const [year, month, day] = isoDate.split('-').map(Number);
+  return new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(new Date(year, month - 1, day));
 }
 
 /** `YYYY-MM-DD` → lokales `Date` mit Mitternacht. */

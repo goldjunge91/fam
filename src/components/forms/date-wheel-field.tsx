@@ -1,5 +1,6 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -15,13 +16,15 @@ interface DateWheelFieldProps {
   placeholder?: string;
 }
 
-export function DateWheelField({
-  label,
-  value,
-  onChange,
-  placeholder = 'TT.MM.JJJJ',
-}: DateWheelFieldProps) {
+export function DateWheelField({ label, value, onChange, placeholder }: DateWheelFieldProps) {
+  const { i18n, t } = useTranslation();
   const { mode } = useTheme();
+  const accessibilityTargetLabel = label ?? t('common.datePicker.defaultLabel');
+  const displayLabel = label ?? t('common.datePicker.heading');
+  const accessibilityLabel = t('common.datePicker.choose', {
+    label: accessibilityTargetLabel,
+  });
+  const displayPlaceholder = placeholder ?? t('common.datePicker.wheelPlaceholder');
   const [isOpen, setIsOpen] = useState(false);
   const [pendingDate, setPendingDate] = useState(() => (value ? new Date(value) : new Date()));
 
@@ -43,7 +46,7 @@ export function DateWheelField({
     <View style={styles.root}>
       {label && (
         <Txt variant="body" tone="secondary">
-          {label}
+          {displayLabel}
         </Txt>
       )}
       <Press
@@ -51,15 +54,18 @@ export function DateWheelField({
         accessibilityRole="button"
         accessibilityLabel={
           value
-            ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
-            : `${label ?? 'Datum'} auswählen`
+            ? t('common.datePicker.change', {
+                label: accessibilityTargetLabel,
+                value: formatIsoDate(value, i18n.language),
+              })
+            : accessibilityLabel
         }
         haptic="selection"
         scaleTo={0.98}
         containerStyle={styles.inputPressContainer}
         style={styles.inputField}>
         <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
-          {value ? formatIsoDate(value) : placeholder}
+          {value ? formatIsoDate(value, i18n.language) : displayPlaceholder}
         </Txt>
       </Press>
 
@@ -67,7 +73,7 @@ export function DateWheelField({
         <View style={styles.modalBackdrop}>
           <View style={styles.modalSheet}>
             <Txt variant="heading" weight="700">
-              {label ?? 'Datum auswählen'}
+              {displayLabel}
             </Txt>
             <DateTimePicker
               value={pendingDate}
@@ -78,10 +84,10 @@ export function DateWheelField({
             />
             <View style={styles.footerRow}>
               <View style={styles.flex}>
-                <Button title="Übernehmen" onPress={confirm} />
+                <Button title={t('common.actions.apply')} onPress={confirm} />
               </View>
               <View style={styles.flex}>
-                <Button title="Abbrechen" variant="secondary" onPress={cancel} />
+                <Button title={t('common.actions.cancel')} variant="secondary" onPress={cancel} />
               </View>
             </View>
           </View>

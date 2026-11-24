@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -15,6 +16,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function JoinHouseholdScreen() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{ token?: string }>();
   const [tokenInput, setTokenInput] = useState(params.token ?? '');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -35,7 +37,7 @@ export function JoinHouseholdScreen() {
   async function handleJoin() {
     const trimmed = tokenInput.trim();
     if (!trimmed) {
-      setErrorMsg('Bitte gib einen Einladungs-Code ein.');
+      setErrorMsg(t('household.join.codeRequired'));
       return;
     }
 
@@ -48,24 +50,24 @@ export function JoinHouseholdScreen() {
       if (err instanceof Error) {
         setErrorMsg(err.message);
       } else {
-        setErrorMsg('Einladung konnte nicht eingelöst werden.');
+        setErrorMsg(t('household.join.genericError'));
       }
     }
   }
 
   return (
     <Screen
-      title="Haushalt beitreten"
-      subtitle="Mit Code oder Einladungs-Link"
-      back={{ label: 'Haushalte' }}
+      title={t('household.join.title')}
+      subtitle={t('household.join.subtitle')}
+      back={{ label: t('household.join.back') }}
       backStyle="icon">
       {/* Eingabe-Formular für den Einladungs-Code / Token */}
-      <ContentCard title="Einlösung">
+      <ContentCard title={t('household.join.cardTitle')}>
         <View style={styles.form}>
           {/* Eingabefeld für Einladungs-Token */}
           <TextField
-            label="Einladungs-Code"
-            placeholder="z. B. AB12CD"
+            label={t('household.join.codeLabel')}
+            placeholder={t('household.join.codePlaceholder')}
             value={tokenInput}
             onChangeText={setTokenInput}
             autoCapitalize="none"
@@ -81,7 +83,7 @@ export function JoinHouseholdScreen() {
 
           {/* Beitreten-Aktionsbutton */}
           <Button
-            title="Haushalt beitreten"
+            title={t('household.join.submit')}
             onPress={handleJoin}
             loading={redeemMutation.isPending}
             disabled={!tokenInput.trim()}
@@ -91,7 +93,11 @@ export function JoinHouseholdScreen() {
 
       {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
-        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button
+          title={t('household.join.cancel')}
+          variant="secondary"
+          onPress={() => router.back()}
+        />
       )}
     </Screen>
   );

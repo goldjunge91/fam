@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -15,6 +16,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function CreateHouseholdScreen() {
+  const { t } = useTranslation();
   const [householdName, setHouseholdName] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -23,7 +25,7 @@ export function CreateHouseholdScreen() {
   async function handleSubmit() {
     const trimmed = householdName.trim();
     if (!trimmed) {
-      setErrorMsg('Bitte gib einen Namen für den Haushalt ein.');
+      setErrorMsg(t('household.create.nameRequired'));
       return;
     }
 
@@ -40,25 +42,25 @@ export function CreateHouseholdScreen() {
       if (err instanceof Error) {
         setErrorMsg(err.message);
       } else {
-        setErrorMsg('Ein unerwarteter Fehler ist aufgetreten.');
+        setErrorMsg(t('household.create.unexpectedError'));
       }
     }
   }
 
   return (
     <Screen
-      title="Haushalt erstellen"
-      subtitle="Lade später deine Familie oder WG ein"
-      back={{ label: 'Haushalte' }}>
+      title={t('household.create.title')}
+      subtitle={t('household.create.subtitle')}
+      back={{ label: t('household.create.back') }}>
       {/* Formular zur Erstellung eines neuen Haushalts */}
       <ContentCard>
         <View style={styles.form}>
           {/* Eingabefeld für Haushaltsname */}
           <TextField
-            label="Name deines Haushalts"
+            label={t('household.create.nameLabel')}
             value={householdName}
             onChangeText={setHouseholdName}
-            placeholder="z. B. WG Müller"
+            placeholder={t('household.create.namePlaceholder')}
             autoCapitalize="words"
           />
 
@@ -70,20 +72,28 @@ export function CreateHouseholdScreen() {
           ) : null}
 
           {/* Erstellen-Button */}
-          <Button title="Erstellen" onPress={handleSubmit} loading={mutation.isPending} />
+          <Button
+            title={t('household.create.create')}
+            onPress={handleSubmit}
+            loading={mutation.isPending}
+          />
         </View>
       </ContentCard>
 
       {/* Alternative Aktion: Haushalts-Beitritt via Code */}
       <Button
-        title="Ich habe einen Einladungs-Code"
+        title={t('household.create.joinWithCode')}
         variant="secondary"
         onPress={() => router.push('/household/join')}
       />
 
       {/* Abbrechen-Button (sofern Historie vorhanden) */}
       {router.canGoBack() && (
-        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button
+          title={t('household.create.cancel')}
+          variant="secondary"
+          onPress={() => router.back()}
+        />
       )}
     </Screen>
   );

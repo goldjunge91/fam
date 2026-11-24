@@ -1,3 +1,5 @@
+import type { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -24,7 +26,7 @@ function isMissingEnvFailure(error: unknown): error is MissingEnvFailure {
   return candidate.name === 'MissingEnvError' && typeof candidate.variableName === 'string';
 }
 
-function getFallbackCopy(error: unknown): FallbackCopy {
+function getFallbackCopy(error: unknown, t: TFunction): FallbackCopy {
   if (isMissingEnvFailure(error)) {
     if (
       __DEV__ &&
@@ -32,31 +34,32 @@ function getFallbackCopy(error: unknown): FallbackCopy {
         error.variableName === 'EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY')
     ) {
       return {
-        cause: `Die öffentliche Konfiguration ${error.variableName} fehlt.`,
-        action: 'Ergänze die Variable und starte Metro neu.',
+        cause: t('common.fallback.missingPublicCause', { variableName: error.variableName }),
+        action: t('common.fallback.missingPublicAction'),
       };
     }
 
     return {
-      cause: 'Die App-Konfiguration ist unvollständig.',
-      action: 'Bitte aktualisiere die App oder wende dich an den Support.',
+      cause: t('common.fallback.configCause'),
+      action: t('common.fallback.configAction'),
     };
   }
 
   return {
-    cause: 'Beim Starten der App ist ein unerwarteter Fehler aufgetreten.',
-    action: 'Bitte versuche es erneut.',
+    cause: t('common.fallback.unexpectedCause'),
+    action: t('common.fallback.retry'),
   };
 }
 
 /** Provider-unabhängiger Fallback für Fehler aus dem gesamten App-Baum. */
 export function CrashFallback({ resetError, error }: CrashFallbackProps) {
-  const copy = getFallbackCopy(error);
+  const { t } = useTranslation();
+  const copy = getFallbackCopy(error, t);
 
   return (
     <View style={styles.container}>
       <Txt variant="subheading" weight="600" style={styles.title}>
-        App konnte nicht gestartet werden
+        {t('common.fallback.title')}
       </Txt>
       <Txt variant="label" weight="400" center style={styles.body}>
         {copy.cause}
@@ -67,10 +70,10 @@ export function CrashFallback({ resetError, error }: CrashFallbackProps) {
       <Press
         onPress={resetError}
         accessibilityRole="button"
-        accessibilityLabel="Erneut versuchen"
+        accessibilityLabel={t('common.fallback.retryButton')}
         style={styles.button}>
         <Txt variant="label" weight="600" tone="accent" style={styles.buttonText}>
-          Erneut versuchen
+          {t('common.fallback.retryButton')}
         </Txt>
       </Press>
     </View>

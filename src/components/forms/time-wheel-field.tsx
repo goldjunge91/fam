@@ -1,5 +1,6 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -14,7 +15,9 @@ type TimeWheelFieldProps = {
 };
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
+  const { t } = useTranslation();
   const { mode } = useTheme();
+  const displayLabel = label ?? t('common.timePicker.defaultLabel');
   const [isOpen, setIsOpen] = useState(false);
   const [pendingTime, setPendingTime] = useState(() => fromTime(value));
 
@@ -32,18 +35,20 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
     <View style={styles.root}>
       {label ? (
         <Txt variant="caption" tone="secondary">
-          {label}
+          {displayLabel}
         </Txt>
       ) : null}
       <Press
         onPress={open}
         accessibilityRole="button"
         accessibilityLabel={
-          value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
+          value
+            ? t('common.timePicker.change', { label: displayLabel, value })
+            : t('common.timePicker.choose', { label: displayLabel })
         }
         haptic="selection"
         style={styles.inputField}>
-        <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
+        <Txt variant="body">{value || t('common.timePicker.choose')}</Txt>
       </Press>
 
       <Modal
@@ -54,7 +59,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         <View style={styles.modalBackdrop}>
           <View style={styles.modalSheet}>
             <Txt variant="title" weight="600">
-              {label ?? 'Uhrzeit auswählen'}
+              {displayLabel}
             </Txt>
             <DateTimePicker
               value={pendingTime}
@@ -65,10 +70,14 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
             />
             <View style={styles.footerRow}>
               <View style={styles.flex}>
-                <Button title="Übernehmen" onPress={confirm} />
+                <Button title={t('common.actions.apply')} onPress={confirm} />
               </View>
               <View style={styles.flex}>
-                <Button title="Abbrechen" variant="secondary" onPress={() => setIsOpen(false)} />
+                <Button
+                  title={t('common.actions.cancel')}
+                  variant="secondary"
+                  onPress={() => setIsOpen(false)}
+                />
               </View>
             </View>
           </View>

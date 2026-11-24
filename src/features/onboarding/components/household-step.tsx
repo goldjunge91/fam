@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
@@ -53,6 +54,7 @@ const styles = StyleSheet.create((theme, rt) => ({
 }));
 
 export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
+  const { t } = useTranslation();
   const { state, updateHouseholdData } = useOnboarding();
   const { data: households } = useHouseholds();
   const activeHousehold = households?.[0];
@@ -74,7 +76,10 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
     // Bei "create" liefert die UI absichtlich einen Fallback-Namen, bevor
     // validiert wird - ein leerer Name soll die Erstellung nicht blockieren.
-    const name = choice === 'create' ? householdName.trim() || 'Mein Haushalt' : undefined;
+    const name =
+      choice === 'create'
+        ? householdName.trim() || t('onboarding.household.defaultName')
+        : undefined;
     const code = choice === 'join' ? inviteCode.trim() : undefined;
 
     updateHouseholdData({ choice, name, inviteCode: code });
@@ -85,24 +90,24 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
     }
 
     if (!validateHouseholdOnboarding({ choice, name, inviteCode: code })) {
-      setErrorMsg('Bitte gib einen Einladungscode ein.');
+      setErrorMsg(t('onboarding.household.missingInviteCode'));
       return;
     }
 
     try {
       if (choice === 'create') {
-        await createHouseholdMutation.mutateAsync(name ?? 'Mein Haushalt');
+        await createHouseholdMutation.mutateAsync(name ?? t('onboarding.household.defaultName'));
       } else if (choice === 'join') {
         await redeemInviteMutation.mutateAsync(code ?? '');
       } else if (choice === 'solo') {
-        await createHouseholdMutation.mutateAsync('Mein Haushalt');
+        await createHouseholdMutation.mutateAsync(t('onboarding.household.defaultName'));
       }
       onNext();
     } catch (err) {
       if (err instanceof Error) {
         setErrorMsg(err.message);
       } else {
-        setErrorMsg('Fehler beim Erstellen oder Beitreten des Haushalts.');
+        setErrorMsg(t('onboarding.household.mutationError'));
       }
     }
   };
@@ -116,17 +121,17 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.content}>
       <Txt variant="subheading" weight="700">
-        Dein Haushalt
+        {t('onboarding.household.heading')}
       </Txt>
       <Txt variant="body" tone="secondary">
-        Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.
+        {t('onboarding.household.description')}
       </Txt>
 
       {/* Aktiver Haushalt Banner */}
       {activeHousehold ? (
         <Surface tone="surface" style={[styles.activeCard, onboardingStyles.activeHousehold]}>
           <Txt variant="eyebrow" tone="success" weight="700">
-            ✓ Aktiver Haushalt erkannt
+            {t('onboarding.household.activeDetected')}
           </Txt>
           <Txt variant="body" weight="700">
             {activeHousehold.name}
@@ -134,36 +139,39 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
         </Surface>
       ) : null}
 
-      <View style={styles.choices} accessibilityRole="radiogroup" accessibilityLabel="Haushalt">
+      <View
+        style={styles.choices}
+        accessibilityRole="radiogroup"
+        accessibilityLabel={t('onboarding.household.groupLabel')}>
         <Press
           onPress={() => setChoice('create')}
           accessibilityRole="radio"
-          accessibilityLabel="Neuen Haushalt erstellen"
+          accessibilityLabel={t('onboarding.household.create.accessibility')}
           accessibilityState={{ selected: choice === 'create' }}
           haptic="selection"
           selected={choice === 'create'}
           style={styles.choice}>
           <Txt variant="body" tone="primary" weight="700">
-            🏠 Neuen Haushalt erstellen
+            {t('onboarding.household.create.title')}
           </Txt>
           <Txt variant="label" tone="primary">
-            Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein.
+            {t('onboarding.household.create.description')}
           </Txt>
         </Press>
 
         <Press
           onPress={() => setChoice('join')}
           accessibilityRole="radio"
-          accessibilityLabel="Einem Haushalt beitreten"
+          accessibilityLabel={t('onboarding.household.join.accessibility')}
           accessibilityState={{ selected: choice === 'join' }}
           haptic="selection"
           selected={choice === 'join'}
           style={styles.choice}>
           <Txt variant="body" tone="primary" weight="700">
-            🔗 Einem Haushalt beitreten
+            {t('onboarding.household.join.title')}
           </Txt>
           <Txt variant="label" tone="primary">
-            Gib den Einladungscode ein, den du erhalten hast.
+            {t('onboarding.household.join.description')}
           </Txt>
         </Press>
 
@@ -171,7 +179,11 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           onPress={() => setChoice('solo')}
           accessibilityRole="radio"
           accessibilityLabel={
-            activeHousehold ? `Mit ${activeHousehold.name} fortfahren` : 'Vorerst alleine nutzen'
+            activeHousehold
+              ? t('onboarding.household.solo.accessibilityWithHousehold', {
+                  name: activeHousehold.name,
+                })
+              : t('onboarding.household.solo.accessibility')
           }
           accessibilityState={{ selected: choice === 'solo' }}
           haptic="selection"
@@ -180,13 +192,13 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
           <Txt variant="body" tone="primary" weight="700">
             👤{' '}
             {activeHousehold
-              ? `Mit "${activeHousehold.name}" fortfahren`
-              : 'Vorerst alleine nutzen'}
+              ? t('onboarding.household.solo.titleWithHousehold', { name: activeHousehold.name })
+              : t('onboarding.household.solo.title')}
           </Txt>
           <Txt variant="label" tone="primary">
             {activeHousehold
-              ? 'Behalte deinen bestehenden Haushalt und fahre fort.'
-              : 'Starte mit einem privaten Bereich. Du kannst jederzeit andere einladen.'}
+              ? t('onboarding.household.solo.descriptionWithHousehold')
+              : t('onboarding.household.solo.description')}
           </Txt>
         </Press>
       </View>
@@ -194,20 +206,20 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       {choice === 'create' && (
         <TextField
           testID="onboarding-household-name"
-          label="Name deines Haushalts"
+          label={t('onboarding.household.nameLabel')}
           value={householdName}
           onChangeText={setHouseholdName}
-          placeholder="z.B. Familie Müller"
+          placeholder={t('onboarding.household.namePlaceholder')}
         />
       )}
 
       {choice === 'join' && (
         <TextField
           testID="onboarding-household-invite-code"
-          label="Einladungs-Code"
+          label={t('onboarding.household.inviteCodeLabel')}
           value={inviteCode}
           onChangeText={setInviteCode}
-          placeholder="z. B. AB12CD"
+          placeholder={t('onboarding.household.inviteCodePlaceholder')}
           autoCapitalize="none"
           autoCorrect={false}
         />
@@ -221,10 +233,15 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
       <View style={styles.buttonRow}>
         <View style={styles.flex}>
-          <Button title="Weiter" onPress={handleNext} loading={isPending} />
+          <Button title={t('onboarding.household.next')} onPress={handleNext} loading={isPending} />
         </View>
         <View style={styles.flex}>
-          <Button title="Überspringen" variant="secondary" onPress={onSkip} disabled={isPending} />
+          <Button
+            title={t('onboarding.household.skip')}
+            variant="secondary"
+            onPress={onSkip}
+            disabled={isPending}
+          />
         </View>
       </View>
     </KeyboardAwareScrollView>

@@ -73,17 +73,17 @@ export function ModuleSettingsScreen() {
               onPress={() => !locked && toggle(row.key)}
               disabled={locked}
               accessibilityRole="button"
-              accessibilityLabel={row.title}
+              accessibilityLabel={t(row.title)}
               accessibilityState={{ disabled: locked, selected: modules[row.key] }}
               haptic="selection"
               selected={modules[row.key]}
               style={styles.moduleRow}>
               <View style={[styles.rowText, locked && styles.lockedContent]}>
                 <Txt variant="body" weight="700">
-                  {row.icon} {row.title}
+                  {row.icon} {t(row.title)}
                 </Txt>
                 <Txt variant="body" tone="secondary">
-                  {row.desc}
+                  {t(row.desc)}
                 </Txt>
               </View>
               <View style={locked ? styles.lockedContent : undefined}>

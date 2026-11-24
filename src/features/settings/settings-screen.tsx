@@ -137,9 +137,7 @@ export function SettingsScreen() {
   const hasDevToolsAccess = useDevToolsAccess();
 
   // Entwicklungsziel direkt in der Übersicht anzeigen.
-  const supabaseTarget = hasDevToolsAccess
-    ? classifySupabaseTarget(env.supabaseUrl)
-    : { label: '', tone: 'accent' as const };
+  const supabaseTarget = hasDevToolsAccess ? classifySupabaseTarget(env.supabaseUrl) : null;
 
   const version = Application.nativeApplicationVersion ?? Constants.expoConfig?.version ?? '1.0.0';
   const buildNumber = Application.nativeBuildVersion;
@@ -331,12 +329,12 @@ export function SettingsScreen() {
           </SettingsGroup>
 
           {hasDevToolsAccess ? (
-            <SettingsGroup title="Entwickler">
+            <SettingsGroup title={t('settings.developer.group')}>
               <SettingsRow
                 icon="🛠"
-                label="Entwickler-Werkzeuge"
-                hint="Umgebung, Session, lokale Datenbank"
-                value={supabaseTarget.label}
+                label={t('settings.developer.tools')}
+                hint={t('settings.developer.hint')}
+                value={supabaseTarget ? t(supabaseTarget.labelKey) : undefined}
                 onPress={() => router.push('/settings/dev')}
                 last
               />

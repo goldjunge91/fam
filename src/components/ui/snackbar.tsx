@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -54,6 +55,7 @@ type SnackbarState = { message: string; onUndo: () => void } | null;
 
 export function SnackbarProvider({ children }: { children: React.ReactNode }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const [snackbar, setSnackbar] = useState<SnackbarState>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -93,11 +95,11 @@ export function SnackbarProvider({ children }: { children: React.ReactNode }) {
                 onUndo();
               }}
               accessibilityRole="button"
-              accessibilityLabel="Rückgängig"
+              accessibilityLabel={t('common.actions.undo')}
               hitSlop={10}
               style={styles.undo}>
               <Txt variant="body" tone="onAccent" weight="700">
-                Rückgängig
+                {t('common.actions.undo')}
               </Txt>
             </Press>
           </View>

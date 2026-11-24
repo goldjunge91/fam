@@ -3,5 +3,155 @@
   "german": "Deutsch",
   "english": "Englisch",
   "done": "Fertig",
-  "loading": "Wird geladen…"
+  "loading": "Wird geladen…",
+  "actions": {
+    "apply": "Übernehmen",
+    "back": "Zurück",
+    "backText": "‹ {{label}}",
+    "backTo": "Zurück zu {{label}}",
+    "cancel": "Abbrechen",
+    "change": "{{label}} {{value}} ändern",
+    "changeValue": "{{value}} ändern",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "continue": "Weiter",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "create": "Erstellen",
+    "delete": "Löschen",
+    "done": "Fertig",
+    "edit": "Bearbeiten",
+    "enable": "Aktivieren",
+    "hide": "Ausblenden",
+    "join": "Beitreten",
+    "later": "Später",
+    "loading": "Wird geladen…",
+    "next": "Weiter",
+    "remove": "Entfernen",
+    "retry": "Erneut versuchen",
+    "save": "Speichern",
+    "select": "Auswählen",
+    "share": "Teilen",
+    "show": "Anzeigen",
+    "skip": "Überspringen",
+    "start": "Jetzt starten",
+    "undo": "Rückgängig"
+  },
+  "datePicker": {
+    "birthDate": "Geburtsdatum",
+    "defaultLabel": "Datum",
+    "placeholder": "JJJJ-MM-TT (z.B. 2020-05-14)",
+    "wheelPlaceholder": "TT.MM.JJJJ",
+    "heading": "Datum auswählen",
+    "change": "{{label}} {{value}} ändern",
+    "changeValue": "{{value}} ändern",
+    "choose": "{{label}} auswählen",
+    "year": "Jahr",
+    "month": "Monat",
+    "day": "Tag",
+    "decreaseYear": "Jahr verringern",
+    "increaseYear": "Jahr erhöhen",
+    "decreaseMonth": "Monat verringern",
+    "increaseMonth": "Monat erhöhen",
+    "decreaseDay": "Tag verringern",
+    "increaseDay": "Tag erhöhen"
+  },
+  "timePicker": {
+    "defaultLabel": "Uhrzeit",
+    "choose": "Uhrzeit auswählen",
+    "change": "{{label}} {{value}} ändern"
+  },
+  "units": {
+    "piece": "Stück",
+    "g": "Gramm (g)",
+    "kg": "Kilogramm (kg)",
+    "ml": "Milliliter (ml)",
+    "l": "Liter (l)",
+    "package": "Packung",
+    "portion": "Portion"
+  },
+  "modules": {
+    "fridge": {
+      "title": "Kühlschrank & Vorrat",
+      "description": "Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf."
+    },
+    "shoppingList": {
+      "title": "Geteilte Einkaufsliste",
+      "description": "Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern."
+    },
+    "calories": {
+      "title": "Kalorienzähler & Tagebuch",
+      "description": "Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen."
+    },
+    "recipes": {
+      "title": "Rezepte",
+      "description": "Im Haushalt geteilte Rezeptsammlung."
+    },
+    "mealPlanner": {
+      "title": "Essensplan",
+      "description": "Wochenplanung für den Haushalt, Mahlzeiten Mitgliedern zuordnen."
+    }
+  },
+  "app": {
+    "name": "fam",
+    "startPreparing": "Start wird vorbereitet",
+    "splashLoading": "fam wird geladen"
+  },
+  "profile": {
+    "open": "Profil öffnen",
+    "image": "Profilbild",
+    "imageInMenu": "Profilbild im Profilmenü"
+  },
+  "moduleGate": {
+    "disabledTitle": "Modul nicht aktiviert",
+    "disabledHint": "Du hast dieses Modul in den Einstellungen ausgeblendet. Deine Daten bleiben erhalten.",
+    "enableButton": "In den Einstellungen aktivieren",
+    "unavailableTitle": "Noch nicht verfügbar",
+    "unavailableHint": "Dieser Bereich wird gerade schrittweise ausgerollt und ist für dich noch nicht freigeschaltet.",
+    "locked": "Demnächst verfügbar"
+  },
+  "sync": {
+    "offline": "Offline",
+    "offlinePending": "Offline, {{count}} Änderungen ausstehend",
+    "failed": "{{count}} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.",
+    "retryAccessibility": "Fehlgeschlagene Änderungen erneut versuchen"
+  },
+  "errors": {
+    "generic": "Fehler"
+  },
+  "fallback": {
+    "missingPublicCause": "Die öffentliche Konfiguration {{variableName}} fehlt.",
+    "missingPublicAction": "Ergänze die Variable und starte Metro neu.",
+    "configCause": "Die App-Konfiguration ist unvollständig.",
+    "configAction": "Bitte aktualisiere die App oder wende dich an den Support.",
+    "unexpectedCause": "Beim Starten der App ist ein unerwarteter Fehler aufgetreten.",
+    "retry": "Bitte versuche es erneut.",
+    "title": "App konnte nicht gestartet werden",
+    "retryButton": "Erneut versuchen"
+  },
+  "update": {
+    "errorHeading": "Das Update wartet noch.",
+    "readyHeading": "Fam ist bereit.",
+    "downloadingHeading": "Fam wird gerade aktualisiert.",
+    "errorMessage": "Der Download oder Neustart konnte nicht abgeschlossen werden. Du kannst Fam weiter nutzen und es später erneut versuchen.",
+    "readyMessage": "Starte Fam neu, um die Verbesserungen zu übernehmen. Deine Listen bleiben erhalten.",
+    "downloadingMessage": "Das Update wird im Hintergrund geladen. Du kannst die Ansicht schließen und in Fam weiterarbeiten.",
+    "errorProgress": "Update angehalten",
+    "readyProgress": "Bereit zum Neustart",
+    "loadingProgress": "Verbesserungen werden geladen",
+    "loadingProgressWithPercent": "Verbesserungen werden geladen · {{percent}} %",
+    "errorEyebrow": "UPDATE ANGEHALTEN",
+    "readyEyebrow": "UPDATE BEREIT",
+    "downloadingEyebrow": "EIN MOMENT NOCH",
+    "restartAccessibility": "Fam jetzt mit dem Update neu starten",
+    "continueAccessibility": "Update weiterladen und Fam öffnen",
+    "retry": "Erneut versuchen",
+    "restart": "Jetzt neu starten",
+    "continue": "Weiter in Fam",
+    "later": "Später",
+    "ringLabel": "OTA-Update"
+  },
+  "widgets": {
+    "quickAdd": "Schnell hinzufügen"
+  }
 }

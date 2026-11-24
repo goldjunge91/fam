@@ -100,15 +100,14 @@ jest.mock('@/features/auth/session-provider', () => ({
 }));
 
 jest.mock('@/features/settings/dev/dev-info', () => ({
-  describeDatabaseOwnership: (storedUserId: string | null, sessionUserId: string | null) => ({
-    label:
-      sessionUserId === null
-        ? 'nicht angemeldet'
+  describeDatabaseOwnership: (storedUserId: string | null, sessionUserId: string | null) =>
+    sessionUserId === null
+      ? { key: 'dev.info.ownershipUnauthenticated' }
+      : storedUserId === null
+        ? { key: 'dev.info.ownershipUnassigned' }
         : storedUserId === sessionUserId
-          ? 'stimmt überein'
-          : 'fremd',
-    tone: sessionUserId === null ? 'warning' : storedUserId === sessionUserId ? 'accent' : 'danger',
-  }),
+          ? { key: 'dev.info.ownershipMatches' }
+          : { key: 'dev.info.ownershipForeign', userId: storedUserId.slice(0, 8) },
 }));
 
 jest.mock('@/hooks/use-dev-tools-access', () => ({

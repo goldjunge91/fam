@@ -31,6 +31,45 @@ function defaultMealType(): MealType {
 
 export type DrawerGroupKey = 'today' | 'household' | 'private';
 
+export type NavigationFeatureKey =
+  | 'navigation.features.brochures'
+  | 'navigation.features.overview'
+  | 'navigation.features.fridge'
+  | 'navigation.features.shoppingList'
+  | 'navigation.features.recipes'
+  | 'navigation.features.assistant'
+  | 'navigation.features.mealPlanner'
+  | 'navigation.features.calories'
+  | 'navigation.features.workouts'
+  | 'navigation.features.low-carb'
+  | 'navigation.features.shoppingStt';
+
+export type NavigationGroupTitleKey =
+  | 'navigation.groups.today'
+  | 'navigation.groups.household'
+  | 'navigation.groups.private';
+
+export type NavigationSpeedDialKey =
+  | 'navigation.speedDial.fridge'
+  | 'navigation.speedDial.shoppingList'
+  | 'navigation.speedDial.recipes'
+  | 'navigation.speedDial.assistant'
+  | 'navigation.speedDial.calories';
+
+export type ModuleTitleKey =
+  | 'common.modules.fridge.title'
+  | 'common.modules.shoppingList.title'
+  | 'common.modules.calories.title'
+  | 'common.modules.recipes.title'
+  | 'common.modules.mealPlanner.title';
+
+export type ModuleDescriptionKey =
+  | 'common.modules.fridge.description'
+  | 'common.modules.shoppingList.description'
+  | 'common.modules.calories.description'
+  | 'common.modules.recipes.description'
+  | 'common.modules.mealPlanner.description';
+
 export interface DrawerConfig {
   group: DrawerGroupKey;
   href: string;
@@ -39,7 +78,7 @@ export interface DrawerConfig {
 }
 
 export interface SpeedDialConfig {
-  title: string;
+  title: NavigationSpeedDialKey;
   icon: FamIconName;
   href: string | (() => string);
   backgroundToken: SpeedDialColorKey;
@@ -48,16 +87,16 @@ export interface SpeedDialConfig {
 
 export interface SettingsConfig {
   iconEmoji: string;
-  title: string;
-  desc: string;
+  title: ModuleTitleKey;
+  desc: ModuleDescriptionKey;
   order?: number;
 }
 
 export interface FeatureDefinition {
   /** Eindeutige Feature-ID */
   id: string;
-  /** Anzeigename */
-  title: string;
+  /** Übersetzungsschlüssel für den Anzeigenamen */
+  title: NavigationFeatureKey;
   /** Wenn gesetzt: Top-Level Modul, das in den Nutzereinstellungen an/abwählbar ist */
   moduleKey?: keyof ModulePreferences;
   /** Wenn gesetzt: Sub-Feature, das an ein übergeordnetes Hauptmodul gekoppelt ist */
@@ -75,7 +114,7 @@ export interface FeatureDefinition {
 export const APP_FEATURES = [
   {
     id: 'brochures',
-    title: 'Prospekte',
+    title: 'navigation.features.brochures',
     moduleKey: 'fridge', // Falls wir keinen eigenen moduleKey einführen, binden wir es ans Haushalts-Modul
     drawer: {
       group: 'household',
@@ -86,7 +125,7 @@ export const APP_FEATURES = [
   },
   {
     id: 'overview',
-    title: 'Übersicht',
+    title: 'navigation.features.overview',
     drawer: {
       group: 'today',
       href: '/',
@@ -96,7 +135,7 @@ export const APP_FEATURES = [
   },
   {
     id: 'fridge',
-    title: 'Vorrat',
+    title: 'navigation.features.fridge',
     moduleKey: 'fridge',
     drawer: {
       group: 'household',
@@ -105,7 +144,7 @@ export const APP_FEATURES = [
       order: 1,
     },
     speedDial: {
-      title: 'Vorratsartikel',
+      title: 'navigation.speedDial.fridge',
       icon: 'fridge',
       href: '/add-item',
       backgroundToken: 'speedDialPantry',
@@ -113,14 +152,14 @@ export const APP_FEATURES = [
     },
     settings: {
       iconEmoji: '🧊',
-      title: 'Kühlschrank & Vorrat',
-      desc: 'Bestand verwalten, MHD-Ampel und Benachrichtigungen vor Ablauf.',
+      title: 'common.modules.fridge.title',
+      desc: 'common.modules.fridge.description',
       order: 1,
     },
   },
   {
     id: 'shoppingList',
-    title: 'Einkauf',
+    title: 'navigation.features.shoppingList',
     moduleKey: 'shoppingList',
     drawer: {
       group: 'household',
@@ -129,7 +168,7 @@ export const APP_FEATURES = [
       order: 2,
     },
     speedDial: {
-      title: 'Einkaufsartikel',
+      title: 'navigation.speedDial.shoppingList',
       icon: 'shopping',
       href: '/shopping-list?action=add',
       backgroundToken: 'speedDialShopping',
@@ -137,20 +176,20 @@ export const APP_FEATURES = [
     },
     settings: {
       iconEmoji: '🛒',
-      title: 'Geteilte Einkaufsliste',
-      desc: 'Gemeinsam einkaufen und nach dem Abkassieren direkt im Kühlschrank speichern.',
+      title: 'common.modules.shoppingList.title',
+      desc: 'common.modules.shoppingList.description',
       order: 2,
     },
   },
   {
     id: 'shoppingStt',
-    title: 'Spracheingabe',
+    title: 'navigation.features.shoppingStt',
     parentModule: 'shoppingList',
     featureFlag: 'shopping-stt',
   },
   {
     id: 'recipes',
-    title: 'Rezepte',
+    title: 'navigation.features.recipes',
     moduleKey: 'recipes',
     featureFlag: 'module-recipes',
     drawer: {
@@ -160,7 +199,7 @@ export const APP_FEATURES = [
       order: 3,
     },
     speedDial: {
-      title: 'Rezept',
+      title: 'navigation.speedDial.recipes',
       icon: 'recipes',
       href: '/recipe/create',
       backgroundToken: 'speedDialRecipes',
@@ -168,14 +207,14 @@ export const APP_FEATURES = [
     },
     settings: {
       iconEmoji: '📖',
-      title: 'Rezepte',
-      desc: 'Im Haushalt geteilte Rezeptsammlung.',
+      title: 'common.modules.recipes.title',
+      desc: 'common.modules.recipes.description',
       order: 4,
     },
   },
   {
     id: 'assistant',
-    title: 'Assistant',
+    title: 'navigation.features.assistant',
     drawer: {
       group: 'today',
       href: '/assistant',
@@ -183,7 +222,7 @@ export const APP_FEATURES = [
       order: 2,
     },
     speedDial: {
-      title: 'Assistant',
+      title: 'navigation.speedDial.assistant',
       icon: 'assistant',
       href: '/assistant',
       backgroundToken: 'speedDialAssistant',
@@ -192,7 +231,7 @@ export const APP_FEATURES = [
   },
   {
     id: 'mealPlanner',
-    title: 'Essensplan',
+    title: 'navigation.features.mealPlanner',
     moduleKey: 'mealPlanner',
     featureFlag: 'module-meal-planner',
     drawer: {
@@ -203,14 +242,14 @@ export const APP_FEATURES = [
     },
     settings: {
       iconEmoji: '🗓️',
-      title: 'Essensplan',
-      desc: 'Wochenplanung fuer den Haushalt, Mahlzeiten Mitgliedern zuordnen.',
+      title: 'common.modules.mealPlanner.title',
+      desc: 'common.modules.mealPlanner.description',
       order: 5,
     },
   },
   {
     id: 'calories',
-    title: 'Tagebuch',
+    title: 'navigation.features.calories',
     moduleKey: 'calories',
     featureFlag: 'module-calories',
     drawer: {
@@ -220,7 +259,7 @@ export const APP_FEATURES = [
       order: 1,
     },
     speedDial: {
-      title: 'Tagebucheintrag',
+      title: 'navigation.speedDial.calories',
       icon: 'diary',
       href: () => `/add-food-entry?date=${todayIso()}&mealType=${defaultMealType()}`,
       backgroundToken: 'speedDialCalories',
@@ -228,20 +267,20 @@ export const APP_FEATURES = [
     },
     settings: {
       iconEmoji: '🍎',
-      title: 'Kalorienzähler & Tagebuch',
-      desc: 'Privat Nährwerte erfassen, Makros tracken und Grundumsatz berechnen.',
+      title: 'common.modules.calories.title',
+      desc: 'common.modules.calories.description',
       order: 3,
     },
   },
   {
     id: 'workouts',
-    title: 'Workouts',
+    title: 'navigation.features.workouts',
     parentModule: 'calories',
     featureFlag: 'workout-log',
   },
   {
     id: 'low-carb',
-    title: 'Low-Carb Tracking',
+    title: 'navigation.features.low-carb',
     parentModule: 'calories',
     featureFlag: 'low-carb-tracking',
   },
@@ -263,17 +302,17 @@ export function getFeatureByFlag(featureFlag: FeatureFlagKey): FeatureDefinition
 
 export const DRAWER_GROUPS_META: readonly {
   key: DrawerGroupKey;
-  title: string;
+  title: NavigationGroupTitleKey;
   hideTitle?: boolean;
 }[] = [
-  { key: 'today', title: 'Heute', hideTitle: true },
-  { key: 'household', title: 'Haushalt & Planung', hideTitle: true },
-  { key: 'private', title: 'Privat', hideTitle: true },
+  { key: 'today', title: 'navigation.groups.today', hideTitle: true },
+  { key: 'household', title: 'navigation.groups.household', hideTitle: true },
+  { key: 'private', title: 'navigation.groups.private', hideTitle: true },
 ];
 
 export type DrawerRouteItem = {
   id: string;
-  label: string;
+  label: NavigationFeatureKey;
   href: string;
   icon: FamIconName | 'calendarDay';
   feature: FeatureDefinition;
@@ -281,7 +320,7 @@ export type DrawerRouteItem = {
 
 export type DrawerGroup = {
   key: DrawerGroupKey;
-  title: string;
+  title: NavigationGroupTitleKey;
   hideTitle?: boolean;
   routes: DrawerRouteItem[];
 };
@@ -313,7 +352,7 @@ export function getDrawerGroups(): DrawerGroup[] {
 
 export type SpeedDialOptionItem = {
   id: string;
-  title: string;
+  title: NavigationSpeedDialKey;
   icon: FamIconName;
   href: string | (() => string);
   backgroundToken: SpeedDialColorKey;
@@ -339,8 +378,8 @@ export function getSpeedDialOptions(): SpeedDialOptionItem[] {
 export type SettingsModuleItem = {
   key: keyof ModulePreferences;
   icon: string;
-  title: string;
-  desc: string;
+  title: ModuleTitleKey;
+  desc: ModuleDescriptionKey;
   featureFlag?: FeatureFlagKey;
   feature: FeatureDefinition;
 };

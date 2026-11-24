@@ -1,5 +1,6 @@
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AppState, Linking, Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, Txt } from '@/constants/ui';
@@ -73,6 +74,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps) {
+  const { t } = useTranslation();
   const { updatePermissionsData } = useOnboarding();
   const [cameraPermission, requestCameraPermission, getCameraPermission] =
     useCameraPermissionsHook();
@@ -188,17 +190,17 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
   return (
     <View style={styles.root}>
       <Txt variant="subheading" weight="700">
-        Erlaubnisse & Funktionen
+        {t('onboarding.permissions.heading')}
       </Txt>
       <Txt variant="body" tone="secondary">
-        Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:
+        {t('onboarding.permissions.description')}
       </Txt>
 
       <View style={styles.list}>
         <Press
           onPress={() => void handleToggleNotifications(!notifications)}
           accessibilityRole="switch"
-          accessibilityLabel="Benachrichtigungen"
+          accessibilityLabel={t('onboarding.permissions.notifications.label')}
           accessibilityState={{ checked: notifications }}
           haptic="selection"
           selected={notifications}
@@ -206,10 +208,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           <View style={styles.row}>
             <View style={styles.text}>
               <Txt variant="body" weight="700" tone="primary">
-                🔔 Benachrichtigungen
+                🔔 {t('onboarding.permissions.notifications.label')}
               </Txt>
               <Txt variant="label" tone="secondary">
-                Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen.
+                {t('onboarding.permissions.notifications.description')}
               </Txt>
             </View>
             <Switch value={notifications} accessible={false} pointerEvents="none" />
@@ -219,7 +221,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
         <Press
           onPress={() => void handleToggleCamera(!camera)}
           accessibilityRole="switch"
-          accessibilityLabel="Kamera-Zugriff"
+          accessibilityLabel={t('onboarding.permissions.camera.label')}
           accessibilityState={{ checked: camera }}
           haptic="selection"
           selected={camera}
@@ -227,10 +229,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           <View style={styles.row}>
             <View style={styles.text}>
               <Txt variant="body" weight="700" tone="primary">
-                📷 Kamera-Zugriff
+                📷 {t('onboarding.permissions.camera.label')}
               </Txt>
               <Txt variant="label" tone="secondary">
-                Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt.
+                {t('onboarding.permissions.camera.description')}
               </Txt>
             </View>
             <Switch value={camera} accessible={false} pointerEvents="none" />
@@ -240,7 +242,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
         <Press
           onPress={() => void handleToggleMicrophone(!microphone)}
           accessibilityRole="switch"
-          accessibilityLabel="Mikrofon-Zugriff"
+          accessibilityLabel={t('onboarding.permissions.microphone.label')}
           accessibilityState={{ checked: microphone }}
           haptic="selection"
           selected={microphone}
@@ -248,10 +250,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           <View style={styles.row}>
             <View style={styles.text}>
               <Txt variant="body" weight="700" tone="primary">
-                🎙️ Mikrofon-Zugriff
+                🎙️ {t('onboarding.permissions.microphone.label')}
               </Txt>
               <Txt variant="label" tone="secondary">
-                Für die Spracheingabe in der Einkaufsliste.
+                {t('onboarding.permissions.microphone.description')}
               </Txt>
             </View>
             <Switch value={microphone} accessible={false} pointerEvents="none" />
@@ -261,7 +263,7 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
         <Press
           onPress={() => void handleToggleLocation(!location)}
           accessibilityRole="switch"
-          accessibilityLabel="Standort-Zugriff"
+          accessibilityLabel={t('onboarding.permissions.location.label')}
           accessibilityState={{ checked: location }}
           haptic="selection"
           selected={location}
@@ -269,10 +271,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
           <View style={styles.row}>
             <View style={styles.text}>
               <Txt variant="body" weight="700" tone="primary">
-                📍 Standort-Zugriff
+                📍 {t('onboarding.permissions.location.label')}
               </Txt>
               <Txt variant="label" tone="secondary">
-                Für Prospekte aus deiner Umgebung.
+                {t('onboarding.permissions.location.description')}
               </Txt>
             </View>
             <Switch value={location} accessible={false} pointerEvents="none" />
@@ -282,10 +284,10 @@ export function PermissionsStepForm({ onNext, onSkip }: PermissionsStepFormProps
 
       <View style={styles.buttonRow}>
         <View style={styles.flex}>
-          <Button title="Weiter" onPress={handleNext} />
+          <Button title={t('onboarding.permissions.next')} onPress={handleNext} />
         </View>
         <View style={styles.flex}>
-          <Button title="Jetzt nicht" variant="secondary" onPress={onSkip} />
+          <Button title={t('onboarding.permissions.skip')} variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

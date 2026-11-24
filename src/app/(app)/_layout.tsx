@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
 });
 
 function AppLayoutContent() {
+  const { t } = useTranslation();
   const { session, seenOnboarding } = useSession();
   const userId = session?.user.id;
   const { decision, retry: retryRouting } = useAppEntryReadiness();
@@ -63,7 +65,7 @@ function AppLayoutContent() {
     return (
       <View
         accessible
-        accessibilityLabel="Start wird vorbereitet"
+        accessibilityLabel={t('common.app.startPreparing')}
         accessibilityRole="progressbar"
         style={styles.loadingScreen}>
         <ActivityIndicator size="large" />

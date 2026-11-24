@@ -1,5 +1,6 @@
 import { type Href, router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FamIcon } from '@/components/icons/fam-icon';
 import { space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -31,6 +32,7 @@ type BackButtonProps = BackTarget & {
 /** Zentraler Zurueckbutton mit optionalem sicheren Ausweichziel. */
 export function BackButton({ label, href, variant = 'text', onPress }: BackButtonProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const handlePress = onPress ?? (() => goBackTo(href));
 
   if (variant === 'arrow' || variant === 'header') {
@@ -38,7 +40,7 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
       <Press
         onPress={handlePress}
         accessibilityRole="button"
-        accessibilityLabel={variant === 'header' ? label : `Zurück zu ${label}`}
+        accessibilityLabel={variant === 'header' ? label : t('common.actions.backTo', { label })}
         style={backButtonStyles.arrow}>
         <FamIcon name="arrow" size={ARROW_BUTTON_SIZE} color={colors.text} />
       </Press>
@@ -49,10 +51,10 @@ export function BackButton({ label, href, variant = 'text', onPress }: BackButto
     <Press
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={`Zurück zu ${label}`}
+      accessibilityLabel={t('common.actions.backTo', { label })}
       style={backButtonStyles.text}>
       <Txt variant="body" tone="primary" weight="700">
-        {`‹ ${label}`}
+        {t('common.actions.backText', { label })}
       </Txt>
     </Press>
   );

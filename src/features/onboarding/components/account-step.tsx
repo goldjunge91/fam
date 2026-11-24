@@ -84,14 +84,14 @@ export function AccountStepForm({ onNext }: AccountStepFormProps) {
             <View style={styles.activeContainer}>
               <Surface tone="surface" style={styles.activeBanner}>
                 <Txt variant="label" tone="accent" weight="700">
-                  ✓ Angemeldet als: {session.user.email}
+                  {t('onboarding.account.activeAs', { email: session.user.email })}
                 </Txt>
                 <Txt variant="label" tone="secondary">
-                  Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.
+                  {t('onboarding.account.activeDescription')}
                 </Txt>
               </Surface>
 
-              <Button title="Weiter" onPress={onNext} />
+              <Button title={t('onboarding.account.continue')} onPress={onNext} />
             </View>
           ) : (
             <>

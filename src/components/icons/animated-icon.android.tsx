@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dimensions, View } from 'react-native';
 import Animated, {
   cancelAnimation,
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
 
 export function AnimatedSplashOverlay() {
   const { isLoading } = useSession();
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(true);
   const startedAt = useRef(Date.now());
   const colorProgress = useSharedValue(0);
@@ -174,7 +176,7 @@ export function AnimatedSplashOverlay() {
   return (
     <Animated.View
       accessible
-      accessibilityLabel="fam wird geladen"
+      accessibilityLabel={t('common.app.splashLoading')}
       accessibilityRole="progressbar"
       style={[styles.overlay, overlayStyle]}>
       <Animated.View style={[styles.splashImageContainer, imageStyle]}>

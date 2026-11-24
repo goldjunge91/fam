@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -10,13 +11,14 @@ type MenuButtonProps = {
 /** Einheitlicher Menuebutton fuer die zentralen App-Bereiche. */
 export function MenuButton({ onPress }: MenuButtonProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <IconButton
       icon="menu"
       onPress={onPress}
       testID="navigation-menu-open"
-      accessibilityLabel="Menü öffnen"
+      accessibilityLabel={t('navigation.actions.openMenu')}
       color={colors.accent}
       bg={colors.backgroundSoft}
       size={54}

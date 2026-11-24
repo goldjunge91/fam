@@ -1,5 +1,6 @@
 import { Picker } from '@expo/ui/community/picker';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -27,6 +28,7 @@ export function WheelPickerField({
   size = 'default',
   accessibilityLabel,
 }: WheelPickerFieldProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [pendingValue, setPendingValue] = useState(value);
 
@@ -60,7 +62,9 @@ export function WheelPickerField({
         accessibilityRole="button"
         accessibilityLabel={
           accessibilityLabel ??
-          (label ? `${label} ${selectedLabel} ändern` : `${selectedLabel} ändern`)
+          (label
+            ? t('common.actions.change', { label, value: selectedLabel })
+            : t('common.actions.changeValue', { value: selectedLabel }))
         }
         containerStyle={styles.pressContainer}
         style={styles.inputField}>
@@ -84,10 +88,15 @@ export function WheelPickerField({
             </Picker>
             <View style={styles.footerRow}>
               <View style={styles.flex}>
-                <Button title="Abbrechen" variant="secondary" haptic="light" onPress={cancel} />
+                <Button
+                  title={t('common.actions.cancel')}
+                  variant="secondary"
+                  haptic="light"
+                  onPress={cancel}
+                />
               </View>
               <View style={styles.flex}>
-                <Button title="Übernehmen" haptic="medium" onPress={confirm} />
+                <Button title={t('common.actions.apply')} haptic="medium" onPress={confirm} />
               </View>
             </View>
           </View>

@@ -20,8 +20,14 @@ describe('feature registry SpeedDial configuration', () => {
   });
 
   it('looks up features by id and remote flag', () => {
-    expect(getFeature('recipes')).toMatchObject({ id: 'recipes', title: 'Rezepte' });
-    expect(getFeature('assistant')).toMatchObject({ id: 'assistant', title: 'Assistant' });
+    expect(getFeature('recipes')).toMatchObject({
+      id: 'recipes',
+      title: 'navigation.features.recipes',
+    });
+    expect(getFeature('assistant')).toMatchObject({
+      id: 'assistant',
+      title: 'navigation.features.assistant',
+    });
     expect(getFeature('unknown')).toBeUndefined();
     expect(getFeatureByFlag('module-recipes')).toMatchObject({ id: 'recipes' });
   });
@@ -49,16 +55,20 @@ describe('feature registry SpeedDial configuration', () => {
     const originalLength = features.length;
     features.push({
       id: 'coverage-fallbacks',
-      title: 'Fallbacks',
+      title: 'navigation.features.overview',
       moduleKey: 'fridge',
       drawer: { group: 'today', href: '/fallbacks', icon: 'overview' },
       speedDial: {
-        title: 'Fallback',
+        title: 'navigation.speedDial.assistant',
         icon: 'overview',
         href: '/fallbacks',
         backgroundToken: 'speedDialPantry',
       },
-      settings: { iconEmoji: '🧪', title: 'Fallback', desc: 'Fallback order' },
+      settings: {
+        iconEmoji: '🧪',
+        title: 'common.modules.fridge.title',
+        desc: 'common.modules.fridge.description',
+      },
     });
 
     try {

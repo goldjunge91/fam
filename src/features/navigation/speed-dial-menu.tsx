@@ -1,6 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { router, usePathname } from 'expo-router';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BackHandler, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -70,6 +71,7 @@ export function SpeedDialMenu() {
 }
 
 function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
+  const { t } = useTranslation();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const { closeQuickAdd } = useNavigationChrome();
@@ -121,7 +123,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
         style={styles.backdrop}
         onPress={closeQuickAdd}
         accessibilityRole="button"
-        accessibilityLabel="Schließen"
+        accessibilityLabel={t('common.actions.close')}
       />
       <View
         pointerEvents="box-none"
@@ -143,7 +145,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
               openShoppingListVoice();
             }}
             accessibilityRole="button"
-            accessibilityLabel="Spracheingabe"
+            accessibilityLabel={t('navigation.actions.voiceInput')}
             style={[styles.row, isRight && styles.rowReverse]}>
             <View
               style={[
@@ -161,7 +163,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 { backgroundColor: colors.backgroundElement, borderColor: colors.border },
               ]}>
               <Txt variant="body" weight="700">
-                Spracheingabe
+                {t('navigation.actions.voiceInput')}
               </Txt>
             </View>
           </Press>
@@ -189,7 +191,7 @@ function SpeedDialMenuContent({ isOpen }: { isOpen: boolean }) {
                 { backgroundColor: colors.backgroundElement, borderColor: colors.border },
               ]}>
               <Txt variant="body" weight="700">
-                {option.title}
+                {t(option.title)}
               </Txt>
             </View>
           </Press>

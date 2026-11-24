@@ -1,6 +1,7 @@
 import Constants from 'expo-constants';
 import * as Updates from 'expo-updates';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import Animated, {
   cancelAnimation,
@@ -20,6 +21,7 @@ import { Button, Txt } from '@/constants/ui';
 
 /** Shows opted-in OTA progress or a development-only preview triggered by app config. */
 export function UpdateExperience() {
+  const { t } = useTranslation();
   const {
     availableUpdate,
     downloadedUpdate,
@@ -93,22 +95,22 @@ export function UpdateExperience() {
 
   const hasError = Boolean(downloadError) || restartFailed;
   const heading = hasError
-    ? 'Das Update wartet noch.'
+    ? t('common.update.errorHeading')
     : isReady
-      ? 'Fam ist bereit.'
-      : 'Fam wird gerade aktualisiert.';
+      ? t('common.update.readyHeading')
+      : t('common.update.downloadingHeading');
   const message = hasError
-    ? 'Der Download oder Neustart konnte nicht abgeschlossen werden. Du kannst Fam weiter nutzen und es später erneut versuchen.'
+    ? t('common.update.errorMessage')
     : isReady
-      ? 'Starte Fam neu, um die Verbesserungen zu übernehmen. Deine Listen bleiben erhalten.'
-      : 'Das Update wird im Hintergrund geladen. Du kannst die Ansicht schließen und in Fam weiterarbeiten.';
+      ? t('common.update.readyMessage')
+      : t('common.update.downloadingMessage');
   const progressLabel = hasError
-    ? 'Update angehalten'
+    ? t('common.update.errorProgress')
     : isReady
-      ? 'Bereit zum Neustart'
+      ? t('common.update.readyProgress')
       : shownProgress === null
-        ? 'Verbesserungen werden geladen'
-        : `Verbesserungen werden geladen · ${shownProgress} %`;
+        ? t('common.update.loadingProgress')
+        : t('common.update.loadingProgressWithPercent', { percent: shownProgress });
 
   async function handleRestart() {
     setRestartFailed(false);
@@ -132,7 +134,7 @@ export function UpdateExperience() {
       <SafeAreaView edges={['top', 'bottom']} style={styles.safeArea}>
         <Animated.View style={styles.content}>
           <Txt center variant="brand" style={styles.brand}>
-            fam
+            {t('common.app.name')}
           </Txt>
 
           <Animated.View
@@ -146,7 +148,7 @@ export function UpdateExperience() {
               <ProgressRing
                 animated={shownProgress !== null && !reducedMotion}
                 displayMode="none"
-                label="OTA-Update"
+                label={t('common.update.ringLabel')}
                 size={192}
                 strokeWidth={9}
                 target={shownProgress === null ? 0 : 100}
@@ -159,7 +161,11 @@ export function UpdateExperience() {
             </View>
 
             <Txt center tone="accent" variant="eyebrow">
-              {hasError ? 'UPDATE ANGEHALTEN' : isReady ? 'UPDATE BEREIT' : 'EIN MOMENT NOCH'}
+              {hasError
+                ? t('common.update.errorEyebrow')
+                : isReady
+                  ? t('common.update.readyEyebrow')
+                  : t('common.update.downloadingEyebrow')}
             </Txt>
             <Txt center variant="title" style={styles.heading}>
               {heading}
@@ -182,8 +188,8 @@ export function UpdateExperience() {
             <Button
               accessibilityLabel={
                 isReady
-                  ? 'Fam jetzt mit dem Update neu starten'
-                  : 'Update weiterladen und Fam öffnen'
+                  ? t('common.update.restartAccessibility')
+                  : t('common.update.continueAccessibility')
               }
               full
               loading={isReady && isRestarting}
@@ -192,14 +198,20 @@ export function UpdateExperience() {
               title={
                 isReady
                   ? restartFailed
-                    ? 'Erneut versuchen'
-                    : 'Jetzt neu starten'
-                  : 'Weiter in Fam'
+                    ? t('common.update.retry')
+                    : t('common.update.restart')
+                  : t('common.update.continue')
               }
               variant={isReady ? 'primary' : 'secondary'}
             />
             {isReady ? (
-              <Button full onPress={dismiss} size="md" title="Später" variant="link" />
+              <Button
+                full
+                onPress={dismiss}
+                size="md"
+                title={t('common.update.later')}
+                variant="link"
+              />
             ) : null}
           </View>
         </Animated.View>

@@ -73,9 +73,17 @@ jest.mock('@/features/premium/premium-provider', () => ({
 }));
 
 jest.mock('@/features/settings/dev/dev-info', () => ({
-  classifySupabaseTarget: () => ({ kind: 'lokal', label: 'Lokal', tone: 'accent' }),
+  classifySupabaseTarget: () => ({
+    kind: 'lokal',
+    labelKey: 'dev.info.supabaseLocal',
+    tone: 'accent',
+  }),
   formatTokenExpiry: (expiresAt: number | undefined) =>
-    expiresAt === undefined ? 'unbekannt' : expiresAt <= 1 ? 'abgelaufen' : 'noch 1 min',
+    expiresAt === undefined
+      ? { key: 'dev.info.tokenUnknown' }
+      : expiresAt <= 1
+        ? { key: 'dev.info.tokenExpired' }
+        : { key: 'dev.info.tokenMinutes', minutes: 1 },
   maskSecret: (value: string) => (value.length > 8 ? `${value.slice(0, 8)}…` : '…'),
 }));
 

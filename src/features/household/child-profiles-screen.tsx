@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -76,6 +77,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function ChildProfilesScreen() {
+  const { i18n, t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const { activeHousehold } = useActiveHousehold();
@@ -118,7 +120,10 @@ export function ChildProfilesScreen() {
       setHeightCm('');
       setShowAddForm(false);
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Erstellen');
+      Alert.alert(
+        t('common.errors.generic'),
+        err instanceof Error ? err.message : t('household.children.errorCreate'),
+      );
     }
   }
 
@@ -145,24 +150,30 @@ export function ChildProfilesScreen() {
       });
       setEditingId(null);
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern');
+      Alert.alert(
+        t('common.errors.generic'),
+        err instanceof Error ? err.message : t('household.children.errorSave'),
+      );
     }
   }
 
   async function handleDelete(id: string, childName: string) {
     Alert.alert(
-      'Profil löschen',
-      `Möchtest du das Kinder-Profil "${childName}" wirklich entfernen?`,
+      t('household.children.deleteTitle'),
+      t('household.children.deleteConfirm', { name: childName }),
       [
-        { text: 'Abbrechen', style: 'cancel' },
+        { text: t('household.children.cancel'), style: 'cancel' },
         {
-          text: 'Löschen',
+          text: t('household.children.delete'),
           style: 'destructive',
           onPress: async () => {
             try {
               await deleteMutation.mutateAsync({ id, householdId });
             } catch (err) {
-              Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
+              Alert.alert(
+                t('common.errors.generic'),
+                err instanceof Error ? err.message : t('household.children.errorDelete'),
+              );
             }
           },
         },
@@ -172,37 +183,37 @@ export function ChildProfilesScreen() {
 
   return (
     <Screen
-      title="Kinder-Profile"
+      title={t('household.children.title')}
       subtitle={currentHousehold?.name}
-      back={{ label: 'Mitglieder', href: '/household/members' }}>
+      back={{ label: t('household.children.back'), href: '/household/members' }}>
       {/* Formular zum Anlegen eines neuen Kinder-Profils (ausklappbar) */}
       {showAddForm ? (
-        <ContentCard title="Kinder-Profil hinzufügen">
+        <ContentCard title={t('household.children.addTitle')}>
           <View style={styles.form}>
             <TextField
-              label="Name des Kindes"
-              placeholder="z. B. Paul"
+              label={t('household.children.nameLabel')}
+              placeholder={t('household.children.namePlaceholder')}
               value={name}
               onChangeText={setName}
             />
             <DatePicker
-              label="Geburtsdatum (optional)"
+              label={t('household.children.birthDateOptional')}
               value={birthDate}
               onChangeText={setBirthDate}
             />
 
             <Txt variant="body" weight="700" style={styles.sectionLabel}>
-              Geschlecht (optional)
+              {t('household.children.sexOptional')}
             </Txt>
             <View
               style={styles.sexRow}
               accessibilityRole="radiogroup"
-              accessibilityLabel="Geschlecht (optional)">
+              accessibilityLabel={t('household.children.sexOptional')}>
               <Press
                 onPress={() => setSex(sex === 'male' ? null : 'male')}
                 containerStyle={styles.flex}
                 accessibilityRole="radio"
-                accessibilityLabel="Männlich"
+                accessibilityLabel={t('household.children.male')}
                 accessibilityState={{ selected: sex === 'male' }}
                 haptic="selection"
                 style={[
@@ -210,14 +221,14 @@ export function ChildProfilesScreen() {
                   sex === 'male' ? styles.sexButtonSelected : styles.sexButtonIdle,
                 ]}>
                 <Txt variant="body" tone={sex === 'male' ? 'onAccent' : 'primary'}>
-                  👦 Männlich
+                  👦 {t('household.children.male')}
                 </Txt>
               </Press>
               <Press
                 onPress={() => setSex(sex === 'female' ? null : 'female')}
                 containerStyle={styles.flex}
                 accessibilityRole="radio"
-                accessibilityLabel="Weiblich"
+                accessibilityLabel={t('household.children.female')}
                 accessibilityState={{ selected: sex === 'female' }}
                 haptic="selection"
                 style={[
@@ -225,14 +236,14 @@ export function ChildProfilesScreen() {
                   sex === 'female' ? styles.sexButtonSelected : styles.sexButtonIdle,
                 ]}>
                 <Txt variant="body" tone={sex === 'female' ? 'onAccent' : 'primary'}>
-                  👧 Weiblich
+                  👧 {t('household.children.female')}
                 </Txt>
               </Press>
             </View>
 
             <TextField
-              label="Körpergröße in cm (optional)"
-              placeholder="z. B. 104"
+              label={t('household.children.heightOptional')}
+              placeholder={t('household.children.heightPlaceholder')}
               value={heightCm}
               onChangeText={setHeightCm}
               keyboardType="numeric"
@@ -241,7 +252,7 @@ export function ChildProfilesScreen() {
             <View style={styles.actionRow}>
               <View style={styles.flex}>
                 <Button
-                  title="Speichern"
+                  title={t('household.children.save')}
                   onPress={handleAdd}
                   loading={addMutation.isPending}
                   disabled={!name.trim()}
@@ -249,7 +260,7 @@ export function ChildProfilesScreen() {
               </View>
               <View style={styles.flex}>
                 <Button
-                  title="Abbrechen"
+                  title={t('household.children.cancel')}
                   variant="secondary"
                   onPress={() => setShowAddForm(false)}
                 />
@@ -260,17 +271,17 @@ export function ChildProfilesScreen() {
       ) : (
         /* Button zum Öffnen des Anlege-Formulars */
         <View style={styles.addButtonContainer}>
-          <Button title="+ Kinder-Profil anlegen" onPress={() => setShowAddForm(true)} />
+          <Button title={t('household.children.addButton')} onPress={() => setShowAddForm(true)} />
         </View>
       )}
 
       {/* Liste aller erfassten Kinder-Profile mit Bearbeiten & Löschen */}
-      <ContentCard title="Erfasste Kinder-Profile">
+      <ContentCard title={t('household.children.listTitle')}>
         {isLoading ? (
-          <Txt variant="body">Lädt Kinder-Profile...</Txt>
+          <Txt variant="body">{t('household.children.loading')}</Txt>
         ) : children.length === 0 ? (
           <Txt variant="body" tone="secondary">
-            Noch keine Kinder-Profile in diesem Haushalt hinterlegt.
+            {t('household.children.empty')}
           </Txt>
         ) : (
           /* Kein FlashList: die Karte steckt im scrollenden Screen, eine
@@ -282,25 +293,29 @@ export function ChildProfilesScreen() {
               return (
                 /* Inline-Bearbeitungsformular für ein Kind */
                 <View key={item.id} style={styles.childEditCard}>
-                  <TextField label="Name des Kindes" value={editName} onChangeText={setEditName} />
+                  <TextField
+                    label={t('household.children.nameLabel')}
+                    value={editName}
+                    onChangeText={setEditName}
+                  />
                   <DatePicker
-                    label="Geburtsdatum"
+                    label={t('household.children.birthDate')}
                     value={editBirthDate}
                     onChangeText={setEditBirthDate}
                   />
 
                   <Txt variant="body" weight="700" style={styles.sectionLabel}>
-                    Geschlecht
+                    {t('household.children.sex')}
                   </Txt>
                   <View
                     style={styles.sexRow}
                     accessibilityRole="radiogroup"
-                    accessibilityLabel="Geschlecht">
+                    accessibilityLabel={t('household.children.sex')}>
                     <Press
                       onPress={() => setEditSex(editSex === 'male' ? null : 'male')}
                       containerStyle={styles.flex}
                       accessibilityRole="radio"
-                      accessibilityLabel="Männlich"
+                      accessibilityLabel={t('household.children.male')}
                       accessibilityState={{ selected: editSex === 'male' }}
                       haptic="selection"
                       style={[
@@ -308,14 +323,14 @@ export function ChildProfilesScreen() {
                         editSex === 'male' ? styles.sexButtonSelected : styles.sexButtonIdle,
                       ]}>
                       <Txt variant="body" tone={editSex === 'male' ? 'onAccent' : 'primary'}>
-                        👦 Männlich
+                        👦 {t('household.children.male')}
                       </Txt>
                     </Press>
                     <Press
                       onPress={() => setEditSex(editSex === 'female' ? null : 'female')}
                       containerStyle={styles.flex}
                       accessibilityRole="radio"
-                      accessibilityLabel="Weiblich"
+                      accessibilityLabel={t('household.children.female')}
                       accessibilityState={{ selected: editSex === 'female' }}
                       haptic="selection"
                       style={[
@@ -323,13 +338,13 @@ export function ChildProfilesScreen() {
                         editSex === 'female' ? styles.sexButtonSelected : styles.sexButtonIdle,
                       ]}>
                       <Txt variant="body" tone={editSex === 'female' ? 'onAccent' : 'primary'}>
-                        👧 Weiblich
+                        👧 {t('household.children.female')}
                       </Txt>
                     </Press>
                   </View>
 
                   <TextField
-                    label="Körpergröße in cm"
+                    label={t('household.children.height')}
                     value={editHeightCm}
                     onChangeText={setEditHeightCm}
                     keyboardType="numeric"
@@ -338,7 +353,7 @@ export function ChildProfilesScreen() {
                   <View style={styles.actionRow}>
                     <View style={styles.flex}>
                       <Button
-                        title="Übernehmen"
+                        title={t('household.children.apply')}
                         onPress={() => handleUpdate(item.id)}
                         loading={updateMutation.isPending}
                         disabled={!editName.trim()}
@@ -346,7 +361,7 @@ export function ChildProfilesScreen() {
                     </View>
                     <View style={styles.flex}>
                       <Button
-                        title="Abbrechen"
+                        title={t('household.children.cancel')}
                         variant="secondary"
                         onPress={() => setEditingId(null)}
                       />
@@ -367,20 +382,30 @@ export function ChildProfilesScreen() {
                   <Txt variant="body" tone="secondary">
                     {[
                       item.birth_date
-                        ? `Geboren: ${new Date(item.birth_date).toLocaleDateString('de-DE')}`
+                        ? t('household.children.born', {
+                            date: new Date(item.birth_date).toLocaleDateString(i18n.language),
+                          })
                         : null,
                       item.height_cm ? `${item.height_cm} cm` : null,
-                      item.sex === 'male' ? 'männlich' : item.sex === 'female' ? 'weiblich' : null,
+                      item.sex === 'male'
+                        ? t('household.children.maleShort')
+                        : item.sex === 'female'
+                          ? t('household.children.femaleShort')
+                          : null,
                     ]
                       .filter(Boolean)
-                      .join(' · ') || 'Keine Zusatzdaten'}
+                      .join(' · ') || t('household.children.none')}
                   </Txt>
                 </View>
 
                 <View style={styles.childActionButtons}>
-                  <Button title="Bearbeiten" variant="secondary" onPress={() => startEdit(item)} />
                   <Button
-                    title="Löschen"
+                    title={t('household.children.edit')}
+                    variant="secondary"
+                    onPress={() => startEdit(item)}
+                  />
+                  <Button
+                    title={t('household.children.delete')}
                     variant="danger"
                     onPress={() => handleDelete(item.id, item.display_name)}
                   />

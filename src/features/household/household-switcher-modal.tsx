@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -64,6 +65,7 @@ export function HouseholdSwitcherModal({
   onSelectHousehold,
   onClose,
 }: HouseholdSwitcherModalProps) {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const { activeHouseholdId, households, setActiveHouseholdId } = useActiveHousehold();
 
@@ -84,19 +86,19 @@ export function HouseholdSwitcherModal({
         <View style={styles.sheet}>
           <View style={styles.header}>
             <Txt variant="title" weight="600">
-              Haushalt wechseln
+              {t('household.switcher.title')}
             </Txt>
             <CloseButton
               onPress={onClose}
               hitSlop={10}
-              accessibilityLabel="Haushalt wechseln schließen"
+              accessibilityLabel={t('household.switcher.close')}
             />
           </View>
 
           <View
             style={styles.householdList}
             accessibilityRole="radiogroup"
-            accessibilityLabel="Haushalte">
+            accessibilityLabel={t('household.switcher.list')}>
             {households.map((hh) => {
               const isSelected = hh.id === currentSelectedId;
               return (
@@ -115,7 +117,7 @@ export function HouseholdSwitcherModal({
                   </View>
                   {isSelected && (
                     <Txt variant="body" tone="success" weight="700">
-                      ✓ Aktiv
+                      ✓ {t('household.switcher.active')}
                     </Txt>
                   )}
                 </Press>
@@ -125,14 +127,14 @@ export function HouseholdSwitcherModal({
 
           <View style={styles.actions}>
             <Button
-              title="+ Neuen Haushalt erstellen"
+              title={t('household.switcher.create')}
               onPress={() => {
                 onClose();
                 router.push('/household/create');
               }}
             />
             <Button
-              title="Haushalt beitreten (Code/Link)"
+              title={t('household.switcher.join')}
               variant="secondary"
               onPress={() => {
                 onClose();

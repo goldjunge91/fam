@@ -1,5 +1,6 @@
 import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Modal, ScrollView, Share, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 import { StyleSheet } from 'react-native-unistyles';
@@ -99,6 +100,7 @@ interface InviteModalProps {
 }
 
 export function InviteModal({ visible, householdId, householdName, onClose }: InviteModalProps) {
+  const { i18n, t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id ?? '';
 
@@ -125,8 +127,8 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
       setShowQrCode(true);
     } catch (err) {
       Alert.alert(
-        'Fehler',
-        err instanceof Error ? err.message : 'Einladung konnte nicht erstellt werden.',
+        t('common.errors.generic'),
+        err instanceof Error ? err.message : t('household.invite.errorCreate'),
       );
     }
   }
@@ -156,7 +158,11 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
     const inviteUrl = formatInviteUrl(token);
     try {
       await Share.share({
-        message: `Tritt unserem Haushalt "${householdName}" in Fam bei!\n\nEinladungs-Code: ${code}\nLink: ${inviteUrl}`,
+        message: t('household.invite.shareMessage', {
+          household: householdName,
+          code,
+          url: inviteUrl,
+        }),
       });
     } catch (err) {
       debugError(err);
@@ -164,10 +170,10 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
   }
 
   async function handleRevoke(inviteId: string) {
-    Alert.alert('Einladung zurückziehen', 'Möchtest du dieses Einladungstoken ungültig machen?', [
-      { text: 'Abbrechen', style: 'cancel' },
+    Alert.alert(t('household.invite.revokeTitle'), t('household.invite.revokeConfirm'), [
+      { text: t('household.children.cancel'), style: 'cancel' },
       {
-        text: 'Zurückziehen',
+        text: t('household.invite.revoke'),
         style: 'destructive',
         onPress: async () => {
           try {
@@ -179,7 +185,10 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               setSelectedInvite(null);
             }
           } catch (err) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Zurückziehen');
+            Alert.alert(
+              t('common.errors.generic'),
+              err instanceof Error ? err.message : t('household.invite.errorRevoke'),
+            );
           }
         },
       },
@@ -193,22 +202,21 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
           <ScrollView contentContainerStyle={styles.content}>
             <View style={styles.header}>
               <Txt variant="title" weight="600">
-                Mitglied einladen
+                {t('household.invite.title')}
               </Txt>
               <CloseButton
                 onPress={onClose}
                 hitSlop={10}
-                accessibilityLabel="Mitglied einladen schließen"
+                accessibilityLabel={t('household.invite.close')}
               />
             </View>
 
             <Txt variant="body" tone="secondary" weight="500">
-              Erstelle einen Einladungs-Link oder Code, um Familienmitglieder oder Mitbewohner zu
-              &quot;{householdName}&quot; einzuladen.
+              {t('household.invite.description', { household: householdName })}
             </Txt>
 
             {selectedInvite ? (
-              <ContentCard title="Einladungs-Code & QR-Code">
+              <ContentCard title={t('household.invite.qrTitle')}>
                 <View style={styles.tokenContent}>
                   <Txt variant="body" tone="accent" center style={styles.inviteToken}>
                     {selectedInvite.code}
@@ -223,30 +231,38 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                   <View style={styles.actionRow}>
                     <View style={styles.flex}>
                       <Button
-                        title={copyFeedback === 'code' ? '✓ Code kopiert!' : 'Code kopieren'}
+                        title={
+                          copyFeedback === 'code'
+                            ? t('household.invite.codeCopied')
+                            : t('household.invite.copyCode')
+                        }
                         onPress={() => handleCopyCode(selectedInvite.code)}
                       />
                     </View>
                     <View style={styles.flex}>
                       <Button
-                        title={copyFeedback === 'link' ? '✓ Link kopiert!' : 'Link kopieren'}
+                        title={
+                          copyFeedback === 'link'
+                            ? t('household.invite.linkCopied')
+                            : t('household.invite.copyLink')
+                        }
                         onPress={() => handleCopyLink(selectedInvite.token)}
                       />
                     </View>
                   </View>
 
                   <Button
-                    title={showQrCode ? 'QR-Code ausblenden' : 'QR-Code anzeigen'}
+                    title={showQrCode ? t('household.invite.hideQr') : t('household.invite.showQr')}
                     variant="secondary"
                     onPress={() => setShowQrCode(!showQrCode)}
                   />
                   <Button
-                    title="Code / Link teilen"
+                    title={t('household.invite.share')}
                     variant="secondary"
                     onPress={() => handleShare(selectedInvite.code, selectedInvite.token)}
                   />
                   <Button
-                    title="+ Neuer Einladungs-Code"
+                    title={t('household.invite.newCode')}
                     variant="secondary"
                     onPress={handleCreate}
                     loading={createMutation.isPending}
@@ -255,18 +271,18 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
               </ContentCard>
             ) : (
               <Button
-                title="+ Einladungs-Link erstellen"
+                title={t('household.invite.createLink')}
                 onPress={handleCreate}
                 loading={createMutation.isPending}
               />
             )}
 
             <Txt variant="body" weight="700" style={styles.activeHeading}>
-              Aktive Einladungen
+              {t('household.invite.active')}
             </Txt>
             {invites.length === 0 ? (
               <Txt variant="body" tone="secondary" weight="500">
-                Keine aktiven Einladungen vorhanden.
+                {t('household.invite.none')}
               </Txt>
             ) : (
               invites.map((inv) => {
@@ -284,14 +300,17 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                         setShowQrCode(true);
                       }}
                       accessibilityRole="button"
-                      accessibilityLabel={`Einladung ${inv.code} auswählen`}
+                      accessibilityLabel={t('household.invite.select', { code: inv.code })}
                       accessibilityState={{ selected: isSelected }}>
                       <Txt variant="body" weight="700" numberOfLines={1}>
                         {inv.code}
                       </Txt>
                       <Txt variant="body" tone="secondary" weight="500">
-                        Gültig bis {new Date(inv.expires_at).toLocaleDateString('de-DE')} ·{' '}
-                        {inv.uses}/{inv.max_uses} genutzt
+                        {t('household.invite.validUntil', {
+                          date: new Date(inv.expires_at).toLocaleDateString(i18n.language),
+                          uses: inv.uses,
+                          maxUses: inv.max_uses,
+                        })}
                       </Txt>
                     </Press>
                     <View style={styles.inviteRowButtons}>
@@ -303,21 +322,21 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
                           setSelectedInvite({ token: inv.token, code: inv.code });
                           setShowQrCode(true);
                         }}
-                        accessibilityLabel="QR-Code anzeigen"
+                        accessibilityLabel={t('household.invite.showQr')}
                       />
                       <IconButton
                         icon="share-2"
                         iconSize={20}
                         size={44}
                         onPress={() => handleShare(inv.code, inv.token)}
-                        accessibilityLabel="Teilen"
+                        accessibilityLabel={t('common.actions.share')}
                       />
                       <IconButton
                         icon="trash-2"
                         iconSize={20}
                         size={44}
                         onPress={() => handleRevoke(inv.id)}
-                        accessibilityLabel="Zurückziehen"
+                        accessibilityLabel={t('household.invite.revoke')}
                       />
                     </View>
                   </View>
@@ -326,7 +345,7 @@ export function InviteModal({ visible, householdId, householdName, onClose }: In
             )}
           </ScrollView>
 
-          <Button title="Schließen" variant="secondary" onPress={onClose} />
+          <Button title={t('household.invite.closeModal')} variant="secondary" onPress={onClose} />
         </View>
       </View>
     </Modal>

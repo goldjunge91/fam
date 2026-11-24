@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -16,6 +17,7 @@ type ModuleGateProps = {
 };
 
 export function ModuleGate({ feature, title: customTitle, children }: ModuleGateProps) {
+  const { t } = useTranslation();
   const featureDef = getFeature(feature);
   const { modules, getFeatureFlagState, getModuleFeatureFlagOverride } = useFeatureAccess();
 
@@ -28,7 +30,7 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
     return null;
   }
 
-  const title = customTitle ?? featureDef.title;
+  const title = customTitle ?? t(featureDef.title);
   const targetModule = featureDef.moduleKey ?? featureDef.parentModule;
   const featureFlagState = getFeatureFlagState(featureDef.featureFlag);
   const moduleFeatureFlagOverride = targetModule
@@ -41,11 +43,11 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
         <ContentCard>
           <EmptyState
             symbol="eye.slash"
-            title="Modul nicht aktiviert"
-            hint="Du hast dieses Modul in den Einstellungen ausgeblendet. Deine Daten bleiben erhalten."
+            title={t('common.moduleGate.disabledTitle')}
+            hint={t('common.moduleGate.disabledHint')}
           />
           <Button
-            title="In den Einstellungen aktivieren"
+            title={t('common.moduleGate.enableButton')}
             onPress={() => router.push('/settings/modules')}
           />
         </ContentCard>
@@ -59,8 +61,8 @@ export function ModuleGate({ feature, title: customTitle, children }: ModuleGate
         <ContentCard>
           <EmptyState
             symbol="hourglass"
-            title="Noch nicht verfügbar"
-            hint="Dieser Bereich wird gerade schrittweise ausgerollt und ist für dich noch nicht freigeschaltet."
+            title={t('common.moduleGate.unavailableTitle')}
+            hint={t('common.moduleGate.unavailableHint')}
           />
         </ContentCard>
       </Screen>

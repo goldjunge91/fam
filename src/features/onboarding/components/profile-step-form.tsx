@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, TextField, Txt } from '@/constants/ui';
@@ -15,25 +16,25 @@ import {
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 import { formatGermanDateInput, isoDateToGerman } from '../onboarding-helpers';
 import { useOnboarding } from '../onboarding-store';
-import type { ActivityLevel, SexOption, WeightGoal } from '../types';
+import type { ActivityLevel, SexOption } from '../types';
 
-const SEX_OPTIONS: { value: SexOption; label: string }[] = [
-  { value: 'male', label: 'Männlich' },
-  { value: 'female', label: 'Weiblich' },
-];
+const SEX_OPTIONS = [
+  { value: 'male', labelKey: 'onboarding.profile.sex.male' },
+  { value: 'female', labelKey: 'onboarding.profile.sex.female' },
+] as const;
 
-const ACTIVITY_OPTIONS: { value: ActivityLevel; label: string }[] = [
-  { value: 'sedentary', label: 'Sitzend / Kaum Bewegung' },
-  { value: 'light', label: 'Leicht aktiv (1–3 Tage Sport)' },
-  { value: 'moderate', label: 'Mäßig aktiv (3–5 Tage Sport)' },
-  { value: 'active', label: 'Sehr aktiv (Täglicher Sport)' },
-];
+const ACTIVITY_OPTIONS = [
+  { value: 'sedentary', labelKey: 'onboarding.profile.activity.sedentary' },
+  { value: 'light', labelKey: 'onboarding.profile.activity.light' },
+  { value: 'moderate', labelKey: 'onboarding.profile.activity.moderate' },
+  { value: 'active', labelKey: 'onboarding.profile.activity.active' },
+] as const;
 
-const GOAL_OPTIONS: { value: WeightGoal; label: string }[] = [
-  { value: 'lose', label: 'Gewicht reduzieren' },
-  { value: 'maintain', label: 'Gewicht halten' },
-  { value: 'gain', label: 'Gewicht / Muskeln aufbauen' },
-];
+const GOAL_OPTIONS = [
+  { value: 'lose', labelKey: 'onboarding.profile.goals.lose' },
+  { value: 'maintain', labelKey: 'onboarding.profile.goals.maintain' },
+  { value: 'gain', labelKey: 'onboarding.profile.goals.gain' },
+] as const;
 
 interface ProfileStepFormProps {
   onNext: () => void;
@@ -89,6 +90,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
+  const { t } = useTranslation();
   const { state, updateProfileData } = useOnboarding();
   const { session } = useSession();
   const { data: userProfile } = useProfile(session?.user.id);
@@ -147,73 +149,73 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
   return (
     <View style={styles.root}>
       <Txt variant="subheading" weight="700">
-        Dein Profil
+        {t('onboarding.profile.heading')}
       </Txt>
       <Txt variant="body" tone="secondary">
         {caloriesTrackingEnabled
-          ? 'Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.'
-          : 'Dein Anzeigename hilft dir, dich in der App wiederzuerkennen.'}
+          ? t('onboarding.profile.descriptionCalories')
+          : t('onboarding.profile.descriptionName')}
       </Txt>
 
       <View style={styles.formSection}>
         <TextField
-          label="Rufname / Anzeigename"
+          label={t('onboarding.profile.displayNameLabel')}
           value={displayName}
           onChangeText={(value) => setValue('displayName', value, { shouldValidate: true })}
-          placeholder="Wie möchtest du genannt werden?"
+          placeholder={t('onboarding.profile.displayNamePlaceholder')}
         />
 
         {caloriesTrackingEnabled ? (
           <>
             <Txt variant="body" weight="700" style={styles.sectionLabel}>
-              Körper &amp; Aktivität
+              {t('onboarding.profile.bodyActivity')}
             </Txt>
 
             <TextField
-              label="Geburtsdatum (TT.MM.JJJJ)"
+              label={t('onboarding.profile.birthDateLabel')}
               value={birthDate}
               onChangeText={(text) =>
                 setValue('birthDate', formatGermanDateInput(text), { shouldValidate: true })
               }
-              placeholder="15.05.1990"
+              placeholder={t('onboarding.profile.birthDatePlaceholder')}
               inputMode="numeric"
               keyboardType="number-pad"
               maxLength={10}
-              error={errors.birthDate?.message}
+              error={errors.birthDate ? t('onboarding.profile.errors.birthDate') : undefined}
             />
 
             <View style={styles.inputRow}>
               <View style={styles.flex}>
                 <TextField
-                  label="Größe (cm)"
+                  label={t('onboarding.profile.heightLabel')}
                   value={heightCm}
                   onChangeText={(value) => setValue('heightCm', value, { shouldValidate: true })}
-                  placeholder="178"
+                  placeholder={t('onboarding.profile.heightPlaceholder')}
                   inputMode="numeric"
                   keyboardType="number-pad"
-                  error={errors.heightCm?.message}
+                  error={errors.heightCm ? t('onboarding.profile.errors.height') : undefined}
                 />
               </View>
               <View style={styles.flex}>
                 <TextField
-                  label="Gewicht (kg)"
+                  label={t('onboarding.profile.weightLabel')}
                   value={weightKg}
                   onChangeText={(value) => setValue('weightKg', value, { shouldValidate: true })}
-                  placeholder="75"
+                  placeholder={t('onboarding.profile.weightPlaceholder')}
                   inputMode="numeric"
                   keyboardType="number-pad"
-                  error={errors.weightKg?.message}
+                  error={errors.weightKg ? t('onboarding.profile.errors.weight') : undefined}
                 />
               </View>
             </View>
 
             <Txt variant="body" weight="600" style={styles.sectionLabel}>
-              Berechnungsbasis (Geschlecht)
+              {t('onboarding.profile.calculationBasis')}
             </Txt>
             <View
               style={styles.sexRow}
               accessibilityRole="radiogroup"
-              accessibilityLabel="Geschlecht">
+              accessibilityLabel={t('onboarding.profile.sexGroup')}>
               {SEX_OPTIONS.map((opt) => {
                 const selected = sex === opt.value;
                 return (
@@ -221,14 +223,14 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     key={opt.value}
                     onPress={() => setValue('sex', selected ? undefined : opt.value)}
                     accessibilityRole="radio"
-                    accessibilityLabel={opt.label}
+                    accessibilityLabel={t(opt.labelKey)}
                     accessibilityState={{ selected }}
                     haptic="selection"
                     containerStyle={styles.flex}
                     selected={selected}
                     style={styles.sexButton}>
                     <Txt variant="body" tone="primary" weight="600">
-                      {opt.label}
+                      {t(opt.labelKey)}
                     </Txt>
                   </Press>
                 );
@@ -236,12 +238,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
             </View>
 
             <Txt variant="body" weight="600" style={styles.sectionLabel}>
-              Ernährungsziel
+              {t('onboarding.profile.weightGoal')}
             </Txt>
             <View
               style={styles.choiceList}
               accessibilityRole="radiogroup"
-              accessibilityLabel="Ernährungsziel">
+              accessibilityLabel={t('onboarding.profile.weightGoal')}>
               {GOAL_OPTIONS.map((opt) => {
                 const selected = weightGoal === opt.value;
                 return (
@@ -249,13 +251,13 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     key={opt.value}
                     onPress={() => setValue('weightGoal', selected ? undefined : opt.value)}
                     accessibilityRole="radio"
-                    accessibilityLabel={opt.label}
+                    accessibilityLabel={t(opt.labelKey)}
                     accessibilityState={{ selected }}
                     haptic="selection"
                     selected={selected}
                     style={styles.choice}>
                     <Txt variant="body" tone="primary" weight="500">
-                      {opt.label}
+                      {t(opt.labelKey)}
                     </Txt>
                   </Press>
                 );
@@ -263,12 +265,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
             </View>
 
             <Txt variant="body" weight="600" style={styles.sectionLabel}>
-              Aktivitätslevel im Alltag
+              {t('onboarding.profile.activityLevel')}
             </Txt>
             <View
               style={styles.choiceList}
               accessibilityRole="radiogroup"
-              accessibilityLabel="Aktivitätslevel im Alltag">
+              accessibilityLabel={t('onboarding.profile.activityLevel')}>
               {ACTIVITY_OPTIONS.map((opt) => {
                 const selected = activityLevel === opt.value;
                 return (
@@ -276,13 +278,13 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
                     key={opt.value}
                     onPress={() => setValue('activityLevel', selected ? undefined : opt.value)}
                     accessibilityRole="radio"
-                    accessibilityLabel={opt.label}
+                    accessibilityLabel={t(opt.labelKey)}
                     accessibilityState={{ selected }}
                     haptic="selection"
                     selected={selected}
                     style={styles.choice}>
                     <Txt variant="body" tone="primary" weight="500">
-                      {opt.label}
+                      {t(opt.labelKey)}
                     </Txt>
                   </Press>
                 );
@@ -294,10 +296,13 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
 
       <View style={styles.buttonRow}>
         <View style={styles.flex}>
-          <Button title="Weiter" onPress={() => void handleSubmit(submit)()} />
+          <Button
+            title={t('onboarding.profile.next')}
+            onPress={() => void handleSubmit(submit)()}
+          />
         </View>
         <View style={styles.flex}>
-          <Button title="Später ausfüllen" variant="secondary" onPress={onSkip} />
+          <Button title={t('onboarding.profile.skip')} variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

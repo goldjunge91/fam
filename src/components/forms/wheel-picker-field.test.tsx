@@ -1,8 +1,11 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 
-import { UNIT_OPTIONS } from '@/lib/units';
+import { i18n } from '@/i18n';
+import { getUnitOptions } from '@/lib/units';
 
 import { WheelPickerField } from './wheel-picker-field';
+
+const unitOptions = getUnitOptions(i18n.getFixedT('de'));
 
 /**
  * `WheelPickerField` delegiert die Auswahl an den nativen Picker aus
@@ -56,19 +59,14 @@ describe('WheelPickerField', () => {
     const user = userEvent.setup();
 
     await render(
-      <WheelPickerField
-        label="Einheit"
-        value="piece"
-        options={UNIT_OPTIONS}
-        onChange={jest.fn()}
-      />,
+      <WheelPickerField label="Einheit" value="piece" options={unitOptions} onChange={jest.fn()} />,
     );
     await user.press(screen.getByRole('button', { name: 'Einheit Stück ändern' }));
 
     const props = lastPickerProps();
     expect(props.selectedValue).toBe('piece');
     expect(props.children.map((child) => child.props.value)).toEqual(
-      UNIT_OPTIONS.map((option) => option.value),
+      unitOptions.map((option) => option.value),
     );
   });
 
@@ -77,7 +75,7 @@ describe('WheelPickerField', () => {
     const onChange = jest.fn();
 
     await render(
-      <WheelPickerField label="Einheit" value="piece" options={UNIT_OPTIONS} onChange={onChange} />,
+      <WheelPickerField label="Einheit" value="piece" options={unitOptions} onChange={onChange} />,
     );
     await user.press(screen.getByRole('button', { name: 'Einheit Stück ändern' }));
 
@@ -92,7 +90,7 @@ describe('WheelPickerField', () => {
     const onChange = jest.fn();
 
     await render(
-      <WheelPickerField label="Einheit" value="piece" options={UNIT_OPTIONS} onChange={onChange} />,
+      <WheelPickerField label="Einheit" value="piece" options={unitOptions} onChange={onChange} />,
     );
     await user.press(screen.getByRole('button', { name: 'Einheit Stück ändern' }));
 
@@ -108,7 +106,7 @@ describe('WheelPickerField', () => {
     const onChange = jest.fn();
 
     const { rerender } = await render(
-      <WheelPickerField label="Einheit" value="piece" options={UNIT_OPTIONS} onChange={onChange} />,
+      <WheelPickerField label="Einheit" value="piece" options={unitOptions} onChange={onChange} />,
     );
     await user.press(screen.getByRole('button', { name: 'Einheit Stück ändern' }));
     lastPickerProps().onValueChange('kg');
@@ -116,7 +114,7 @@ describe('WheelPickerField', () => {
 
     // Der äußere Wert ändert sich, während das Feld nie bestätigt wurde.
     await rerender(
-      <WheelPickerField label="Einheit" value="ml" options={UNIT_OPTIONS} onChange={onChange} />,
+      <WheelPickerField label="Einheit" value="ml" options={unitOptions} onChange={onChange} />,
     );
     await user.press(screen.getByRole('button', { name: 'Einheit Milliliter (ml) ändern' }));
 

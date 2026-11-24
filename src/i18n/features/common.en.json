@@ -3,5 +3,155 @@
   "german": "German",
   "english": "English",
   "done": "Done",
-  "loading": "Loading…"
+  "loading": "Loading…",
+  "actions": {
+    "apply": "Apply",
+    "back": "Back",
+    "backText": "‹ {{label}}",
+    "backTo": "Back to {{label}}",
+    "cancel": "Cancel",
+    "change": "Change {{label}} {{value}}",
+    "changeValue": "Change {{value}}",
+    "close": "Close",
+    "confirm": "Confirm",
+    "continue": "Continue",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "create": "Create",
+    "delete": "Delete",
+    "done": "Done",
+    "edit": "Edit",
+    "enable": "Enable",
+    "hide": "Hide",
+    "join": "Join",
+    "later": "Later",
+    "loading": "Loading…",
+    "next": "Next",
+    "remove": "Remove",
+    "retry": "Try again",
+    "save": "Save",
+    "select": "Select",
+    "share": "Share",
+    "show": "Show",
+    "skip": "Skip",
+    "start": "Get started",
+    "undo": "Undo"
+  },
+  "datePicker": {
+    "birthDate": "Date of birth",
+    "defaultLabel": "Date",
+    "placeholder": "YYYY-MM-DD (e.g. 2020-05-14)",
+    "wheelPlaceholder": "DD.MM.YYYY",
+    "heading": "Choose date",
+    "change": "Change {{label}} {{value}}",
+    "changeValue": "Change {{value}}",
+    "choose": "Choose {{label}}",
+    "year": "Year",
+    "month": "Month",
+    "day": "Day",
+    "decreaseYear": "Decrease year",
+    "increaseYear": "Increase year",
+    "decreaseMonth": "Decrease month",
+    "increaseMonth": "Increase month",
+    "decreaseDay": "Decrease day",
+    "increaseDay": "Increase day"
+  },
+  "timePicker": {
+    "defaultLabel": "Time",
+    "choose": "Choose time",
+    "change": "Change {{label}} {{value}}"
+  },
+  "units": {
+    "piece": "Piece",
+    "g": "Gram (g)",
+    "kg": "Kilogram (kg)",
+    "ml": "Milliliter (ml)",
+    "l": "Liter (l)",
+    "package": "Package",
+    "portion": "Portion"
+  },
+  "modules": {
+    "fridge": {
+      "title": "Pantry & fridge",
+      "description": "Manage stock, expiry reminders, and notifications."
+    },
+    "shoppingList": {
+      "title": "Shared shopping list",
+      "description": "Shop together and save items to the fridge after checkout."
+    },
+    "calories": {
+      "title": "Calories & diary",
+      "description": "Track nutrition privately, monitor macros, and calculate basal metabolism."
+    },
+    "recipes": {
+      "title": "Recipes",
+      "description": "A recipe collection shared with the household."
+    },
+    "mealPlanner": {
+      "title": "Meal plan",
+      "description": "Plan the week and assign meals to household members."
+    }
+  },
+  "app": {
+    "name": "fam",
+    "startPreparing": "Preparing the app",
+    "splashLoading": "fam is loading"
+  },
+  "profile": {
+    "open": "Open profile",
+    "image": "Profile picture",
+    "imageInMenu": "Profile picture in profile menu"
+  },
+  "moduleGate": {
+    "disabledTitle": "Module not enabled",
+    "disabledHint": "You hid this module in settings. Your data stays safe.",
+    "enableButton": "Enable in settings",
+    "unavailableTitle": "Not available yet",
+    "unavailableHint": "This area is being rolled out gradually and is not enabled for you yet.",
+    "locked": "Coming soon"
+  },
+  "sync": {
+    "offline": "Offline",
+    "offlinePending": "Offline, {{count}} changes pending",
+    "failed": "{{count}} changes could not be synced. Try again.",
+    "retryAccessibility": "Retry failed changes"
+  },
+  "errors": {
+    "generic": "Error"
+  },
+  "fallback": {
+    "missingPublicCause": "The public configuration {{variableName}} is missing.",
+    "missingPublicAction": "Add the variable and restart Metro.",
+    "configCause": "The app configuration is incomplete.",
+    "configAction": "Please update the app or contact support.",
+    "unexpectedCause": "An unexpected error occurred while starting the app.",
+    "retry": "Please try again.",
+    "title": "The app could not start",
+    "retryButton": "Try again"
+  },
+  "update": {
+    "errorHeading": "The update is waiting.",
+    "readyHeading": "Fam is ready.",
+    "downloadingHeading": "Fam is updating.",
+    "errorMessage": "The download or restart could not finish. You can keep using Fam and try again later.",
+    "readyMessage": "Restart Fam to apply the improvements. Your lists stay safe.",
+    "downloadingMessage": "The update is downloading in the background. You can close this view and keep working in Fam.",
+    "errorProgress": "Update paused",
+    "readyProgress": "Ready to restart",
+    "loadingProgress": "Loading improvements",
+    "loadingProgressWithPercent": "Loading improvements · {{percent}} %",
+    "errorEyebrow": "UPDATE PAUSED",
+    "readyEyebrow": "UPDATE READY",
+    "downloadingEyebrow": "JUST A MOMENT",
+    "restartAccessibility": "Restart Fam with the update now",
+    "continueAccessibility": "Continue downloading the update and open Fam",
+    "retry": "Try again",
+    "restart": "Restart now",
+    "continue": "Continue in Fam",
+    "later": "Later",
+    "ringLabel": "OTA update"
+  },
+  "widgets": {
+    "quickAdd": "Quick add"
+  }
 }

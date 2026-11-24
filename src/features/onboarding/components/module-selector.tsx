@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Switch, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ModuleLockedOverlay } from '@/components/module-locked-overlay';
@@ -52,6 +53,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) {
+  const { t } = useTranslation();
   const { state, updateModulesData } = useOnboarding();
   const { isModuleLocked } = useFeatureAccess();
 
@@ -62,10 +64,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
   return (
     <View style={styles.root}>
       <Txt variant="subheading" weight="700">
-        Welche Module möchtest du nutzen?
+        {t('onboarding.modules.heading')}
       </Txt>
       <Txt variant="body" tone="secondary">
-        Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.
+        {t('onboarding.modules.description')}
       </Txt>
 
       <View style={styles.list}>
@@ -81,17 +83,17 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
               onPress={() => !locked && toggle(row.key)}
               disabled={locked}
               accessibilityRole="button"
-              accessibilityLabel={row.title}
+              accessibilityLabel={t(row.title)}
               accessibilityState={{ disabled: locked, selected: state.modules[row.key] }}
               haptic="selection"
               selected={state.modules[row.key]}
               style={styles.moduleRow}>
               <View style={[styles.moduleCopy, locked && styles.lockedContent]}>
                 <Txt variant="body" weight="700">
-                  {row.icon} {row.title}
+                  {row.icon} {t(row.title)}
                 </Txt>
                 <Txt variant="label" tone="secondary" style={styles.moduleDescription}>
-                  {row.desc}
+                  {t(row.desc)}
                 </Txt>
               </View>
               <View style={locked ? styles.lockedContent : undefined}>
@@ -109,10 +111,10 @@ export function ModuleSelectorForm({ onNext, onSkip }: ModuleSelectorFormProps) 
 
       <View style={styles.buttonRow}>
         <View style={styles.flex}>
-          <Button title="Weiter" onPress={onNext} />
+          <Button title={t('onboarding.modules.next')} onPress={onNext} />
         </View>
         <View style={styles.flex}>
-          <Button title="Überspringen" variant="secondary" onPress={onSkip} />
+          <Button title={t('onboarding.modules.skip')} variant="secondary" onPress={onSkip} />
         </View>
       </View>
     </View>

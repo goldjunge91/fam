@@ -7,14 +7,14 @@ import {
 
 describe('classifySupabaseTarget', () => {
   it.each([
-    ['http://127.0.0.1:54321', 'Lokal'],
-    ['http://localhost:54321', 'Lokal'],
-    ['http://10.0.2.2:54321', 'Lokal (über LAN)'],
-    ['http://192.168.178.25:54321', 'Lokal (über LAN)'],
-  ])('erkennt %s als lokal', (url, label) => {
+    ['http://127.0.0.1:54321', 'dev.info.supabaseLocal'],
+    ['http://localhost:54321', 'dev.info.supabaseLocal'],
+    ['http://10.0.2.2:54321', 'dev.info.supabaseLan'],
+    ['http://192.168.178.25:54321', 'dev.info.supabaseLan'],
+  ])('erkennt %s als lokal', (url, labelKey) => {
     const target = classifySupabaseTarget(url);
     expect(target.kind).toBe('lokal');
-    expect(target.label).toBe(label);
+    expect(target.labelKey).toBe(labelKey);
     expect(target.tone).toBe('accent');
   });
 
@@ -24,13 +24,13 @@ describe('classifySupabaseTarget', () => {
     const target = classifySupabaseTarget('https://abcdefgh.supabase.co');
     expect(target.kind).toBe('remote');
     expect(target.tone).toBe('danger');
-    expect(target.label).toMatch(/echte Daten/);
+    expect(target.labelKey).toBe('dev.info.supabaseRemote');
   });
 
   it('behauptet bei einer unlesbaren URL nichts', () => {
     const target = classifySupabaseTarget('keine-url');
     expect(target.kind).toBe('unbekannt');
-    expect(target.tone).toBe('warning');
+    expect(target.labelKey).toBe('dev.info.supabaseUnreadable');
   });
 
   it('haelt eine Domain mit 192.168 im Namen nicht fuer lokal', () => {
@@ -55,41 +55,53 @@ describe('formatTokenExpiry', () => {
   const inSekunden = (ms: number) => Math.floor((jetzt + ms) / 1000);
 
   it('meldet einen abgelaufenen Token als solchen', () => {
-    expect(formatTokenExpiry(inSekunden(-60_000), jetzt)).toBe('abgelaufen');
+    expect(formatTokenExpiry(inSekunden(-60_000), jetzt)).toEqual({
+      key: 'dev.info.tokenExpired',
+    });
   });
 
   it('rundet unter einer Minute nicht auf null ab', () => {
-    expect(formatTokenExpiry(inSekunden(30_000), jetzt)).toBe('unter 1 min');
+    expect(formatTokenExpiry(inSekunden(30_000), jetzt)).toEqual({
+      key: 'dev.info.tokenUnderMinute',
+    });
   });
 
   it('zaehlt Minuten und ab einer Stunde auch Stunden', () => {
-    expect(formatTokenExpiry(inSekunden(42 * 60_000), jetzt)).toBe('noch 42 min');
-    expect(formatTokenExpiry(inSekunden(90 * 60_000), jetzt)).toBe('noch 1 h 30 min');
+    expect(formatTokenExpiry(inSekunden(42 * 60_000), jetzt)).toEqual({
+      key: 'dev.info.tokenMinutes',
+      minutes: 42,
+    });
+    expect(formatTokenExpiry(inSekunden(90 * 60_000), jetzt)).toEqual({
+      key: 'dev.info.tokenHours',
+      hours: 1,
+      minutes: 30,
+    });
   });
 
   it('behauptet ohne exp nichts', () => {
-    expect(formatTokenExpiry(undefined, jetzt)).toBe('unbekannt');
+    expect(formatTokenExpiry(undefined, jetzt)).toEqual({ key: 'dev.info.tokenUnknown' });
   });
 });
 
 describe('describeDatabaseOwnership', () => {
   it('bestaetigt den Normalfall', () => {
     expect(describeDatabaseOwnership('user-a', 'user-a')).toEqual({
-      label: 'stimmt überein',
-      tone: 'accent',
+      key: 'dev.info.ownershipMatches',
     });
   });
 
   it('schlaegt Alarm, wenn die lokale DB einem anderen Nutzer gehoert', () => {
     // Genau diese Abweichung war das Cross-Account-Datenleck.
     const result = describeDatabaseOwnership('11111111-2222-3333', 'user-b');
-    expect(result.tone).toBe('danger');
-    expect(result.label).toContain('FREMD');
-    expect(result.label).toContain('11111111');
+    expect(result).toEqual({ key: 'dev.info.ownershipForeign', userId: '11111111' });
   });
 
   it('unterscheidet "noch nicht zugeordnet" von einem Fremdbesitz', () => {
-    expect(describeDatabaseOwnership(null, 'user-a').tone).toBe('warning');
-    expect(describeDatabaseOwnership('user-a', null).tone).toBe('warning');
+    expect(describeDatabaseOwnership(null, 'user-a')).toEqual({
+      key: 'dev.info.ownershipUnassigned',
+    });
+    expect(describeDatabaseOwnership('user-a', null)).toEqual({
+      key: 'dev.info.ownershipUnauthenticated',
+    });
   });
 });

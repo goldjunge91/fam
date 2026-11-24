@@ -1,5 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { KeyboardToolbar } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
@@ -54,6 +55,7 @@ const styles = StyleSheet.create((theme, rt) => ({
 }));
 
 function OnboardingContent() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { session } = useSession();
   const queryClient = useQueryClient();
@@ -75,7 +77,11 @@ function OnboardingContent() {
   return (
     <>
       <Screen
-        title={currentStep === 1 ? 'Willkommen' : `Schritt ${currentStep} von ${TOTAL_STEPS}`}
+        title={
+          currentStep === 1
+            ? t('onboarding.header.welcome')
+            : t('onboarding.header.step', { current: currentStep, total: TOTAL_STEPS })
+        }
         // Schritte 2 und 4 verwalten ihren KeyboardAwareScrollView und den
         // unteren Inhaltsabstand selbst.
         scroll={currentStep !== 2 && currentStep !== 4}
@@ -86,17 +92,17 @@ function OnboardingContent() {
             {/* Nutzt bewusst `prevStep` aus dem Context statt Routing — die
                 Schritte sind kein eigener Screen, sondern nur `currentStep`
                 im Onboarding-State. */}
-            <BackButton label="Zurück" onPress={prevStep} />
+            <BackButton label={t('common.actions.back')} onPress={prevStep} />
             {/* ProgressBar erwartet einen echten Farbwert aus dem aktiven Theme. */}
             <ProgressBar value={currentStep / TOTAL_STEPS} color={colors.accent} />
             {session && (
               <Press
                 onPress={() => void handleEmergencySignOut()}
                 accessibilityRole="button"
-                accessibilityLabel="Abmelden und Onboarding neu starten"
+                accessibilityLabel={t('onboarding.header.signOutAccessibility')}
                 style={styles.signoutLink}>
                 <Txt variant="caption" tone="secondary" style={styles.signoutText}>
-                  Nicht du? Abmelden und neu starten
+                  {t('onboarding.header.signOut')}
                 </Txt>
               </Press>
             )}

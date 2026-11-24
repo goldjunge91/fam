@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { RefreshControl, ScrollView, type StyleProp, View, type ViewStyle } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -77,6 +78,7 @@ export function ScreenHeader({
   right?: ReactNode;
 }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Row justify="space-between" align="flex-start" style={{ marginBottom: space.lg }}>
@@ -87,7 +89,7 @@ export function ScreenHeader({
             onPress={() => router.back()}
             size={40}
             bg={colors.backgroundElement}
-            accessibilityLabel="Zurück"
+            accessibilityLabel={t('common.actions.back')}
           />
         ) : null}
         <View style={{ flex: 1 }}>

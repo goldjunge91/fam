@@ -1,4 +1,5 @@
 import { createContext, type ReactNode, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -57,6 +58,7 @@ async function defaultRetry(): Promise<void> {
 export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerProps) {
   const status = useContext(SyncStatusContext);
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   if (status.kind === 'hidden') return null;
 
@@ -66,9 +68,9 @@ export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerPro
   const label =
     status.kind === 'offline'
       ? status.pendingCount > 0
-        ? `Offline, ${status.pendingCount} Änderungen ausstehend`
-        : 'Offline'
-      : `${status.failedCount} Änderungen konnten nicht synchronisiert werden. Erneut versuchen.`;
+        ? t('common.sync.offlinePending', { count: status.pendingCount })
+        : t('common.sync.offline')
+      : t('common.sync.failed', { count: status.failedCount });
 
   const content = (
     <Txt variant="body" tone={isFailed ? 'onDanger' : 'onWarning'} weight="700" center>
@@ -82,7 +84,7 @@ export function SyncStatusBanner({ onRetry = defaultRetry }: SyncStatusBannerPro
         <Press
           onPress={onRetry}
           accessibilityRole="button"
-          accessibilityLabel="Fehlgeschlagene Änderungen erneut versuchen"
+          accessibilityLabel={t('common.sync.retryAccessibility')}
           style={styles.action}>
           {content}
         </Press>

@@ -1,0 +1,143 @@
+{
+  "header": {
+    "welcome": "Willkommen",
+    "step": "Schritt {{current}} von {{total}}",
+    "signOut": "Nicht du? Abmelden und neu starten",
+    "signOutAccessibility": "Abmelden und Onboarding neu starten"
+  },
+  "welcome": {
+    "pagination": "Onboarding-Folien",
+    "slide": "Folie {{number}}",
+    "slides": {
+      "home": {
+        "title": "Haushalt & Vorrat an einem Ort",
+        "description": "Verwalte Kühlschrank, Gefrierfach und Vorratsschrank gemeinsam mit allen Haushaltsmitgliedern in Echtzeit."
+      },
+      "shopping": {
+        "title": "Geteilte Einkaufsliste",
+        "description": "Artikel gemeinsam auf die Liste setzen, im Supermarkt abhaken und automatisch in den Vorrat übernehmen."
+      },
+      "tracking": {
+        "title": "Privates Kalorien-Tracking",
+        "description": "Verfolge deine Nährwerte und Kalorien mit 100% Privatsphäre. Deine Gesundheitsdaten bleiben garantiert deine eigenen."
+      }
+    },
+    "next": "Weiter",
+    "start": "Jetzt starten"
+  },
+  "account": {
+    "activeAs": "✓ Angemeldet als: {{email}}",
+    "activeDescription": "Dein Account ist aktiv. Du kannst jetzt direkt zum nächsten Schritt wechseln.",
+    "continue": "Weiter"
+  },
+  "profile": {
+    "heading": "Dein Profil",
+    "descriptionCalories": "Alle Angaben sind freiwillig und dienen der genauen Kalorienberechnung.",
+    "descriptionName": "Dein Anzeigename hilft dir, dich in der App wiederzuerkennen.",
+    "displayNameLabel": "Rufname / Anzeigename",
+    "displayNamePlaceholder": "Wie möchtest du genannt werden?",
+    "bodyActivity": "Körper & Aktivität",
+    "birthDateLabel": "Geburtsdatum (TT.MM.JJJJ)",
+    "birthDatePlaceholder": "15.05.1990",
+    "heightLabel": "Größe (cm)",
+    "heightPlaceholder": "178",
+    "weightLabel": "Gewicht (kg)",
+    "weightPlaceholder": "75",
+    "calculationBasis": "Berechnungsbasis (Geschlecht)",
+    "sexGroup": "Geschlecht",
+    "weightGoal": "Ernährungsziel",
+    "activityLevel": "Aktivitätslevel im Alltag",
+    "errors": {
+      "birthDate": "Bitte als TT.MM.JJJJ eingeben",
+      "height": "Bitte eine verlässliche Größe (größer 0, unter 300 cm) eingeben",
+      "weight": "Bitte ein verlässliches Gewicht (20–300 kg) eingeben"
+    },
+    "sex": {
+      "male": "Männlich",
+      "female": "Weiblich"
+    },
+    "goals": {
+      "lose": "Gewicht reduzieren",
+      "maintain": "Gewicht halten",
+      "gain": "Gewicht / Muskeln aufbauen"
+    },
+    "activity": {
+      "sedentary": "Sitzend / Kaum Bewegung",
+      "light": "Leicht aktiv (1–3 Tage Sport)",
+      "moderate": "Mäßig aktiv (3–5 Tage Sport)",
+      "active": "Sehr aktiv (Täglicher Sport)"
+    },
+    "next": "Weiter",
+    "skip": "Später ausfüllen"
+  },
+  "household": {
+    "heading": "Dein Haushalt",
+    "defaultName": "Mein Haushalt",
+    "description": "Entscheide, wie du die App für Vorrat & Einkäufe nutzen möchtest.",
+    "activeDetected": "✓ Aktiver Haushalt erkannt",
+    "create": {
+      "title": "🏠 Neuen Haushalt erstellen",
+      "accessibility": "Neuen Haushalt erstellen",
+      "description": "Erstelle eine eigene Gruppe für deine Familie oder WG und lade Mitglieder ein."
+    },
+    "join": {
+      "title": "🔗 Einem Haushalt beitreten",
+      "accessibility": "Einem Haushalt beitreten",
+      "description": "Gib den Einladungscode ein, den du erhalten hast."
+    },
+    "solo": {
+      "title": "Vorerst alleine nutzen",
+      "accessibility": "Vorerst alleine nutzen",
+      "titleWithHousehold": "Mit \"{{name}}\" fortfahren",
+      "accessibilityWithHousehold": "Mit {{name}} fortfahren",
+      "description": "Starte mit einem privaten Bereich. Du kannst jederzeit andere einladen.",
+      "descriptionWithHousehold": "Behalte deinen bestehenden Haushalt und fahre fort."
+    },
+    "nameLabel": "Name deines Haushalts",
+    "namePlaceholder": "z. B. Familie Müller",
+    "inviteCodeLabel": "Einladungs-Code",
+    "inviteCodePlaceholder": "z. B. AB12CD",
+    "groupLabel": "Haushalt",
+    "missingInviteCode": "Bitte gib einen Einladungscode ein.",
+    "mutationError": "Fehler beim Erstellen oder Beitreten des Haushalts.",
+    "next": "Weiter",
+    "skip": "Überspringen"
+  },
+  "modules": {
+    "heading": "Welche Module möchtest du nutzen?",
+    "description": "Du kannst ungenutzte Module jederzeit später in den Einstellungen anpassen.",
+    "next": "Weiter",
+    "skip": "Überspringen"
+  },
+  "permissions": {
+    "heading": "Erlaubnisse & Funktionen",
+    "description": "Damit die App optimal funktioniert, empfehlen wir folgende Berechtigungen:",
+    "notifications": {
+      "label": "Benachrichtigungen",
+      "description": "Erhalte rechtzeitige Erinnerungen, bevor Lebensmittel im Kühlschrank ablaufen."
+    },
+    "camera": {
+      "label": "Kamera-Zugriff",
+      "description": "Scanne Barcodes von Lebensmitteln oder QR-Codes für den Haushaltsbeitritt."
+    },
+    "microphone": {
+      "label": "Mikrofon-Zugriff",
+      "description": "Für die Spracheingabe in der Einkaufsliste."
+    },
+    "location": {
+      "label": "Standort-Zugriff",
+      "description": "Für Prospekte aus deiner Umgebung."
+    },
+    "next": "Weiter",
+    "skip": "Jetzt nicht"
+  },
+  "complete": {
+    "title": "Alles bereit!",
+    "description": "Dein Profil ist eingerichtet und du bist startklar für {{household}}.",
+    "newHousehold": "deinen neuen Haushalt",
+    "household": "deinen Haushalt",
+    "personal": "deinen persönlichen Bereich",
+    "save": "Speichern...",
+    "dashboard": "Zum Dashboard"
+  }
+}

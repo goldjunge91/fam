@@ -1,0 +1,143 @@
+{
+  "header": {
+    "welcome": "Welcome",
+    "step": "Step {{current}} of {{total}}",
+    "signOut": "Not you? Sign out and restart",
+    "signOutAccessibility": "Sign out and restart onboarding"
+  },
+  "welcome": {
+    "pagination": "Onboarding slides",
+    "slide": "Slide {{number}}",
+    "slides": {
+      "home": {
+        "title": "Household & pantry in one place",
+        "description": "Manage your fridge, freezer, and pantry together with everyone in your household in real time."
+      },
+      "shopping": {
+        "title": "Shared shopping list",
+        "description": "Add items together, check them off in the store, and move them into your pantry automatically."
+      },
+      "tracking": {
+        "title": "Private calorie tracking",
+        "description": "Track your nutrition and calories with 100% privacy. Your health data stays yours."
+      }
+    },
+    "next": "Next",
+    "start": "Get started"
+  },
+  "account": {
+    "activeAs": "✓ Signed in as: {{email}}",
+    "activeDescription": "Your account is active. You can continue to the next step now.",
+    "continue": "Continue"
+  },
+  "profile": {
+    "heading": "Your profile",
+    "descriptionCalories": "All details are optional and help calculate calories accurately.",
+    "descriptionName": "Your display name helps you recognize yourself in the app.",
+    "displayNameLabel": "Preferred name / display name",
+    "displayNamePlaceholder": "What should we call you?",
+    "bodyActivity": "Body & activity",
+    "birthDateLabel": "Date of birth (DD.MM.YYYY)",
+    "birthDatePlaceholder": "15.05.1990",
+    "heightLabel": "Height (cm)",
+    "heightPlaceholder": "178",
+    "weightLabel": "Weight (kg)",
+    "weightPlaceholder": "75",
+    "calculationBasis": "Calculation basis (sex)",
+    "sexGroup": "Sex",
+    "weightGoal": "Nutrition goal",
+    "activityLevel": "Daily activity level",
+    "errors": {
+      "birthDate": "Enter a date as DD.MM.YYYY",
+      "height": "Enter a valid height (above 0, below 300 cm)",
+      "weight": "Enter a valid weight (20–300 kg)"
+    },
+    "sex": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "goals": {
+      "lose": "Lose weight",
+      "maintain": "Maintain weight",
+      "gain": "Gain weight / muscle"
+    },
+    "activity": {
+      "sedentary": "Sedentary / little movement",
+      "light": "Lightly active (1–3 sports days)",
+      "moderate": "Moderately active (3–5 sports days)",
+      "active": "Very active (daily sports)"
+    },
+    "next": "Next",
+    "skip": "Fill in later"
+  },
+  "household": {
+    "heading": "Your household",
+    "defaultName": "My household",
+    "description": "Choose how you want to use the app for pantry and shopping.",
+    "activeDetected": "✓ Active household found",
+    "create": {
+      "title": "🏠 Create a new household",
+      "accessibility": "Create a new household",
+      "description": "Create a group for your family or shared flat and invite members."
+    },
+    "join": {
+      "title": "🔗 Join a household",
+      "accessibility": "Join a household",
+      "description": "Enter the invitation code you received."
+    },
+    "solo": {
+      "title": "Use it on your own for now",
+      "accessibility": "Use it on your own for now",
+      "titleWithHousehold": "Continue with \"{{name}}\"",
+      "accessibilityWithHousehold": "Continue with {{name}}",
+      "description": "Start with a private space. You can invite others at any time.",
+      "descriptionWithHousehold": "Keep your existing household and continue."
+    },
+    "nameLabel": "Household name",
+    "namePlaceholder": "e.g. Miller family",
+    "inviteCodeLabel": "Invitation code",
+    "inviteCodePlaceholder": "e.g. AB12CD",
+    "groupLabel": "Household",
+    "missingInviteCode": "Please enter an invitation code.",
+    "mutationError": "Error while creating or joining the household.",
+    "next": "Next",
+    "skip": "Skip"
+  },
+  "modules": {
+    "heading": "Which modules do you want to use?",
+    "description": "You can adjust unused modules in settings at any time.",
+    "next": "Next",
+    "skip": "Skip"
+  },
+  "permissions": {
+    "heading": "Permissions & features",
+    "description": "For the best experience, we recommend these permissions:",
+    "notifications": {
+      "label": "Notifications",
+      "description": "Get timely reminders before food in your fridge expires."
+    },
+    "camera": {
+      "label": "Camera access",
+      "description": "Scan food barcodes or QR codes to join a household."
+    },
+    "microphone": {
+      "label": "Microphone access",
+      "description": "For voice input in the shopping list."
+    },
+    "location": {
+      "label": "Location access",
+      "description": "For flyers from your area."
+    },
+    "next": "Next",
+    "skip": "Not now"
+  },
+  "complete": {
+    "title": "All set!",
+    "description": "Your profile is ready and you can start using {{household}}.",
+    "newHousehold": "your new household",
+    "household": "your household",
+    "personal": "your personal space",
+    "save": "Saving...",
+    "dashboard": "Go to dashboard"
+  }
+}
