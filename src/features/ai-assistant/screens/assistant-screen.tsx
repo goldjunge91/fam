@@ -26,7 +26,7 @@ import {
 } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { useActiveHousehold } from '@/features/household/active-household-provider';
-import { formatExpiryDate, formatExpiryStatus, getExpiryInfo } from '@/features/inventory/expiry';
+import { getExpiryInfo } from '@/features/inventory/expiry';
 import {
   type LocalInventoryItem,
   useInventoryItems,
@@ -429,6 +429,29 @@ function getExpiringFlowMessage(t: TFunction, stage: Exclude<ExpiringFlowStage, 
   return stage === 'checking' ? t('aiAssistant.flow.checking') : t('aiAssistant.flow.selecting');
 }
 
+function formatAssistantExpiryDate(
+  value: string | null | undefined,
+  locale: string,
+  t: TFunction,
+): string {
+  if (!value) return t('aiAssistant.flow.expiry.withoutDate');
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleDateString(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+function formatAssistantExpiryStatus(daysLeft: number | null, t: TFunction): string {
+  if (daysLeft === null) return t('aiAssistant.flow.expiry.withoutDate');
+  if (daysLeft < 0) {
+    const days = Math.abs(daysLeft);
+    return days === 1
+      ? t('aiAssistant.flow.expiry.expiredYesterday')
+      : t('aiAssistant.flow.expiry.expiredDays', { count: days });
+  }
+  if (daysLeft === 0) return t('aiAssistant.flow.expiry.today');
+  return t('aiAssistant.flow.expiry.daysRemaining', { count: daysLeft });
+}
+
 function getAssistantToolTraceLabel(t: TFunction, tool: AssistantToolName): string {
   switch (tool) {
     case 'search_recipes':
@@ -685,6 +708,7 @@ export function AssistantScreen() {
   const [isSending, setIsSending] = useState(false);
   const [selectedExpiringLotIds, setSelectedExpiringLotIds] = useState<string[]>([]);
   const [expiringFlowStage, setExpiringFlowStage] = useState<ExpiringFlowStage>('idle');
+  const [expiringFlowPrompt, setExpiringFlowPrompt] = useState<StarterPrompt | null>(null);
   const [isRestoringPurchases, setIsRestoringPurchases] = useState(false);
   const [failedMessage, setFailedMessage] = useState<FailedAssistantMessage | null>(null);
   const [applyingProposalId, setApplyingProposalId] = useState<string | null>(null);
@@ -785,6 +809,7 @@ export function AssistantScreen() {
     };
     setActiveThreadId(nextThread.id);
     setExpiringFlowStage('idle');
+    setExpiringFlowPrompt(null);
     setFailedMessage(null);
     await persistThreads(upsertThread(threads, nextThread));
     setError(null);
@@ -905,6 +930,7 @@ export function AssistantScreen() {
 
   function openAttachmentPicker() {
     setExpiringFlowStage('idle');
+    setExpiringFlowPrompt(null);
     if (attachments.length >= 5) {
       setError(t('aiAssistant.attachments.limit'));
       return;
@@ -949,7 +975,7 @@ export function AssistantScreen() {
 
     const requestFocusedInventoryLotIds =
       expiringFlowStage === 'selecting' &&
-      text === getStarterPromptLabel(t, EXPIRING_COOKING_PROMPT) &&
+      expiringFlowPrompt === EXPIRING_COOKING_PROMPT &&
       attachments.length === 0 &&
       expiringItems.length > 1
         ? selectedExpiringLotIds
@@ -957,6 +983,7 @@ export function AssistantScreen() {
 
     setIsSending(true);
     setExpiringFlowStage('idle');
+    setExpiringFlowPrompt(null);
     setError(null);
     setFailedMessage(null);
     let requestThreadId: string | null = null;
@@ -1468,7 +1495,7 @@ export function AssistantScreen() {
     if (proposal.kind === 'shopping_list_proposal.v1') {
       const isApplied = message.appliedProposalIndexes?.includes(proposalIndex) ?? false;
       const warning = proposal.items.some((item) => item.foodRuleStatus === 'unknown')
-        ? t('aiAssistant.shoppingList.unknownWarning')
+        ? t('aiAssistant.shoppingList.unknownItemsWarning')
         : t('aiAssistant.shoppingList.noRulesWarning');
       return (
         <Card key={key} style={styles.proposalCard}>
@@ -1604,6 +1631,7 @@ export function AssistantScreen() {
     if (activeThreadId === threadId) {
       setActiveThreadId(nextThreads[0]?.id ?? null);
       setExpiringFlowStage('idle');
+      setExpiringFlowPrompt(null);
       setFailedMessage(null);
       setError(null);
     }
@@ -1629,12 +1657,14 @@ export function AssistantScreen() {
     ) {
       setMessage(promptText);
       setSelectedExpiringLotIds(expiringItems.map((item) => item.id));
+      setExpiringFlowPrompt(EXPIRING_COOKING_PROMPT);
       setExpiringFlowStage('checking');
       setError(null);
       setFailedMessage(null);
       return;
     }
     setExpiringFlowStage('idle');
+    setExpiringFlowPrompt(null);
     setMessage(promptText);
   }
 
@@ -1736,8 +1766,8 @@ export function AssistantScreen() {
                     variant="caption"
                     tone={expiry.bucket === 'expired' ? 'danger' : 'secondary'}
                     style={styles.expiringItemDate}>
-                    {formatExpiryDate(item.expiry_date, expiryDateLocale)} ·{' '}
-                    {formatExpiryStatus(item.expiry_date, today, t)}
+                    {formatAssistantExpiryDate(item.expiry_date, expiryDateLocale, t)} ·{' '}
+                    {formatAssistantExpiryStatus(expiry.daysLeft, t)}
                   </Txt>
                 </View>
               </Press>
@@ -1854,6 +1884,7 @@ export function AssistantScreen() {
                         onPress={() => {
                           setActiveThreadId(thread.id);
                           setExpiringFlowStage('idle');
+                          setExpiringFlowPrompt(null);
                           setFailedMessage(null);
                           setError(null);
                           setIsHistoryOpen(false);
@@ -2110,7 +2141,10 @@ export function AssistantScreen() {
                 <View style={styles.composerField}>
                   <TextField
                     value={message}
-                    onChangeText={setMessage}
+                    onChangeText={(nextMessage) => {
+                      setMessage(nextMessage);
+                      setExpiringFlowPrompt(null);
+                    }}
                     editable={!isSending && !creditStatus?.blocked}
                     size="large"
                     multiline

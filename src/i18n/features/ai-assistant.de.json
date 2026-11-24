@@ -11,7 +11,16 @@
     "expiringHint": "Nur ausgewählte Artikel werden für diese Anfrage verwendet.",
     "selectedCount": "{{selected}} / {{total}}",
     "selectAll": "Alle auswählen",
-    "clearSelection": "Auswahl löschen"
+    "clearSelection": "Auswahl löschen",
+    "expiry": {
+      "withoutDate": "ohne MHD",
+      "expiredYesterday": "seit gestern abgelaufen",
+      "expiredDays_one": "seit {{count}} Tag abgelaufen",
+      "expiredDays_other": "seit {{count}} Tagen abgelaufen",
+      "today": "heute",
+      "daysRemaining_one": "noch {{count}} Tag",
+      "daysRemaining_other": "noch {{count}} Tage"
+    }
   },
   "toolTrace": {
     "searchRecipes": "Rezepte durchsucht",
@@ -57,6 +66,7 @@
     "quantity": "{{quantity}} {{unit}}",
     "item": "{{quantity}} {{unit}} · {{name}}",
     "unknownWarning": "Der Freitextartikel ist keiner geprüften Lebensmittelzuordnung zugeordnet. Bitte prüfe Produktetikett und persönliche Regeln.",
+    "unknownItemsWarning": "Mindestens ein Freitextartikel ist keiner geprüften Lebensmittelzuordnung zugeordnet. Bitte prüfe Produktetikett und persönliche Regeln.",
     "noRulesWarning": "Für diesen Haushalt sind keine persönlichen Lebensmittelregeln hinterlegt.",
     "applyAccessibility": "Einkaufsartikel übernehmen: {{name}}",
     "applyAllAccessibility": "Einkaufsartikel übernehmen",

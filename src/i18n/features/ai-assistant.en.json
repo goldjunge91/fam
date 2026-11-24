@@ -11,7 +11,16 @@
     "expiringHint": "Only selected items will be used for this request.",
     "selectedCount": "{{selected}} / {{total}}",
     "selectAll": "Select all",
-    "clearSelection": "Clear selection"
+    "clearSelection": "Clear selection",
+    "expiry": {
+      "withoutDate": "no expiry date",
+      "expiredYesterday": "expired yesterday",
+      "expiredDays_one": "expired {{count}} day ago",
+      "expiredDays_other": "expired {{count}} days ago",
+      "today": "today",
+      "daysRemaining_one": "{{count}} day left",
+      "daysRemaining_other": "{{count}} days left"
+    }
   },
   "toolTrace": {
     "searchRecipes": "Searched recipes",
@@ -57,6 +66,7 @@
     "quantity": "{{quantity}} {{unit}}",
     "item": "{{quantity}} {{unit}} · {{name}}",
     "unknownWarning": "This free-text item is not linked to a checked food mapping. Check the product label and personal rules.",
+    "unknownItemsWarning": "At least one free-text item is not linked to a checked food mapping. Check the product label and personal rules.",
     "noRulesWarning": "No personal food rules are saved for this household.",
     "applyAccessibility": "Apply shopping item: {{name}}",
     "applyAllAccessibility": "Apply shopping items",

@@ -79,19 +79,10 @@ jest.mock('@shopify/flash-list', () => {
 
 jest.mock('react-i18next', () => {
   const translate = (key: string, options?: Record<string, unknown>) => {
-    const isInventoryKey = key.startsWith('inventory.');
     const loadedCatalog =
       mockAssistantLanguage === 'de'
-        ? require(
-            isInventoryKey
-              ? '@/i18n/features/inventory.de.json'
-              : '@/i18n/features/ai-assistant.de.json',
-          )
-        : require(
-            isInventoryKey
-              ? '@/i18n/features/inventory.en.json'
-              : '@/i18n/features/ai-assistant.en.json',
-          );
+        ? require('@/i18n/features/ai-assistant.de.json')
+        : require('@/i18n/features/ai-assistant.en.json');
     const mockCatalog = loadedCatalog.default ?? loadedCatalog;
     const segments = key.split('.').slice(1);
     const resolveValue = (path: string[]) =>
@@ -392,6 +383,20 @@ const shoppingItemProposal = {
   foodRuleStatus: 'unknown' as const,
 };
 
+const shoppingListProposalWithUnknownItem = {
+  kind: 'shopping_list_proposal.v1' as const,
+  summary: 'Hafermilch und Linsen ergänzen',
+  items: [
+    {
+      name: 'Hafermilch',
+      quantity: 2,
+      unit: 'package' as const,
+      foodRuleStatus: 'unknown' as const,
+    },
+    { name: 'Linsen', quantity: 500, unit: 'g' as const, foodRuleStatus: 'clear' as const },
+  ],
+};
+
 function assistantThread(messages: AssistantThread['messages'] = []): AssistantThread {
   return {
     id: 'thread-1',
@@ -580,6 +585,34 @@ describe('AssistantScreen', () => {
     expect(
       screen.getByRole('button', { name: 'Apply shopping item: Hafermilch' }),
     ).toBeOnTheScreen();
+  });
+
+  it('uses a plural warning for unknown items in a multi-item shopping proposal', async () => {
+    mockAssistantLanguage = 'en';
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-multi-item-warning',
+          role: 'assistant',
+          text: 'Shopping list suggestion',
+          createdAt: 'now',
+          proposals: [shoppingListProposalWithUnknownItem],
+        },
+      ]),
+    ];
+
+    await renderAssistant();
+
+    expect(
+      screen.getByText(
+        'At least one free-text item is not linked to a checked food mapping. Check the product label and personal rules.',
+      ),
+    ).toBeOnTheScreen();
+    expect(
+      screen.queryByText(
+        'This free-text item is not linked to a checked food mapping. Check the product label and personal rules.',
+      ),
+    ).toBeNull();
   });
 
   it('shows the household AI paywall and handles failed restoration', async () => {
@@ -828,6 +861,44 @@ describe('AssistantScreen', () => {
       await user.press(screen.getByRole('button', { name: 'Mit Reis' }));
       await waitFor(() => expect(mockSendMessage).toHaveBeenCalledTimes(2));
       expect(mockSendMessage.mock.calls.at(-1)?.[0]).not.toHaveProperty('focusedInventoryLotIds');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('keeps selected expiring lots after switching the locale', async () => {
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+    try {
+      const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+      mockInventoryItems = [
+        expiringInventoryItem('lot-mushrooms', 'Champignons', soon),
+        expiringInventoryItem('lot-cream', 'Saure Sahne', soon),
+      ];
+      const view = await renderAssistant();
+
+      await user.press(screen.getByRole('button', { name: 'Was kann ich heute kochen?' }));
+      await act(async () => {
+        jest.advanceTimersByTime(300);
+      });
+      await screen.findByText(
+        'Okay, wähle aus den ablaufenden Lebensmitteln die aus, die du retten willst.',
+      );
+      await user.press(screen.getByRole('checkbox', { name: 'Champignons' }));
+
+      mockAssistantLanguage = 'en';
+      await act(async () => {
+        view.rerender(<AssistantScreen />);
+      });
+      await user.press(screen.getByRole('button', { name: 'Send message' }));
+
+      await waitFor(() => expect(mockSendMessage).toHaveBeenCalled());
+      expect(mockSendMessage.mock.calls.at(-1)?.[0]).toEqual(
+        expect.objectContaining({
+          focusedInventoryLotIds: ['lot-cream'],
+          message: 'Was kann ich heute kochen?',
+        }),
+      );
     } finally {
       jest.useRealTimers();
     }
