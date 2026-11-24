@@ -104,6 +104,7 @@ jest.mock('react-i18next', () => ({
         'dashboard.chefKoch.retry': 'Erneut versuchen',
         'dashboard.chefKoch.resultTitle': 'Vorschläge aus eurem Vorrat',
         'dashboard.chefKoch.steps': 'Zubereitung',
+        'common.units.piece': 'Stück',
       };
       if (key === 'dashboard.chefKoch.selected') return `${String(options?.count ?? 0)} ausgewählt`;
       if (key === 'dashboard.chefKoch.used') return `Verwendet: ${options?.items ?? ''}`;
@@ -197,6 +198,13 @@ describe('ChefKochScreen', () => {
       mutate: mockMutate,
     };
     mockMutate.mockClear();
+  });
+
+  it('localizes inventory units in visible and accessible labels', async () => {
+    await render(<ChefKochScreen />);
+
+    expect(screen.getByText('2 Stück')).toBeOnTheScreen();
+    expect(screen.getByRole('checkbox', { name: 'Tomate, 2 Stück' })).toBeOnTheScreen();
   });
 
   it('requests read-only suggestions for selected inventory', async () => {

@@ -21,6 +21,7 @@ import {
 } from '@/features/recipes/data/recipe-suggestion-gateway';
 import { useRecipeSuggestions } from '@/features/recipes/data/use-recipe-suggestions';
 import type { RecipeSuggestionMeal } from '@/features/recipes/domain/recipe-suggestions';
+import { getUnitLabel } from '@/lib/units';
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -267,10 +268,11 @@ export function ChefKochScreen() {
           }
           renderItem={({ item }) => {
             const selected = selectedSet.has(item.id);
+            const unitLabel = getUnitLabel(item.unit, t);
             return (
               <Press
                 accessibilityRole="checkbox"
-                accessibilityLabel={`${item.name}, ${item.quantity} ${item.unit}`}
+                accessibilityLabel={`${item.name}, ${item.quantity} ${unitLabel}`}
                 accessibilityState={{ checked: selected }}
                 haptic="selection"
                 onPress={() => toggleItem(item.id)}
@@ -280,7 +282,7 @@ export function ChefKochScreen() {
                     {item.name}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    {`${item.quantity} ${item.unit}`}
+                    {`${item.quantity} ${unitLabel}`}
                   </Txt>
                 </View>
                 <View style={[styles.checkbox, selected && styles.checkboxSelected]}>
