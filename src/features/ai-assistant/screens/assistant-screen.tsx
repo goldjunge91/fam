@@ -681,6 +681,8 @@ function formatShoppingProposalItem(
 
 export function AssistantScreen() {
   const { t, i18n } = useTranslation();
+  const tRef = useRef(t);
+  tRef.current = t;
   const { colors } = useTheme();
   const { pageContextKind, pageContextRecipeId, pageContextWeekStart } = useAssistantRouteParams();
   const initialPageContext = useMemo(
@@ -758,7 +760,7 @@ export function AssistantScreen() {
       })
       .catch((loadError: unknown) => {
         if (current) {
-          setError(localizeAssistantError(t, loadError, 'load'));
+          setError(localizeAssistantError(tRef.current, loadError, 'load'));
         }
       })
       .finally(() => {
@@ -768,7 +770,7 @@ export function AssistantScreen() {
     return () => {
       current = false;
     };
-  }, [userId, t]);
+  }, [userId]);
 
   useEffect(() => {
     if (!activeHouseholdId || !hasAI) {

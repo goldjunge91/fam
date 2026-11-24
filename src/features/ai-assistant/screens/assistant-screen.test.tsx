@@ -78,9 +78,9 @@ jest.mock('@shopify/flash-list', () => {
 });
 
 jest.mock('react-i18next', () => {
-  const translate = (key: string, options?: Record<string, unknown>) => {
+  const translate = (language: 'de' | 'en', key: string, options?: Record<string, unknown>) => {
     const loadedCatalog =
-      mockAssistantLanguage === 'de'
+      language === 'de'
         ? require('@/i18n/features/ai-assistant.de.json')
         : require('@/i18n/features/ai-assistant.en.json');
     const mockCatalog = loadedCatalog.default ?? loadedCatalog;
@@ -104,10 +104,15 @@ jest.mock('react-i18next', () => {
     );
   };
 
+  const translations = {
+    de: (key: string, options?: Record<string, unknown>) => translate('de', key, options),
+    en: (key: string, options?: Record<string, unknown>) => translate('en', key, options),
+  };
+
   return {
     useTranslation: () => ({
       i18n: { language: mockAssistantLanguage },
-      t: translate,
+      t: translations[mockAssistantLanguage],
     }),
   };
 });
@@ -520,6 +525,42 @@ describe('AssistantScreen', () => {
 
     expect(await screen.findByText('Checked pantry')).toBeOnTheScreen();
     expect(screen.getByText('Searched recipes')).toBeOnTheScreen();
+  });
+
+  it('keeps the selected conversation when the language changes', async () => {
+    mockThreads = [
+      {
+        ...assistantThread([
+          { id: 'new-message', role: 'assistant', text: 'Newest response', createdAt: 'now' },
+        ]),
+        id: 'thread-newest',
+        title: 'Newest conversation',
+        updatedAt: '2026-11-09T00:00:00Z',
+      },
+      {
+        ...assistantThread([
+          { id: 'old-message', role: 'assistant', text: 'Older response', createdAt: 'now' },
+        ]),
+        id: 'thread-older',
+        title: 'Older conversation',
+        updatedAt: '2026-11-08T00:00:00Z',
+      },
+    ];
+
+    await renderAssistant();
+    expect(screen.getByText('Newest response')).toBeOnTheScreen();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Gesprächsverlauf öffnen' }));
+    await user.press(screen.getByRole('button', { name: 'Older conversation' }));
+    expect(screen.getByText('Older response')).toBeOnTheScreen();
+
+    mockAssistantLanguage = 'en';
+    await screen.rerender(<AssistantScreen />);
+
+    expect(screen.getByText('Older response')).toBeOnTheScreen();
+    expect(screen.queryByText('Newest response')).not.toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Send message' })).toBeOnTheScreen();
   });
 
   it('localizes expiring item dates and status in English', async () => {
