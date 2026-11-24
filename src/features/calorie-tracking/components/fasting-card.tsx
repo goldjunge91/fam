@@ -1,4 +1,6 @@
+import type { TFunction } from 'i18next';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ContentCard } from '@/components/ui/content-card';
@@ -15,13 +17,29 @@ import {
 const PROTOCOLS: {
   key: Exclude<FastingProtocol, 'custom' | '5:2'>;
   label: string;
-  desc: string;
+  descKey: 'sixteenEight' | 'eighteenSix' | 'twentyFour' | 'omad';
 }[] = [
-  { key: '16:8', label: '16:8', desc: '16h Fasten · 8h Essen' },
-  { key: '18:6', label: '18:6', desc: '18h Fasten · 6h Essen' },
-  { key: '20:4', label: '20:4', desc: '20h Fasten · 4h Essen' },
-  { key: 'omad', label: 'OMAD', desc: '23h Fasten (One Meal A Day)' },
+  { key: '16:8', label: '16:8', descKey: 'sixteenEight' },
+  { key: '18:6', label: '18:6', descKey: 'eighteenSix' },
+  { key: '20:4', label: '20:4', descKey: 'twentyFour' },
+  { key: 'omad', label: 'OMAD', descKey: 'omad' },
 ];
+
+function getProtocolDescription(
+  t: TFunction,
+  protocol: (typeof PROTOCOLS)[number]['descKey'],
+): string {
+  switch (protocol) {
+    case 'sixteenEight':
+      return t('calorieTracking.fasting.sixteenEight');
+    case 'eighteenSix':
+      return t('calorieTracking.fasting.eighteenSix');
+    case 'twentyFour':
+      return t('calorieTracking.fasting.twentyFour');
+    case 'omad':
+      return t('calorieTracking.fasting.omad');
+  }
+}
 
 const styles = StyleSheet.create((theme) => ({
   card: {
@@ -126,6 +144,7 @@ type FastingCardProps = {
 };
 
 export function FastingCard({ userId, childProfileId }: FastingCardProps) {
+  const { i18n, t } = useTranslation();
   const [selectedProtocol, setSelectedProtocol] =
     useState<Exclude<FastingProtocol, 'custom' | '5:2'>>('16:8');
   const [now, setNow] = useState(() => Date.now());
@@ -177,11 +196,12 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
       <View style={styles.header}>
         <View style={styles.headerTitle}>
           <Txt variant="body" weight="700">
-            ⏱️ Intervallfasten {activeSession ? `(${activeSession.protocol})` : ''}
+            {t('calorieTracking.fasting.title')}{' '}
+            {activeSession ? `(${activeSession.protocol})` : ''}
           </Txt>
         </View>
         <Txt variant="caption" tone="secondary">
-          Privat
+          {t('calorieTracking.fasting.private')}
         </Txt>
       </View>
 
@@ -189,7 +209,7 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
         // Inaktiver Zustand: Protokollauswahl
         <View style={styles.stack}>
           <Txt variant="caption" tone="secondary">
-            Wähle dein Fastenprotokoll und starte dein Fastenfenster:
+            {t('calorieTracking.fasting.chooseProtocol')}
           </Txt>
 
           {/* Protokoll-Chips */}
@@ -216,7 +236,12 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
           </View>
 
           <View style={styles.protocolDescription}>
-            <Txt variant="body">{PROTOCOLS.find((p) => p.key === selectedProtocol)?.desc}</Txt>
+            <Txt variant="body">
+              {getProtocolDescription(
+                t,
+                PROTOCOLS.find((p) => p.key === selectedProtocol)?.descKey ?? 'sixteenEight',
+              )}
+            </Txt>
           </View>
 
           <Press
@@ -224,7 +249,9 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             disabled={startFastMutation.isPending}
             style={styles.startButton}>
             <Txt variant="label" tone="onAccent" weight="700">
-              {startFastMutation.isPending ? 'Wird gestartet...' : 'Fasten starten'}
+              {startFastMutation.isPending
+                ? t('calorieTracking.fasting.starting')
+                : t('calorieTracking.fasting.start')}
             </Txt>
           </Press>
         </View>
@@ -235,22 +262,24 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
           <View style={styles.statusBox}>
             <View style={styles.statusHeader}>
               <Txt variant="caption" tone="secondary">
-                Gefastet seit{' '}
-                {new Date(activeSession.started_at).toLocaleTimeString('de-DE', {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}{' '}
-                Uhr
+                {t('calorieTracking.fasting.since', {
+                  time: new Date(activeSession.started_at).toLocaleTimeString(i18n.language, {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  }),
+                })}
               </Txt>
               <Txt variant="label" weight="700" tone={isTargetReached ? 'success' : 'primary'}>
-                {isTargetReached ? 'Essensfenster erreicht!' : 'Fastenphase'}
+                {isTargetReached
+                  ? t('calorieTracking.fasting.reached')
+                  : t('calorieTracking.fasting.phase')}
               </Txt>
             </View>
 
             <View style={styles.elapsedRow}>
               <Txt variant="display">{formatDuration(elapsedMinutes)}</Txt>
               <Txt variant="body" tone="secondary">
-                / Ziel: {formatDuration(targetMinutes)}
+                {t('calorieTracking.fasting.target', { duration: formatDuration(targetMinutes) })}
               </Txt>
             </View>
 
@@ -259,8 +288,12 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             <View style={styles.progressMetaRow}>
               <Txt variant="caption" tone="secondary">
                 {isTargetReached
-                  ? `+${formatDuration(elapsedMinutes - targetMinutes)} über Zielzeit`
-                  : `Noch ${formatDuration(remainingMinutes)} bis zum Essensfenster`}
+                  ? t('calorieTracking.fasting.overTarget', {
+                      duration: formatDuration(elapsedMinutes - targetMinutes),
+                    })
+                  : t('calorieTracking.fasting.untilWindow', {
+                      duration: formatDuration(remainingMinutes),
+                    })}
               </Txt>
               <Txt variant="caption" tone="secondary">
                 {Math.round(progressRatio * 100)}%
@@ -273,7 +306,9 @@ export function FastingCard({ userId, childProfileId }: FastingCardProps) {
             disabled={endFastMutation.isPending}
             style={styles.endButton}>
             <Txt variant="label" tone="danger" weight="700">
-              {endFastMutation.isPending ? 'Wird beendet...' : 'Fasten beenden'}
+              {endFastMutation.isPending
+                ? t('calorieTracking.fasting.ending')
+                : t('calorieTracking.fasting.end')}
             </Txt>
           </Press>
         </View>
