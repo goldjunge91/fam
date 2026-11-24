@@ -1,3 +1,5 @@
+export const DEFAULT_HOUSEHOLD_NAME = 'Mein Haushalt';
+
 export type SexOption = 'male' | 'female';
 
 export type ActivityLevel = 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active';

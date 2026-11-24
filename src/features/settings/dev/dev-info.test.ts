@@ -30,6 +30,7 @@ describe('classifySupabaseTarget', () => {
   it('behauptet bei einer unlesbaren URL nichts', () => {
     const target = classifySupabaseTarget('keine-url');
     expect(target.kind).toBe('unbekannt');
+    expect(target.tone).toBe('warning');
     expect(target.labelKey).toBe('dev.info.supabaseUnreadable');
   });
 

@@ -97,7 +97,7 @@ describe('widget layouts', () => {
         )}
         {renderSerializedWidget(
           'QuickAddShoppingWidget',
-          { articleName: 'Tomaten' },
+          { articleName: 'Tomaten', title: 'Schnell hinzufügen' },
           { colorScheme: 'light', widgetFamily: 'systemSmall' },
         )}
       </>,
@@ -108,9 +108,25 @@ describe('widget layouts', () => {
     expect(screen.getByText('Tomaten')).toBeOnTheScreen();
   });
 
+  it('renders the localized quick-add title from serialized props', async () => {
+    await render(
+      renderSerializedWidget(
+        'QuickAddShoppingWidget',
+        { articleName: 'Tomatoes', title: 'Quick add' },
+        { colorScheme: 'light', widgetFamily: 'systemSmall' },
+      ),
+    );
+
+    expect(screen.getByText('Quick add')).toBeOnTheScreen();
+    expect(screen.getByText('Tomatoes')).toBeOnTheScreen();
+  });
+
   it('accepts snapshot updates for the web widget adapters', () => {
     const shoppingListProps: ShoppingListWidgetProps = { openCount: 2, nextItem: 'Brot' };
-    const quickAddProps: QuickAddShoppingWidgetProps = { articleName: 'Brot' };
+    const quickAddProps: QuickAddShoppingWidgetProps = {
+      articleName: 'Brot',
+      title: 'Schnell hinzufügen',
+    };
 
     expect(() => ShoppingListWidgetWeb.updateSnapshot(shoppingListProps)).not.toThrow();
     expect(() => QuickAddShoppingWidgetWeb.updateSnapshot(quickAddProps)).not.toThrow();

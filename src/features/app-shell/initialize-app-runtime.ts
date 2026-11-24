@@ -2,6 +2,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { configureReanimatedLogger } from 'react-native-reanimated';
 
 import { initMobileAds } from '@/features/ads';
+import { i18n } from '@/i18n';
 import { initAptabase } from '@/lib/analytics/aptabase';
 import { markPerformance, startPerformanceSpan } from '@/lib/observability/performance';
 import { initPostHog } from '@/lib/observability/providers/posthog';
@@ -29,7 +30,10 @@ export function initializeAppRuntime(): void {
     initAptabase();
     initMobileAds();
     ShoppingListWidget.updateSnapshot({ openCount: 0 });
-    QuickAddShoppingWidget.updateSnapshot({ articleName: 'Milch hinzufügen' });
+    QuickAddShoppingWidget.updateSnapshot({
+      articleName: 'Milch hinzufügen',
+      title: i18n.t('common.widgets.quickAdd'),
+    });
 
     finishPerformance('completed', { initialized: true });
   } catch (error) {

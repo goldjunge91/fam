@@ -1,5 +1,6 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Press, Txt } from '@/constants/ui';
@@ -16,12 +17,10 @@ export interface DateWheelFieldProps {
 /**
  * Android-Datumsfeld — öffnet den nativen Material-Dialog (presentation="dialog").
  */
-export function DateWheelField({
-  label,
-  value,
-  onChange,
-  placeholder = 'TT.MM.JJJJ',
-}: DateWheelFieldProps) {
+export function DateWheelField({ label, value, onChange, placeholder }: DateWheelFieldProps) {
+  const { i18n, t } = useTranslation();
+  const accessibilityTargetLabel = label ?? t('common.datePicker.defaultLabel');
+  const displayPlaceholder = placeholder ?? t('common.datePicker.wheelPlaceholder');
   const [isOpen, setIsOpen] = useState(false);
   const pendingDate = value ? new Date(value) : new Date();
 
@@ -45,12 +44,15 @@ export function DateWheelField({
         accessibilityRole="button"
         accessibilityLabel={
           value
-            ? `${label ?? 'Datum'} ${formatIsoDate(value)} ändern`
-            : `${label ?? 'Datum'} auswählen`
+            ? t('common.datePicker.change', {
+                label: accessibilityTargetLabel,
+                value: formatIsoDate(value, i18n.language),
+              })
+            : t('common.datePicker.choose', { label: accessibilityTargetLabel })
         }
         style={styles.inputField}>
         <Txt variant="body" tone={value ? 'primary' : 'secondary'}>
-          {value ? formatIsoDate(value) : placeholder}
+          {value ? formatIsoDate(value, i18n.language) : displayPlaceholder}
         </Txt>
       </Press>
 

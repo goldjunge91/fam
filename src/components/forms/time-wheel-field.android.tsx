@@ -1,5 +1,6 @@
 import DateTimePicker from '@expo/ui/community/datetime-picker';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Press, Txt } from '@/constants/ui';
@@ -12,6 +13,8 @@ export interface TimeWheelFieldProps {
 }
 
 export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) {
+  const { t } = useTranslation();
+  const displayLabel = label ?? t('common.timePicker.defaultLabel');
   const [isOpen, setIsOpen] = useState(false);
   const pickerDate = fromTime(value);
 
@@ -26,11 +29,13 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         onPress={() => setIsOpen(true)}
         accessibilityRole="button"
         accessibilityLabel={
-          value ? `${label ?? 'Uhrzeit'} ${value} ändern` : `${label ?? 'Uhrzeit'} auswählen`
+          value
+            ? t('common.timePicker.change', { label: displayLabel, value })
+            : t('common.timePicker.choose', { label: displayLabel })
         }
         haptic="selection"
         style={styles.inputField}>
-        <Txt variant="body">{value || 'Uhrzeit auswählen'}</Txt>
+        <Txt variant="body">{value || t('common.timePicker.placeholder')}</Txt>
       </Press>
       {isOpen ? (
         <DateTimePicker

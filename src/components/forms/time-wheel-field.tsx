@@ -48,7 +48,7 @@ export function TimeWheelField({ label, value, onChange }: TimeWheelFieldProps) 
         }
         haptic="selection"
         style={styles.inputField}>
-        <Txt variant="body">{value || t('common.timePicker.choose')}</Txt>
+        <Txt variant="body">{value || t('common.timePicker.placeholder')}</Txt>
       </Press>
 
       <Modal

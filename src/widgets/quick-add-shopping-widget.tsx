@@ -3,10 +3,10 @@ import { background, font, foregroundStyle, padding } from '@expo/ui/swift-ui/mo
 import { createWidget, type WidgetEnvironment } from 'expo-widgets';
 
 import { getWidgetTheme } from '@/components/theme';
-import { i18n } from '@/i18n';
 
 export type QuickAddShoppingWidgetProps = {
   articleName: string;
+  title: string;
 };
 
 const QuickAddShoppingWidgetLayout = (
@@ -16,7 +16,7 @@ const QuickAddShoppingWidgetLayout = (
   'widget';
 
   const { colors, spacing, typography } = getWidgetTheme(environment.colorScheme);
-  const title = i18n.t('common.widgets.quickAdd');
+  const { title } = props;
 
   return (
     <VStack modifiers={[padding({ all: spacing.inset }), background(colors.background)]}>

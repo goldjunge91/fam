@@ -1,5 +1,6 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
 import { CompleteStepForm } from './complete-step';
 import { HouseholdStepForm } from './household-step';
 
@@ -99,8 +100,9 @@ describe('CompleteStepForm', () => {
 });
 
 describe('HouseholdStepForm', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
     mockOnboardingState = { household: { choice: 'solo' } };
     mockHouseholds = [];
     mockCreatePending = false;
@@ -144,6 +146,24 @@ describe('HouseholdStepForm', () => {
       });
       expect(mockRedeemInvite).toHaveBeenCalledWith('123e4567-e89b-12d3-a456-426614174000');
       expect(onNext).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  it('keeps the canonical default household name while the UI is English', async () => {
+    await i18n.changeLanguage('en');
+    await render(<HouseholdStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('radio', { name: 'Create a new household' }));
+    await user.press(screen.getByRole('button', { name: 'Next' }));
+
+    await waitFor(() => {
+      expect(mockUpdateHouseholdData).toHaveBeenCalledWith({
+        choice: 'create',
+        name: 'Mein Haushalt',
+        inviteCode: undefined,
+      });
+      expect(mockCreateHousehold).toHaveBeenCalledWith('Mein Haushalt');
     });
   });
 

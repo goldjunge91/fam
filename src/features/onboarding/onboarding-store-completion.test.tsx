@@ -196,6 +196,24 @@ describe('completeOnboarding', () => {
     });
   });
 
+  it('uses the canonical default name when no household name was entered', async () => {
+    mockHouseholdLimit.mockResolvedValue({ data: [], error: null });
+    useOnboardingStore.getState().updateHouseholdData({ choice: 'create' });
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = false;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+    expect(completed).toBe(true);
+
+    expect(mockRpc).toHaveBeenCalledWith('create_household', {
+      household_name: 'Mein Haushalt',
+    });
+  });
+
   it('redeems an invite code when joining a household', async () => {
     mockHouseholdLimit.mockResolvedValue({ data: [], error: null });
     useOnboardingStore.getState().updateHouseholdData({ choice: 'join', inviteCode: ' ABC123 ' });

@@ -13,12 +13,13 @@ import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
-import type {
-  HouseholdOnboardingData,
-  ModulePreferencesData,
-  OnboardingProfileData,
-  OnboardingState,
-  PermissionsOnboardingData,
+import {
+  DEFAULT_HOUSEHOLD_NAME,
+  type HouseholdOnboardingData,
+  type ModulePreferencesData,
+  type OnboardingProfileData,
+  type OnboardingState,
+  type PermissionsOnboardingData,
 } from './types';
 
 const initialState: OnboardingState = {
@@ -116,8 +117,8 @@ export function useOnboarding() {
             : supabase.rpc('create_household', {
                 household_name:
                   state.household.choice === 'create'
-                    ? state.household.name?.trim() || 'Mein Haushalt'
-                    : 'Mein Haushalt',
+                    ? state.household.name?.trim() || DEFAULT_HOUSEHOLD_NAME
+                    : DEFAULT_HOUSEHOLD_NAME,
               });
         const { data, error } = await request;
         if (error) throw error;

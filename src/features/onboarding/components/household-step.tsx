@@ -11,7 +11,7 @@ import {
 } from '@/features/household/api';
 import { validateHouseholdOnboarding } from '../onboarding-helpers';
 import { useOnboarding } from '../onboarding-store';
-import type { HouseholdChoice } from '../types';
+import { DEFAULT_HOUSEHOLD_NAME, type HouseholdChoice } from '../types';
 
 interface HouseholdStepFormProps {
   onNext: () => void;
@@ -76,10 +76,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
     // Bei "create" liefert die UI absichtlich einen Fallback-Namen, bevor
     // validiert wird - ein leerer Name soll die Erstellung nicht blockieren.
-    const name =
-      choice === 'create'
-        ? householdName.trim() || t('onboarding.household.defaultName')
-        : undefined;
+    const name = choice === 'create' ? householdName.trim() || DEFAULT_HOUSEHOLD_NAME : undefined;
     const code = choice === 'join' ? inviteCode.trim() : undefined;
 
     updateHouseholdData({ choice, name, inviteCode: code });
@@ -96,11 +93,11 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
 
     try {
       if (choice === 'create') {
-        await createHouseholdMutation.mutateAsync(name ?? t('onboarding.household.defaultName'));
+        await createHouseholdMutation.mutateAsync(name ?? DEFAULT_HOUSEHOLD_NAME);
       } else if (choice === 'join') {
         await redeemInviteMutation.mutateAsync(code ?? '');
       } else if (choice === 'solo') {
-        await createHouseholdMutation.mutateAsync(t('onboarding.household.defaultName'));
+        await createHouseholdMutation.mutateAsync(DEFAULT_HOUSEHOLD_NAME);
       }
       onNext();
     } catch (err) {

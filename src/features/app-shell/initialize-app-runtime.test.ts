@@ -11,6 +11,9 @@ const mockInitPostHog = jest.fn();
 const mockInitSentry = jest.fn();
 const mockShoppingListSnapshot = jest.fn();
 const mockQuickAddSnapshot = jest.fn();
+const mockI18nT = jest.fn((key: string) =>
+  key === 'common.widgets.quickAdd' ? 'Schnell hinzufügen' : key,
+);
 
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: (...args: unknown[]) => mockPreventAutoHide(...args),
@@ -20,6 +23,11 @@ jest.mock('react-native-reanimated', () => ({
 }));
 jest.mock('@/features/ads', () => ({
   initMobileAds: (...args: unknown[]) => mockInitMobileAds(...args),
+}));
+jest.mock('@/i18n', () => ({
+  i18n: {
+    t: (key: string) => mockI18nT(key),
+  },
 }));
 jest.mock('@/lib/analytics/aptabase', () => ({
   initAptabase: (...args: unknown[]) => mockInitAptabase(...args),
@@ -73,7 +81,11 @@ describe('initializeAppRuntime', () => {
     expect(mockInitAptabase).toHaveBeenCalledTimes(1);
     expect(mockInitMobileAds).toHaveBeenCalledTimes(1);
     expect(mockShoppingListSnapshot).toHaveBeenCalledWith({ openCount: 0 });
-    expect(mockQuickAddSnapshot).toHaveBeenCalledWith({ articleName: 'Milch hinzufügen' });
+    expect(mockQuickAddSnapshot).toHaveBeenCalledWith({
+      articleName: 'Milch hinzufügen',
+      title: 'Schnell hinzufügen',
+    });
+    expect(mockI18nT).toHaveBeenCalledWith('common.widgets.quickAdd');
     expect(mockFinishPerformance).toHaveBeenCalledWith('completed', { initialized: true });
   });
 

@@ -90,6 +90,13 @@ describe('wheel fields', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
+  it('keeps label-specific accessibility copy separate from the time placeholder', async () => {
+    await render(<TimeWheelField label="Erinnerung" value="" onChange={jest.fn()} />);
+
+    expect(screen.getByText('Uhrzeit auswählen')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Erinnerung auswählen' })).toBeOnTheScreen();
+  });
+
   it('uses the fallback accessibility label when no date label is provided', async () => {
     const user = userEvent.setup();
     await render(<DateWheelField value="" onChange={jest.fn()} />);

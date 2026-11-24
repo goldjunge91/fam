@@ -1,5 +1,7 @@
 import { act, render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
+import { i18n } from '@/i18n';
+import { formatIsoDate } from '@/lib/format/format-date';
 import { DateWheelField } from './date-wheel-field.android';
 import { TimeWheelField } from './time-wheel-field.android';
 import { WheelPickerField, type WheelPickerOption } from './wheel-picker-field.android';
@@ -51,9 +53,10 @@ function lastWheelPickerProps(): WheelPickerProps {
   return props;
 }
 
-beforeEach(() => {
+beforeEach(async () => {
   mockDateTimePicker.mockClear();
   mockPickerRender.mockClear();
+  await i18n.changeLanguage('de');
 });
 
 describe('Android wheel fields', () => {
@@ -102,6 +105,32 @@ describe('Android wheel fields', () => {
     });
 
     expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('uses the active language for Android date copy and formatting', async () => {
+    const user = userEvent.setup();
+    await i18n.changeLanguage('en');
+
+    await render(<DateWheelField value="2024-01-02" onChange={jest.fn()} />);
+
+    const formattedDate = formatIsoDate('2024-01-02', 'en');
+    expect(screen.getByText(formattedDate)).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: `Change Date ${formattedDate}` })).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: `Change Date ${formattedDate}` }));
+    expect(lastDateTimePickerProps().mode).toBe('date');
+  });
+
+  it('keeps the time label in accessibility copy and localizes the placeholder', async () => {
+    const user = userEvent.setup();
+    await i18n.changeLanguage('en');
+
+    await render(<TimeWheelField label="Reminder time" value="" onChange={jest.fn()} />);
+
+    expect(screen.getByText('Choose time')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Choose Reminder time' })).toBeOnTheScreen();
+    await user.press(screen.getByRole('button', { name: 'Choose Reminder time' }));
+    expect(lastDateTimePickerProps().mode).toBe('time');
   });
 
   it('passes options and selected values through to the native picker', async () => {
