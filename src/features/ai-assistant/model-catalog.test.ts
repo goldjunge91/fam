@@ -1,6 +1,6 @@
 import {
   AI_MODEL_CATALOG,
-  AI_PROVIDER_LABELS,
+  AI_PROVIDER_LABEL_KEYS,
   AI_PROVIDERS,
   DEFAULT_AI_MODELS,
   isAiProvider,
@@ -11,7 +11,10 @@ import {
 describe('AI model catalog', () => {
   it('defines both providers and their defaults', () => {
     expect(AI_PROVIDERS).toEqual(['openrouter', 'groq']);
-    expect(AI_PROVIDER_LABELS).toEqual({ openrouter: 'OpenRouter', groq: 'Groq' });
+    expect(AI_PROVIDER_LABEL_KEYS).toEqual({
+      openrouter: 'dev.ai.providers.openrouter',
+      groq: 'dev.ai.providers.groq',
+    });
     expect(DEFAULT_AI_MODELS.openrouter).toBe(AI_MODEL_CATALOG.openrouter[0]?.id);
     expect(DEFAULT_AI_MODELS.groq).toBe(AI_MODEL_CATALOG.groq[0]?.id);
   });

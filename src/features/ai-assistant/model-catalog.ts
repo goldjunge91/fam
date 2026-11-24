@@ -3,15 +3,17 @@ export type AiModelsByProvider = Record<AiProvider, string>;
 
 export const AI_PROVIDERS = ['openrouter', 'groq'] as const satisfies readonly AiProvider[];
 
-export const AI_PROVIDER_LABELS: Record<AiProvider, string> = {
-  openrouter: 'OpenRouter',
-  groq: 'Groq',
-};
+export const AI_PROVIDER_LABEL_KEYS = {
+  openrouter: 'dev.ai.providers.openrouter',
+  groq: 'dev.ai.providers.groq',
+} as const satisfies Record<AiProvider, `dev.ai.providers.${string}`>;
+
+type AiModelCopyKey = `dev.ai.models.${string}.${'label' | 'description'}`;
 
 export type AiModelOption = {
   id: string;
-  label: string;
-  description: string;
+  labelKey: AiModelCopyKey;
+  descriptionKey: AiModelCopyKey;
   supportsImages: boolean;
 };
 
@@ -19,76 +21,76 @@ export const AI_MODEL_CATALOG: Record<AiProvider, readonly AiModelOption[]> = {
   openrouter: [
     {
       id: 'z-ai/glm-5.3-flash',
-      label: 'GLM 5.3 Flash',
-      description: 'Schnell und für alle fam-AI-Abläufe freigegeben',
+      labelKey: 'dev.ai.models.glm53Flash.label',
+      descriptionKey: 'dev.ai.models.glm53Flash.description',
       supportsImages: true,
     },
     {
       id: 'qwen/qwen3.8-flash',
-      label: 'Qwen 3.8 Flash',
-      description: 'Schnell, mit Bildverarbeitung',
+      labelKey: 'dev.ai.models.qwen38Flash.label',
+      descriptionKey: 'dev.ai.models.qwen38Flash.description',
       supportsImages: true,
     },
     {
       id: 'google/gemma-4-26b-a4b-it',
-      label: 'Gemma 4 26B',
-      description: 'Kompaktes multimodales Modell',
+      labelKey: 'dev.ai.models.gemma426.label',
+      descriptionKey: 'dev.ai.models.gemma426.description',
       supportsImages: true,
     },
     {
       id: 'google/gemma-4-31b-it',
-      label: 'Gemma 4 31B',
-      description: 'Größeres multimodales Modell',
+      labelKey: 'dev.ai.models.gemma431.label',
+      descriptionKey: 'dev.ai.models.gemma431.description',
       supportsImages: true,
     },
     {
       id: 'ibm-granite/granite-4.2-8b',
-      label: 'Granite 4.2 8B',
-      description: 'Kleines Textmodell',
+      labelKey: 'dev.ai.models.granite42.label',
+      descriptionKey: 'dev.ai.models.granite42.description',
       supportsImages: false,
     },
     {
       id: 'minimax/minimax-m3:free',
-      label: 'MiniMax M3',
-      description: 'Textmodell über OpenRouter',
+      labelKey: 'dev.ai.models.minimaxM3.label',
+      descriptionKey: 'dev.ai.models.minimaxM3.description',
       supportsImages: false,
     },
   ],
   groq: [
     {
       id: 'qwen/qwen3.8-27b',
-      label: 'Qwen 3.8 27B',
-      description: 'Free Plan · Bilder, JSON und Tool-Aufrufe',
+      labelKey: 'dev.ai.models.qwen3827.label',
+      descriptionKey: 'dev.ai.models.qwen3827.description',
       supportsImages: true,
     },
     {
       id: 'openai/gpt-oss-120b',
-      label: 'GPT-OSS 120B',
-      description: 'Free Plan · Starkes Textmodell mit JSON und Tools',
+      labelKey: 'dev.ai.models.gptOss120.label',
+      descriptionKey: 'dev.ai.models.gptOss120.description',
       supportsImages: false,
     },
     {
       id: 'openai/gpt-oss-20b',
-      label: 'GPT-OSS 20B',
-      description: 'Free Plan · Schnelles Textmodell mit JSON und Tools',
+      labelKey: 'dev.ai.models.gptOss20.label',
+      descriptionKey: 'dev.ai.models.gptOss20.description',
       supportsImages: false,
     },
     {
       id: 'openai/gpt-oss-safeguard-20b',
-      label: 'GPT-OSS Safeguard 20B',
-      description: 'Free Plan · Auf Sicherheitsklassifikation spezialisiert',
+      labelKey: 'dev.ai.models.gptOssSafeguard.label',
+      descriptionKey: 'dev.ai.models.gptOssSafeguard.description',
       supportsImages: false,
     },
     {
       id: 'meta-llama/llama-prompt-guard-2-22m',
-      label: 'Llama Prompt Guard 2 22M',
-      description: 'Free Plan · Kleiner Prompt-Injection-Klassifikator',
+      labelKey: 'dev.ai.models.promptGuard22.label',
+      descriptionKey: 'dev.ai.models.promptGuard22.description',
       supportsImages: false,
     },
     {
       id: 'meta-llama/llama-prompt-guard-2-86m',
-      label: 'Llama Prompt Guard 2 86M',
-      description: 'Free Plan · Prompt-Injection-Klassifikator',
+      labelKey: 'dev.ai.models.promptGuard86.label',
+      descriptionKey: 'dev.ai.models.promptGuard86.description',
       supportsImages: false,
     },
   ],

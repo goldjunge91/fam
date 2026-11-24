@@ -23,6 +23,7 @@ const mockRequestImagePermission = jest.fn();
 const mockLaunchImageLibrary = jest.fn();
 const mockGetDocument = jest.fn();
 const mockEncodeAttachments = jest.fn();
+let mockAssistantLanguage: 'de' | 'en' = 'de';
 let mockUserId: string | null = 'user-1';
 let mockHouseholdId: string | null = 'household-1';
 let mockHasAI = true;
@@ -76,6 +77,49 @@ jest.mock('@shopify/flash-list', () => {
   };
 });
 
+jest.mock('react-i18next', () => {
+  const translate = (key: string, options?: Record<string, unknown>) => {
+    const isInventoryKey = key.startsWith('inventory.');
+    const loadedCatalog =
+      mockAssistantLanguage === 'de'
+        ? require(
+            isInventoryKey
+              ? '@/i18n/features/inventory.de.json'
+              : '@/i18n/features/ai-assistant.de.json',
+          )
+        : require(
+            isInventoryKey
+              ? '@/i18n/features/inventory.en.json'
+              : '@/i18n/features/ai-assistant.en.json',
+          );
+    const mockCatalog = loadedCatalog.default ?? loadedCatalog;
+    const segments = key.split('.').slice(1);
+    const resolveValue = (path: string[]) =>
+      path.reduce<unknown>((current, segment) => {
+        if (typeof current !== 'object' || current === null) return undefined;
+        return (current as Record<string, unknown>)[segment];
+      }, mockCatalog);
+    let value = resolveValue(segments);
+    if (typeof value !== 'string' && typeof options?.count === 'number') {
+      const suffix = options.count === 1 ? 'one' : 'other';
+      const lastSegment = segments.at(-1);
+      value = lastSegment
+        ? resolveValue([...segments.slice(0, -1), `${lastSegment}_${suffix}`])
+        : undefined;
+    }
+    if (typeof value !== 'string') return key;
+    return value.replace(/\{\{\s*([a-zA-Z0-9_.-]+)\s*\}\}/g, (_match, name: string) =>
+      String(options?.[name] ?? ''),
+    );
+  };
+
+  return {
+    useTranslation: () => ({
+      i18n: { language: mockAssistantLanguage },
+      t: translate,
+    }),
+  };
+});
 jest.mock('@tanstack/react-query', () => ({
   useQueryClient: () => ({ invalidateQueries: (...args: unknown[]) => mockInvalidate(...args) }),
   useQuery: () => ({ data: null }),
@@ -386,8 +430,11 @@ async function renderAssistant() {
     expect(
       Boolean(
         screen.queryByText('AI-Abo erforderlich') ||
+          screen.queryByText('AI subscription required') ||
           screen.queryByText('Wähle zuerst einen aktiven Haushalt.') ||
-          screen.queryByLabelText('Nachricht an den Assistant'),
+          screen.queryByText('Choose an active household first.') ||
+          screen.queryByLabelText('Nachricht an den Assistant') ||
+          screen.queryByLabelText('Message the Assistant'),
       ),
     ).toBe(true);
   });
@@ -397,6 +444,7 @@ async function renderAssistant() {
 describe('AssistantScreen', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockAssistantLanguage = 'de';
     mockUserId = 'user-1';
     mockHouseholdId = 'household-1';
     mockHasAI = true;
@@ -451,6 +499,87 @@ describe('AssistantScreen', () => {
     mockHouseholdId = null;
     await renderAssistant();
     expect(screen.getByText('Wähle zuerst einen aktiven Haushalt.')).toBeOnTheScreen();
+  });
+
+  it('renders the assistant shell and tool trace in English', async () => {
+    mockAssistantLanguage = 'en';
+    await renderAssistant();
+
+    expect(screen.getByText('What would you like to cook today?')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'What can I cook today?' })).toBeOnTheScreen();
+    expect(screen.getByLabelText('Message the Assistant')).toBeOnTheScreen();
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'What can I cook today?' }));
+    await user.press(screen.getByRole('button', { name: 'Send message' }));
+
+    expect(await screen.findByText('Checked pantry')).toBeOnTheScreen();
+    expect(screen.getByText('Searched recipes')).toBeOnTheScreen();
+  });
+
+  it('localizes expiring item dates and status in English', async () => {
+    mockAssistantLanguage = 'en';
+    const soon = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10);
+    mockInventoryItems = [
+      expiringInventoryItem('lot-milk', 'Milk', soon),
+      expiringInventoryItem('lot-eggs', 'Eggs', soon),
+    ];
+
+    await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'What can I cook today?' }));
+    await waitFor(() => expect(screen.getByText('Expiring soon')).toBeOnTheScreen());
+
+    expect(
+      screen.getAllByText(/[0-9]{2}\x2F[0-9]{2}\x2F[0-9]{4} · .*day(?:s)? left$/),
+    ).toHaveLength(2);
+    expect(screen.queryByText(/noch \d+ Tag/)).toBeNull();
+  });
+
+  it('localizes restore and attachment permission copy in English', async () => {
+    mockAssistantLanguage = 'en';
+    mockHasAI = false;
+    mockRestorePurchases.mockResolvedValue({ ok: false, error: new Error('Store offline') });
+    mockRequestImagePermission.mockResolvedValue({ granted: false });
+
+    const paywall = await renderAssistant();
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('button', { name: 'Restore purchases' }));
+    await waitFor(() =>
+      expect(Alert.alert).toHaveBeenCalledWith('Restore failed', 'Store offline'),
+    );
+    await paywall.unmount();
+
+    mockHasAI = true;
+    await renderAssistant();
+    await user.press(screen.getByRole('button', { name: 'Add attachment' }));
+    const options = jest.mocked(Alert.alert).mock.calls.at(-1)?.[2];
+    await act(async () => options?.find((option) => option.text === 'Choose image')?.onPress?.());
+    expect(screen.getByText('Allow photo access to choose an attachment.')).toBeOnTheScreen();
+  });
+
+  it('localizes proposal cards and accessible actions in English', async () => {
+    mockAssistantLanguage = 'en';
+    mockThreads = [
+      assistantThread([
+        {
+          id: 'reply-english',
+          role: 'assistant',
+          text: 'Suggestion',
+          createdAt: 'now',
+          proposals: [mealPlanProposal, shoppingItemProposal],
+        },
+      ]),
+    ];
+
+    await renderAssistant();
+
+    expect(screen.getByText('Suggestion for 1 meals')).toBeOnTheScreen();
+    expect(screen.getByText('To shopping list')).toBeOnTheScreen();
+    expect(screen.getByText('2 packages · Hafermilch')).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Apply shopping item: Hafermilch' }),
+    ).toBeOnTheScreen();
   });
 
   it('shows the household AI paywall and handles failed restoration', async () => {
