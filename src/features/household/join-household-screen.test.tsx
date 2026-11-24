@@ -2,6 +2,7 @@ import { fireEvent, render, screen, userEvent } from '@testing-library/react-nat
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { JoinHouseholdScreen } from '@/features/household/join-household-screen';
+import { APP_ERROR_CODES, AppError } from '@/lib/errors/app-error';
 
 let mockCanGoBack = false;
 const mockBack = jest.fn();
@@ -98,7 +99,21 @@ describe('JoinHouseholdScreen', () => {
     expect(mockReplace).toHaveBeenCalledWith('/');
   });
 
-  it('lädt einen gespeicherten Einladungstoken und zeigt einen Beitrittsfehler', async () => {
+  it('übersetzt app-eigene Fehlercodes beim ungültigen Einladungscode', async () => {
+    mockMutateAsync.mockRejectedValueOnce(new AppError(APP_ERROR_CODES.invalidInvite));
+    await renderScreen();
+
+    const input = screen.getByPlaceholderText('z. B. AB12CD');
+    await userEvent.setup().type(input, 'invalid-code');
+    await userEvent.setup().press(screen.getByRole('button', { name: 'Haushalt beitreten' }));
+
+    expect(
+      await screen.findByText('Einladungs-Code ungültig oder zu viele Versuche.'),
+    ).toBeOnTheScreen();
+    expect(screen.queryByText('invalid_invite')).not.toBeOnTheScreen();
+  });
+
+  it('bewahrt externe Beitrittsfehler als Laufzeitmeldung', async () => {
     mockPeekPendingInviteToken.mockResolvedValueOnce('pending-token');
     mockMutateAsync.mockRejectedValueOnce(new Error('Einladung ist abgelaufen'));
     await renderScreen();

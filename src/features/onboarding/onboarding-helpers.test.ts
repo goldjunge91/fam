@@ -1,27 +1,34 @@
 import {
-  formatGermanDateInput,
-  germanDateToIso,
-  isoDateToGerman,
+  dateInputToIso,
+  formatDateInput,
+  isoDateToInput,
   validateHouseholdOnboarding,
   validateOnboardingProfile,
 } from './onboarding-helpers';
 
 describe('onboarding date helpers', () => {
-  it('formats partial input, strips non-digits, and caps the input at eight digits', () => {
-    expect(formatGermanDateInput('')).toBe('');
-    expect(formatGermanDateInput('1a')).toBe('1');
-    expect(formatGermanDateInput('a12b09c1990d123')).toBe('12.09.1990');
+  it('formats German partial input, strips non-digits, and caps the input at eight digits', () => {
+    expect(formatDateInput('')).toBe('');
+    expect(formatDateInput('1a')).toBe('1');
+    expect(formatDateInput('a12b09c1990d123')).toBe('12.09.1990');
+  });
+
+  it('formats and parses English month/day input', () => {
+    expect(formatDateInput('a05141990d', 'mdy')).toBe('05/14/1990');
+    expect(dateInputToIso('05/14/1990', 'mdy')).toBe('1990-05-14');
+    expect(dateInputToIso('14/05/1990', 'mdy')).toBeUndefined();
   });
 
   it('normalizes valid German dates and rejects impossible dates', () => {
-    expect(germanDateToIso('1.2.1990')).toBe('1990-02-01');
-    expect(germanDateToIso('31.02.1990')).toBeUndefined();
-    expect(germanDateToIso('')).toBeUndefined();
+    expect(dateInputToIso('1.2.1990')).toBe('1990-02-01');
+    expect(dateInputToIso('31.02.1990')).toBeUndefined();
+    expect(dateInputToIso('')).toBeUndefined();
   });
 
-  it('formats ISO dates for display and leaves unrelated values unchanged', () => {
-    expect(isoDateToGerman('1990-02-01')).toBe('01.02.1990');
-    expect(isoDateToGerman('not-a-date')).toBe('not-a-date');
+  it('formats ISO dates for German and English display and leaves unrelated values unchanged', () => {
+    expect(isoDateToInput('1990-02-01')).toBe('01.02.1990');
+    expect(isoDateToInput('1990-02-01', 'mdy')).toBe('02/01/1990');
+    expect(isoDateToInput('not-a-date')).toBe('not-a-date');
   });
 });
 

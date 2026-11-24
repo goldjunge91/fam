@@ -129,33 +129,31 @@ export function MembersScreen() {
   async function handleToggleRole(userId: string, currentRole: string, name: string) {
     if (!isAdmin || !householdId) return;
     const newRole = currentRole === 'admin' ? 'member' : 'admin';
-    const actionText =
-      newRole === 'admin' ? t('household.members.promote') : t('household.members.demote');
+    const confirmationMessage =
+      newRole === 'admin'
+        ? t('household.members.promoteConfirm', { name })
+        : t('household.members.demoteConfirm', { name });
 
-    Alert.alert(
-      t('household.members.roleChange'),
-      t('household.members.roleChangeConfirm', { name, action: actionText }),
-      [
-        { text: t('common.actions.cancel'), style: 'cancel' },
-        {
-          text: t('common.actions.confirm'),
-          onPress: async () => {
-            try {
-              await updateRoleMutation.mutateAsync({
-                householdId,
-                userId,
-                role: newRole,
-              });
-            } catch (err) {
-              Alert.alert(
-                t('common.errors.generic'),
-                err instanceof Error ? err.message : t('common.errors.generic'),
-              );
-            }
-          },
+    Alert.alert(t('household.members.roleChange'), confirmationMessage, [
+      { text: t('common.actions.cancel'), style: 'cancel' },
+      {
+        text: t('common.actions.confirm'),
+        onPress: async () => {
+          try {
+            await updateRoleMutation.mutateAsync({
+              householdId,
+              userId,
+              role: newRole,
+            });
+          } catch (err) {
+            Alert.alert(
+              t('common.errors.generic'),
+              err instanceof Error ? err.message : t('common.errors.generic'),
+            );
+          }
         },
-      ],
-    );
+      },
+    ]);
   }
 
   async function handleRemoveMember(userId: string, name: string) {

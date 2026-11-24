@@ -1,26 +1,27 @@
-import { normalizeDateInput } from '@/lib/db/zod/profile.zod';
+import { type DateInputOrder, normalizeDateInput } from '@/lib/db/zod/profile.zod';
 import type { HouseholdOnboardingData, OnboardingProfileData } from './types';
 
-/**
- * Formatiert eine laufende Eingabe zu TT.MM.JJJJ, indem Punkte automatisch
- * nach Tag und Monat eingefügt werden. Nicht-Ziffern werden verworfen.
- */
-export function formatGermanDateInput(raw: string): string {
+/** Formatiert eine laufende Eingabe nach dem aktiven lokalen Datumsvertrag. */
+export function formatDateInput(raw: string, order: DateInputOrder = 'dmy'): string {
   const digits = raw.replace(/\D/g, '').slice(0, 8);
   const parts = [digits.slice(0, 2), digits.slice(2, 4), digits.slice(4, 8)].filter(Boolean);
-  return parts.join('.');
+  return parts.join(order === 'mdy' ? '/' : '.');
 }
 
-export function germanDateToIso(value: string): string | undefined {
-  return normalizeDateInput(value) ?? undefined;
+export function dateInputToIso(value: string, order: DateInputOrder = 'dmy'): string | undefined {
+  return normalizeDateInput(value, order) ?? undefined;
 }
 
-/** Wandelt ISO (JJJJ-MM-TT) in TT.MM.JJJJ für die Anzeige um. */
-export function isoDateToGerman(value: string): string {
+/** Wandelt ISO (JJJJ-MM-TT) nach dem aktiven lokalen Datumsvertrag um. */
+export function isoDateToInput(value: string, order: DateInputOrder = 'dmy'): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
   if (!match) return value;
   const [, year, month, day] = match;
-  return `${day}.${month}.${year}`;
+  return order === 'mdy' ? `${month}/${day}/${year}` : `${day}.${month}.${year}`;
+}
+
+export function dateInputOrderForLanguage(language: string): DateInputOrder {
+  return language.toLowerCase().startsWith('en') ? 'mdy' : 'dmy';
 }
 
 /**

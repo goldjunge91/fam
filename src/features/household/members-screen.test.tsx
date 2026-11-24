@@ -156,7 +156,11 @@ describe('MembersScreen', () => {
 
     await user.press(screen.getByLabelText('Mitglied-Rolle ändern'));
 
-    expect(alert).toHaveBeenCalledWith('Rolle ändern', expect.any(String), expect.any(Array));
+    expect(alert).toHaveBeenCalledWith(
+      'Rolle ändern',
+      'Möchtest du "Erika Mitglied" zum Administrator ernennen?',
+      expect.any(Array),
+    );
     expect(mockUpdateRoleMutateAsync).not.toHaveBeenCalled();
     await act(async () => {
       await confirm?.();
@@ -166,6 +170,22 @@ describe('MembersScreen', () => {
       userId: 'user-2',
       role: 'admin',
     });
+    alert.mockRestore();
+  });
+
+  it('formuliert die Herabstufungsbestätigung mit dem Mitgliedsnamen', async () => {
+    const user = setupUser();
+    mockMembers[1].role = 'admin';
+    const alert = jest.spyOn(Alert, 'alert').mockImplementation(() => undefined);
+    await renderScreen();
+
+    await user.press(screen.getByLabelText('Administrator-Rolle ändern'));
+
+    expect(alert).toHaveBeenCalledWith(
+      'Rolle ändern',
+      'Möchtest du "Erika Mitglied" die Admin-Rolle entziehen?',
+      expect.any(Array),
+    );
     alert.mockRestore();
   });
 

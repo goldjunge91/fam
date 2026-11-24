@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
@@ -9,12 +9,12 @@ import { useSession } from '@/features/auth/session-provider';
 import { useProfile } from '@/features/profile/api';
 import { useFeatureAccess } from '@/features/settings/use-feature-access';
 import {
+  createOnboardingProfileFormSchema,
   type OnboardingProfileForm,
   type OnboardingProfileFormInput,
-  onboardingProfileFormSchema,
 } from '@/lib/db/zod/onboarding.zod';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
-import { formatGermanDateInput, isoDateToGerman } from '../onboarding-helpers';
+import { dateInputOrderForLanguage, formatDateInput, isoDateToInput } from '../onboarding-helpers';
 import { useOnboarding } from '../onboarding-store';
 import type { ActivityLevel, SexOption } from '../types';
 
@@ -90,7 +90,12 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const dateInputOrder = dateInputOrderForLanguage(i18n.language);
+  const formSchema = useMemo(
+    () => createOnboardingProfileFormSchema(dateInputOrder),
+    [dateInputOrder],
+  );
   const { state, updateProfileData } = useOnboarding();
   const { session } = useSession();
   const { data: userProfile } = useProfile(session?.user.id);
@@ -106,10 +111,12 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
     handleSubmit,
     formState: { errors },
   } = useForm<OnboardingProfileFormInput, unknown, OnboardingProfileForm>({
-    resolver: zodResolver(onboardingProfileFormSchema),
+    resolver: zodResolver(formSchema),
     defaultValues: {
       displayName: state.profile.displayName ?? '',
-      birthDate: state.profile.birthDate ? isoDateToGerman(state.profile.birthDate) : '',
+      birthDate: state.profile.birthDate
+        ? isoDateToInput(state.profile.birthDate, dateInputOrder)
+        : '',
       heightCm: state.profile.heightCm?.toString() ?? '',
       weightKg: state.profile.weightKg?.toString() ?? '',
       sex: state.profile.sex,
@@ -127,7 +134,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         displayName: current.displayName || userProfile.display_name || '',
         birthDate:
           current.birthDate ||
-          (userProfile.birth_date ? isoDateToGerman(userProfile.birth_date) : ''),
+          (userProfile.birth_date ? isoDateToInput(userProfile.birth_date, dateInputOrder) : ''),
         heightCm: current.heightCm || (userProfile.height_cm ? String(userProfile.height_cm) : ''),
         weightKg: current.weightKg,
         sex: current.sex || (userProfile.sex as SexOption | null) || undefined,
@@ -138,7 +145,7 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
         weightGoal: current.weightGoal,
       });
     }
-  }, [getValues, reset, userProfile]);
+  }, [dateInputOrder, getValues, reset, userProfile]);
 
   const submit = (values: OnboardingProfileForm) => {
     updateProfileData(values);
@@ -175,7 +182,9 @@ export function ProfileStepForm({ onNext, onSkip }: ProfileStepFormProps) {
               label={t('onboarding.profile.birthDateLabel')}
               value={birthDate}
               onChangeText={(text) =>
-                setValue('birthDate', formatGermanDateInput(text), { shouldValidate: true })
+                setValue('birthDate', formatDateInput(text, dateInputOrder), {
+                  shouldValidate: true,
+                })
               }
               placeholder={t('onboarding.profile.birthDatePlaceholder')}
               inputMode="numeric"

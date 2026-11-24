@@ -11,7 +11,9 @@ export const ACTIVITY_LEVEL_VALUES = [
   'very_active',
 ] as const;
 
-export function normalizeDateInput(raw: string): string | null {
+export type DateInputOrder = 'dmy' | 'mdy';
+
+export function normalizeDateInput(raw: string, order: DateInputOrder = 'dmy'): string | null {
   const value = raw.trim();
   if (!value) return null;
   const iso = /^(\d{4})[-./](\d{1,2})[-./](\d{1,2})$/.exec(value);
@@ -19,7 +21,11 @@ export function normalizeDateInput(raw: string): string | null {
   const parts = iso
     ? { year: Number(iso[1]), month: Number(iso[2]), day: Number(iso[3]) }
     : local
-      ? { year: Number(local[3]), month: Number(local[2]), day: Number(local[1]) }
+      ? {
+          year: Number(local[3]),
+          month: Number(order === 'dmy' ? local[2] : local[1]),
+          day: Number(order === 'dmy' ? local[1] : local[2]),
+        }
       : null;
   if (!parts) return null;
   const date = new Date(parts.year, parts.month - 1, parts.day);

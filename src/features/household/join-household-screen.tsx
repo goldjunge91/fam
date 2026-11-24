@@ -8,6 +8,7 @@ import { ContentCard } from '@/components/ui/content-card';
 import { Button, TextField, Txt } from '@/constants/ui';
 import { clearPendingInviteToken, peekPendingInviteToken } from '@/features/auth/pending-invite';
 import { useRedeemInviteMutation } from '@/features/household/api';
+import { APP_ERROR_CODES, isAppError } from '@/lib/errors/app-error';
 
 const styles = StyleSheet.create((theme) => ({
   form: {
@@ -47,7 +48,13 @@ export function JoinHouseholdScreen() {
       await clearPendingInviteToken();
       router.replace('/');
     } catch (err) {
-      if (err instanceof Error) {
+      if (isAppError(err)) {
+        setErrorMsg(
+          err.code === APP_ERROR_CODES.invalidInvite
+            ? t('household.join.invalidInvite')
+            : t('household.join.genericError'),
+        );
+      } else if (err instanceof Error) {
         setErrorMsg(err.message);
       } else {
         setErrorMsg(t('household.join.genericError'));

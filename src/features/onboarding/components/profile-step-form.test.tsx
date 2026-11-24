@@ -1,6 +1,6 @@
-import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
-
+import { act, render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { ProfileStepForm } from '@/features/onboarding/components/profile-step-form';
+import { i18n } from '@/i18n';
 
 const mockUpdateProfileData = jest.fn();
 let mockCaloriesTrackingEnabled = true;
@@ -44,12 +44,46 @@ describe('ProfileStepForm', () => {
     mockUserProfile = null;
   });
 
+  afterEach(async () => {
+    await act(async () => {
+      await i18n.changeLanguage('de');
+    });
+  });
+
   it('zeigt Körper & Aktivität bei aktivem Kalorien-Tracking', async () => {
     await render(<ProfileStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
 
     expect(screen.getByText('Körper & Aktivität')).toBeOnTheScreen();
     expect(screen.getByLabelText('Geburtsdatum (TT.MM.JJJJ)')).toBeOnTheScreen();
     expect(screen.getByLabelText('Aktivitätslevel im Alltag')).toBeOnTheScreen();
+  });
+
+  it('verwendet im Englischen Monat/Tag-Eingabe und stellt ISO-Daten lokal wieder her', async () => {
+    await act(async () => {
+      await i18n.changeLanguage('en');
+    });
+    mockUserProfile = {
+      display_name: 'Profile name',
+      birth_date: '1985-06-12',
+      height_cm: 172,
+      sex: 'male',
+      activity_level: 'light',
+    };
+    const user = userEvent.setup();
+
+    await render(<ProfileStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+    const birthDate = screen.getByLabelText('Date of birth (MM/DD/YYYY)');
+    expect(birthDate).toHaveDisplayValue('06/12/1985');
+    await user.clear(birthDate);
+    await user.type(birthDate, '05141990');
+    await user.press(screen.getByRole('button', { name: 'Next' }));
+
+    await waitFor(() =>
+      expect(mockUpdateProfileData).toHaveBeenCalledWith(
+        expect.objectContaining({ birthDate: '1990-05-14' }),
+      ),
+    );
   });
 
   it('blendet Körper & Aktivität ohne aktiviertes Kalorien-Tracking aus', async () => {
