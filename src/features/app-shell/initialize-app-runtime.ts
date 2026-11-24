@@ -31,7 +31,7 @@ export function initializeAppRuntime(): void {
     initMobileAds();
     ShoppingListWidget.updateSnapshot({ openCount: 0 });
     QuickAddShoppingWidget.updateSnapshot({
-      articleName: 'Milch hinzufügen',
+      articleName: i18n.t('common.widgets.quickAddArticle'),
       title: i18n.t('common.widgets.quickAdd'),
     });
 

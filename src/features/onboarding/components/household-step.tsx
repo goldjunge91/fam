@@ -9,6 +9,7 @@ import {
   useHouseholds,
   useRedeemInviteMutation,
 } from '@/features/household/api';
+import { getOnboardingErrorMessage } from '../onboarding-errors';
 import { validateHouseholdOnboarding } from '../onboarding-helpers';
 import { useOnboarding } from '../onboarding-store';
 import { DEFAULT_HOUSEHOLD_NAME, type HouseholdChoice } from '../types';
@@ -102,7 +103,7 @@ export function HouseholdStepForm({ onNext, onSkip }: HouseholdStepFormProps) {
       onNext();
     } catch (err) {
       if (err instanceof Error) {
-        setErrorMsg(err.message);
+        setErrorMsg(getOnboardingErrorMessage(err, t));
       } else {
         setErrorMsg(t('onboarding.household.mutationError'));
       }

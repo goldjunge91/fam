@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 
 import { latestWeightEntryQueryKey } from '@/features/calorie-tracking/api';
 import { useOnboarding, useOnboardingStore } from '@/features/onboarding/onboarding-store';
+import { APP_ERROR_CODES, AppError } from '@/lib/errors/app-error';
 
 const mockCreateWeightEntry = jest.fn();
 const mockMarkOnboardingCompleted = jest.fn();
@@ -111,10 +112,10 @@ describe('completeOnboarding', () => {
       completed = await result.current.completeOnboarding();
     });
     expect(completed).toBe(false);
-    expect(useOnboardingStore.getState()).toMatchObject({
-      isLoading: false,
-      error: 'Du bist nicht angemeldet. Bitte melde dich zuerst an.',
-    });
+    const error = useOnboardingStore.getState().error;
+    expect(error).toBeInstanceOf(AppError);
+    expect(error).toMatchObject({ code: APP_ERROR_CODES.missingAuthentication });
+    expect(useOnboardingStore.getState().isLoading).toBe(false);
     expect(mockSaveModulePreferences).not.toHaveBeenCalled();
   });
 
@@ -243,10 +244,10 @@ describe('completeOnboarding', () => {
       completed = await result.current.completeOnboarding();
     });
     expect(completed).toBe(false);
-    expect(useOnboardingStore.getState()).toMatchObject({
-      isLoading: false,
-      error: 'Einladungs-Code ungültig oder zu viele Versuche.',
-    });
+    const error = useOnboardingStore.getState().error;
+    expect(error).toBeInstanceOf(AppError);
+    expect(error).toMatchObject({ code: APP_ERROR_CODES.invalidInvite });
+    expect(useOnboardingStore.getState().isLoading).toBe(false);
   });
 
   it('keeps going when household lookup has an error but returned household data', async () => {
@@ -280,8 +281,25 @@ describe('completeOnboarding', () => {
     expect(completed).toBe(false);
     expect(useOnboardingStore.getState()).toMatchObject({
       isLoading: false,
-      error: 'preferences failed',
+      error: expect.objectContaining({ message: 'preferences failed' }),
     });
     expect(mockHouseholdLimit).not.toHaveBeenCalled();
+  });
+
+  it('uses a stable localized code for an unknown save failure', async () => {
+    mockSaveModulePreferences.mockRejectedValue('unknown failure');
+    const { result } = await renderHook(() => useOnboarding(), {
+      wrapper: QueryClientWrapper,
+    });
+
+    let completed = true;
+    await act(async () => {
+      completed = await result.current.completeOnboarding();
+    });
+
+    expect(completed).toBe(false);
+    expect(useOnboardingStore.getState().error).toMatchObject({
+      code: APP_ERROR_CODES.saveFailed,
+    });
   });
 });

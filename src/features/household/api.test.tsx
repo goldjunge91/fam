@@ -20,6 +20,7 @@ import {
   useUpdateMemberRoleMutation,
 } from '@/features/household/api';
 import { trackAnalyticsEvent } from '@/lib/analytics';
+import { APP_ERROR_CODES } from '@/lib/errors/app-error';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 
 const mockDbGetAllAsync = jest.fn();
@@ -420,8 +421,10 @@ describe('household api', () => {
     });
 
     await act(async () => {
-      await expect(redeemMutation.result.current.mutateAsync('wrong1')).rejects.toThrow(
-        'Einladungs-Code ungültig oder zu viele Versuche.',
+      await expect(redeemMutation.result.current.mutateAsync('wrong1')).rejects.toEqual(
+        expect.objectContaining({
+          code: APP_ERROR_CODES.invalidInvite,
+        }),
       );
     });
     expect(triggerHouseholdsPull).not.toHaveBeenCalled();

@@ -1,6 +1,7 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 
 import { i18n } from '@/i18n';
+import { APP_ERROR_CODES, AppError } from '@/lib/errors/app-error';
 import { CompleteStepForm } from './complete-step';
 import { HouseholdStepForm } from './household-step';
 
@@ -14,7 +15,7 @@ let mockOnboardingState = {
   household: { choice: 'solo' as const },
 };
 let mockOnboardingLoading = false;
-let mockOnboardingError: string | null = null;
+let mockOnboardingError: Error | null = null;
 let mockHouseholds: Array<{ name: string }> = [];
 let mockCreatePending = false;
 let mockRedeemPending = false;
@@ -70,7 +71,7 @@ describe('CompleteStepForm', () => {
   });
 
   it('zeigt einen Abschlussfehler und navigiert nicht weiter', async () => {
-    mockOnboardingError = 'Haushalt konnte nicht gespeichert werden.';
+    mockOnboardingError = new Error('Haushalt konnte nicht gespeichert werden.');
     mockCompleteOnboarding.mockResolvedValue(false);
 
     await render(<CompleteStepForm />);
@@ -82,6 +83,26 @@ describe('CompleteStepForm', () => {
 
     expect(mockCompleteOnboarding).toHaveBeenCalledTimes(1);
     expect(mockReplace).not.toHaveBeenCalled();
+  });
+
+  it('resolves an app-owned completion error in English', async () => {
+    await i18n.changeLanguage('en');
+    mockOnboardingError = new AppError(APP_ERROR_CODES.missingAuthentication);
+    mockCompleteOnboarding.mockResolvedValue(false);
+
+    await render(<CompleteStepForm />);
+
+    expect(screen.getByText('You are not signed in. Please sign in first.')).toBeOnTheScreen();
+  });
+
+  it('resolves a generic save error in English', async () => {
+    await i18n.changeLanguage('en');
+    mockOnboardingError = new AppError(APP_ERROR_CODES.saveFailed);
+    mockCompleteOnboarding.mockResolvedValue(false);
+
+    await render(<CompleteStepForm />);
+
+    expect(screen.getByText('Could not save. Please try again.')).toBeOnTheScreen();
   });
 
   it('zeigt den laufenden Abschluss als busy und deaktiviert die Aktion', async () => {
@@ -165,6 +186,22 @@ describe('HouseholdStepForm', () => {
       });
       expect(mockCreateHousehold).toHaveBeenCalledWith('Mein Haushalt');
     });
+  });
+
+  it('resolves an invalid invite error in English', async () => {
+    await i18n.changeLanguage('en');
+    mockRedeemInvite.mockRejectedValue(new AppError(APP_ERROR_CODES.invalidInvite));
+
+    await render(<HouseholdStepForm onNext={jest.fn()} onSkip={jest.fn()} />);
+
+    const user = userEvent.setup();
+    await user.press(screen.getByRole('radio', { name: 'Join a household' }));
+    await user.type(screen.getByLabelText('Invitation code'), 'wrong1');
+    await user.press(screen.getByRole('button', { name: 'Next' }));
+
+    expect(
+      await screen.findByText('Invalid invitation code or too many attempts.'),
+    ).toBeOnTheScreen();
   });
 
   it('zeigt einen Mutationsfehler an', async () => {

@@ -1,4 +1,5 @@
 import { act, render, screen, userEvent } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { DateWheelField } from './date-wheel-field';
 import { DateWheelField as AndroidDateWheelField } from './date-wheel-field.android';
 import { TimeWheelField } from './time-wheel-field';
@@ -38,6 +39,10 @@ describe('wheel fields', () => {
   beforeEach(() => {
     mockDateTimePicker.mockClear();
     mockThemeMode = 'dark';
+  });
+
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
   });
 
   it.each(['dark', 'light'] as const)(
@@ -116,5 +121,17 @@ describe('wheel fields', () => {
     expect(mockDateTimePicker).toHaveBeenLastCalledWith(
       expect.not.objectContaining({ themeVariant: expect.anything() }),
     );
+  });
+
+  it('uses the same English month/day format on iOS and Android', async () => {
+    await i18n.changeLanguage('en');
+    const ios = await render(<DateWheelField value="2024-05-06" onChange={jest.fn()} />);
+
+    expect(screen.getByText('05/06/2024')).toBeOnTheScreen();
+
+    ios.unmount();
+    await render(<AndroidDateWheelField value="2024-05-06" onChange={jest.fn()} />);
+
+    expect(screen.getByText('05/06/2024')).toBeOnTheScreen();
   });
 });

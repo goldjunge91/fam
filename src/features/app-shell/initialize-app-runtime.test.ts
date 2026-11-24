@@ -11,9 +11,16 @@ const mockInitPostHog = jest.fn();
 const mockInitSentry = jest.fn();
 const mockShoppingListSnapshot = jest.fn();
 const mockQuickAddSnapshot = jest.fn();
-const mockI18nT = jest.fn((key: string) =>
-  key === 'common.widgets.quickAdd' ? 'Schnell hinzufügen' : key,
-);
+let mockLanguage: 'de' | 'en' = 'de';
+const mockI18nT = jest.fn((key: string) => {
+  if (mockLanguage === 'de') {
+    if (key === 'common.widgets.quickAdd') return 'Schnell hinzufügen';
+    if (key === 'common.widgets.quickAddArticle') return 'Milch hinzufügen';
+  }
+  if (key === 'common.widgets.quickAdd') return 'Quick add';
+  if (key === 'common.widgets.quickAddArticle') return 'Add milk';
+  return key;
+});
 
 jest.mock('expo-splash-screen', () => ({
   preventAutoHideAsync: (...args: unknown[]) => mockPreventAutoHide(...args),
@@ -61,6 +68,7 @@ function loadInitializeAppRuntime(): () => void {
 describe('initializeAppRuntime', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockLanguage = 'de';
     mockStartPerformanceSpan.mockReturnValue(mockFinishPerformance);
   });
 
@@ -86,8 +94,24 @@ describe('initializeAppRuntime', () => {
       title: 'Schnell hinzufügen',
     });
     expect(mockI18nT).toHaveBeenCalledWith('common.widgets.quickAdd');
+    expect(mockI18nT).toHaveBeenCalledWith('common.widgets.quickAddArticle');
     expect(mockFinishPerformance).toHaveBeenCalledWith('completed', { initialized: true });
   });
+
+  it.each([
+    ['de', 'Schnell hinzufügen', 'Milch hinzufügen'],
+    ['en', 'Quick add', 'Add milk'],
+  ] as const)(
+    'passes localized Quick Add snapshot props for %s',
+    (language, title, articleName) => {
+      mockLanguage = language;
+      const initializeAppRuntime = loadInitializeAppRuntime();
+
+      initializeAppRuntime();
+
+      expect(mockQuickAddSnapshot).toHaveBeenCalledWith({ articleName, title });
+    },
+  );
 
   it('marks initialization failed, resets the guard, and allows a retry', () => {
     const initializeAppRuntime = loadInitializeAppRuntime();

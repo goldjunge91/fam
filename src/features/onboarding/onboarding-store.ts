@@ -11,6 +11,7 @@ import {
 } from '@/features/settings/module-preferences';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getSupabase } from '@/lib/backend/supabase/remote-client';
+import { APP_ERROR_CODES, AppError } from '@/lib/errors/app-error';
 import { debugWarn } from '@/lib/observability/debug-log';
 import { triggerHouseholdsPull } from '@/lib/sync/household-bootstrap-sync';
 import {
@@ -38,7 +39,7 @@ const initialState: OnboardingState = {
 interface OnboardingStore {
   state: OnboardingState;
   isLoading: boolean;
-  error: string | null;
+  error: Error | null;
   updateProfileData: (data: Partial<OnboardingProfileData>) => void;
   updateHouseholdData: (data: Partial<HouseholdOnboardingData>) => void;
   updateModulesData: (data: Partial<ModulePreferencesData>) => void;
@@ -46,7 +47,7 @@ interface OnboardingStore {
   setStep: (step: number) => void;
   nextStep: () => void;
   prevStep: () => void;
-  setStatus: (status: { isLoading?: boolean; error?: string | null }) => void;
+  setStatus: (status: { isLoading?: boolean; error?: Error | null }) => void;
   reset: () => void;
 }
 
@@ -77,7 +78,7 @@ export function useOnboarding() {
 
   async function completeOnboarding(): Promise<boolean> {
     if (!session) {
-      store.setStatus({ error: 'Du bist nicht angemeldet. Bitte melde dich zuerst an.' });
+      store.setStatus({ error: new AppError(APP_ERROR_CODES.missingAuthentication) });
       return false;
     }
     store.setStatus({ isLoading: true, error: null });
@@ -123,7 +124,7 @@ export function useOnboarding() {
         const { data, error } = await request;
         if (error) throw error;
         if (state.household.choice === 'join' && !data) {
-          throw new Error('Einladungs-Code ungültig oder zu viele Versuche.');
+          throw new AppError(APP_ERROR_CODES.invalidInvite);
         }
       }
       await triggerHouseholdsPull(session.user.id, queryClient);
@@ -137,7 +138,7 @@ export function useOnboarding() {
     } catch (error) {
       store.setStatus({
         isLoading: false,
-        error: error instanceof Error ? error.message : 'Fehler beim Speichern',
+        error: error instanceof Error ? error : new AppError(APP_ERROR_CODES.saveFailed),
       });
       return false;
     }

@@ -1,4 +1,5 @@
 import { useOnboardingStore } from '@/features/onboarding/onboarding-store';
+import { AppError } from '@/lib/errors/app-error';
 
 describe('onboarding flow state', () => {
   beforeEach(() => useOnboardingStore.getState().reset());
@@ -58,9 +59,14 @@ describe('onboarding flow state', () => {
   });
 
   test('updates status and clears loading and errors when resetting', () => {
-    useOnboardingStore.getState().setStatus({ isLoading: true, error: 'Save failed' });
+    useOnboardingStore
+      .getState()
+      .setStatus({ isLoading: true, error: new AppError('save_failed') });
 
-    expect(useOnboardingStore.getState()).toMatchObject({ isLoading: true, error: 'Save failed' });
+    expect(useOnboardingStore.getState()).toMatchObject({
+      isLoading: true,
+      error: expect.objectContaining({ code: 'save_failed' }),
+    });
 
     useOnboardingStore.getState().reset();
     expect(useOnboardingStore.getState()).toMatchObject({ isLoading: false, error: null });

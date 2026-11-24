@@ -27,6 +27,10 @@ describe('formatIsoDate', () => {
     expect(formatIsoDate('2026-09-28')).toBe('28.09.2026');
     expect(formatIsoDate('2026-01-05')).toBe('05.01.2026');
   });
+
+  it('schreibt englische Datumswerte in Monat-Tag-Jahr-Reihenfolge', () => {
+    expect(formatIsoDate('2026-05-14', 'en')).toBe('05/14/2026');
+  });
 });
 
 describe('parseIsoDate', () => {

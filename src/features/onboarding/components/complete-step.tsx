@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { useHouseholds } from '@/features/household/api';
+import { getOnboardingErrorMessage } from '../onboarding-errors';
 import { useOnboarding } from '../onboarding-store';
 
 // Die 96px-Erfolgskugel bleibt als lokale Illustration-Geometrie erhalten;
@@ -69,7 +70,7 @@ export function CompleteStepForm() {
 
       {error ? (
         <Txt variant="label" tone="danger" center>
-          {error}
+          {getOnboardingErrorMessage(error, t)}
         </Txt>
       ) : null}
 
