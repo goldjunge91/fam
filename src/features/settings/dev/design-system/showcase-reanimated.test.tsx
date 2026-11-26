@@ -148,7 +148,7 @@ it('covers all motion modes, drag callbacks, derived progress, and composed anim
   await user.press(screen.getByRole('button', { name: 'Sequence' }));
   await user.press(screen.getByRole('button', { name: 'Animation starten' }));
   expect(screen.getByText('Ausgeführt: 3')).toBeOnTheScreen();
-  expect(screen.getByText('Aktiver Modus: sequence')).toBeOnTheScreen();
+  expect(screen.getByText('Aktiver Modus: Sequence')).toBeOnTheScreen();
 
   const gesture = gestureHarness.__gestures.at(-1);
   await act(async () => {

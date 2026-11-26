@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -52,6 +53,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export default function ProductSearchSettingsScreen() {
+  const { t } = useTranslation();
   const { activeHousehold } = useActiveHousehold();
   const householdId = activeHousehold?.id;
   const { data: stores = [], isLoading: storesLoading } = useStores(householdId);
@@ -97,22 +99,23 @@ export default function ProductSearchSettingsScreen() {
   });
 
   return (
-    <Screen title="Produktsuche" back={{ label: 'Einstellungen' }} backStyle="icon">
+    <Screen
+      title={t('productSearch.settings.title')}
+      back={{ label: t('productSearch.settings.back') }}
+      backStyle="icon">
       <View style={styles.content}>
         <Txt variant="body" tone="secondary">
-          Der bevorzugte Markt beeinflusst die Reihenfolge der Suchtreffer. Passende Eigenmarken
-          werden etwas weiter nach vorne sortiert. Die Einstellung ist persönlich und nur auf diesem
-          Gerät gespeichert.
+          {t('productSearch.settings.description')}
         </Txt>
 
         {loading ? null : (
           <View style={styles.section}>
             <View style={styles.sectionHeading}>
               <Txt variant="caption" tone="secondary">
-                Bevorzugte Märkte
+                {t('productSearch.settings.preferredMarkets')}
               </Txt>
               <Txt variant="caption" tone="secondary">
-                Wähle mehrere Märkte. Die Reihenfolge bestimmt die Priorität.
+                {t('productSearch.settings.priorityHint')}
               </Txt>
             </View>
             <View style={styles.storeList}>
@@ -128,10 +131,15 @@ export default function ProductSearchSettingsScreen() {
                       containerStyle={styles.storeButtonContainer}
                       accessibilityRole="checkbox"
                       accessibilityState={{ checked: selected }}
-                      accessibilityLabel={`${store.name} auswählen`}
+                      accessibilityLabel={t('productSearch.settings.select', { store: store.name })}
                       style={styles.storeButton}>
                       <Txt variant="body" tone="primary">
-                        {selected ? `✓  ${position + 1}. ${store.name}` : store.name}
+                        {selected
+                          ? t('productSearch.settings.selected', {
+                              position: position + 1,
+                              store: store.name,
+                            })
+                          : store.name}
                       </Txt>
                     </Press>
                     {selected ? (
@@ -142,7 +150,9 @@ export default function ProductSearchSettingsScreen() {
                           scaleTo={0.98}
                           disabled={position === 0}
                           accessibilityRole="button"
-                          accessibilityLabel={`${store.name} nach oben bewegen`}
+                          accessibilityLabel={t('productSearch.settings.moveUp', {
+                            store: store.name,
+                          })}
                           style={styles.orderButton}>
                           <Txt variant="body" tone="secondary">
                             ↑
@@ -154,7 +164,9 @@ export default function ProductSearchSettingsScreen() {
                           scaleTo={0.98}
                           disabled={position === selectedStoreIds.length - 1}
                           accessibilityRole="button"
-                          accessibilityLabel={`${store.name} nach unten bewegen`}
+                          accessibilityLabel={t('productSearch.settings.moveDown', {
+                            store: store.name,
+                          })}
                           style={styles.orderButton}>
                           <Txt variant="body" tone="secondary">
                             ↓
@@ -171,7 +183,7 @@ export default function ProductSearchSettingsScreen() {
 
         {!loading && stores.length === 0 ? (
           <Txt variant="caption" tone="secondary">
-            Lege zuerst unter Einstellungen → Märkte einen Markt an.
+            {t('productSearch.settings.noStores')}
           </Txt>
         ) : null}
       </View>

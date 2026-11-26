@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { resolveInjectionReminder } from '@/features/glp1/domain/injection-reminder';
 import { useLatestMedicationLog } from '@/features/glp1/hooks/glp1-api';
 import { useInjectionPlan } from '@/features/glp1/hooks/injection-plan-api';
@@ -9,6 +10,7 @@ export function injectionReminderIdentifier(userId: string): string {
 }
 
 export function useInjectionReminder(userId: string | undefined): void {
+  const { t } = useTranslation();
   const planQuery = useInjectionPlan(userId);
   const plan = planQuery.data;
   const planMedicationName = plan?.medication_name;
@@ -56,6 +58,7 @@ export function useInjectionReminder(userId: string | undefined): void {
             : null,
         latestInjectionAt,
         now: new Date(),
+        t,
       });
 
       if (action.kind === 'cancel') {
@@ -84,6 +87,7 @@ export function useInjectionReminder(userId: string | undefined): void {
     planReminderEnabled,
     planQuery.isError,
     planQuery.isLoading,
+    t,
     userId,
   ]);
 }

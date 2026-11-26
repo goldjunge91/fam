@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { z } from 'zod';
@@ -8,8 +9,10 @@ import { Button, Card, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { formatDateTimeInput } from '@/features/glp1/domain/date-time-input';
 import {
   dateTimeInputSchema,
+  GLP1_VALIDATION_KEYS,
   medicationNameInputSchema,
   positiveDoseInputSchema,
+  translateGlp1ValidationMessage,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { MEDICATION_UNITS, type MedicationUnit } from '@/features/glp1/domain/medication-options';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
@@ -41,7 +44,7 @@ const injectionPlanFormSchema = z.object({
   cadenceDays: z.string().transform((value, context) => {
     const parsed = Number(value.trim());
     if (!Number.isInteger(parsed) || parsed <= 0) {
-      context.addIssue({ code: 'custom', message: 'Kadenz muss eine positive Tageszahl sein' });
+      context.addIssue({ code: 'custom', message: GLP1_VALIDATION_KEYS.cadencePositive });
       return z.NEVER;
     }
     return parsed;
@@ -67,6 +70,7 @@ export function InjectionPlanForm({
   mode,
   onSubmit,
 }: InjectionPlanFormProps) {
+  const { t } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -90,7 +94,7 @@ export function InjectionPlanForm({
   return (
     <Card style={styles.form}>
       <Txt variant="label" weight="700">
-        {mode === 'edit' ? 'Injektionsplan bearbeiten' : 'Injektionsplan anlegen'}
+        {t(mode === 'edit' ? 'glp1.planForm.editTitle' : 'glp1.planForm.createTitle')}
       </Txt>
 
       <View style={styles.fieldGroup}>
@@ -101,9 +105,9 @@ export function InjectionPlanForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Medikament:"
-              accessibilityLabel="Medikament im Injektionsplan"
-              error={errors.medicationName?.message}
+              label={t('glp1.planForm.medication')}
+              accessibilityLabel={t('glp1.planForm.medicationAccessibility')}
+              error={translateGlp1ValidationMessage(errors.medicationName?.message, t)}
               size="large"
             />
           )}
@@ -112,10 +116,10 @@ export function InjectionPlanForm({
 
       <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
-          Einheit:
+          {t('glp1.planForm.unit')}
         </Txt>
         <SegmentedControl
-          label="Einheit"
+          label={t('glp1.planForm.unitAccessibility')}
           options={UNIT_OPTIONS}
           selected={unit}
           onSelect={(value) => setValue('unit', value, { shouldDirty: true, shouldValidate: true })}
@@ -132,10 +136,10 @@ export function InjectionPlanForm({
               <TextField
                 value={value}
                 onChangeText={onChange}
-                label={`Dosis (${unit}):`}
-                accessibilityLabel="Dosis im Injektionsplan"
+                label={t('glp1.planForm.dose', { unit })}
+                accessibilityLabel={t('glp1.planForm.doseAccessibility')}
                 keyboardType="decimal-pad"
-                error={errors.dose?.message}
+                error={translateGlp1ValidationMessage(errors.dose?.message, t)}
                 size="large"
               />
             )}
@@ -149,10 +153,10 @@ export function InjectionPlanForm({
               <TextField
                 value={value}
                 onChangeText={onChange}
-                label="Alle wie viele Tage:"
-                accessibilityLabel="Kadenz in Tagen"
+                label={t('glp1.planForm.cadence')}
+                accessibilityLabel={t('glp1.planForm.cadenceAccessibility')}
                 keyboardType="number-pad"
-                error={errors.cadenceDays?.message}
+                error={translateGlp1ValidationMessage(errors.cadenceDays?.message, t)}
                 size="large"
               />
             )}
@@ -168,11 +172,11 @@ export function InjectionPlanForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Erster Fälligkeitszeitpunkt:"
-              accessibilityLabel="Ankerzeitpunkt des Injektionsplans"
-              placeholder="JJJJ-MM-TT HH:MM"
+              label={t('glp1.planForm.anchor')}
+              accessibilityLabel={t('glp1.planForm.anchorAccessibility')}
+              placeholder={t('glp1.planForm.placeholder')}
               autoCapitalize="none"
-              error={errors.anchorAt?.message}
+              error={translateGlp1ValidationMessage(errors.anchorAt?.message, t)}
               size="large"
             />
           )}
@@ -180,7 +184,7 @@ export function InjectionPlanForm({
       </View>
 
       <Button
-        title={mode === 'edit' ? 'Änderungen speichern' : 'Plan speichern'}
+        title={t(mode === 'edit' ? 'glp1.planForm.saveChanges' : 'glp1.planForm.save')}
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
       />

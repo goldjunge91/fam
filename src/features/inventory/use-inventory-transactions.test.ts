@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import {
   filterTransactionsForProduct,
   groupTransactionsByDay,
@@ -73,6 +74,25 @@ describe('inventory transaction presentation helpers', () => {
     expect(transactionLabel(transaction({ type: 'open', item_name: 'Paprika' }))).toBe(
       'Paprika geöffnet',
     );
+  });
+
+  it('uses English transaction labels and calendar dates from the translator and locale', () => {
+    const t = i18n.getFixedT('en');
+    const rows = [
+      transaction({ id: 'today', created_at: '2026-09-04T10:00:00.000Z' }),
+      transaction({ id: 'older', created_at: '2026-08-31T10:00:00.000Z' }),
+    ];
+
+    expect(
+      groupTransactionsByDay(rows, new Date('2026-09-04T16:00:00.000Z'), t, 'en-GB').map(
+        (group) => group.label,
+      ),
+    ).toEqual(['Today', '31/08/2026']);
+    expect(transactionLabel(transaction({ type: 'out', item_name: 'Peppers' }), undefined, t)).toBe(
+      'Peppers consumed',
+    );
+    expect(transactionUndoLabel(transaction({ type: 'out' }), t)).toBe('Undo consumption');
+    expect(transactionReasonLabel('spoiled', t)).toBe('Spoiled');
   });
 
   it.each(['in', 'out', 'waste', 'open'] as const)(

@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import {
   customIngredientSchema,
   customIngredientUnitLabel,
@@ -18,12 +19,16 @@ describe('custom ingredient units', () => {
   });
 
   it('shows the German label for a stored shopping-list unit', () => {
-    expect(customIngredientUnitLabel('piece')).toBe('Stück');
+    expect(customIngredientUnitLabel('piece', i18n.t)).toBe('Stück');
+  });
+
+  it('uses the active English label for a stored shopping-list unit', () => {
+    expect(customIngredientUnitLabel('piece', i18n.getFixedT('en'))).toBe('Piece');
   });
 
   it('keeps unknown units readable after normalizing them', () => {
     expect(normalizeCustomIngredientUnit('  Bund  ')).toBe('bund');
-    expect(customIngredientUnitLabel('bund')).toBe('bund');
+    expect(customIngredientUnitLabel('bund', i18n.t)).toBe('bund');
   });
 
   it('parses SQLite JSON and Supabase arrays, defaulting missing values to empty', () => {

@@ -1,6 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import { router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -12,8 +13,8 @@ import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackTicket, useMyTickets } from '@/features/feedback/api';
 import {
   FEEDBACK_STATUS_COLORS,
-  FEEDBACK_STATUS_LABELS,
-  FEEDBACK_TYPE_LABELS,
+  getFeedbackStatusLabel,
+  getFeedbackTypeLabel,
 } from '@/features/feedback/labels';
 import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
@@ -48,6 +49,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
+  const { i18n, t } = useTranslation();
   return (
     <Press onPress={() => router.push(`/settings/feedback/${ticket.id}`)}>
       <ContentCard>
@@ -55,14 +57,14 @@ function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
           <View style={styles.ticketCopy}>
             <Txt variant="body" weight="700">{`#${ticket.ticket_number} · ${ticket.subject}`}</Txt>
             <Txt variant="body" tone="secondary">
-              {`${FEEDBACK_TYPE_LABELS[ticket.type]} · ${new Date(ticket.created_at).toLocaleDateString('de-DE')}`}
+              {`${getFeedbackTypeLabel(t, ticket.type)} · ${new Date(ticket.created_at).toLocaleDateString(i18n.language)}`}
             </Txt>
           </View>
           <Txt
             variant="body"
             weight="700"
             tone={STATUS_TONE[FEEDBACK_STATUS_COLORS[ticket.status]]}>
-            {FEEDBACK_STATUS_LABELS[ticket.status]}
+            {getFeedbackStatusLabel(t, ticket.status)}
           </Txt>
         </View>
       </ContentCard>
@@ -71,6 +73,7 @@ function TicketRow({ ticket }: { ticket: FeedbackTicket }) {
 }
 
 export function FeedbackListScreen() {
+  const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -78,8 +81,8 @@ export function FeedbackListScreen() {
 
   const [banner, setBanner] = useState<string | null>(null);
   const onTicketInProgress = useCallback(() => {
-    setBanner('Ein Ticket ist jetzt in Bearbeitung.');
-  }, []);
+    setBanner(t('feedback.list.statusUpdate'));
+  }, [t]);
   useFeedbackRealtime({ userId, onTicketInProgress });
 
   useEffect(() => {
@@ -88,11 +91,16 @@ export function FeedbackListScreen() {
     return () => clearTimeout(timer);
   }, [banner]);
 
-  const action = <Button title="+ Neu" onPress={() => router.push('/settings/feedback/new')} />;
+  const action = (
+    <Button title={t('feedback.list.new')} onPress={() => router.push('/settings/feedback/new')} />
+  );
 
   if (isLoading) {
     return (
-      <Screen title="Feedback" action={action} back={{ label: 'Einstellungen', href: '/settings' }}>
+      <Screen
+        title={t('feedback.list.title')}
+        action={action}
+        back={{ label: t('feedback.list.back'), href: '/settings' }}>
         <View />
       </Screen>
     );
@@ -100,12 +108,15 @@ export function FeedbackListScreen() {
 
   if (!tickets || tickets.length === 0) {
     return (
-      <Screen title="Feedback" action={action} back={{ label: 'Einstellungen', href: '/settings' }}>
+      <Screen
+        title={t('feedback.list.title')}
+        action={action}
+        back={{ label: t('feedback.list.back'), href: '/settings' }}>
         <ContentCard>
           <EmptyState
             symbol="bubble.left.and.bubble.right"
-            title="Noch kein Feedback"
-            hint="Melde einen Fehler oder teile eine Anregung — wir informieren dich hier über den Fortschritt."
+            title={t('feedback.list.emptyTitle')}
+            hint={t('feedback.list.emptyHint')}
           />
         </ContentCard>
       </Screen>
@@ -114,10 +125,10 @@ export function FeedbackListScreen() {
 
   return (
     <Screen
-      title="Feedback"
+      title={t('feedback.list.title')}
       action={action}
       scroll={false}
-      back={{ label: 'Einstellungen', href: '/settings' }}>
+      back={{ label: t('feedback.list.back'), href: '/settings' }}>
       {banner ? (
         <Surface tone="surface" style={styles.banner}>
           <Txt variant="body">{banner}</Txt>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dimensions, Modal, Platform, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,8 +13,9 @@ import { QuantityStepper } from '@/components/ui/quantity-stepper';
 import { Button, IconButton, Press, TextField, Txt } from '@/constants/ui';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
 import { useSheetShadowStyle } from '@/hooks/use-sheet-shadow-style';
+import { formatAmount } from '@/lib/format/package-size';
 import { debugLog } from '@/lib/observability/debug-log';
-import { UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions } from '@/lib/units';
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { useUpdateFridgeItemMutation } from '../use-inventory-mutations';
 
@@ -123,6 +125,7 @@ export function EditInventoryItemSheet({
   locations,
   onClose,
 }: EditInventoryItemSheetProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const sheetStyle = useSheetShadowStyle();
@@ -202,19 +205,19 @@ export function EditInventoryItemSheet({
   const currentItem = item;
 
   const locationOptions = [
-    { value: '', label: 'Kein Lagerort' },
+    { value: '', label: t('inventory.add.noLocation') },
     ...locations.map((location) => ({
       value: location.id,
       label: location.name,
     })),
   ];
   const locationName =
-    locations.find((location) => location.id === locationId)?.name ?? 'Kein Lagerort';
+    locations.find((location) => location.id === locationId)?.name ?? t('inventory.add.noLocation');
 
   async function save() {
     const trimmedName = name.trim();
     if (!trimmedName) {
-      setNameError('Bitte einen Artikelnamen eingeben.');
+      setNameError(t('inventory.edit.nameRequired'));
       return;
     }
 
@@ -267,7 +270,7 @@ export function EditInventoryItemSheet({
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Artikel bearbeiten schließen"
+          accessibilityLabel={t('inventory.edit.close')}
         />
 
         <View
@@ -284,11 +287,11 @@ export function EditInventoryItemSheet({
           <View style={styles.handle} />
 
           <View style={styles.header}>
-            <Txt variant="title">Artikel bearbeiten</Txt>
+            <Txt variant="title">{t('inventory.edit.title')}</Txt>
             <IconButton
               icon="x"
               onPress={onClose}
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('inventory.edit.closeButton')}
               bg={colors.danger}
               color={colors.onDanger}
               size={40}
@@ -304,11 +307,11 @@ export function EditInventoryItemSheet({
             showsVerticalScrollIndicator={false}
             bottomOffset={24}>
             <TextField
-              label="Artikelname"
+              label={t('inventory.edit.name')}
               value={name}
               onChangeText={setName}
               error={nameError ?? undefined}
-              placeholder="z. B. Vollmilch"
+              placeholder={t('inventory.edit.namePlaceholder')}
             />
 
             <View style={styles.productCard}>
@@ -322,10 +325,10 @@ export function EditInventoryItemSheet({
               </View>
               <View style={styles.productQuantity}>
                 <Txt variant="body" weight="700">
-                  {quantity} {unit}
+                  {formatAmount(quantity, unit, t, i18n.language)}
                 </Txt>
                 <Txt variant="body" tone="secondary">
-                  aktuelle Menge
+                  {t('inventory.edit.currentQuantity')}
                 </Txt>
               </View>
             </View>
@@ -333,19 +336,19 @@ export function EditInventoryItemSheet({
             <View style={styles.controlsRow}>
               <View style={styles.controlColumn}>
                 <Txt variant="body" tone="secondary">
-                  Menge
+                  {t('inventory.edit.quantity')}
                 </Txt>
                 <QuantityStepper
                   value={quantity}
                   onChange={setQuantity}
-                  label="Menge"
+                  label={t('inventory.edit.quantity')}
                   size="large"
                 />
               </View>
 
               <View style={styles.controlColumn}>
                 <WheelPickerField
-                  label="Lagerort"
+                  label={t('inventory.edit.location')}
                   value={locationId}
                   options={locationOptions}
                   onChange={setLocationId}
@@ -357,36 +360,42 @@ export function EditInventoryItemSheet({
               onPress={() => setDetailsOpen((current) => !current)}
               haptic="none"
               accessibilityRole="button"
-              accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
+              accessibilityLabel={
+                detailsOpen
+                  ? t('inventory.add.moreDetailsClose')
+                  : t('inventory.add.moreDetailsOpen')
+              }
               accessibilityState={{ expanded: detailsOpen }}
               style={styles.detailsToggle}>
               <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
               <Txt variant="body" tone="primary" style={styles.detailsToggleLabel}>
-                Weitere Angaben
+                {t('inventory.add.moreDetails')}
               </Txt>
             </Press>
 
             {detailsOpen ? (
               <View style={styles.details}>
                 <WheelPickerField
-                  label="Einheit"
+                  label={t('inventory.edit.unit')}
                   value={unit}
-                  options={UNIT_OPTIONS}
+                  options={getUnitOptions(t)}
                   onChange={setUnit}
                 />
                 <DateWheelField
-                  label="Mindesthaltbarkeitsdatum"
+                  label={t('inventory.edit.expiry')}
                   value={expiryDate}
                   onChange={handleExpiryDateChange}
                 />
                 {openedAt ? (
                   <View style={styles.openedDetails}>
                     <Txt variant="caption" tone="secondary">
-                      Dieses Los ist seit {new Date(openedAt).toLocaleDateString('de-DE')} geöffnet.
+                      {t('inventory.edit.openedSince', {
+                        date: new Date(openedAt).toLocaleDateString(i18n.language),
+                      })}
                     </Txt>
                     <Button
                       variant="secondary"
-                      title="Wieder versiegeln"
+                      title={t('inventory.edit.reseal')}
                       onPress={() => {
                         setOpenedAt(null);
                         setVacuumSealed(false);
@@ -399,7 +408,7 @@ export function EditInventoryItemSheet({
             ) : null}
 
             <Button
-              title="Änderungen speichern"
+              title={t('inventory.edit.save')}
               size="lg"
               onPress={save}
               loading={updateItem.isPending}

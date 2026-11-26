@@ -2,6 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { WheelPickerField } from '@/components/forms/wheel-picker-field';
@@ -20,7 +21,7 @@ import {
   useRestoreFoodEntryMutation,
   useUpdateFoodEntryMutation,
 } from '@/features/calorie-tracking/api';
-import { MEAL_LABELS } from '@/features/calorie-tracking/diary-screen';
+import { getMealLabel } from '@/features/calorie-tracking/diary-screen';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
 import { useFoodEntryForm } from '@/features/calorie-tracking/hooks/use-food-entry-form';
@@ -30,17 +31,7 @@ import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/local-client';
 import { recordProductUsage } from '@/lib/db/product-usage';
 import { debugError } from '@/lib/observability/debug-log';
-
-const UNIT_LABELS: Record<string, string> = {
-  g: 'g',
-  kg: 'kg',
-  ml: 'ml',
-  l: 'l',
-  piece: 'Stück',
-  package: 'Packung',
-  portion: 'Portion',
-};
-const UNITS = Object.keys(UNIT_LABELS);
+import { getUnitOptions } from '@/lib/units';
 
 const styles = StyleSheet.create((theme) => ({
   form: {
@@ -117,6 +108,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function AddFoodEntryScreen() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{
     date: string;
     mealType: MealType;
@@ -232,7 +224,10 @@ export function AddFoodEntryScreen() {
         router.back();
       }
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern');
+      Alert.alert(
+        t('calorieTracking.foodEntry.errorTitle'),
+        err instanceof Error ? err.message : t('calorieTracking.foodEntry.saveError'),
+      );
     }
   }
 
@@ -248,24 +243,34 @@ export function AddFoodEntryScreen() {
       await deleteMutation.mutateAsync({ id: entryId, userId, loggedOn });
       router.back();
       showUndoSnackbar({
-        message: `"${entryName}" gelöscht`,
+        message: t('calorieTracking.foodEntry.deleteSnackbar', { name: entryName }),
         onUndo: () => {
           restoreMutation.mutate({ id: entryId, userId, loggedOn });
         },
       });
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
+      Alert.alert(
+        t('calorieTracking.foodEntry.errorTitle'),
+        err instanceof Error ? err.message : t('calorieTracking.foodEntry.deleteError'),
+      );
     }
   }
 
   const title = isEditing
-    ? 'Eintrag bearbeiten'
-    : `${MEAL_LABELS[params.mealType] ?? 'Mahlzeit'} hinzufügen`;
+    ? t('calorieTracking.foodEntry.titleEdit')
+    : t('calorieTracking.foodEntry.titleAdd', {
+        meal: getMealLabel(t, params.mealType),
+      });
 
   return (
     <Screen
       title={title}
-      action={<CloseButton onPress={() => router.back()} accessibilityLabel="Schließen" />}>
+      action={
+        <CloseButton
+          onPress={() => router.back()}
+          accessibilityLabel={t('calorieTracking.foodEntry.close')}
+        />
+      }>
       <View style={styles.form}>
         {!isEditing ? (
           <FoodSearchDropdown
@@ -336,7 +341,7 @@ export function AddFoodEntryScreen() {
         <View style={styles.nutritionRow}>
           <View style={styles.field}>
             <TextField
-              label="kcal"
+              label={t('calorieTracking.foodEntry.nutrientKcal')}
               value={values.kcal}
               onChangeText={setKcal}
               keyboardType="numeric"
@@ -344,7 +349,7 @@ export function AddFoodEntryScreen() {
           </View>
           <View style={styles.field}>
             <TextField
-              label="Kohlenhydrate (g)"
+              label={t('calorieTracking.foodEntry.nutrientCarbs')}
               value={values.carbsG}
               onChangeText={setCarbsG}
               keyboardType="numeric"
@@ -354,7 +359,7 @@ export function AddFoodEntryScreen() {
         <View style={styles.nutritionRow}>
           <View style={styles.field}>
             <TextField
-              label="Eiweiß (g)"
+              label={t('calorieTracking.foodEntry.nutrientProtein')}
               value={values.proteinG}
               onChangeText={setProteinG}
               keyboardType="numeric"
@@ -362,7 +367,7 @@ export function AddFoodEntryScreen() {
           </View>
           <View style={styles.field}>
             <TextField
-              label="Fett (g)"
+              label={t('calorieTracking.foodEntry.nutrientFat')}
               value={values.fatG}
               onChangeText={setFatG}
               keyboardType="numeric"
@@ -374,36 +379,35 @@ export function AddFoodEntryScreen() {
         <View style={styles.quantityRow}>
           <View style={styles.quantityControl}>
             <Txt variant="label" tone="secondary">
-              Menge
+              {t('calorieTracking.foodEntry.quantity')}
             </Txt>
             <QuantityStepper
               value={Number.parseInt(values.quantity, 10) || 1}
               onChange={(value) => setQuantity(String(value))}
               max={9999}
-              label="Menge"
+              label={t('calorieTracking.foodEntry.quantity')}
             />
           </View>
           <View style={styles.unitControl}>
             <WheelPickerField
-              label="Einheit"
+              label={t('calorieTracking.foodEntry.unit')}
               value={values.unit}
-              options={UNITS.map((unit) => ({ value: unit, label: UNIT_LABELS[unit] }))}
+              options={getUnitOptions(t)}
               onChange={setUnit}
-              accessibilityLabel="Einheit auswählen"
+              accessibilityLabel={t('calorieTracking.foodEntry.unitSelect')}
             />
           </View>
         </View>
         {unitNotScalable ? (
           <Txt variant="body" tone="warning">
-            Automatische Umrechnung für diese Einheit nicht möglich — Nährwerte bitte manuell
-            anpassen.
+            {t('calorieTracking.foodEntry.notScalable')}
           </Txt>
         ) : null}
 
         {/* Aktions-Buttons (Speichern, Löschen) */}
         <View style={styles.saveAction}>
           <Button
-            title="Speichern"
+            title={t('calorieTracking.foodEntry.save')}
             onPress={handleSave}
             loading={addMutation.isPending || updateMutation.isPending}
             disabled={!values.name.trim()}
@@ -411,7 +415,7 @@ export function AddFoodEntryScreen() {
         </View>
         {isEditing ? (
           <Button
-            title="Löschen"
+            title={t('calorieTracking.foodEntry.delete')}
             variant="danger"
             onPress={handleDelete}
             loading={deleteMutation.isPending}

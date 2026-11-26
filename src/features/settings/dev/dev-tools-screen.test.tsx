@@ -6,6 +6,7 @@ import { Alert, Linking } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useDevSettingsStore } from '@/constants/dev-settings';
+import { i18n } from '@/i18n';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 import { DevToolsScreen } from './dev-tools-screen';
 
@@ -58,7 +59,8 @@ describe('DevToolsScreen', () => {
     );
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
     mockStorageData.clear();
     mockHasDevToolsAccess = true;
     mockRedirect.mockClear();
@@ -116,8 +118,10 @@ describe('DevToolsScreen', () => {
     await renderScreen();
     const user = userEvent.setup();
 
-    expect(screen.getByRole('radio', { name: 'Aus', selected: true })).toBeOnTheScreen();
-    await user.press(screen.getByRole('radio', { name: 'An' }));
+    expect(
+      screen.getByRole('radio', { name: i18n.t('dev.states.off'), selected: true }),
+    ).toBeOnTheScreen();
+    await user.press(screen.getByRole('radio', { name: i18n.t('dev.states.on') }));
 
     expect(useDevSettingsStore.getState().receiptOcrTestEnabled).toBe(true);
   });

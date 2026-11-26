@@ -97,7 +97,7 @@ describe('CalorieDashboardCard', () => {
     expect(screen.getByText('dashboard.cards.calories.titleSmall')).toBeOnTheScreen();
     expect(screen.getByText('—')).toBeOnTheScreen();
     expect(screen.getByText('dashboard.cards.calories.noGoal')).toBeOnTheScreen();
-    expect(screen.getByText('0/0:kcal:count')).toBeOnTheScreen();
+    expect(screen.getByText('0/0:calorieTracking.units.kcal:count')).toBeOnTheScreen();
   });
 
   it('zeigt verbleibende oder überschrittene Kalorien im kleinen Format', async () => {

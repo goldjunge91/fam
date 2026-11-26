@@ -241,7 +241,7 @@ describe('EditProfileScreen', () => {
       width: 80,
       height: 80,
     });
-    expect(screen.getByLabelText('Profilbild bearbeiten')).toHaveStyle({
+    expect(screen.getByLabelText(i18n.t('common.profile.image'))).toHaveStyle({
       width: '100%',
       height: '100%',
     });

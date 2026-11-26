@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import * as Haptics from 'expo-haptics';
+import { i18n } from '@/i18n';
 import { BarcodeScannerModal } from './barcode-scanner-modal';
 
 const mockRequestCameraPermission = jest.fn().mockResolvedValue({ granted: true });
@@ -72,7 +73,29 @@ beforeEach(() => {
   jest.mocked(Haptics.notificationAsync).mockClear();
 });
 
+afterEach(async () => {
+  await i18n.changeLanguage('de');
+});
+
 describe('BarcodeScannerModal', () => {
+  it('renders scanner permission copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await render(
+      <BarcodeScannerModal
+        visible
+        onClose={mockOnClose}
+        onBarcodeDetected={mockOnBarcodeDetected}
+        looking
+      />,
+    );
+
+    expect(
+      screen.getByText('Camera access is required to scan product barcodes.'),
+    ).toBeOnTheScreen();
+    expect(screen.getByText('Searching product data...')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Allow camera' })).toBeOnTheScreen();
+  });
+
   it('bietet ohne Berechtigung eine Anfrage an und zeigt Suchstatus und Fehler', async () => {
     await render(
       <BarcodeScannerModal

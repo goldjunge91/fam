@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -15,6 +16,8 @@ export function ContractIntro({
   contract: string;
   source: string;
 }) {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.intro}>
       <Txt variant="title">{title}</Txt>
@@ -22,7 +25,7 @@ export function ContractIntro({
         {contract}
       </Txt>
       <Txt variant="caption" tone="secondary">
-        Quelle: {source}
+        {t('dev.design.shared.sourcePrefix', { source })}
       </Txt>
     </View>
   );
@@ -39,12 +42,14 @@ export function ExamplePair({
   correctCode?: string;
   incorrectCode?: string;
 }) {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.stack}>
-      <ExamplePanel kind="correct" label="Vertrag umgesetzt" code={correctCode}>
+      <ExamplePanel kind="correct" label={t('dev.design.contractDone')} code={correctCode}>
         {correct}
       </ExamplePanel>
-      <ExamplePanel kind="incorrect" label="Vertrag nicht umgesetzt" code={incorrectCode}>
+      <ExamplePanel kind="incorrect" label={t('dev.design.contractMissing')} code={incorrectCode}>
         {incorrect}
       </ExamplePanel>
     </View>
@@ -83,11 +88,12 @@ export function ExamplePanel({
 }
 
 export function CodeSample({ children }: { children: string }) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
     <View
-      accessibilityLabel={`Codebeispiel: ${children}`}
+      accessibilityLabel={t('dev.design.codeExample', { code: children })}
       style={[styles.code, { backgroundColor: colors.backgroundSoft }]}>
       <Txt variant="caption" selectable>
         {children}
@@ -111,13 +117,14 @@ export function TokenItem({
   color?: string;
   preview?: ReactNode;
 }) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
     <Surface tone="surface" style={[styles.token, { borderColor: colors.border }]}>
       {color ? (
         <View
-          accessibilityLabel={`${name}, Farbe ${value}`}
+          accessibilityLabel={t('dev.design.shared.colorPrefix', { name, value })}
           style={[styles.swatch, { backgroundColor: color, borderColor: colors.border }]}
         />
       ) : (

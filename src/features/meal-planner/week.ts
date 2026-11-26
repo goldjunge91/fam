@@ -1,22 +1,32 @@
+import type { TFunction } from 'i18next';
+
 // Bewusst ohne 'snack': der Wochenplan bildet nur die drei Hauptmahlzeiten ab
 // (anders als das Kalorien-Tagebuch, das 'snack' als eigene Kategorie kennt).
 export const MEAL_SLOTS = ['breakfast', 'lunch', 'dinner'] as const;
 export type MealSlot = (typeof MEAL_SLOTS)[number];
 
 export const MEAL_SLOT_LABELS: Record<MealSlot, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittag',
-  dinner: 'Abend',
+  breakfast: 'mealPlanner.mealSlots.breakfast',
+  lunch: 'mealPlanner.mealSlots.lunch',
+  dinner: 'mealPlanner.mealSlots.dinner',
 };
 
+export function getMealSlotLabel(t: TFunction, slot: MealSlot): string {
+  return t(`mealPlanner.mealSlots.${slot}`);
+}
+
+export function getViewModeLabel(t: TFunction, mode: ViewMode): string {
+  return t(`mealPlanner.viewModes.${mode}`);
+}
+
 export const WEEKDAY_LABELS = [
-  'Montag',
-  'Dienstag',
-  'Mittwoch',
-  'Donnerstag',
-  'Freitag',
-  'Samstag',
-  'Sonntag',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+  'sunday',
 ] as const;
 
 function pad(n: number): string {
@@ -96,38 +106,70 @@ const MONTH_LABELS = [
   'November',
   'Dezember',
 ];
-/** Standard-Name eines neu angelegten Wochenplans, z. B. "Woche 17.–23. Aug.". */
-export function defaultWeekPlanName(weekStart: string): string {
+export function defaultWeekPlanName(weekStart: string, locale = 'de-DE'): string {
   const start = parseDateOnly(weekStart);
   const end = parseDateOnly(addDays(weekStart, 6));
   const startDay = start.getUTCDate();
   const endDay = end.getUTCDate();
-  const endMonth = SHORT_MONTH_LABELS[end.getUTCMonth()];
-  return `Woche ${startDay}.–${endDay}. ${endMonth}`;
+  const endMonth = shortMonthLabel(end.getUTCMonth(), locale);
+  if (locale.toLowerCase().startsWith('de')) {
+    return `Woche ${startDay}.–${endDay}. ${endMonth}`;
+  }
+  return `Week ${startDay}–${endDay} ${endMonth}`;
 }
 
-export function weekdayLabel(dateStr: string): string {
-  const date = parseDateOnly(dateStr);
-  const day = date.getUTCDay();
-  const index = day === 0 ? 6 : day - 1;
-  return WEEKDAY_LABELS[index];
+function shortMonthLabel(month: number, locale: string): string {
+  if (locale.toLowerCase().startsWith('de')) return SHORT_MONTH_LABELS[month] ?? '';
+  return new Intl.DateTimeFormat(locale, { month: 'short', timeZone: 'UTC' }).format(
+    new Date(Date.UTC(2020, month, 1)),
+  );
+}
+
+function monthLabel(month: number, locale: string): string {
+  if (locale.toLowerCase().startsWith('de')) return MONTH_LABELS[month] ?? '';
+  return new Intl.DateTimeFormat(locale, { month: 'long', timeZone: 'UTC' }).format(
+    new Date(Date.UTC(2020, month, 1)),
+  );
+}
+
+export function weekdayLabel(dateStr: string, locale = 'de-DE'): string {
+  return new Intl.DateTimeFormat(locale, { weekday: 'long', timeZone: 'UTC' }).format(
+    parseDateOnly(dateStr),
+  );
 }
 
 /** Kompaktes Datum fuer eine Tageskarte, z. B. "17. Aug.". */
-export function dateLabel(dateStr: string): string {
+export function dateLabel(dateStr: string, locale = 'de-DE'): string {
   const date = parseDateOnly(dateStr);
-  return `${date.getUTCDate()}. ${SHORT_MONTH_LABELS[date.getUTCMonth()]}`;
+  if (locale.toLowerCase().startsWith('de')) {
+    return `${date.getUTCDate()}. ${shortMonthLabel(date.getUTCMonth(), locale)}`;
+  }
+  return new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
+    month: 'short',
+    timeZone: 'UTC',
+  }).format(date);
 }
 
 /** Ueberschrift fuer einen bereits berechneten sichtbaren Datumsbereich. */
-export function periodLabel(dates: readonly string[]): string {
+export function periodLabel(dates: readonly string[], locale = 'de-DE'): string {
   const start = dates[0].split('-').map(Number);
   const end = dates[dates.length - 1].split('-').map(Number);
   const sameMonth = start[0] === end[0] && start[1] === end[1];
 
-  if (dates.length === 1) return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}`;
-  if (sameMonth) return `${start[2]}.–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
-  return `${start[2]}. ${MONTH_LABELS[start[1] - 1]}–${end[2]}. ${MONTH_LABELS[end[1] - 1]}`;
+  if (locale.toLowerCase().startsWith('de')) {
+    if (dates.length === 1) return `${start[2]}. ${monthLabel(start[1] - 1, locale)}`;
+    if (sameMonth) {
+      return `${start[2]}.–${end[2]}. ${monthLabel(end[1] - 1, locale)}`;
+    }
+    return `${start[2]}. ${monthLabel(start[1] - 1, locale)}–${end[2]}. ${monthLabel(end[1] - 1, locale)}`;
+  }
+
+  const startMonth = shortMonthLabel(start[1] - 1, locale);
+  const endMonth = shortMonthLabel(end[1] - 1, locale);
+  if (dates.length === 1) return `${startMonth} ${start[2]}`;
+  if (sameMonth) return `${startMonth} ${start[2]}–${end[2]}`;
+  return `${startMonth} ${start[2]}–${endMonth} ${end[2]}`;
 }
 
 // ------------------------------------------------------------- Ansichts-Modi
@@ -137,8 +179,8 @@ export const VIEW_MODES = ['day', 'week'] as const;
 export type ViewMode = (typeof VIEW_MODES)[number];
 
 export const VIEW_MODE_LABELS: Record<ViewMode, string> = {
-  day: 'Tag',
-  week: 'Woche',
+  day: 'mealPlanner.viewModes.day',
+  week: 'mealPlanner.viewModes.week',
 };
 
 /** Anzahl der Kalendertage, die eine Ansicht auf einmal zeigt. */
@@ -158,16 +200,9 @@ export function shiftAnchor(anchor: string, mode: ViewMode, direction: 1 | -1): 
 }
 
 /** Ueberschrift fuer den sichtbaren Zeitraum, z. B. "17. Aug." oder "17.–19. Aug.". */
-export function rangeLabel(anchor: string, mode: ViewMode): string {
-  if (mode === 'week') return defaultWeekPlanName(getWeekStart(anchor));
+export function rangeLabel(anchor: string, mode: ViewMode, locale = 'de-DE'): string {
+  if (mode === 'week') return defaultWeekPlanName(getWeekStart(anchor), locale);
 
   const dates = rangeDates(anchor, mode);
-  const start = parseDateOnly(dates[0]);
-  const end = parseDateOnly(dates[dates.length - 1]);
-  const startDay = start.getUTCDate();
-  const endDay = end.getUTCDate();
-  const endMonth = SHORT_MONTH_LABELS[end.getUTCMonth()];
-
-  if (dates.length === 1) return `${startDay}. ${endMonth}`;
-  return `${startDay}.–${endDay}. ${endMonth}`;
+  return dateLabel(dates[0], locale);
 }

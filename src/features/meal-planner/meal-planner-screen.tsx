@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -37,12 +38,12 @@ import {
   useUpdateEntryMutation,
 } from './use-meal-plans';
 import {
+  getViewModeLabel,
   getWeekStart,
   periodLabel,
   rangeDates,
   shiftAnchor,
   todayIso,
-  VIEW_MODE_LABELS,
   VIEW_MODES,
   type ViewMode,
 } from './week';
@@ -93,6 +94,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function MealPlannerScreen() {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
@@ -277,7 +279,10 @@ export function MealPlannerScreen() {
       {
         onSuccess: (result) => {
           if (result.copied === 0) {
-            Alert.alert('Keine Vorwoche', 'Für die vorherige Woche gibt es keinen Wochenplan.');
+            Alert.alert(
+              t('mealPlanner.screen.noPreviousWeekTitle'),
+              t('mealPlanner.screen.noPreviousWeekMessage'),
+            );
           }
         },
       },
@@ -295,13 +300,13 @@ export function MealPlannerScreen() {
   return (
     <HubScreen
       header={{
-        title: 'Essensplan',
+        title: t('mealPlanner.screen.title'),
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
         trailing: (
           <View style={styles.headerActions}>
             <HeaderIconButton
-              label="Assistant mit Wochenplankontext öffnen"
+              label={t('mealPlanner.screen.assistant')}
               onPress={() =>
                 router.push({
                   pathname: '/assistant',
@@ -313,7 +318,7 @@ export function MealPlannerScreen() {
               </Txt>
             </HeaderIconButton>
             <HeaderIconButton
-              label="Aktuelle Woche anzeigen"
+              label={t('mealPlanner.screen.today')}
               onPress={() => setAnchorDate(todayIso())}>
               <Image
                 source="sf:calendar"
@@ -328,11 +333,13 @@ export function MealPlannerScreen() {
       <View style={styles.content}>
         {/* Ansichtsmodus-Tabs (Tag / Woche) */}
         <SegmentedControl
-          label="Zeitraum"
+          label={t('mealPlanner.screen.period')}
           options={VIEW_MODES.map((mode) => ({
             value: mode,
-            label: VIEW_MODE_LABELS[mode],
-            accessibilityLabel: `${VIEW_MODE_LABELS[mode]}-Ansicht`,
+            label: getViewModeLabel(t, mode),
+            accessibilityLabel: t('mealPlanner.screen.viewModeAccessibility', {
+              label: getViewModeLabel(t, mode),
+            }),
           }))}
           selected={viewMode}
           onSelect={setViewMode}
@@ -344,7 +351,7 @@ export function MealPlannerScreen() {
         <View style={styles.periodRow}>
           <Press
             accessibilityRole="button"
-            accessibilityLabel="Vorheriger Zeitraum"
+            accessibilityLabel={t('mealPlanner.screen.previous')}
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, -1))}
             style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
@@ -353,12 +360,12 @@ export function MealPlannerScreen() {
           </Press>
           <View style={styles.periodCopy}>
             <Txt variant="body" weight="700">
-              {periodLabel(dates)}
+              {periodLabel(dates, i18n.language)}
             </Txt>
           </View>
           <Press
             accessibilityRole="button"
-            accessibilityLabel="Nächster Zeitraum"
+            accessibilityLabel={t('mealPlanner.screen.next')}
             onPress={() => setAnchorDate((date) => shiftAnchor(date, viewMode, 1))}
             style={styles.periodButton}>
             <Txt variant="title" tone="secondary">
@@ -370,19 +377,19 @@ export function MealPlannerScreen() {
         {viewMode === 'week' ? (
           <View style={styles.actionsRow}>
             <Button
-              title="Vorwoche übernehmen"
+              title={t('mealPlanner.screen.reuseLastWeek')}
               variant="secondary"
               size="sm"
               style={styles.actionContainer}
-              accessibilityLabel="Vorwoche übernehmen"
+              accessibilityLabel={t('mealPlanner.screen.reuseLastWeek')}
               onPress={handleReuseLastWeek}
             />
             <Button
-              title="Einkauf vorbereiten"
+              title={t('mealPlanner.screen.prepareShopping')}
               variant="secondary"
               size="sm"
               style={styles.actionContainer}
-              accessibilityLabel="Einkauf vorbereiten"
+              accessibilityLabel={t('mealPlanner.screen.prepareShopping')}
               disabled={!plan}
               onPress={() => {
                 if (!plan) return;

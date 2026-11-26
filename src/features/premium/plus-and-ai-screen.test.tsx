@@ -225,10 +225,10 @@ describe('PlusAndAiScreen', () => {
     expect(alertSpy).toHaveBeenCalledWith(
       'Erfolgreich',
       'Fam Plus ist jetzt für deinen Haushalt aktiv!',
-      [{ text: 'OK', onPress: expect.any(Function) }],
+      [{ text: 'Fertig', onPress: expect.any(Function) }],
     );
     const buttons = alertSpy.mock.calls.at(-1)?.[2];
-    await buttons?.find((button) => button.text === 'OK')?.onPress?.();
+    await buttons?.find((button) => button.text === 'Fertig')?.onPress?.();
     expect(router.back).toHaveBeenCalledTimes(1);
   });
 
@@ -255,10 +255,10 @@ describe('PlusAndAiScreen', () => {
     expect(alertSpy).toHaveBeenCalledWith(
       'Erfolgreich',
       'Fam KI ist jetzt für deinen Haushalt aktiv!',
-      [{ text: 'OK', onPress: expect.any(Function) }],
+      [{ text: 'Fertig', onPress: expect.any(Function) }],
     );
     const buttons = alertSpy.mock.calls.at(-1)?.[2];
-    await buttons?.find((button) => button.text === 'OK')?.onPress?.();
+    await buttons?.find((button) => button.text === 'Fertig')?.onPress?.();
     expect(router.back).toHaveBeenCalledTimes(1);
   });
 
@@ -306,7 +306,7 @@ describe('PlusAndAiScreen', () => {
       expect(alertSpy).toHaveBeenLastCalledWith(
         'Erfolgreich',
         'Fam Plus ist jetzt für deinen Haushalt aktiv!',
-        [{ text: 'OK', onPress: expect.any(Function) }],
+        [{ text: 'Fertig', onPress: expect.any(Function) }],
       ),
     );
   });

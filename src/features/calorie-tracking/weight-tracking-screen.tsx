@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -96,8 +97,8 @@ function parseLogicalDate(isoDate: string): Date {
   return new Date(year, month - 1, day);
 }
 
-function formatLogicalDate(isoDate: string): string {
-  return parseLogicalDate(isoDate).toLocaleDateString('de-DE', {
+function formatLogicalDate(isoDate: string, locale: string): string {
+  return parseLogicalDate(isoDate).toLocaleDateString(locale, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -105,26 +106,27 @@ function formatLogicalDate(isoDate: string): string {
   });
 }
 
-function formatWeight(value: number): string {
-  return `${value.toLocaleString('de-DE', { maximumFractionDigits: 2 })} kg`;
+function formatWeight(value: number, locale: string): string {
+  return `${value.toLocaleString(locale, { maximumFractionDigits: 2 })} kg`;
 }
 
-function formatTime(value: string | null): string {
+function formatTime(value: string | null, locale: string, fallback: string): string {
   return value
-    ? new Date(value).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })
-    : 'Eintrag';
+    ? new Date(value).toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' })
+    : fallback;
 }
 
 function Chart({ entries }: { entries: WeightEntryRow[] }) {
+  const { t, i18n } = useTranslation();
   const chartEntries = [...entries].slice(0, CHART_ENTRY_LIMIT).reverse();
 
   if (chartEntries.length === 0) {
     return (
       <Card style={styles.chartCard}>
         <View style={styles.chartHeader}>
-          <Txt variant="subheading">Verlauf</Txt>
+          <Txt variant="subheading">{t('calorieTracking.weight.trend')}</Txt>
           <Txt variant="caption" tone="secondary">
-            Noch keine Messungen vorhanden
+            {t('calorieTracking.weight.noMeasurements')}
           </Txt>
         </View>
       </Card>
@@ -139,9 +141,9 @@ function Chart({ entries }: { entries: WeightEntryRow[] }) {
   return (
     <Card style={styles.chartCard}>
       <View style={styles.chartHeader}>
-        <Txt variant="subheading">Verlauf</Txt>
+        <Txt variant="subheading">{t('calorieTracking.weight.trend')}</Txt>
         <Txt variant="caption" tone="secondary">
-          Die letzten {chartEntries.length} Messungen
+          {t('calorieTracking.weight.lastMeasurements', { count: chartEntries.length })}
         </Txt>
       </View>
       <View style={styles.chartArea}>
@@ -159,10 +161,10 @@ function Chart({ entries }: { entries: WeightEntryRow[] }) {
       </View>
       <View style={styles.chartScale}>
         <Txt variant="caption" tone="secondary">
-          {formatWeight(minWeight)}
+          {formatWeight(minWeight, i18n.language)}
         </Txt>
         <Txt variant="caption" tone="secondary">
-          {formatWeight(maxWeight)}
+          {formatWeight(maxWeight, i18n.language)}
         </Txt>
       </View>
     </Card>
@@ -180,6 +182,7 @@ function WeightEntryForm({
   dayStartTime: string;
   onCancel: () => void;
 }) {
+  const { t } = useTranslation();
   const [weightInput, setWeightInput] = useState('');
   const [error, setError] = useState<string | undefined>();
   const mutation = useAddWeightEntryMutation();
@@ -187,7 +190,7 @@ function WeightEntryForm({
   async function save() {
     const weightKg = Number(weightInput.trim().replace(',', '.'));
     if (!Number.isFinite(weightKg) || weightKg <= 0 || weightKg >= 700) {
-      setError('Bitte gib ein gültiges Gewicht unter 700 kg ein.');
+      setError(t('calorieTracking.weight.invalid'));
       return;
     }
 
@@ -201,20 +204,20 @@ function WeightEntryForm({
       });
       onCancel();
     } catch {
-      setError('Der Gewichtseintrag konnte nicht gespeichert werden.');
+      setError(t('calorieTracking.weight.saveError'));
     }
   }
 
   return (
     <Card style={styles.form}>
       <TextField
-        label="Gewicht (kg)"
+        label={t('calorieTracking.weight.weightLabel')}
         value={weightInput}
         onChangeText={(value) => {
           setWeightInput(value);
           setError(undefined);
         }}
-        placeholder="75"
+        placeholder={t('calorieTracking.weight.weightPlaceholder')}
         inputMode="decimal"
         keyboardType="decimal-pad"
         size="large"
@@ -222,13 +225,13 @@ function WeightEntryForm({
       />
       <View style={styles.formActions}>
         <Button
-          title="Abbrechen"
+          title={t('calorieTracking.weight.cancel')}
           variant="secondary"
           onPress={onCancel}
           style={styles.formAction}
         />
         <Button
-          title="Speichern"
+          title={t('calorieTracking.weight.save')}
           onPress={() => void save()}
           loading={mutation.isPending}
           disabled={!weightInput.trim()}
@@ -240,6 +243,7 @@ function WeightEntryForm({
 }
 
 export function WeightTrackingScreen() {
+  const { t, i18n } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -251,12 +255,12 @@ export function WeightTrackingScreen() {
 
   return (
     <Screen
-      title="Gewicht"
-      back={{ label: 'Tagebuch', href: '/diary' }}
+      title={t('calorieTracking.weight.title')}
+      back={{ label: t('calorieTracking.weight.back'), href: '/diary' }}
       backStyle="icon"
       action={
         <Button
-          title="Neuer Eintrag"
+          title={t('calorieTracking.weight.newEntry')}
           icon="plus"
           size="sm"
           onPress={() => setFormVisible((visible) => !visible)}
@@ -265,15 +269,17 @@ export function WeightTrackingScreen() {
       <View style={styles.content}>
         <Card style={styles.summary}>
           <Txt variant="caption" tone="secondary">
-            Letzte Messung
+            {t('calorieTracking.weight.lastMeasurement')}
           </Txt>
           <Txt variant="heading" style={styles.summaryValue}>
-            {latestEntry ? formatWeight(latestEntry.weight_kg) : 'Noch kein Eintrag'}
+            {latestEntry
+              ? formatWeight(latestEntry.weight_kg, i18n.language)
+              : t('calorieTracking.weight.noEntry')}
           </Txt>
           <Txt variant="caption" tone="secondary">
             {latestEntry
-              ? formatLogicalDate(latestEntry.measured_on)
-              : 'Füge deine erste Messung hinzu.'}
+              ? formatLogicalDate(latestEntry.measured_on, i18n.language)
+              : t('calorieTracking.weight.firstMeasurement')}
           </Txt>
         </Card>
 
@@ -288,7 +294,7 @@ export function WeightTrackingScreen() {
 
         {isLoading ? (
           <Txt variant="caption" tone="secondary">
-            Lade Gewichtseinträge...
+            {t('calorieTracking.weight.loading')}
           </Txt>
         ) : (
           <Chart entries={entries} />
@@ -296,28 +302,32 @@ export function WeightTrackingScreen() {
 
         <Card style={styles.history}>
           <View style={styles.historyHeader}>
-            <Txt variant="subheading">Historie</Txt>
+            <Txt variant="subheading">{t('calorieTracking.weight.history')}</Txt>
             <Txt variant="caption" tone="secondary">
-              Privat und nur für dich sichtbar
+              {t('calorieTracking.weight.private')}
             </Txt>
           </View>
           {entries.length === 0 ? (
             <Txt variant="caption" tone="secondary" style={styles.empty}>
-              Noch keine Messungen vorhanden.
+              {t('calorieTracking.weight.noMeasurements')}
             </Txt>
           ) : (
             entries.map((entry) => (
               <View key={entry.id} style={styles.historyRow}>
                 <View style={styles.historyCopy}>
                   <Txt variant="body" weight="700">
-                    {formatLogicalDate(entry.measured_on)}
+                    {formatLogicalDate(entry.measured_on, i18n.language)}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    {formatTime(entry.measured_at)}
+                    {formatTime(
+                      entry.measured_at,
+                      i18n.language,
+                      t('calorieTracking.weight.noEntry'),
+                    )}
                   </Txt>
                 </View>
                 <Txt variant="body" weight="700">
-                  {formatWeight(entry.weight_kg)}
+                  {formatWeight(entry.weight_kg, i18n.language)}
                 </Txt>
               </View>
             ))

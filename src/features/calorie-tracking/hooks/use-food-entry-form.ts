@@ -1,5 +1,6 @@
+import type { TFunction } from 'i18next';
 import { useEffect, useRef, useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import type { FoodEntryRow } from '@/features/calorie-tracking/api';
 import { productFromRouteParams } from '@/features/calorie-tracking/product-route-params';
 import type { CatalogProduct, NutrientLevel } from '@/features/product-search/types';
@@ -62,17 +63,36 @@ type Per100gReference = {
 function buildNutritionBadges(
   nutrientLevels: CatalogProduct['nutrientLevels'] | undefined,
   novaGroup: number | undefined,
+  t: TFunction,
 ): FoodEntryBadge[] {
   const badges: FoodEntryBadge[] = [];
   const add = (level: NutrientLevel | undefined, lowLabel: string, highLabel: string) => {
     if (level === 'low') badges.push({ label: lowLabel, tone: 'good' });
     else if (level === 'high') badges.push({ label: highLabel, tone: 'warn' });
   };
-  add(nutrientLevels?.fat, 'Fettarm', 'Reich an Fett');
-  add(nutrientLevels?.saturatedFat, 'Wenig gesättigte Fettsäuren', 'Viel gesättigte Fettsäuren');
-  add(nutrientLevels?.sugars, 'Wenig Zucker', 'Viel Zucker');
-  add(nutrientLevels?.salt, 'Wenig Salz', 'Viel Salz');
-  if (novaGroup === 4) badges.push({ label: 'Stark verarbeitet', tone: 'warn' });
+  add(
+    nutrientLevels?.fat,
+    t('calorieTracking.foodEntry.badges.fatLow'),
+    t('calorieTracking.foodEntry.badges.fatHigh'),
+  );
+  add(
+    nutrientLevels?.saturatedFat,
+    t('calorieTracking.foodEntry.badges.saturatedFatLow'),
+    t('calorieTracking.foodEntry.badges.saturatedFatHigh'),
+  );
+  add(
+    nutrientLevels?.sugars,
+    t('calorieTracking.foodEntry.badges.sugarsLow'),
+    t('calorieTracking.foodEntry.badges.sugarsHigh'),
+  );
+  add(
+    nutrientLevels?.salt,
+    t('calorieTracking.foodEntry.badges.saltLow'),
+    t('calorieTracking.foodEntry.badges.saltHigh'),
+  );
+  if (novaGroup === 4) {
+    badges.push({ label: t('calorieTracking.foodEntry.badges.nova4'), tone: 'warn' });
+  }
   return badges;
 }
 
@@ -94,6 +114,7 @@ type UseFoodEntryFormArgs = {
  * ausschliesslich Formular-Zustand.
  */
 export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseFoodEntryFormArgs) {
+  const { t } = useTranslation();
   const [values, setValues] = useState<FoodEntryFormValues>(EMPTY_VALUES);
   const [productMeta, setProductMeta] = useState<FoodEntryProductMeta>(EMPTY_PRODUCT_META);
   const [unitNotScalable, setUnitNotScalable] = useState(false);
@@ -155,7 +176,7 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
       brand: product.brand,
       imageUrl: product.imageUrl,
       nutriScore: product.nutriScore,
-      badges: buildNutritionBadges(product.nutrientLevels, product.novaGroup),
+      badges: buildNutritionBadges(product.nutrientLevels, product.novaGroup, t),
     });
 
     const hasPer100gNutrition = [
@@ -224,7 +245,7 @@ export function useFoodEntryForm({ isEditing, existingEntry, routeParams }: UseF
 
     initializedSourceKeyRef.current = routeParamsKey;
     hasInitializedRef.current = true;
-  }, [existingEntry, isEditing, routeParamsKey]);
+  }, [existingEntry, isEditing, routeParamsKey, t]);
 
   // Live-Neuberechnung, wenn Menge/Einheit geaendert werden UND eine
   // 100g-Referenz vorliegt (Produkt aus Suche/Barcode). Reagiert bewusst nur

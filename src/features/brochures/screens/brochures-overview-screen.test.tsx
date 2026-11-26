@@ -119,7 +119,7 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
   it('shows locating, retryable denial and permanent denial states', async () => {
     mockLocation = { ...mockLocation, status: 'locating', postalCode: null };
     const locating = await render(<ScreenComponent />);
-    expect(screen.getByText('Standort wird ermittelt...')).toBeOnTheScreen();
+    expect(screen.getByText('Standort wird ermittelt…')).toBeOnTheScreen();
     await locating.unmount();
 
     mockLocation = { ...mockLocation, status: 'error', postalCode: null };
@@ -213,7 +213,7 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
       hasScanError: false,
     };
     const loading = await render(<ScreenComponent />);
-    expect(screen.getByText('Prospekte für 10115 werden geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Prospekte für 10115 werden geladen…')).toBeOnTheScreen();
     await loading.unmount();
 
     mockSync = {
@@ -227,7 +227,7 @@ describe.each(screenVariants)('BrochuresOverviewScreen (%s)', (_name, ScreenComp
       isLoading: false,
     };
     const pending = await render(<ScreenComponent />);
-    expect(screen.getByText('Prospekte für 10115 werden geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Prospekte für 10115 werden geladen…')).toBeOnTheScreen();
     await pending.unmount();
 
     mockSync = {

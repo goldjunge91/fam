@@ -6,6 +6,70 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const LANGUAGE_SOURCE = path.join(REPO_ROOT, 'src', 'i18n', 'index.ts');
 const FEATURE_DIRECTORY = path.join(REPO_ROOT, 'src', 'i18n', 'features');
 
+export type I18nConventionScope = 'main-app' | 'developer-only';
+
+const DEVELOPER_ONLY_FEATURE = 'dev';
+const DEVELOPER_ONLY_SOURCE_DIRECTORY = 'src/features/settings/dev/';
+const DEVELOPER_ONLY_CONDITIONAL_SOURCE_FILE = 'src/features/settings/settings-screen.tsx';
+const DEVELOPER_ONLY_SOURCE_FILES = new Set([
+  'src/features/settings/sync-debug-screen.tsx',
+  'src/app/settings/sync-debug.tsx',
+]);
+
+export function isDeveloperOnlyPath(relativePath: string): boolean {
+  return (
+    relativePath.startsWith(DEVELOPER_ONLY_SOURCE_DIRECTORY) ||
+    DEVELOPER_ONLY_SOURCE_FILES.has(relativePath) ||
+    /^src\/app\/settings\/dev[^/]*\.tsx$/u.test(relativePath)
+  );
+}
+
+function isInScope(relativePath: string, scope: I18nConventionScope): boolean {
+  const isDeveloperOnly = isDeveloperOnlyPath(relativePath);
+  return scope === 'developer-only' ? isDeveloperOnly : !isDeveloperOnly;
+}
+
+function isFeatureInScope(feature: string, scope: I18nConventionScope): boolean {
+  const isDeveloperOnly = feature === DEVELOPER_ONLY_FEATURE;
+  return scope === 'developer-only' ? isDeveloperOnly : !isDeveloperOnly;
+}
+
+function isDeveloperOnlyTranslationKey(key: string): boolean {
+  return key === DEVELOPER_ONLY_FEATURE || key.startsWith(`${DEVELOPER_ONLY_FEATURE}.`);
+}
+
+function isDeveloperOnlyTranslationReference(
+  reference: TranslationReference | DynamicTranslationReference,
+): boolean {
+  const isDeveloperOnlySource =
+    isDeveloperOnlyPath(reference.path) ||
+    reference.path === DEVELOPER_ONLY_CONDITIONAL_SOURCE_FILE;
+  if (!isDeveloperOnlySource) return false;
+
+  if ('key' in reference) return isDeveloperOnlyTranslationKey(reference.key);
+
+  return reference.keys?.length ? reference.keys.every(isDeveloperOnlyTranslationKey) : false;
+}
+
+function isTranslationSourceInScope(relativePath: string, scope: I18nConventionScope): boolean {
+  if (scope === 'developer-only') {
+    return (
+      isDeveloperOnlyPath(relativePath) || relativePath === DEVELOPER_ONLY_CONDITIONAL_SOURCE_FILE
+    );
+  }
+
+  return true;
+}
+
+export function isTranslationReferenceInScope(
+  reference: TranslationReference | DynamicTranslationReference,
+  scope: I18nConventionScope,
+): boolean {
+  if (scope === 'developer-only') return isDeveloperOnlyTranslationReference(reference);
+
+  return !isDeveloperOnlyTranslationReference(reference);
+}
+
 type LocaleCatalogDiscovery = {
   languages: string[];
   features: string[];
@@ -93,7 +157,7 @@ function readSupportedLanguages(): string[] {
   throw new Error('SUPPORTED_LANGUAGES wurde in src/i18n/index.ts nicht gefunden.');
 }
 
-function readFeatureNames(languages: string[]): string[] {
+function readFeatureNames(languages: string[], scope: I18nConventionScope): string[] {
   const languageSuffixes = new Set(languages.map((language) => `.${language}.json`));
 
   return readdirSync(FEATURE_DIRECTORY, { withFileTypes: true })
@@ -103,6 +167,7 @@ function readFeatureNames(languages: string[]): string[] {
       const suffix = [...languageSuffixes].find((candidate) => filename.endsWith(candidate));
       return suffix ? [filename.slice(0, -suffix.length)] : [];
     })
+    .filter((feature) => isFeatureInScope(feature, scope))
     .filter((feature, index, features) => features.indexOf(feature) === index)
     .sort();
 }
@@ -185,17 +250,17 @@ function readPlaceholders(value: string): string[] {
   return [...placeholders].sort();
 }
 
-export function discoverLocaleCatalogs(): LocaleCatalogDiscovery {
+export function discoverLocaleCatalogs(scope: I18nConventionScope): LocaleCatalogDiscovery {
   const languages = readSupportedLanguages();
 
   return {
     languages,
-    features: readFeatureNames(languages),
+    features: readFeatureNames(languages, scope),
   };
 }
 
-export function loadLocaleCatalogs(): LocaleCatalogSnapshot {
-  const discovery = discoverLocaleCatalogs();
+export function loadLocaleCatalogs(scope: I18nConventionScope): LocaleCatalogSnapshot {
+  const discovery = discoverLocaleCatalogs(scope);
 
   return {
     ...discovery,
@@ -491,17 +556,35 @@ function findProductionSourceFiles(directory: string): string[] {
     .sort();
 }
 
-export function findProductionTranslationReferences(): TranslationReference[] {
-  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) =>
-    extractLiteralTranslationReferences(
-      readFileSync(sourcePath, 'utf8'),
-      path.relative(REPO_ROOT, sourcePath),
-    ),
+function findScopedProductionSourceFiles(scope: I18nConventionScope): string[] {
+  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).filter((sourcePath) =>
+    isInScope(path.relative(REPO_ROOT, sourcePath), scope),
   );
 }
 
-export function findProductionHardcodedUiTextReferences(): HardcodedUiTextReference[] {
-  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) =>
+function findScopedTranslationSourceFiles(scope: I18nConventionScope): string[] {
+  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).filter((sourcePath) =>
+    isTranslationSourceInScope(path.relative(REPO_ROOT, sourcePath), scope),
+  );
+}
+
+export function findProductionTranslationReferences(
+  scope: I18nConventionScope,
+): TranslationReference[] {
+  return findScopedTranslationSourceFiles(scope)
+    .flatMap((sourcePath) =>
+      extractLiteralTranslationReferences(
+        readFileSync(sourcePath, 'utf8'),
+        path.relative(REPO_ROOT, sourcePath),
+      ),
+    )
+    .filter((reference) => isTranslationReferenceInScope(reference, scope));
+}
+
+export function findProductionHardcodedUiTextReferences(
+  scope: I18nConventionScope,
+): HardcodedUiTextReference[] {
+  return findScopedProductionSourceFiles(scope).flatMap((sourcePath) =>
     extractHardcodedUiTextReferences(
       readFileSync(sourcePath, 'utf8'),
       path.relative(REPO_ROOT, sourcePath),
@@ -567,16 +650,20 @@ export function formatHardcodedUiTextReport(
   ].join('\n');
 }
 
-export function findProductionDynamicTranslationReferences(): DynamicTranslationReference[] {
+export function findProductionDynamicTranslationReferences(
+  scope: I18nConventionScope,
+): DynamicTranslationReference[] {
   const program = createSourceProgram();
   const checker = program.getTypeChecker();
 
-  return findProductionSourceFiles(path.join(REPO_ROOT, 'src')).flatMap((sourcePath) => {
-    const source = program.getSourceFile(sourcePath);
-    return source
-      ? extractDynamicTranslationReferences(source, checker, path.relative(REPO_ROOT, sourcePath))
-      : [];
-  });
+  return findScopedTranslationSourceFiles(scope)
+    .flatMap((sourcePath) => {
+      const source = program.getSourceFile(sourcePath);
+      return source
+        ? extractDynamicTranslationReferences(source, checker, path.relative(REPO_ROOT, sourcePath))
+        : [];
+    })
+    .filter((reference) => isTranslationReferenceInScope(reference, scope));
 }
 
 function featureNamespace(feature: string): string {

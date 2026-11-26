@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -33,6 +34,7 @@ function parseOptionalNumber(value: string): number | undefined {
 }
 
 export function AddProductScreen() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{ prefillName?: string }>();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -76,27 +78,34 @@ export function AddProductScreen() {
 
       router.back();
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern');
+      Alert.alert(
+        t('inventory.product.error'),
+        err instanceof Error ? err.message : t('inventory.product.saveFailed'),
+      );
     }
   }
 
   return (
-    <Screen title="Produkt anlegen" back={{ label: 'Abbrechen' }}>
+    <Screen title={t('inventory.product.title')} back={{ label: t('inventory.product.cancel') }}>
       <View style={styles.form}>
         {/* Produkt-Stammdaten: Name und optionale Marke */}
         <TextField
-          label="Name"
-          placeholder="z. B. Tomaten (lose)"
+          label={t('inventory.product.name')}
+          placeholder={t('inventory.product.namePlaceholder')}
           value={name}
           onChangeText={setName}
         />
-        <TextField label="Marke (optional)" value={brand} onChangeText={setBrand} />
+        <TextField
+          label={t('inventory.product.brandOptional')}
+          value={brand}
+          onChangeText={setBrand}
+        />
 
         {/* Nährwert-Eingaben bezogen auf 100g (kcal, Kohlenhydrate, Eiweiß, Fett) */}
         <View style={styles.nutritionRow}>
           <View style={styles.flex}>
             <TextField
-              label="kcal pro 100g"
+              label={t('inventory.product.kcalPer100')}
               value={kcalInput}
               onChangeText={setKcalInput}
               keyboardType="numeric"
@@ -104,7 +113,7 @@ export function AddProductScreen() {
           </View>
           <View style={styles.flex}>
             <TextField
-              label="Kohlenhydrate pro 100g"
+              label={t('inventory.product.carbsPer100')}
               value={carbsInput}
               onChangeText={setCarbsInput}
               keyboardType="numeric"
@@ -114,7 +123,7 @@ export function AddProductScreen() {
         <View style={styles.nutritionRow}>
           <View style={styles.flex}>
             <TextField
-              label="Eiweiß pro 100g"
+              label={t('inventory.product.proteinPer100')}
               value={proteinInput}
               onChangeText={setProteinInput}
               keyboardType="numeric"
@@ -122,7 +131,7 @@ export function AddProductScreen() {
           </View>
           <View style={styles.flex}>
             <TextField
-              label="Fett pro 100g"
+              label={t('inventory.product.fatPer100')}
               value={fatInput}
               onChangeText={setFatInput}
               keyboardType="numeric"
@@ -132,8 +141,8 @@ export function AddProductScreen() {
 
         {/* Optionale Angabe einer Portionsgröße */}
         <TextField
-          label="Portionsgröße in Gramm (optional)"
-          placeholder="z. B. 45"
+          label={t('inventory.product.servingSizeOptional')}
+          placeholder={t('inventory.product.servingSizePlaceholder')}
           value={servingSizeInput}
           onChangeText={setServingSizeInput}
           keyboardType="numeric"
@@ -142,13 +151,17 @@ export function AddProductScreen() {
         {/* Aktions-Buttons: Produkt anlegen / Abbrechen */}
         <View style={styles.saveAction}>
           <Button
-            title="Speichern"
+            title={t('inventory.product.save')}
             onPress={handleSave}
             loading={mutation.isPending}
             disabled={!name.trim()}
           />
         </View>
-        <Button title="Abbrechen" variant="secondary" onPress={() => router.back()} />
+        <Button
+          title={t('inventory.product.cancel')}
+          variant="secondary"
+          onPress={() => router.back()}
+        />
       </View>
     </Screen>
   );

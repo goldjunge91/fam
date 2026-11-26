@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -98,18 +99,26 @@ export function PaywallPlanCard({
   onSelectPeriod,
   disabled = false,
 }: PaywallPlanCardProps) {
+  const { t } = useTranslation();
   const isYearlySelected = selectedPeriod === 'yearly';
   const isMonthlySelected = selectedPeriod === 'monthly';
 
   return (
-    <View style={styles.container} accessibilityRole="radiogroup" accessibilityLabel="Abozeitraum">
+    <View
+      style={styles.container}
+      accessibilityRole="radiogroup"
+      accessibilityLabel={t('premium.screen.periodAccessibility')}>
       {/* Jahresabo Karte (Empfohlen mit Spar-Badge) */}
       <Press
         onPress={() => onSelectPeriod('yearly')}
         disabled={disabled}
         accessibilityRole="radio"
         accessibilityState={{ selected: isYearlySelected, disabled }}
-        accessibilityLabel={`${plans.yearly.title}, ${plans.yearly.priceString} pro Jahr, ${plans.yearly.savingsBadge ?? ''}`}
+        accessibilityLabel={t('premium.screen.yearlyAccessibility', {
+          title: plans.yearly.title,
+          price: plans.yearly.priceString,
+          savings: plans.yearly.savingsBadge ?? '',
+        })}
         haptic="selection"
         scaleTo={0.98}
         style={[
@@ -159,7 +168,10 @@ export function PaywallPlanCard({
         disabled={disabled}
         accessibilityRole="radio"
         accessibilityState={{ selected: isMonthlySelected, disabled }}
-        accessibilityLabel={`${plans.monthly.title}, ${plans.monthly.priceString} pro Monat`}
+        accessibilityLabel={t('premium.screen.monthlyAccessibility', {
+          title: plans.monthly.title,
+          price: plans.monthly.priceString,
+        })}
         haptic="selection"
         scaleTo={0.98}
         style={[

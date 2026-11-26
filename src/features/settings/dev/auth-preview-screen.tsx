@@ -1,4 +1,5 @@
 import { Redirect, router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -8,23 +9,23 @@ import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 
 const AUTH_ROUTES = [
   {
-    title: 'Anmeldung öffnen',
-    description: 'Sign-in-Formular, OAuth und Passwort-Link testen',
+    titleKey: 'dev.auth.routes.signIn.title',
+    descriptionKey: 'dev.auth.routes.signIn.description',
     route: '/sign-in',
   },
   {
-    title: 'Registrierung öffnen',
-    description: 'Sign-up-Formular und E-Mail-Bestätigung testen',
+    titleKey: 'dev.auth.routes.signUp.title',
+    descriptionKey: 'dev.auth.routes.signUp.description',
     route: '/sign-up',
   },
   {
-    title: 'Passwort-Link anfordern',
-    description: 'E-Mail-Eingabe und Fehlerzustände testen',
+    titleKey: 'dev.auth.routes.forgotPassword.title',
+    descriptionKey: 'dev.auth.routes.forgotPassword.description',
     route: '/forgot-password',
   },
   {
-    title: 'Neues Passwort setzen',
-    description: 'Passwort- und Bestätigungsfeld testen',
+    titleKey: 'dev.auth.routes.resetPassword.title',
+    descriptionKey: 'dev.auth.routes.resetPassword.description',
     route: '/reset-password',
   },
 ] as const;
@@ -40,6 +41,7 @@ const styles = StyleSheet.create((theme) => ({
 
 /** Developer entry point for exercising the real authentication routes. */
 export function AuthPreviewScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
 
   if (!hasAccess) {
@@ -48,16 +50,16 @@ export function AuthPreviewScreen() {
 
   return (
     <Screen
-      title="Auth testen"
-      subtitle="Echte Auth-Routen im Dev-Build"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}>
+      title={t('dev.auth.title')}
+      subtitle={t('dev.auth.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}>
       <Card>
         <View style={styles.intro}>
           <Txt variant="body" weight="700">
-            Auth-Seiten
+            {t('dev.auth.cardTitle')}
           </Txt>
           <Txt variant="body" tone="secondary">
-            Öffne einen echten Screen und teste Eingabe, Fokus, Fehler, Loading und Navigation.
+            {t('dev.auth.intro')}
           </Txt>
         </View>
       </Card>
@@ -66,10 +68,10 @@ export function AuthPreviewScreen() {
         {AUTH_ROUTES.map((item) => (
           <Button
             key={item.route}
-            title={item.title}
+            title={t(item.titleKey)}
             variant="secondary"
             onPress={() => router.push(item.route)}
-            accessibilityLabel={`${item.title}: ${item.description}`}
+            accessibilityLabel={`${t(item.titleKey)}: ${t(item.descriptionKey)}`}
           />
         ))}
       </View>

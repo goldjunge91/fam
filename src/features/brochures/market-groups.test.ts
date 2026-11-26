@@ -26,10 +26,10 @@ describe('brochure market groups', () => {
     ];
 
     expect(groupBrochureStores(stores)).toEqual([
-      { id: 'groceries', label: 'Lebensmittel', stores: [stores[1]] },
-      { id: 'drugstore', label: 'Drogeriemarkt', stores: [stores[2]] },
-      { id: 'home-improvement', label: 'Heimwerk', stores: [stores[3]] },
-      { id: 'other', label: 'Weitere Märkte', stores: [stores[0]] },
+      { id: 'groceries', stores: [stores[1]] },
+      { id: 'drugstore', stores: [stores[2]] },
+      { id: 'home-improvement', stores: [stores[3]] },
+      { id: 'other', stores: [stores[0]] },
     ]);
     expect(groupBrochureStores([])).toEqual([]);
   });

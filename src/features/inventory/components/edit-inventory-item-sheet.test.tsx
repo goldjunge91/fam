@@ -2,6 +2,8 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 
 import { colorsLight } from '@/components/theme';
 
+import { i18n } from '@/i18n';
+
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { EditInventoryItemSheet } from './edit-inventory-item-sheet';
 
@@ -84,6 +86,20 @@ function renderSheet(item: LocalInventoryItem = AUTO_MHD_ITEM) {
 function saveButton() {
   return screen.getByRole('button', { name: 'Änderungen speichern' });
 }
+
+afterEach(async () => {
+  await i18n.changeLanguage('de');
+});
+
+it.each([
+  ['de', '1,5 Stück'],
+  ['en', '1.5 Pieces'],
+] as const)('formats fractional current quantities in %s', async (locale, expected) => {
+  await i18n.changeLanguage(locale);
+  await renderSheet({ ...AUTO_MHD_ITEM, quantity: 1.5 });
+
+  expect(screen.getByText(expected)).toBeOnTheScreen();
+});
 
 it('uses an iOS-safe modal presentation for the visible edit sheet', async () => {
   await renderSheet();

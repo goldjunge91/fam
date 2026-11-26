@@ -2,8 +2,8 @@ import { render, screen, userEvent } from '@testing-library/react-native';
 import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
+import { i18n } from '@/i18n';
 import { MealPlannerScreen } from './meal-planner-screen';
 
 function renderScreen() {
@@ -219,8 +219,9 @@ beforeEach(() => {
   ];
 });
 
-afterEach(() => {
+afterEach(async () => {
   jest.restoreAllMocks();
+  await i18n.changeLanguage('de');
 });
 
 describe('MealPlannerScreen', () => {
@@ -229,6 +230,51 @@ describe('MealPlannerScreen', () => {
 
     expect(screen.getByText('Essensplan')).toBeOnTheScreen();
     expect(screen.getAllByText('Spaghetti Bolognese')[0]).toBeOnTheScreen();
+  });
+
+  it('renders the meal planner controls in English', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('Meal plan')).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: 'Day view' })).toBeOnTheScreen();
+    expect(screen.getByRole('tab', { name: 'Week view', selected: true })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Previous time range' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Next time range' })).toBeOnTheScreen();
+  });
+
+  it('saves a recipe through the picker and entry flow in English', async () => {
+    await i18n.changeLanguage('en');
+    const user = userEvent.setup();
+    await renderScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Add a dish for Breakfast on Monday' }));
+    expect(screen.getByText('Choose a recipe')).toBeOnTheScreen();
+
+    await user.press(screen.getByRole('button', { name: 'Add Spaghetti Bolognese' }));
+    expect(screen.getByLabelText('Servings')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Save' })).toBeOnTheScreen();
+
+    await user.clear(screen.getByLabelText('Servings'));
+    await user.type(screen.getByLabelText('Servings'), '5');
+    await user.press(screen.getByRole('button', { name: 'Save' }));
+
+    expect(mockEnsureMutateAsync).toHaveBeenCalledWith(
+      expect.objectContaining({ household_id: 'hh-1', week_start_date: expect.any(String) }),
+    );
+    expect(mockAddMutate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        meal_plan_id: 'plan-1',
+        household_id: 'hh-1',
+        recipe_id: 'r1',
+        meal_slot: 'breakfast',
+        servings_mode: 'portions',
+        portions: 5,
+        people_count: null,
+        created_by: 'user-1',
+      }),
+      expect.anything(),
+    );
   });
 
   it('zeigt die Ansichts-Umschalter Tag/Woche, Woche als Standard', async () => {

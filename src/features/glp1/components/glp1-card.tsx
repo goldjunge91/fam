@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ContentCard } from '@/components/ui/content-card';
@@ -112,6 +113,7 @@ export function Glp1Card({
   logicalDate,
   dayStartTime = '00:00',
 }: Glp1CardProps) {
+  const { t } = useTranslation();
   const selectedLogicalDate = logicalDate ?? getLogicalDateForTimestamp(new Date(), dayStartTime);
   const [activeForm, setActiveForm] = useState<ActiveForm | null>(null);
   const { showUndoSnackbar } = useSnackbar();
@@ -187,7 +189,7 @@ export function Glp1Card({
     deleteInjectionMutation.mutate(scope, {
       onSuccess: () => {
         showUndoSnackbar({
-          message: 'Injektion gelöscht',
+          message: t('glp1.card.deleteInjection'),
           onUndo: () => restoreInjectionMutation.mutate(scope),
         });
       },
@@ -200,7 +202,7 @@ export function Glp1Card({
     deleteSymptomMutation.mutate(scope, {
       onSuccess: () => {
         showUndoSnackbar({
-          message: 'Symptom-Log gelöscht',
+          message: t('glp1.card.deleteSymptoms'),
           onUndo: () => restoreSymptomMutation.mutate(scope),
         });
       },
@@ -212,18 +214,18 @@ export function Glp1Card({
       <View style={styles.header}>
         <View style={styles.headerTitle}>
           <Txt variant="body" weight="700">
-            💉 GLP-1 & Medikation
+            {t('glp1.card.title')}
           </Txt>
         </View>
         <Txt variant="caption" tone="secondary">
-          Privat
+          {t('glp1.card.private')}
         </Txt>
       </View>
 
       <FoundationCard padded={false} style={styles.summary}>
         <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
-            Letzte Injektion
+            {t('glp1.card.lastInjection')}
           </Txt>
           {latestInjection ? (
             <View style={styles.summaryValue}>
@@ -231,41 +233,43 @@ export function Glp1Card({
                 {latestInjection.medication_name} ({latestInjection.dose} {latestInjection.unit})
               </Txt>
               <Txt variant="caption" tone="secondary">
-                {formatDaysSince(latestInjection.administered_at)}
+                {formatDaysSince(latestInjection.administered_at, t)}
               </Txt>
             </View>
           ) : (
             <Txt variant="body" tone="secondary" style={styles.summaryValue}>
-              Keine Injektion erfasst
+              {t('glp1.card.noInjection')}
             </Txt>
           )}
         </View>
 
         <View style={styles.summaryColumn}>
           <Txt variant="caption" tone="secondary">
-            Letzter Sättigungs-Status
+            {t('glp1.card.lastSatiety')}
           </Txt>
           {latestSymptom ? (
             <View style={styles.summaryValue}>
               <Txt variant="body" weight="700">
-                Appetit {latestSymptom.appetite_level}/5 · Sättigung {latestSymptom.satiety_level}
-                /5
+                {t('glp1.card.appetite', {
+                  value: latestSymptom.appetite_level,
+                  satiety: latestSymptom.satiety_level,
+                })}
               </Txt>
               {(latestSymptom.nausea_level ?? 0) > 0 || latestSymptom.side_effects.length > 0 ? (
                 <Txt variant="caption" tone="warning">
                   {latestSymptom.side_effects.length > 0
                     ? latestSymptom.side_effects.join(' · ')
-                    : `Übelkeit: Stufe ${latestSymptom.nausea_level}/5`}
+                    : t('glp1.card.nausea', { value: latestSymptom.nausea_level })}
                 </Txt>
               ) : (
                 <Txt variant="caption" tone="success">
-                  Keine Nebenwirkungen
+                  {t('glp1.card.noSideEffects')}
                 </Txt>
               )}
             </View>
           ) : (
             <Txt variant="body" tone="secondary" style={styles.summaryValue}>
-              Kein Symptom-Log
+              {t('glp1.card.noSymptomLog')}
             </Txt>
           )}
         </View>
@@ -279,13 +283,15 @@ export function Glp1Card({
 
       <View style={styles.actions}>
         <Button
-          title={activeForm?.kind === 'injection' ? 'Abbrechen' : '+ Injektion eintragen'}
+          title={t(
+            activeForm?.kind === 'injection' ? 'glp1.card.cancel' : 'glp1.card.addInjection',
+          )}
           variant="secondary"
           haptic="light"
           accessibilityLabel={
             activeForm?.kind === 'injection'
-              ? 'Injektionsformular abbrechen'
-              : 'Injektion eintragen'
+              ? t('glp1.card.cancelInjection')
+              : t('glp1.card.addInjectionAccessibility')
           }
           onPress={() =>
             setActiveForm((current) =>
@@ -295,11 +301,13 @@ export function Glp1Card({
           style={styles.action}
         />
         <Button
-          title={activeForm?.kind === 'symptom' ? 'Abbrechen' : '+ Symptome loggen'}
+          title={t(activeForm?.kind === 'symptom' ? 'glp1.card.cancel' : 'glp1.card.addSymptoms')}
           variant="secondary"
           haptic="light"
           accessibilityLabel={
-            activeForm?.kind === 'symptom' ? 'Symptomformular abbrechen' : 'Symptome loggen'
+            activeForm?.kind === 'symptom'
+              ? t('glp1.card.cancelSymptoms')
+              : t('glp1.card.addSymptomsAccessibility')
           }
           onPress={() =>
             setActiveForm((current) => (current?.kind === 'symptom' ? null : { kind: 'symptom' }))

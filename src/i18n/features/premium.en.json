@@ -1,0 +1,83 @@
+{
+  "tabs": {
+    "plus": "Plus",
+    "ai": "AI"
+  },
+  "plus": {
+    "heroInactive": "More for your household",
+    "heroActive": "Plus is active",
+    "subtitleInactive": "A subscription unlocks Plus for everyone in the household.",
+    "subtitleActive": "Your household has access to all Plus features.",
+    "active": "Plus active",
+    "benefits": {
+      "guidedCooking": {
+        "title": "Guided cooking mode",
+        "hint": "Steps, automatic timers, and media"
+      },
+      "directShopping": {
+        "title": "Shop missing items directly",
+        "hint": "Take items from recipes and the meal plan"
+      },
+      "autoRestock": {
+        "title": "Restock automatically",
+        "hint": "Add low supplies to the shopping list"
+      }
+    },
+    "crossSellTitle": "Combine with Plus",
+    "crossSellHint": "Guided cooking, direct shopping, and automatic restocking"
+  },
+  "ai": {
+    "heroInactive": "Cook with AI",
+    "heroActive": "AI is active",
+    "subtitleInactive": "AI recipe suggestions and an automatic weekly plan for your household.",
+    "subtitleActive": "Your household has access to all AI features.",
+    "active": "AI active",
+    "benefits": {
+      "recipeSuggestions": { "title": "AI recipe suggestions", "hint": "Matched to your supplies" },
+      "weeklyPlan": { "title": "Automatic weekly plan", "hint": "AI creates your meal plan" }
+    },
+    "crossSellTitle": "Upgrade to AI",
+    "crossSellHint": "AI recipe suggestions and an automatic weekly plan"
+  },
+  "plans": {
+    "yearly": {
+      "title": "Annual plan",
+      "period": "per year",
+      "subtext": "Equivalent to {{price}} / month",
+      "savings": "{{percent}}% saved"
+    },
+    "monthly": {
+      "title": "Monthly plan",
+      "period": "per month",
+      "subtext": "Flexible monthly plan"
+    }
+  },
+  "screen": {
+    "title": "Plus & AI",
+    "tier": "Choose tier",
+    "activeForced": "Forced for this build (developer mode).",
+    "activeHousehold": "Applies to all current household members.",
+    "manage": "Manage subscription",
+    "restore": "Restore purchases",
+    "switchTo": "Switch to the {{tier}} tab",
+    "yearlyCta": "Start annual plan for {{price}}",
+    "monthlyCta": "Start monthly plan for {{price}}",
+    "successTitle": "Success",
+    "successPlus": "Fam Plus is now active for your household!",
+    "successAi": "Fam AI is now active for your household!",
+    "pendingTitle": "Household access is not active yet",
+    "pendingPlus": "Your Fam Plus subscription was found, but household access is not active yet. You can try again now.",
+    "pendingAi": "Your AI subscription was found, but household access is not active yet. You can try again now.",
+    "later": "Later",
+    "retry": "Try again",
+    "purchaseFailed": "Purchase failed",
+    "unavailableTitle": "Unavailable",
+    "unavailableMessage": "Purchases are not available in this environment or are not set up in the store yet.",
+    "restoreFailed": "Restore failed",
+    "noPurchases": "No active purchases found.",
+    "back": "Settings",
+    "periodAccessibility": "Subscription period",
+    "yearlyAccessibility": "{{title}}, {{price}} per year, {{savings}}",
+    "monthlyAccessibility": "{{title}}, {{price}} per month"
+  }
+}

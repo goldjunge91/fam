@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next';
 import { z } from 'zod';
 
 import { ACTIVITY_LEVEL_VALUES, normalizeDateInput, SEX_VALUES } from '@/lib/db/zod/profile.zod';
@@ -23,21 +24,37 @@ export type ProfileBiometricsDraft = {
   activityLevel: ProfileActivityLevel | null;
 };
 
-export const SEX_OPTIONS: readonly { value: ProfileSex; label: string }[] = [
-  { value: 'male', label: 'Männlich' },
-  { value: 'female', label: 'Weiblich' },
+export const SEX_OPTIONS: readonly { value: ProfileSex }[] = [
+  { value: 'male' },
+  { value: 'female' },
 ];
 
-export const ACTIVITY_OPTIONS: readonly {
-  value: ProfileActivityLevel;
-  label: string;
-}[] = [
-  { value: 'sedentary', label: 'Kaum Bewegung' },
-  { value: 'light', label: 'Leicht aktiv' },
-  { value: 'moderate', label: 'Mäßig aktiv' },
-  { value: 'active', label: 'Aktiv' },
-  { value: 'very_active', label: 'Sehr aktiv' },
+export const ACTIVITY_OPTIONS: readonly { value: ProfileActivityLevel }[] = [
+  { value: 'sedentary' },
+  { value: 'light' },
+  { value: 'moderate' },
+  { value: 'active' },
+  { value: 'very_active' },
 ];
+
+export function getSexLabel(t: TFunction, value: ProfileSex): string {
+  return value === 'male' ? t('profile.sex.male') : t('profile.sex.female');
+}
+
+export function getActivityLabel(t: TFunction, value: ProfileActivityLevel): string {
+  switch (value) {
+    case 'sedentary':
+      return t('profile.activity.sedentary');
+    case 'light':
+      return t('profile.activity.light');
+    case 'moderate':
+      return t('profile.activity.moderate');
+    case 'active':
+      return t('profile.activity.active');
+    case 'very_active':
+      return t('profile.activity.veryActive');
+  }
+}
 
 export const EMPTY_PROFILE_BIOMETRICS: ProfileBiometrics = {
   birthDate: null,
@@ -84,7 +101,7 @@ export function parseProfileBiometricsDraft(draft: ProfileBiometricsDraft): Prof
 
 export function toProfileBiometricsDraft(value: ProfileBiometrics): ProfileBiometricsDraft {
   return {
-    birthDate: value.birthDate ? formatBirthDate(value.birthDate) : '',
+    birthDate: value.birthDate ? (formatBirthDate(value.birthDate) ?? '') : '',
     heightCm: value.heightCm?.toLocaleString('de-DE', { maximumFractionDigits: 1 }) ?? '',
     weightKg: value.weightKg?.toLocaleString('de-DE', { maximumFractionDigits: 1 }) ?? '',
     sex: value.sex,
@@ -92,8 +109,8 @@ export function toProfileBiometricsDraft(value: ProfileBiometrics): ProfileBiome
   };
 }
 
-export function formatBirthDate(value: string | null) {
-  if (!value) return 'Nicht gesetzt';
+export function formatBirthDate(value: string | null): string | null {
+  if (!value) return null;
   const [year, month, day] = value.split('-');
   return year && month && day ? `${day}.${month}.${year}` : value;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -92,6 +93,7 @@ export function OpenInventoryItemSheet({
   onConfirm,
   loading = false,
 }: OpenInventoryItemSheetProps) {
+  const { t, i18n } = useTranslation();
   const sheetStyle = useSheetShadowStyle();
   const [quantity, setQuantity] = useState(1);
   const itemId = item?.id ?? null;
@@ -120,11 +122,13 @@ export function OpenInventoryItemSheet({
     expiryUserSet: item.expiry_user_set,
     vacuumSealed: item.vacuum_sealed,
   });
-  const amount = formatAmount(quantity, item.unit);
-  const total = formatAmount(item.quantity, item.unit);
+  const amount = formatAmount(quantity, item.unit, t, i18n.language);
+  const total = formatAmount(item.quantity, item.unit, t, i18n.language);
   const remaining = formatAmount(
     Math.max(0, subtractInventoryQuantities(item.quantity, quantity)),
     item.unit,
+    t,
+    i18n.language,
   );
   const expiryDate = new Date(`${nextExpiry}T00:00:00`);
   const openedDay = new Date(openedAt);
@@ -134,7 +138,7 @@ export function OpenInventoryItemSheet({
     : Math.max(0, Math.round((expiryDate.getTime() - openedDay.getTime()) / 86400000));
   const formattedNextExpiry = Number.isNaN(expiryDate.getTime())
     ? nextExpiry
-    : expiryDate.toLocaleDateString('de-DE', { day: 'numeric', month: 'short' });
+    : expiryDate.toLocaleDateString(i18n.language, { day: 'numeric', month: 'short' });
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -144,27 +148,29 @@ export function OpenInventoryItemSheet({
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Öffnen schließen"
+          accessibilityLabel={t('inventory.open.close')}
         />
         <View style={[styles.sheet, sheetStyle]}>
           <View style={styles.handle} />
           <View style={styles.titleCopy}>
-            <Txt variant="title">{item.name} öffnen</Txt>
+            <Txt variant="title">{t('inventory.open.title', { name: item.name })}</Txt>
             <Txt variant="caption" tone="secondary">
-              {item.location_name ?? 'Kein Lagerort'} · {total} versiegelt
+              {t('inventory.open.sealedSummary', {
+                amount: `${item.location_name ?? t('inventory.actions.noLocation')} · ${total}`,
+              })}
             </Txt>
           </View>
 
           <View style={styles.quantitySection}>
             <View style={styles.quantityRow}>
               <Txt variant="body" tone="secondary" weight="700">
-                Geöffnete Menge
+                {t('inventory.open.openedQuantity')}
               </Txt>
               <QuantityStepper
                 value={quantity}
                 max={item.quantity}
                 onChange={setQuantity}
-                label="Öffnungsmenge"
+                label={t('inventory.open.openingQuantity')}
                 size="large"
               />
             </View>
@@ -173,13 +179,13 @@ export function OpenInventoryItemSheet({
           <View style={styles.compareBlock}>
             <View style={[styles.compareCard, styles.compareBefore]}>
               <Txt variant="caption" tone="secondary" weight="700" style={styles.eyebrow}>
-                Versiegelt bleibt
+                {t('inventory.open.sealedRemains')}
               </Txt>
               <Txt variant="body" weight="700">
                 {remaining}
               </Txt>
               <Txt variant="caption" tone="secondary">
-                unverändert haltbar
+                {t('inventory.open.unchanged')}
               </Txt>
             </View>
             <Txt variant="body" tone="secondary">
@@ -187,7 +193,7 @@ export function OpenInventoryItemSheet({
             </Txt>
             <View style={[styles.compareCard, styles.compareAfter]}>
               <Txt variant="caption" tone="secondary" weight="700" style={styles.eyebrow}>
-                Neu: geöffnet
+                {t('inventory.open.newOpened')}
               </Txt>
               <Txt variant="body" weight="700">
                 {formattedNextExpiry}
@@ -195,18 +201,18 @@ export function OpenInventoryItemSheet({
               <Txt variant="caption" tone="secondary">
                 {amount} ·{' '}
                 {openedDays === null
-                  ? 'berechnet'
-                  : `${openedDays} ${openedDays === 1 ? 'Tag' : 'Tage'} ab heute`}
+                  ? t('inventory.open.calculated')
+                  : t('inventory.open.days', { count: openedDays })}
               </Txt>
             </View>
           </View>
 
           <Txt variant="caption" tone="secondary">
-            Automatisch berechnet. Du kannst das Datum danach bearbeiten.
+            {t('inventory.open.automatic')}
           </Txt>
 
           <Button
-            title={`${amount} öffnen`}
+            title={t('inventory.open.confirm', { amount })}
             size="sm"
             onPress={() => onConfirm(quantity)}
             loading={loading}

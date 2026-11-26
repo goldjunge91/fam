@@ -2,9 +2,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { StorageLocationsScreen } from '@/features/inventory/storage-locations-screen';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
+import { i18n } from '@/i18n';
 
 const mockAddLocationMutateAsync = jest.fn().mockResolvedValue({});
 const mockUpdateLocationMutateAsync = jest.fn().mockResolvedValue({});
@@ -72,6 +72,10 @@ describe('StorageLocationsScreen', () => {
     mockIsError = false;
   });
 
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   const location: StorageLocation = {
     id: 'loc-1',
     household_id: 'hh-1',
@@ -87,10 +91,19 @@ describe('StorageLocationsScreen', () => {
     expect(screen.getByText('Neuen Lagerort hinzufügen')).toBeTruthy();
   });
 
+  it('renders storage location copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('Manage storage locations')).toBeOnTheScreen();
+    expect(screen.getByText('Add a storage location')).toBeOnTheScreen();
+    expect(screen.getByText('No storage locations yet.')).toBeOnTheScreen();
+  });
+
   it('erstellt einen neuen Lagerort', async () => {
     await renderScreen();
 
-    const input = screen.getByPlaceholderText('z.B. Abstellkammer, Keller, Vorratsschrank...');
+    const input = screen.getByPlaceholderText('z. B. Abstellkammer, Keller, Vorratsschrank…');
     await fireEvent.changeText(input, 'Gewürzregal');
 
     const addBtn = screen.getByRole('button', { name: 'Hinzufügen' });
@@ -115,7 +128,7 @@ describe('StorageLocationsScreen', () => {
 
     await renderScreen();
 
-    expect(screen.getByText('Lädt...')).toBeOnTheScreen();
+    expect(screen.getByText('Lädt…')).toBeOnTheScreen();
   });
 
   it('zeigt den initialen Fehlerzustand und löst einen Retry aus', async () => {

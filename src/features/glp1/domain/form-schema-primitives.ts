@@ -1,12 +1,50 @@
 import { z } from 'zod';
 import { parseDateTimeInput } from '@/features/glp1/domain/date-time-input';
+export const GLP1_VALIDATION_KEYS = {
+  medicationMissing: 'glp1.validation.medicationMissing',
+  medicationTooLong: 'glp1.validation.medicationTooLong',
+  dosePositive: 'glp1.validation.dosePositive',
+  dateTime: 'glp1.validation.dateTime',
+  notesLong: 'glp1.validation.notesLong',
+  tooManyEffects: 'glp1.validation.tooManyEffects',
+  effectLong: 'glp1.validation.effectLong',
+  cadencePositive: 'glp1.validation.cadencePositive',
+} as const;
 
-export const medicationNameInputSchema = z.string().trim().min(1, 'Medikament fehlt').max(200);
+type Glp1ValidationKey = (typeof GLP1_VALIDATION_KEYS)[keyof typeof GLP1_VALIDATION_KEYS];
+type Glp1ValidationTranslator = (key: Glp1ValidationKey) => string;
+
+export function translateGlp1ValidationMessage(
+  message: string | undefined,
+  translate: Glp1ValidationTranslator,
+): string | undefined {
+  if (!message) return undefined;
+
+  switch (message) {
+    case GLP1_VALIDATION_KEYS.medicationMissing:
+    case GLP1_VALIDATION_KEYS.medicationTooLong:
+    case GLP1_VALIDATION_KEYS.dosePositive:
+    case GLP1_VALIDATION_KEYS.dateTime:
+    case GLP1_VALIDATION_KEYS.notesLong:
+    case GLP1_VALIDATION_KEYS.tooManyEffects:
+    case GLP1_VALIDATION_KEYS.effectLong:
+    case GLP1_VALIDATION_KEYS.cadencePositive:
+      return translate(message);
+    default:
+      return message;
+  }
+}
+
+export const medicationNameInputSchema = z
+  .string()
+  .trim()
+  .min(1, GLP1_VALIDATION_KEYS.medicationMissing)
+  .max(200, GLP1_VALIDATION_KEYS.medicationTooLong);
 
 export const positiveDoseInputSchema = z.string().transform((value, context) => {
   const parsed = Number(value.trim().replace(',', '.'));
   if (!Number.isFinite(parsed) || parsed <= 0) {
-    context.addIssue({ code: 'custom', message: 'Dosis muss größer als 0 sein' });
+    context.addIssue({ code: 'custom', message: GLP1_VALIDATION_KEYS.dosePositive });
     return z.NEVER;
   }
   return parsed;
@@ -15,7 +53,7 @@ export const positiveDoseInputSchema = z.string().transform((value, context) => 
 export const dateTimeInputSchema = z.string().transform((value, context) => {
   const parsed = parseDateTimeInput(value);
   if (!parsed) {
-    context.addIssue({ code: 'custom', message: 'Bitte als JJJJ-MM-TT HH:MM eingeben' });
+    context.addIssue({ code: 'custom', message: GLP1_VALIDATION_KEYS.dateTime });
     return z.NEVER;
   }
   return parsed;
@@ -23,7 +61,7 @@ export const dateTimeInputSchema = z.string().transform((value, context) => {
 
 export const optionalNotesInputSchema = z
   .string()
-  .max(2_000, 'Notiz ist zu lang')
+  .max(2_000, GLP1_VALIDATION_KEYS.notesLong)
   .transform((value) => value.trim() || null);
 
 function parseSideEffects(value: string): string[] {
@@ -42,13 +80,13 @@ export const sideEffectsInputSchema = z
         code: 'too_big',
         maximum: 100,
         origin: 'array',
-        message: 'Zu viele Nebenwirkungen',
+        message: GLP1_VALIDATION_KEYS.tooManyEffects,
       });
     }
     if (effects.some((effect) => effect.length > 200)) {
       context.addIssue({
         code: 'custom',
-        message: 'Eine Nebenwirkung darf höchstens 200 Zeichen lang sein',
+        message: GLP1_VALIDATION_KEYS.effectLong,
       });
     }
   })

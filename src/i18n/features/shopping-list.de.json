@@ -223,5 +223,62 @@
     "categoryExpanded": ", aufgeklappt",
     "finish": "🛒 Einkauf abschließen ({{count}})",
     "finishAccessibility": "Einkauf abschließen, {{checked}} von {{total}} abgehakt"
+  },
+  "speechBeta": {
+    "controller": {
+      "autoAssignTitle": "Intelligente Zuordnung",
+      "autoAssignMessage": "Du hast mehrere Artikel einzelnen Listen zugeordnet. Sollen bekannte Artikel künftig automatisch der passenden Liste zugeordnet werden? Du kannst das jederzeit in den Einstellungen ändern.",
+      "later": "Später",
+      "enable": "Aktivieren",
+      "unavailableTitle": "Spracheingabe nicht verfügbar",
+      "noStoreMessage": "Lege zuerst einen Markt für die Einkaufsliste an.",
+      "failedTitle": "Spracheingabe fehlgeschlagen",
+      "recheckFailed": "Artikel konnten nicht neu geprüft werden: {{error}}",
+      "correctionFailed": "Korrektur fehlgeschlagen: {{error}}",
+      "deleteFailed": "Löschen fehlgeschlagen: {{error}}",
+      "listsUpdatedTitle": "Einkaufslisten aktualisiert",
+      "listsUpdatedMessage": "Die verfügbaren Märkte haben sich geändert. Bitte prüfe die Zuordnung erneut.",
+      "addFailed": "Artikel konnten nicht hinzugefügt werden: {{error}}"
+    },
+    "overlay": {
+      "close": "Spracheingabe schließen",
+      "processingTitle": "Ich verarbeite das …",
+      "listeningTitle": "Ich höre zu",
+      "processingMessage": "Die Artikelliste wird gerade vorbereitet.",
+      "listeningMessage": "Nenne mehrere Einkaufsartikel. Wenn du fertig bist, tippe auf Fertig.",
+      "done": "Fertig",
+      "cancel": "Abbrechen"
+    },
+    "preview": {
+      "newItems": "Neue Artikel",
+      "close": "Schließen",
+      "title": "Passt das so?",
+      "recognizedText": "Erkannter Text",
+      "recheck": "Neu prüfen",
+      "unparsed": "Noch nicht erkannt: {{text}}",
+      "bundleTitle": "Ordne die offenen Artikel zu",
+      "open_one": "{{count}} offen",
+      "open_other": "{{count}} offen",
+      "bundleHint": "Wähle pro Artikel einen Treffer oder verschiebe ihn auf später.",
+      "summarySafe_one": "{{count}} Treffer sicher.",
+      "summarySafe_other": "{{count}} Treffer sicher.",
+      "summaryWithUnclear_one": "{{safeCount}} Treffer sicher, {{count}} Artikel braucht deine Zuordnung.",
+      "summaryWithUnclear_other": "{{safeCount}} Treffer sicher, {{count}} Artikel brauchen deine Zuordnung.",
+      "fromBrand": " von {{brand}}",
+      "remembered_one": "Gemerkte Korrektur ({{count}})",
+      "remembered_other": "Gemerkte Korrekturen ({{count}})",
+      "suggestionTake": "Vorschlag übernehmen: {{name}}",
+      "forget": "{{name}}: Korrektur vergessen",
+      "itemName": "Artikelname",
+      "takeOnly": "Nur übernehmen",
+      "takeAndRemember": "Übernehmen und merken",
+      "cancelCorrection": "Korrektur abbrechen",
+      "correctName": "Name korrigieren",
+      "defer": "Später zuordnen",
+      "addItems_one": "{{count}} Artikel hinzufügen",
+      "addItems_other": "{{count}} Artikel hinzufügen",
+      "later": "Später",
+      "certain": "Sicher erkannt"
+    }
   }
 }

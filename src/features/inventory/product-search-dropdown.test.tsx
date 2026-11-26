@@ -118,7 +118,10 @@ it('zeigt die Treffer der Suche', async () => {
   );
 
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Hafermilch',
+  );
 
   expect(await screen.findByText('Hafermilch')).toBeOnTheScreen();
   expect(screen.getByText('EAN 123')).toBeOnTheScreen();
@@ -137,7 +140,10 @@ it('meldet den gewaehlten Treffer vollstaendig an den Aufrufer', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, results: [schnitzel] }));
 
   await render(<ControlledDropdown onSelectProduct={onSelectProduct} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Schwein');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Schwein',
+  );
 
   await fireEvent.press(await screen.findByText('Schweineschnitzel'));
 
@@ -153,14 +159,20 @@ it('schliesst die Trefferliste mit X und ueber die freie Flaeche', async () => {
   );
 
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Hafermilch',
+  );
 
   expect(screen.getByRole('button', { name: 'Suche schließen' })).toBeOnTheScreen();
   await fireEvent.press(screen.getByRole('button', { name: 'Suche schließen' }));
   expect(screen.queryByText('EAN 123')).not.toBeOnTheScreen();
 
   // Erneut öffnen und den gleichen Dismiss-Mechanismus wie im Artikel-hinzufügen-Flow prüfen.
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Hafermilch',
+  );
   await fireEvent.press(screen.getByTestId('product-search-dropdown-dismiss-area'));
   expect(screen.queryByText('EAN 123')).not.toBeOnTheScreen();
 });
@@ -169,7 +181,10 @@ it('oeffnet eine explizit geschlossene Suche nicht durch eine spaete Antwort ern
   mockUseProductSearch.mockReturnValue(searchState({ searching: true }));
 
   const { rerender } = await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Fantasieprodukt',
+  );
   await fireEvent.press(screen.getByRole('button', { name: 'Suche schließen' }));
 
   expect(screen.queryByRole('button', { name: 'Suche schließen' })).not.toBeOnTheScreen();
@@ -189,7 +204,10 @@ it('bietet "manuell anlegen" an, wenn nichts gefunden wurde', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, results: [] }));
 
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Fantasieprodukt',
+  );
 
   await waitFor(() => {
     expect(screen.getByText('+ "Fantasieprodukt" manuell anlegen')).toBeOnTheScreen();
@@ -208,7 +226,10 @@ it('startet die Online-Suche nur ueber eine explizite Aktion', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, searchOnline }));
 
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Fantasieprodukt',
+  );
 
   await fireEvent.press(await screen.findByRole('button', { name: 'Open Food Facts durchsuchen' }));
 
@@ -220,7 +241,10 @@ it('zeigt bei einem Suchfehler einen Retry an', async () => {
   mockUseProductSearch.mockReturnValue(searchState({ searched: true, failed: true, retry }));
 
   await render(<ControlledDropdown onSelectProduct={() => {}} />);
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Fantasieprodukt');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Fantasieprodukt',
+  );
 
   expect(await screen.findByText('Open Food Facts ist gerade nicht erreichbar.')).toBeOnTheScreen();
   await fireEvent.press(screen.getByRole('button', { name: 'Erneut versuchen' }));
@@ -240,7 +264,10 @@ it('sucht nicht, wenn mit bereits gesetztem Wert gemountet wird (Rezept bearbeit
 it('sucht wieder, sobald der Nutzer die Auswahl ueberschreibt', async () => {
   await render(<ControlledDropdown initialValue="Hafermilch" onSelectProduct={() => {}} />);
 
-  await fireEvent.changeText(screen.getByPlaceholderText('z. B. Hafermilch'), 'Hafermilch Barista');
+  await fireEvent.changeText(
+    screen.getByPlaceholderText('z. B. Milch oder Barcode-Name'),
+    'Hafermilch Barista',
+  );
 
   await waitFor(() => {
     expect(mockUseProductSearch).toHaveBeenLastCalledWith('Hafermilch Barista', expect.anything());
@@ -258,7 +285,7 @@ it('ordnet eine externe Nebenaktion neben dem Suchfeld an', async () => {
     />,
   );
 
-  const input = screen.getByPlaceholderText('z. B. Hafermilch');
+  const input = screen.getByPlaceholderText('z. B. Milch oder Barcode-Name');
   const inputColumn = input.parent?.parent?.parent;
   const searchRow = inputColumn?.parent;
 

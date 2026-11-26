@@ -1,64 +1,65 @@
+import type { TFunction } from 'i18next';
 import type { TrackingMethodOverrides } from '@/constants/dev-settings';
 import type { TrackingMethod } from '@/features/calorie-tracking/api';
 import type { FeatureFlagKey, FeatureFlagValues } from '@/lib/observability/providers/posthog';
 
 export type TrackingMethodOption = {
   id: TrackingMethod;
-  label: string;
-  desc: string;
   featureFlag: FeatureFlagKey | true;
 };
 
 export const TRACKING_METHODS: readonly TrackingMethodOption[] = [
-  {
-    id: 'standard',
-    label: 'Klassisch (CICO)',
-    desc: 'Kalorien- & Makronährstoff-Tracking ohne Spezialregeln',
-    featureFlag: true,
-  },
-  {
-    id: 'glp1',
-    label: 'GLP-1 & Medikation',
-    desc: 'Injektionsintervalle, Dosierungen & Symptome erfassen',
-    featureFlag: true,
-  },
-  {
-    id: 'fasting',
-    label: 'Intervallfasten',
-    desc: 'Fastenphasen-Timer & individuelle Essensfenster',
-    featureFlag: 'tracking-method-fasting',
-  },
-  {
-    id: 'low_carb',
-    label: 'Low-Carb',
-    desc: 'Netto-Kohlenhydrate & Ballaststoffe fokussieren',
-    featureFlag: 'low-carb-tracking',
-  },
-  {
-    id: 'keto',
-    label: 'Keto (Ketogen)',
-    desc: 'Ketose-Ernährung (<20–50g Carbs) & Keton-Logs',
-    featureFlag: 'tracking-method-keto',
-  },
-  {
-    id: 'workouts',
-    label: 'Kraftsport',
-    desc: 'Übungen, Sätze, Wiederholungen & Gewichte dokumentieren',
-    featureFlag: 'workout-log',
-  },
-  {
-    id: 'cgm',
-    label: 'Blutzucker & CGM',
-    desc: 'Glukosemessungen vor & nach den Mahlzeiten loggen',
-    featureFlag: 'tracking-method-cgm',
-  },
-  {
-    id: 'volumetrics',
-    label: 'Volumetrics',
-    desc: 'Energiedichte-Ampel & Sättigungs-Scoring nutzen',
-    featureFlag: 'tracking-method-volumetrics',
-  },
+  { id: 'standard', featureFlag: true },
+  { id: 'glp1', featureFlag: true },
+  { id: 'fasting', featureFlag: 'tracking-method-fasting' },
+  { id: 'low_carb', featureFlag: 'low-carb-tracking' },
+  { id: 'keto', featureFlag: 'tracking-method-keto' },
+  { id: 'workouts', featureFlag: 'workout-log' },
+  { id: 'cgm', featureFlag: 'tracking-method-cgm' },
+  { id: 'volumetrics', featureFlag: 'tracking-method-volumetrics' },
 ];
+
+export function getTrackingMethodLabel(t: TFunction, method: TrackingMethod): string {
+  switch (method) {
+    case 'standard':
+      return t('profile.tracking.methods.standard.label');
+    case 'glp1':
+      return t('profile.tracking.methods.glp1.label');
+    case 'fasting':
+      return t('profile.tracking.methods.fasting.label');
+    case 'low_carb':
+      return t('profile.tracking.methods.lowCarb.label');
+    case 'keto':
+      return t('profile.tracking.methods.keto.label');
+    case 'workouts':
+      return t('profile.tracking.methods.workouts.label');
+    case 'cgm':
+      return t('profile.tracking.methods.cgm.label');
+    case 'volumetrics':
+      return t('profile.tracking.methods.volumetrics.label');
+  }
+}
+
+export function getTrackingMethodDescription(t: TFunction, method: TrackingMethod): string {
+  switch (method) {
+    case 'standard':
+      return t('profile.tracking.methods.standard.description');
+    case 'glp1':
+      return t('profile.tracking.methods.glp1.description');
+    case 'fasting':
+      return t('profile.tracking.methods.fasting.description');
+    case 'low_carb':
+      return t('profile.tracking.methods.lowCarb.description');
+    case 'keto':
+      return t('profile.tracking.methods.keto.description');
+    case 'workouts':
+      return t('profile.tracking.methods.workouts.description');
+    case 'cgm':
+      return t('profile.tracking.methods.cgm.description');
+    case 'volumetrics':
+      return t('profile.tracking.methods.volumetrics.description');
+  }
+}
 
 export function isTrackingMethodEnabled(
   method: TrackingMethod,

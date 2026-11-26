@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Modal, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -9,6 +10,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { CloseButton, Press, Txt } from '@/constants/ui';
 import { useProduct } from '@/features/inventory/use-product';
 import { offApiSource } from '@/features/product-search/sources/off-api-source';
+import { formatAmount } from '@/lib/format/package-size';
 import { debugLog } from '@/lib/observability/debug-log';
 
 export type ProductInformationItem = {
@@ -152,22 +154,23 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-function formatNumber(value: number | null | undefined, digits = 1): string {
+function formatNumber(value: number | null | undefined, digits = 1, locale = 'de-DE'): string {
   if (value === null || value === undefined || Number.isNaN(value)) return '–';
-  return value.toLocaleString('de-DE', {
+  return value.toLocaleString(locale, {
     maximumFractionDigits: digits,
     minimumFractionDigits: digits,
   });
 }
 
-function formatExpiry(value: string | null | undefined): string {
-  if (!value) return 'Nicht angegeben';
+function formatExpiry(value: string | null | undefined, locale: string, fallback: string): string {
+  if (!value) return fallback;
   const date = new Date(`${value}T00:00:00`);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+  return date.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 export function ProductInformation({ visible, item, onClose }: ProductInformationProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
 
   const insets = useSafeAreaInsets();
@@ -193,35 +196,39 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
 
   if (!item) return null;
 
-  const brand = openFoodFactsProduct?.brand ?? localProduct?.brand ?? 'Marke nicht angegeben';
+  const brand =
+    openFoodFactsProduct?.brand ?? localProduct?.brand ?? t('inventory.information.brandUnknown');
   const score = openFoodFactsProduct?.nutriScore;
   const nutrients = [
     {
-      label: 'Kalorien',
-      value: `${formatNumber(openFoodFactsProduct?.caloriesPer100g ?? localProduct?.kcal_per_100, 0)} kcal`,
+      label: t('inventory.information.calories'),
+      value: `${formatNumber(openFoodFactsProduct?.caloriesPer100g ?? localProduct?.kcal_per_100, 0, i18n.language)} kcal`,
     },
     {
-      label: 'Protein',
-      value: `${formatNumber(openFoodFactsProduct?.proteinsPer100g ?? localProduct?.protein_g_per_100)} g`,
+      label: t('inventory.information.protein'),
+      value: `${formatNumber(openFoodFactsProduct?.proteinsPer100g ?? localProduct?.protein_g_per_100, 1, i18n.language)} g`,
     },
     {
-      label: 'Kohlenhydrate',
-      value: `${formatNumber(openFoodFactsProduct?.carbsPer100g ?? localProduct?.carbs_g_per_100)} g`,
+      label: t('inventory.information.carbs'),
+      value: `${formatNumber(openFoodFactsProduct?.carbsPer100g ?? localProduct?.carbs_g_per_100, 1, i18n.language)} g`,
     },
     {
-      label: 'Fett',
-      value: `${formatNumber(openFoodFactsProduct?.fatPer100g ?? localProduct?.fat_g_per_100)} g`,
+      label: t('inventory.information.fat'),
+      value: `${formatNumber(openFoodFactsProduct?.fatPer100g ?? localProduct?.fat_g_per_100, 1, i18n.language)} g`,
     },
     {
-      label: 'Zucker',
-      value: `${formatNumber(openFoodFactsProduct?.sugarsPer100g ?? localProduct?.sugar_g_per_100)} g`,
+      label: t('inventory.information.sugar'),
+      value: `${formatNumber(openFoodFactsProduct?.sugarsPer100g ?? localProduct?.sugar_g_per_100, 1, i18n.language)} g`,
     },
     {
-      label: 'Salz',
-      value: `${formatNumber(openFoodFactsProduct?.saltPer100g ?? localProduct?.salt_g_per_100)} g`,
+      label: t('inventory.information.salt'),
+      value: `${formatNumber(openFoodFactsProduct?.saltPer100g ?? localProduct?.salt_g_per_100, 1, i18n.language)} g`,
     },
   ];
-  const referenceUnit = item.unit === 'ml' || item.unit === 'l' ? '100 ml' : '100 g';
+  const referenceUnit =
+    item.unit === 'ml' || item.unit === 'l'
+      ? t('inventory.information.per100Ml')
+      : t('inventory.information.per100G');
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -233,7 +240,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
           style={[styles.backdrop, { backgroundColor: colors.scrim }]}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Produktinformationen schließen"
+          accessibilityLabel={t('inventory.information.close')}
         />
 
         <View style={[styles.sheet, { paddingBottom: insets.bottom + space.xl }]}>
@@ -250,7 +257,7 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </View>
               <CloseButton
                 onPress={onClose}
-                accessibilityLabel="Schließen"
+                accessibilityLabel={t('common.actions.close')}
                 style={styles.closeButton}
               />
             </View>
@@ -269,10 +276,10 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
               </View>
               <View style={[styles.scoreContent, styles.metaStack]}>
                 <Txt variant="body" weight="700">
-                  Nutri-Score {score?.toUpperCase() ?? '–'}
+                  {t('inventory.information.nutriScore')} {score?.toUpperCase() ?? '–'}
                 </Txt>
                 <Txt variant="body" tone="secondary" weight="500">
-                  Produktdaten von Open Food Facts
+                  {t('inventory.information.source')}
                 </Txt>
               </View>
               {isFetching ? <ActivityIndicator size="small" color={colors.accent} /> : null}
@@ -281,42 +288,47 @@ export function ProductInformation({ visible, item, onClose }: ProductInformatio
             <View style={styles.details}>
               <View style={[styles.detailRow, styles.detailRowWithDivider]}>
                 <Txt variant="body" tone="secondary" weight="500" style={styles.detailLabel}>
-                  Menge und Einheit
+                  {t('inventory.information.amountAndUnit')}
                 </Txt>
                 <Txt variant="body" weight="700" selectable style={styles.detailValue}>
-                  {item.quantity} {item.unit}
+                  {formatAmount(item.quantity, item.unit, t, i18n.language)}
                 </Txt>
               </View>
               <View style={styles.detailRow}>
                 <Txt variant="body" tone="secondary" weight="500" style={styles.detailLabel}>
-                  Mindesthaltbarkeitsdatum
+                  {t('inventory.information.expiry')}
                 </Txt>
                 <Txt variant="body" weight="700" selectable style={styles.detailValue}>
-                  {formatExpiry(item.expiry_date)}
+                  {formatExpiry(
+                    item.expiry_date,
+                    i18n.language,
+                    t('inventory.information.notSpecified'),
+                  )}
                 </Txt>
               </View>
             </View>
 
             <View style={styles.section}>
               <Txt variant="body" weight="700">
-                Zutaten
+                {t('inventory.information.ingredients')}
               </Txt>
               <Txt variant="body" tone="secondary" weight="500" selectable>
-                {openFoodFactsProduct?.ingredients ?? 'Keine Zutaten angegeben.'}
+                {openFoodFactsProduct?.ingredients ?? t('inventory.information.noIngredients')}
               </Txt>
             </View>
 
             <View style={styles.section}>
               <Txt variant="body" weight="700">
-                Allergene
+                {t('inventory.information.allergens')}
               </Txt>
               <Txt variant="body" tone="secondary" weight="500" selectable>
-                {openFoodFactsProduct?.allergens?.join(', ') ?? 'Keine Allergene angegeben.'}
+                {openFoodFactsProduct?.allergens?.join(', ') ??
+                  t('inventory.information.noAllergens')}
               </Txt>
             </View>
 
             <Txt variant="body" weight="700">
-              Nährwerte pro {referenceUnit}
+              {t('inventory.information.nutritionPer', { unit: referenceUnit })}
             </Txt>
             <View style={styles.nutrients}>
               {nutrients.map((nutrient) => (

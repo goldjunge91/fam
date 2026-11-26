@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import * as sharedBiometrics from './biometrics';
 import * as androidBiometrics from './biometrics.android';
 
@@ -11,6 +12,8 @@ for (const [platform, biometrics] of implementations) {
     const {
       ACTIVITY_OPTIONS,
       formatBirthDate,
+      getActivityLabel,
+      getSexLabel,
       parseProfileBiometricsDraft,
       SEX_OPTIONS,
       toProfileBiometricsDraft,
@@ -64,11 +67,8 @@ for (const [platform, biometrics] of implementations) {
       ).toThrow();
     });
 
-    test('hält Auswahlwerte und Beschriftungen stabil', () => {
-      expect(SEX_OPTIONS).toEqual([
-        { value: 'male', label: 'Männlich' },
-        { value: 'female', label: 'Weiblich' },
-      ]);
+    test('hält Auswahlwerte stabil und übersetzt Beschriftungen an der Anzeigegrenze', async () => {
+      expect(SEX_OPTIONS).toEqual([{ value: 'male' }, { value: 'female' }]);
       expect(ACTIVITY_OPTIONS.map(({ value }) => value)).toEqual([
         'sedentary',
         'light',
@@ -76,6 +76,15 @@ for (const [platform, biometrics] of implementations) {
         'active',
         'very_active',
       ]);
+
+      expect(getSexLabel(i18n.t, 'male')).toBe('Männlich');
+      expect(getSexLabel(i18n.t, 'female')).toBe('Weiblich');
+      expect(getActivityLabel(i18n.t, 'very_active')).toBe('Sehr aktiv');
+
+      await i18n.changeLanguage('en');
+      expect(getSexLabel(i18n.t, 'male')).toBe('Male');
+      expect(getSexLabel(i18n.t, 'female')).toBe('Female');
+      expect(getActivityLabel(i18n.t, 'very_active')).toBe('Very active');
     });
 
     test('formatiert das gespeicherte Geburtsdatum für die deutsche Profileingabe', () => {
@@ -91,7 +100,7 @@ for (const [platform, biometrics] of implementations) {
     });
 
     test('behandelt fehlende Profilwerte und bestehende Datumsformate', () => {
-      expect(formatBirthDate(null)).toBe('Nicht gesetzt');
+      expect(formatBirthDate(null)).toBeNull();
       expect(formatBirthDate('legacy-date')).toBe('legacy-date');
       expect(
         toProfileBiometricsDraft({

@@ -1,5 +1,6 @@
 import * as Haptics from 'expo-haptics';
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '@/components/theme/ThemeProvider';
@@ -98,6 +99,7 @@ export function BarcodeScannerModal({
   looking = false,
   errorMessage = null,
 }: BarcodeScannerModalProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const [permission, requestPermission] = useCameraPermissionsHook();
   // Ref statt State: die Kamera feuert onBarcodeScanned pro erkanntem Frame,
@@ -131,12 +133,12 @@ export function BarcodeScannerModal({
       <View style={styles.backdrop}>
         <View style={styles.modalBox}>
           <View style={styles.header}>
-            <Txt variant="title">📷 Barcode scannen</Txt>
+            <Txt variant="title">{t('inventory.barcode.title')}</Txt>
             <Press
               onPress={onClose}
               hitSlop={10}
               accessibilityRole="button"
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('inventory.barcode.close')}
               style={styles.closeButton}>
               <Txt variant="subheading" tone="secondary">
                 ✕
@@ -147,17 +149,13 @@ export function BarcodeScannerModal({
           {!isCameraSupported ? (
             <View style={styles.permission}>
               <Txt tone="secondary" center>
-                Der Kamera-Barcode-Scanner benötigt ein natives Build (`bun run ios` oder `bun run
-                android`). Im Simulator (kein Kamerazugriff) oder ohne Kamera gib den Barcode
-                stattdessen direkt in die Suche ein.
+                {t('inventory.barcode.unsupported')}
               </Txt>
             </View>
           ) : !permission?.granted ? (
             <View style={styles.permission}>
-              <Txt center>
-                Kamera-Berechtigung ist erforderlich, um Produkt-Barcodes zu scannen.
-              </Txt>
-              <Button title="Kamera erlauben" onPress={requestPermission} />
+              <Txt center>{t('inventory.barcode.permissionRequired')}</Txt>
+              <Button title={t('inventory.barcode.allowCamera')} onPress={requestPermission} />
             </View>
           ) : (
             <View style={styles.camera}>
@@ -176,7 +174,7 @@ export function BarcodeScannerModal({
           {looking && (
             <View style={styles.status}>
               <ActivityIndicator color={colors.accent} />
-              <Txt variant="body">Suche Produktdaten...</Txt>
+              <Txt variant="body">{t('inventory.barcode.looking')}</Txt>
             </View>
           )}
 
@@ -186,7 +184,7 @@ export function BarcodeScannerModal({
             </Txt>
           )}
 
-          <Button title="Schließen" variant="secondary" onPress={onClose} />
+          <Button title={t('inventory.barcode.close')} variant="secondary" onPress={onClose} />
         </View>
       </View>
     </Modal>

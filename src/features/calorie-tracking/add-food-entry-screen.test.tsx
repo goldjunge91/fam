@@ -276,8 +276,8 @@ describe('AddFoodEntryScreen — Produkt aus der Suche (100g-Referenz)', () => {
 
     await user.press(unitSelect);
 
-    expect(screen.getByRole('button', { name: 'g' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'kg' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Gramm (g)' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Kilogramm (kg)' })).toBeOnTheScreen();
     expect(screen.getByRole('button', { name: 'Stück' })).toBeOnTheScreen();
   });
 

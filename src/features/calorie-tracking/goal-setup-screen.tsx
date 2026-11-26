@@ -1,5 +1,7 @@
 import { router } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -26,25 +28,42 @@ import {
 } from '@/features/calorie-tracking/tdee';
 import { useProfile } from '@/features/profile/api';
 
-const GOAL_LABELS: Record<GoalType, string> = {
-  lose: 'Abnehmen',
-  maintain: 'Halten',
-  gain: 'Zunehmen',
-};
-
-const PRESET_LABELS: Record<MacroPreset, string> = {
-  balanced: 'Ausgewogen',
-  high_protein: 'Eiweißreich',
-  low_carb: 'Low-Carb',
-  keto: 'Keto',
-};
-
 type PresetSelection = MacroPreset | 'custom';
 
-const SEGMENT_LABELS: Record<PresetSelection, string> = {
-  ...PRESET_LABELS,
-  custom: 'Benutzerdefiniert',
-};
+const GOAL_TYPES = ['lose', 'maintain', 'gain'] as const satisfies readonly GoalType[];
+const PRESET_OPTIONS = [
+  'balanced',
+  'high_protein',
+  'low_carb',
+  'keto',
+  'custom',
+] as const satisfies readonly PresetSelection[];
+
+function getGoalLabel(t: TFunction, goal: GoalType): string {
+  switch (goal) {
+    case 'lose':
+      return t('calorieTracking.goal.lose');
+    case 'maintain':
+      return t('calorieTracking.goal.maintain');
+    case 'gain':
+      return t('calorieTracking.goal.gain');
+  }
+}
+
+function getPresetLabel(t: TFunction, preset: PresetSelection): string {
+  switch (preset) {
+    case 'balanced':
+      return t('calorieTracking.goal.balanced');
+    case 'high_protein':
+      return t('calorieTracking.goal.highProtein');
+    case 'low_carb':
+      return t('calorieTracking.goal.lowCarb');
+    case 'keto':
+      return t('calorieTracking.goal.keto');
+    case 'custom':
+      return t('calorieTracking.goal.custom');
+  }
+}
 
 const CUSTOM_RATIO_TOLERANCE = 1;
 const MIN_MANUAL_KCAL = 1000;
@@ -103,6 +122,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function GoalSetupScreen() {
+  const { i18n, t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -217,54 +237,71 @@ export function GoalSetupScreen() {
       });
       setShowForm(false);
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Speichern des Ziels');
+      Alert.alert(
+        t('calorieTracking.foodEntry.errorTitle'),
+        err instanceof Error ? err.message : t('calorieTracking.goal.saveError'),
+      );
     }
   }
 
   const cappedText =
     targetPreview?.target.capped &&
     (targetPreview.target.cappedReason === 'bmr_floor'
-      ? 'Auf deinen Grundumsatz gekappt, damit das Ziel gesund bleibt.'
-      : 'Auf ein sicheres Mindestmaß gekappt.');
+      ? t('calorieTracking.goal.cappedBmr')
+      : t('calorieTracking.goal.cappedMinimum'));
 
   const rateWarningText =
     targetPreview?.target.rateWarning === 'below_recommended_range'
-      ? 'Dieses Tempo liegt unter der empfohlenen Spanne (0,25–1,0 kg/Woche).'
+      ? t('calorieTracking.goal.rateBelow')
       : targetPreview?.target.rateWarning === 'above_recommended_range'
-        ? 'Dieses Tempo liegt über der empfohlenen Spanne (0,25–1,0 kg/Woche) und ist auf Dauer nicht gesund.'
+        ? t('calorieTracking.goal.rateAbove')
         : null;
 
   const overrideErrorText =
     targetPreview && !overrideValid
-      ? `Muss zwischen deinem Grundumsatz (${Math.round(targetPreview.bmrKcal)} kcal) und ${MAX_MANUAL_KCAL} kcal liegen.`
+      ? t('calorieTracking.goal.overrideInvalid', {
+          bmr: Math.round(targetPreview.bmrKcal),
+          max: MAX_MANUAL_KCAL,
+        })
       : null;
 
   return (
     <Screen
-      title="Kalorienziel"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('calorieTracking.goal.title')}
+      back={{ label: t('calorieTracking.goal.back'), href: '/settings' }}
       backStyle="icon">
       {!hasProfileFields ? (
-        <ContentCard title="Profil vervollständigen">
+        <ContentCard title={t('calorieTracking.goal.profileIncomplete')}>
           <Txt variant="body" tone="secondary">
-            Für die Berechnung fehlen noch Angaben zu Geschlecht, Geburtsdatum oder Körpergröße im
-            Profil.
+            {t('calorieTracking.goal.profileIncompleteHint')}
           </Txt>
-          <Button title="Zum Profil & Account" onPress={() => router.push('/profile/edit')} />
+          <Button
+            title={t('calorieTracking.goal.profileLink')}
+            onPress={() => router.push('/profile/edit')}
+          />
         </ContentCard>
       ) : (
         <>
           {/* Karte mit aktuellem Kalorien- und Makroziel */}
           {currentGoal ? (
-            <ContentCard title="Aktuelles Ziel">
-              <Txt variant="title">{currentGoal.daily_kcal ?? '–'} kcal / Tag</Txt>
+            <ContentCard title={t('calorieTracking.goal.current')}>
+              <Txt variant="title">
+                {t('calorieTracking.goal.currentSummary', {
+                  value:
+                    currentGoal.daily_kcal === null
+                      ? '–'
+                      : new Intl.NumberFormat(i18n.language).format(currentGoal.daily_kcal),
+                })}
+              </Txt>
               <Txt variant="body" tone="secondary">
-                {GOAL_LABELS[currentGoal.goal_type as GoalType] ?? currentGoal.goal_type} · seit{' '}
-                {new Date(currentGoal.valid_from).toLocaleDateString('de-DE')}
+                {t('calorieTracking.goal.savedSince', {
+                  goal: getGoalLabel(t, currentGoal.goal_type as GoalType) ?? currentGoal.goal_type,
+                  date: new Date(currentGoal.valid_from).toLocaleDateString(i18n.language),
+                })}
               </Txt>
               {!formVisible ? (
                 <Button
-                  title="Ziel anpassen"
+                  title={t('calorieTracking.goal.adjust')}
                   variant="secondary"
                   onPress={() => setShowForm(true)}
                 />
@@ -274,14 +311,14 @@ export function GoalSetupScreen() {
 
           {/* Formular zur Zieldefinition (Art, Tempo, Makros, Kalorien-Override) */}
           {formVisible ? (
-            <ContentCard title="Neues Ziel">
+            <ContentCard title={t('calorieTracking.goal.new')}>
               <View style={styles.formStack}>
                 {/* Zielart: Abnehmen / Halten / Zunehmen */}
                 <Txt variant="body" weight="700">
-                  Ziel-Art
+                  {t('calorieTracking.goal.goalType')}
                 </Txt>
                 <View style={styles.segmentedRow}>
-                  {(Object.keys(GOAL_LABELS) as GoalType[]).map((type) => (
+                  {GOAL_TYPES.map((type) => (
                     <Press
                       key={type}
                       onPress={() => setGoalType(type)}
@@ -291,7 +328,7 @@ export function GoalSetupScreen() {
                         goalType === type ? styles.segmentButtonSelected : styles.segmentButtonIdle,
                       ]}>
                       <Txt variant="body" tone={goalType === type ? 'onAccent' : 'primary'}>
-                        {GOAL_LABELS[type]}
+                        {getGoalLabel(t, type)}
                       </Txt>
                     </Press>
                   ))}
@@ -300,7 +337,7 @@ export function GoalSetupScreen() {
                 {/* Gewichtsverlust-/-zunahmerate in kg/Woche */}
                 {goalType !== 'maintain' ? (
                   <TextField
-                    label="Tempo (kg pro Woche)"
+                    label={t('calorieTracking.goal.rate')}
                     value={rateInput}
                     onChangeText={setRateInput}
                     keyboardType="numeric"
@@ -308,10 +345,10 @@ export function GoalSetupScreen() {
                 ) : null}
 
                 <Txt variant="body" weight="700" style={styles.macroHeading}>
-                  Makro-Verteilung
+                  {t('calorieTracking.goal.macroDistribution')}
                 </Txt>
                 <View style={styles.segmentedRow}>
-                  {(Object.keys(SEGMENT_LABELS) as PresetSelection[]).map((p) => (
+                  {PRESET_OPTIONS.map((p) => (
                     <Press
                       key={p}
                       onPress={() => setPreset(p)}
@@ -321,7 +358,7 @@ export function GoalSetupScreen() {
                         preset === p ? styles.segmentButtonSelected : styles.segmentButtonIdle,
                       ]}>
                       <Txt variant="body" tone={preset === p ? 'onAccent' : 'primary'}>
-                        {SEGMENT_LABELS[p]}
+                        {getPresetLabel(t, p)}
                       </Txt>
                     </Press>
                   ))}
@@ -333,7 +370,7 @@ export function GoalSetupScreen() {
                     <View style={styles.customRatioRow}>
                       <View style={styles.flex}>
                         <TextField
-                          label="Eiweiß %"
+                          label={t('calorieTracking.goal.proteinPercent')}
                           value={customProteinPct}
                           onChangeText={setCustomProteinPct}
                           keyboardType="numeric"
@@ -341,7 +378,7 @@ export function GoalSetupScreen() {
                       </View>
                       <View style={styles.flex}>
                         <TextField
-                          label="Kohlenhydrate %"
+                          label={t('calorieTracking.goal.carbsPercent')}
                           value={customCarbsPct}
                           onChangeText={setCustomCarbsPct}
                           keyboardType="numeric"
@@ -349,7 +386,7 @@ export function GoalSetupScreen() {
                       </View>
                       <View style={styles.flex}>
                         <TextField
-                          label="Fett %"
+                          label={t('calorieTracking.goal.fatPercent')}
                           value={customFatPct}
                           onChangeText={setCustomFatPct}
                           keyboardType="numeric"
@@ -358,7 +395,7 @@ export function GoalSetupScreen() {
                     </View>
                     {!customRatioValid ? (
                       <Txt variant="body" tone="danger">
-                        Die Summe muss 100 % ergeben (aktuell {customPercentSum} %).
+                        {t('calorieTracking.goal.ratioInvalid', { sum: customPercentSum })}
                       </Txt>
                     ) : null}
                   </View>
@@ -367,8 +404,8 @@ export function GoalSetupScreen() {
                 {/* Gewichtseingabe falls noch kein Gewichtseintrag vorhanden */}
                 {needsWeightInput ? (
                   <TextField
-                    label="Aktuelles Gewicht in kg"
-                    placeholder="z. B. 72"
+                    label={t('calorieTracking.goal.currentWeight')}
+                    placeholder={t('calorieTracking.goal.weightPlaceholder')}
                     value={weightInput}
                     onChangeText={setWeightInput}
                     keyboardType="numeric"
@@ -379,7 +416,7 @@ export function GoalSetupScreen() {
                 {targetPreview ? (
                   <View style={styles.preview}>
                     <TextField
-                      label="Ziel-Kalorien (kcal/Tag)"
+                      label={t('calorieTracking.goal.targetCalories')}
                       value={manualKcalInput}
                       onChangeText={(text) => {
                         setOverrideTouched(true);
@@ -394,8 +431,11 @@ export function GoalSetupScreen() {
                     ) : null}
                     {preview ? (
                       <Txt variant="body" tone="secondary">
-                        Eiweiß {preview.macros.proteinG} g · Kohlenhydrate {preview.macros.carbsG} g
-                        · Fett {preview.macros.fatG} g
+                        {t('calorieTracking.goal.macroSummary', {
+                          protein: preview.macros.proteinG,
+                          carbs: preview.macros.carbsG,
+                          fat: preview.macros.fatG,
+                        })}
                       </Txt>
                     ) : null}
                     {cappedText ? (
@@ -411,7 +451,7 @@ export function GoalSetupScreen() {
                   </View>
                 ) : (
                   <Txt variant="body" tone="secondary">
-                    Gib dein aktuelles Gewicht ein, um eine Vorschau zu sehen.
+                    {t('calorieTracking.goal.noWeightPreview')}
                   </Txt>
                 )}
 
@@ -419,7 +459,7 @@ export function GoalSetupScreen() {
                 <View style={styles.saveRow}>
                   <View style={styles.flex}>
                     <Button
-                      title="Ziel speichern"
+                      title={t('calorieTracking.goal.save')}
                       onPress={handleSave}
                       loading={setGoalMutation.isPending || addWeightMutation.isPending}
                       disabled={!preview}
@@ -428,7 +468,7 @@ export function GoalSetupScreen() {
                   {currentGoal ? (
                     <View style={styles.flex}>
                       <Button
-                        title="Abbrechen"
+                        title={t('calorieTracking.goal.cancel')}
                         variant="secondary"
                         onPress={() => setShowForm(false)}
                       />

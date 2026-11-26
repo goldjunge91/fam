@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 
 import { Button, Press, TextField, Txt } from '@/constants/ui';
@@ -7,12 +8,12 @@ import {
   createCustomFoodSelection,
   customFoodLabelSchema,
   type FoodSelection,
+  getFoodRuleLabel,
 } from '@/features/profile/domain/food-rules';
 import { foodRuleSelectionSheetStyles } from '@/features/profile/sheets/food-rule-selection-sheet-styles';
 
 type FoodPreset<Code extends string> = {
   code: Code;
-  label: string;
 };
 
 type FoodRuleSelectionSheetProps<Code extends string> = {
@@ -25,8 +26,19 @@ type FoodRuleSelectionSheetProps<Code extends string> = {
   onClose: () => void;
 };
 
-function normalizedComparison(value: string) {
-  return value.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE');
+function normalizedComparison(value: string, locale: string) {
+  return value.normalize('NFKC').trim().replace(/\s+/g, ' ').toLocaleLowerCase(locale);
+}
+
+function translateFoodRuleError(
+  t: ReturnType<typeof useTranslation>['t'],
+  message: string,
+): string {
+  if (message === 'Bitte gib ein Lebensmittel ein.') return t('profile.foodRules.validationEmpty');
+  if (message === 'Der Eintrag darf höchstens 80 Zeichen lang sein.') {
+    return t('profile.foodRules.validationTooLong');
+  }
+  return message;
 }
 
 export function FoodRuleSelectionSheet<Code extends string>({
@@ -38,6 +50,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
   onApply,
   onClose,
 }: FoodRuleSelectionSheetProps<Code>) {
+  const { t, i18n } = useTranslation();
   const [draft, setDraft] = useState<FoodSelection<Code>[]>(value);
   const [query, setQuery] = useState('');
   const [inputError, setInputError] = useState<string | null>(null);
@@ -49,13 +62,17 @@ export function FoodRuleSelectionSheet<Code extends string>({
     setInputError(null);
   }, [value, visible]);
 
-  const normalizedQuery = normalizedComparison(query);
+  const normalizedQuery = normalizedComparison(query, i18n.language);
   const filteredPresets = useMemo(
     () =>
       normalizedQuery
-        ? presets.filter(({ label }) => normalizedComparison(label).includes(normalizedQuery))
+        ? presets.filter(({ code }) =>
+            normalizedComparison(getFoodRuleLabel(t, code), i18n.language).includes(
+              normalizedQuery,
+            ),
+          )
         : presets,
-    [normalizedQuery, presets],
+    [i18n.language, normalizedQuery, presets, t],
   );
 
   function isPresetSelected(code: Code) {
@@ -77,12 +94,19 @@ export function FoodRuleSelectionSheet<Code extends string>({
   function addCustomEntry() {
     const parsed = customFoodLabelSchema.safeParse(query);
     if (!parsed.success) {
-      setInputError(parsed.error.issues[0]?.message ?? 'Bitte prüfe den Eintrag.');
+      setInputError(
+        translateFoodRuleError(
+          t,
+          parsed.error.issues[0]?.message ?? t('profile.foodRules.validationEmpty'),
+        ),
+      );
       return;
     }
 
     const matchingPreset = presets.find(
-      ({ label }) => normalizedComparison(label) === parsed.data.toLocaleLowerCase('de-DE'),
+      ({ code }) =>
+        normalizedComparison(getFoodRuleLabel(t, code), i18n.language) ===
+        normalizedComparison(parsed.data, i18n.language),
     );
 
     setDraft((current) =>
@@ -95,7 +119,9 @@ export function FoodRuleSelectionSheet<Code extends string>({
   }
 
   const parsedQuery = customFoodLabelSchema.safeParse(query);
-  const addLabel = parsedQuery.success ? `${parsedQuery.data} hinzufügen` : 'Eintrag hinzufügen';
+  const addLabel = parsedQuery.success
+    ? t('profile.foodRules.add', { value: parsedQuery.data })
+    : t('profile.foodRules.addGeneric');
 
   return (
     <Modal
@@ -112,14 +138,14 @@ export function FoodRuleSelectionSheet<Code extends string>({
               <Txt variant="heading">{title}</Txt>
               <Txt variant="caption" tone="secondary">
                 {presets.length > 0
-                  ? 'Häufige auswählen oder eigene ergänzen'
-                  : 'Eigene Lebensmittel ergänzen'}
+                  ? t('profile.foodRules.commonHint')
+                  : t('profile.foodRules.customHint')}
               </Txt>
             </View>
             <Press
               onPress={onClose}
               accessibilityRole="button"
-              accessibilityLabel={`${title} schließen`}
+              accessibilityLabel={`${title} ${t('common.actions.close').toLocaleLowerCase(i18n.language)}`}
               style={foodRuleSelectionSheetStyles.closeButton}>
               <Txt
                 variant="body"
@@ -156,12 +182,13 @@ export function FoodRuleSelectionSheet<Code extends string>({
             contentContainerStyle={foodRuleSelectionSheetStyles.optionsContent}>
             {filteredPresets.map((preset, index) => {
               const selected = isPresetSelected(preset.code);
+              const label = getFoodRuleLabel(t, preset.code);
               return (
                 <Press
                   key={preset.code}
                   onPress={() => togglePreset(preset.code)}
                   accessibilityRole="checkbox"
-                  accessibilityLabel={preset.label}
+                  accessibilityLabel={label}
                   accessibilityState={{ checked: selected }}
                   style={[
                     foodRuleSelectionSheetStyles.option,
@@ -170,7 +197,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
                       foodRuleSelectionSheetStyles.optionBordered,
                   ]}>
                   <Txt variant="body" style={foodRuleSelectionSheetStyles.optionLabel}>
-                    {preset.label}
+                    {label}
                   </Txt>
                   <View
                     style={[
@@ -207,10 +234,10 @@ export function FoodRuleSelectionSheet<Code extends string>({
                       )
                     }
                     accessibilityRole="button"
-                    accessibilityLabel={`${selection.label} entfernen`}
+                    accessibilityLabel={t('profile.foodRules.remove', { value: selection.label })}
                     style={foodRuleSelectionSheetStyles.removeButton}>
                     <Txt variant="label" tone="primary" weight="700">
-                      Entfernen
+                      {t('common.actions.remove')}
                     </Txt>
                   </Press>
                 </View>
@@ -218,7 +245,7 @@ export function FoodRuleSelectionSheet<Code extends string>({
           </ScrollView>
 
           <Button
-            title="Auswahl übernehmen"
+            title={t('profile.foodRules.apply')}
             onPress={() => {
               onApply(draft);
               onClose();

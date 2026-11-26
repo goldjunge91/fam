@@ -1,5 +1,6 @@
 import { Redirect } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import {
   models,
@@ -26,6 +27,7 @@ import { useExecuTorchAudioRecorder } from './use-executorch-audio-recorder';
 const MODEL = models.speechToText.WHISPER.TINY.DEFAULT;
 
 export function ExecuTorchSpeechToTextScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const speechLocale = getDeviceSpeechLocale();
   const [modelRequested, setModelRequested] = useState(false);
@@ -95,12 +97,12 @@ export function ExecuTorchSpeechToTextScreen() {
   };
 
   const modelStatus = !modelRequested
-    ? 'Nicht geladen'
+    ? t('dev.executorch.notLoaded')
     : stt.error
-      ? `Fehler: ${stt.error.message}`
+      ? t('dev.executorch.error', { message: stt.error.message })
       : stt.isReady
-        ? 'Bereit'
-        : `Lade Modell: ${stt.downloadProgress.toFixed(0)} %`;
+        ? t('dev.executorch.ready')
+        : t('dev.executorch.loadProgress', { progress: stt.downloadProgress.toFixed(0) });
 
   if (!hasAccess) {
     return <Redirect href="/settings" />;
@@ -108,33 +110,43 @@ export function ExecuTorchSpeechToTextScreen() {
 
   return (
     <Screen
-      title="ExecuTorch Speech-to-Text"
-      subtitle={`Whisper Tiny · lokal auf dem Gerät · ${speechLocale}`}
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.executorch.title')}
+      subtitle={t('dev.executorch.subtitle', { locale: speechLocale })}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Modell">
+      <ContentCard title={t('dev.executorch.model')}>
         <View style={{ gap: space.md }}>
           <Txt variant="body">{modelStatus}</Txt>
           {!modelRequested ? (
-            <Button title="Whisper-Modell laden" onPress={() => setModelRequested(true)} full />
+            <Button
+              title={t('dev.executorch.loadModel')}
+              onPress={() => setModelRequested(true)}
+              full
+            />
           ) : null}
         </View>
       </ContentCard>
 
-      <ContentCard title="Transkript">
+      <ContentCard title={t('dev.executorch.transcript')}>
         <Txt variant="body">
-          {combineSpeechTranscript(committedText, nonCommittedText) || 'Noch keine Sprache erkannt'}
+          {combineSpeechTranscript(committedText, nonCommittedText) || t('dev.executorch.noSpeech')}
         </Txt>
       </ContentCard>
 
-      <ContentCard title="Mikrofon">
+      <ContentCard title={t('dev.executorch.microphone')}>
         <View style={{ gap: space.md }}>
           {error ? <Txt variant="body">{error}</Txt> : null}
           <Txt variant="body">
-            Whisper verwendet den Gerätesprachcode „{speechLocaleToLanguageCode(speechLocale)}“.
+            {t('dev.executorch.languageHint', {
+              code: speechLocaleToLanguageCode(speechLocale),
+            })}
           </Txt>
           <Button
-            title={recorder.isRecording ? 'Aufnahme stoppen' : 'Aufnahme starten'}
+            title={
+              recorder.isRecording
+                ? t('dev.executorch.stopRecording')
+                : t('dev.executorch.startRecording')
+            }
             disabled={!stt.isReady}
             onPress={() => void (recorder.isRecording ? stopStreaming() : startStreaming())}
             full

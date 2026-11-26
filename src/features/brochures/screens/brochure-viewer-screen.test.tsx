@@ -261,7 +261,7 @@ describe('BrochureViewerScreen', () => {
     mockBrochurePagesState = { data: undefined, isLoading };
     await render(<BrochureViewerScreen brochureId="bro-1" />);
 
-    expect(screen.getByText('Prospekt wird geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Prospekt wird geladen…')).toBeOnTheScreen();
   });
 
   it('schließt den Prospekt über die zugängliche Aktion', async () => {

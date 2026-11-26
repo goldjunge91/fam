@@ -1,5 +1,6 @@
 import { Redirect } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -19,10 +20,41 @@ import { useActiveHousehold } from '@/features/household/active-household-provid
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 
-const PROVIDER_OPTIONS = AI_PROVIDERS.map((provider) => ({
-  value: provider,
-  label: AI_PROVIDER_LABELS[provider],
-}));
+const MODEL_COPY_KEYS = {
+  'z-ai/glm-5.3-flash': ['dev.ai.models.glm53Flash.label', 'dev.ai.models.glm53Flash.description'],
+  'qwen/qwen3.8-flash': [
+    'dev.ai.models.qwen38Flash.label',
+    'dev.ai.models.qwen38Flash.description',
+  ],
+  'google/gemma-4-26b-a4b-it': [
+    'dev.ai.models.gemma426.label',
+    'dev.ai.models.gemma426.description',
+  ],
+  'google/gemma-4-31b-it': ['dev.ai.models.gemma431.label', 'dev.ai.models.gemma431.description'],
+  'ibm-granite/granite-4.2-8b': [
+    'dev.ai.models.granite42.label',
+    'dev.ai.models.granite42.description',
+  ],
+  'minimax/minimax-m3:free': [
+    'dev.ai.models.minimaxM3.label',
+    'dev.ai.models.minimaxM3.description',
+  ],
+  'qwen/qwen3.8-27b': ['dev.ai.models.qwen3827.label', 'dev.ai.models.qwen3827.description'],
+  'openai/gpt-oss-120b': ['dev.ai.models.gptOss120.label', 'dev.ai.models.gptOss120.description'],
+  'openai/gpt-oss-20b': ['dev.ai.models.gptOss20.label', 'dev.ai.models.gptOss20.description'],
+  'openai/gpt-oss-safeguard-20b': [
+    'dev.ai.models.gptOssSafeguard.label',
+    'dev.ai.models.gptOssSafeguard.description',
+  ],
+  'meta-llama/llama-prompt-guard-2-22m': [
+    'dev.ai.models.promptGuard22.label',
+    'dev.ai.models.promptGuard22.description',
+  ],
+  'meta-llama/llama-prompt-guard-2-86m': [
+    'dev.ai.models.promptGuard86.label',
+    'dev.ai.models.promptGuard86.description',
+  ],
+} as const;
 
 const styles = StyleSheet.create((theme) => ({
   content: { gap: theme.space.lg },
@@ -31,15 +63,14 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function AiModelTestScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const { activeHouseholdId } = useActiveHousehold();
   const provider = useDevSettingsStore((state) => state.aiProvider);
   const model = useDevSettingsStore((state) => state.aiModel);
   const setProvider = useDevSettingsStore((state) => state.setAiProvider);
   const setModel = useDevSettingsStore((state) => state.setAiModel);
-  const [prompt, setPrompt] = useState(
-    'Schlage ein schnelles Abendessen mit Kartoffeln und Linsen vor.',
-  );
+  const [prompt, setPrompt] = useState(t('dev.ai.promptDefault'));
   const [modelIdDraft, setModelIdDraft] = useState(model);
   const [isTesting, setIsTesting] = useState(false);
   const [result, setResult] = useState<AiModelTestResult | null>(null);
@@ -50,23 +81,34 @@ export function AiModelTestScreen() {
   if (!hasAccess) return <Redirect href="/settings" />;
 
   const options = AI_MODEL_CATALOG[provider];
-  const selectedModel = options.find((option) => option.id === model) ?? {
-    id: model,
-    label: model,
-    description: 'Manuelle Modell-ID',
-    supportsImages: null,
-  };
+  const selectedModelOption = options.find((option) => option.id === model);
+  const selectedModelCopy = selectedModelOption
+    ? MODEL_COPY_KEYS[selectedModelOption.id as keyof typeof MODEL_COPY_KEYS]
+    : undefined;
+  const selectedModel = selectedModelOption
+    ? {
+        id: selectedModelOption.id,
+        label: selectedModelCopy ? t(selectedModelCopy[0]) : selectedModelOption.label,
+        description: selectedModelCopy ? t(selectedModelCopy[1]) : selectedModelOption.description,
+        supportsImages: selectedModelOption.supportsImages,
+      }
+    : {
+        id: model,
+        label: model,
+        description: t('dev.ai.manualModel'),
+        supportsImages: null,
+      };
   const providerLabel = AI_PROVIDER_LABELS[provider];
   const modelIdIsValid = isValidAiModelId(modelIdDraft.trim());
 
   async function runModelTest() {
     if (!activeHouseholdId) {
-      setError('Wähle zuerst einen aktiven Haushalt aus.');
+      setError(t('dev.ai.noHousehold'));
       setResult(null);
       return;
     }
     if (!prompt.trim()) {
-      setError('Gib einen Testprompt ein.');
+      setError(t('dev.ai.emptyPrompt'));
       setResult(null);
       return;
     }
@@ -82,9 +124,7 @@ export function AiModelTestScreen() {
       });
       setResult(nextResult);
     } catch (testError: unknown) {
-      setError(
-        testError instanceof Error ? testError.message : 'Der Modelltest ist fehlgeschlagen.',
-      );
+      setError(testError instanceof Error ? testError.message : t('dev.ai.error'));
     } finally {
       setIsTesting(false);
     }
@@ -92,15 +132,18 @@ export function AiModelTestScreen() {
 
   return (
     <Screen
-      title="KI-Modell testen"
-      subtitle="Die Auswahl gilt für lokale KI-Abläufe dieses Geräts."
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.ai.title')}
+      subtitle={t('dev.ai.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
       <View style={styles.content}>
-        <ContentCard title="Provider">
+        <ContentCard title={t('dev.ai.providerCard')}>
           <SegmentedControl
-            label="AI-Provider"
-            options={PROVIDER_OPTIONS}
+            label={t('dev.ai.providerLabel')}
+            options={AI_PROVIDERS.map((nextProvider) => ({
+              value: nextProvider,
+              label: AI_PROVIDER_LABELS[nextProvider],
+            }))}
             selected={provider}
             onSelect={(nextProvider) => {
               setProvider(nextProvider as AiProvider);
@@ -112,43 +155,44 @@ export function AiModelTestScreen() {
           />
         </ContentCard>
 
-        <SettingsGroup title={`Modelle · ${providerLabel}`}>
-          {options.map((option, index) => (
-            <SettingsRow
-              key={option.id}
-              label={option.label}
-              value={option.id === model ? 'Ausgewählt' : undefined}
-              hint={`${option.id} · ${option.description}`}
-              onPress={() => {
-                setModel(option.id);
-                setModelIdDraft(option.id);
-                setResult(null);
-                setError(null);
-              }}
-              last={index === options.length - 1}
-            />
-          ))}
+        <SettingsGroup title={t('dev.ai.modelsTitle', { provider: providerLabel })}>
+          {options.map((option, index) => {
+            const modelCopy = MODEL_COPY_KEYS[option.id as keyof typeof MODEL_COPY_KEYS];
+            return (
+              <SettingsRow
+                key={option.id}
+                label={modelCopy ? t(modelCopy[0]) : option.label}
+                value={option.id === model ? t('dev.ai.selected') : undefined}
+                hint={`${option.id} · ${modelCopy ? t(modelCopy[1]) : option.description}`}
+                onPress={() => {
+                  setModel(option.id);
+                  setModelIdDraft(option.id);
+                  setResult(null);
+                  setError(null);
+                }}
+                last={index === options.length - 1}
+              />
+            );
+          })}
         </SettingsGroup>
 
-        <ContentCard title="Modell-ID">
+        <ContentCard title={t('dev.ai.modelIdCard')}>
           <View style={styles.modelInfo}>
             <Txt variant="caption" tone="secondary">
-              Du kannst ein Katalogmodell antippen oder eine andere Modell-ID für {providerLabel}
-              eintragen. Für eigene IDs muss das Modell in der lokalen AI-Gateway-Allowlist des
-              Providers stehen.
+              {t('dev.ai.modelIdHint', { provider: providerLabel })}
             </Txt>
           </View>
           <TextField
-            label={`${providerLabel} Modell-ID`}
+            label={t('dev.ai.modelIdLabel', { provider: providerLabel })}
             value={modelIdDraft}
             onChangeText={setModelIdDraft}
             autoCapitalize="none"
             autoCorrect={false}
-            placeholder="anbieter/modell-id"
+            placeholder={t('dev.ai.modelIdPlaceholder')}
             maxLength={160}
           />
           <Button
-            title="Modell-ID übernehmen"
+            title={t('dev.ai.applyModelId')}
             onPress={() => {
               setModel(modelIdDraft.trim());
               setResult(null);
@@ -160,25 +204,22 @@ export function AiModelTestScreen() {
         </ContentCard>
 
         {selectedModel ? (
-          <ContentCard title="Modellprompt testen">
+          <ContentCard title={t('dev.ai.promptCard')}>
             <View style={styles.modelInfo}>
               <Txt variant="caption" tone="secondary">
-                Der Test nutzt keine Vorräte, Rezepte oder persönlichen Haushaltsdaten und belastet
-                keine AI-Credits. Die Anfrage ist auf die lokale Supabase-Instanz beschränkt.
+                {t('dev.ai.promptHint')}
               </Txt>
               <Txt variant="caption" tone="secondary">
-                PDF- und Videoimporte sowie Quellen, die das gewählte Modell nicht unterstützt,
-                werden über das multimodale OpenRouter-Fallback verarbeitet.
+                {t('dev.ai.fallbackHint')}
               </Txt>
               {selectedModel.supportsImages === false ? (
                 <Txt variant="caption" tone="secondary">
-                  Dieses Modell verarbeitet Text. Bildimporte verwenden das multimodale
-                  OpenRouter-Fallback.
+                  {t('dev.ai.textOnlyHint')}
                 </Txt>
               ) : null}
             </View>
             <TextField
-              label="Testprompt"
+              label={t('dev.ai.promptLabel')}
               value={prompt}
               onChangeText={setPrompt}
               multiline
@@ -187,7 +228,11 @@ export function AiModelTestScreen() {
               textAlignVertical="top"
             />
             <Button
-              title={isTesting ? 'Modell wird getestet …' : `${selectedModel.label} testen`}
+              title={
+                isTesting
+                  ? t('dev.ai.testing')
+                  : t('dev.ai.testModel', { model: selectedModel.label })
+              }
               onPress={() => void runModelTest()}
               disabled={isTesting || prompt.trim().length === 0 || modelIdDraft.trim() !== model}
               loading={isTesting}
@@ -197,7 +242,7 @@ export function AiModelTestScreen() {
         ) : null}
 
         {error ? (
-          <ContentCard title="Modelltest fehlgeschlagen">
+          <ContentCard title={t('dev.ai.failed')}>
             <Txt variant="body" tone="danger">
               {error}
             </Txt>
@@ -206,9 +251,17 @@ export function AiModelTestScreen() {
 
         {result ? (
           <ContentCard
-            title={`${result.provider === 'groq' ? 'Groq' : 'OpenRouter'} · ${result.model}`}>
+            title={t('dev.ai.resultTitle', {
+              provider: AI_PROVIDER_LABELS[result.provider],
+              model: result.model,
+            })}>
             <Txt variant="caption" tone="secondary">
-              {`${result.durationMs} ms${result.usage?.total_tokens === undefined ? '' : ` · ${result.usage.total_tokens} Tokens`}`}
+              {result.usage?.total_tokens === undefined
+                ? t('dev.ai.duration', { duration: result.durationMs })
+                : t('dev.ai.durationWithTokens', {
+                    duration: result.durationMs,
+                    tokens: result.usage.total_tokens,
+                  })}
             </Txt>
             <Txt variant="body" style={styles.resultText}>
               {result.text}

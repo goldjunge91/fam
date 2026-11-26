@@ -155,8 +155,8 @@ export function EditProfileScreen() {
       setAvatarUrl(remoteUrl);
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Fehler beim Hochladen des Profilbilds.';
-      Alert.alert('Fehler', msg);
+      const msg = err instanceof Error ? err.message : t('profile.edit.uploadError');
+      Alert.alert(t('common.errors.generic'), msg);
     } finally {
       setUploadingImage(false);
     }
@@ -172,8 +172,8 @@ export function EditProfileScreen() {
       setAvatarUrl(null);
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Fehler beim Entfernen des Profilbilds.';
-      Alert.alert('Fehler', msg);
+      const msg = err instanceof Error ? err.message : t('profile.edit.removeError');
+      Alert.alert(t('common.errors.generic'), msg);
     } finally {
       setUploadingImage(false);
     }
@@ -210,11 +210,11 @@ export function EditProfileScreen() {
       await queryClient.invalidateQueries({ queryKey: ['profile', userId] });
       await queryClient.invalidateQueries({ queryKey: profileFoodRulesQueryKey(userId) });
 
-      Alert.alert('Erfolg', 'Deine Profil- & Account-Daten wurden erfolgreich aktualisiert.', [
-        { text: 'OK', onPress: () => router.back() },
+      Alert.alert(t('profile.edit.successTitle'), t('profile.edit.successMessage'), [
+        { text: t('common.actions.done'), onPress: () => router.back() },
       ]);
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Fehler beim Speichern der Account-Daten.';
+      const msg = err instanceof Error ? err.message : t('profile.edit.saveError');
       setFormError(msg);
     }
   }
@@ -251,21 +251,21 @@ export function EditProfileScreen() {
       }
 
       closePasswordSheet();
-      Alert.alert('Passwort gespeichert', 'Dein neues Passwort ist jetzt aktiv.');
+      Alert.alert(t('profile.edit.passwordSavedTitle'), t('profile.edit.passwordSavedMessage'));
     } finally {
       setPasswordSaving(false);
     }
   }
 
-  const initials = getInitials(displayName || 'Ohne Namen');
+  const initials = getInitials(displayName || t('profile.edit.fallbackName'));
   return (
     <Screen
-      title="Profil & Account"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('profile.edit.title')}
+      back={{ label: t('profile.edit.back'), href: '/settings' }}
       backStyle="icon">
       <View style={profileEditStyles.section}>
         <Txt variant="body" weight="700">
-          Profilbild
+          {t('profile.edit.avatar')}
         </Txt>
         <ProfileAvatarEditor
           avatarUrl={avatarUrl}
@@ -277,11 +277,11 @@ export function EditProfileScreen() {
       </View>
       <View style={profileEditStyles.section}>
         <Txt variant="body" weight="700">
-          Persönliche Angaben
+          {t('profile.edit.personal')}
         </Txt>
         <View style={profileEditStyles.fields}>
           <TextField
-            label="Name"
+            label={t('profile.edit.name')}
             value={displayName}
             onChangeText={(value) => setValue('displayName', value, { shouldValidate: true })}
             error={errors.displayName?.message}
@@ -289,7 +289,7 @@ export function EditProfileScreen() {
           />
 
           <TextField
-            label="E-Mail-Adresse"
+            label={t('profile.edit.email')}
             value={email}
             onChangeText={(value) => setValue('email', value, { shouldValidate: true })}
             error={translateAuthValidationMessage(errors.email?.message, t)}
@@ -302,7 +302,7 @@ export function EditProfileScreen() {
           />
         </View>
         <Button
-          title="Passwort ändern"
+          title={t('profile.edit.changePassword')}
           variant="secondary"
           size="sm"
           style={profileEditStyles.passwordButton}
@@ -347,8 +347,8 @@ export function EditProfileScreen() {
 
       <FoodRuleSelectionSheet
         visible={activeFoodRule === 'allergies'}
-        title="Allergien"
-        inputLabel="Allergie suchen oder ergänzen"
+        title={t('profile.foodRules.allergies')}
+        inputLabel={t('profile.foodRules.searchAllergy')}
         presets={ALLERGY_PRESETS}
         value={foodRules.allergies}
         onApply={(allergies) => setFoodRules((current) => ({ ...current, allergies }))}
@@ -356,8 +356,8 @@ export function EditProfileScreen() {
       />
       <FoodRuleSelectionSheet
         visible={activeFoodRule === 'intolerances'}
-        title="Unverträglichkeiten"
-        inputLabel="Unverträglichkeit suchen oder ergänzen"
+        title={t('profile.foodRules.intolerances')}
+        inputLabel={t('profile.foodRules.searchIntolerance')}
         presets={INTOLERANCE_PRESETS}
         value={foodRules.intolerances}
         onApply={(intolerances) => setFoodRules((current) => ({ ...current, intolerances }))}
@@ -365,8 +365,8 @@ export function EditProfileScreen() {
       />
       <FoodRuleSelectionSheet
         visible={activeFoodRule === 'dislikedFoods'}
-        title="Mag ich nicht"
-        inputLabel="Lebensmittel ergänzen"
+        title={t('profile.foodRules.dislikedFoods')}
+        inputLabel={t('profile.foodRules.addFood')}
         presets={[]}
         value={foodRules.dislikedFoods}
         onApply={(selections) =>
@@ -388,7 +388,7 @@ export function EditProfileScreen() {
         </Txt>
       ) : null}
       <Button
-        title="Änderungen speichern"
+        title={t('profile.edit.save')}
         onPress={() => void handleSubmit(submit)()}
         loading={isSubmitting || profileLoading || foodRulesLoading}
       />

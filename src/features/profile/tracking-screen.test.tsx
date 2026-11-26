@@ -138,7 +138,7 @@ describe('TrackingScreen', () => {
 
     expect(screen.getByText('DEINE TRACKING-METHODE')).toBeOnTheScreen();
     expect(screen.getByText('ERNÄHRUNG & TAGESZIELE')).toBeOnTheScreen();
-    expect(screen.getByText('2200 kcal')).toBeOnTheScreen();
+    expect(screen.getByText('2.200 kcal')).toBeOnTheScreen();
     expect(screen.getByText('160g')).toBeOnTheScreen();
     expect(screen.queryByText('🎯')).toBeNull();
   });

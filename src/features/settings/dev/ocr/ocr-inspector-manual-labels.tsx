@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -16,18 +17,18 @@ type ManualLabelAssignmentProps = {
 };
 
 const FIELD_OPTIONS = [
-  { value: 'article', label: 'Artikel' },
-  { value: 'quantity', label: 'Menge' },
-  { value: 'unitPrice', label: 'Preis/Stk' },
-  { value: 'price', label: 'Preis' },
-] as const satisfies ReadonlyArray<{ value: ManualLabelField; label: string }>;
-
-const FIELD_LABELS: Record<ManualLabelField, string> = {
-  article: 'Artikel',
-  quantity: 'Menge',
-  unitPrice: 'Preis/Stk',
-  price: 'Preis',
-};
+  { value: 'article', labelKey: 'dev.ocr.labels.article' },
+  { value: 'quantity', labelKey: 'dev.ocr.labels.quantity' },
+  { value: 'unitPrice', labelKey: 'dev.ocr.labels.unitPrice' },
+  { value: 'price', labelKey: 'dev.ocr.labels.price' },
+] as const satisfies ReadonlyArray<{
+  value: ManualLabelField;
+  labelKey:
+    | 'dev.ocr.labels.article'
+    | 'dev.ocr.labels.quantity'
+    | 'dev.ocr.labels.unitPrice'
+    | 'dev.ocr.labels.price';
+}>;
 
 const styles = StyleSheet.create((theme) => ({
   root: { gap: theme.space.sm },
@@ -66,6 +67,7 @@ export function manualLabelText(
 }
 
 export function ManualLabelAssignment({ lines, selection, onChange }: ManualLabelAssignmentProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const [field, setField] = useState<ManualLabelField>('article');
 
@@ -77,25 +79,27 @@ export function ManualLabelAssignment({ lines, selection, onChange }: ManualLabe
     onChange({ ...selection, [field]: next });
   }
 
+  const fieldLabel = (value: ManualLabelField) =>
+    t(FIELD_OPTIONS.find((option) => option.value === value)?.labelKey ?? 'dev.ocr.labels.article');
+
   return (
     <View style={styles.root}>
       <SegmentedControl
-        label="Zielfeld"
+        label={t('dev.ocr.labels.targetField')}
         selected={field}
-        options={FIELD_OPTIONS}
+        options={FIELD_OPTIONS.map(({ value, labelKey }) => ({ value, label: t(labelKey) }))}
         onSelect={(nextField) => setField(nextField)}
         size="compact"
       />
       <Txt variant="caption" tone="secondary" style={styles.hint} selectable>
-        Tippe OCR-Zeilen an, um sie zum ausgewählten Feld zu kombinieren. Menge und Preise bleiben
-        optional.
+        {t('dev.ocr.labels.hint')}
       </Txt>
       {FIELD_OPTIONS.map(({ value }) => {
         const valueText = manualLabelText(lines, selection[value]);
         return valueText ? (
           <View key={value} style={styles.selection}>
             <Txt variant="caption" tone="secondary">
-              {FIELD_LABELS[value]}
+              {fieldLabel(value)}
             </Txt>
             <Txt variant="body" selectable>
               {valueText}
@@ -110,7 +114,11 @@ export function ManualLabelAssignment({ lines, selection, onChange }: ManualLabe
             key={`${line.text}-${line.boundingBox.x}-${line.boundingBox.y}`}
             accessibilityRole="button"
             accessibilityState={{ selected }}
-            accessibilityLabel={`${selected ? 'Ausgewählt' : 'Auswählen'} für ${FIELD_LABELS[field]}: ${line.text}`}
+            accessibilityLabel={t('dev.ocr.labels.selectLine', {
+              state: selected ? t('dev.ocr.labels.selected') : t('dev.ocr.labels.select'),
+              field: fieldLabel(field),
+              text: line.text,
+            })}
             onPress={() => toggle(index)}
             style={[styles.line, selected && styles.lineSelected]}>
             <View style={styles.lineContent}>
@@ -118,7 +126,9 @@ export function ManualLabelAssignment({ lines, selection, onChange }: ManualLabe
                 {index + 1}. {line.text}
               </Txt>
               <Txt variant="caption" color={selected ? colors.accent : colors.textSecondary}>
-                {selected ? `${FIELD_LABELS[field]} ausgewählt` : 'antippen zum Zuordnen'}
+                {selected
+                  ? t('dev.ocr.labels.selectedField', { field: fieldLabel(field) })
+                  : t('dev.ocr.labels.tapToAssign')}
               </Txt>
             </View>
           </Pressable>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton } from '@/components/layout/back-button';
@@ -17,46 +18,50 @@ export function PatternsShowcase({ category }: { category: PatternCategory }) {
 }
 
 function ScreenShowcase() {
+  const { t } = useTranslation();
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Screens und Navigation"
-        contract="Screen besitzt Safe Area, Hintergrund, Inhaltsbreite, Scrollen und Header. chrome ist für Hauptbereiche, back für Unterseiten."
-        source="components/layout/screen.tsx"
+        title={t('dev.design.patterns.screensTitle')}
+        contract={t('dev.design.patterns.screensContract')}
+        source={t('dev.design.patterns.screensSource')}
       />
-      <Subsection title="Hauptbereich mit chrome">
+      <Subsection title={t('dev.design.patterns.mainChrome')}>
         <Surface tone="surface" style={styles.phoneFrame}>
           <View style={styles.chromeRow}>
             <MenuButton onPress={() => undefined} />
             <View style={styles.chromeTitle}>
               <Txt variant="caption" tone="secondary" center>
-                Gemeinsamer Haushalt
+                {t('dev.design.patterns.household')}
               </Txt>
               <Txt variant="title" center>
-                Vorrat
+                {t('dev.design.patterns.inventory')}
               </Txt>
             </View>
             <ProfileButton initials="MF" onPress={() => undefined} />
           </View>
-          <Txt tone="secondary">
-            Der echte Screen übernimmt Safe Area und Scrollverhalten außerhalb dieser Vorschau.
-          </Txt>
+          <Txt tone="secondary">{t('dev.design.patterns.screenBehavior')}</Txt>
         </Surface>
       </Subsection>
-      <Subsection title="Unterseite mit back">
+      <Subsection title={t('dev.design.patterns.subpage')}>
         <Surface tone="surface" style={styles.phoneFrame}>
-          <BackButton label="Vorrat" href="/fridge" variant="arrow" onPress={() => undefined} />
+          <BackButton
+            label={t('dev.design.patterns.inventory')}
+            href="/fridge"
+            variant="arrow"
+            onPress={() => undefined}
+          />
           <View>
-            <Txt variant="title">Produkt bearbeiten</Txt>
-            <Txt tone="secondary">Details und Menge anpassen</Txt>
+            <Txt variant="title">{t('dev.design.patterns.editProduct')}</Txt>
+            <Txt tone="secondary">{t('dev.design.patterns.adjustDetails')}</Txt>
           </View>
         </Surface>
       </Subsection>
       <ExamplePair
         correct={
           <View style={styles.stack}>
-            <Txt variant="subheading">Ein Header-Vertrag</Txt>
-            <Txt tone="secondary">Navigation, Titel und Aktion bleiben in festen Rollen.</Txt>
+            <Txt variant="subheading">{t('dev.design.patterns.headerContract')}</Txt>
+            <Txt tone="secondary">{t('dev.design.patterns.headerRoles')}</Txt>
           </View>
         }
         incorrect={
@@ -83,34 +88,35 @@ function ScreenShowcase() {
 }
 
 function HybridShowcase() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const overlay = withAlpha(colors.shadowSheet, 0.45);
 
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Unistyles und StyleSheet"
-        contract="Statisches Layout, Themewerte, berechnete Maße, native Spezialwerte und Fremdkomponenten laufen über typisierte Styles."
-        source="SPEC-native-boundaries.md"
+        title={t('dev.design.patterns.hybridTitle')}
+        contract={t('dev.design.patterns.hybridContract')}
+        source={t('dev.design.patterns.hybridSource')}
       />
-      <Subsection title="Aufgabenteilung">
+      <Subsection title={t('dev.design.patterns.division')}>
         <ExamplePair
           correct={
             <Surface tone="soft" style={styles.hybridCorrect}>
               <View style={styles.hybridDot} />
-              <Txt variant="body">Statisches Layout, dynamische Farbe</Txt>
+              <Txt variant="body">{t('dev.design.patterns.staticLayout')}</Txt>
             </Surface>
           }
           incorrect={
             <View style={styles.conflictBox}>
-              <Txt tone="danger">Dynamische Klassen und widersprüchliche Quellen</Txt>
+              <Txt tone="danger">{t('dev.design.patterns.dynamicClasses')}</Txt>
             </View>
           }
           correctCode={'<Surface tone="soft" style={styles.row} />'}
           incorrectCode={'<View style={{ backgroundColor: dynamicColor }}>…</View>'}
         />
       </Subsection>
-      <Subsection title="Transparenz aus einer Themefarbe">
+      <Subsection title={t('dev.design.patterns.transparency')}>
         <View style={[styles.overlayBase, { backgroundColor: colors.backgroundSoft }]}>
           <View style={[styles.overlay, { backgroundColor: overlay }]}>
             <Txt tone="inverse" weight="700">
@@ -120,17 +126,11 @@ function HybridShowcase() {
         </View>
         <CodeSample>{'const overlay = withAlpha(colors.shadowSheet, 0.45);'}</CodeSample>
       </Subsection>
-      <Subsection title="Entscheidungsregel">
+      <Subsection title={t('dev.design.patterns.decisionRule')}>
         <View style={styles.ruleList}>
-          <Rule number="1" text="Ist der Wert statisch? Zentrale Layout-Styles verwenden." />
-          <Rule
-            number="2"
-            text="Kommt der Wert aus dem Theme oder aus Daten? style oder useThemedStyles()."
-          />
-          <Rule
-            number="3"
-            text="Wiederholt sich die Semantik? Als Token oder Komponente zentralisieren."
-          />
+          <Rule number="1" text={t('dev.design.patterns.rule1')} />
+          <Rule number="2" text={t('dev.design.patterns.rule2')} />
+          <Rule number="3" text={t('dev.design.patterns.rule3')} />
         </View>
       </Subsection>
     </View>
@@ -138,21 +138,22 @@ function HybridShowcase() {
 }
 
 function AccessibilityShowcase() {
+  const { t } = useTranslation();
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Accessibility und Zustände"
-        contract="Interaktive Elemente haben Rolle, verständliche Beschriftung, mindestens 44 Punkte Zielgröße und einen sichtbaren Zustand, der nicht nur aus Farbe besteht."
-        source="UI-Verträge und React-Native-Accessibility"
+        title={t('dev.design.patterns.accessibilityTitle')}
+        contract={t('dev.design.patterns.accessibilityContract')}
+        source={t('dev.design.patterns.accessibilitySource')}
       />
-      <Subsection title="Interaktionszustände">
+      <Subsection title={t('dev.design.patterns.interactionStates')}>
         <View style={styles.stack}>
-          <Button title="Bereit" onPress={() => undefined} />
-          <Button title="Speichert" loading onPress={() => undefined} />
-          <Button title="Nicht verfügbar" disabled onPress={() => undefined} />
+          <Button title={t('dev.design.patterns.ready')} onPress={() => undefined} />
+          <Button title={t('dev.design.patterns.saving')} loading onPress={() => undefined} />
+          <Button title={t('dev.design.patterns.unavailable')} disabled onPress={() => undefined} />
           <View style={styles.wrap}>
-            <Pill label="Ausgewählt ✓" selected onPress={() => undefined} />
-            <Pill label="Deaktiviert" disabled onPress={() => undefined} />
+            <Pill label={t('dev.design.patterns.selected')} selected onPress={() => undefined} />
+            <Pill label={t('dev.design.patterns.disabled')} disabled onPress={() => undefined} />
           </View>
         </View>
       </Subsection>

@@ -8,7 +8,6 @@ type FilterSheetProps = ComponentProps<typeof BrochureFilterSheet>;
 const groups: FilterSheetProps['groups'] = [
   {
     id: 'groceries',
-    label: 'Lebensmittel',
     stores: [
       { id: 'aldi-sued', name: 'Aldi Süd', logoUrl: null, active: true },
       { id: 'rewe', name: 'REWE', logoUrl: null, active: true },
@@ -16,12 +15,10 @@ const groups: FilterSheetProps['groups'] = [
   },
   {
     id: 'drugstore',
-    label: 'Drogeriemarkt',
     stores: [{ id: 'dm', name: 'dm', logoUrl: null, active: true }],
   },
   {
     id: 'other',
-    label: 'Weitere Märkte',
     stores: [{ id: 'unknown', name: 'Unbekannter Markt', logoUrl: null, active: true }],
   },
 ];

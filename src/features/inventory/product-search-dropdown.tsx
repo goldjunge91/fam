@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   Image,
@@ -186,8 +187,8 @@ export const ProductSearchDropdown = forwardRef<
   ProductSearchDropdownProps
 >(function ProductSearchDropdown(
   {
-    label = 'Name',
-    placeholder = 'z. B. Hafermilch',
+    label,
+    placeholder,
     value,
     onChangeText,
     onSelectProduct,
@@ -198,7 +199,10 @@ export const ProductSearchDropdown = forwardRef<
   },
   ref,
 ) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
+  const resolvedLabel = label ?? t('inventory.product.name');
+  const resolvedPlaceholder = placeholder ?? t('inventory.add.searchFoodPlaceholder');
   const activeHousehold = useOptionalActiveHousehold();
   const preferredMarket = usePreferredProductMarketName(
     activeHousehold?.activeHouseholdId ?? undefined,
@@ -317,7 +321,7 @@ export const ProductSearchDropdown = forwardRef<
       onPress={dismiss}
       hitSlop={8}
       accessibilityRole="button"
-      accessibilityLabel="Suche schließen"
+      accessibilityLabel={t('inventory.search.close')}
       style={styles.searchCloseButton}>
       <Txt variant="glyph" tone="secondary">
         ×
@@ -347,8 +351,8 @@ export const ProductSearchDropdown = forwardRef<
       <View style={isTrailingOutside ? styles.outsideTrailingRow : undefined}>
         <View style={isTrailingOutside ? styles.outsideTrailingInput : undefined}>
           <TextField
-            label={label}
-            placeholder={placeholder}
+            label={resolvedLabel}
+            placeholder={resolvedPlaceholder}
             value={value}
             style={inputStyle}
             trailing={inputTrailing}
@@ -402,10 +406,10 @@ export const ProductSearchDropdown = forwardRef<
           {showErrorState ? (
             <View style={styles.errorState}>
               <Txt variant="body" tone="danger" center accessibilityRole="alert">
-                Open Food Facts ist gerade nicht erreichbar.
+                {t('inventory.search.offlineError')}
               </Txt>
               <Button
-                title="Erneut versuchen"
+                title={t('inventory.search.retry')}
                 variant="secondary"
                 size="sm"
                 onPress={() => void retry()}
@@ -414,7 +418,7 @@ export const ProductSearchDropdown = forwardRef<
           ) : showEmptyState ? (
             <View style={styles.emptyState}>
               <Button
-                title="Open Food Facts durchsuchen"
+                title={t('inventory.search.searchOnline')}
                 variant="secondary"
                 size="sm"
                 onPress={() => void searchOnline()}
@@ -431,14 +435,14 @@ export const ProductSearchDropdown = forwardRef<
                   });
                 }}
                 accessibilityRole="button"
-                accessibilityLabel={`${value.trim()} manuell anlegen`}
+                accessibilityLabel={t('inventory.search.manualEntry', { name: value.trim() })}
                 style={styles.row}>
                 <View style={styles.flex}>
                   <Txt variant="body" weight="700">
-                    + &quot;{value.trim()}&quot; manuell anlegen
+                    {t('inventory.search.manualEntry', { name: value.trim() })}
                   </Txt>
                   <Txt variant="body" tone="secondary">
-                    Kein Treffer im lokalen Katalog gefunden
+                    {t('inventory.search.noLocalResult')}
                   </Txt>
                 </View>
               </Press>
@@ -480,7 +484,7 @@ export const ProductSearchDropdown = forwardRef<
                 </Txt>
                 {item.barcode ? (
                   <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                    EAN {item.barcode}
+                    {t('inventory.search.ean')} {item.barcode}
                   </Txt>
                 ) : null}
               </View>

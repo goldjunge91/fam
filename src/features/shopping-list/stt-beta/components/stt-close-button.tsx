@@ -4,10 +4,10 @@ import { CloseButton } from '@/constants/ui';
 
 export function NaturalLanguageAdditionSheetCloseButton({
   onPress,
-  accessibilityLabel = 'Schließen',
+  accessibilityLabel,
 }: {
   onPress: () => void;
-  accessibilityLabel?: string;
+  accessibilityLabel: string;
 }) {
   return (
     <CloseButton

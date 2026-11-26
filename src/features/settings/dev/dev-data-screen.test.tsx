@@ -220,7 +220,7 @@ describe('DevDataScreen', () => {
 
     await render(<DevDataScreen />);
 
-    expect(await screen.findByText('Gehört Nutzer: fremd')).toBeOnTheScreen();
+    expect(await screen.findByText('Gehört Nutzer: FREMD (stored-u…)')).toBeOnTheScreen();
     expect(screen.getByText('Outbox: 2 offen · 1 fehlgeschlagen')).toBeOnTheScreen();
     expect(screen.getByText('Zeilen: 0 Vorrat · 5 Einkauf · 3 Orte')).toBeOnTheScreen();
     expect(screen.getByText('Heruntergeladen: ja · 2048 bytes')).toBeOnTheScreen();

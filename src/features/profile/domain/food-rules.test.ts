@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import * as sharedFoodRules from './food-rules';
 import * as androidFoodRules from './food-rules.android';
 
@@ -79,17 +80,15 @@ for (const [platform, foodRules] of implementations) {
 
     test('hält Preset-Codes und Anzeigenamen explizit und stabil', () => {
       expect(ALLERGY_PRESETS).toHaveLength(14);
-      expect(ALLERGY_PRESETS.find(({ code }) => code === 'peanuts')?.label).toBe('Erdnüsse');
-      expect(ALLERGY_PRESETS.find(({ code }) => code === 'milk')?.label).toBe(
-        'Milch / Milcheiweiß',
-      );
+      expect(foodRules.getFoodRuleLabel(i18n.t, 'peanuts')).toBe('Erdnüsse');
+      expect(foodRules.getFoodRuleLabel(i18n.t, 'milk')).toBe('Milch / Milcheiweiß');
       expect(INTOLERANCE_PRESETS.map(({ code }) => code)).toEqual([
         'lactose',
         'fructose-malabsorption',
         'sorbitol-malabsorption',
         'celiac-gluten',
       ]);
-      expect(INTOLERANCE_PRESETS.find(({ code }) => code === 'celiac-gluten')?.label).toBe(
+      expect(foodRules.getFoodRuleLabel(i18n.t, 'celiac-gluten')).toBe(
         'Zöliakie / Gluten strikt meiden',
       );
     });

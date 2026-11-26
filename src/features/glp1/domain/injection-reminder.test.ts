@@ -1,3 +1,4 @@
+import { i18n } from '@/i18n';
 import { resolveInjectionReminder } from './injection-reminder';
 
 const IDENTIFIER = 'fam.glp1.injection-due.v1.user-1';
@@ -16,6 +17,7 @@ describe('resolveInjectionReminder', () => {
         plan: null,
         latestInjectionAt: null,
         now: NOW,
+        t: i18n.t,
       }),
     ).toEqual({ kind: 'cancel', identifier: IDENTIFIER });
   });
@@ -27,17 +29,19 @@ describe('resolveInjectionReminder', () => {
         plan: { ...PLAN, reminderEnabled: false },
         latestInjectionAt: null,
         now: NOW,
+        t: i18n.t,
       }),
     ).toEqual({ kind: 'cancel', identifier: IDENTIFIER });
   });
 
-  it('plant den nächsten zukünftigen Termin', () => {
+  it('plant den nächsten zukünftigen Termin mit deutschem Benachrichtigungstext', () => {
     expect(
       resolveInjectionReminder({
         identifier: IDENTIFIER,
         plan: PLAN,
         latestInjectionAt: null,
         now: NOW,
+        t: i18n.t,
       }),
     ).toEqual({
       kind: 'schedule',
@@ -48,6 +52,26 @@ describe('resolveInjectionReminder', () => {
     });
   });
 
+  it('plant denselben Termin mit englischem Benachrichtigungstext', async () => {
+    await i18n.changeLanguage('en');
+
+    expect(
+      resolveInjectionReminder({
+        identifier: IDENTIFIER,
+        plan: PLAN,
+        latestInjectionAt: null,
+        now: NOW,
+        t: i18n.t,
+      }),
+    ).toEqual({
+      kind: 'schedule',
+      identifier: IDENTIFIER,
+      date: new Date('2099-09-01T08:00:00.000Z'),
+      title: 'Injection due',
+      body: 'Your injection is due.',
+    });
+  });
+
   it('entfernt eine Erinnerung für einen bereits fälligen Termin', () => {
     expect(
       resolveInjectionReminder({
@@ -55,6 +79,7 @@ describe('resolveInjectionReminder', () => {
         plan: PLAN,
         latestInjectionAt: '2099-08-20T08:00:00.000Z',
         now: NOW,
+        t: i18n.t,
       }),
     ).toEqual({ kind: 'cancel', identifier: IDENTIFIER });
   });

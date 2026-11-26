@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { TextInput } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -22,6 +23,7 @@ export function InventorySearchField({
   value,
   onChangeText,
 }: InventorySearchFieldProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   if (!onPress) {
@@ -31,7 +33,7 @@ export function InventorySearchField({
   }
 
   return (
-    <InventoryIconButton label="Artikel suchen" onPress={onPress} active={isOpen}>
+    <InventoryIconButton label={t('inventory.search.button')} onPress={onPress} active={isOpen}>
       <SearchIcon size={22} color={isOpen ? colors.text : colors.textSecondary} />
     </InventoryIconButton>
   );
@@ -62,6 +64,7 @@ const styles = StyleSheet.create((theme) => ({
 
 /** Sichtbares Eingabefeld der aufgeklappten Artikelsuche. */
 export function InventorySearchInput({ value, onChangeText }: InventorySearchInputProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
@@ -71,11 +74,11 @@ export function InventorySearchInput({ value, onChangeText }: InventorySearchInp
         autoFocus
         value={value}
         onChangeText={onChangeText}
-        placeholder="Artikel suchen"
+        placeholder={t('inventory.search.placeholder')}
         placeholderTextColor={colors.textSecondary}
         selectionColor={colors.accent}
         style={[styles.input, inputTextStyles.inventorySearch]}
-        accessibilityLabel="Artikel suchen"
+        accessibilityLabel={t('inventory.search.button')}
         returnKeyType="search"
         clearButtonMode="while-editing"
       />

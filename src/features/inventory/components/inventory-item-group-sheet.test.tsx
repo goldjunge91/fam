@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { getExpiryInfo } from '@/features/inventory/expiry';
 import { groupInventoryItems } from '@/features/inventory/grouped-items';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
+import { i18n } from '@/i18n';
 import { formatStateSubtitle, InventoryItemGroupSheet } from './inventory-item-group-sheet';
 
 jest.mock('@/components/theme/ThemeProvider', () => ({
@@ -68,6 +69,10 @@ function renderSheet(element: ReactNode) {
 
 describe('InventoryItemGroupSheet', () => {
   const originalPlatform = Platform.OS;
+
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
 
   afterAll(() => {
     Object.defineProperty(Platform, 'OS', { configurable: true, value: originalPlatform });
@@ -256,6 +261,25 @@ describe('InventoryItemGroupSheet', () => {
     await user.press(screen.getByRole('button', { name: /Konflikt: Bestand wurde geändert/ }));
     await user.press(screen.getByRole('button', { name: /Auf aktuellen Bestand neu bestätigen/ }));
     expect(onReconfirmConflict).toHaveBeenCalledWith(conflict);
+  });
+
+  it('renders group actions in English', async () => {
+    await i18n.changeLanguage('en');
+    Object.defineProperty(Platform, 'OS', { configurable: true, value: 'android' });
+    const view = await renderSheet(
+      <InventoryItemGroupSheet
+        visible
+        group={testGroup([lot('english-lot')])}
+        onClose={jest.fn()}
+        onSelectLot={jest.fn()}
+        onHistory={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('Sealed')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Open history for Hafermilch' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Close' })).toBeOnTheScreen();
+    await view.unmount();
   });
 
   it('fasst das früheste Ablaufdatum zusammen und beschreibt Lose ohne Datum', () => {

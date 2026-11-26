@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { z } from 'zod';
@@ -11,10 +12,11 @@ import {
   medicationNameInputSchema,
   optionalNotesInputSchema,
   positiveDoseInputSchema,
+  translateGlp1ValidationMessage,
 } from '@/features/glp1/domain/form-schema-primitives';
 import {
+  getInjectionSiteLabel,
   INJECTION_SITE_VALUES,
-  INJECTION_SITES,
   type InjectionSite,
   MEDICATION_UNITS,
   type MedicationUnit,
@@ -33,17 +35,11 @@ const MEDICATION_OPTIONS: readonly SegmentedControlOption<MedicationSelection>[]
   { value: 'Semaglutid', label: 'Semaglutid' },
   { value: 'Tirzepatid', label: 'Tirzepatid' },
   { value: 'Liraglutid', label: 'Liraglutid' },
-  { value: CUSTOM_SELECTION, label: 'Andere' },
 ];
 
 const UNIT_OPTIONS: readonly SegmentedControlOption<MedicationUnit>[] = MEDICATION_UNITS.map(
   (value) => ({ value, label: value }),
 );
-
-const INJECTION_SITE_OPTIONS: readonly SegmentedControlOption<InjectionSiteSelection>[] = [
-  { value: 'none', label: 'Keine Angabe' },
-  ...INJECTION_SITES,
-];
 
 const injectionFormSchema = z.object({
   medicationName: medicationNameInputSchema,
@@ -74,10 +70,13 @@ function isCommonDose(value: string): value is (typeof COMMON_DOSES)[number] {
   return COMMON_DOSES.some((dose) => dose === value);
 }
 
-function doseOptions(unit: MedicationUnit): readonly SegmentedControlOption<DoseSelection>[] {
+function doseOptions(
+  unit: MedicationUnit,
+  otherLabel: string,
+): readonly SegmentedControlOption<DoseSelection>[] {
   return [
     ...COMMON_DOSES.map((value) => ({ value, label: `${value} ${unit}` })),
-    { value: CUSTOM_SELECTION, label: 'Andere' },
+    { value: CUSTOM_SELECTION, label: otherLabel },
   ];
 }
 
@@ -111,6 +110,7 @@ export function InjectionForm({
   recentSites = [],
   mode = 'create',
 }: InjectionFormProps) {
+  const { t } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -139,20 +139,30 @@ export function InjectionForm({
     : CUSTOM_SELECTION;
   const doseSelection = isCommonDose(dose) ? dose : CUSTOM_SELECTION;
   const injectionSiteSelection = injectionSite ?? 'none';
+  const injectionSiteOptions: readonly SegmentedControlOption<InjectionSiteSelection>[] = [
+    { value: 'none', label: t('glp1.injectionForm.none') },
+    ...INJECTION_SITE_VALUES.map((value) => ({
+      value,
+      label: getInjectionSiteLabel(t, value),
+    })),
+  ];
 
   return (
     <Card style={styles.form}>
       <Txt variant="label" weight="700">
-        {mode === 'edit' ? 'Injektion bearbeiten' : 'Injektion erfassen'}
+        {t(mode === 'edit' ? 'glp1.injectionForm.editTitle' : 'glp1.injectionForm.createTitle')}
       </Txt>
 
       <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
-          Medikament auswählen:
+          {t('glp1.injectionForm.medication')}
         </Txt>
         <SegmentedControl
-          label="Medikament auswählen"
-          options={MEDICATION_OPTIONS}
+          label={t('glp1.injectionForm.medicationAccessibility')}
+          options={[
+            ...MEDICATION_OPTIONS,
+            { value: CUSTOM_SELECTION, label: t('glp1.injectionForm.other') },
+          ]}
           selected={medicationSelection}
           onSelect={(value) =>
             setValue('medicationName', value === CUSTOM_SELECTION ? '' : value, {
@@ -170,9 +180,9 @@ export function InjectionForm({
               <TextField
                 value={value}
                 onChangeText={onChange}
-                accessibilityLabel="Name des Medikaments"
-                placeholder="Name des Medikaments"
-                error={errors.medicationName?.message}
+                accessibilityLabel={t('glp1.injectionForm.medicationName')}
+                placeholder={t('glp1.injectionForm.medicationName')}
+                error={translateGlp1ValidationMessage(errors.medicationName?.message, t)}
                 size="large"
               />
             )}
@@ -182,10 +192,10 @@ export function InjectionForm({
 
       <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
-          Einheit:
+          {t('glp1.injectionForm.unit')}
         </Txt>
         <SegmentedControl
-          label="Einheit"
+          label={t('glp1.injectionForm.unitAccessibility')}
           options={UNIT_OPTIONS}
           selected={unit}
           onSelect={(value) => setValue('unit', value, { shouldDirty: true, shouldValidate: true })}
@@ -195,11 +205,11 @@ export function InjectionForm({
 
       <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
-          Dosis ({unit}):
+          {t('glp1.injectionForm.dose', { unit })}
         </Txt>
         <SegmentedControl
-          label={`Dosis in ${unit}`}
-          options={doseOptions(unit)}
+          label={t('glp1.injectionForm.doseAccessibility', { unit })}
+          options={doseOptions(unit, t('glp1.injectionForm.other'))}
           selected={doseSelection}
           onSelect={(value) =>
             setValue('dose', value === CUSTOM_SELECTION ? '' : value, {
@@ -217,10 +227,10 @@ export function InjectionForm({
               <TextField
                 value={value}
                 onChangeText={onChange}
-                accessibilityLabel="Dosis"
-                placeholder="z. B. 0.75"
+                accessibilityLabel={t('glp1.injectionForm.doseAccessibility', { unit })}
+                placeholder={t('glp1.injectionForm.dosePlaceholder')}
                 keyboardType="decimal-pad"
-                error={errors.dose?.message}
+                error={translateGlp1ValidationMessage(errors.dose?.message, t)}
                 size="large"
               />
             )}
@@ -230,19 +240,18 @@ export function InjectionForm({
 
       <View style={styles.fieldGroup}>
         <Txt variant="caption" tone="secondary">
-          Injektionsstelle:
+          {t('glp1.injectionForm.injectionSite')}
         </Txt>
         {recentSites.length > 0 ? (
           <Txt variant="caption" tone="secondary">
-            Zuletzt:{' '}
-            {recentSites
-              .map((site) => INJECTION_SITES.find((item) => item.value === site)?.label)
-              .join(' · ')}
+            {t('glp1.injectionForm.recent', {
+              sites: recentSites.map((site) => getInjectionSiteLabel(t, site)).join(' · '),
+            })}
           </Txt>
         ) : null}
         <SegmentedControl
-          label="Injektionsstelle"
-          options={INJECTION_SITE_OPTIONS}
+          label={t('glp1.injectionForm.injectionSite')}
+          options={injectionSiteOptions}
           selected={injectionSiteSelection}
           onSelect={(value) =>
             setValue('injectionSite', value === 'none' ? null : value, {
@@ -262,11 +271,11 @@ export function InjectionForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Zeitpunkt:"
-              accessibilityLabel="Zeitpunkt der Injektion"
-              placeholder="JJJJ-MM-TT HH:MM"
+              label={t('glp1.injectionForm.time')}
+              accessibilityLabel={t('glp1.injectionForm.timeAccessibility')}
+              placeholder={t('glp1.injectionForm.timePlaceholder')}
               autoCapitalize="none"
-              error={errors.administeredAt?.message}
+              error={translateGlp1ValidationMessage(errors.administeredAt?.message, t)}
               size="large"
             />
           )}
@@ -281,11 +290,11 @@ export function InjectionForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Notiz:"
-              accessibilityLabel="Notiz zur Injektion"
-              placeholder="Optional"
+              label={t('glp1.injectionForm.notes')}
+              accessibilityLabel={t('glp1.injectionForm.notesAccessibility')}
+              placeholder={t('glp1.injectionForm.optional')}
               multiline
-              error={errors.notes?.message}
+              error={translateGlp1ValidationMessage(errors.notes?.message, t)}
               size="large"
               style={styles.multilineInput}
             />
@@ -295,7 +304,7 @@ export function InjectionForm({
 
       <Card padded={false} style={styles.summary}>
         <Txt variant="body" tone="secondary">
-          Ausgewählt:
+          {t('glp1.injectionForm.selected')}
         </Txt>
         <Txt variant="body" weight="700">
           {medicationName || '–'} ({dose || '–'} {unit})
@@ -303,7 +312,7 @@ export function InjectionForm({
       </Card>
 
       <Button
-        title={mode === 'edit' ? 'Änderungen speichern' : 'Injektion speichern'}
+        title={t(mode === 'edit' ? 'glp1.injectionForm.saveChanges' : 'glp1.injectionForm.save')}
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
         style={styles.submit}

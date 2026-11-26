@@ -1,4 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { cancelLocalReminder, scheduleLocalReminder } from '@/lib/platform/notifications';
 import { injectionReminderIdentifier, useInjectionReminder } from './use-injection-reminder';
 
@@ -68,6 +69,33 @@ it('plant die accountweite Erinnerung aus Plan und erwachsener Historie', async 
     });
   });
   expect(mockUseLatestMedicationLog).toHaveBeenCalledWith('user-1', null, 'Semaglutid');
+});
+
+it('plant die Erinnerung mit englischem Text bei aktiver englischer Sprache', async () => {
+  await i18n.changeLanguage('en');
+  mockPlan = {
+    id: 'plan-1',
+    user_id: 'user-1',
+    medication_name: 'Semaglutid',
+    dose: 0.5,
+    unit: 'mg',
+    cadence_days: 7,
+    anchor_at: '2099-09-01T08:00:00.000Z',
+    reminder_enabled: true,
+    created_at: '2026-08-01T08:00:00.000Z',
+    updated_at: '2026-08-01T08:00:00.000Z',
+  };
+
+  await renderHook(() => useInjectionReminder('user-1'));
+
+  await waitFor(() => {
+    expect(mockScheduleLocalReminder).toHaveBeenCalledWith({
+      identifier: injectionReminderIdentifier('user-1'),
+      date: new Date('2099-09-01T08:00:00.000Z'),
+      title: 'Injection due',
+      body: 'Your injection is due.',
+    });
+  });
 });
 
 it('entfernt die Erinnerung wenn sie im Plan abgeschaltet ist', async () => {

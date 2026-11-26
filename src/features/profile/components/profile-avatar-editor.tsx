@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Press, Txt } from '@/constants/ui';
@@ -18,13 +19,14 @@ export function ProfileAvatarEditor({
   onPick,
   onDelete,
 }: ProfileAvatarEditorProps) {
+  const { t } = useTranslation();
   return (
     <View style={styles.row}>
       <View testID="profile-avatar" style={styles.avatar}>
         {avatarUrl ? (
           <AvatarImage
             reference={avatarUrl}
-            accessibilityLabel="Profilbild bearbeiten"
+            accessibilityLabel={t('common.profile.image')}
             style={styles.image}
             contentFit="cover"
           />
@@ -37,7 +39,13 @@ export function ProfileAvatarEditor({
 
       <View style={styles.actions}>
         <Button
-          title={uploading ? 'Wird geladen...' : avatarUrl ? 'Bild ändern' : 'Bild auswählen'}
+          title={
+            uploading
+              ? t('profile.edit.avatarLoading')
+              : avatarUrl
+                ? t('profile.edit.avatarChange')
+                : t('profile.edit.avatarPick')
+          }
           variant="secondary"
           onPress={onPick}
           loading={uploading}
@@ -45,7 +53,7 @@ export function ProfileAvatarEditor({
         {avatarUrl ? (
           <Press onPress={onDelete} disabled={uploading} hitSlop={8} style={styles.removeButton}>
             <Txt variant="caption" tone="danger">
-              Bild entfernen
+              {t('profile.edit.avatarRemove')}
             </Txt>
           </Press>
         ) : null}

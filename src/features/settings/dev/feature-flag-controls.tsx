@@ -1,4 +1,6 @@
+import type { TFunction } from 'i18next';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ContentCard } from '@/components/ui/content-card';
 import { useDevSettingsStore } from '@/constants/dev-settings';
@@ -10,15 +12,16 @@ import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 const SETTINGS_MODULES = getSettingsModules();
 const SHOPPING_STT_FEATURE = getFeature('shoppingStt');
 
-function describeFlag(value: boolean | string | undefined): string {
-  if (value === true) return 'an';
-  if (value === false) return 'aus';
-  if (value === undefined) return 'nicht geladen';
-  return `Variante „${value}“`;
+function describeFlag(value: boolean | string | undefined, t: TFunction): string {
+  if (value === true) return t('dev.states.onLower');
+  if (value === false) return t('dev.states.offLower');
+  if (value === undefined) return t('dev.states.notLoaded');
+  return t('dev.featureFlags.variant', { value });
 }
 
 /** Lokale Entwickler-Overrides für Remote-Feature-Flags und Top-Level-Module. */
 export function FeatureFlagControls() {
+  const { t } = useTranslation();
   const flags = useFeatureFlags();
   const { getFeatureFlagState } = useFeatureAccess();
   const overrides = useDevSettingsStore((state) => state.moduleFeatureFlagOverrides);
@@ -35,28 +38,30 @@ export function FeatureFlagControls() {
     (shoppingSttFlag ? getFeatureFlagState(shoppingSttFlag) === true : false);
 
   return (
-    <ContentCard title="Feature-Flags">
+    <ContentCard title={t('dev.featureFlags.title')}>
       <Txt variant="caption" tone="secondary">
-        Lokale Overrides gelten nur mit aktivierten Entwickler-Werkzeugen und unabhängig von der
-        Umschaltung unter „Module“.
+        {t('dev.featureFlags.hint')}
       </Txt>
       {SETTINGS_MODULES.map((row) => {
         const override = overrides[row.key];
         const enabled =
           override ?? (row.featureFlag ? getFeatureFlagState(row.featureFlag) === true : true);
-        const label = row.key === 'calories' ? 'Kalorien Tracking' : row.title;
+        const label = row.key === 'calories' ? t('common.modules.calories.title') : t(row.title);
 
         return (
           <Fragment key={row.key}>
             {row.featureFlag ? (
               <Txt variant="caption" tone="secondary">
-                Remote-Flag {row.featureFlag}: {describeFlag(flags?.[row.featureFlag])}
+                {t('dev.featureFlags.remote', {
+                  flag: row.featureFlag,
+                  value: describeFlag(flags?.[row.featureFlag], t),
+                })}
               </Txt>
             ) : null}
             <Button
-              title={`${label}: ${enabled ? 'AN' : 'AUS'}`}
+              title={`${label}: ${enabled ? t('dev.states.on') : t('dev.states.off')}`}
               variant={enabled ? 'primary' : 'secondary'}
-              accessibilityLabel={`${label} ${enabled ? 'ausschalten' : 'einschalten'}`}
+              accessibilityLabel={`${label} ${enabled ? t('dev.featureFlags.turnOff') : t('dev.featureFlags.turnOn')}`}
               onPress={() => setOverride(row.key, !enabled)}
             />
           </Fragment>
@@ -65,19 +70,22 @@ export function FeatureFlagControls() {
       {shoppingSttFlag ? (
         <Fragment>
           <Txt variant="caption" tone="secondary">
-            Remote-Flag {shoppingSttFlag}: {describeFlag(flags?.[shoppingSttFlag])}
+            {t('dev.featureFlags.remote', {
+              flag: shoppingSttFlag,
+              value: describeFlag(flags?.[shoppingSttFlag], t),
+            })}
           </Txt>
           <Button
-            title={`Spracheingabe: ${shoppingSttEnabled ? 'AN' : 'AUS'}`}
+            title={`${t('dev.featureFlags.shoppingSpeech')}: ${shoppingSttEnabled ? t('dev.states.on') : t('dev.states.off')}`}
             variant={shoppingSttEnabled ? 'primary' : 'secondary'}
-            accessibilityLabel={`Spracheingabe ${shoppingSttEnabled ? 'ausschalten' : 'einschalten'}`}
+            accessibilityLabel={`${t('dev.featureFlags.shoppingSpeech')} ${shoppingSttEnabled ? t('dev.featureFlags.turnOff') : t('dev.featureFlags.turnOn')}`}
             onPress={() => setFeatureOverride(shoppingSttFlag, !shoppingSttEnabled)}
           />
         </Fragment>
       ) : null}
       {Object.keys(overrides).length > 0 || Object.keys(featureOverrides).length > 0 ? (
         <Button
-          title="Feature-Flag-Overrides zurücksetzen"
+          title={t('dev.featureFlags.reset')}
           variant="secondary"
           onPress={() => {
             resetOverrides();

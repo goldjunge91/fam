@@ -276,11 +276,25 @@ describe('AddItemForm', () => {
     });
   });
 
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('rendert die Formular-Felder für Suche, Menge und Buttons', async () => {
     await renderForm();
 
     expect(screen.getByPlaceholderText('Artikel suchen')).toBeTruthy();
     expect(screen.getByRole('button', { name: 'Zur Einkaufsliste hinzufügen' })).toBeTruthy();
+  });
+
+  it('uses English unit labels without changing canonical values', async () => {
+    const user = userEvent.setup();
+    await i18n.changeLanguage('en');
+    await renderForm();
+
+    await user.press(screen.getByRole('button', { name: 'More details' }));
+    expect(screen.getByRole('button', { name: 'Unit: Piece' })).toBeOnTheScreen();
+    expect(screen.getByText('Piece')).toBeOnTheScreen();
   });
 
   it('stellt Weitere Angaben als zugängliches 44-Punkt-Ziel bereit', async () => {

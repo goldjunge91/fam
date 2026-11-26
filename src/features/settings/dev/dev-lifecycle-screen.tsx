@@ -1,4 +1,5 @@
 import { Redirect } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { Platform, ScrollView, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -35,9 +36,9 @@ function readSessionMarker(): SessionMarker | null {
   }
 }
 
-function formatZeit(at: number): string {
+function formatZeit(at: number, locale: string): string {
   const datum = new Date(at);
-  return Number.isNaN(datum.getTime()) ? '—' : datum.toLocaleString('de-DE');
+  return Number.isNaN(datum.getTime()) ? '—' : datum.toLocaleString(locale);
 }
 
 const LEVEL_TONE: Record<LifecycleLogLevel, 'primary' | 'warning' | 'danger'> = {
@@ -48,11 +49,13 @@ const LEVEL_TONE: Record<LifecycleLogLevel, 'primary' | 'warning' | 'danger'> = 
 };
 
 export function DevLifecycleScreen() {
+  const { t, i18n } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const { session } = useSession();
   const events = getLifecycleLog();
   const marker = readSessionMarker();
   const newestFirst = [...events].reverse();
+  const locale = i18n.language;
 
   if (!hasAccess) {
     return <Redirect href="/settings" />;
@@ -60,35 +63,61 @@ export function DevLifecycleScreen() {
 
   return (
     <Screen
-      title="Lifecycle & Background"
-      subtitle="Was die App vor dem letzten Wechsel tat"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.lifecycle.title')}
+      subtitle={t('dev.lifecycle.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Aktuelle Session">
-        <Zeile label="Zustand" wert={marker?.state ?? '—'} />
-        <Zeile label="Session-ID" wert={marker?.sessionId ?? '—'} />
-        <Zeile label="Gestartet" wert={marker?.startedAt ? formatZeit(marker.startedAt) : '—'} />
+      <ContentCard title={t('dev.lifecycle.session')}>
         <Zeile
-          label="Letztes Ereignis"
-          wert={marker?.lastEventAt ? formatZeit(marker.lastEventAt) : '—'}
+          label={t('dev.lifecycle.state')}
+          wert={
+            marker?.state === 'open'
+              ? t('dev.lifecycle.open')
+              : marker?.state === 'closed'
+                ? t('dev.lifecycle.closed')
+                : t('dev.states.none')
+          }
         />
-        <Zeile label="Letzter App-Zustand" wert={marker?.lastAppState ?? '—'} />
-        <Zeile label="Letzte Operation" wert={marker?.lastOperation ?? '—'} />
-        <Zeile label="Letzte Route" wert={marker?.lastRoute ?? '—'} />
-        <Zeile label="Gerät" wert={`${Platform.OS} ${Platform.Version}`} />
-        <Zeile label="Nutzer-ID" wert={session?.user.id ?? '—'} />
+        <Zeile
+          label={t('dev.lifecycle.sessionId')}
+          wert={marker?.sessionId ?? t('dev.states.none')}
+        />
+        <Zeile
+          label={t('dev.lifecycle.started')}
+          wert={marker?.startedAt ? formatZeit(marker.startedAt, locale) : t('dev.states.none')}
+        />
+        <Zeile
+          label={t('dev.lifecycle.lastEvent')}
+          wert={marker?.lastEventAt ? formatZeit(marker.lastEventAt, locale) : t('dev.states.none')}
+        />
+        <Zeile
+          label={t('dev.lifecycle.lastAppState')}
+          wert={marker?.lastAppState ?? t('dev.states.none')}
+        />
+        <Zeile
+          label={t('dev.lifecycle.lastOperation')}
+          wert={marker?.lastOperation ?? t('dev.states.none')}
+        />
+        <Zeile
+          label={t('dev.lifecycle.lastRoute')}
+          wert={marker?.lastRoute ?? t('dev.states.none')}
+        />
+        <Zeile label={t('dev.lifecycle.device')} wert={`${Platform.OS} ${Platform.Version}`} />
+        <Zeile
+          label={t('dev.environment.userId')}
+          wert={session?.user.id ?? t('dev.states.none')}
+        />
       </ContentCard>
 
-      <ContentCard title={`Ereignisse (${newestFirst.length})`}>
+      <ContentCard title={t('dev.lifecycle.events', { count: newestFirst.length })}>
         {newestFirst.length === 0 ? (
           <Txt variant="caption" tone="secondary">
-            Noch keine Lifecycle-Ereignisse aufgezeichnet. Wechsle die App in den Hintergrund und
-            kehre zurueck.
+            {t('dev.lifecycle.empty')}
           </Txt>
         ) : (
           <ScrollView style={devStyles.logScroll} nestedScrollEnabled>
             {newestFirst.map((event) => (
-              <LifecycleRow key={`${event.at}-${event.name}`} event={event} />
+              <LifecycleRow key={`${event.at}-${event.name}`} event={event} locale={locale} />
             ))}
           </ScrollView>
         )}
@@ -97,14 +126,14 @@ export function DevLifecycleScreen() {
   );
 }
 
-function LifecycleRow({ event }: { event: LifecycleLogEvent }) {
+function LifecycleRow({ event, locale }: { event: LifecycleLogEvent; locale: string }) {
   return (
     <View style={devStyles.logRow}>
       <Txt variant="caption" weight="700" tone={LEVEL_TONE[event.level]}>
         {event.name}
       </Txt>
       <Txt variant="caption" tone="secondary">
-        {formatZeit(event.at)}
+        {formatZeit(event.at, locale)}
       </Txt>
       {event.detail ? (
         <Txt variant="caption" tone="secondary">

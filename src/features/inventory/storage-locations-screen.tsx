@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -45,6 +46,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function StorageLocationsScreen() {
+  const { t } = useTranslation();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
 
@@ -73,7 +75,10 @@ export function StorageLocationsScreen() {
       });
       setNewLocationName('');
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Erstellen');
+      Alert.alert(
+        t('inventory.storageLocations.error'),
+        err instanceof Error ? err.message : t('inventory.storageLocations.createError'),
+      );
     }
   }
 
@@ -88,47 +93,57 @@ export function StorageLocationsScreen() {
       setEditingId(null);
       setEditingName('');
     } catch (err) {
-      Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Aktualisieren');
+      Alert.alert(
+        t('inventory.storageLocations.error'),
+        err instanceof Error ? err.message : t('inventory.storageLocations.updateError'),
+      );
     }
   }
 
   async function handleDelete(id: string, name: string) {
     if (!currentHousehold) return;
-    Alert.alert('Lagerort löschen', `Möchtest du den Lagerort "${name}" wirklich löschen?`, [
-      { text: 'Abbrechen', style: 'cancel' },
-      {
-        text: 'Löschen',
-        style: 'destructive',
-        onPress: async () => {
-          try {
-            await deleteMutation.mutateAsync({
-              id,
-              household_id: currentHousehold.id,
-            });
-          } catch (err) {
-            Alert.alert('Fehler', err instanceof Error ? err.message : 'Fehler beim Löschen');
-          }
+    Alert.alert(
+      t('inventory.storageLocations.deleteTitle'),
+      t('inventory.storageLocations.deleteBody', { name }),
+      [
+        { text: t('inventory.storageLocations.cancel'), style: 'cancel' },
+        {
+          text: t('inventory.storageLocations.delete'),
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await deleteMutation.mutateAsync({
+                id,
+                household_id: currentHousehold.id,
+              });
+            } catch (err) {
+              Alert.alert(
+                t('inventory.storageLocations.error'),
+                err instanceof Error ? err.message : t('inventory.storageLocations.deleteError'),
+              );
+            }
+          },
         },
-      },
-    ]);
+      ],
+    );
   }
 
   return (
     <Screen
-      title="Lagerorte verwalten"
+      title={t('inventory.storageLocations.title')}
       subtitle={currentHousehold?.name}
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      back={{ label: t('inventory.storageLocations.settings'), href: '/settings' }}
       backStyle="icon">
       {/* Formular zum Anlegen eines neuen Lagerorts */}
-      <ContentCard title="Neuen Lagerort hinzufügen">
+      <ContentCard title={t('inventory.storageLocations.newTitle')}>
         <View style={styles.addForm}>
           <TextField
-            placeholder="z.B. Abstellkammer, Keller, Vorratsschrank..."
+            placeholder={t('inventory.storageLocations.placeholder')}
             value={newLocationName}
             onChangeText={setNewLocationName}
           />
           <Button
-            title="Hinzufügen"
+            title={t('inventory.storageLocations.add')}
             onPress={handleAdd}
             loading={addMutation.isPending}
             disabled={!newLocationName.trim()}
@@ -137,16 +152,16 @@ export function StorageLocationsScreen() {
       </ContentCard>
 
       {/* Liste aller vorhandenen Lagerorte mit Umbenennen- & Löschen-Optionen */}
-      <ContentCard title="Vorhandene Lagerorte">
+      <ContentCard title={t('inventory.storageLocations.existingTitle')}>
         {isLoading ? (
-          <Txt variant="body">Lädt...</Txt>
+          <Txt variant="body">{t('inventory.storageLocations.loading')}</Txt>
         ) : !hasLoadedLocations && isError ? (
           <View style={styles.state}>
             <Txt variant="body" tone="danger" accessibilityRole="alert">
-              Lagerorte konnten nicht geladen werden.
+              {t('inventory.storageLocations.loadError')}
             </Txt>
             <Button
-              title="Erneut versuchen"
+              title={t('inventory.storageLocations.retry')}
               variant="secondary"
               size="sm"
               onPress={() => void refetch()}
@@ -157,10 +172,10 @@ export function StorageLocationsScreen() {
             {isError ? (
               <View style={styles.state}>
                 <Txt variant="body" tone="danger" accessibilityRole="alert">
-                  Lagerorte konnten nicht aktualisiert werden.
+                  {t('inventory.storageLocations.updatedError')}
                 </Txt>
                 <Button
-                  title="Erneut versuchen"
+                  title={t('inventory.storageLocations.retry')}
                   variant="secondary"
                   size="sm"
                   onPress={() => void refetch()}
@@ -168,7 +183,7 @@ export function StorageLocationsScreen() {
               </View>
             ) : null}
             <Txt variant="body" tone="secondary">
-              Keine Lagerorte vorhanden.
+              {t('inventory.storageLocations.empty')}
             </Txt>
           </>
         ) : (
@@ -176,10 +191,10 @@ export function StorageLocationsScreen() {
             {isError ? (
               <View style={styles.state}>
                 <Txt variant="body" tone="danger" accessibilityRole="alert">
-                  Lagerorte konnten nicht aktualisiert werden.
+                  {t('inventory.storageLocations.updatedError')}
                 </Txt>
                 <Button
-                  title="Erneut versuchen"
+                  title={t('inventory.storageLocations.retry')}
                   variant="secondary"
                   size="sm"
                   onPress={() => void refetch()}
@@ -199,7 +214,7 @@ export function StorageLocationsScreen() {
                         <View style={styles.buttonRow}>
                           <View style={styles.flex}>
                             <Button
-                              title="Speichern"
+                              title={t('inventory.storageLocations.save')}
                               onPress={() => handleUpdate(loc.id)}
                               loading={updateMutation.isPending}
                               disabled={!editingName.trim()}
@@ -207,7 +222,7 @@ export function StorageLocationsScreen() {
                           </View>
                           <View style={styles.flex}>
                             <Button
-                              title="Abbrechen"
+                              title={t('inventory.storageLocations.cancel')}
                               variant="secondary"
                               onPress={() => {
                                 setEditingId(null);
@@ -225,7 +240,7 @@ export function StorageLocationsScreen() {
                         </Txt>
                         <View style={styles.buttonRow}>
                           <Button
-                            title="Umbenennen"
+                            title={t('inventory.storageLocations.rename')}
                             variant="secondary"
                             onPress={() => {
                               setEditingId(loc.id);
@@ -233,7 +248,7 @@ export function StorageLocationsScreen() {
                             }}
                           />
                           <Button
-                            title="Löschen"
+                            title={t('inventory.storageLocations.delete')}
                             variant="danger"
                             onPress={() => handleDelete(loc.id, loc.name)}
                           />

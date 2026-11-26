@@ -1,5 +1,6 @@
 import * as Clipboard from 'expo-clipboard';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Row, TextField } from '@/constants/ui';
@@ -33,6 +34,7 @@ export function OcrInspectorOutputActions({
   manualLabels,
   geometry,
 }: OcrInspectorOutputActionsProps) {
+  const { t } = useTranslation();
   const [showJson, setShowJson] = useState(false);
   const json =
     result && runSettings
@@ -80,21 +82,23 @@ export function OcrInspectorOutputActions({
     <View>
       <Row gap={8} wrap>
         <Button
-          title="Kopieren"
+          title={t('common.actions.copy')}
           variant="link"
           size="sm"
           disabled={!text}
           onPress={() => void Clipboard.setStringAsync(text)}
         />
         <Button
-          title="JSON kopieren"
+          title={t('dev.ocr.outputActions.copyJson')}
           variant="link"
           size="sm"
           disabled={!json}
           onPress={() => void Clipboard.setStringAsync(json)}
         />
         <Button
-          title={showJson ? 'JSON ausblenden' : 'JSON anzeigen'}
+          title={
+            showJson ? t('dev.ocr.outputActions.hideJson') : t('dev.ocr.outputActions.showJson')
+          }
           variant="link"
           size="sm"
           disabled={!json}
@@ -103,7 +107,7 @@ export function OcrInspectorOutputActions({
       </Row>
       {showJson && json ? (
         <TextField
-          accessibilityLabel="OCR-Ergebnis als JSON"
+          accessibilityLabel={t('dev.ocr.outputActions.jsonLabel')}
           value={json}
           editable={false}
           multiline

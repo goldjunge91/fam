@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -31,6 +32,7 @@ import {
 import { devStyles, Zeile } from './dev-screen-shared';
 
 export function DevOverridesScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const queryClient = useQueryClient();
   const { session } = useSession();
@@ -58,7 +60,7 @@ export function DevOverridesScreen() {
     try {
       await action();
     } catch (error) {
-      Alert.alert('Fehlgeschlagen', error instanceof Error ? error.message : String(error));
+      Alert.alert(t('dev.states.failed'), error instanceof Error ? error.message : String(error));
     } finally {
       setBusy(null);
     }
@@ -66,17 +68,20 @@ export function DevOverridesScreen() {
 
   async function handleResetPremium() {
     if (!activeHousehold?.id) {
-      Alert.alert('Kein aktiver Haushalt', 'Es wurde kein aktiver Haushalt gefunden.');
+      Alert.alert(
+        t('dev.overrides.activeHouseholdMissing'),
+        t('dev.overrides.activeHouseholdMissingMessage'),
+      );
       return;
     }
-    await mitBusy('Plus & KI zurücksetzen', async () => {
+    await mitBusy('premium', async () => {
       await devResetHouseholdPremium({
         householdId: activeHousehold.id,
         userId: session?.user?.id,
         queryClient,
       });
       await refreshPremium();
-      Alert.alert('Erfolgreich', 'Plus und KI wurden für diesen Haushalt zurückgesetzt.');
+      Alert.alert(t('dev.states.success'), t('dev.overrides.premiumResetSuccess'));
     });
   }
 
@@ -104,74 +109,90 @@ export function DevOverridesScreen() {
 
   return (
     <Screen
-      title="Overrides & Feature-Konfiguration"
-      subtitle="Lokale Laufzeit- und Feature-Steuerung"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.overrides.title')}
+      subtitle={t('dev.overrides.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="App-Sprache">
+      <ContentCard title={t('dev.overrides.language')}>
         <Txt variant="caption" tone="secondary">
-          Standardmäßig wird die erste unterstützte Gerätesprache verwendet.
+          {t('dev.overrides.languageHint')}
         </Txt>
         <LanguageOverrideControl />
       </ContentCard>
 
-      <ContentCard title="Plus, KI & Werbung">
+      <ContentCard title={t('dev.overrides.premium')}>
         <Button
-          title="Plus & KI für Haushalt zurücksetzen"
+          title={t('dev.overrides.resetPremium')}
           variant="secondary"
-          loading={busy === 'Plus & KI zurücksetzen'}
-          accessibilityLabel="Plus und KI für aktuellen Haushalt zurücksetzen"
+          loading={busy === 'premium'}
+          accessibilityLabel={t('dev.overrides.resetPremiumAccessibility')}
           onPress={handleResetPremium}
         />
         <View style={devStyles.devRow}>
           <Txt variant="caption" tone="secondary">
-            Plus erzwingen (Override, überlebt Neustart)
+            {t('dev.overrides.plusHint')}
           </Txt>
         </View>
         <Button
-          title={`Plus erzwingen: ${premiumOverrideEnabled ? 'AN' : 'AUS'}`}
+          title={t('dev.overrides.forcePlus', {
+            state: premiumOverrideEnabled ? t('dev.states.on') : t('dev.states.off'),
+          })}
           variant={premiumOverrideEnabled ? 'primary' : 'secondary'}
           accessibilityLabel={
-            premiumOverrideEnabled ? 'Plus-Override ausschalten' : 'Plus-Override einschalten'
+            premiumOverrideEnabled
+              ? t('dev.overrides.plusAccessibilityOn')
+              : t('dev.overrides.plusAccessibilityOff')
           }
           onPress={() => setForcePremiumOverride(!premiumOverrideEnabled)}
         />
         {forcePremiumOverride !== null ? (
           <Button
-            title={`Plus-Override zurücksetzen (Build-Wert: ${env.forcePremium ? 'an' : 'aus'})`}
+            title={t('dev.overrides.resetOverrideWithBuild', {
+              state: env.forcePremium ? t('dev.states.onLower') : t('dev.states.offLower'),
+            })}
             variant="secondary"
             onPress={() => setForcePremiumOverride(null)}
           />
         ) : null}
         <View style={devStyles.devRow}>
           <Txt variant="caption" tone="secondary">
-            KI erzwingen (Override, überlebt Neustart)
+            {t('dev.overrides.aiHint')}
           </Txt>
         </View>
         <Button
-          title={`KI erzwingen: ${aiOverrideEnabled ? 'AN' : 'AUS'}`}
+          title={t('dev.overrides.forceAi', {
+            state: aiOverrideEnabled ? t('dev.states.on') : t('dev.states.off'),
+          })}
           variant={aiOverrideEnabled ? 'primary' : 'secondary'}
           accessibilityLabel={
-            aiOverrideEnabled ? 'KI-Override ausschalten' : 'KI-Override einschalten'
+            aiOverrideEnabled
+              ? t('dev.overrides.aiAccessibilityOn')
+              : t('dev.overrides.aiAccessibilityOff')
           }
           onPress={() => setForceAiOverride(!aiOverrideEnabled)}
         />
         {forceAiOverride !== null ? (
           <Button
-            title="KI-Override zurücksetzen"
+            title={t('dev.overrides.resetAi')}
             variant="secondary"
             onPress={() => setForceAiOverride(null)}
           />
         ) : null}
         <View style={devStyles.devRow}>
           <Txt variant="caption" tone="secondary">
-            Werbung umschalten (Override, überlebt Neustart)
+            {t('dev.overrides.adsHint')}
           </Txt>
         </View>
         <Button
-          title={`Werbung: ${adsEnabled ? 'AN' : 'AUS'}`}
+          title={t('dev.overrides.ads', {
+            state: adsEnabled ? t('dev.states.on') : t('dev.states.off'),
+          })}
           variant={adsEnabled ? 'primary' : 'secondary'}
-          accessibilityLabel={adsEnabled ? 'Werbung ausschalten' : 'Werbung einschalten'}
+          accessibilityLabel={
+            adsEnabled
+              ? t('dev.overrides.adsAccessibilityOn')
+              : t('dev.overrides.adsAccessibilityOff')
+          }
           onPress={() => {
             const nextEnabled = !adsEnabled;
             setAdsOverride(nextEnabled);
@@ -180,43 +201,50 @@ export function DevOverridesScreen() {
         />
         {adsOverride !== null ? (
           <Button
-            title={`Override zurücksetzen (Build-Wert: ${env.adsEnabled ? 'an' : 'aus'})`}
+            title={t('dev.overrides.resetOverrideWithBuild', {
+              state: env.adsEnabled ? t('dev.states.onLower') : t('dev.states.offLower'),
+            })}
             variant="secondary"
             onPress={() => setAdsOverride(null)}
           />
         ) : null}
       </ContentCard>
 
-      <ContentCard title="Feature-Status">
+      <ContentCard title={t('dev.overrides.featureStatus')}>
         <Zeile
-          label="Flag „test-feature“"
-          wert={testFeatureFlag ? 'an' : 'aus'}
+          label={t('dev.overrides.testFeature')}
+          wert={testFeatureFlag ? t('dev.states.onLower') : t('dev.states.offLower')}
           tone={testFeatureFlag ? undefined : 'warning'}
         />
       </ContentCard>
 
       <FeatureFlagControls />
 
-      <ContentCard title="Analytics-Steuerung">
-        <Zeile label="Standardwerte" wert="alle an" tone="accent" />
+      <ContentCard title={t('dev.overrides.analytics.title')}>
+        <Zeile
+          label={t('dev.overrides.defaults')}
+          wert={t('dev.overrides.defaultsValue')}
+          tone="accent"
+        />
         <Txt variant="caption" tone="secondary">
-          Lokale Overrides gelten sofort und überleben einen Neustart.
+          {t('dev.overrides.localOverrideHint')}
         </Txt>
         {analyticsToggles.map((toggle) => {
           const enabled = toggle.getValue(analyticsSettings);
+          const label = t(toggle.labelKey);
           return (
             <Button
               key={toggle.path}
-              title={`${toggle.label}: ${enabled ? 'AN' : 'AUS'}`}
+              title={`${label}: ${enabled ? t('dev.states.on') : t('dev.states.off')}`}
               variant={enabled ? 'primary' : 'secondary'}
-              accessibilityLabel={`${toggle.label} ${enabled ? 'ausschalten' : 'einschalten'}`}
+              accessibilityLabel={`${label} ${enabled ? t('dev.featureFlags.turnOff') : t('dev.featureFlags.turnOn')}`}
               onPress={() => toggleAnalyticsSetting(toggle)}
             />
           );
         })}
         {Object.keys(analyticsOverrides).length > 0 ? (
           <Button
-            title="Analytics-Overrides zurücksetzen"
+            title={t('dev.overrides.resetAnalytics')}
             variant="secondary"
             onPress={() => {
               resetAnalyticsOverrides();

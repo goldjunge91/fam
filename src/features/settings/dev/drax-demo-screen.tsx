@@ -1,5 +1,6 @@
 import { Redirect, router } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, useWindowDimensions, View } from 'react-native';
 import {
   DraxProvider,
@@ -48,21 +49,27 @@ function getItemSpan(item: DemoItem): GridItemSpan {
 }
 
 export function DraxDemoScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const [withScreen, setWithScreen] = useState(false);
   const [generation, setGeneration] = useState(0);
   const insets = useSafeAreaInsets();
   const controls = (
     <View style={styles.controls}>
-      <Button title="Zurück" variant="secondary" size="sm" onPress={() => router.back()} />
       <Button
-        title={withScreen ? 'Ohne Screen' : 'Mit Screen'}
+        title={t('dev.drax.back')}
+        variant="secondary"
+        size="sm"
+        onPress={() => router.back()}
+      />
+      <Button
+        title={withScreen ? t('dev.drax.withoutScreen') : t('dev.drax.withScreen')}
         variant="secondary"
         size="sm"
         onPress={() => setWithScreen((previous) => !previous)}
       />
       <Button
-        title="Reset"
+        title={t('dev.drax.reset')}
         variant="secondary"
         size="sm"
         onPress={() => setGeneration((previous) => previous + 1)}
@@ -77,7 +84,7 @@ export function DraxDemoScreen() {
 
   if (withScreen) {
     return (
-      <Screen title="Drax-Demo" scroll={false} padded={false} applyBottomPadding={false}>
+      <Screen title={t('dev.drax.title')} scroll={false} padded={false} applyBottomPadding={false}>
         {controls}
         {grid}
       </Screen>
@@ -86,7 +93,7 @@ export function DraxDemoScreen() {
   return (
     <Surface style={[styles.fill, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <Txt variant="subheading" style={styles.heading}>
-        Drax-Demo: Basis
+        {t('dev.drax.baseTitle')}
       </Txt>
       {controls}
       {grid}
@@ -95,8 +102,9 @@ export function DraxDemoScreen() {
 }
 
 function DemoGrid() {
+  const { t } = useTranslation();
   const [data, setData] = useState(INITIAL_ITEMS);
-  const [diagnostic, setDiagnostic] = useState('A kurz halten: Messung erscheint hier.');
+  const [diagnostic, setDiagnostic] = useState(t('dev.drax.diagnostic'));
   const scrollRef = useRef<ScrollView>(null);
   const { width } = useWindowDimensions();
   const insets = useSafeAreaInsets();
@@ -143,7 +151,11 @@ function DemoGrid() {
                   key={sortable.stableKeyExtractor(item, index)}
                   sortable={sortable}
                   index={index}
-                  accessibilityLabel={`Kachel ${item.id}, ${item.colSpan} mal ${item.rowSpan}`}
+                  accessibilityLabel={t('dev.drax.tileAccessibility', {
+                    id: item.id,
+                    columns: item.colSpan,
+                    rows: item.rowSpan,
+                  })}
                   style={[styles.tile, layout.positions[index]]}>
                   <DemoTile item={item} index={index} onDiagnostic={setDiagnostic} />
                 </SortableItem>
@@ -168,6 +180,7 @@ function DemoTile({
   index: number;
   onDiagnostic: (message: string) => void;
 }) {
+  const { t } = useTranslation();
   const tileRef = useRef<View>(null);
   const { rootViewRef, rootOffsetSV, hoverPositionSV, draggedIdSV } = useDraxContext();
 
@@ -184,11 +197,14 @@ function DemoTile({
           const hover = hoverPositionSV.value;
           const point = (a: number, b: number) => `${Math.round(a)}, ${Math.round(b)}`;
           const message = [
-            `${item.id}: Hover-Messung (x, y)`,
-            `Root Fenster: ${point(rootX, rootY)} | Drax: ${point(root.x, root.y)}`,
-            `Hover relativ: ${point(hover.x, hover.y)}`,
-            `Erwartet: ${point(rootX + hover.x, rootY + hover.y)} | Ist: ${point(x, y)}`,
-            `Größe: ${point(width, height)}`,
+            t('dev.drax.hoverMeasurement', { id: item.id }),
+            t('dev.drax.rootWindow', { root: point(rootX, rootY), drax: point(root.x, root.y) }),
+            t('dev.drax.hoverRelative', { point: point(hover.x, hover.y) }),
+            t('dev.drax.expectedActual', {
+              expected: point(rootX + hover.x, rootY + hover.y),
+              actual: point(x, y),
+            }),
+            t('dev.drax.size', { size: point(width, height) }),
           ].join('\n');
           onDiagnostic(message);
           debugLog('[Drax demo]', message);
@@ -196,7 +212,7 @@ function DemoTile({
       });
     }, 300);
     return () => clearTimeout(timer);
-  }, [draggedIdSV, hoverPositionSV, item.id, onDiagnostic, rootOffsetSV, rootViewRef]);
+  }, [draggedIdSV, hoverPositionSV, item.id, onDiagnostic, rootOffsetSV, rootViewRef, t]);
 
   return (
     <View ref={tileRef} collapsable={false} style={styles.fill}>

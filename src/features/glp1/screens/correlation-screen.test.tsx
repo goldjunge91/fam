@@ -85,7 +85,7 @@ describe('CorrelationScreen', () => {
     await render(<CorrelationScreen />);
 
     expect(screen.getByText('Korrelationsanalyse')).toBeOnTheScreen();
-    expect(screen.getByText('Korrelationsanalyse wird geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Korrelationsanalyse wird geladen…')).toBeOnTheScreen();
     expect(mockUseProfile).toHaveBeenCalledWith('user-1');
     expect(mockUseCorrelationSeries).toHaveBeenCalledWith(
       'user-1',

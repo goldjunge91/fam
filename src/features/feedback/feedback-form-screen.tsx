@@ -1,19 +1,14 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { Screen } from '@/components/layout/screen';
 import { ContentCard } from '@/components/ui/content-card';
 import { Button, SegmentedControl, TextField, Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
 import { type FeedbackType, useCreateTicketMutation } from '@/features/feedback/api';
-import { FEEDBACK_TYPE_LABELS } from '@/features/feedback/labels';
-
-const TYPE_OPTIONS = (Object.keys(FEEDBACK_TYPE_LABELS) as FeedbackType[]).map((value) => ({
-  value,
-  label: FEEDBACK_TYPE_LABELS[value],
-}));
+import { FEEDBACK_TYPE_VALUES, getFeedbackTypeLabel } from '@/features/feedback/labels';
 
 const styles = StyleSheet.create((theme) => ({
   form: {
@@ -22,6 +17,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function FeedbackFormScreen() {
+  const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
 
@@ -30,6 +26,10 @@ export function FeedbackFormScreen() {
   const [body, setBody] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [createdTicketNumber, setCreatedTicketNumber] = useState<number | null>(null);
+  const typeOptions = FEEDBACK_TYPE_VALUES.map((value) => ({
+    value,
+    label: getFeedbackTypeLabel(t, value),
+  }));
 
   const mutation = useCreateTicketMutation();
 
@@ -39,7 +39,7 @@ export function FeedbackFormScreen() {
     const trimmedSubject = subject.trim();
     const trimmedBody = body.trim();
     if (!trimmedSubject || !trimmedBody) {
-      setErrorMsg('Bitte fülle Betreff und Nachricht aus.');
+      setErrorMsg(t('feedback.form.missing'));
       return;
     }
 
@@ -53,21 +53,21 @@ export function FeedbackFormScreen() {
       });
       setCreatedTicketNumber(ticket.ticket_number);
     } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : 'Ein unerwarteter Fehler ist aufgetreten.');
+      setErrorMsg(err instanceof Error ? err.message : t('feedback.detail.unexpected'));
     }
   }
 
   if (createdTicketNumber !== null) {
     return (
-      <Screen title="Feedback geben" back={{ label: 'Feedback' }}>
+      <Screen title={t('feedback.form.title')} back={{ label: t('feedback.detail.back') }}>
         <ContentCard>
           <View style={styles.form}>
             <Txt variant="body" weight="700">
-              Danke für dein Feedback!
+              {t('feedback.form.thanks')}
             </Txt>
-            <Txt variant="body">{`Dein Ticket #${createdTicketNumber} ist eingegangen. Wir melden uns, sobald sich etwas tut.`}</Txt>
+            <Txt variant="body">{t('feedback.form.received', { number: createdTicketNumber })}</Txt>
             <Button
-              title="Meine Tickets ansehen"
+              title={t('feedback.form.viewTickets')}
               onPress={() => router.replace('/settings/feedback')}
             />
           </View>
@@ -77,29 +77,29 @@ export function FeedbackFormScreen() {
   }
 
   return (
-    <Screen title="Feedback geben" back={{ label: 'Zurück' }}>
+    <Screen title={t('feedback.form.title')} back={{ label: t('feedback.form.back') }}>
       <ContentCard>
         <View style={styles.form}>
           <SegmentedControl
-            label="Art des Feedbacks"
-            options={TYPE_OPTIONS}
+            label={t('feedback.form.type')}
+            options={typeOptions}
             selected={type}
             onSelect={setType}
             selectionRole="radio"
           />
 
           <TextField
-            label="Betreff"
+            label={t('feedback.form.subject')}
             value={subject}
             onChangeText={setSubject}
-            placeholder="Kurze Zusammenfassung"
+            placeholder={t('feedback.form.subjectPlaceholder')}
           />
 
           <TextField
-            label="Nachricht"
+            label={t('feedback.form.message')}
             value={body}
             onChangeText={setBody}
-            placeholder="Was ist passiert, oder was schlägst du vor?"
+            placeholder={t('feedback.form.messagePlaceholder')}
             multiline
             numberOfLines={5}
             size="large"
@@ -111,7 +111,11 @@ export function FeedbackFormScreen() {
             </Txt>
           ) : null}
 
-          <Button title="Absenden" onPress={handleSubmit} loading={mutation.isPending} />
+          <Button
+            title={t('feedback.form.submit')}
+            onPress={handleSubmit}
+            loading={mutation.isPending}
+          />
         </View>
       </ContentCard>
     </Screen>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Platform, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -14,7 +15,7 @@ import {
   TextField,
   Txt,
 } from '@/constants/ui';
-import { UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions } from '@/lib/units';
 import {
   type CustomIngredient,
   customIngredientsSchema,
@@ -22,7 +23,7 @@ import {
   normalizeCustomIngredientUnit,
 } from '../domain/custom-ingredients';
 import { DEFAULT_PORTIONS_PER_PERSON, type ResolvedServings, resolveServings } from '../servings';
-import { MEAL_SLOT_LABELS, type MealSlot } from '../week';
+import { dateLabel, getMealSlotLabel, type MealSlot } from '../week';
 
 export type EntryFormInitial = {
   servings_mode: 'portions' | 'people';
@@ -65,18 +66,7 @@ type CustomEntryFormModalProps = {
 
 type EntryFormModalProps = RecipeEntryFormModalProps | CustomEntryFormModalProps;
 
-const SERVINGS_MODE_OPTIONS = [
-  {
-    value: 'portions',
-    label: 'Portionen',
-    accessibilityLabel: 'Portionen-Modus',
-  },
-  {
-    value: 'people',
-    label: 'Personen',
-    accessibilityLabel: 'Personen-Modus',
-  },
-] as const;
+const SERVINGS_MODE_VALUES = ['portions', 'people'] as const;
 
 const styles = StyleSheet.create((theme) => ({
   root: {
@@ -174,6 +164,12 @@ function RecipeEntryFormModal({
   onSave,
   onDelete,
 }: RecipeEntryFormModalProps) {
+  const { t, i18n } = useTranslation();
+  const servingsModeOptions = SERVINGS_MODE_VALUES.map((value) => ({
+    value,
+    label: t(`mealPlanner.entry.${value}Mode`),
+    accessibilityLabel: t(`mealPlanner.entry.${value}ModeAccessibility`),
+  }));
   const [mode, setMode] = useState<'portions' | 'people'>(initial?.servings_mode ?? 'portions');
   const [portionsText, setPortionsText] = useState(String(initial?.portions ?? 1));
   const [peopleText, setPeopleText] = useState(String(initial?.people_count ?? ''));
@@ -229,60 +225,69 @@ function RecipeEntryFormModal({
                 {recipeTitle}
               </Txt>
               <Txt variant="body" tone="secondary">
-                {MEAL_SLOT_LABELS[mealSlot]} · {entryDate}
+                {getMealSlotLabel(t, mealSlot)} · {dateLabel(entryDate, i18n.language)}
               </Txt>
             </View>
-            <CloseButton onPress={onDismiss} accessibilityLabel="Schließen" />
+            <CloseButton onPress={onDismiss} accessibilityLabel={t('mealPlanner.entry.close')} />
           </View>
 
           <View style={styles.content}>
             <SegmentedControl
-              label="Portionen-/Personen-Modus"
-              options={SERVINGS_MODE_OPTIONS}
+              label={t('mealPlanner.entry.servingsMode')}
+              options={servingsModeOptions}
               selected={mode}
               onSelect={setMode}
             />
 
             {mode === 'portions' ? (
               <TextField
-                label="Portionen"
+                label={t('mealPlanner.entry.portions')}
                 value={portionsText}
                 onChangeText={setPortionsText}
                 keyboardType="decimal-pad"
-                placeholder="z. B. 4"
+                placeholder={t('mealPlanner.entry.numberPlaceholder')}
               />
             ) : (
               <>
                 <TextField
-                  label="Personen"
+                  label={t('mealPlanner.entry.people')}
                   value={peopleText}
                   onChangeText={setPeopleText}
                   keyboardType="number-pad"
-                  placeholder="z. B. 4"
+                  placeholder={t('mealPlanner.entry.numberPlaceholder')}
                 />
                 <Press
                   haptic="selection"
                   accessibilityRole="button"
-                  accessibilityLabel="Ganzer Haushalt isst"
+                  accessibilityLabel={t('mealPlanner.entry.wholeHousehold', {
+                    count: householdMemberCount,
+                    unit: t('mealPlanner.entry.person', { count: householdMemberCount }),
+                  })}
                   onPress={handleWholeHousehold}
                   style={styles.wholeHouseholdButton}>
                   <Txt variant="label" tone="primary" weight="400">
-                    Ganzer Haushalt isst ({householdMemberCount}{' '}
-                    {householdMemberCount === 1 ? 'Person' : 'Personen'})
+                    {t('mealPlanner.entry.wholeHousehold', {
+                      count: householdMemberCount,
+                      unit: t('mealPlanner.entry.person', { count: householdMemberCount }),
+                    })}
                   </Txt>
                 </Press>
                 <Txt variant="body" tone="secondary">
                   {previewPortions !== null
-                    ? `≈ ${previewPortions} Portionen (${factor} Portionen/Person)`
-                    : `${factor} Portionen/Person`}
+                    ? t('mealPlanner.entry.preview', { portions: previewPortions, factor })
+                    : t('mealPlanner.entry.factor', { factor })}
                 </Txt>
               </>
             )}
 
             <View style={styles.actions}>
-              <Button title="Speichern" onPress={handleSave} disabled={saveDisabled} />
+              <Button
+                title={t('mealPlanner.entry.save')}
+                onPress={handleSave}
+                disabled={saveDisabled}
+              />
               {onDelete ? (
-                <Button title="Eintrag entfernen" variant="danger" onPress={onDelete} />
+                <Button title={t('mealPlanner.entry.remove')} variant="danger" onPress={onDelete} />
               ) : null}
             </View>
           </View>
@@ -327,6 +332,8 @@ function CustomEntryFormModal({
   onSave,
   onDelete,
 }: CustomEntryFormModalProps) {
+  const { t, i18n } = useTranslation();
+  const unitOptions = getUnitOptions(t);
   const nextId = useRef(0);
   const [title, setTitle] = useState(initial?.title ?? '');
   const [portionsText, setPortionsText] = useState(String(initial?.portions ?? 1));
@@ -391,40 +398,44 @@ function CustomEntryFormModal({
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.header}>
             <View style={styles.headerText}>
-              <Txt variant="title">Freies Gericht</Txt>
+              <Txt variant="title">{t('mealPlanner.entry.customTitle')}</Txt>
               <Txt variant="body" tone="secondary">
-                {MEAL_SLOT_LABELS[mealSlot]} · {entryDate}
+                {getMealSlotLabel(t, mealSlot)} · {dateLabel(entryDate, i18n.language)}
               </Txt>
             </View>
-            <CloseButton onPress={onDismiss} accessibilityLabel="Schließen" />
+            <CloseButton onPress={onDismiss} accessibilityLabel={t('mealPlanner.entry.close')} />
           </View>
 
           <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
             <TextField
-              label="Gericht"
+              label={t('mealPlanner.entry.dish')}
               value={title}
               onChangeText={setTitle}
-              placeholder="z. B. Gemüsepfanne"
+              placeholder={t('mealPlanner.entry.dishPlaceholder')}
               maxLength={120}
             />
 
             <TextField
-              label="Portionen"
+              label={t('mealPlanner.entry.portions')}
               value={portionsText}
               onChangeText={setPortionsText}
               keyboardType="decimal-pad"
-              placeholder="z. B. 4"
+              placeholder={t('mealPlanner.entry.numberPlaceholder')}
             />
 
             <View style={styles.ingredientList}>
-              <Txt variant="heading">Zutaten</Txt>
+              <Txt variant="heading">{t('mealPlanner.entry.ingredients')}</Txt>
               {ingredients.map((ingredient, index) => (
                 <Card key={ingredient.id} soft style={styles.ingredientRow}>
                   <View style={styles.ingredientHeader}>
-                    <Txt variant="label">Zutat {index + 1}</Txt>
+                    <Txt variant="label">
+                      {t('mealPlanner.entry.ingredient', { index: index + 1 })}
+                    </Txt>
                     <Press
                       accessibilityRole="button"
-                      accessibilityLabel={`Zutat ${index + 1} entfernen`}
+                      accessibilityLabel={t('mealPlanner.entry.removeIngredient', {
+                        index: index + 1,
+                      })}
                       haptic="none"
                       onPress={() => {
                         setIngredients((current) =>
@@ -433,32 +444,32 @@ function CustomEntryFormModal({
                       }}
                       style={styles.removeIngredientButton}>
                       <Txt variant="caption" tone="danger">
-                        Entfernen
+                        {t('mealPlanner.entry.removeIngredient', { index: index + 1 })}
                       </Txt>
                     </Press>
                   </View>
                   <TextField
-                    accessibilityLabel={`Zutat ${index + 1}`}
+                    accessibilityLabel={t('mealPlanner.entry.ingredient', { index: index + 1 })}
                     value={ingredient.name}
                     onChangeText={(name) => updateIngredient(ingredient.id, { name })}
-                    placeholder="Name der Zutat"
+                    placeholder={t('mealPlanner.entry.namePlaceholder')}
                     maxLength={200}
                   />
                   <View style={styles.ingredientFields}>
                     <View style={styles.ingredientField}>
                       <TextField
-                        label="Menge"
+                        label={t('mealPlanner.entry.quantity')}
                         value={ingredient.quantity}
                         onChangeText={(quantity) => updateIngredient(ingredient.id, { quantity })}
                         keyboardType="decimal-pad"
-                        placeholder="1"
+                        placeholder={t('mealPlanner.entry.numberPlaceholder')}
                       />
                     </View>
                     <View style={styles.ingredientField}>
                       <WheelPickerField
-                        label="Einheit"
+                        label={t('mealPlanner.entry.unit')}
                         value={ingredient.unit}
-                        options={UNIT_OPTIONS}
+                        options={unitOptions}
                         onChange={(unit) => updateIngredient(ingredient.id, { unit })}
                       />
                     </View>
@@ -472,15 +483,19 @@ function CustomEntryFormModal({
                 disabled={ingredients.length >= 100}
                 style={styles.addIngredientButton}>
                 <Txt variant="body" tone="primary" weight="600">
-                  + Zutat hinzufügen
+                  {t('mealPlanner.entry.addIngredient')}
                 </Txt>
               </Press>
             </View>
 
             <View style={styles.actions}>
-              <Button title="Speichern" onPress={handleSave} disabled={saveDisabled} />
+              <Button
+                title={t('mealPlanner.entry.save')}
+                onPress={handleSave}
+                disabled={saveDisabled}
+              />
               {onDelete ? (
-                <Button title="Eintrag entfernen" variant="danger" onPress={onDelete} />
+                <Button title={t('mealPlanner.entry.remove')} variant="danger" onPress={onDelete} />
               ) : null}
             </View>
           </ScrollView>

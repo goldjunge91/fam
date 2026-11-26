@@ -1,5 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import type { ReactNode } from 'react';
+
+import { i18n } from '@/i18n';
 import type { InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { InventoryItemRow } from './inventory-item-row';
@@ -43,6 +45,10 @@ describe('InventoryItemRow', () => {
     mockSwipeableClose.mockClear();
   });
 
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   const dummyItem: LocalInventoryItem = {
     id: 'f-1',
     household_id: 'hh-1',
@@ -73,6 +79,47 @@ describe('InventoryItemRow', () => {
     expect(screen.getByText('Vollmilch')).toBeTruthy();
     expect(screen.queryByText('Kühlschrank')).not.toBeOnTheScreen();
     expect(screen.getByText('1 L')).toBeTruthy();
+  });
+
+  it('renders row labels in English', async () => {
+    await i18n.changeLanguage('en');
+    await render(
+      <InventoryItemRow
+        item={dummyItem}
+        onPress={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('No date set')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Vollmilch remove' })).toBeOnTheScreen();
+  });
+
+  it('formats localized package amounts and hints in English', async () => {
+    await i18n.changeLanguage('en');
+    const packageItem = {
+      ...dummyItem,
+      quantity: 2.5,
+      unit: 'package',
+      package_size: 1.5,
+      package_size_unit: 'kg',
+    } satisfies LocalInventoryItem;
+
+    await render(
+      <InventoryItemRow
+        item={packageItem}
+        onPress={jest.fn()}
+        onLongPress={jest.fn()}
+        onRemove={jest.fn()}
+      />,
+    );
+
+    expect(
+      screen.getByRole('button', {
+        name: 'Vollmilch, 2.5 Packages, 1.5 kg per package',
+      }),
+    ).toBeOnTheScreen();
   });
 
   it('zeigt eine kompakte Zeile ohne Mengen-Buttons oder dekorative Kacheln', async () => {
@@ -284,7 +331,7 @@ describe('InventoryItemRow', () => {
       />,
     );
 
-    expect(screen.getByText('abgelaufen · 2 MHD-Einträge')).toBeOnTheScreen();
+    expect(screen.getByText('seit 10 Tagen abgelaufen · 2 MHD-Einträge')).toBeOnTheScreen();
     await user.press(screen.getByRole('button', { name: 'Vollmilch mhds anzeigen' }));
     expect(onRemove).toHaveBeenCalledTimes(1);
   });
@@ -316,10 +363,17 @@ describe('InventoryItemRow', () => {
     expect(screen.getByText('heute')).toBeOnTheScreen();
     await sameDay.unmount();
 
-    await renderRow({
+    const nextDay = await renderRow({
       ...item,
       expiry: { bucket: 'soon', daysLeft: 1, label: 'morgen', themeColor: 'warning' },
     });
     expect(screen.getByText('morgen')).toBeOnTheScreen();
+    await nextDay.unmount();
+
+    await renderRow({
+      ...item,
+      expiry: { bucket: 'soon', daysLeft: 2, label: 'noch 2 Tage', themeColor: 'warning' },
+    });
+    expect(screen.getByText('in 2 Tagen')).toBeOnTheScreen();
   });
 });

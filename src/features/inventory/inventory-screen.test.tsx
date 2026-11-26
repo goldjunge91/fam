@@ -7,6 +7,7 @@ import { InventoryScreen } from '@/features/inventory/inventory-screen';
 import type { LocalInventoryItem } from '@/features/inventory/use-inventory-items';
 import type { LocalInventoryTransaction } from '@/features/inventory/use-inventory-transactions';
 import type { StorageLocation } from '@/features/inventory/use-storage-locations';
+import { i18n } from '@/i18n';
 import type { SyncStatusView } from '@/lib/sync/sync-status';
 
 const mockUpdateQtyMutate = jest.fn();
@@ -239,6 +240,7 @@ afterEach(async () => {
   if (originalPlatformOSDescriptor) {
     Object.defineProperty(Platform, 'OS', originalPlatformOSDescriptor);
   }
+  await i18n.changeLanguage('de');
 });
 
 beforeEach(() => {
@@ -276,6 +278,16 @@ beforeEach(() => {
   mockWasteMutate.mockClear();
   mockUndoMutate.mockClear();
   mockTransactionsRefetch.mockClear();
+});
+
+it('renders inventory controls in English', async () => {
+  await i18n.changeLanguage('en');
+  await renderScreen();
+
+  expect(screen.getByText('Pantry')).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Search items' })).toBeOnTheScreen();
+  expect(screen.getByText('By shelf life')).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Milch, 2 L' })).toBeOnTheScreen();
 });
 
 it('öffnet beim kurzen Tap die MHD-Auswahl und ändert danach die Losmenge', async () => {

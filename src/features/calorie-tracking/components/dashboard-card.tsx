@@ -91,7 +91,7 @@ function CalorieDashboardCard({ size, onLongPress, disabled }: DashboardCardProp
             value={aufgenommen}
             target={ziel}
             preset="compact"
-            label="kcal"
+            label={t('calorieTracking.units.kcal')}
             displayMode="count"
             progressColor={colors.danger}
             trackColor={colors.border}

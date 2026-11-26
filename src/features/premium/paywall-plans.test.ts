@@ -1,4 +1,5 @@
 import type { PurchasesPackage } from 'react-native-purchases';
+import { i18n } from '@/i18n';
 import {
   calculateMonthlyEquivalent,
   calculateSavingsPercent,
@@ -39,12 +40,12 @@ describe('paywall-plans', () => {
 
   describe('extractPaywallPlans', () => {
     it('nutzt Fallbacks wenn keine Packages übergeben werden', () => {
-      const result = extractPaywallPlans([]);
+      const result = extractPaywallPlans([], i18n.t.bind(i18n));
       expect(result.yearly.title).toBe('Jahresabo');
-      expect(result.yearly.priceString).toBe('49,99 €');
+      expect(result.yearly.priceString).toBe('49,99\u00a0€');
       expect(result.yearly.savingsBadge).toBe('17 % Ersparnis');
       expect(result.monthly.title).toBe('Monatsabo');
-      expect(result.monthly.priceString).toBe('4,99 €');
+      expect(result.monthly.priceString).toBe('4,99\u00a0€');
       expect(result.monthly.savingsBadge).toBeNull();
     });
 
@@ -76,7 +77,7 @@ describe('paywall-plans', () => {
         },
       ] as unknown as PurchasesPackage[];
 
-      const result = extractPaywallPlans(mockPackages);
+      const result = extractPaywallPlans(mockPackages, i18n.t.bind(i18n));
       // 4.99 * 12 = 59.88. (59.88 - 39.99) / 59.88 = ~33%
       expect(result.yearly.priceString).toBe('39,99 €');
       expect(result.yearly.savingsBadge).toBe('33 % Ersparnis');

@@ -26,7 +26,7 @@ import { recordProductUsage } from '@/lib/db/product-usage';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { useFeatureFlag } from '@/lib/observability/providers/posthog';
-import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions, normalizeUnit } from '@/lib/units';
 import {
   normalizePlacementZoneIdNullable,
   PLACEMENT_CLASSIFIER_VERSION,
@@ -87,7 +87,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
   { householdId, initialStoreId = null, initialProduct = null, onDismiss, onItemAdded },
   ref,
 ) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { colors: theme } = useTheme();
   const shoppingStyles = shoppingListStyles;
   const [name, setName] = useState('');
@@ -222,6 +222,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     }
   }
 
+  const unitOptions = useMemo(() => getUnitOptions(t), [t]);
   const storeOptions = useMemo(
     () => [
       { value: NO_STORE, label: t('shoppingList.itemForm.unassignedStore') },
@@ -234,8 +235,8 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
     unit === 'package' && Number.isFinite(parsedPackageSize) && parsedPackageSize > 0
       ? parsedPackageSize
       : null;
-  const packageHint = formatPackageHint(packageSize, packageSizeUnit);
-  const purchaseAmount = formatAmount(purchaseCount, unit);
+  const packageHint = formatPackageHint(packageSize, packageSizeUnit, t, i18n.language);
+  const purchaseAmount = formatAmount(purchaseCount, unit, t, i18n.language);
 
   const barcodeLookup = useProductBarcodeLookup({
     onFound: (product) => {
@@ -688,7 +689,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
               <WheelPickerField
                 label={t('shoppingList.itemForm.unitLabel')}
                 value={unit}
-                options={UNIT_OPTIONS}
+                options={unitOptions}
                 onChange={(next) => {
                   dismissKeyboard();
                   setUnit(next);
@@ -719,7 +720,7 @@ export const AddItemForm = forwardRef<AddItemFormHandle, AddItemFormProps>(funct
                     <WheelPickerField
                       label={t('shoppingList.itemForm.unitLabel')}
                       value={packageSizeUnit}
-                      options={UNIT_OPTIONS.filter((option) =>
+                      options={unitOptions.filter((option) =>
                         ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
                       )}
                       onChange={(next) => {

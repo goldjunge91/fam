@@ -4,6 +4,7 @@ import { act } from 'react';
 import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-product-barcode-lookup';
 import type { ProductCatalog } from '@/features/product-search/product-catalog';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { i18n } from '@/i18n';
 
 const hafermilch: CatalogProduct = {
   name: 'Hafermilch',
@@ -68,6 +69,40 @@ describe('useProductBarcodeLookup', () => {
     expect(hook.current.product).toBeNull();
     expect(hook.current.errorMessage).toBe('Kein Produkt für Barcode 999 gefunden.');
     expect(onNotFound).toHaveBeenCalledWith('999');
+  });
+
+  it('meldet einen fehlgeschlagenen Lookup verstaendlich statt technisch', async () => {
+    const { catalog } = fakeCatalog(() => {
+      throw new Error('network down');
+    });
+
+    const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog }));
+    await act(async () => {
+      await hook.current.lookup('4008400401027');
+    });
+
+    expect(hook.current.product).toBeNull();
+    expect(hook.current.errorMessage).toBe('Fehler beim Abrufen der Produktdaten.');
+  });
+
+  it('lokalisiert unbekannten Barcode und Lookup-Fehler auf Englisch', async () => {
+    await i18n.changeLanguage('en');
+    const { catalog } = fakeCatalog((barcode) => {
+      if (barcode === '999') return null;
+      throw new Error('network down');
+    });
+
+    const { result: hook } = await renderHook(() => useProductBarcodeLookup({ catalog }));
+    await act(async () => {
+      await hook.current.lookup('999');
+    });
+    expect(hook.current.errorMessage).toBe('No product found for barcode 999.');
+
+    act(() => hook.current.reset());
+    await act(async () => {
+      await hook.current.lookup('4008400401027');
+    });
+    expect(hook.current.errorMessage).toBe('Error fetching the product data.');
   });
 
   it('loest bei mehrfach erkanntem Code nur einen Lookup aus', async () => {

@@ -1,0 +1,92 @@
+{
+  "mealSlots": {
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner"
+  },
+  "viewModes": {
+    "day": "Day",
+    "week": "Week"
+  },
+  "screen": {
+    "title": "Meal plan",
+    "assistant": "Open Assistant with meal-plan context",
+    "today": "Show current week",
+    "period": "Time range",
+    "viewModeAccessibility": "{{label}} view",
+    "previous": "Previous time range",
+    "next": "Next time range",
+    "reuseLastWeek": "Reuse previous week",
+    "prepareShopping": "Prepare shopping",
+    "noPreviousWeekTitle": "No previous week",
+    "noPreviousWeekMessage": "There is no meal plan for the previous week."
+  },
+  "picker": {
+    "title": "Choose a recipe",
+    "close": "Close",
+    "search": "Search",
+    "placeholder": "Search recipes…",
+    "custom": "Add custom dish",
+    "emptyNoRecipes": "No recipes yet. Create a recipe first.",
+    "emptyNoMatch": "No recipe found.",
+    "entryAccessibility": "Add {{title}}"
+  },
+  "entry": {
+    "close": "Close",
+    "servingsMode": "Servings/people mode",
+    "portionsMode": "Servings",
+    "peopleMode": "People",
+    "portionsModeAccessibility": "Servings mode",
+    "peopleModeAccessibility": "People mode",
+    "portions": "Servings",
+    "people": "People",
+    "numberPlaceholder": "e.g. 4",
+    "wholeHousehold": "The whole household eats ({{count}} {{unit}})",
+    "person_one": "person",
+    "person_other": "people",
+    "preview": "≈ {{portions}} servings ({{factor}} servings/person)",
+    "factor": "{{factor}} servings/person",
+    "save": "Save",
+    "remove": "Remove entry",
+    "customTitle": "Custom dish",
+    "dish": "Dish",
+    "dishPlaceholder": "e.g. vegetable stir-fry",
+    "ingredients": "Ingredients",
+    "ingredient": "Ingredient {{index}}",
+    "removeIngredient": "Remove ingredient {{index}}",
+    "namePlaceholder": "Ingredient name",
+    "quantity": "Quantity",
+    "unit": "Unit",
+    "addIngredient": "+ Add ingredient"
+  },
+  "week": {
+    "entryAccessibility": "{{title}}, {{portions}}",
+    "portion_one": "{{count}} serving",
+    "portion_other": "{{count}} servings",
+    "addDish": "+ Dish",
+    "addAnother": "+ Another",
+    "addAccessibility": "Add a dish for {{slot}} on {{weekday}}"
+  },
+  "missing": {
+    "title": "Missing ingredients",
+    "subtitle": "This week's needs minus pantry stock",
+    "retry": "Try again",
+    "loadError": "Missing ingredients could not be loaded.",
+    "updateError": "Missing ingredients could not be updated.",
+    "plusHint": "fam compares the whole week's needs with your pantry and adds only missing items to the shopping list.",
+    "plus": "See Plus",
+    "allCovered": "Nothing is missing from the planned recipes. Your pantry is enough.",
+    "assignAllStore": "Assign one store to all",
+    "addSelected_one": "Add {{count}} item to the shopping list",
+    "addSelected_other": "Add {{count}} items to the shopping list",
+    "transferTitle": "Shopping list updated",
+    "transferSuccess_one": "{{count}} item was added to the shopping list.",
+    "transferSuccess_other": "{{count}} items were added to the shopping list.",
+    "transferNone": "No item could be saved. Please try again.",
+    "transferPartial": "{{added}} of {{total}} items were saved.",
+    "missingGrams": "{{count}} g missing",
+    "neededGrams": "{{count}} g needed /",
+    "availableGrams": "{{count}} g in pantry",
+    "lastStore": "last at {{store}}"
+  }
+}

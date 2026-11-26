@@ -122,7 +122,7 @@ describe('GoalSetupScreen', () => {
     };
     await renderScreen();
 
-    expect(screen.getByText('1900 kcal / Tag')).toBeTruthy();
+    expect(screen.getByText('1.900 kcal / Tag')).toBeTruthy();
     expect(screen.getByText('Ziel anpassen')).toBeTruthy();
     expect(screen.queryByText('Ziel speichern')).toBeNull();
 

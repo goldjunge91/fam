@@ -1,0 +1,92 @@
+{
+  "mealSlots": {
+    "breakfast": "Frühstück",
+    "lunch": "Mittag",
+    "dinner": "Abendessen"
+  },
+  "viewModes": {
+    "day": "Tag",
+    "week": "Woche"
+  },
+  "screen": {
+    "title": "Essensplan",
+    "assistant": "Assistant mit Wochenplankontext öffnen",
+    "today": "Aktuelle Woche anzeigen",
+    "period": "Zeitraum",
+    "viewModeAccessibility": "{{label}}-Ansicht",
+    "previous": "Vorheriger Zeitraum",
+    "next": "Nächster Zeitraum",
+    "reuseLastWeek": "Vorwoche übernehmen",
+    "prepareShopping": "Einkauf vorbereiten",
+    "noPreviousWeekTitle": "Keine Vorwoche",
+    "noPreviousWeekMessage": "Für die vorherige Woche gibt es keinen Wochenplan."
+  },
+  "picker": {
+    "title": "Rezept auswählen",
+    "close": "Schließen",
+    "search": "Suche",
+    "placeholder": "Rezept suchen…",
+    "custom": "Freies Gericht eintragen",
+    "emptyNoRecipes": "Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.",
+    "emptyNoMatch": "Kein Rezept gefunden.",
+    "entryAccessibility": "{{title}} eintragen"
+  },
+  "entry": {
+    "close": "Schließen",
+    "servingsMode": "Portionen-/Personen-Modus",
+    "portionsMode": "Portionen",
+    "peopleMode": "Personen",
+    "portionsModeAccessibility": "Portionen-Modus",
+    "peopleModeAccessibility": "Personen-Modus",
+    "portions": "Portionen",
+    "people": "Personen",
+    "numberPlaceholder": "z. B. 4",
+    "wholeHousehold": "Ganzer Haushalt isst ({{count}} {{unit}})",
+    "person_one": "Person",
+    "person_other": "Personen",
+    "preview": "≈ {{portions}} Portionen ({{factor}} Portionen/Person)",
+    "factor": "{{factor}} Portionen/Person",
+    "save": "Speichern",
+    "remove": "Eintrag entfernen",
+    "customTitle": "Freies Gericht",
+    "dish": "Gericht",
+    "dishPlaceholder": "z. B. Gemüsepfanne",
+    "ingredients": "Zutaten",
+    "ingredient": "Zutat {{index}}",
+    "removeIngredient": "Zutat {{index}} entfernen",
+    "namePlaceholder": "Name der Zutat",
+    "quantity": "Menge",
+    "unit": "Einheit",
+    "addIngredient": "+ Zutat hinzufügen"
+  },
+  "week": {
+    "entryAccessibility": "{{title}}, {{portions}}",
+    "portion_one": "{{count}} Portion",
+    "portion_other": "{{count}} Portionen",
+    "addDish": "+ Gericht",
+    "addAnother": "+ Weiteres",
+    "addAccessibility": "{{slot}} am {{weekday}}, Gericht hinzufügen"
+  },
+  "missing": {
+    "title": "Fehlende Zutaten",
+    "subtitle": "Bedarf dieser Woche minus Vorrat",
+    "retry": "Erneut versuchen",
+    "loadError": "Fehlende Zutaten konnten nicht geladen werden.",
+    "updateError": "Fehlende Zutaten konnten nicht aktualisiert werden.",
+    "plusHint": "fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur Fehlendes in die Einkaufsliste.",
+    "plus": "Plus ansehen",
+    "allCovered": "Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.",
+    "assignAllStore": "Allen einen Markt zuweisen",
+    "addSelected_one": "{{count}} Artikel zur Einkaufsliste hinzufügen",
+    "addSelected_other": "{{count}} Artikel zur Einkaufsliste hinzufügen",
+    "transferTitle": "Einkaufsliste aktualisiert",
+    "transferSuccess_one": "{{count}} Artikel zur Einkaufsliste hinzugefügt.",
+    "transferSuccess_other": "{{count}} Artikel zur Einkaufsliste hinzugefügt.",
+    "transferNone": "Es konnte kein Artikel gespeichert werden. Bitte erneut versuchen.",
+    "transferPartial": "{{added}} von {{total}} Artikeln wurden gespeichert.",
+    "missingGrams": "{{count}} g fehlen",
+    "neededGrams": "{{count}} g benötigt /",
+    "availableGrams": "{{count}} g im Vorrat",
+    "lastStore": "zuletzt bei {{store}}"
+  }
+}

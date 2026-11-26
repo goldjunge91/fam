@@ -1,6 +1,8 @@
 import { Image } from 'expo-image';
 import { Redirect } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import Svg, { Circle, Polygon } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
@@ -92,58 +94,58 @@ const INITIAL_SETTINGS: InspectorSettings = {
 };
 
 const LANGUAGE_OPTIONS = [
-  { value: 'auto', label: 'Auto / Gerät' },
-  { value: 'de-DE', label: 'Deutsch · de-DE' },
-  { value: 'en-US', label: 'Englisch · en-US' },
-  { value: 'fr-FR', label: 'Französisch · fr-FR' },
-] as const satisfies ReadonlyArray<{ value: InspectorLanguage; label: string }>;
+  { value: 'auto', labelKey: 'dev.ocr.languageAuto' },
+  { value: 'de-DE', labelKey: 'dev.ocr.languageDe' },
+  { value: 'en-US', labelKey: 'dev.ocr.languageEn' },
+  { value: 'fr-FR', labelKey: 'dev.ocr.languageFr' },
+] as const satisfies ReadonlyArray<{ value: InspectorLanguage; labelKey: string }>;
 
 const RESIZE_OPTIONS = [
-  { value: 'source', label: 'Quelle behalten' },
-  { value: '1600', label: '1600 px · kleiner' },
-  { value: '2400', label: '2400 px · Standard' },
-  { value: '3200', label: '3200 px · hochskalieren' },
-] as const satisfies ReadonlyArray<{ value: InspectorResize; label: string }>;
+  { value: 'source', labelKey: 'dev.ocr.keepSource' },
+  { value: '1600', labelKey: 'dev.ocr.smaller1600' },
+  { value: '2400', labelKey: 'dev.ocr.standard2400' },
+  { value: '3200', labelKey: 'dev.ocr.larger3200' },
+] as const satisfies ReadonlyArray<{ value: InspectorResize; labelKey: string }>;
 
 const CROP_OPTIONS = [
-  { value: 'none', label: 'Kein Zuschnitt' },
-  { value: 'edges-2', label: 'Ränder 2 % entfernen' },
-  { value: 'edges-5', label: 'Ränder 5 % entfernen' },
-] as const satisfies ReadonlyArray<{ value: InspectorCrop; label: string }>;
+  { value: 'none', labelKey: 'dev.ocr.noCrop' },
+  { value: 'edges-2', labelKey: 'dev.ocr.crop2' },
+  { value: 'edges-5', labelKey: 'dev.ocr.crop5' },
+] as const satisfies ReadonlyArray<{ value: InspectorCrop; labelKey: string }>;
 
 const QUALITY_OPTIONS = [
-  { value: 'source', label: 'Quelle behalten' },
-  { value: 'low', label: 'JPEG 55 · stark komprimiert' },
-  { value: 'standard', label: 'JPEG 82 · Standard' },
-  { value: 'max', label: 'JPEG 100 · maximale Qualität' },
-] as const satisfies ReadonlyArray<{ value: InspectorQuality; label: string }>;
+  { value: 'source', labelKey: 'dev.ocr.keepSource' },
+  { value: 'low', labelKey: 'dev.ocr.jpegLow' },
+  { value: 'standard', labelKey: 'dev.ocr.jpegStandard' },
+  { value: 'max', labelKey: 'dev.ocr.jpegMax' },
+] as const satisfies ReadonlyArray<{ value: InspectorQuality; labelKey: string }>;
 
 const COLOR_OPTIONS = [
-  { value: 'color', label: 'Farbe' },
-  { value: 'grayscale', label: 'Graustufen' },
-] as const satisfies ReadonlyArray<{ value: InspectorColorMode; label: string }>;
+  { value: 'color', labelKey: 'dev.ocr.color' },
+  { value: 'grayscale', labelKey: 'dev.ocr.grayscale' },
+] as const satisfies ReadonlyArray<{ value: InspectorColorMode; labelKey: string }>;
 
 const CONTRAST_OPTIONS = [
-  { value: 'none', label: 'Normal' },
-  { value: 'low', label: '+20 %' },
-  { value: 'high', label: '+45 %' },
-] as const satisfies ReadonlyArray<{ value: InspectorContrast; label: string }>;
+  { value: 'none', labelKey: 'dev.ocr.normal' },
+  { value: 'low', labelKey: 'dev.ocr.contrast20' },
+  { value: 'high', labelKey: 'dev.ocr.contrast45' },
+] as const satisfies ReadonlyArray<{ value: InspectorContrast; labelKey: string }>;
 
 const SHARPEN_OPTIONS = [
-  { value: 'off', label: 'Aus' },
-  { value: 'medium', label: 'Mittel' },
-] as const satisfies ReadonlyArray<{ value: InspectorSharpen; label: string }>;
+  { value: 'off', labelKey: 'dev.ocr.off' },
+  { value: 'medium', labelKey: 'dev.ocr.medium' },
+] as const satisfies ReadonlyArray<{ value: InspectorSharpen; labelKey: string }>;
 
 const BRIGHTNESS_OPTIONS = [
-  { value: 'low', label: '−15 %' },
-  { value: 'none', label: 'Normal' },
-  { value: 'high', label: '+15 %' },
-] as const satisfies ReadonlyArray<{ value: InspectorBrightness; label: string }>;
+  { value: 'low', labelKey: 'dev.ocr.brightnessMinus15' },
+  { value: 'none', labelKey: 'dev.ocr.normal' },
+  { value: 'high', labelKey: 'dev.ocr.brightnessPlus15' },
+] as const satisfies ReadonlyArray<{ value: InspectorBrightness; labelKey: string }>;
 
 const THRESHOLD_OPTIONS = [
-  { value: 'off', label: 'Aus' },
-  { value: 'auto', label: 'Auto' },
-] as const satisfies ReadonlyArray<{ value: InspectorThreshold; label: string }>;
+  { value: 'off', labelKey: 'dev.ocr.off' },
+  { value: 'auto', labelKey: 'dev.ocr.auto' },
+] as const satisfies ReadonlyArray<{ value: InspectorThreshold; labelKey: string }>;
 
 type AvailabilityState =
   | { status: 'checking' }
@@ -153,12 +155,12 @@ type AvailabilityState =
 const INITIAL_AVAILABILITY: AvailabilityState = { status: 'checking' };
 
 const CONFIDENCE_LEGEND = [
-  { label: 'hoch', colorKey: 'success' },
-  { label: 'mittel', colorKey: 'warning' },
-  { label: 'niedrig', colorKey: 'danger' },
-  { label: 'unbekannt', colorKey: 'accent' },
+  { labelKey: 'dev.ocr.high', colorKey: 'success' },
+  { labelKey: 'dev.ocr.medium', colorKey: 'warning' },
+  { labelKey: 'dev.ocr.low', colorKey: 'danger' },
+  { labelKey: 'dev.ocr.unknown', colorKey: 'accent' },
 ] as const satisfies ReadonlyArray<{
-  label: string;
+  labelKey: string;
   colorKey: keyof Pick<Palette, 'accent' | 'danger' | 'success' | 'warning'>;
 }>;
 
@@ -319,39 +321,39 @@ function lineColor(
   return colors.danger;
 }
 
-function availabilityLabel(availability: AvailabilityState): string {
+function availabilityLabel(availability: AvailabilityState, t: TFunction): string {
   switch (availability.status) {
     case 'checking':
-      return 'wird geprüft';
+      return t('dev.ocr.availabilityChecking');
     case 'available':
-      return 'bereit';
+      return t('dev.ocr.availabilityReady');
     case 'downloadable':
-      return 'Download erforderlich';
+      return t('dev.ocr.downloadRequired');
     case 'downloading':
-      return 'wird geladen';
+      return t('dev.states.loading');
     case 'unavailable':
-      return `nicht verfügbar (${availability.reason})`;
+      return t('dev.ocr.unavailableReason', { reason: availability.reason });
     case 'error':
       return `${availability.code}: ${availability.message}`;
   }
 }
 
-function phaseLabel(phase: InspectorPhase): string {
+function phaseLabel(phase: InspectorPhase, t: TFunction): string {
   switch (phase) {
     case 'idle':
-      return 'Kein Bild ausgewählt';
+      return t('dev.ocr.phaseIdle');
     case 'picking':
-      return 'Bild wird ausgewählt …';
+      return t('dev.ocr.phasePicking');
     case 'preparing':
-      return 'OCR-Modell wird vorbereitet …';
+      return t('dev.ocr.phasePreparing');
     case 'preparing-image':
-      return 'Bildvariante wird erstellt …';
+      return t('dev.ocr.phasePreparingImage');
     case 'recognizing':
-      return 'OCR läuft …';
+      return t('dev.ocr.phaseRecognizing');
     case 'ready':
-      return 'Erkennung abgeschlossen';
+      return t('dev.ocr.phaseReady');
     case 'error':
-      return 'Fehler bei der Verarbeitung';
+      return t('dev.ocr.phaseError');
   }
 }
 
@@ -405,6 +407,7 @@ function providerLabel(settings: InspectorSettings): string {
 }
 
 export function OcrInspectorScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const { colors } = useTheme();
   const [image, setImage] = useState<InspectorImage | null>(null);
@@ -718,14 +721,14 @@ export function OcrInspectorScreen() {
 
   return (
     <Screen
-      title="OCR-Pipeline"
-      subtitle="Bild, native Erkennung und Segmentierung prüfen"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.ocr.title')}
+      subtitle={t('dev.ocr.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
       <Card>
         <View style={styles.actionStack}>
           <Button
-            title="Bild für OCR auswählen"
+            title={t('dev.ocr.selectImage')}
             icon="image"
             full
             loading={phase === 'picking'}
@@ -735,7 +738,7 @@ export function OcrInspectorScreen() {
           {image ? (
             <Row gap={8}>
               <Button
-                title={settingsDirty ? 'Mit Einstellungen ausführen' : 'OCR erneut ausführen'}
+                title={settingsDirty ? t('dev.ocr.runWithSettings') : t('dev.ocr.rerun')}
                 variant="secondary"
                 icon="refresh-cw"
                 style={{ flex: 1 }}
@@ -744,7 +747,7 @@ export function OcrInspectorScreen() {
                 onPress={() => void rerunRecognition()}
               />
               <Button
-                title="Bild entfernen"
+                title={t('dev.ocr.removeImage')}
                 variant="ghost"
                 icon="x"
                 style={{ flex: 1 }}
@@ -755,17 +758,15 @@ export function OcrInspectorScreen() {
           ) : null}
         </View>
         <Txt variant="caption" tone="secondary" style={styles.hint} selectable>
-          Das Bild wird für diesen Lauf normalisiert und nach dem Verlassen des Screens wieder
-          entfernt. OCR-Rohtext wird nicht als Receipt-Daten gespeichert.
+          {t('dev.ocr.hint')}
         </Txt>
       </Card>
 
       <Card style={styles.settingsCard}>
         <View style={styles.settingsGroup}>
-          <Txt variant="heading">Lauf-Konfiguration</Txt>
+          <Txt variant="heading">{t('dev.ocr.configuration')}</Txt>
           <Txt variant="caption" tone="secondary" selectable>
-            Jede Änderung wirkt nur auf den nächsten Inspector-Lauf. Die Produktionspipeline und das
-            gespeicherte Bild bleiben unverändert.
+            {t('dev.ocr.configurationHint')}
           </Txt>
         </View>
 
@@ -773,73 +774,97 @@ export function OcrInspectorScreen() {
           pointerEvents={isBusy ? 'none' : 'auto'}
           style={isBusy ? { opacity: 0.55 } : undefined}>
           <View style={styles.settingsGroup}>
-            <Txt variant="subheading">Bildvorverarbeitung</Txt>
+            <Txt variant="subheading">{t('dev.ocr.preprocessing')}</Txt>
             <WheelPickerField
-              label="Auflösung"
+              label={t('dev.ocr.resolution')}
               value={settings.resize}
-              options={RESIZE_OPTIONS}
+              options={RESIZE_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onChange={(resize) =>
                 setSettings((current) => ({ ...current, resize: resize as InspectorResize }))
               }
             />
             <WheelPickerField
-              label="Zuschnitt"
+              label={t('dev.ocr.crop')}
               value={settings.crop}
-              options={CROP_OPTIONS}
+              options={CROP_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onChange={(crop) =>
                 setSettings((current) => ({ ...current, crop: crop as InspectorCrop }))
               }
             />
             <WheelPickerField
-              label="JPEG-Qualität"
+              label={t('dev.ocr.jpegQuality')}
               value={settings.quality}
-              options={QUALITY_OPTIONS}
+              options={QUALITY_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onChange={(quality) =>
                 setSettings((current) => ({ ...current, quality: quality as InspectorQuality }))
               }
             />
             <SegmentedControl
-              label="Farbmodus"
+              label={t('dev.ocr.colorMode')}
               selected={settings.colorMode}
-              options={COLOR_OPTIONS}
+              options={COLOR_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onSelect={(colorMode) => setSettings((current) => ({ ...current, colorMode }))}
               size="compact"
             />
             <SegmentedControl
-              label="Kontrast"
+              label={t('dev.ocr.contrast')}
               selected={settings.contrast}
-              options={CONTRAST_OPTIONS}
+              options={CONTRAST_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onSelect={(contrast) => setSettings((current) => ({ ...current, contrast }))}
               size="compact"
             />
             <SegmentedControl
-              label="Schärfen"
+              label={t('dev.ocr.sharpen')}
               selected={settings.sharpen}
-              options={SHARPEN_OPTIONS}
+              options={SHARPEN_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onSelect={(sharpen) => setSettings((current) => ({ ...current, sharpen }))}
               size="compact"
             />
             <SegmentedControl
-              label="Helligkeit"
+              label={t('dev.ocr.brightness')}
               selected={settings.brightness}
-              options={BRIGHTNESS_OPTIONS}
+              options={BRIGHTNESS_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onSelect={(brightness) => setSettings((current) => ({ ...current, brightness }))}
               size="compact"
             />
             <SegmentedControl
-              label="Schwarzweiß"
+              label={t('dev.ocr.threshold')}
               selected={settings.threshold}
-              options={THRESHOLD_OPTIONS}
+              options={THRESHOLD_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onSelect={(threshold) => setSettings((current) => ({ ...current, threshold }))}
               size="compact"
             />
           </View>
 
           <View style={styles.settingsGroup}>
-            <Txt variant="subheading">Native OCR</Txt>
+            <Txt variant="subheading">{t('dev.ocr.native')}</Txt>
             {isIos ? (
               <SegmentedControl
-                label="OCR-Engine"
+                label={t('dev.ocr.ocrEngine')}
                 selected={settings.iosProvider}
                 options={[
                   { value: 'apple-vision', label: 'Apple Vision' },
@@ -860,19 +885,21 @@ export function OcrInspectorScreen() {
             ) : null}
             {isIos && !isGoogleMlKitAvailable() ? (
               <Txt variant="caption" tone="secondary" selectable>
-                Google ML Kit ist nur im iPhone-Build mit FAM_IOS_MLKIT_OCR=1 verfügbar.
+                {t('dev.ocr.mlKitUnavailable')}
               </Txt>
             ) : null}
             {isIos && settings.iosProvider === 'google-mlkit' ? (
               <Txt variant="caption" tone="secondary" selectable>
-                ML Kit liefert keine Werte zur Erkennungsqualität. Texte und Positionen bleiben
-                einsehbar.
+                {t('dev.ocr.mlKitHint')}
               </Txt>
             ) : null}
             <WheelPickerField
-              label="OCR-Sprache"
+              label={t('dev.ocr.ocrLanguage')}
               value={settings.language}
-              options={LANGUAGE_OPTIONS}
+              options={LANGUAGE_OPTIONS.map(({ value, labelKey }) => ({
+                value,
+                label: t(labelKey),
+              }))}
               onChange={(language) =>
                 setSettings((current) => ({
                   ...current,
@@ -881,11 +908,11 @@ export function OcrInspectorScreen() {
               }
             />
             <SegmentedControl
-              label="Erkennungsmodus"
+              label={t('dev.ocr.recognitionMode')}
               selected={settings.recognitionLevel}
               options={[
-                { value: 'accurate', label: 'Genau' },
-                { value: 'fast', label: 'Schnell', disabled: !isIos },
+                { value: 'accurate', label: t('dev.ocr.accurate') },
+                { value: 'fast', label: t('dev.ocr.fast'), disabled: !isIos },
               ]}
               onSelect={(recognitionLevel) =>
                 setSettings((current) => ({ ...current, recognitionLevel }))
@@ -893,11 +920,11 @@ export function OcrInspectorScreen() {
               size="compact"
             />
             <SegmentedControl
-              label="Sprachkorrektur"
+              label={t('dev.ocr.languageCorrection')}
               selected={settings.usesLanguageCorrection ? 'on' : 'off'}
               options={[
-                { value: 'on', label: 'An', disabled: !isIos },
-                { value: 'off', label: 'Aus', disabled: !isIos },
+                { value: 'on', label: t('dev.ocr.on'), disabled: !isIos },
+                { value: 'off', label: t('dev.ocr.off'), disabled: !isIos },
               ]}
               onSelect={(usesLanguageCorrection) =>
                 setSettings((current) => ({
@@ -908,21 +935,19 @@ export function OcrInspectorScreen() {
               size="compact"
             />
             <TextField
-              accessibilityLabel="Eigene OCR-Wörter"
-              label="Eigene OCR-Wörter"
+              accessibilityLabel={t('dev.ocr.customWords')}
+              label={t('dev.ocr.customWords')}
               value={settings.customWords}
               editable={isIos && !isBusy}
               multiline
-              placeholder="Optional, getrennt durch Komma oder neue Zeile"
+              placeholder={t('dev.ocr.customWordsPlaceholder')}
               onChangeText={(customWords) =>
                 setSettings((current) => ({ ...current, customWords }))
               }
               style={styles.customWords}
             />
             <Txt variant="caption" tone="secondary" style={styles.settingsHint} selectable>
-              Fast, Sprachkorrektur und eigene Wörter werden nur von Apple Vision ausgewertet.
-              Google ML Kit nutzt seine Standarderkennung; iOS-Confidence wird als nicht verfügbar
-              angezeigt.
+              {t('dev.ocr.nativeOptionsHint')}
             </Txt>
           </View>
         </View>
@@ -939,7 +964,7 @@ export function OcrInspectorScreen() {
               />
               {geometry ? (
                 <Svg
-                  accessibilityLabel="Erkannter Bonrahmen"
+                  accessibilityLabel={t('dev.ocr.receiptFrame')}
                   accessible
                   pointerEvents="none"
                   style={styles.geometryOverlay}
@@ -965,7 +990,10 @@ export function OcrInspectorScreen() {
                         key={lineKey(line)}
                         accessible
                         accessibilityRole="text"
-                        accessibilityLabel={`OCR-Segment ${index + 1}: ${line.text}`}
+                        accessibilityLabel={t('dev.ocr.segmentAccessibility', {
+                          index: index + 1,
+                          text: line.text,
+                        })}
                         style={[
                           styles.overlayBox,
                           overlayStyle(line.boundingBox),
@@ -990,37 +1018,35 @@ export function OcrInspectorScreen() {
         ) : (
           <View style={styles.previewEmpty}>
             <Txt variant="heading" center>
-              Noch kein Prüfbild
+              {t('dev.ocr.emptyPreviewTitle')}
             </Txt>
             <Txt variant="body" tone="secondary" center>
-              Wähle einen Bon aus, um Bildgeometrie, erkannte Segmente und den vollständigen OCR-
-              Text zu sehen.
+              {t('dev.ocr.emptyPreviewHint')}
             </Txt>
           </View>
         )}
         {result || geometry ? (
           <View style={styles.legend}>
             {result && !resultUsesMlKit
-              ? CONFIDENCE_LEGEND.map(({ label, colorKey }) => (
-                  <View key={label} style={styles.legendItem}>
+              ? CONFIDENCE_LEGEND.map(({ labelKey, colorKey }) => (
+                  <View key={labelKey} style={styles.legendItem}>
                     <View style={[styles.legendDot, { backgroundColor: colors[colorKey] }]} />
                     <Txt variant="caption" tone="secondary">
-                      {label}
+                      {t(labelKey)}
                     </Txt>
                   </View>
                 ))
               : null}
             {resultUsesMlKit ? (
               <Txt variant="caption" tone="secondary" selectable>
-                ML Kit stellt keine Qualitätswerte bereit. Die markierten Bereiche zeigen die
-                erkannten Positionen.
+                {t('dev.ocr.mlKitQuality')}
               </Txt>
             ) : null}
             {geometry ? (
               <View style={styles.legendItem}>
                 <View style={[styles.legendDot, { backgroundColor: colors.warning }]} />
                 <Txt variant="caption" tone="secondary">
-                  Bonrahmen · Seitenfallback
+                  {t('dev.ocr.receiptFrameFallback')}
                 </Txt>
               </View>
             ) : null}
@@ -1029,19 +1055,19 @@ export function OcrInspectorScreen() {
       </Card>
 
       <Card>
-        <Txt variant="heading">Pipeline-Diagnose</Txt>
+        <Txt variant="heading">{t('dev.ocr.diagnostics')}</Txt>
         <Zeile
-          label="Status"
-          wert={phaseLabel(phase)}
+          label={t('dev.ocr.status')}
+          wert={phaseLabel(phase, t)}
           tone={phase === 'error' ? 'danger' : phase === 'ready' ? 'accent' : undefined}
         />
         <Zeile
-          label="Ausgeführt mit"
-          wert={result && lastRunSettings ? providerLabel(lastRunSettings) : 'Noch kein Ergebnis'}
+          label={t('dev.ocr.runWith')}
+          wert={result && lastRunSettings ? providerLabel(lastRunSettings) : t('dev.ocr.noResult')}
         />
         <Zeile
-          label="OCR-Modell"
-          wert={availabilityLabel(selectedAvailability)}
+          label={t('dev.ocr.model')}
+          wert={availabilityLabel(selectedAvailability, t)}
           tone={
             selectedAvailability.status === 'error' || selectedAvailability.status === 'unavailable'
               ? 'danger'
@@ -1051,41 +1077,46 @@ export function OcrInspectorScreen() {
           }
         />
         {modelProgress !== null ? (
-          <Zeile label="Modellfortschritt" wert={`${modelProgress} %`} />
+          <Zeile label={t('dev.ocr.progress')} wert={`${modelProgress} %`} />
         ) : null}
         {runtimeImage ? (
           <>
             <Zeile
-              label="Arbeitsbild"
+              label={t('dev.ocr.workingImage')}
               wert={`${runtimeImage.width || '—'} × ${runtimeImage.height || '—'} px`}
             />
             <Zeile
-              label="Datei"
+              label={t('dev.ocr.file')}
               wert={`${runtimeImage.mimeType}, ${formatBytes(runtimeImage.byteSize)}`}
             />
           </>
         ) : null}
         <Zeile
-          label="Bonrahmen"
+          label={t('dev.ocr.receiptFrameLabel')}
           wert={
             geometry
               ? geometry.topEdge === 'observed'
-                ? 'linke/rechte Seite + Oberkante'
-                : 'Seiten erkannt, Oberkante geschätzt'
-              : 'nicht erkannt'
+                ? t('dev.ocr.sidesTop')
+                : t('dev.ocr.sidesEstimated')
+              : t('dev.ocr.notRecognized')
           }
           tone={geometry ? 'accent' : 'warning'}
         />
         {result ? (
           <>
-            <Zeile label="Erkannte Segmente" wert={`${result.lines.length}`} tone="accent" />
+            <Zeile label={t('dev.ocr.segments')} wert={`${result.lines.length}`} tone="accent" />
             <Zeile
-              label="Ø Qualitätswert"
+              label={t('dev.ocr.quality')}
               wert={
-                resultUsesMlKit && average === null ? 'nicht verfügbar' : formatConfidence(average)
+                resultUsesMlKit && average === null
+                  ? t('dev.ocr.qualityUnavailable')
+                  : formatConfidence(average)
               }
             />
-            <Zeile label="OCR-Laufzeit" wert={elapsedMs === null ? '—' : `${elapsedMs} ms`} />
+            <Zeile
+              label={t('dev.ocr.runtime')}
+              wert={elapsedMs === null ? '—' : `${elapsedMs} ms`}
+            />
           </>
         ) : null}
         {error ? (
@@ -1095,7 +1126,7 @@ export function OcrInspectorScreen() {
         ) : null}
         {settings.iosProvider !== 'google-mlkit' ? (
           <Button
-            title="Modellstatus aktualisieren"
+            title={t('dev.ocr.refreshModel')}
             variant="secondary"
             icon="refresh-cw"
             loading={availability.status === 'checking'}
@@ -1106,7 +1137,7 @@ export function OcrInspectorScreen() {
       </Card>
 
       <Card style={styles.outputCard}>
-        <Txt variant="heading">Gesamter erkannter Text</Txt>
+        <Txt variant="heading">{t('dev.ocr.output')}</Txt>
         <OcrInspectorOutputActions
           result={result}
           text={recognizedText}
@@ -1115,21 +1146,21 @@ export function OcrInspectorScreen() {
           geometry={geometry}
         />
         <Txt variant="caption" tone="secondary">
-          Das JSON enthält den vollständigen Bontext und die erkannten Positionen.
+          {t('dev.ocr.jsonHint')}
         </Txt>
         <TextField
-          accessibilityLabel="Gesamter erkannter Text"
+          accessibilityLabel={t('dev.ocr.outputLabel')}
           value={recognizedText}
           editable={false}
           multiline
-          placeholder="Nach der Erkennung erscheint hier jede OCR-Zeile in ihrer Reihenfolge."
+          placeholder={t('dev.ocr.outputPlaceholder')}
           style={styles.output}
         />
       </Card>
 
       {result ? (
         <Card>
-          <Txt variant="heading">Erkannte Segmente</Txt>
+          <Txt variant="heading">{t('dev.ocr.segments')}</Txt>
           <View style={styles.segmentList}>
             {result.lines.map((line, index) => {
               const color = lineColor(line.confidence, colors);
@@ -1144,14 +1175,16 @@ export function OcrInspectorScreen() {
                     </Txt>
                     <View style={styles.segmentMeta}>
                       <Txt variant="caption" color={color}>
-                        Qualitätswert:{' '}
+                        {t('dev.ocr.qualityValue')}{' '}
                         {resultUsesMlKit && line.confidence === null
-                          ? 'nicht verfügbar'
+                          ? t('dev.ocr.qualityUnavailable')
                           : formatConfidence(line.confidence)}
                       </Txt>
                       <Txt variant="caption" tone="secondary">
-                        Box: {Math.round(line.boundingBox.x * 100)} %,{' '}
-                        {Math.round(line.boundingBox.y * 100)} %
+                        {t('dev.ocr.box', {
+                          x: Math.round(line.boundingBox.x * 100),
+                          y: Math.round(line.boundingBox.y * 100),
+                        })}
                       </Txt>
                     </View>
                   </View>
@@ -1164,7 +1197,7 @@ export function OcrInspectorScreen() {
 
       {result ? (
         <Card style={styles.manualLabels}>
-          <Txt variant="heading">Labels manuell kombinieren</Txt>
+          <Txt variant="heading">{t('dev.ocr.manualLabels')}</Txt>
           <ManualLabelAssignment
             lines={result.lines}
             selection={manualLabels}

@@ -118,7 +118,7 @@ describe('InjectionReminderSettingsCard', () => {
 
     await render(<InjectionReminderSettingsCard userId="user-1" />);
 
-    expect(screen.getByText('Injektions-Erinnerung wird geladen...')).toBeOnTheScreen();
+    expect(screen.getByText('Injektions-Erinnerung wird geladen…')).toBeOnTheScreen();
     expect(mockUseInjectionReminder).toHaveBeenCalledWith('user-1');
     expect(mockUseInjectionPlan).toHaveBeenCalledWith('user-1');
   });

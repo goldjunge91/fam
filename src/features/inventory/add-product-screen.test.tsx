@@ -2,9 +2,9 @@ import { render, screen, userEvent, waitFor } from '@testing-library/react-nativ
 import { router } from 'expo-router';
 import { Alert } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { AddProductScreen } from '@/features/inventory/add-product-screen';
 import { consumePendingProductSelection } from '@/features/inventory/pending-product-selection';
+import { i18n } from '@/i18n';
 
 let mockParams: Record<string, string> = {};
 let mockSession: { user: { id: string } } | null = { user: { id: 'user-1' } };
@@ -44,9 +44,21 @@ beforeEach(() => {
   consumePendingProductSelection(); // Puffer zwischen Tests leeren.
 });
 
-afterEach(() => jest.restoreAllMocks());
+afterEach(async () => {
+  jest.restoreAllMocks();
+  await i18n.changeLanguage('de');
+});
 
 describe('AddProductScreen', () => {
+  it('renders product form copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await renderScreen();
+
+    expect(screen.getByText('Add product')).toBeOnTheScreen();
+    expect(screen.getByPlaceholderText('e.g. tomatoes (loose)')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Save' })).toBeOnTheScreen();
+  });
+
   it('startet mit einem leeren Formular, sofern kein prefillName-Param gesetzt ist', async () => {
     await renderScreen();
     expect(screen.getByPlaceholderText('z. B. Tomaten (lose)').props.value).toBe('');

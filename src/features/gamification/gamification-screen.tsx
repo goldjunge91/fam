@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -51,35 +52,36 @@ function getNextMilestone(count: number): number {
 
 export function GamificationScreen() {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const streak = useStreak();
   const hasStreak = streak.count > 0;
-  const status = hasStreak
+  const statusKey = hasStreak
     ? streak.activeToday
-      ? 'Heute aktiv'
-      : 'Gestern aktiv'
+      ? 'gamification.activeToday'
+      : 'gamification.activeYesterday'
     : streak.best > 0
-      ? 'Neue Serie starten'
-      : 'Starte deine erste Serie';
+      ? 'gamification.startNew'
+      : 'gamification.startFirst';
   const nextMilestone = getNextMilestone(streak.count);
 
   return (
     <Screen
-      title="Gamification"
-      subtitle="Kleine Schritte, die sich summieren"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('gamification.title')}
+      subtitle={t('gamification.subtitle')}
+      back={{ label: t('gamification.back'), href: '/settings' }}
       backStyle="icon">
       <Card style={[styles.hero, { backgroundColor: colors.accent, borderColor: colors.accent }]}>
         <View style={styles.heroHeader}>
           <View style={{ flex: 1, gap: space.sm }}>
             <Txt variant="caption" tone="onAccent" weight="700">
-              DEIN STREAK
+              {t('gamification.yourStreak')}
             </Txt>
             <View style={styles.heroMetric}>
               <Txt variant="display" tone="onAccent" selectable>
                 {streak.count}
               </Txt>
               <Txt variant="body" tone="onAccent">
-                {streak.count === 1 ? 'Tag am Stück' : 'Tage am Stück'}
+                {t(streak.count === 1 ? 'gamification.daySingular' : 'gamification.dayPlural')}
               </Txt>
             </View>
           </View>
@@ -88,40 +90,39 @@ export function GamificationScreen() {
           </Txt>
         </View>
         <Txt variant="body" tone="onAccent" weight="700">
-          {status}
+          {t(statusKey)}
         </Txt>
       </Card>
 
       <View style={styles.statsRow}>
         <Card style={styles.statCard}>
           <Txt variant="caption" tone="secondary" weight="700">
-            BESTER WERT
+            {t('gamification.bestValue')}
           </Txt>
           <Txt variant="title" selectable>
-            {streak.best} Tage
+            {t('gamification.days', { count: streak.best })}
           </Txt>
           <Txt variant="caption" tone="secondary">
-            dein persönlicher Rekord
+            {t('gamification.personalRecord')}
           </Txt>
         </Card>
         <Card style={styles.statCard}>
           <Txt variant="caption" tone="secondary" weight="700">
-            NÄCHSTES ZIEL
+            {t('gamification.nextGoal')}
           </Txt>
           <Txt variant="title" selectable>
-            {nextMilestone} Tage
+            {t('gamification.days', { count: nextMilestone })}
           </Txt>
           <Txt variant="caption" tone="secondary">
-            einfach weiter dranbleiben
+            {t('gamification.keepGoing')}
           </Txt>
         </Card>
       </View>
 
       <Card style={styles.sectionCard}>
-        <Txt variant="heading">So funktioniert dein Streak</Txt>
+        <Txt variant="heading">{t('gamification.howItWorks')}</Txt>
         <Txt variant="body" tone="secondary">
-          Koche ein Rezept oder schließe einen Einkaufsrun ab, um den heutigen Tag zu zählen. Bleib
-          bis morgen dran, damit deine Serie weiter wächst.
+          {t('gamification.howItWorksHint')}
         </Txt>
       </Card>
 
@@ -129,33 +130,32 @@ export function GamificationScreen() {
         <Card style={styles.devCard}>
           <View style={{ gap: space.xs }}>
             <Txt variant="caption" tone="accent" weight="700">
-              __DEV__
+              {t('gamification.developmentLabel')}
             </Txt>
-            <Txt variant="heading">Celebrations testen</Txt>
+            <Txt variant="heading">{t('gamification.celebrations')}</Txt>
             <Txt variant="body" tone="secondary">
-              Löst die globale Celebration direkt aus. Der Bereich ist in Production Builds nicht
-              sichtbar.
+              {t('gamification.celebrationsHint')}
             </Txt>
           </View>
           <View style={styles.buttonStack}>
             <Button
-              title="Celebration ohne Nachricht"
+              title={t('gamification.celebrationWithoutMessage')}
               variant="secondary"
               full
               onPress={() => celebrate()}
             />
             <Button
-              title="Celebration mit Nachricht"
+              title={t('gamification.celebrationWithMessage')}
               variant="primary"
               full
-              onPress={() => celebrate('🎉 Celebration getestet')}
+              onPress={() => celebrate(t('gamification.celebrationTested'))}
             />
             <Button
-              title="Streak-Badge testen"
+              title={t('gamification.streakBadge')}
               variant="accent"
               accentKey="nourish"
               full
-              onPress={() => celebrate('🔥 7 Tage Streak!')}
+              onPress={() => celebrate(t('gamification.streakSeven'))}
             />
           </View>
         </Card>

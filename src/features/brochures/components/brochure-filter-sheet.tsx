@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
 import { useTheme } from '@/components/theme/ThemeProvider';
 import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { BrochureMarketGroup } from '../market-groups';
+import { getBrochureMarketGroupLabel } from '../market-groups';
 
 type BrochureFilterSheetProps = {
   visible: boolean;
@@ -31,6 +33,7 @@ export function BrochureFilterSheet({
   onApply,
 }: BrochureFilterSheetProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Modal
@@ -46,7 +49,7 @@ export function BrochureFilterSheet({
         style={[styles.backdrop, { backgroundColor: colors.scrim }]}
         onPress={onClose}
         accessibilityRole="button"
-        accessibilityLabel="Filter schließen">
+        accessibilityLabel={t('brochures.filter.close')}>
         <Press
           haptic="none"
           scaleTo={1}
@@ -56,16 +59,17 @@ export function BrochureFilterSheet({
           accessible={false}>
           <View style={[styles.handle, { backgroundColor: colors.border }]} />
           <View style={styles.header}>
-            <Txt variant="heading">Filter</Txt>
+            <Txt variant="heading">{t('brochures.filter.title')}</Txt>
             <Press accessibilityRole="button" onPress={onReset} style={styles.headerAction}>
               <Txt variant="body" tone="secondary" weight="500">
-                Zurücksetzen
+                {t('brochures.filter.reset')}
               </Txt>
             </Press>
           </View>
 
           <ScrollView style={styles.groupList} showsVerticalScrollIndicator={false}>
             {groups.map((group) => {
+              const groupLabel = getBrochureMarketGroupLabel(t, group.id);
               const storeIds = group.stores.map((store) => store.id);
               const selectedCount = storeIds.filter((storeId) =>
                 selectedStoreIds.has(storeId),
@@ -77,16 +81,22 @@ export function BrochureFilterSheet({
                 <View key={group.id}>
                   <Press
                     accessibilityRole="checkbox"
-                    accessibilityLabel={`${group.label}, ${selectedCount} von ${storeIds.length} Märkten`}
+                    accessibilityLabel={`${groupLabel}, ${t('brochures.filter.selected', {
+                      selected: selectedCount,
+                      total: storeIds.length,
+                    })}`}
                     accessibilityState={{ checked: groupCheckState }}
                     onPress={() => onToggleGroup(storeIds)}
                     style={[styles.groupRow, { borderTopColor: colors.border }]}>
                     <View style={styles.groupCopy}>
                       <Txt variant="body" weight="600">
-                        {group.label}
+                        {groupLabel}
                       </Txt>
                       <Txt variant="caption" tone="secondary">
-                        {selectedCount} von {storeIds.length} Märkten
+                        {t('brochures.filter.selected', {
+                          selected: selectedCount,
+                          total: storeIds.length,
+                        })}
                       </Txt>
                     </View>
                     <FilterCheck
@@ -133,7 +143,7 @@ export function BrochureFilterSheet({
             onPress={onApply}
             style={[styles.applyButton, { backgroundColor: colors.accent }]}>
             <Txt variant="body" tone="onAccent" weight="600">
-              {resultCount} Prospekte anzeigen
+              {t('brochures.filter.result', { count: resultCount })}
             </Txt>
           </Press>
         </Press>

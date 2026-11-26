@@ -2,6 +2,7 @@ import PagerView from '@expo/ui/community/pager-view';
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Alert, type LayoutChangeEvent, Linking, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -260,6 +261,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const { activeHouseholdId } = useActiveHousehold();
   const addShoppingItem = useAddShoppingItem();
   const { data: pages, isLoading } = useBrochurePages(brochureId);
@@ -297,7 +299,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
       <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
         <ActivityIndicator color={colors.accent} />
         <Txt variant="body" tone="secondary">
-          Prospekt wird geladen...
+          {t('brochures.viewer.loading')}
         </Txt>
       </View>
     );
@@ -327,7 +329,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
 
   async function addActiveHotspot() {
     if (!activeHotspot || !activeHouseholdId) {
-      Alert.alert('Kein Haushalt ausgewählt', 'Wähle zuerst einen Haushalt aus.');
+      Alert.alert(t('brochures.viewer.noHouseholdTitle'), t('brochures.viewer.noHouseholdMessage'));
       return;
     }
 
@@ -355,11 +357,11 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
         })(),
       });
       closeProductSheet();
-      Alert.alert('Zur Einkaufsliste hinzugefügt', `${quantity} × ${activeHotspot.title}`);
+      Alert.alert(t('brochures.viewer.addedTitle'), `${quantity} × ${activeHotspot.title}`);
     } catch (error) {
       Alert.alert(
-        'Hinzufügen fehlgeschlagen',
-        error instanceof Error ? error.message : 'Der Artikel konnte nicht hinzugefügt werden.',
+        t('brochures.viewer.addErrorTitle'),
+        error instanceof Error ? error.message : t('brochures.viewer.fallbackAddError'),
       );
     }
   }
@@ -409,7 +411,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             scaleTo={1}
             containerStyle={StyleSheet.absoluteFill}
             accessibilityRole="button"
-            accessibilityLabel="Artikeldetails schließen"
+            accessibilityLabel={t('brochures.viewer.closeDetails')}
             style={[styles.backdropPressArea, { backgroundColor: colors.scrim }]}
             onPress={closeProductSheet}
           />
@@ -426,7 +428,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
             <Press
               containerStyle={styles.sheetClosePosition}
               accessibilityRole="button"
-              accessibilityLabel="Artikeldetails schließen"
+              accessibilityLabel={t('brochures.viewer.closeDetails')}
               style={[styles.sheetClose, { backgroundColor: colors.background }]}
               onPress={closeProductSheet}>
               <Txt variant="glyphLarge" tone="primary">
@@ -453,7 +455,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   {activeHotspot.title}
                 </Txt>
                 <Txt variant="caption" tone="onAccent" weight="600">
-                  {pages?.[0]?.storeName ?? 'Supermarkt'}
+                  {pages?.[0]?.storeName ?? t('brochures.viewer.defaultStore')}
                 </Txt>
               </View>
               {hotspotPrice(activeHotspot) ? (
@@ -477,7 +479,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 ]}>
                 <Press
                   accessibilityRole="button"
-                  accessibilityLabel="Menge verringern"
+                  accessibilityLabel={t('brochures.viewer.decrease')}
                   disabled={quantity === 1}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => Math.max(1, current - 1))}>
@@ -490,7 +492,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                 </Txt>
                 <Press
                   accessibilityRole="button"
-                  accessibilityLabel="Menge erhöhen"
+                  accessibilityLabel={t('brochures.viewer.increase')}
                   style={styles.stepperButton}
                   onPress={() => setQuantity((current) => current + 1)}>
                   <Txt variant="subheading" tone="primary">
@@ -500,7 +502,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
               </View>
               <Press
                 accessibilityRole="button"
-                accessibilityLabel="Auf die Einkaufsliste"
+                accessibilityLabel={t('brochures.viewer.shoppingList')}
                 disabled={addShoppingItem.isPending}
                 containerStyle={{ flex: 1 }}
                 style={[
@@ -515,7 +517,7 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
                   <ActivityIndicator color={colors.onAccent} />
                 ) : (
                   <Txt variant="body" tone="onAccent" weight="700">
-                    Auf die Liste
+                    {t('brochures.viewer.shoppingListShort')}
                   </Txt>
                 )}
               </Press>
@@ -528,20 +530,20 @@ export default function BrochureViewerScreen({ brochureId }: { brochureId: strin
         containerStyle={[styles.hotspotTogglePosition, { top: Math.max(insets.top, 16) }]}
         accessibilityRole="switch"
         accessibilityState={{ checked: hotspotsVisible }}
-        accessibilityLabel="Artikel-Hotspots"
+        accessibilityLabel={t('brochures.viewer.hotspots')}
         style={[
           styles.hotspotToggle,
           { backgroundColor: hotspotsVisible ? colors.accent : withAlpha(colors.text, 0.7) },
         ]}
         onPress={() => setHotspotsVisible((visible) => !visible)}>
         <Txt variant="body" tone="onAccent" weight="700">
-          Artikel
+          {t('brochures.viewer.articles')}
         </Txt>
       </Press>
       <Press
         containerStyle={[styles.closeButtonPosition, { top: Math.max(insets.top, 16) }]}
         accessibilityRole="button"
-        accessibilityLabel="Prospekt schließen"
+        accessibilityLabel={t('brochures.viewer.close')}
         style={styles.closeButton}
         onPress={() => router.back()}>
         <View style={[styles.closeButtonFace, { backgroundColor: withAlpha(colors.text, 0.7) }]}>

@@ -1,5 +1,6 @@
 import { Redirect, router } from 'expo-router';
 import { ExpoSpeechRecognitionModule } from 'expo-speech-recognition';
+import { useTranslation } from 'react-i18next';
 import { Alert, Linking, Platform } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -10,62 +11,63 @@ import { useDevToolsAccess } from '@/hooks/use-dev-tools-access';
 import { debugLogEvent } from '@/lib/observability/debug-log';
 
 const SPEECH_PROVIDER_OPTIONS = [
-  { value: 'native', label: 'Apple Speech' },
-  { value: 'whisper', label: 'Whisper' },
+  { value: 'native', labelKey: 'dev.tools.speech.apple' },
+  { value: 'whisper', labelKey: 'dev.tools.speech.whisper' },
 ] as const;
 
 const DEV_CATEGORIES = [
   {
     icon: '🔎',
-    label: 'OCR-Pipeline analysieren',
-    hint: 'Bild, Modellstatus, Bounding-Boxen und Rohtext',
+    labelKey: 'dev.tools.categories.ocr.label',
+    hintKey: 'dev.tools.categories.ocr.hint',
     route: '/settings/dev-ocr-inspector',
   },
   {
     icon: '🧭',
-    label: 'Umgebung & Zugang',
-    hint: 'Build, Dienste, Session und Haushalt',
+    labelKey: 'dev.tools.categories.environment.label',
+    hintKey: 'dev.tools.categories.environment.hint',
     route: '/settings/dev-environment',
   },
   {
     icon: '⚙️',
-    label: 'Overrides & Feature-Konfiguration',
-    hint: 'Premium, Flags, Analytics und Tracking',
+    labelKey: 'dev.tools.categories.overrides.label',
+    hintKey: 'dev.tools.categories.overrides.hint',
     route: '/settings/dev-overrides',
   },
   {
     icon: '🤖',
-    label: 'KI-Provider & Modelle',
-    hint: 'OpenRouter oder Groq auswählen und Modelle lokal vergleichen',
+    labelKey: 'dev.tools.categories.models.label',
+    hintKey: 'dev.tools.categories.models.hint',
     route: '/settings/dev-ai-models',
   },
   {
     icon: '💾',
-    label: 'Daten & Synchronisation',
-    hint: 'Lokale Datenbank, Dump und Outbox',
+    labelKey: 'dev.tools.categories.data.label',
+    hintKey: 'dev.tools.categories.data.hint',
     route: '/settings/dev-data',
   },
   {
     icon: '🫀',
-    label: 'Lifecycle & Background',
-    hint: 'Letzte Vordergrund-/Hintergrund-Wechsel und unsaubere Sessions',
+    labelKey: 'dev.tools.categories.lifecycle.label',
+    hintKey: 'dev.tools.categories.lifecycle.hint',
     route: '/settings/dev-lifecycle',
   },
   {
     icon: '📡',
-    label: 'Telemetrie & Plattformtests',
-    hint: 'Testsignale, Benachrichtigungen und Logs',
+    labelKey: 'dev.tools.categories.telemetry.label',
+    hintKey: 'dev.tools.categories.telemetry.hint',
     route: '/settings/dev-telemetry',
   },
   {
     icon: '🧪',
-    label: 'Vorschauen & Labs',
-    hint: 'Design-System, Auth, Drax und Paywalls',
+    labelKey: 'dev.tools.categories.previews.label',
+    hintKey: 'dev.tools.categories.previews.hint',
     route: '/settings/dev-previews',
   },
 ] as const;
 
 export function DevToolsScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const speechTestProvider = useDevSettingsStore((state) => state.speechTestProvider);
   const setSpeechTestProvider = useDevSettingsStore((state) => state.setSpeechTestProvider);
@@ -88,56 +90,55 @@ export function DevToolsScreen() {
       });
 
       if (permission.granted) {
-        Alert.alert('Mikrofon freigegeben', 'Die Spracheingabe kann das Mikrofon verwenden.');
+        Alert.alert(t('dev.tools.microphone.released'), t('dev.tools.microphone.releasedMessage'));
         return;
       }
 
       if (permission.canAskAgain) {
-        Alert.alert(
-          'Mikrofon nicht freigegeben',
-          'iOS hat den Zugriff noch nicht freigegeben. Tippe erneut, um die Abfrage zu öffnen.',
-        );
+        Alert.alert(t('dev.tools.microphone.denied'), t('dev.tools.microphone.deniedAgain'));
         return;
       }
 
-      Alert.alert(
-        'Mikrofon nicht freigegeben',
-        'Die Berechtigung wurde dauerhaft abgelehnt. Öffne die iOS-Einstellungen und erlaube den Mikrofonzugriff für fam.',
-        [
-          { text: 'Abbrechen', style: 'cancel' },
-          { text: 'Einstellungen öffnen', onPress: () => void Linking.openSettings() },
-        ],
-      );
+      Alert.alert(t('dev.tools.microphone.denied'), t('dev.tools.microphone.deniedPermanent'), [
+        { text: t('common.actions.cancel'), style: 'cancel' },
+        {
+          text: t('dev.tools.microphone.openSettings'),
+          onPress: () => void Linking.openSettings(),
+        },
+      ]);
     } catch (error) {
       debugLogEvent('shopping-list.voice-permission.dev-menu-failed', {
         hasError: Boolean(error),
       });
       Alert.alert(
-        'Mikrofonberechtigung nicht verfügbar',
-        'Der aktuelle Build stellt das native Speech-Modul nicht bereit.',
+        t('dev.tools.microphone.unavailable'),
+        t('dev.tools.microphone.unavailableMessage'),
       );
     }
   }
 
   return (
     <Screen
-      title="Entwickler"
-      subtitle="Wähle einen Bereich"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('dev.tools.title')}
+      subtitle={t('dev.tools.subtitle')}
+      back={{ label: t('settings.developer.group'), href: '/settings' }}
       backStyle="icon">
-      <SettingsGroup title="Native Berechtigungen">
+      <SettingsGroup title={t('dev.tools.groups.nativePermissions')}>
         <SettingsRow
           icon="🎙️"
-          label="Mikrofon freigeben"
-          hint="Öffnet die iOS-Abfrage für die Spracheingabe"
+          label={t('dev.tools.microphone.release')}
+          hint={t('dev.tools.microphone.hint')}
           onPress={() => void requestMicrophonePermission()}
           last
         />
       </SettingsGroup>
-      <SettingsGroup title="Spracheingabe">
+      <SettingsGroup title={t('dev.tools.groups.speech')}>
         <SegmentedControl
-          label="Speech-Testanbieter"
-          options={SPEECH_PROVIDER_OPTIONS}
+          label={t('dev.tools.speech.provider')}
+          options={SPEECH_PROVIDER_OPTIONS.map(({ value, labelKey }) => ({
+            value,
+            label: t(labelKey),
+          }))}
           selected={speechTestProvider}
           onSelect={(provider) => setSpeechTestProvider(provider as SpeechTestProvider)}
           appearance="surface"
@@ -145,11 +146,15 @@ export function DevToolsScreen() {
         />
         <SettingsRow
           icon={speechTestProvider === 'native' ? '🗣️' : '⚡'}
-          label={speechTestProvider === 'native' ? 'Apple Speech testen' : 'Whisper testen'}
+          label={
+            speechTestProvider === 'native'
+              ? t('dev.tools.speech.appleTest')
+              : t('dev.tools.speech.whisperTest')
+          }
           hint={
             speechTestProvider === 'native'
-              ? 'Direkten Referenzpfad des Pakets testen'
-              : 'Whisper Tiny lokal auf einem echten Gerät testen'
+              ? t('dev.tools.speech.appleHint')
+              : t('dev.tools.speech.whisperHint')
           }
           onPress={() =>
             router.push(
@@ -162,12 +167,12 @@ export function DevToolsScreen() {
         />
       </SettingsGroup>
       {Platform.OS === 'ios' ? (
-        <SettingsGroup title="Kassenbon-OCR">
+        <SettingsGroup title={t('dev.tools.groups.receiptOcr')}>
           <SegmentedControl
-            label="OCR-Anbieter im Kassenbon-Upload"
+            label={t('dev.tools.ocr.provider')}
             options={[
-              { value: 'google-mlkit', label: 'ML Kit' },
-              { value: 'apple-vision', label: 'Apple Vision' },
+              { value: 'google-mlkit', label: t('dev.tools.ocr.mlKit') },
+              { value: 'apple-vision', label: t('dev.tools.ocr.appleVision') },
             ]}
             selected={receiptOcrProvider}
             onSelect={setReceiptOcrProvider}
@@ -175,10 +180,10 @@ export function DevToolsScreen() {
             size="compact"
           />
           <SegmentedControl
-            label="OCR-Anbieterauswahl im Kassenbon-Upload"
+            label={t('dev.tools.ocr.selection')}
             options={[
-              { value: 'disabled', label: 'Aus' },
-              { value: 'enabled', label: 'An' },
+              { value: 'disabled', label: t('dev.states.off') },
+              { value: 'enabled', label: t('dev.states.on') },
             ]}
             selected={receiptOcrTestEnabled ? 'enabled' : 'disabled'}
             onSelect={(value) => setReceiptOcrTestEnabled(value === 'enabled')}
@@ -192,8 +197,8 @@ export function DevToolsScreen() {
           <SettingsRow
             key={category.route}
             icon={category.icon}
-            label={category.label}
-            hint={category.hint}
+            label={t(category.labelKey)}
+            hint={t(category.hintKey)}
             onPress={() => router.push(category.route)}
             last={index === DEV_CATEGORIES.length - 1}
           />

@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import type { LocalProduct } from '@/features/inventory/use-product';
 import type { CatalogProduct } from '@/features/product-search/types';
+import { i18n } from '@/i18n';
 
 import { ProductInformation, type ProductInformationItem } from './product-information';
 
@@ -65,7 +66,11 @@ function createOffProduct(nutriScore?: CatalogProduct['nutriScore']): CatalogPro
   };
 }
 
-async function renderSheet(onClose = jest.fn(), width = 390) {
+async function renderSheet(
+  onClose = jest.fn(),
+  width = 390,
+  itemOverride: ProductInformationItem = item,
+) {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false, gcTime: Number.POSITIVE_INFINITY } },
   });
@@ -78,7 +83,7 @@ async function renderSheet(onClose = jest.fn(), width = 390) {
           frame: { x: 0, y: 0, width, height: 844 },
           insets: { top: 47, left: 0, right: 0, bottom: 34 },
         }}>
-        <ProductInformation visible item={item} onClose={onClose} />
+        <ProductInformation visible item={itemOverride} onClose={onClose} />
       </SafeAreaProvider>
     </QueryClientProvider>,
   );
@@ -93,8 +98,9 @@ describe('ProductInformation', () => {
     mockFindByBarcode.mockImplementation(async () => mockOffProduct);
   });
 
-  afterEach(() => {
+  afterEach(async () => {
     jest.clearAllMocks();
+    await i18n.changeLanguage('de');
   });
 
   it('zeigt Produktdaten, Nutri-Score, Zutaten und Allergene aus Open Food Facts', async () => {
@@ -115,6 +121,26 @@ describe('ProductInformation', () => {
     expect(await screen.findByText('Nutri-Score –')).toBeOnTheScreen();
     expect(screen.getByText('Produktdaten von Open Food Facts')).toBeOnTheScreen();
     expect(screen.getByText('–')).toBeOnTheScreen();
+  });
+
+  it('renders product information copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await renderSheet();
+
+    expect(await screen.findByText('Nutri-Score C')).toBeOnTheScreen();
+    expect(screen.getByText('Product data from Open Food Facts')).toBeOnTheScreen();
+    expect(screen.getByText('Nutrition per 100 ml')).toBeOnTheScreen();
+    expect(screen.getByText('October 31, 2026')).toBeOnTheScreen();
+  });
+
+  it.each([
+    ['de', '1,5 Stück'],
+    ['en', '1.5 Pieces'],
+  ] as const)('formats fractional inventory amounts in %s', async (locale, expected) => {
+    await i18n.changeLanguage(locale);
+    await renderSheet(jest.fn(), 390, { ...item, quantity: 1.5, unit: 'piece' });
+
+    expect(screen.getByText(expected)).toBeOnTheScreen();
   });
 
   it('lässt lange Detailwerte innerhalb der Sheet-Zeile umbrechen', async () => {

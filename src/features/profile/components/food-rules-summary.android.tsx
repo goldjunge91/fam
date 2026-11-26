@@ -1,10 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 
 import { Card, Press, Txt } from '@/constants/ui';
 import {
-  ALLERGY_PRESETS,
   type FoodSelection,
-  INTOLERANCE_PRESETS,
+  getFoodRuleLabel,
   type ProfileFoodRules,
 } from '@/features/profile/domain/food-rules';
 import { profileEditStyles } from '@/features/profile/profile-edit-styles';
@@ -18,15 +18,13 @@ type FoodRulesSummaryProps = {
 
 function summarize<Code extends string>(
   selections: FoodSelection<Code>[],
-  presets: readonly { code: Code; label: string }[],
+  t: ReturnType<typeof useTranslation>['t'],
 ) {
-  if (selections.length === 0) return 'Keine Angaben';
+  if (selections.length === 0) return t('profile.foodRules.empty');
 
   return selections
     .map((selection) =>
-      selection.source === 'custom'
-        ? selection.label
-        : (presets.find(({ code }) => code === selection.code)?.label ?? selection.code),
+      selection.source === 'custom' ? selection.label : getFoodRuleLabel(t, selection.code),
     )
     .join(', ');
 }
@@ -35,18 +33,20 @@ function SummaryRow({
   label,
   summary,
   bordered,
+  accessibilityLabel,
   onPress,
 }: {
   label: string;
   summary: string;
   bordered?: boolean;
+  accessibilityLabel: string;
   onPress: () => void;
 }) {
   return (
     <Press
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${label} bearbeiten. ${summary}`}
+      accessibilityLabel={accessibilityLabel}
       style={[profileEditStyles.summaryRow, bordered && profileEditStyles.summaryRowBordered]}>
       <Txt variant="body" weight="700" style={profileEditStyles.summaryLabel}>
         {label}
@@ -68,31 +68,51 @@ function SummaryRow({
 }
 
 export function FoodRulesSummary({ rules, onSelect }: FoodRulesSummaryProps) {
+  const { t } = useTranslation();
+  const allergiesLabel = t('profile.foodRules.allergies');
+  const intolerancesLabel = t('profile.foodRules.intolerances');
+  const dislikedLabel = t('profile.foodRules.dislikedFoods');
+  const allergiesSummary = summarize(rules.allergies, t);
+  const intolerancesSummary = summarize(rules.intolerances, t);
+  const dislikedSummary = summarize(rules.dislikedFoods, t);
+
   return (
     <Card style={profileEditStyles.foodRulesCard}>
       <View style={profileEditStyles.summaryHeading}>
         <Txt variant="body" weight="700">
-          Lebensmittel &amp; Verträglichkeit
+          {t('profile.summary.foodRules')}
         </Txt>
         <Txt variant="body" tone="secondary">
-          Keine medizinische Diagnose
+          {t('profile.summary.noMedicalDiagnosis')}
         </Txt>
       </View>
       <SummaryRow
-        label="Allergien"
-        summary={summarize(rules.allergies, ALLERGY_PRESETS)}
+        label={allergiesLabel}
+        summary={allergiesSummary}
+        accessibilityLabel={t('profile.summary.editSummary', {
+          label: allergiesLabel,
+          summary: allergiesSummary,
+        })}
         bordered
         onPress={() => onSelect('allergies')}
       />
       <SummaryRow
-        label="Unverträglichkeiten"
-        summary={summarize(rules.intolerances, INTOLERANCE_PRESETS)}
+        label={intolerancesLabel}
+        summary={intolerancesSummary}
+        accessibilityLabel={t('profile.summary.editSummary', {
+          label: intolerancesLabel,
+          summary: intolerancesSummary,
+        })}
         bordered
         onPress={() => onSelect('intolerances')}
       />
       <SummaryRow
-        label="Mag ich nicht"
-        summary={summarize(rules.dislikedFoods, [])}
+        label={dislikedLabel}
+        summary={dislikedSummary}
+        accessibilityLabel={t('profile.summary.editSummary', {
+          label: dislikedLabel,
+          summary: dislikedSummary,
+        })}
         onPress={() => onSelect('dislikedFoods')}
       />
     </Card>

@@ -1,4 +1,5 @@
 import { useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { Screen } from '@/components/layout/screen';
 import { Txt } from '@/constants/ui';
 import { useSession } from '@/features/auth/session-provider';
@@ -19,6 +20,7 @@ function firstParam(value: string | string[] | undefined): string | undefined {
 
 export function CorrelationScreen() {
   const params = useLocalSearchParams<CorrelationRouteParams>();
+  const { t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -35,22 +37,22 @@ export function CorrelationScreen() {
 
   return (
     <Screen
-      title="Korrelationsanalyse"
-      back={{ label: 'Tagebuch', href: '/diary' }}
+      title={t('glp1.correlation.title')}
+      back={{ label: t('calorieTracking.diary.title'), href: '/diary' }}
       backStyle="icon">
       {isLoading ? (
         <Txt variant="caption" tone="secondary">
-          Korrelationsanalyse wird geladen...
+          {t('glp1.correlation.loading')}
         </Txt>
       ) : isError ? (
         <Txt variant="caption" tone="danger">
-          Korrelationsanalyse konnte nicht geladen werden.
+          {t('glp1.correlation.error')}
         </Txt>
       ) : series && series.length > 0 ? (
         <CorrelationSection series={series} />
       ) : (
         <Txt variant="caption" tone="secondary">
-          Keine Korrelationsdaten vorhanden.
+          {t('glp1.correlation.empty')}
         </Txt>
       )}
     </Screen>

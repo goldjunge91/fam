@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -90,12 +91,6 @@ type WasteInventoryItemSheetProps = {
   loading?: boolean;
 };
 
-const REASONS: readonly { value: WasteReason; label: string; icon: string }[] = [
-  { value: 'expired', label: 'Abgelaufen', icon: '📅' },
-  { value: 'spoiled', label: 'Schlecht geworden', icon: '🤢' },
-  { value: 'other', label: 'Sonstiges', icon: '•••' },
-];
-
 export function WasteInventoryItemSheet({
   visible,
   item,
@@ -103,6 +98,7 @@ export function WasteInventoryItemSheet({
   onConfirm,
   loading = false,
 }: WasteInventoryItemSheetProps) {
+  const { t, i18n } = useTranslation();
   const sheetStyle = useSheetShadowStyle();
   const [reason, setReason] = useState<WasteReason>('expired');
   const itemId = item?.id ?? null;
@@ -121,7 +117,12 @@ export function WasteInventoryItemSheet({
   }, [hasItem, itemId, visible]);
 
   if (!item) return null;
-  const amount = formatAmount(item.quantity, item.unit);
+  const amount = formatAmount(item.quantity, item.unit, t, i18n.language);
+  const reasons: readonly { value: WasteReason; label: string; icon: string }[] = [
+    { value: 'expired', label: t('inventory.waste.expired'), icon: '📅' },
+    { value: 'spoiled', label: t('inventory.waste.spoiled'), icon: '🤢' },
+    { value: 'other', label: t('inventory.waste.other'), icon: '•••' },
+  ];
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -134,23 +135,23 @@ export function WasteInventoryItemSheet({
           style={styles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Verschwendung schließen"
+          accessibilityLabel={t('inventory.waste.close')}
         />
         <View style={[styles.sheet, sheetStyle]}>
           <View style={styles.handle} />
           <View style={styles.titleCopy}>
-            <Txt variant="title">{item.name} wegwerfen</Txt>
+            <Txt variant="title">{t('inventory.waste.title', { name: item.name })}</Txt>
             <Txt variant="caption" tone="secondary">
-              {amount} · {item.location_name ?? 'Kein Lagerort'}
+              {amount} · {item.location_name ?? t('inventory.actions.noLocation')}
             </Txt>
           </View>
 
           <View style={styles.reasonSection}>
             <Txt variant="body" weight="700">
-              Warum wird es weggeworfen?
+              {t('inventory.waste.reasonQuestion')}
             </Txt>
             <View style={styles.reasonList}>
-              {REASONS.map((option) => {
+              {reasons.map((option) => {
                 const selected = reason === option.value;
                 return (
                   <Press
@@ -184,7 +185,7 @@ export function WasteInventoryItemSheet({
           </View>
 
           <Button
-            title="Als Verschwendung buchen"
+            title={t('inventory.waste.submit')}
             variant="danger"
             size="sm"
             onPress={() => onConfirm(reason)}

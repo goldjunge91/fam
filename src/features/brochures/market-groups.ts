@@ -1,19 +1,32 @@
+import type { TFunction } from 'i18next';
 import type { LocalBrochureStore } from './types';
 
 export const BROCHURE_MARKET_GROUPS = [
-  { id: 'groceries', label: 'Lebensmittel' },
-  { id: 'drugstore', label: 'Drogeriemarkt' },
-  { id: 'home-improvement', label: 'Heimwerk' },
-  { id: 'other', label: 'Weitere Märkte' },
+  { id: 'groceries' },
+  { id: 'drugstore' },
+  { id: 'home-improvement' },
+  { id: 'other' },
 ] as const;
 
 export type BrochureMarketGroupId = (typeof BROCHURE_MARKET_GROUPS)[number]['id'];
 
 export type BrochureMarketGroup = {
   id: BrochureMarketGroupId;
-  label: string;
   stores: LocalBrochureStore[];
 };
+
+export function getBrochureMarketGroupLabel(t: TFunction, id: BrochureMarketGroupId): string {
+  switch (id) {
+    case 'groceries':
+      return t('brochures.groups.groceries');
+    case 'drugstore':
+      return t('brochures.groups.drugstore');
+    case 'home-improvement':
+      return t('brochures.groups.homeImprovement');
+    case 'other':
+      return t('brochures.groups.other');
+  }
+}
 
 const HOME_IMPROVEMENT_TERMS = [
   'bauhaus',
@@ -87,7 +100,7 @@ export function getBrochureMarketGroupId(
 
 export function groupBrochureStores(stores: readonly LocalBrochureStore[]): BrochureMarketGroup[] {
   return BROCHURE_MARKET_GROUPS.map((group) => ({
-    ...group,
+    id: group.id,
     stores: stores.filter((store) => getBrochureMarketGroupId(store) === group.id),
   })).filter((group) => group.stores.length > 0);
 }

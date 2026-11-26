@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, userEvent } from '@testing-library/react-native';
 import { Alert } from 'react-native';
+import { i18n } from '@/i18n';
 import type { Store } from '../../hooks/use-stores';
 import type { BetaStorageState, NaturalLanguageAdditionInput } from '../types';
 import type { TextBetaPreview } from '../workflow/text-workflow';
@@ -264,6 +265,10 @@ const stores: Store[] = [
 ];
 
 describe('NaturalLanguageAdditionController', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   beforeEach(() => {
     mockParams = {};
     mockSpeechEnabled = true;
@@ -371,6 +376,25 @@ describe('NaturalLanguageAdditionController', () => {
     expect(Alert.alert).toHaveBeenCalledWith('Spracheingabe fehlgeschlagen', 'Parser unavailable');
   });
 
+  it('reports English recheck errors while preserving the dynamic error message', async () => {
+    await i18n.changeLanguage('en');
+    const user = userEvent.setup();
+    mockParams = { action: 'voice' };
+    mockCreateBetaPreview
+      .mockResolvedValueOnce({ ...preview, input: { source: 'text', text: 'Brot', locale: null } })
+      .mockRejectedValueOnce(new Error('Parser unavailable'));
+
+    await render(<NaturalLanguageAdditionController householdId="household-1" stores={stores} />);
+    await user.press(screen.getByText('Transkript übernehmen'));
+    await screen.findByText('Vorschau: Brot');
+    await user.press(screen.getByText('Neu prüfen'));
+
+    expect(Alert.alert).toHaveBeenCalledWith(
+      'Voice input failed',
+      'Items could not be checked again: Parser unavailable',
+    );
+  });
+
   it('sends speech fallback errors to the alert and closes the recording overlay', async () => {
     const user = userEvent.setup();
     mockParams = { action: 'voice' };
@@ -446,14 +470,14 @@ describe('NaturalLanguageAdditionController', () => {
     await screen.findByText('Vorschau: Brot');
     await user.press(screen.getByText('Korrektur merken'));
     expect(Alert.alert).toHaveBeenCalledWith(
-      'Korrektur fehlgeschlagen',
-      'correction storage unavailable',
+      'Spracheingabe fehlgeschlagen',
+      'Korrektur fehlgeschlagen: correction storage unavailable',
     );
 
     await user.press(screen.getByText('Korrektur vergessen'));
     expect(Alert.alert).toHaveBeenCalledWith(
-      'Löschen fehlgeschlagen',
-      'correction storage unavailable',
+      'Spracheingabe fehlgeschlagen',
+      'Löschen fehlgeschlagen: correction storage unavailable',
     );
   });
 
@@ -469,13 +493,16 @@ describe('NaturalLanguageAdditionController', () => {
     await screen.findByText('Vorschau: Brot');
     await user.press(screen.getByText('Neu prüfen'));
     expect(Alert.alert).toHaveBeenCalledWith(
-      'Artikel konnten nicht neu geprüft werden',
-      'recheck unavailable',
+      'Spracheingabe fehlgeschlagen',
+      'Artikel konnten nicht neu geprüft werden: recheck unavailable',
     );
 
     mockGetBetaState.mockRejectedValueOnce(new Error('state unavailable'));
     await user.press(screen.getByText('Einmal korrigieren'));
-    expect(Alert.alert).toHaveBeenCalledWith('Korrektur fehlgeschlagen', 'state unavailable');
+    expect(Alert.alert).toHaveBeenCalledWith(
+      'Spracheingabe fehlgeschlagen',
+      'Korrektur fehlgeschlagen: state unavailable',
+    );
   });
 
   it('closes a preview and completes dismissal by clearing its route action', async () => {
@@ -653,8 +680,8 @@ describe('NaturalLanguageAdditionController', () => {
     await user.press(screen.getByText('Hinzufügen bestätigen'));
 
     expect(Alert.alert).toHaveBeenCalledWith(
-      'Artikel konnten nicht hinzugefügt werden',
-      'confirmation unavailable',
+      'Spracheingabe fehlgeschlagen',
+      'Artikel konnten nicht hinzugefügt werden: confirmation unavailable',
     );
   });
 
@@ -685,8 +712,8 @@ describe('NaturalLanguageAdditionController', () => {
     await user.press(screen.getByText('Hinzufügen bestätigen'));
 
     expect(Alert.alert).toHaveBeenCalledWith(
-      'Artikel konnten nicht hinzugefügt werden',
-      'database unavailable',
+      'Spracheingabe fehlgeschlagen',
+      'Artikel konnten nicht hinzugefügt werden: database unavailable',
     );
     expect(screen.getByText('Vorschau: Brot')).toBeOnTheScreen();
   });

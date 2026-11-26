@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -14,7 +15,7 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { scheduleOnRN } from 'react-native-worklets';
 
-import { FilterChipBar, type FilterChipOption } from '@/components/ui/filter-chip-bar';
+import { FilterChipBar } from '@/components/ui/filter-chip-bar';
 import { Button, Surface, Txt } from '@/constants/ui';
 import { CodeSample, ContractIntro, ExamplePair, Subsection } from './showcase-shared';
 
@@ -22,18 +23,18 @@ export type ReanimatedCategory = 'reanimated';
 type MotionMode = 'spring' | 'timing' | 'sequence';
 
 const MOTION_MODES = [
-  { value: 'spring', label: 'Spring' },
-  { value: 'timing', label: 'Timing' },
-  { value: 'sequence', label: 'Sequence' },
-] as const satisfies readonly FilterChipOption<MotionMode>[];
+  { value: 'spring', labelKey: 'dev.design.reanimated.spring' },
+  { value: 'timing', labelKey: 'dev.design.reanimated.timing' },
+  { value: 'sequence', labelKey: 'dev.design.reanimated.sequence' },
+] as const;
 
 const FUNCTION_REFERENCE = [
-  ['useSharedValue', 'UI-Thread-Werte ohne React-Render.'],
-  ['useAnimatedStyle', 'Verbindet Shared Values mit dynamischen View-Styles.'],
-  ['useDerivedValue', 'Leitet UI-Thread-Werte ohne JS-State ab.'],
-  ['withSpring / withTiming', 'Physikalische oder zeitgesteuerte Übergänge.'],
-  ['Gesture.Pan', 'Direkte Werte für Drag-, Swipe- und Reorder-Interaktionen.'],
-  ['scheduleOnRN', 'Plant fachliche Ergebnisse zurück auf den RN-Thread.'],
+  ['useSharedValue', 'dev.design.reanimated.useSharedValue'],
+  ['useAnimatedStyle', 'dev.design.reanimated.useAnimatedStyle'],
+  ['useDerivedValue', 'dev.design.reanimated.useDerivedValue'],
+  ['withSpring / withTiming', 'dev.design.reanimated.springTiming'],
+  ['Gesture.Pan', 'dev.design.reanimated.gesturePan'],
+  ['scheduleOnRN', 'dev.design.reanimated.scheduleOnRn'],
 ] as const;
 
 const styles = StyleSheet.create((theme) => ({
@@ -130,6 +131,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 function MotionBasicsDemo() {
+  const { t } = useTranslation();
   const scale = useSharedValue(1);
   const [runs, setRuns] = useState(0);
   const [mode, setMode] = useState<MotionMode>('spring');
@@ -173,14 +175,14 @@ function MotionBasicsDemo() {
   };
 
   return (
-    <Subsection title="Motion Basics">
+    <Subsection title={t('dev.design.reanimated.motionBasics')}>
       <Txt variant="body" tone="secondary">
-        One-shot-Feedback bleibt auf dem UI-Thread und reagiert direkt auf eine Nutzeraktion.
+        {t('dev.design.reanimated.motionHint')}
       </Txt>
       <Surface style={styles.panel}>
         <FilterChipBar
-          label="Motion-Modus"
-          options={MOTION_MODES}
+          label={t('dev.design.reanimated.motionMode')}
+          options={MOTION_MODES.map(({ value, labelKey }) => ({ value, label: t(labelKey) }))}
           selected={mode}
           onSelect={setMode}
         />
@@ -190,18 +192,23 @@ function MotionBasicsDemo() {
               fam
             </Txt>
             <Txt variant="caption" tone="onAccent">
-              transient feedback
+              {t('dev.design.reanimated.transientFeedback')}
             </Txt>
           </Animated.View>
         </View>
-        <Button title="Animation starten" onPress={startAnimation} />
+        <Button title={t('dev.design.reanimated.animate')} onPress={startAnimation} />
         <Txt variant="caption" tone="secondary">
-          Ausgeführt: {runs}
+          {t('dev.design.reanimated.runs', { count: runs })}
         </Txt>
         <Txt variant="caption" tone="secondary">
           {reducedMotion
-            ? 'Reduced Motion ist aktiv: zeitbasierte Übergänge werden verkürzt.'
-            : `Aktiver Modus: ${mode}`}
+            ? t('dev.design.reanimated.reducedMotion')
+            : t('dev.design.reanimated.activeMode', {
+                mode: t(
+                  MOTION_MODES.find((option) => option.value === mode)?.labelKey ??
+                    'dev.design.reanimated.spring',
+                ),
+              })}
         </Txt>
       </Surface>
       <CodeSample>
@@ -214,13 +221,14 @@ Sequence: 0.8 → 1.2 → 0.9 → 1`}
 }
 
 function GestureDemo() {
+  const { t } = useTranslation();
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(0);
-  const [status, setStatus] = useState('Noch kein Drop verarbeitet');
+  const [status, setStatus] = useState(t('dev.design.reanimated.noDrop'));
 
   const reportDrop = useCallback(() => {
-    setStatus('UI-Thread → RN: Drop verarbeitet');
-  }, []);
+    setStatus(t('dev.design.reanimated.dropProcessed'));
+  }, [t]);
 
   const gesture = Gesture.Pan()
     .onUpdate((event) => {
@@ -240,10 +248,9 @@ function GestureDemo() {
   }));
 
   return (
-    <Subsection title="Gestures & UI Thread">
+    <Subsection title={t('dev.design.reanimated.gestureTitle')}>
       <Txt variant="body" tone="secondary">
-        Gestenwerte werden auf dem UI-Thread verarbeitet. Nur das fachliche Ergebnis wechselt zurück
-        zu React Native.
+        {t('dev.design.reanimated.gestureHint')}
       </Txt>
       <Surface style={styles.panel}>
         <View style={styles.gestureStage}>
@@ -251,10 +258,10 @@ function GestureDemo() {
             <Animated.View
               accessible
               accessibilityRole="button"
-              accessibilityLabel="Reanimated Drag-Demo"
+              accessibilityLabel={t('dev.design.reanimated.dragDemo')}
               style={[styles.gestureTile, animatedStyle]}>
               <Txt variant="label" tone="onAccent">
-                Ziehen
+                {t('dev.design.reanimated.drag')}
               </Txt>
             </Animated.View>
           </GestureDetector>
@@ -275,6 +282,7 @@ function GestureDemo() {
 }
 
 function DerivedValuesDemo() {
+  const { t } = useTranslation();
   const progress = useSharedValue(0);
   const derivedScale = useDerivedValue(() => interpolate(progress.value, [0, 1], [0.82, 1]));
   const [step, setStep] = useState(0);
@@ -294,10 +302,9 @@ function DerivedValuesDemo() {
   };
 
   return (
-    <Subsection title="Derived Values">
+    <Subsection title={t('dev.design.reanimated.derivedTitle')}>
       <Txt variant="body" tone="secondary">
-        Ein Fortschrittswert steuert mehrere UI-Eigenschaften. Die Ableitung bleibt auf dem
-        UI-Thread und erzeugt keinen React-Render pro Frame.
+        {t('dev.design.reanimated.derivedHint')}
       </Txt>
       <Surface style={styles.panel}>
         <View style={styles.motionStage}>
@@ -305,10 +312,12 @@ function DerivedValuesDemo() {
             <Animated.View style={[styles.derivedFill, fillStyle]} />
           </View>
           <Animated.View style={[styles.composedTile, tileStyle]}>
-            <Txt variant="label">{[0, 33, 66, 100][step]}% synchronisiert</Txt>
+            <Txt variant="label">
+              {t('dev.design.reanimated.syncedPercent', { percent: [0, 33, 66, 100][step] })}
+            </Txt>
           </Animated.View>
         </View>
-        <Button title="Fortschritt weiterführen" onPress={advanceProgress} />
+        <Button title={t('dev.design.reanimated.continueProgress')} onPress={advanceProgress} />
       </Surface>
       <CodeSample>
         {`const progress = useSharedValue(0)
@@ -321,6 +330,7 @@ const scale = useDerivedValue(() =>
 }
 
 function UnistylesCompositionDemo() {
+  const { t } = useTranslation();
   const translateY = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -335,30 +345,32 @@ function UnistylesCompositionDemo() {
   };
 
   return (
-    <Subsection title="Unistyles + Reanimated">
+    <Subsection title={t('dev.design.reanimated.compositionTitle')}>
       <Txt variant="body" tone="secondary">
-        Statische, theme-abhängige Styles und dynamische Animated Styles werden als Array
-        kombiniert.
+        {t('dev.design.reanimated.compositionHint')}
       </Txt>
       <ExamplePair
         correct={
           <View style={styles.panel}>
             <Animated.View style={[styles.composedTile, animatedStyle]}>
-              <Txt variant="label">STATISCH + DYNAMISCH</Txt>
+              <Txt variant="label">{t('dev.design.reanimated.staticDynamic')}</Txt>
               <Txt variant="caption" tone="secondary">
-                Das Theme bleibt in Unistyles.
+                {t('dev.design.reanimated.themeInUnistyles')}
               </Txt>
             </Animated.View>
-            <Button title="Kombination animieren" onPress={animateComposition} />
+            <Button
+              title={t('dev.design.reanimated.animateComposition')}
+              onPress={animateComposition}
+            />
           </View>
         }
         incorrect={
           <View style={styles.incorrectTile}>
             <Txt variant="label" tone="danger">
-              Spread nicht verwenden
+              {t('dev.design.reanimated.noSpread')}
             </Txt>
             <Txt variant="caption" tone="secondary">
-              Animated Styles können dadurch ihre Laufzeitwerte verlieren.
+              {t('dev.design.reanimated.spreadHint')}
             </Txt>
           </View>
         }
@@ -370,11 +382,12 @@ function UnistylesCompositionDemo() {
 }
 
 function FunctionReference() {
+  const { t } = useTranslation();
   return (
-    <Subsection title="Reanimated-Werkzeugkasten">
+    <Subsection title={t('dev.design.reanimated.reference')}>
       <View style={styles.panel}>
-        {FUNCTION_REFERENCE.map((item) => (
-          <CapabilityRow key={item[0]} title={item[0]} detail={item[1]} />
+        {FUNCTION_REFERENCE.map(([title, detailKey]) => (
+          <CapabilityRow key={title} title={title} detail={t(detailKey)} />
         ))}
       </View>
     </Subsection>
@@ -396,39 +409,39 @@ function CapabilityRow({ detail, title }: { detail: string; title: string }) {
 }
 
 export function ReanimatedShowcase() {
+  const { t } = useTranslation();
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Reanimated und Worklets"
-        contract="Animationen und Gesten bleiben transient. Berechnungen laufen auf dem UI-Thread, während fachliche Zustandsänderungen gezielt zurück nach React Native geplant werden."
-        source="react-native-reanimated 4 · react-native-worklets"
+        title={t('dev.design.reanimated.title')}
+        contract={t('dev.design.reanimated.contract')}
+        source={t('dev.design.reanimated.source')}
       />
       <MotionBasicsDemo />
       <GestureDemo />
       <DerivedValuesDemo />
       <UnistylesCompositionDemo />
       <FunctionReference />
-      <Subsection title="Einsatzpunkte in Haushaltsapp">
+      <Subsection title={t('dev.design.reanimated.useCases')}>
         <Txt variant="body" tone="secondary">
-          Diese Muster passen zu Interaktionen, die bereits in unserem Produkt vorkommen oder
-          sinnvoll erweitert werden können.
+          {t('dev.design.reanimated.useCasesHint')}
         </Txt>
         <View style={styles.panel}>
           <CapabilityRow
-            title="Press-Feedback"
-            detail="Buttons, FAB und Icons geben unmittelbares Feedback über Spring- und Timing-Animationen."
+            title={t('dev.design.reanimated.pressFeedback')}
+            detail={t('dev.design.reanimated.pressFeedbackHint')}
           />
           <CapabilityRow
-            title="Drag & Drop"
-            detail="Die Wochenplanung verarbeitet Drag-Bewegungen auf dem UI-Thread und meldet nur den Drop an React Native."
+            title={t('dev.design.reanimated.dragDrop')}
+            detail={t('dev.design.reanimated.dragDropHint')}
           />
           <CapabilityRow
-            title="Swipe-Aktionen"
-            detail="Inventarzeilen können Aktionen wie Erledigen oder Löschen mit einer kontrollierten Geste offenlegen."
+            title={t('dev.design.reanimated.swipeActions')}
+            detail={t('dev.design.reanimated.swipeActionsHint')}
           />
           <CapabilityRow
-            title="Fokussierte Übergänge"
-            detail="Drawer-, Jiggle- und Celebration-Interaktionen bleiben ereignisgetrieben und werden nicht dauerhaft neu gezeichnet."
+            title={t('dev.design.reanimated.focusedTransitions')}
+            detail={t('dev.design.reanimated.focusedTransitionsHint')}
           />
         </View>
       </Subsection>

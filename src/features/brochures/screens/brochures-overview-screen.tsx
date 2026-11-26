@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Linking, ScrollView, TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FilterIcon, SearchIcon } from '@/components/icons/fam-icon';
@@ -16,12 +17,13 @@ import { useBrochureImagePrefetch } from '../hooks/use-brochure-image-prefetch';
 import { useBrochurePostalCode } from '../hooks/use-brochure-postal-code';
 import { useBrochureSync } from '../hooks/use-brochure-sync';
 import { useBrochures } from '../hooks/use-brochures';
-import { groupBrochureStores } from '../market-groups';
+import { getBrochureMarketGroupLabel, groupBrochureStores } from '../market-groups';
 
 const EMPTY_IMAGE_REFERENCES: [] = [];
 
 export default function BrochuresOverviewScreen() {
   const router = useRouter();
+  const { i18n, t } = useTranslation();
   const { colors } = useTheme();
   // Prospekte ist ein Drawer-Top-Level-Screen: der Header braucht einen Menü-Button
   // zurück ins Nav-Menü statt eines Zurück-Pfeils zur vorherigen Route.
@@ -66,14 +68,14 @@ export default function BrochuresOverviewScreen() {
   ) : postalCode ? (
     <View style={styles.postalCodeRow}>
       <Txt variant="body" tone="primary" weight="500">
-        PLZ {postalCode}
+        {t('brochures.overview.postalCode', { value: postalCode })}
       </Txt>
       <Press
         accessibilityRole="button"
         style={styles.postalCodeAction}
         onPress={() => setIsEditingPostalCode(true)}>
         <Txt variant="body" tone="primary" weight="500">
-          PLZ ändern
+          {t('brochures.overview.changePostalCode')}
         </Txt>
       </Press>
       {location.isManual ? (
@@ -82,7 +84,7 @@ export default function BrochuresOverviewScreen() {
           style={styles.postalCodeAction}
           onPress={location.useDeviceLocation}>
           <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
-            Standort verwenden
+            {t('brochures.overview.useLocation')}
           </Txt>
         </Press>
       ) : null}
@@ -93,17 +95,17 @@ export default function BrochuresOverviewScreen() {
       style={styles.postalCodeAction}
       onPress={() => setIsEditingPostalCode(true)}>
       <Txt variant="body" tone="secondary" style={{ textDecorationLine: 'underline' }}>
-        PLZ manuell eingeben
+        {t('brochures.overview.enterPostalCode')}
       </Txt>
     </Press>
   );
 
   if (location.status === 'locating') {
     return (
-      <Screen title="Prospekte" chrome={chrome}>
+      <Screen title={t('brochures.overview.title')} chrome={chrome}>
         <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
-            Standort wird ermittelt...
+            {t('brochures.overview.locating')}
           </Txt>
           {postalCodeSettings}
         </View>
@@ -116,17 +118,19 @@ export default function BrochuresOverviewScreen() {
     // reicht ein erneuter Request statt eines Umwegs über die Einstellungen.
     const permanentlyDenied = denied && !location.canAskAgain;
     return (
-      <Screen title="Prospekte" chrome={chrome}>
+      <Screen title={t('brochures.overview.title')} chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
-            Standort erforderlich
+            {t('brochures.overview.locationRequired')}
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
-            {permanentlyDenied
-              ? 'Erlaube den Standortzugriff in den Systemeinstellungen, damit fam die Prospekte für deine PLZ laden kann.'
-              : denied
-                ? 'Erlaube den Standortzugriff, damit fam die Prospekte für deine PLZ laden kann.'
-                : 'Deine PLZ konnte gerade nicht ermittelt werden.'}
+            {t(
+              permanentlyDenied
+                ? 'brochures.overview.locationPermanentlyDenied'
+                : denied
+                  ? 'brochures.overview.locationDenied'
+                  : 'brochures.overview.locationUnavailable',
+            )}
           </Txt>
           {isEditingPostalCode ? (
             postalCodeSettings
@@ -140,7 +144,11 @@ export default function BrochuresOverviewScreen() {
                   else location.retry();
                 }}>
                 <Txt variant="body" tone="onAccent" weight="700">
-                  {permanentlyDenied ? 'Einstellungen öffnen' : 'Erneut versuchen'}
+                  {t(
+                    permanentlyDenied
+                      ? 'brochures.overview.openSettings'
+                      : 'brochures.overview.retry',
+                  )}
                 </Txt>
               </Press>
               {postalCodeSettings}
@@ -153,10 +161,10 @@ export default function BrochuresOverviewScreen() {
   const hasCurrentBrochures = data?.cacheZip === postalCode && data.brochures.length > 0;
   if (isLoading || isSyncing || !hasSynced || (isScanPending && !hasCurrentBrochures)) {
     return (
-      <Screen title="Prospekte" chrome={chrome}>
+      <Screen title={t('brochures.overview.title')} chrome={chrome}>
         <View style={[styles.loadingContainer, { backgroundColor: colors.background }]}>
           <Txt variant="body" tone="secondary">
-            Prospekte für {postalCode} werden geladen...
+            {t('brochures.overview.loading', { postalCode })}
           </Txt>
           {postalCodeSettings}
         </View>
@@ -165,14 +173,13 @@ export default function BrochuresOverviewScreen() {
   }
   if (hasScanError && !hasCurrentBrochures) {
     return (
-      <Screen title="Prospekte" chrome={chrome}>
+      <Screen title={t('brochures.overview.title')} chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
-            Prospekte konnten nicht geladen werden
+            {t('brochures.overview.loadErrorTitle')}
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
-            Für die PLZ {postalCode} konnte der Prospektkatalog gerade nicht aktualisiert werden.
-            Versuche es später erneut.
+            {t('brochures.overview.loadError', { postalCode })}
           </Txt>
           {postalCodeSettings}
         </View>
@@ -181,13 +188,13 @@ export default function BrochuresOverviewScreen() {
   }
   if (data?.cacheZip !== postalCode) {
     return (
-      <Screen title="Prospekte" chrome={chrome}>
+      <Screen title={t('brochures.overview.title')} chrome={chrome}>
         <View style={[styles.locationState, { backgroundColor: colors.background }]}>
           <Txt variant="heading" style={styles.locationTitle}>
-            Noch keine Prospekte
+            {t('brochures.overview.emptyCatalogTitle')}
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.locationCopy}>
-            Für die PLZ {postalCode} liegt derzeit kein aktueller Dump vor.
+            {t('brochures.overview.emptyCatalog', { postalCode })}
           </Txt>
           {postalCodeSettings}
         </View>
@@ -198,7 +205,7 @@ export default function BrochuresOverviewScreen() {
   const availableStoreIds = new Set(brochures.map((brochure) => brochure.storeId));
   const availableStores = stores
     .filter((store) => availableStoreIds.has(store.id))
-    .sort((left, right) => left.name.localeCompare(right.name, 'de'));
+    .sort((left, right) => left.name.localeCompare(right.name, i18n.language));
   const allAvailableStoreIds = new Set(availableStores.map((store) => store.id));
   const marketGroups = groupBrochureStores(availableStores);
   const storeById = new Map(availableStores.map((store) => [store.id, store]));
@@ -206,7 +213,7 @@ export default function BrochuresOverviewScreen() {
   for (const brochure of brochures) {
     brochureCounts.set(brochure.storeId, (brochureCounts.get(brochure.storeId) ?? 0) + 1);
   }
-  const normalizedQuery = searchQuery.trim().toLocaleLowerCase('de-DE');
+  const normalizedQuery = searchQuery.trim().toLocaleLowerCase(i18n.language);
   const countResults = (storeIds: ReadonlySet<string>) =>
     brochures.reduce((count, brochure) => {
       const store = storeById.get(brochure.storeId);
@@ -215,8 +222,8 @@ export default function BrochuresOverviewScreen() {
 
       const matchesQuery =
         normalizedQuery.length === 0 ||
-        store.name.toLocaleLowerCase('de-DE').includes(normalizedQuery) ||
-        brochure.title.toLocaleLowerCase('de-DE').includes(normalizedQuery);
+        store.name.toLocaleLowerCase(i18n.language).includes(normalizedQuery) ||
+        brochure.title.toLocaleLowerCase(i18n.language).includes(normalizedQuery);
       return matchesQuery ? count + 1 : count;
     }, 0);
   const visibleStoreIds = selectedStoreIds ?? allAvailableStoreIds;
@@ -226,13 +233,15 @@ export default function BrochuresOverviewScreen() {
       stores: group.stores.flatMap((store) => {
         if (!visibleStoreIds.has(store.id) || (showFavoritesOnly && !store.isFavorite)) return [];
 
-        const storeMatchesQuery = store.name.toLocaleLowerCase('de-DE').includes(normalizedQuery);
+        const storeMatchesQuery = store.name
+          .toLocaleLowerCase(i18n.language)
+          .includes(normalizedQuery);
         const visibleBrochures = brochures.filter(
           (brochure) =>
             brochure.storeId === store.id &&
             (normalizedQuery.length === 0 ||
               storeMatchesQuery ||
-              brochure.title.toLocaleLowerCase('de-DE').includes(normalizedQuery)),
+              brochure.title.toLocaleLowerCase(i18n.language).includes(normalizedQuery)),
         );
         return visibleBrochures.length > 0 ? [{ store, brochures: visibleBrochures }] : [];
       }),
@@ -246,7 +255,11 @@ export default function BrochuresOverviewScreen() {
   const draftResultCount = countResults(filterDraftStoreIds);
 
   return (
-    <Screen title="Prospekte" chrome={chrome} scroll={false} applyBottomPadding={false}>
+    <Screen
+      title={t('brochures.overview.title')}
+      chrome={chrome}
+      scroll={false}
+      applyBottomPadding={false}>
       <ScrollView
         style={[styles.container, { backgroundColor: colors.background }]}
         contentContainerStyle={styles.content}>
@@ -258,8 +271,8 @@ export default function BrochuresOverviewScreen() {
           ]}>
           <SearchIcon size={space.lg} color={colors.textSecondary} />
           <TextInput
-            accessibilityLabel="Prospekte und Märkte suchen"
-            placeholder="Markt oder Prospekt suchen"
+            accessibilityLabel={t('brochures.overview.searchAccessibility')}
+            placeholder={t('brochures.overview.searchPlaceholder')}
             placeholderTextColor={colors.textSecondary}
             selectionColor={colors.accent}
             value={searchQuery}
@@ -272,13 +285,15 @@ export default function BrochuresOverviewScreen() {
         <View style={styles.controlsRow}>
           <View style={styles.scopeControl}>
             <SegmentedControl
-              label="Prospektansicht"
+              label={t('brochures.overview.view')}
               selectionRole="tab"
               appearance="surface"
               size="compact"
               options={[
-                { value: 'all', label: 'Alle Märkte' },
-                ...(favorites.length > 0 ? [{ value: 'favorites', label: 'Favoriten' }] : []),
+                { value: 'all', label: t('brochures.overview.allMarkets') },
+                ...(favorites.length > 0
+                  ? [{ value: 'favorites', label: t('brochures.overview.favorites') }]
+                  : []),
               ]}
               selected={showFavoritesOnly ? 'favorites' : 'all'}
               onSelect={(scope) => setShowFavoritesOnly(scope === 'favorites')}
@@ -288,8 +303,8 @@ export default function BrochuresOverviewScreen() {
             accessibilityRole="button"
             accessibilityLabel={
               selectedStoreIds === null
-                ? 'Filter öffnen'
-                : `Filter öffnen, ${selectedStoreIds.size} ausgewählt`
+                ? t('brochures.overview.filterOpen')
+                : t('brochures.overview.filterOpenSelected', { count: selectedStoreIds.size })
             }
             onPress={() => {
               setFilterDraftStoreIds(new Set(selectedStoreIds ?? allAvailableStoreIds));
@@ -298,7 +313,7 @@ export default function BrochuresOverviewScreen() {
             style={[styles.filterButton, { borderColor: colors.border }]}>
             <FilterIcon size={space.lg} color={colors.text} />
             <Txt variant="body" weight="500">
-              Filter
+              {t('brochures.overview.filter')}
             </Txt>
             {selectedStoreIds !== null ? (
               <Txt variant="caption" tone="secondary">
@@ -310,7 +325,7 @@ export default function BrochuresOverviewScreen() {
 
         <View style={styles.sectionHeading}>
           <Txt variant="body" weight="600">
-            Aktuelle Prospekte
+            {t('brochures.overview.current')}
           </Txt>
           <Txt variant="caption" tone="secondary">
             {visibleBrochureCount}
@@ -320,7 +335,7 @@ export default function BrochuresOverviewScreen() {
         {visibleMarketGroups.map((group) => (
           <View key={group.id} style={styles.groupSection}>
             <Txt variant="subheading" style={styles.groupTitle}>
-              {group.label}
+              {getBrochureMarketGroupLabel(t, group.id)}
             </Txt>
             {group.stores.map(({ store, brochures: storeBrochures }) => (
               <View key={store.id} style={styles.marketSection}>
@@ -339,7 +354,7 @@ export default function BrochuresOverviewScreen() {
                     {store.name}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    {storeBrochures.length} Prospekte
+                    {t('brochures.overview.brochuresCount', { count: storeBrochures.length })}
                   </Txt>
                 </Press>
                 <ScrollView
@@ -368,7 +383,9 @@ export default function BrochuresOverviewScreen() {
                           {brochure.title}
                         </Txt>
                         <Txt variant="caption" tone="secondary" style={styles.brochureDate}>
-                          Bis {new Date(brochure.validUntil).toLocaleDateString()}
+                          {t('brochures.overview.until', {
+                            date: new Date(brochure.validUntil).toLocaleDateString(i18n.language),
+                          })}
                         </Txt>
                       </View>
                     </Press>
@@ -381,10 +398,10 @@ export default function BrochuresOverviewScreen() {
         {visibleBrochureCount === 0 ? (
           <Txt variant="body" tone="secondary" style={styles.emptyText}>
             {normalizedQuery.length > 0
-              ? 'Keine passenden Prospekte gefunden.'
+              ? t('brochures.overview.noMatches')
               : showFavoritesOnly
-                ? 'Keine Prospekte in deinen Favoriten.'
-                : 'Keine Prospekte.'}
+                ? t('brochures.overview.noFavoriteBrochures')
+                : t('brochures.overview.noBrochures')}
           </Txt>
         ) : null}
       </ScrollView>

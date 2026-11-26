@@ -1,4 +1,6 @@
+import type { TFunction } from 'i18next';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BackButton, goBackTo } from '@/components/layout/back-button';
@@ -11,34 +13,25 @@ import { usePremium } from '@/features/premium/premium-provider';
 import { usePaywall } from '@/features/premium/use-paywall';
 import { SettingsGroup, SettingsRow } from '@/features/settings/settings-menu';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-import { TIER_CONTENT } from './tier-content';
+import { getTierContent } from './tier-content';
 import type { PaywallTier } from './types';
 
-const TIER_OPTIONS = [
-  { value: 'plus', label: TIER_CONTENT.plus.tabLabel },
-  { value: 'ai', label: TIER_CONTENT.ai.tabLabel },
-] as const;
-
-function showConfirmedActivation(tier: PaywallTier) {
+function showConfirmedActivation(t: TFunction, tier: PaywallTier) {
   Alert.alert(
-    'Erfolgreich',
-    tier === 'plus'
-      ? 'Fam Plus ist jetzt für deinen Haushalt aktiv!'
-      : 'Fam KI ist jetzt für deinen Haushalt aktiv!',
-    [{ text: 'OK', onPress: () => goBackTo('/settings') }],
+    t('premium.screen.successTitle'),
+    t(tier === 'plus' ? 'premium.screen.successPlus' : 'premium.screen.successAi'),
+    [{ text: t('common.actions.done'), onPress: () => goBackTo('/settings') }],
   );
 }
 
-function showPendingActivation(tier: PaywallTier, onRetry: () => void) {
-  const subscription = tier === 'plus' ? 'Dein Fam-Plus-Abo' : 'Dein KI-Abo';
-  Alert.alert(
-    'Haushaltsfreigabe noch nicht aktiv',
-    `${subscription} wurde gefunden, aber die Freigabe für den Haushalt ist noch nicht aktiv. Du kannst es jetzt erneut versuchen.`,
-    [
-      { text: 'Später', style: 'cancel' },
-      { text: 'Erneut versuchen', onPress: onRetry },
-    ],
+function showPendingActivation(t: TFunction, tier: PaywallTier, onRetry: () => void) {
+  const subscription = t(
+    tier === 'plus' ? 'premium.screen.pendingPlus' : 'premium.screen.pendingAi',
   );
+  Alert.alert(t('premium.screen.pendingTitle'), subscription, [
+    { text: t('premium.screen.later'), style: 'cancel' },
+    { text: t('premium.screen.retry'), onPress: onRetry },
+  ]);
 }
 
 const styles = StyleSheet.create((theme) => ({
@@ -86,6 +79,7 @@ interface PlusAndAiScreenProps {
  * dafuer (Plus und AI sind unabhaengige Entitlements, keines enthaelt das andere).
  */
 export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
+  const { t } = useTranslation();
   const { hasPlus, hasAI, isForced, refresh } = usePremium();
   const [tier, setTier] = useState<PaywallTier>(initialTier);
   const [managing, setManaging] = useState(false);
@@ -93,8 +87,12 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
   const owned = tier === 'plus' ? hasPlus : hasAI;
   const otherTier: PaywallTier = tier === 'plus' ? 'ai' : 'plus';
   const otherOwned = otherTier === 'plus' ? hasPlus : hasAI;
-  const content = TIER_CONTENT[tier];
-  const otherContent = TIER_CONTENT[otherTier];
+  const content = getTierContent(t, tier);
+  const otherContent = getTierContent(t, otherTier);
+  const tierOptions = [
+    { value: 'plus', label: getTierContent(t, 'plus').tabLabel },
+    { value: 'ai', label: getTierContent(t, 'ai').tabLabel },
+  ] as const;
 
   const {
     plans,
@@ -115,17 +113,14 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
     const outcome = await buySelectedPlan();
     if (outcome.kind === 'purchased') {
       if (outcome.activation.confirmed) {
-        showConfirmedActivation(tier);
+        showConfirmedActivation(t, tier);
       } else {
-        showPendingActivation(tier, () => void handleRestore());
+        showPendingActivation(t, tier, () => void handleRestore());
       }
     } else if (outcome.kind === 'failed') {
-      Alert.alert('Kauf fehlgeschlagen', outcome.error.message);
+      Alert.alert(t('premium.screen.purchaseFailed'), outcome.error.message);
     } else if (outcome.kind === 'unavailable') {
-      Alert.alert(
-        'Nicht verfügbar',
-        'Käufe sind in dieser Umgebung nicht verfügbar oder noch nicht im Store eingerichtet.',
-      );
+      Alert.alert(t('premium.screen.unavailableTitle'), t('premium.screen.unavailableMessage'));
     }
   }
 
@@ -144,37 +139,39 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
     const result = await restore();
     if (!result.ok) {
       Alert.alert(
-        'Wiederherstellen fehlgeschlagen',
-        result.error instanceof Error ? result.error.message : 'Keine aktiven Käufe gefunden.',
+        t('premium.screen.restoreFailed'),
+        result.error instanceof Error ? result.error.message : t('premium.screen.noPurchases'),
       );
       return;
     }
     if (result.activation.confirmed) {
-      showConfirmedActivation(tier);
+      showConfirmedActivation(t, tier);
     } else {
-      showPendingActivation(tier, () => void handleRestore());
+      showPendingActivation(t, tier, () => void handleRestore());
     }
   }
 
-  const ctaLabel =
-    selectedPeriod === 'yearly'
-      ? `Jahresabo für ${plans.yearly.priceString} starten`
-      : `Monatsabo für ${plans.monthly.priceString} starten`;
+  const ctaLabel = t(
+    selectedPeriod === 'yearly' ? 'premium.screen.yearlyCta' : 'premium.screen.monthlyCta',
+    {
+      price: selectedPeriod === 'yearly' ? plans.yearly.priceString : plans.monthly.priceString,
+    },
+  );
 
   return (
     <HubScreen
       header={{
-        title: 'Plus & KI',
+        title: t('premium.screen.title'),
         align: 'center',
-        leading: <BackButton label="Einstellungen" href="/settings" variant="arrow" />,
+        leading: <BackButton label={t('premium.screen.back')} href="/settings" variant="arrow" />,
       }}>
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}>
         <SegmentedControl
-          label="Tier auswählen"
-          options={TIER_OPTIONS}
+          label={t('premium.screen.tier')}
+          options={tierOptions}
           selected={tier}
           onSelect={setTier}
           selectionRole="tab"
@@ -212,18 +209,18 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
               </Txt>
               <Txt variant="body" tone="secondary">
                 {isForced && tier === 'plus'
-                  ? 'Für diesen Build erzwungen (Entwicklermodus).'
-                  : 'Gilt für alle aktuellen Haushaltsmitglieder.'}
+                  ? t('premium.screen.activeForced')
+                  : t('premium.screen.activeHousehold')}
               </Txt>
             </View>
             <Button
-              title="Abo verwalten"
+              title={t('premium.screen.manage')}
               onPress={handleManage}
               loading={managing}
               disabled={isRestoring}
             />
             <Button
-              title="Käufe wiederherstellen"
+              title={t('premium.screen.restore')}
               variant="secondary"
               onPress={handleRestore}
               loading={isRestoring}
@@ -242,7 +239,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
                   </Txt>
                 </View>
                 <Button
-                  title={`Zum ${otherContent.tabLabel}-Tab wechseln`}
+                  title={t('premium.screen.switchTo', { tier: otherContent.tabLabel })}
                   variant="secondary"
                   onPress={() => setTier(otherTier)}
                 />
@@ -267,7 +264,7 @@ export function PlusAndAiScreen({ initialTier }: PlusAndAiScreenProps) {
             />
 
             <Button
-              title="Käufe wiederherstellen"
+              title={t('premium.screen.restore')}
               variant="secondary"
               onPress={handleRestore}
               loading={isRestoring}

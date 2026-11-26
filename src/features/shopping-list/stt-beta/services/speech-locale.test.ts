@@ -7,7 +7,7 @@ import {
 } from './speech-locale';
 
 jest.mock('expo-localization', () => ({
-  getLocales: jest.fn(),
+  getLocales: jest.fn(() => []),
 }));
 
 const mockGetLocales = jest.mocked(getLocales);

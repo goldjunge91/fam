@@ -9,6 +9,7 @@ import {
   useSpeechRecognitionEvent,
 } from 'expo-speech-recognition';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -35,6 +36,7 @@ const INITIAL_SETTINGS: ExpoSpeechRecognitionOptions = {
 type RecognitionStatus = 'idle' | 'starting' | 'recognizing';
 
 export function ExpoSpeechRecognitionExampleScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const [error, setError] = useState<ExpoSpeechRecognitionErrorEvent | null>(null);
   const transcriptTallyRef = useRef('');
@@ -116,7 +118,7 @@ export function ExpoSpeechRecognitionExampleScreen() {
       await ExpoSpeechRecognitionModule.requestMicrophonePermissionsAsync();
     debugLog('Microphone permissions', microphonePermissions);
     if (!microphonePermissions.granted) {
-      setError({ error: 'not-allowed', message: 'Permissions not granted' });
+      setError({ error: 'not-allowed', message: t('dev.speech.permissionDenied') });
       setStatus('idle');
       return;
     }
@@ -129,8 +131,8 @@ export function ExpoSpeechRecognitionExampleScreen() {
         setError({
           error: 'not-allowed',
           message: speechRecognizerPermissions.restricted
-            ? 'Speech recognition is restricted.'
-            : 'Permissions not granted',
+            ? t('dev.speech.restricted')
+            : t('dev.speech.permissionDenied'),
         });
         setStatus('idle');
         return;
@@ -147,33 +149,33 @@ export function ExpoSpeechRecognitionExampleScreen() {
 
   return (
     <Screen
-      title="Speech Recognition Example"
-      subtitle="Direkter Paket-Referenzpfad"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.speech.title')}
+      subtitle={t('dev.speech.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Fehler">
-        <Txt variant="body">{error ? JSON.stringify(error) : 'Keine Fehler'}</Txt>
+      <ContentCard title={t('dev.speech.error')}>
+        <Txt variant="body">{error ? JSON.stringify(error) : t('dev.speech.noErrors')}</Txt>
       </ContentCard>
 
-      <ContentCard title="Status">
+      <ContentCard title={t('dev.speech.status')}>
         <Txt variant="body">{status}</Txt>
-        <Txt variant="body">{transcription || 'Noch kein Transkript'}</Txt>
+        <Txt variant="body">{transcription || t('dev.speech.noTranscript')}</Txt>
       </ContentCard>
 
-      <ContentCard title="Offizieller Startpfad">
+      <ContentCard title={t('dev.speech.officialStart')}>
         <View style={{ gap: space.md }}>
           {status === 'idle' ? (
-            <Button title="Erkennung starten" onPress={() => void startListening()} full />
+            <Button title={t('dev.speech.start')} onPress={() => void startListening()} full />
           ) : (
             <View style={{ gap: space.md }}>
               <Button
-                title="Stop"
+                title={t('dev.speech.stop')}
                 disabled={status !== 'recognizing'}
                 onPress={() => ExpoSpeechRecognitionModule.stop()}
                 full
               />
               <Button
-                title="Abbrechen"
+                title={t('dev.speech.abort')}
                 variant="secondary"
                 disabled={status !== 'recognizing'}
                 onPress={() => ExpoSpeechRecognitionModule.abort()}

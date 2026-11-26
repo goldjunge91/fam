@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { useDevSettingsStore } from '@/constants/dev-settings';
 import { testAiModel } from '@/features/ai-assistant/data/assistant-api';
+import { i18n } from '@/i18n';
 import { AiModelTestScreen } from './ai-model-test-screen';
 
 const mockStorageData = new Map<string, string>();
@@ -137,7 +138,8 @@ jest.mock('expo-router', () => ({
 }));
 
 describe('AiModelTestScreen', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
     mockStorageData.clear();
     mockHasAccess = true;
     useDevSettingsStore.setState({
@@ -163,15 +165,29 @@ describe('AiModelTestScreen', () => {
     const user = userEvent.setup();
 
     await user.press(screen.getByRole('radio', { name: 'Groq' }));
-    expect(screen.getByRole('button', { name: 'Qwen 3.8 27B: Ausgewählt' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: /GPT-OSS Safeguard 20B/u })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: /Llama Prompt Guard 2 22M/u })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: /Llama Prompt Guard 2 86M/u })).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', {
+        name: `${i18n.t('dev.ai.models.qwen3827.label')}: ${i18n.t('dev.ai.selected')}`,
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', {
+        name: new RegExp(i18n.t('dev.ai.models.gptOssSafeguard.label')),
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: new RegExp(i18n.t('dev.ai.models.promptGuard22.label')) }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: new RegExp(i18n.t('dev.ai.models.promptGuard86.label')) }),
+    ).toBeOnTheScreen();
     expect(useDevSettingsStore.getState()).toMatchObject({
       aiProvider: 'groq',
       aiModel: 'qwen/qwen3.8-27b',
     });
-    await user.press(screen.getByRole('button', { name: 'Qwen 3.8 27B testen' }));
+    await user.press(
+      screen.getByRole('button', { name: `${i18n.t('dev.ai.models.qwen3827.label')} testen` }),
+    );
 
     expect(testAiModel).toHaveBeenCalledWith({
       householdId: 'household-1',

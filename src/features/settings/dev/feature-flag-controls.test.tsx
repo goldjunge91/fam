@@ -1,6 +1,6 @@
 import { render, userEvent } from '@testing-library/react-native';
-
 import { FeatureFlagControls } from '@/features/settings/dev/feature-flag-controls';
+import { i18n } from '@/i18n';
 
 let mockOverrides: Record<string, boolean> = {};
 let mockFlags: Record<string, boolean | string> | undefined;
@@ -44,7 +44,8 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
   useFeatureFlags: () => mockFlags,
 }));
 
-beforeEach(() => {
+beforeEach(async () => {
+  await i18n.changeLanguage('de');
   mockOverrides = {};
   mockFeatureOverrides = {};
   mockFlags = {
@@ -63,17 +64,35 @@ describe('FeatureFlagControls', () => {
     const view = await render(<FeatureFlagControls />);
 
     for (const label of [
-      'Kühlschrank & Vorrat ausschalten',
-      'Geteilte Einkaufsliste ausschalten',
-      'Kalorien Tracking einschalten',
-      'Rezepte ausschalten',
-      'Essensplan ausschalten',
+      `${i18n.t('common.modules.fridge.title')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      `${i18n.t('common.modules.shoppingList.title')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      `${i18n.t('common.modules.calories.title')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      `${i18n.t('common.modules.recipes.title')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      `${i18n.t('common.modules.mealPlanner.title')} ${i18n.t('dev.featureFlags.turnOff')}`,
     ]) {
       expect(view.getByRole('button', { name: label })).toBeOnTheScreen();
     }
-    expect(view.getByText(/Remote-Flag module-calories: aus/)).toBeOnTheScreen();
-    expect(view.getByRole('button', { name: 'Spracheingabe einschalten' })).toBeOnTheScreen();
-    expect(view.getByText(/Remote-Flag shopping-stt: nicht geladen/)).toBeOnTheScreen();
+    expect(
+      view.getByText(
+        i18n.t('dev.featureFlags.remote', {
+          flag: 'module-calories',
+          value: i18n.t('dev.states.offLower'),
+        }),
+      ),
+    ).toBeOnTheScreen();
+    expect(
+      view.getByRole('button', {
+        name: `${i18n.t('dev.featureFlags.shoppingSpeech')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      view.getByText(
+        i18n.t('dev.featureFlags.remote', {
+          flag: 'shopping-stt',
+          value: i18n.t('dev.states.notLoaded'),
+        }),
+      ),
+    ).toBeOnTheScreen();
   });
 
   it('aktiviert den lokalen Override für shopping-stt', async () => {
@@ -81,7 +100,11 @@ describe('FeatureFlagControls', () => {
     const view = await render(<FeatureFlagControls />);
     const user = userEvent.setup();
 
-    await user.press(view.getByRole('button', { name: 'Spracheingabe einschalten' }));
+    await user.press(
+      view.getByRole('button', {
+        name: `${i18n.t('dev.featureFlags.shoppingSpeech')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      }),
+    );
 
     expect(mockSetFeatureOverride).toHaveBeenCalledWith('shopping-stt', true);
   });
@@ -90,7 +113,11 @@ describe('FeatureFlagControls', () => {
     const view = await render(<FeatureFlagControls />);
     const user = userEvent.setup();
 
-    await user.press(view.getByRole('button', { name: 'Kalorien Tracking einschalten' }));
+    await user.press(
+      view.getByRole('button', {
+        name: `${i18n.t('common.modules.calories.title')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      }),
+    );
 
     expect(mockSetOverride).toHaveBeenCalledWith('calories', true);
   });
@@ -100,7 +127,7 @@ describe('FeatureFlagControls', () => {
     const view = await render(<FeatureFlagControls />);
     const user = userEvent.setup();
 
-    await user.press(view.getByRole('button', { name: 'Feature-Flag-Overrides zurücksetzen' }));
+    await user.press(view.getByRole('button', { name: i18n.t('dev.featureFlags.reset') }));
 
     expect(mockResetOverrides).toHaveBeenCalled();
     expect(mockResetFeatureOverrides).toHaveBeenCalled();
@@ -110,6 +137,13 @@ describe('FeatureFlagControls', () => {
     mockFlags = { 'module-calories': true };
     const view = await render(<FeatureFlagControls />);
 
-    expect(view.getByText(/Remote-Flag module-recipes: nicht geladen/)).toBeOnTheScreen();
+    expect(
+      view.getByText(
+        i18n.t('dev.featureFlags.remote', {
+          flag: 'module-recipes',
+          value: i18n.t('dev.states.notLoaded'),
+        }),
+      ),
+    ).toBeOnTheScreen();
   });
 });

@@ -1,5 +1,6 @@
 import { FlashList } from '@shopify/flash-list';
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Platform, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -77,12 +78,13 @@ function RecipePickerRow({
   recipe: RecipeOption;
   onSelect: (recipe: RecipeOption) => void;
 }) {
+  const { t } = useTranslation();
   const { data: coverUrl } = useRecipeCoverUrl(recipe.coverImagePath);
 
   return (
     <Press
       accessibilityRole="button"
-      accessibilityLabel={`${recipe.title} eintragen`}
+      accessibilityLabel={t('mealPlanner.picker.entryAccessibility', { title: recipe.title })}
       onPress={() => onSelect(recipe)}
       style={styles.recipeRow}>
       <View style={styles.recipeArtwork}>
@@ -102,6 +104,7 @@ export function RecipePickerModal({
   onSelect,
   onCreateCustom,
 }: RecipePickerModalProps) {
+  const { t } = useTranslation();
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
@@ -119,19 +122,19 @@ export function RecipePickerModal({
       <Surface tone="page" style={styles.root}>
         <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right', 'bottom']}>
           <View style={styles.header}>
-            <Txt variant="title">Rezept auswählen</Txt>
-            <CloseButton onPress={onDismiss} accessibilityLabel="Schließen" />
+            <Txt variant="title">{t('mealPlanner.picker.title')}</Txt>
+            <CloseButton onPress={onDismiss} accessibilityLabel={t('mealPlanner.picker.close')} />
           </View>
 
           <TextField
-            label="Suche"
+            label={t('mealPlanner.picker.search')}
             value={query}
             onChangeText={setQuery}
-            placeholder="Rezept suchen…"
+            placeholder={t('mealPlanner.picker.placeholder')}
           />
 
           <Button
-            title="Freies Gericht eintragen"
+            title={t('mealPlanner.picker.custom')}
             variant="secondary"
             full
             style={styles.customEntryButton}
@@ -141,8 +144,8 @@ export function RecipePickerModal({
           {filtered.length === 0 ? (
             <Txt variant="body" tone="secondary" style={styles.empty}>
               {recipes.length === 0
-                ? 'Noch keine Rezepte vorhanden. Lege zuerst ein Rezept an.'
-                : 'Kein Rezept gefunden.'}
+                ? t('mealPlanner.picker.emptyNoRecipes')
+                : t('mealPlanner.picker.emptyNoMatch')}
             </Txt>
           ) : (
             <FlashList

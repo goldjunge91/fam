@@ -1,0 +1,195 @@
+{
+  "sex": {
+    "male": "Männlich",
+    "female": "Weiblich"
+  },
+  "activity": {
+    "sedentary": "Kaum Bewegung",
+    "light": "Leicht aktiv",
+    "moderate": "Mäßig aktiv",
+    "active": "Aktiv",
+    "veryActive": "Sehr aktiv"
+  },
+  "foodRules": {
+    "glutenContainingCereals": "Glutenhaltiges Getreide",
+    "crustaceans": "Krebstiere",
+    "eggs": "Eier",
+    "fish": "Fisch",
+    "peanuts": "Erdnüsse",
+    "soybeans": "Soja",
+    "milk": "Milch / Milcheiweiß",
+    "treeNuts": "Schalenfrüchte",
+    "celery": "Sellerie",
+    "mustard": "Senf",
+    "sesame": "Sesam",
+    "sulphurDioxideSulphites": "Schwefeldioxid und Sulfite",
+    "lupin": "Lupinen",
+    "molluscs": "Weichtiere",
+    "lactose": "Laktose",
+    "fructoseMalabsorption": "Fruktosemalabsorption",
+    "sorbitolMalabsorption": "Sorbitmalabsorption",
+    "celiacGluten": "Zöliakie / Gluten strikt meiden",
+    "commonHint": "Häufige auswählen oder eigene ergänzen",
+    "customHint": "Eigene Lebensmittel ergänzen",
+    "add": "{{value}} hinzufügen",
+    "addGeneric": "Eintrag hinzufügen",
+    "remove": "{{value}} entfernen",
+    "apply": "Auswahl übernehmen",
+    "empty": "Keine Angaben",
+    "allergies": "Allergien",
+    "intolerances": "Unverträglichkeiten",
+    "dislikedFoods": "Mag ich nicht",
+    "searchAllergy": "Allergie suchen oder ergänzen",
+    "searchIntolerance": "Unverträglichkeit suchen oder ergänzen",
+    "addFood": "Lebensmittel ergänzen",
+    "validationEmpty": "Bitte gib ein Lebensmittel ein.",
+    "validationTooLong": "Der Eintrag darf höchstens 80 Zeichen lang sein."
+  },
+  "summary": {
+    "notSet": "Nicht gesetzt",
+    "bodyActivity": "Körper & Aktivität",
+    "edit": "Bearbeiten",
+    "profileWeight": "Profilgewicht",
+    "oneTimeProfileValue": "Einmaliger Profilwert",
+    "height": "Größe",
+    "birthDate": "Geburtsdatum",
+    "calculationBasis": "Berechnungsbasis",
+    "activity": "Aktivität",
+    "privateNote": "Privat · nur im Profil gespeichert",
+    "foodRules": "Lebensmittel & Verträglichkeit",
+    "noMedicalDiagnosis": "Keine medizinische Diagnose",
+    "editSummary": "{{label}} bearbeiten. {{summary}}"
+  },
+  "edit": {
+    "title": "Profil & Account",
+    "back": "Einstellungen",
+    "avatar": "Profilbild",
+    "avatarPick": "Bild auswählen",
+    "avatarChange": "Bild ändern",
+    "avatarLoading": "Wird geladen…",
+    "avatarRemove": "Bild entfernen",
+    "personal": "Persönliche Angaben",
+    "name": "Name",
+    "namePlaceholder": "Wie sollen dich andere sehen?",
+    "email": "E-Mail-Adresse",
+    "emailPlaceholder": "deine.email@beispiel.de",
+    "changePassword": "Passwort ändern",
+    "save": "Änderungen speichern",
+    "successTitle": "Erfolg",
+    "successMessage": "Deine Profil- & Account-Daten wurden erfolgreich aktualisiert.",
+    "passwordSavedTitle": "Passwort gespeichert",
+    "passwordSavedMessage": "Dein neues Passwort ist jetzt aktiv.",
+    "uploadError": "Fehler beim Hochladen des Profilbilds.",
+    "removeError": "Fehler beim Entfernen des Profilbilds.",
+    "saveError": "Fehler beim Speichern der Account-Daten.",
+    "fallbackName": "Ohne Namen"
+  },
+  "password": {
+    "title": "Passwort ändern",
+    "close": "Passwort ändern schließen",
+    "hint": "Speichere dein neues Passwort direkt hier.",
+    "new": "Neues Passwort",
+    "confirm": "Neues Passwort bestätigen",
+    "show": "anzeigen",
+    "hide": "verbergen",
+    "minPlaceholder": "Mindestens 8 Zeichen",
+    "repeatPlaceholder": "Passwort wiederholen",
+    "save": "Passwort speichern"
+  },
+  "biometrics": {
+    "title": "Körper & Aktivität",
+    "close": "Körper & Aktivität schließen",
+    "hint": "Persönliche Werte für deine Berechnungen",
+    "profileData": "Profilangaben",
+    "weight": "Profilgewicht (kg)",
+    "weightPlaceholder": "75",
+    "weightHint": "Dieser einmalige Wert gehört zum Profil. Neue Messungen trägst du im Tagebuch ein.",
+    "height": "Körpergröße (cm)",
+    "heightPlaceholder": "178",
+    "birthDate": "Geburtsdatum (TT.MM.JJJJ)",
+    "birthDatePlaceholder": "15.05.1990",
+    "basis": "Berechnungsbasis",
+    "activityLevel": "Aktivitätslevel",
+    "apply": "Angaben übernehmen"
+  },
+  "tracking": {
+    "title": "Mein Tracking",
+    "back": "Einstellungen",
+    "methodGroup": "Deine Tracking-Methode",
+    "methodHint": "Wähle deine aktive Methode für das Ernährungstagebuch:",
+    "active": "Aktiv ✓",
+    "comingSoon": "Demnächst verfügbar",
+    "calorieGroup": "Ernährung & Tagesziele",
+    "calorieGoal": "🎯 Kalorien-Tagesziel",
+    "notSet": "Nicht festgelegt",
+    "protein": "🥩 Protein",
+    "carbs": "🍞 Kohlenhydrate",
+    "fat": "🥑 Fett",
+    "editGoals": "Ziele & Makros bearbeiten",
+    "rhythmGroup": "Tracking-Rhythmus & Zeitfenster",
+    "individualStart": "Individueller Tagesstart (Tippen zum Anpassen)",
+    "manualAdjust": "Uhrzeit für Tagesstart manuell anpassen",
+    "earlier": "Eine Stunde früher",
+    "later": "Eine Stunde später",
+    "presetHint": "Schnellauswahl für Schichtmodelle:",
+    "standard": "Standard",
+    "earlyBird": "Frühaufsteher",
+    "earlyShift": "Frühschicht",
+    "lateShift": "Spätschicht",
+    "nightShift": "Nachtschicht",
+    "dayStartTitle": "Tagesstart festlegen",
+    "dayStartClose": "Tagesstart festlegen schließen",
+    "timeLabel": "Uhrzeit (HH:MM)",
+    "timeValue": "{{time}} Uhr ✏️",
+    "earlierShort": "-1h",
+    "laterShort": "+1h",
+    "timePlaceholder": "z. B. 06:00 oder 23:00",
+    "timeHint": "Gib die Uhrzeit ein, zu der dein persönlicher Tracking-Tag beginnen soll.",
+    "applyTime": "Uhrzeit übernehmen",
+    "cancel": "Abbrechen",
+    "invalidTime": "Bitte gib eine gültige Uhrzeit im Format HH:MM ein (z. B. 06:00 oder 23:00).",
+    "standardExplanation": "Standard: Dein Tracking-Tag wechselt um 00:00 Uhr. Das betrifft Mahlzeiten, Injektionen, Symptome und Gewicht. Bestehende Einträge bleiben unverändert.",
+    "customExplanation": "Dein Tracking-Tag läuft jeweils 24 Stunden ab {{time}} Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor {{time}} Uhr zählen zum vorherigen Tag. Bestehende Einträge bleiben unverändert.",
+    "methods": {
+      "standard": {
+        "label": "Klassisch (CICO)",
+        "description": "Kalorien- & Makronährstoff-Tracking ohne Spezialregeln"
+      },
+      "glp1": {
+        "label": "GLP-1 & Medikation",
+        "description": "Injektionsintervalle, Dosierungen & Symptome erfassen"
+      },
+      "fasting": {
+        "label": "Intervallfasten",
+        "description": "Fastenphasen-Timer & individuelle Essensfenster"
+      },
+      "lowCarb": {
+        "label": "Low-Carb",
+        "description": "Netto-Kohlenhydrate & Ballaststoffe fokussieren"
+      },
+      "keto": {
+        "label": "Keto (Ketogen)",
+        "description": "Ketose-Ernährung (<20–50g Carbs) & Keton-Logs"
+      },
+      "workouts": {
+        "label": "Kraftsport",
+        "description": "Übungen, Sätze, Wiederholungen & Gewichte dokumentieren"
+      },
+      "cgm": {
+        "label": "Blutzucker & CGM",
+        "description": "Glukosemessungen vor & nach den Mahlzeiten loggen"
+      },
+      "volumetrics": {
+        "label": "Volumetrics",
+        "description": "Energiedichte-Ampel & Sättigungs-Scoring nutzen"
+      }
+    }
+  },
+  "validation": {
+    "invalidHeight": "Bitte eine verlässliche Größe unter 300 cm eingeben.",
+    "invalidWeight": "Bitte ein verlässliches Gewicht von 20–300 kg eingeben.",
+    "invalidBirthDate": "Bitte als TT.MM.JJJJ eingeben.",
+    "futureBirthDate": "Das Geburtsdatum kann nicht in der Zukunft liegen.",
+    "normalizedLabel": "Die normalisierte Bezeichnung passt nicht zum sichtbaren Eintrag."
+  }
+}

@@ -6,6 +6,7 @@ import {
 } from '@shopify/flash-list';
 import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useDeferredValue, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Platform, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -112,6 +113,7 @@ function InventoryBenchmark({
 }
 
 export function InventoryScreen() {
+  const { t } = useTranslation();
   const flashListRef = useRef<FlashListRef<InventoryItemGroup>>(null);
   const { colors } = useTheme();
   const { openDrawer, openProfile } = useNavigationChrome();
@@ -224,9 +226,12 @@ export function InventoryScreen() {
   const productHistoryLotLabels = useMemo(
     () =>
       new Map(
-        productHistoryGroup?.lots.map((lot, index) => [lot.id, `Los ${index + 1}`] as const) ?? [],
+        productHistoryGroup?.lots.map((lot, index) => [
+          lot.id,
+          t('inventory.history.lot', { count: index + 1 }),
+        ]) ?? [],
       ),
-    [productHistoryGroup],
+    [productHistoryGroup, t],
   );
 
   function updateQuantity(item: LocalInventoryItem, delta: number) {
@@ -376,8 +381,8 @@ export function InventoryScreen() {
       {
         onError: (error) =>
           Alert.alert(
-            'Undo nicht möglich',
-            error instanceof Error ? error.message : 'Bitte später erneut versuchen.',
+            t('inventory.screen.undoUnavailable'),
+            error instanceof Error ? error.message : t('inventory.screen.undoRetry'),
           ),
       },
     );
@@ -387,17 +392,21 @@ export function InventoryScreen() {
     (item: LocalInventoryItem) => {
       if (!householdId) return;
       setActionItem(null);
-      Alert.alert('Artikel löschen', `"${item.name}" aus dem Vorrat entfernen?`, [
-        { text: 'Abbrechen', style: 'cancel' },
-        {
-          text: 'Löschen',
-          style: 'destructive',
-          onPress: () =>
-            updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
-        },
-      ]);
+      Alert.alert(
+        t('inventory.screen.deleteTitle'),
+        t('inventory.screen.deleteBody', { name: item.name }),
+        [
+          { text: t('inventory.screen.cancel'), style: 'cancel' },
+          {
+            text: t('inventory.screen.delete'),
+            style: 'destructive',
+            onPress: () =>
+              updateQty.mutate({ id: item.id, household_id: householdId, delta: -item.quantity }),
+          },
+        ],
+      );
     },
-    [householdId, updateQty],
+    [householdId, t, updateQty],
   );
 
   const handleGroupRemove = useCallback(
@@ -429,13 +438,13 @@ export function InventoryScreen() {
 
   if (!householdId) {
     return (
-      <Screen title="Vorrat" chrome={chrome}>
+      <Screen title={t('inventory.screen.title')} chrome={chrome}>
         {/* Leerer Zustand wenn noch kein Haushalt aktiv/ausgewählt ist */}
         <ContentCard>
           <EmptyState
             symbol="archivebox"
-            title="Noch kein Haushalt"
-            hint="Lege im Profil einen Haushalt an oder tritt einem bei. Danach teilt ihr Vorrat und Einkaufsliste in Echtzeit."
+            title={t('inventory.screen.noHouseholdTitle')}
+            hint={t('inventory.screen.noHouseholdHint')}
           />
         </ContentCard>
       </Screen>
@@ -444,11 +453,16 @@ export function InventoryScreen() {
 
   const activeLocationName =
     selectedLocationId === 'all'
-      ? 'Vorrat'
-      : (locations.find((location) => location.id === selectedLocationId)?.name ?? 'Vorrat');
+      ? t('inventory.screen.title')
+      : (locations.find((location) => location.id === selectedLocationId)?.name ??
+        t('inventory.screen.title'));
 
   return (
-    <Screen title="Vorrat" chrome={chrome} scroll={false} applyBottomPadding={false}>
+    <Screen
+      title={t('inventory.screen.title')}
+      chrome={chrome}
+      scroll={false}
+      applyBottomPadding={false}>
       {/* Der Steuerbereich bleibt stehen, während nur die Artikel darunter scrollen. */}
       <View style={styles.inventoryHeader}>
         {/* Vorrats-Statistik: Gesamtanzahl & kritische/bald ablaufende Artikel */}
@@ -467,13 +481,13 @@ export function InventoryScreen() {
           />
           <View style={styles.inventoryToolbarActions}>
             <InventoryIconButton
-              label="Artikel suchen"
+              label={t('inventory.screen.search')}
               active={searchOpen}
               onPress={() => setSearchOpen((open) => !open)}>
               <SearchIcon color={searchOpen ? colors.onAccent : colors.text} />
             </InventoryIconButton>
             <InventoryIconButton
-              label="Gesamten Vorratsverlauf öffnen"
+              label={t('inventory.screen.history')}
               onPress={() => setHistoryOpen(true)}>
               <HistoryIcon color={colors.text} />
             </InventoryIconButton>
@@ -489,15 +503,20 @@ export function InventoryScreen() {
           <View style={styles.inventorySortContainer}>
             <View style={styles.inventorySortRow}>
               <Txt variant="label" tone="secondary" weight="700" style={styles.inventorySortLabel}>
-                {sortMode === 'expiry' ? 'Nach Haltbarkeit' : 'Alphabetisch'}
+                {sortMode === 'expiry'
+                  ? t('inventory.screen.sortByExpiry')
+                  : t('inventory.screen.sortAlphabetically')}
               </Txt>
               <Button
                 variant="link"
                 size="lg"
-                title="Sortieren"
-                accessibilityLabel={`Sortierung ändern, aktuell ${
-                  sortMode === 'expiry' ? 'nach Haltbarkeit' : 'alphabetisch'
-                }`}
+                title={t('inventory.screen.sort')}
+                accessibilityLabel={t('inventory.screen.sortAccessibility', {
+                  sort:
+                    sortMode === 'expiry'
+                      ? t('inventory.screen.sortByExpiryAccessibility')
+                      : t('inventory.screen.sortAlphabeticallyAccessibility'),
+                })}
                 onPress={() => setSortMode((current) => (current === 'expiry' ? 'name' : 'expiry'))}
               />
             </View>
@@ -522,17 +541,17 @@ export function InventoryScreen() {
             <View style={styles.emptyState}>
               <Txt>
                 {deferredSearchQuery.trim()
-                  ? `Keine Treffer für "${deferredSearchQuery.trim()}"`
+                  ? t('inventory.screen.emptySearch', { query: deferredSearchQuery.trim() })
                   : allItems.length === 0
-                    ? 'Noch keine Artikel hinzugefügt'
-                    : `${activeLocationName} ist leer`}
+                    ? t('inventory.screen.emptyInventory')
+                    : t('inventory.screen.emptyLocation', { location: activeLocationName })}
               </Txt>
               <Txt>
                 {deferredSearchQuery.trim()
-                  ? 'Prüfe die Schreibweise oder setze die Suche zurück.'
+                  ? t('inventory.screen.emptySearchHint')
                   : allItems.length === 0
-                    ? 'Klicke auf +, um deinen ersten Artikel hinzuzufügen.'
-                    : 'Schließe einen Einkauf ab oder füge Artikel manuell hinzu.'}
+                    ? t('inventory.screen.emptyInventoryHint')
+                    : t('inventory.screen.emptyLocationHint')}
               </Txt>
             </View>
           ) : null
@@ -648,8 +667,8 @@ export function InventoryScreen() {
       <InventoryHistorySheet
         visible={historyOpen}
         fullScreen
-        title="Verlauf"
-        subtitle="Kühlschrank & Vorrat"
+        title={t('inventory.screen.historyTitle')}
+        subtitle={t('inventory.history.subtitle')}
         transactions={transactions}
         onClose={() => setHistoryOpen(false)}
         loading={transactionsLoading}
@@ -662,8 +681,12 @@ export function InventoryScreen() {
 
       <InventoryHistorySheet
         visible={!!productHistoryGroup}
-        title={productHistoryGroup?.name ?? 'Produkt-Verlauf'}
-        subtitle={productHistoryGroup ? `${productHistoryGroup.lots.length} Lose im Bestand` : ''}
+        title={productHistoryGroup?.name ?? t('inventory.history.productTitle')}
+        subtitle={
+          productHistoryGroup
+            ? t('inventory.history.productSubtitle', { count: productHistoryGroup.lots.length })
+            : ''
+        }
         transactions={productHistoryTransactions}
         productSummary={
           productHistoryGroup
@@ -681,17 +704,23 @@ export function InventoryScreen() {
                 unit: productHistoryGroup.unit,
                 sealedSubtitle: formatStateSubtitle(
                   productHistoryGroup.lots.filter((lot) => !lot.opened_at),
+                  t,
                 ),
                 openedSubtitle: formatStateSubtitle(
                   productHistoryGroup.lots.filter((lot) => !!lot.opened_at),
+                  t,
                 ),
               }
             : undefined
         }
-        historyHeading={productHistoryGroup ? `Verlauf zu ${productHistoryGroup.name}` : undefined}
+        historyHeading={
+          productHistoryGroup
+            ? t('inventory.history.productHeading', { name: productHistoryGroup.name })
+            : undefined
+        }
         footerNote={
           productHistoryGroup && productHistoryTransactions.length === 1
-            ? 'Nur ein Eintrag. Dieses Los wurde noch nicht geöffnet, verbraucht oder korrigiert.'
+            ? t('inventory.history.singleEntry')
             : undefined
         }
         lotLabels={productHistoryLotLabels}

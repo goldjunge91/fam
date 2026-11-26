@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
@@ -74,6 +75,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function MissingIngredientsScreen() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { mealPlanId } = useLocalSearchParams<{ mealPlanId: string }>();
   const { session } = useSession();
@@ -93,11 +95,11 @@ export function MissingIngredientsScreen() {
     <View style={styles.errorState}>
       <Txt variant="body" tone="danger" accessibilityRole="alert">
         {hasLoadedMissing
-          ? 'Fehlende Zutaten konnten nicht aktualisiert werden.'
-          : 'Fehlende Zutaten konnten nicht geladen werden.'}
+          ? t('mealPlanner.missing.updateError')
+          : t('mealPlanner.missing.loadError')}
       </Txt>
       <Button
-        title="Erneut versuchen"
+        title={t('mealPlanner.missing.retry')}
         variant="secondary"
         size="sm"
         onPress={() => void refetch()}
@@ -237,8 +239,8 @@ export function MissingIngredientsScreen() {
     if (failed > 0) {
       setTransferError(
         added === 0
-          ? 'Es konnte kein Artikel gespeichert werden. Bitte erneut versuchen.'
-          : `${added} von ${added + failed} Artikeln wurden gespeichert.`,
+          ? t('mealPlanner.missing.transferNone')
+          : t('mealPlanner.missing.transferPartial', { added, total: added + failed }),
       );
     }
     debugLogEvent('meal-planner.shopping-needs.transfer.completed', {
@@ -254,17 +256,16 @@ export function MissingIngredientsScreen() {
 
   return (
     <Screen
-      title="Fehlende Zutaten"
-      subtitle="Bedarf dieser Woche minus Vorrat"
-      back={{ label: 'Wochenplan' }}>
+      title={t('mealPlanner.missing.title')}
+      subtitle={t('mealPlanner.missing.subtitle')}
+      back={{ label: t('mealPlanner.screen.title') }}>
       {/* Paywall-Hinweis falls kein aktives Plus-Abo vorhanden ist */}
       {!hasPlus ? (
         <View style={styles.list}>
           <Txt variant="body" tone="secondary">
-            fam vergleicht den Bedarf des ganzen Wochenplans mit eurem Vorrat und übernimmt nur
-            Fehlendes in die Einkaufsliste.
+            {t('mealPlanner.missing.plusHint')}
           </Txt>
-          <Button title="Plus ansehen" onPress={openPlusPaywall} />
+          <Button title={t('mealPlanner.missing.plus')} onPress={openPlusPaywall} />
         </View>
       ) : isLoading ? (
         /* Ladeindikator beim Berechnen der Vorratsabgleiche */
@@ -278,7 +279,7 @@ export function MissingIngredientsScreen() {
         <View style={styles.list}>
           {errorState}
           <Txt variant="body" tone="secondary">
-            Für die geplanten Rezepte fehlt nichts – der Vorrat reicht.
+            {t('mealPlanner.missing.allCovered')}
           </Txt>
         </View>
       ) : (
@@ -296,7 +297,7 @@ export function MissingIngredientsScreen() {
 
           {/* Button zum Hinzufügen der ausgewählten Zutaten auf die Einkaufsliste */}
           <Button
-            title={`${selected.size} Artikel zur Einkaufsliste hinzufügen`}
+            title={t('mealPlanner.missing.addSelected', { count: selected.size })}
             onPress={handleAddSelected}
             disabled={selected.size === 0 || isSubmitting || !session}
             loading={isSubmitting}
@@ -316,7 +317,7 @@ export function MissingIngredientsScreen() {
           {/* Erfolgs-Bestaetigung nach Übertrag */}
           {addedCount !== null && addedCount > 0 ? (
             <Txt variant="body" tone="success">
-              {addedCount} Artikel zur Einkaufsliste hinzugefügt.
+              {t('mealPlanner.missing.transferSuccess', { count: addedCount })}
             </Txt>
           ) : null}
         </View>
@@ -334,6 +335,7 @@ function IngredientRow({
   selected: boolean;
   onToggle: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <Surface tone="surface" style={styles.row}>
       <Press
@@ -353,17 +355,22 @@ function IngredientRow({
           </Txt>
           {item.kind === 'custom' ? (
             <Txt variant="body" tone="secondary">
-              {item.quantity} {customIngredientUnitLabel(item.unit)}
+              {item.quantity} {customIngredientUnitLabel(item.unit, t)}
             </Txt>
           ) : item.missingGrams > 0 ? (
             <Txt variant="body" tone="secondary">
-              {item.missingGrams} g fehlen
-              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+              {t('mealPlanner.missing.missingGrams', { count: item.missingGrams })}
+              {item.preferredStoreName
+                ? ` · ${t('mealPlanner.missing.lastStore', { store: item.preferredStoreName })}`
+                : ''}
             </Txt>
           ) : (
             <Txt variant="body" tone="secondary">
-              {item.neededGrams} g benötigt / {item.availableGrams} g im Vorrat
-              {item.preferredStoreName ? ` · zuletzt bei ${item.preferredStoreName}` : ''}
+              {t('mealPlanner.missing.neededGrams', { count: item.neededGrams })}{' '}
+              {t('mealPlanner.missing.availableGrams', { count: item.availableGrams })}
+              {item.preferredStoreName
+                ? ` · ${t('mealPlanner.missing.lastStore', { store: item.preferredStoreName })}`
+                : ''}
             </Txt>
           )}
           {item.recipeNames.length > 0 ? (

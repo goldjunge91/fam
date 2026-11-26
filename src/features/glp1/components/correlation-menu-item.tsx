@@ -1,4 +1,5 @@
 import { router } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card, Press, Txt } from '@/constants/ui';
@@ -34,10 +35,12 @@ export function CorrelationMenuItem({
   dayStartTime,
   childProfileId,
 }: CorrelationMenuItemProps) {
+  const { t } = useTranslation();
+
   return (
     <Press
       accessibilityRole="button"
-      accessibilityLabel="Korrelationsanalyse öffnen"
+      accessibilityLabel={t('glp1.correlation.open')}
       onPress={() =>
         router.push({
           pathname: '/glp1/correlation',
@@ -53,14 +56,14 @@ export function CorrelationMenuItem({
       <Card padded={false} style={styles.item}>
         <View style={styles.content}>
           <Txt variant="label" weight="700">
-            Korrelationsanalyse
+            {t('glp1.correlation.title')}
           </Txt>
           <Txt variant="caption" tone="secondary">
-            Injektion, Kalorien und Gewicht
+            {t('glp1.correlation.sectionTitle')}
           </Txt>
         </View>
         <Txt variant="label" weight="700" tone="primary">
-          Öffnen
+          {t('glp1.correlation.openAction')}
         </Txt>
       </Card>
     </Press>

@@ -223,5 +223,62 @@
     "categoryExpanded": ", expanded",
     "finish": "🛒 Finish shopping ({{count}})",
     "finishAccessibility": "Finish shopping, {{checked}} of {{total}} checked"
+  },
+  "speechBeta": {
+    "controller": {
+      "autoAssignTitle": "Smart assignment",
+      "autoAssignMessage": "You assigned several items to individual lists. Should known items be assigned to the matching list automatically in the future? You can change this at any time in settings.",
+      "later": "Later",
+      "enable": "Enable",
+      "unavailableTitle": "Voice input unavailable",
+      "noStoreMessage": "Create a store for the shopping list first.",
+      "failedTitle": "Voice input failed",
+      "recheckFailed": "Items could not be checked again: {{error}}",
+      "correctionFailed": "Correction failed: {{error}}",
+      "deleteFailed": "Could not delete: {{error}}",
+      "listsUpdatedTitle": "Shopping lists updated",
+      "listsUpdatedMessage": "The available stores changed. Please review the assignment again.",
+      "addFailed": "Items could not be added: {{error}}"
+    },
+    "overlay": {
+      "close": "Close voice input",
+      "processingTitle": "I am processing that …",
+      "listeningTitle": "I am listening",
+      "processingMessage": "The item list is being prepared.",
+      "listeningMessage": "Name several shopping items. When you are done, tap Done.",
+      "done": "Done",
+      "cancel": "Cancel"
+    },
+    "preview": {
+      "newItems": "New items",
+      "close": "Close",
+      "title": "Does this look right?",
+      "recognizedText": "Recognized text",
+      "recheck": "Check again",
+      "unparsed": "Not recognized yet: {{text}}",
+      "bundleTitle": "Assign the open items",
+      "open_one": "{{count}} open",
+      "open_other": "{{count}} open",
+      "bundleHint": "Choose a match for each item or defer it.",
+      "summarySafe_one": "{{count}} match is certain.",
+      "summarySafe_other": "{{count}} matches are certain.",
+      "summaryWithUnclear_one": "{{safeCount}} matches are certain, {{count}} item needs your assignment.",
+      "summaryWithUnclear_other": "{{safeCount}} matches are certain, {{count}} items need your assignment.",
+      "fromBrand": " from {{brand}}",
+      "remembered_one": "Remembered correction ({{count}})",
+      "remembered_other": "Remembered corrections ({{count}})",
+      "suggestionTake": "Use suggestion: {{name}}",
+      "forget": "{{name}}: forget correction",
+      "itemName": "Item name",
+      "takeOnly": "Use once",
+      "takeAndRemember": "Use and remember",
+      "cancelCorrection": "Cancel correction",
+      "correctName": "Correct name",
+      "defer": "Assign later",
+      "addItems_one": "Add {{count}} item",
+      "addItems_other": "Add {{count}} items",
+      "later": "Later",
+      "certain": "Recognized with certainty"
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react-native';
 import type React from 'react';
 import { Platform } from 'react-native';
+import { i18n } from '@/i18n';
 import { DevEnvironmentScreen } from './dev-environment-screen';
 
 let mockHasAccess = true;
@@ -110,7 +111,8 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
 }));
 
 describe('DevEnvironmentScreen', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
     mockHasAccess = true;
     mockSession = null;
     mockHousehold = null;
@@ -129,7 +131,7 @@ describe('DevEnvironmentScreen', () => {
     expect(screen.getByText('Supabase: Lokal')).toBeOnTheScreen();
     expect(screen.getByText('Schlüssel: public-a…')).toBeOnTheScreen();
     expect(
-      screen.getByText(`App-Version: 9.8.7 (Build —, ${Platform.OS} ${Platform.Version})`),
+      screen.getByText(`App-Version: 9.8.7 (Build —, ${Platform.OS} ${Platform.Version ?? ''})`),
     ).toBeOnTheScreen();
     expect(screen.getByText('Onboarding erzwungen: nein')).toBeOnTheScreen();
     expect(screen.getByText('Plus: inaktiv')).toBeOnTheScreen();

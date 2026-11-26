@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -14,6 +15,7 @@ type PostalCodeEditorProps = {
 
 /** Inline-Formular für die manuelle PLZ-Eingabe, Alternative zum GPS-Standort im Prospekte-Bereich. */
 export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const [value, setValue] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +24,7 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
 
   async function handleSubmit() {
     if (!isValid) {
-      setError('Bitte eine gültige 5-stellige PLZ eingeben.');
+      setError(t('brochures.postalCode.invalid'));
       return;
     }
     setIsSubmitting(true);
@@ -30,7 +32,7 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
     try {
       await onSubmit(value);
     } catch {
-      setError('PLZ konnte nicht gespeichert werden.');
+      setError(t('brochures.postalCode.saveError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -39,18 +41,18 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
   return (
     <View style={styles.container}>
       <TextField
-        label="PLZ"
+        label={t('brochures.postalCode.label')}
         value={value}
         onChangeText={(text) => setValue(text.replace(/\D/g, '').slice(0, 5))}
         keyboardType="number-pad"
         maxLength={5}
-        placeholder="z. B. 10115"
+        placeholder={t('brochures.postalCode.placeholder')}
         error={error ?? undefined}
       />
       <View style={styles.actions}>
         <Press
           accessibilityRole="button"
-          accessibilityLabel="Postleitzahl übernehmen"
+          accessibilityLabel={t('brochures.postalCode.applyAccessibility')}
           disabled={!isValid || isSubmitting}
           onPress={handleSubmit}
           style={[
@@ -58,17 +60,17 @@ export function PostalCodeEditor({ onSubmit, onCancel }: PostalCodeEditorProps) 
             { backgroundColor: colors.accent, opacity: !isValid || isSubmitting ? 0.5 : 1 },
           ]}>
           <Txt variant="body" tone="onAccent" weight="700">
-            {isSubmitting ? 'Speichert...' : 'Übernehmen'}
+            {isSubmitting ? t('brochures.postalCode.saving') : t('brochures.postalCode.apply')}
           </Txt>
         </Press>
         {onCancel ? (
           <Press
             accessibilityRole="button"
-            accessibilityLabel="Postleitzahl-Eingabe abbrechen"
+            accessibilityLabel={t('brochures.postalCode.cancelAccessibility')}
             onPress={onCancel}
             style={styles.button}>
             <Txt variant="body" tone="secondary" weight="600">
-              Abbrechen
+              {t('brochures.postalCode.cancel')}
             </Txt>
           </Press>
         ) : null}

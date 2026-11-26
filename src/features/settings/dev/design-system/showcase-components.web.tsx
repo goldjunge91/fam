@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -15,15 +16,15 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function ComponentsShowcase({ category }: { category: ComponentCategory }) {
+  const { t } = useTranslation();
+
   return (
     <Surface tone="soft" style={styles.container}>
       <View style={styles.stack}>
-        <Txt variant="heading">Komponenten</Txt>
-        <Txt tone="secondary">
-          Die nativen Expo-UI-Beispiele sind auf iOS und Android verfügbar.
-        </Txt>
+        <Txt variant="heading">{t('dev.design.components.webTitle')}</Txt>
+        <Txt tone="secondary">{t('dev.design.components.webHint')}</Txt>
         <Txt variant="caption" tone="secondary">
-          Kategorie: {category}
+          {t('dev.design.components.categoryValue', { category })}
         </Txt>
       </View>
     </Surface>

@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import type { TFunction } from 'i18next';
 
 import { getDatabase } from '@/lib/db/local-client';
 import { fromInventoryQuantityUnits } from '@/lib/inventory-quantity';
@@ -66,12 +67,22 @@ export function isInventoryTransactionUndoable(
   return Number.isFinite(createdAt) && age >= 0 && age <= INVENTORY_UNDO_WINDOW_MS;
 }
 
-export function transactionUndoLabel(transaction: LocalInventoryTransaction): string {
-  if (isInventoryMoveTransaction(transaction)) return 'Verschiebung rückgängig machen';
-  if (transaction.type === 'in') return 'Einkauf rückgängig machen';
-  if (transaction.type === 'out') return 'Verbrauch rückgängig machen';
-  if (transaction.type === 'open') return 'Öffnen rückgängig machen';
-  return 'Verschwendung rückgängig machen';
+export function transactionUndoLabel(
+  transaction: LocalInventoryTransaction,
+  t?: TFunction,
+): string {
+  if (!t) {
+    if (isInventoryMoveTransaction(transaction)) return 'Verschiebung rückgängig machen';
+    if (transaction.type === 'in') return 'Einkauf rückgängig machen';
+    if (transaction.type === 'out') return 'Verbrauch rückgängig machen';
+    if (transaction.type === 'open') return 'Öffnen rückgängig machen';
+    return 'Verschwendung rückgängig machen';
+  }
+  if (isInventoryMoveTransaction(transaction)) return t('inventory.transactions.moveUndo');
+  if (transaction.type === 'in') return t('inventory.transactions.inUndo');
+  if (transaction.type === 'out') return t('inventory.transactions.outUndo');
+  if (transaction.type === 'open') return t('inventory.transactions.openUndo');
+  return t('inventory.transactions.wasteUndo');
 }
 
 export function useInventoryTransactions(householdId: string | undefined) {
@@ -171,15 +182,15 @@ function startOfLocalDay(value: Date): Date {
   return new Date(value.getFullYear(), value.getMonth(), value.getDate());
 }
 
-function formatCalendarDate(value: Date): string {
-  const day = String(value.getDate()).padStart(2, '0');
-  const month = String(value.getMonth() + 1).padStart(2, '0');
-  return `${day}.${month}.${value.getFullYear()}`;
+function formatCalendarDate(value: Date, locale: string): string {
+  return value.toLocaleDateString(locale, { day: '2-digit', month: '2-digit', year: 'numeric' });
 }
 
 export function groupTransactionsByDay(
   transactions: LocalInventoryTransaction[],
   now = new Date(),
+  t?: TFunction,
+  locale = 'de-DE',
 ): TransactionDayGroup[] {
   const today = startOfLocalDay(now).getTime();
   const yesterday = today - 24 * 60 * 60 * 1000;
@@ -191,12 +202,12 @@ export function groupTransactionsByDay(
     const day = Number.isNaN(date.getTime()) ? Number.NaN : startOfLocalDay(date).getTime();
     const label =
       day === today
-        ? 'Heute'
+        ? (t?.('inventory.transactions.today') ?? 'Heute')
         : day === yesterday
-          ? 'Gestern'
+          ? (t?.('inventory.transactions.yesterday') ?? 'Gestern')
           : Number.isNaN(day)
-            ? 'Ohne Datum'
-            : formatCalendarDate(date);
+            ? (t?.('inventory.transactions.unknownDate') ?? 'Ohne Datum')
+            : formatCalendarDate(date, locale);
     const existing = groups.get(key);
     if (existing) existing.transactions.push(transaction);
     else groups.set(key, { key, label, transactions: [transaction] });
@@ -208,23 +219,59 @@ export function groupTransactionsByDay(
 export function transactionLabel(
   transaction: LocalInventoryTransaction,
   itemName?: string | null,
+  t?: TFunction,
 ): string {
   const resolvedName = itemName !== undefined ? itemName : transaction.item_name;
   const name = resolvedName?.trim();
-  if (transaction.notes?.includes('[Manual correction]')) {
-    return name ? `Manuelle Korrektur: ${name}` : 'Manuelle Korrektur';
+  if (!t) {
+    if (transaction.notes?.includes('[Manual correction]')) {
+      return name ? `Manuelle Korrektur: ${name}` : 'Manuelle Korrektur';
+    }
+    if (transaction.type === 'in') return name ? `${name} eingekauft` : 'Eingekauft';
+    if (transaction.type === 'out') return name ? `${name} verbraucht` : 'Verbraucht';
+    if (transaction.type === 'open') return name ? `${name} geöffnet` : 'Geöffnet';
+    if (transaction.reason === 'expired') return name ? `${name} weggeworfen` : 'Abgelaufen';
+    if (transaction.reason === 'spoiled') return name ? `${name} weggeworfen` : 'Schlecht geworden';
+    return name ? `${name} weggeworfen` : 'Verschwendung';
   }
-  if (transaction.type === 'in') return name ? `${name} eingekauft` : 'Eingekauft';
-  if (transaction.type === 'out') return name ? `${name} verbraucht` : 'Verbraucht';
-  if (transaction.type === 'open') return name ? `${name} geöffnet` : 'Geöffnet';
-  if (transaction.reason === 'expired') return name ? `${name} weggeworfen` : 'Abgelaufen';
-  if (transaction.reason === 'spoiled') return name ? `${name} weggeworfen` : 'Schlecht geworden';
-  return name ? `${name} weggeworfen` : 'Verschwendung';
+  if (transaction.notes?.includes('[Manual correction]')) {
+    return name
+      ? t('inventory.transactions.manualCorrectionNamed', { name })
+      : t('inventory.transactions.manualCorrection');
+  }
+  if (transaction.type === 'in') {
+    return name ? t('inventory.transactions.inNamed', { name }) : t('inventory.transactions.in');
+  }
+  if (transaction.type === 'out') {
+    return name ? t('inventory.transactions.outNamed', { name }) : t('inventory.transactions.out');
+  }
+  if (transaction.type === 'open') {
+    return name
+      ? t('inventory.transactions.openNamed', { name })
+      : t('inventory.transactions.open');
+  }
+  if (transaction.reason === 'expired') {
+    return name
+      ? t('inventory.transactions.expiredNamed', { name })
+      : t('inventory.transactions.expired');
+  }
+  if (transaction.reason === 'spoiled') {
+    return name
+      ? t('inventory.transactions.spoiledNamed', { name })
+      : t('inventory.transactions.spoiled');
+  }
+  return name
+    ? t('inventory.transactions.wasteNamed', { name })
+    : t('inventory.transactions.waste');
 }
 
-export function transactionReasonLabel(reason: LocalInventoryTransaction['reason']): string | null {
-  if (reason === 'expired') return 'Abgelaufen';
-  if (reason === 'spoiled') return 'Schlecht geworden';
-  if (reason === 'other') return 'Sonstiges';
+export function transactionReasonLabel(
+  reason: LocalInventoryTransaction['reason'],
+  t?: TFunction,
+): string | null {
+  if (reason === 'expired') return t?.('inventory.transactions.reasonExpired') ?? 'Abgelaufen';
+  if (reason === 'spoiled')
+    return t?.('inventory.transactions.reasonSpoiled') ?? 'Schlecht geworden';
+  if (reason === 'other') return t?.('inventory.transactions.reasonOther') ?? 'Sonstiges';
   return null;
 }

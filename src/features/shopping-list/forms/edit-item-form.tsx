@@ -9,7 +9,7 @@ import { useProduct } from '@/features/inventory/use-product';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 import { debugError, debugLog } from '@/lib/observability/debug-log';
 import { useFeatureFlag } from '@/lib/observability/providers/posthog';
-import { UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions } from '@/lib/units';
 import {
   normalizePlacementZoneIdNullable,
   PLACEMENT_CLASSIFIER_VERSION,
@@ -55,7 +55,7 @@ async function resolveAutomaticPreview(
 }
 
 export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const shoppingStyles = shoppingListStyles;
   const [name, setName] = useState(item.name);
   const [quantity, setQuantity] = useState(String(item.quantity));
@@ -110,6 +110,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
   const userId = session?.user.id;
   const { data: stores = [] } = useStores(item.household_id);
   const feedbackEnabled = useFeatureFlag('shopping-category-feedback-alpha', false);
+  const unitOptions = getUnitOptions(t);
   const storeOptions = [
     { value: NO_STORE, label: t('shoppingList.itemForm.unassignedStore') },
     ...stores.map((store) => ({ value: store.id, label: store.name })),
@@ -119,7 +120,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
     unit === 'package' && Number.isFinite(parsedPackageSize) && parsedPackageSize > 0
       ? parsedPackageSize
       : null;
-  const packageHint = formatPackageHint(packageSize, packageSizeUnit);
+  const packageHint = formatPackageHint(packageSize, packageSizeUnit, t, i18n.language);
 
   useEffect(() => {
     if (placementSelection.mode === 'manual') return;
@@ -436,7 +437,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
             <WheelPickerField
               label={t('shoppingList.itemForm.unitLabel')}
               value={unit}
-              options={UNIT_OPTIONS}
+              options={unitOptions}
               onChange={setUnit}
               size="large"
             />
@@ -455,7 +456,7 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
                   <WheelPickerField
                     label={t('shoppingList.itemForm.unitLabel')}
                     value={packageSizeUnit}
-                    options={UNIT_OPTIONS.filter((option) =>
+                    options={unitOptions.filter((option) =>
                       ['g', 'kg', 'ml', 'l', 'piece', 'portion'].includes(option.value),
                     )}
                     onChange={setPackageSizeUnit}
@@ -503,7 +504,8 @@ export function EditItemForm({ item, onDismiss }: EditItemFormProps) {
           </View>
           <View style={shoppingStyles.productMeta}>
             <Txt variant="body">
-              {packageHint ?? formatAmount(Number(quantity.replace(',', '.')) || 1, unit)}
+              {packageHint ??
+                formatAmount(Number(quantity.replace(',', '.')) || 1, unit, t, i18n.language)}
             </Txt>
             <Txt variant="body" tone="secondary">
               {packageHint

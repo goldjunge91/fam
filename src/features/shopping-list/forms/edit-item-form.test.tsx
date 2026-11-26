@@ -191,10 +191,24 @@ describe('EditItemForm', () => {
     });
   });
 
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('rendert den aktuellen Namen des Artikels', async () => {
     await renderForm();
 
     expect(screen.getByDisplayValue('Bananen')).toBeTruthy();
+  });
+
+  it('uses English unit labels while keeping the stored value', async () => {
+    const user = userEvent.setup();
+    await i18n.changeLanguage('en');
+    await renderForm();
+
+    await user.press(screen.getByRole('button', { name: 'More details' }));
+    expect(screen.getByRole('button', { name: 'Unit: Piece' })).toBeOnTheScreen();
+    expect(screen.getByText('Piece')).toBeOnTheScreen();
   });
 
   it('zeigt die Produktdetails eines per Barcode hinzugefügten Artikels', async () => {

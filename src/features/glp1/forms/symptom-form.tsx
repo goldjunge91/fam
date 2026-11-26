@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { z } from 'zod';
@@ -9,6 +10,7 @@ import {
   dateTimeInputSchema,
   optionalNotesInputSchema,
   sideEffectsInputSchema,
+  translateGlp1ValidationMessage,
 } from '@/features/glp1/domain/form-schema-primitives';
 import { useRozeniteRHFDevTools } from '@/lib/optionals/RozeniteDevTools';
 
@@ -88,6 +90,7 @@ export function SymptomForm({
   initialValue,
   mode = 'create',
 }: SymptomFormProps) {
+  const { t } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -114,11 +117,11 @@ export function SymptomForm({
   return (
     <Card style={styles.form}>
       <Txt variant="label" weight="700">
-        {mode === 'edit' ? 'Symptome bearbeiten' : 'Symptom- & Sättigungs-Verlauf'}
+        {t(mode === 'edit' ? 'glp1.symptomForm.editTitle' : 'glp1.symptomForm.createTitle')}
       </Txt>
 
       <LevelPicker
-        label="Appetit (1 = kein Appetit, 5 = starker Heißhunger):"
+        label={t('glp1.symptomForm.appetite')}
         levels={[1, 2, 3, 4, 5]}
         selected={appetite}
         onSelect={(value) =>
@@ -126,7 +129,7 @@ export function SymptomForm({
         }
       />
       <LevelPicker
-        label="Sättigungsgefühl (1 = kaum satt, 5 = sehr schnell satt):"
+        label={t('glp1.symptomForm.satiety')}
         levels={[1, 2, 3, 4, 5]}
         selected={satiety}
         onSelect={(value) =>
@@ -134,7 +137,7 @@ export function SymptomForm({
         }
       />
       <LevelPicker
-        label="Übelkeit / Nebenwirkung (0 = keine, 5 = stark):"
+        label={t('glp1.symptomForm.nausea')}
         levels={[0, 1, 2, 3, 4, 5]}
         selected={nausea}
         onSelect={(value) =>
@@ -150,10 +153,10 @@ export function SymptomForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Konkrete Nebenwirkungen:"
-              accessibilityLabel="Konkrete Nebenwirkungen"
-              placeholder="z. B. Kopfschmerz, Müdigkeit"
-              error={errors.sideEffects?.message}
+              label={t('glp1.symptomForm.sideEffects')}
+              accessibilityLabel={t('glp1.symptomForm.sideEffectsAccessibility')}
+              placeholder={t('glp1.symptomForm.sideEffectsPlaceholder')}
+              error={translateGlp1ValidationMessage(errors.sideEffects?.message, t)}
               size="large"
             />
           )}
@@ -168,11 +171,11 @@ export function SymptomForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Zeitpunkt:"
-              accessibilityLabel="Zeitpunkt der Symptome"
-              placeholder="JJJJ-MM-TT HH:MM"
+              label={t('glp1.symptomForm.time')}
+              accessibilityLabel={t('glp1.symptomForm.timeAccessibility')}
+              placeholder={t('glp1.injectionForm.timePlaceholder')}
               autoCapitalize="none"
-              error={errors.loggedAt?.message}
+              error={translateGlp1ValidationMessage(errors.loggedAt?.message, t)}
               size="large"
             />
           )}
@@ -187,11 +190,11 @@ export function SymptomForm({
             <TextField
               value={value}
               onChangeText={onChange}
-              label="Notiz:"
-              accessibilityLabel="Notiz zu den Symptomen"
-              placeholder="Optional"
+              label={t('glp1.symptomForm.notes')}
+              accessibilityLabel={t('glp1.symptomForm.notesAccessibility')}
+              placeholder={t('glp1.symptomForm.optional')}
               multiline
-              error={errors.notes?.message}
+              error={translateGlp1ValidationMessage(errors.notes?.message, t)}
               size="large"
               style={styles.multilineInput}
             />
@@ -201,15 +204,19 @@ export function SymptomForm({
 
       <Card padded={false} style={styles.summary}>
         <Txt variant="body" tone="secondary">
-          Ausgewählt:
+          {t('glp1.symptomForm.selected')}
         </Txt>
         <Txt variant="body" weight="700">
-          Appetit {appetite}/5 · Sättigung {satiety}/5 · Übelkeit {nausea}/5
+          {t('glp1.symptomForm.summary', {
+            appetite,
+            satiety,
+            nausea,
+          })}
         </Txt>
       </Card>
 
       <Button
-        title={mode === 'edit' ? 'Änderungen speichern' : 'Status speichern'}
+        title={t(mode === 'edit' ? 'glp1.symptomForm.saveChanges' : 'glp1.symptomForm.save')}
         onPress={() => void handleSubmit((value) => onSubmit(value))()}
         loading={isPending}
         style={styles.submit}

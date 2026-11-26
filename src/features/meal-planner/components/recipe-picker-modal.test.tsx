@@ -1,5 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import { Platform } from 'react-native';
+import { i18n } from '@/i18n';
 import { type RecipeOption, RecipePickerModal } from './recipe-picker-modal';
 
 jest.mock('@shopify/flash-list', () => {
@@ -105,6 +106,10 @@ describe('RecipePickerModal', () => {
     Object.defineProperty(Platform, 'OS', { configurable: true, value: 'ios' });
   });
 
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   afterAll(() => {
     Object.defineProperty(Platform, 'OS', { configurable: true, value: originalPlatform });
   });
@@ -168,5 +173,22 @@ describe('RecipePickerModal', () => {
     await user.type(screen.getByPlaceholderText('Rezept suchen…'), 'does not exist');
 
     expect(screen.getByText('Kein Rezept gefunden.')).toBeOnTheScreen();
+  });
+
+  it('renders picker copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await render(
+      <RecipePickerModal
+        visible
+        recipes={[]}
+        onDismiss={onDismiss}
+        onSelect={onSelect}
+        onCreateCustom={onCreateCustom}
+      />,
+    );
+
+    expect(screen.getByText('Choose a recipe')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Add custom dish' })).toBeOnTheScreen();
+    expect(screen.getByText('No recipes yet. Create a recipe first.')).toBeOnTheScreen();
   });
 });

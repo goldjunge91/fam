@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import type { ProductCatalog } from '@/features/product-search/product-catalog';
 import { productCatalog } from '@/features/product-search/product-catalog-instance';
@@ -31,6 +32,7 @@ export function useProductBarcodeLookup(
   options: UseProductBarcodeLookupOptions = {},
 ): UseProductBarcodeLookupResult {
   const { catalog = productCatalog, onFound, onNotFound } = options;
+  const { t } = useTranslation();
   const [product, setProduct] = useState<CatalogProduct | null>(null);
   const [looking, setLooking] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -71,14 +73,14 @@ export function useProductBarcodeLookup(
         if (found) {
           onFound?.(found);
         } else {
-          setErrorMessage(`Kein Produkt für Barcode ${trimmed} gefunden.`);
+          setErrorMessage(t('productSearch.barcode.notFound', { barcode: trimmed }));
           onNotFound?.(trimmed);
         }
         return found;
       } catch {
         if (controller.signal.aborted || requestId !== requestIdRef.current) return null;
         trackAnalyticsEvent('product.barcode_scan.failed');
-        setErrorMessage('Fehler beim Abrufen der Produktdaten.');
+        setErrorMessage(t('productSearch.barcode.lookupFailed'));
         return null;
       } finally {
         if (requestId === requestIdRef.current) {
@@ -88,7 +90,7 @@ export function useProductBarcodeLookup(
         }
       }
     },
-    [catalog, onFound, onNotFound],
+    [catalog, onFound, onNotFound, t],
   );
 
   const reset = useCallback(() => {

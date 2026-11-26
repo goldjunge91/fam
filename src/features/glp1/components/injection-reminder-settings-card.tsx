@@ -1,5 +1,6 @@
 import { Host, Switch } from '@expo/ui';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { TimeWheelField } from '@/components/forms/time-wheel-field';
@@ -27,6 +28,7 @@ type InjectionReminderSettingsCardProps = {
 };
 
 export function InjectionReminderSettingsCard({ userId }: InjectionReminderSettingsCardProps) {
+  const { t } = useTranslation();
   useInjectionReminder(userId);
   const { data: plan, isLoading, isError } = useInjectionPlan(userId);
   const updateMutation = useUpdateInjectionPlanMutation();
@@ -58,7 +60,7 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
       `${formatDateTimeInput(plan.anchor_at).slice(0, 10)} ${time}`,
     );
     if (!anchorAt) {
-      setTimeError('Bitte eine gültige Uhrzeit auswählen.');
+      setTimeError(t('glp1.reminder.invalidTime'));
       return;
     }
     setReminderTime(time);
@@ -76,41 +78,41 @@ export function InjectionReminderSettingsCard({ userId }: InjectionReminderSetti
   }
 
   return (
-    <ContentCard title="Injektions-Erinnerung">
+    <ContentCard title={t('glp1.reminder.title')}>
       {isLoading ? (
         <Txt variant="caption" tone="secondary">
-          Injektions-Erinnerung wird geladen...
+          {t('glp1.reminder.loading')}
         </Txt>
       ) : isError ? (
         <Txt variant="caption" tone="danger">
-          Injektions-Erinnerung konnte nicht geladen werden.
+          {t('glp1.reminder.error')}
         </Txt>
       ) : !plan ? (
         <Txt variant="caption" tone="secondary">
-          Lege zuerst einen Injektionsplan an, um die Erinnerung zu aktivieren.
+          {t('glp1.reminder.noPlan')}
         </Txt>
       ) : (
         <View style={styles.content}>
           <Txt variant="caption" tone="secondary">
-            Erinnert dich vor dem nächsten fälligen Termin aus deinem Injektionsplan.
+            {t('glp1.reminder.hint')}
           </Txt>
           <Host matchContents>
             <Switch
               value={plan.reminder_enabled}
               onValueChange={handleReminderChange}
-              label="An fällige Injektion erinnern"
+              label={t('glp1.reminder.toggle')}
               disabled={updateMutation.isPending}
             />
           </Host>
           <View style={styles.timeGroup}>
             <TimeWheelField
-              label="Uhrzeit der Injektions-Erinnerung"
+              label={t('glp1.reminder.time')}
               value={reminderTime}
               onChange={handleTimeChange}
             />
             {timeError || updateMutation.isError ? (
               <Txt variant="caption" tone="danger">
-                {timeError ?? 'Die Uhrzeit konnte nicht gespeichert werden.'}
+                {timeError ?? t('glp1.reminder.saveError')}
               </Txt>
             ) : null}
           </View>

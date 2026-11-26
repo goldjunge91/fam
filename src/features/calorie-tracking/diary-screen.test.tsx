@@ -214,7 +214,7 @@ describe('DiaryScreen', () => {
 
     mockEntriesLoading = true;
     await rendered.rerender(<ScreenUnderTest />);
-    expect(screen.getByText('Lade Tagebuch...')).toBeOnTheScreen();
+    expect(screen.getByText('Lade Tagebuch…')).toBeOnTheScreen();
     expect(screen.queryByText('Keine Einträge an diesem Tag')).not.toBeOnTheScreen();
     expect(screen.queryByText('Frühstück')).not.toBeOnTheScreen();
   });

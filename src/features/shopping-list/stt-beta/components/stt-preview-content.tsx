@@ -1,8 +1,11 @@
+import type { TFunction } from 'i18next';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Button, Press, Surface, TextField, Txt } from '@/constants/ui';
+import { getUnitLabel } from '@/lib/units';
 import { getClarificationSummary } from '../domain/clarification';
 import { type NameCorrection, normalizeCorrectionName } from '../name-corrections';
 import type { BetaPreviewItem, ParsedShoppingItem, ShoppingListSuggestion } from '../types';
@@ -27,20 +30,26 @@ export type NaturalLanguageAdditionSwiftUIPreviewContentProps = Omit<
   'visible' | 'onDismiss'
 >;
 
-function itemLabel(item: ParsedShoppingItem): string {
+function itemLabel(item: ParsedShoppingItem, t: TFunction): string {
+  const unit = item.unit ? getUnitLabel(item.unit, t) : null;
   const quantity =
-    item.quantity === 1 && item.unit === null
-      ? ''
-      : `${item.quantity}${item.unit ? ` ${item.unit}` : ''} `;
-  const brand = item.brand ? ` von ${item.brand}` : '';
+    item.quantity === 1 && unit === null ? '' : `${item.quantity}${unit ? ` ${unit}` : ''} `;
+  const brand = item.brand
+    ? t('shoppingList.speechBeta.preview.fromBrand', { brand: item.brand })
+    : '';
   return `${quantity}${item.name}${brand}`;
 }
 
-function summaryText(items: readonly BetaPreviewItem[]): string {
+function summaryText(items: readonly BetaPreviewItem[], t: TFunction): string {
   const safeCount = items.filter((item) => !item.routing.needsClarification).length;
   const unclearCount = items.length - safeCount;
-  if (unclearCount === 0) return `${safeCount} Treffer sicher.`;
-  return `${safeCount} Treffer sicher, ${unclearCount} ${unclearCount === 1 ? 'Artikel braucht' : 'Artikel brauchen'} deine Zuordnung.`;
+  if (unclearCount === 0) {
+    return t('shoppingList.speechBeta.preview.summarySafe', { count: safeCount });
+  }
+  return t('shoppingList.speechBeta.preview.summaryWithUnclear', {
+    safeCount,
+    count: unclearCount,
+  });
 }
 
 function initialSelections(items: readonly BetaPreviewItem[]): Record<string, string | null> {
@@ -63,6 +72,7 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
   onCorrectName,
   onForgetCorrection,
 }: NaturalLanguageAdditionSwiftUIPreviewContentProps) {
+  const { t } = useTranslation();
   const selectionDefaults = useMemo(() => initialSelections(preview.items), [preview]);
   const [showCorrections, setShowCorrections] = useState(false);
   const [draftText, setDraftText] = useState(preview.input.text);
@@ -124,13 +134,16 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
       <View style={styles.header}>
         <View style={styles.headerCopy}>
           <Txt variant="caption" tone="secondary">
-            Neue Artikel
+            {t('shoppingList.speechBeta.preview.newItems')}
           </Txt>
           <Txt variant="title" testID="Passt-das-so">
-            Passt das so?
+            {t('shoppingList.speechBeta.preview.title')}
           </Txt>
         </View>
-        <NaturalLanguageAdditionSheetCloseButton onPress={onRequestClose} />
+        <NaturalLanguageAdditionSheetCloseButton
+          onPress={onRequestClose}
+          accessibilityLabel={t('shoppingList.speechBeta.preview.close')}
+        />
       </View>
 
       <ScrollView
@@ -141,7 +154,7 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
         keyboardShouldPersistTaps="handled">
         <View style={styles.transcript}>
           <TextField
-            label="Erkannter Text"
+            label={t('shoppingList.speechBeta.preview.recognizedText')}
             value={draftText}
             onChangeText={setDraftText}
             editable={!correctionBusy}
@@ -151,7 +164,7 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
             style={styles.transcriptInput}
           />
           <Button
-            title="Neu prüfen"
+            title={t('shoppingList.speechBeta.preview.recheck')}
             variant="secondary"
             onPress={() => onEditText(draftText.trim())}
             disabled={!draftText.trim() || correctionBusy}
@@ -159,24 +172,28 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
           />
           {preview.parseResult.unparsedText ? (
             <Txt variant="body" tone="warning" accessibilityRole="alert">
-              Noch nicht erkannt: {preview.parseResult.unparsedText}
+              {t('shoppingList.speechBeta.preview.unparsed', {
+                text: preview.parseResult.unparsedText,
+              })}
             </Txt>
           ) : null}
           <Txt variant="caption" tone="secondary">
-            {summaryText(preview.items)}
+            {summaryText(preview.items, t)}
           </Txt>
         </View>
 
         {summary.shouldBundle ? (
           <View style={styles.bundlePrompt}>
             <View style={styles.bundlePromptHeader}>
-              <Txt variant="label">Ordne die offenen Artikel zu</Txt>
+              <Txt variant="label">{t('shoppingList.speechBeta.preview.bundleTitle')}</Txt>
               <Txt variant="caption" tone="warning">
-                {summary.suggestedUnclearItemCount} offen
+                {t('shoppingList.speechBeta.preview.open', {
+                  count: summary.suggestedUnclearItemCount,
+                })}
               </Txt>
             </View>
             <Txt variant="caption" tone="secondary">
-              Wähle pro Artikel einen Treffer oder verschiebe ihn auf später.
+              {t('shoppingList.speechBeta.preview.bundleHint')}
             </Txt>
           </View>
         ) : null}
@@ -206,7 +223,9 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
         {nameCorrections.length > 0 && onForgetCorrection ? (
           <View style={styles.rows}>
             <Button
-              title={`Gemerkte Korrekturen (${nameCorrections.length})`}
+              title={t('shoppingList.speechBeta.preview.remembered', {
+                count: nameCorrections.length,
+              })}
               variant="secondary"
               onPress={() => setShowCorrections((shown) => !shown)}
             />
@@ -217,7 +236,9 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
                       {correction.original} → {correction.corrected}
                     </Txt>
                     <Button
-                      title={`${correction.original}: Korrektur vergessen`}
+                      title={t('shoppingList.speechBeta.preview.forget', {
+                        name: correction.original,
+                      })}
                       variant="secondary"
                       disabled={correctionBusy}
                       onPress={() => {
@@ -232,13 +253,13 @@ export function NaturalLanguageAdditionSwiftUIPreviewContent({
 
         <View style={styles.footer}>
           <Button
-            title={`${selections.length} Artikel hinzufügen`}
+            title={t('shoppingList.speechBeta.preview.addItems', { count: selections.length })}
             onPress={() => onConfirm(selections)}
             disabled={selections.length === 0 || correctionBusy}
             full
           />
           <Button
-            title="Später"
+            title={t('shoppingList.speechBeta.preview.later')}
             testID="Später"
             variant="secondary"
             onPress={onRequestClose}
@@ -271,6 +292,7 @@ function PreviewRow({
   suggestedName,
   onCorrectName,
 }: PreviewRowProps) {
+  const { t } = useTranslation();
   const [editingName, setEditingName] = useState(false);
   const [name, setName] = useState(item.item.name);
   useEffect(() => {
@@ -283,7 +305,7 @@ function PreviewRow({
     <View style={styles.itemRow}>
       <View style={styles.itemHeader}>
         <Txt variant="body" weight="600">
-          {itemLabel(item.item)}
+          {itemLabel(item.item, t)}
         </Txt>
         <Txt variant="caption" tone={isUnclear ? 'warning' : 'success'}>
           {isUnclear ? '?' : '✓'}
@@ -295,7 +317,9 @@ function PreviewRow({
           {suggestedName &&
           normalizeCorrectionName(suggestedName) !== normalizeCorrectionName(item.item.name) ? (
             <Button
-              title={`Vorschlag übernehmen: ${suggestedName}`}
+              title={t('shoppingList.speechBeta.preview.suggestionTake', {
+                name: suggestedName,
+              })}
               variant="secondary"
               disabled={correctionBusy}
               onPress={() => {
@@ -306,13 +330,13 @@ function PreviewRow({
           {editingName ? (
             <>
               <TextField
-                label="Artikelname"
+                label={t('shoppingList.speechBeta.preview.itemName')}
                 value={name}
                 onChangeText={setName}
                 editable={!correctionBusy}
               />
               <Button
-                title="Nur übernehmen"
+                title={t('shoppingList.speechBeta.preview.takeOnly')}
                 variant="secondary"
                 disabled={!hasNewName || correctionBusy}
                 onPress={() => {
@@ -320,14 +344,14 @@ function PreviewRow({
                 }}
               />
               <Button
-                title="Übernehmen und merken"
+                title={t('shoppingList.speechBeta.preview.takeAndRemember')}
                 disabled={!hasNewName || correctionBusy}
                 onPress={() => {
                   void onCorrectName(item.itemId, name.trim(), true);
                 }}
               />
               <Button
-                title="Korrektur abbrechen"
+                title={t('shoppingList.speechBeta.preview.cancelCorrection')}
                 variant="secondary"
                 disabled={correctionBusy}
                 onPress={() => {
@@ -338,7 +362,7 @@ function PreviewRow({
             </>
           ) : (
             <Button
-              title="Name korrigieren"
+              title={t('shoppingList.speechBeta.preview.correctName')}
               variant="secondary"
               disabled={correctionBusy}
               onPress={() => setEditingName(true)}
@@ -362,19 +386,19 @@ function PreviewRow({
             selected={deferred}
             onPress={() => onDefer(item.itemId)}
             accessibilityRole="button"
-            accessibilityLabel="Später zuordnen"
+            accessibilityLabel={t('shoppingList.speechBeta.preview.defer')}
             accessibilityState={{ selected: deferred }}
             containerStyle={styles.choiceContainer}>
             <View style={[styles.choice, deferred && styles.deferredChoice]}>
               <Txt variant="caption" tone="secondary">
-                Später zuordnen
+                {t('shoppingList.speechBeta.preview.defer')}
               </Txt>
             </View>
           </Press>
         </View>
       ) : (
         <Txt variant="caption" tone="secondary">
-          {item.routing.bestMatch?.listName ?? 'Sicher erkannt'}
+          {item.routing.bestMatch?.listName ?? t('shoppingList.speechBeta.preview.certain')}
         </Txt>
       )}
     </View>

@@ -1,21 +1,16 @@
 import { router, useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
 import { Screen } from '@/components/layout/screen';
 import { radius } from '@/components/theme/index';
 import { Press, Txt } from '@/constants/ui';
 import type { MealType } from '@/features/calorie-tracking/api';
+import { getMealLabel } from '@/features/calorie-tracking/diary-screen';
 import type { FoodHistoryEntry } from '@/features/calorie-tracking/food-history';
 import { FoodSearchDropdown } from '@/features/calorie-tracking/food-search-dropdown';
 import { productToRouteParams } from '@/features/calorie-tracking/product-route-params';
 import type { CatalogProduct } from '@/features/product-search/types';
 import { trackAnalyticsEvent } from '@/lib/analytics';
-
-const MEAL_LABELS: Record<string, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittagessen',
-  dinner: 'Abendessen',
-  snack: 'Snacks',
-};
 
 const styles = StyleSheet.create((theme) => ({
   quickEntryButton: {
@@ -33,6 +28,7 @@ const styles = StyleSheet.create((theme) => ({
 
 /** Kompatibilitaetsroute fuer alte Deep Links; das Tagebuch nutzt direkt das Erfassungs-Modal. */
 export function FoodSearchScreen() {
+  const { t } = useTranslation();
   const params = useLocalSearchParams<{ date: string; mealType: MealType }>();
 
   function goToDetail(extraParams: Record<string, string>) {
@@ -60,8 +56,8 @@ export function FoodSearchScreen() {
 
   return (
     <Screen
-      title={MEAL_LABELS[params.mealType] ?? 'Lebensmittel'}
-      back={{ label: 'Abbrechen' }}
+      title={getMealLabel(t, params.mealType)}
+      back={{ label: t('common.actions.cancel') }}
       scroll={false}>
       <FoodSearchDropdown
         mealType={params.mealType}
@@ -82,7 +78,7 @@ export function FoodSearchScreen() {
           🍽️
         </Txt>
         <Txt variant="body" weight="700">
-          Schneller Eintrag
+          {t('calorieTracking.search.quickEntry')}
         </Txt>
       </Press>
     </Screen>

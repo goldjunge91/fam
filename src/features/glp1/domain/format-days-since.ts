@@ -1,7 +1,9 @@
-export function formatDaysSince(iso: string, now = Date.now()): string {
+import type { TFunction } from 'i18next';
+
+export function formatDaysSince(iso: string, t: TFunction, now = Date.now()): string {
   const diffMs = now - new Date(iso).getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  if (diffDays === 0) return 'heute';
-  if (diffDays === 1) return 'vor 1 Tag';
-  return `vor ${diffDays} Tagen`;
+  if (diffDays === 0) return t('glp1.card.daysToday');
+  if (diffDays === 1) return t('glp1.card.daysAgoOne');
+  return t('glp1.card.daysAgoMany', { count: diffDays });
 }

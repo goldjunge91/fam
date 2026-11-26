@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Card, Txt } from '@/constants/ui';
@@ -23,9 +24,9 @@ type InjectionPlanSectionProps = {
 };
 
 const STATUS_CONTENT = {
-  upcoming: { label: 'Anstehend', color: 'accent' },
-  due_today: { label: 'Heute fällig', color: 'warning' },
-  overdue: { label: 'Überfällig', color: 'danger' },
+  upcoming: { key: 'glp1.plan.upcoming', color: 'accent' },
+  due_today: { key: 'glp1.plan.dueToday', color: 'warning' },
+  overdue: { key: 'glp1.plan.overdue', color: 'danger' },
 } as const;
 
 const styles = StyleSheet.create((theme) => ({
@@ -59,6 +60,7 @@ function planFormValue(plan: InjectionPlanRow): InjectionPlanFormValue {
 }
 
 export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
+  const { i18n, t } = useTranslation();
   useInjectionReminder(userId);
   const [showForm, setShowForm] = useState(false);
   const { data: recentInjectionLogs = [] } = useRecentMedicationLogs(userId);
@@ -81,7 +83,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
   if (isLoading) {
     return (
       <Txt variant="caption" tone="secondary">
-        Injektionsplan wird geladen...
+        {t('glp1.plan.loading')}
       </Txt>
     );
   }
@@ -89,7 +91,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
   if (isError) {
     return (
       <Txt variant="caption" tone="danger">
-        Injektionsplan konnte nicht geladen werden.
+        {t('glp1.plan.error')}
       </Txt>
     );
   }
@@ -99,7 +101,7 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
       <InjectionPlanForm mode="create" isPending={createMutation.isPending} onSubmit={save} />
     ) : (
       <Button
-        title="Injektionsplan anlegen"
+        title={t('glp1.plan.create')}
         variant="secondary"
         haptic="light"
         full
@@ -110,8 +112,8 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
 
   const latestInjectionAt = recentInjectionLogs.find(
     (log) =>
-      log.medication_name.trim().toLocaleLowerCase('de-DE') ===
-      plan.medication_name.trim().toLocaleLowerCase('de-DE'),
+      log.medication_name.trim().toLocaleLowerCase(i18n.language) ===
+      plan.medication_name.trim().toLocaleLowerCase(i18n.language),
   )?.administered_at;
   const due = calculateInjectionDue(
     { anchorAt: plan.anchor_at, cadenceDays: plan.cadence_days },
@@ -125,14 +127,14 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
       <Card style={styles.planCard}>
         <View style={styles.header}>
           <Txt variant="caption" tone="secondary">
-            Nächste Injektion
+            {t('glp1.plan.next')}
           </Txt>
           <Txt variant="body" weight="700" tone={status.color}>
-            {status.label}
+            {t(status.key)}
           </Txt>
         </View>
         <Txt variant="body" weight="700">
-          {new Date(due.nextDueAt).toLocaleString('de-DE', {
+          {new Date(due.nextDueAt).toLocaleString(i18n.language, {
             day: '2-digit',
             month: '2-digit',
             year: 'numeric',
@@ -141,24 +143,29 @@ export function InjectionPlanSection({ userId }: InjectionPlanSectionProps) {
           })}
         </Txt>
         <Txt variant="caption" tone="secondary">
-          {plan.medication_name} · {plan.dose} {plan.unit} · alle {plan.cadence_days} Tage
+          {t('glp1.plan.details', {
+            medication: plan.medication_name,
+            dose: plan.dose,
+            unit: plan.unit,
+            days: plan.cadence_days,
+          })}
         </Txt>
         <View style={styles.actions}>
           <Button
-            title="Bearbeiten"
+            title={t('glp1.plan.edit')}
             variant="link"
             size="sm"
             haptic="light"
-            accessibilityLabel="Injektionsplan bearbeiten"
+            accessibilityLabel={t('glp1.plan.editAccessibility')}
             onPress={() => setShowForm((current) => !current)}
           />
           <Button
-            title="Entfernen"
+            title={t('glp1.plan.remove')}
             variant="danger"
             size="sm"
             flat
             haptic="light"
-            accessibilityLabel="Injektionsplan entfernen"
+            accessibilityLabel={t('glp1.plan.removeAccessibility')}
             onPress={() =>
               userId &&
               deleteMutation.mutate(

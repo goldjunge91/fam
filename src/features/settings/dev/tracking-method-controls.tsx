@@ -1,11 +1,18 @@
+import { useTranslation } from 'react-i18next';
+
 import { ContentCard } from '@/components/ui/content-card';
 import { useDevSettingsStore } from '@/constants/dev-settings';
 import { Button, Txt } from '@/constants/ui';
-import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
+import {
+  getTrackingMethodLabel,
+  getTrackingMethodSettings,
+  TRACKING_METHODS,
+} from '@/features/profile/tracking-methods';
 import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 
 /** Lokale Freischaltung von Tracking-Methoden für Dev-Builds und TestFlight. */
 export function TrackingMethodControls() {
+  const { t } = useTranslation();
   const featureFlags = useFeatureFlags();
   const overrides = useDevSettingsStore((state) => state.trackingMethodOverrides);
   const setOverride = useDevSettingsStore((state) => state.setTrackingMethodOverride);
@@ -13,29 +20,25 @@ export function TrackingMethodControls() {
   const settings = getTrackingMethodSettings(featureFlags, overrides);
 
   return (
-    <ContentCard title="Tracking-Methoden-Steuerung">
+    <ContentCard title={t('dev.tracking.title')}>
       <Txt variant="caption" tone="secondary">
-        Standardmäßig sind Klassisch (CICO) und GLP-1 aktiv. Lokale Overrides gelten sofort und
-        überleben einen Neustart.
+        {t('dev.tracking.hint')}
       </Txt>
       {TRACKING_METHODS.map((method) => {
         const enabled = settings[method.id];
+        const label = getTrackingMethodLabel(t, method.id);
         return (
           <Button
             key={method.id}
-            title={`${method.label}: ${enabled ? 'AN' : 'AUS'}`}
+            title={`${label}: ${enabled ? t('dev.states.on') : t('dev.states.off')}`}
             variant={enabled ? 'primary' : 'secondary'}
-            accessibilityLabel={`${method.label} ${enabled ? 'ausschalten' : 'einschalten'}`}
+            accessibilityLabel={`${label} ${enabled ? t('dev.featureFlags.turnOff') : t('dev.featureFlags.turnOn')}`}
             onPress={() => setOverride(method.id, !enabled)}
           />
         );
       })}
       {Object.keys(overrides).length > 0 ? (
-        <Button
-          title="Tracking-Methoden-Overrides zurücksetzen"
-          variant="secondary"
-          onPress={resetOverrides}
-        />
+        <Button title={t('dev.tracking.reset')} variant="secondary" onPress={resetOverrides} />
       ) : null}
     </ContentCard>
   );

@@ -48,10 +48,10 @@ export function formatBytes(bytes: number): string {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
-export function formatZeitpunkt(iso: string | null): string {
+export function formatZeitpunkt(iso: string | null, locale = 'de-DE'): string {
   if (!iso) return '—';
   const datum = new Date(iso);
-  return Number.isNaN(datum.getTime()) ? iso : datum.toLocaleString('de-DE');
+  return Number.isNaN(datum.getTime()) ? iso : datum.toLocaleString(locale);
 }
 
 export function Zeile({

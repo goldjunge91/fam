@@ -110,7 +110,7 @@ describe('WeightTrackingScreen', () => {
 
     expect(screen.getByText('Noch kein Eintrag')).toBeOnTheScreen();
     expect(screen.getByText('Füge deine erste Messung hinzu.')).toBeOnTheScreen();
-    expect(screen.getByText('Noch keine Messungen vorhanden.')).toBeOnTheScreen();
+    expect(screen.getAllByText('Noch keine Messungen vorhanden')).toHaveLength(2);
   });
 
   it('zeigt den Ladezustand des Verlaufs', async () => {
@@ -118,7 +118,7 @@ describe('WeightTrackingScreen', () => {
 
     await renderScreen();
 
-    expect(screen.getByText('Lade Gewichtseinträge...')).toBeOnTheScreen();
+    expect(screen.getByText('Lade Gewichtseinträge…')).toBeOnTheScreen();
     expect(screen.queryByText('Die letzten 2 Messungen')).not.toBeOnTheScreen();
   });
 

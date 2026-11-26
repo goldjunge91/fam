@@ -1,5 +1,7 @@
 import { render, screen, userEvent, within } from '@testing-library/react-native';
 
+import { i18n } from '@/i18n';
+
 import type { BetaPreviewItem } from '../types';
 import type { TextBetaPreview } from '../workflow/text-workflow';
 import { NaturalLanguageAdditionSwiftUIPreviewContent } from './stt-preview-content';
@@ -44,6 +46,27 @@ const preview: TextBetaPreview = {
 };
 
 describe('NaturalLanguageAdditionSwiftUIPreviewContent', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
+  it('renders preview copy in English', async () => {
+    await i18n.changeLanguage('en');
+    await render(
+      <NaturalLanguageAdditionSwiftUIPreviewContent
+        preview={preview}
+        onRequestClose={jest.fn()}
+        onEditText={jest.fn()}
+        onConfirm={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('New items')).toBeOnTheScreen();
+    expect(screen.getByText('Does this look right?')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Recognized text')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Assign later' })).toBeOnTheScreen();
+  });
+
   it('keeps other item selections when a single name is corrected', async () => {
     const user = userEvent.setup();
     const onConfirm = jest.fn();

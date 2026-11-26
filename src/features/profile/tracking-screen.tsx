@@ -1,5 +1,7 @@
 import { router } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { Fragment, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -15,7 +17,12 @@ import {
 } from '@/features/calorie-tracking/api';
 import { InjectionPlanSection } from '@/features/glp1/components/injection-plan-section';
 import { useProfile } from '@/features/profile/api';
-import { getTrackingMethodSettings, TRACKING_METHODS } from '@/features/profile/tracking-methods';
+import {
+  getTrackingMethodDescription,
+  getTrackingMethodLabel,
+  getTrackingMethodSettings,
+  TRACKING_METHODS,
+} from '@/features/profile/tracking-methods';
 import { SettingsGroup } from '@/features/settings/settings-menu';
 import { useFeatureFlags } from '@/lib/observability/providers/posthog';
 
@@ -24,13 +31,13 @@ function formatHourString(hour: number): string {
   return `${String(clamped).padStart(2, '0')}:00`;
 }
 
-const TIME_PRESETS: { hour: number; label: string; tag: string }[] = [
-  { hour: 0, label: '00:00', tag: 'Standard' },
-  { hour: 4, label: '04:00', tag: 'Frühaufsteher' },
-  { hour: 6, label: '06:00', tag: 'Frühschicht' },
-  { hour: 14, label: '14:00', tag: 'Spätschicht' },
-  { hour: 22, label: '22:00', tag: 'Nachtschicht' },
-];
+const TIME_PRESETS = [
+  { hour: 0, label: '00:00', tag: 'standard' },
+  { hour: 4, label: '04:00', tag: 'earlyBird' },
+  { hour: 6, label: '06:00', tag: 'earlyShift' },
+  { hour: 14, label: '14:00', tag: 'lateShift' },
+  { hour: 22, label: '22:00', tag: 'nightShift' },
+] as const;
 
 const styles = StyleSheet.create((theme) => ({
   timePicker: {
@@ -178,10 +185,12 @@ function TimePicker({
   value,
   onChange,
   disabled,
+  t,
 }: {
   value: string;
   onChange: (time: string) => void;
   disabled?: boolean;
+  t: TFunction;
 }) {
   const [modalVisible, setModalVisible] = useState(false);
   const [inputTime, setInputTime] = useState(value);
@@ -210,7 +219,7 @@ function TimePicker({
     const trimmed = inputTime.trim();
     const match = trimmed.match(/^([0-1]?[0-9]|2[0-3]):([0-5][0-9])$/);
     if (!match) {
-      setInputError('Bitte gib eine gültige Uhrzeit im Format HH:MM ein (z. B. 06:00 oder 23:00).');
+      setInputError(t('profile.tracking.invalidTime'));
       return;
     }
     const formatted = `${match[1].padStart(2, '0')}:${match[2]}`;
@@ -226,14 +235,14 @@ function TimePicker({
           onPress={handleOpenModal}
           disabled={disabled}
           accessibilityRole="button"
-          accessibilityLabel="Uhrzeit für Tagesstart manuell anpassen"
+          accessibilityLabel={t('profile.tracking.manualAdjust')}
           containerStyle={{ flex: 1 }}
           style={styles.timeDisplayButton}>
           <Txt variant="caption" tone="secondary">
-            Individueller Tagesstart (Tippen zum Anpassen)
+            {t('profile.tracking.individualStart')}
           </Txt>
           <Txt variant="display" style={styles.timeValue}>
-            {value} Uhr ✏️
+            {t('profile.tracking.timeValue', { time: value })}
           </Txt>
         </Press>
 
@@ -243,20 +252,20 @@ function TimePicker({
             onPress={() => step(-1)}
             disabled={disabled}
             accessibilityRole="button"
-            accessibilityLabel="Eine Stunde früher"
+            accessibilityLabel={t('profile.tracking.earlier')}
             style={styles.stepperButton}>
             <Txt variant="body" weight="700">
-              -1h
+              {t('profile.tracking.earlierShort')}
             </Txt>
           </Press>
           <Press
             onPress={() => step(1)}
             disabled={disabled}
             accessibilityRole="button"
-            accessibilityLabel="Eine Stunde später"
+            accessibilityLabel={t('profile.tracking.later')}
             style={styles.stepperButton}>
             <Txt variant="body" weight="700">
-              +1h
+              {t('profile.tracking.laterShort')}
             </Txt>
           </Press>
         </View>
@@ -265,7 +274,7 @@ function TimePicker({
       {/* Schicht-Presets */}
       <View>
         <Txt variant="caption" tone="secondary" style={styles.presetLabel}>
-          Schnellauswahl für Schichtmodelle:
+          {t('profile.tracking.presetHint')}
         </Txt>
         <ScrollView
           horizontal
@@ -283,7 +292,7 @@ function TimePicker({
                   {preset.label}
                 </Txt>
                 <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                  {preset.tag}
+                  {t(`profile.tracking.${preset.tag}`)}
                 </Txt>
               </Press>
             );
@@ -294,8 +303,8 @@ function TimePicker({
       {/* Präzise Erklärung */}
       <Txt variant="caption" tone="secondary">
         {value === '00:00'
-          ? 'Standard: Dein Tracking-Tag wechselt um 00:00 Uhr. Das betrifft Mahlzeiten, Injektionen, Symptome und Gewicht. Bestehende Einträge bleiben unverändert.'
-          : `Dein Tracking-Tag läuft jeweils 24 Stunden ab ${value} Uhr. Mahlzeiten, Injektionen, Symptome und Gewicht vor ${value} Uhr zählen zum vorherigen Tag. Bestehende Einträge bleiben unverändert.`}
+          ? t('profile.tracking.standardExplanation')
+          : t('profile.tracking.customExplanation', { time: value })}
       </Txt>
 
       {/* Modal für manuelle Zeiteingabe */}
@@ -307,32 +316,32 @@ function TimePicker({
         <View style={styles.modalBackdrop}>
           <Surface tone="page" style={styles.modal}>
             <View style={styles.modalHeader}>
-              <Txt variant="title">Tagesstart festlegen</Txt>
+              <Txt variant="title">{t('profile.tracking.dayStartTitle')}</Txt>
               <CloseButton
                 onPress={() => setModalVisible(false)}
-                accessibilityLabel="Tagesstart festlegen schließen"
+                accessibilityLabel={t('profile.tracking.dayStartClose')}
               />
             </View>
 
             <View style={styles.modalFields}>
               <TextField
-                label="Uhrzeit (HH:MM)"
+                label={t('profile.tracking.timeLabel')}
                 value={inputTime}
                 onChangeText={setInputTime}
-                placeholder="z. B. 06:00 oder 23:00"
+                placeholder={t('profile.tracking.timePlaceholder')}
                 error={inputError ?? undefined}
                 keyboardType="numbers-and-punctuation"
                 autoCapitalize="none"
               />
               <Txt variant="caption" tone="secondary">
-                Gib die Uhrzeit ein, zu der dein persönlicher Tracking-Tag beginnen soll.
+                {t('profile.tracking.timeHint')}
               </Txt>
             </View>
 
             <View style={styles.modalActions}>
-              <Button title="Uhrzeit übernehmen" onPress={handleSaveCustomTime} />
+              <Button title={t('profile.tracking.applyTime')} onPress={handleSaveCustomTime} />
               <Button
-                title="Abbrechen"
+                title={t('profile.tracking.cancel')}
                 variant="secondary"
                 onPress={() => setModalVisible(false)}
               />
@@ -345,6 +354,7 @@ function TimePicker({
 }
 
 export function TrackingScreen() {
+  const { i18n, t } = useTranslation();
   const { session } = useSession();
   const userId = session?.user.id;
   const { data: profile } = useProfile(userId);
@@ -383,13 +393,13 @@ export function TrackingScreen() {
 
   return (
     <Screen
-      title="Mein Tracking"
-      back={{ label: 'Einstellungen', href: '/settings' }}
+      title={t('profile.tracking.title')}
+      back={{ label: t('profile.tracking.back'), href: '/settings' }}
       backStyle="icon">
-      <SettingsGroup title="Deine Tracking-Methode">
+      <SettingsGroup title={t('profile.tracking.methodGroup')}>
         <View style={styles.groupContent}>
           <Txt variant="body" tone="secondary">
-            Wähle deine aktive Methode für das Ernährungstagebuch:
+            {t('profile.tracking.methodHint')}
           </Txt>
           <View style={styles.methodList}>
             {TRACKING_METHODS.map((m) => {
@@ -412,19 +422,19 @@ export function TrackingScreen() {
                         variant="body"
                         weight="700"
                         tone={isSelected ? 'onAccent' : isEnabled ? 'primary' : 'secondary'}>
-                        {m.label}
+                        {getTrackingMethodLabel(t, m.id)}
                       </Txt>
                       <Txt variant="caption" tone={isSelected ? 'onAccent' : 'secondary'}>
-                        {m.desc}
+                        {getTrackingMethodDescription(t, m.id)}
                       </Txt>
                     </View>
                     {isSelected ? (
                       <Txt variant="body" weight="700" tone="onAccent">
-                        Aktiv ✓
+                        {t('profile.tracking.active')}
                       </Txt>
                     ) : !isEnabled ? (
                       <Txt variant="caption" tone="secondary">
-                        Demnächst verfügbar
+                        {t('profile.tracking.comingSoon')}
                       </Txt>
                     ) : null}
                   </Press>
@@ -437,15 +447,17 @@ export function TrackingScreen() {
       </SettingsGroup>
 
       {/* 2. Ernährung & Tagesziele (Kalorienziel & Makros) */}
-      <SettingsGroup title="Ernährung & Tagesziele">
+      <SettingsGroup title={t('profile.tracking.calorieGroup')}>
         <View style={styles.groupContentWide}>
           {/* Große Tagesziel-Kachel für Kalorien */}
           <Surface tone="surface" style={styles.metricHero}>
             <Txt variant="caption" tone="secondary">
-              🎯 Kalorien-Tagesziel
+              {t('profile.tracking.calorieGoal')}
             </Txt>
             <Txt variant="display" style={styles.metricValue}>
-              {currentGoal?.daily_kcal ? `${currentGoal.daily_kcal} kcal` : 'Nicht festgelegt'}
+              {currentGoal?.daily_kcal
+                ? `${new Intl.NumberFormat(i18n.language).format(currentGoal.daily_kcal)} ${t('calorieTracking.units.kcal')}`
+                : t('profile.tracking.notSet')}
             </Txt>
           </Surface>
 
@@ -453,35 +465,41 @@ export function TrackingScreen() {
           <View style={styles.metricRow}>
             <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
               <Txt variant="caption" tone="secondary">
-                🥩 Protein
+                {t('profile.tracking.protein')}
               </Txt>
               <Txt variant="body" weight="700" style={styles.metricValue}>
-                {currentGoal ? `${currentGoal.protein_g}g` : '–'}
+                {currentGoal?.protein_g !== null && currentGoal?.protein_g !== undefined
+                  ? `${new Intl.NumberFormat(i18n.language).format(currentGoal.protein_g)}${t('calorieTracking.units.gramShort')}`
+                  : '–'}
               </Txt>
             </Surface>
 
             <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
               <Txt variant="caption" tone="secondary">
-                🍞 Carbs
+                {t('profile.tracking.carbs')}
               </Txt>
               <Txt variant="body" weight="700" style={styles.metricValue}>
-                {currentGoal ? `${currentGoal.carbs_g}g` : '–'}
+                {currentGoal?.carbs_g !== null && currentGoal?.carbs_g !== undefined
+                  ? `${new Intl.NumberFormat(i18n.language).format(currentGoal.carbs_g)}${t('calorieTracking.units.gramShort')}`
+                  : '–'}
               </Txt>
             </Surface>
 
             <Surface tone="surface" style={[styles.metricCard, styles.macroCard]}>
               <Txt variant="caption" tone="secondary">
-                🥑 Fett
+                {t('profile.tracking.fat')}
               </Txt>
               <Txt variant="body" weight="700" style={styles.metricValue}>
-                {currentGoal ? `${currentGoal.fat_g}g` : '–'}
+                {currentGoal?.fat_g !== null && currentGoal?.fat_g !== undefined
+                  ? `${new Intl.NumberFormat(i18n.language).format(currentGoal.fat_g)}${t('calorieTracking.units.gramShort')}`
+                  : '–'}
               </Txt>
             </Surface>
           </View>
 
           {/* Button zum Bearbeiten der Ziele */}
           <Button
-            title="Ziele & Makros bearbeiten"
+            title={t('profile.tracking.editGoals')}
             variant="secondary"
             onPress={() => router.push('/settings/goals')}
           />
@@ -489,12 +507,13 @@ export function TrackingScreen() {
       </SettingsGroup>
 
       {/* 3. Tracking-Rhythmus & Zeitfenster (Tagesstart-Uhrzeit) */}
-      <SettingsGroup title="Tracking-Rhythmus & Zeitfenster">
+      <SettingsGroup title={t('profile.tracking.rhythmGroup')}>
         <View style={styles.groupContent}>
           <TimePicker
             value={selectedStartTime}
             onChange={handleSelectStartTime}
             disabled={updateStartTimeMutation.isPending}
+            t={t}
           />
         </View>
       </SettingsGroup>

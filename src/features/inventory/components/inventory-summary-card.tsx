@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { withAlpha } from '@/components/theme/index';
@@ -34,6 +35,7 @@ export function InventorySummaryCard({
   criticalCount,
   soonCount,
 }: InventorySummaryCardProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   function renderCard(testID: string, value: number, color: string, label: ReactNode) {
@@ -66,16 +68,20 @@ export function InventorySummaryCard({
   return (
     <View
       accessible
-      accessibilityLabel={`${criticalCount} Artikel laufen bald ab, ${soonCount} bald fällig, ${totalCount} insgesamt im Vorrat`}
+      accessibilityLabel={t('inventory.summary.accessibility', {
+        critical: criticalCount,
+        soon: soonCount,
+        total: totalCount,
+      })}
       style={styles.summaryRow}>
       {renderCard(
         'inventory-summary-critical',
         criticalCount,
         colors.danger,
         <Txt variant="body" weight="700" center>
-          Läuft{' '}
+          {t('inventory.summary.criticalPrefix')}{' '}
           <Txt variant="body" tone="secondary" weight="700">
-            bald ab
+            {t('inventory.summary.criticalSuffix')}
           </Txt>
         </Txt>,
       )}
@@ -85,9 +91,9 @@ export function InventorySummaryCard({
         soonCount,
         colors.warning,
         <Txt variant="body" weight="700" center>
-          Bald{' '}
+          {t('inventory.summary.soonPrefix')}{' '}
           <Txt variant="body" tone="secondary" weight="700">
-            fällig
+            {t('inventory.summary.soonSuffix')}
           </Txt>
         </Txt>,
       )}

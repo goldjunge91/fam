@@ -1,5 +1,6 @@
 import { FlashList } from '@shopify/flash-list';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -251,6 +252,7 @@ export function InventoryHistorySheet({
   offline = false,
   onRetry,
 }: InventoryHistorySheetProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const sheetStyle = useSheetShadowStyle();
@@ -266,7 +268,12 @@ export function InventoryHistorySheet({
     });
   }, [fullScreen, title, transactionCount, visible]);
 
-  const rows: HistoryRow[] = groupTransactionsByDay(transactions).flatMap((group) => [
+  const rows: HistoryRow[] = groupTransactionsByDay(
+    transactions,
+    new Date(),
+    t,
+    i18n.language,
+  ).flatMap((group) => [
     {
       kind: 'header' as const,
       id: `header-${group.key}`,
@@ -301,7 +308,7 @@ export function InventoryHistorySheet({
               <IconButton
                 icon="x"
                 onPress={onClose}
-                accessibilityLabel="Schließen"
+                accessibilityLabel={t('inventory.history.close')}
                 bg={colors.danger}
                 color={colors.onDanger}
                 size={40}
@@ -327,7 +334,7 @@ export function InventoryHistorySheet({
             <IconButton
               icon="x"
               onPress={onClose}
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('inventory.history.close')}
               bg={colors.danger}
               color={colors.onDanger}
               size={40}
@@ -342,15 +349,15 @@ export function InventoryHistorySheet({
         <View style={[styles.stateSummary, fullScreen && styles.fullScreenSummary]}>
           {productSummary.sealed > 0 ? (
             <StateSummaryCard
-              label="Versiegelt"
-              value={formatAmount(productSummary.sealed, productSummary.unit)}
+              label={t('inventory.actions.sealed')}
+              value={formatAmount(productSummary.sealed, productSummary.unit, t, i18n.language)}
               subtitle={productSummary.sealedSubtitle}
             />
           ) : null}
           {productSummary.opened > 0 ? (
             <StateSummaryCard
-              label="Geöffnet"
-              value={formatAmount(productSummary.opened, productSummary.unit)}
+              label={t('inventory.actions.opened')}
+              value={formatAmount(productSummary.opened, productSummary.unit, t, i18n.language)}
               subtitle={productSummary.openedSubtitle}
               open
             />
@@ -361,7 +368,7 @@ export function InventoryHistorySheet({
       {offline ? (
         <View style={fullScreen && styles.fullScreenOffline}>
           <Txt variant="caption" tone="secondary">
-            Offline: lokale Daten werden angezeigt.
+            {t('inventory.history.offline')}
           </Txt>
         </View>
       ) : null}
@@ -413,22 +420,26 @@ export function InventoryHistorySheet({
           loading ? (
             <View style={styles.loadingEmpty}>
               <Txt variant="body" tone="secondary">
-                Verlauf wird geladen…
+                {t('inventory.history.loading')}
               </Txt>
             </View>
           ) : error ? (
             <View style={styles.errorEmpty}>
               <Txt variant="body" tone="secondary">
-                Verlauf konnte nicht geladen werden.
+                {t('inventory.history.error')}
               </Txt>
               {onRetry ? (
-                <Button title="Erneut versuchen" variant="secondary" onPress={onRetry} />
+                <Button
+                  title={t('inventory.history.retry')}
+                  variant="secondary"
+                  onPress={onRetry}
+                />
               ) : null}
             </View>
           ) : (
             <View style={styles.empty}>
               <Txt variant="body" tone="secondary">
-                Noch keine Bewegungen vorhanden.
+                {t('inventory.history.empty')}
               </Txt>
             </View>
           )
@@ -450,7 +461,7 @@ export function InventoryHistorySheet({
             style={styles.backdrop}
             onPress={onClose}
             accessibilityRole="button"
-            accessibilityLabel="Verlauf schließen"
+            accessibilityLabel={t('inventory.history.closeAccessibility')}
           />
         ) : null}
         {fullScreen ? (
@@ -522,6 +533,7 @@ function HistoryTransactionRow({
   onUndo?: (transaction: LocalInventoryTransaction) => void;
   undoPending: boolean;
 }) {
+  const { t, i18n } = useTranslation();
   const isWaste = transaction.type === 'waste';
   const edgeColor = isWaste
     ? colors.danger
@@ -530,8 +542,8 @@ function HistoryTransactionRow({
       : transaction.type === 'open'
         ? colors.warning
         : colors.border;
-  const reason = transactionReasonLabel(transaction.reason);
-  const time = new Date(transaction.created_at).toLocaleTimeString('de-DE', {
+  const reason = transactionReasonLabel(transaction.reason, t);
+  const time = new Date(transaction.created_at).toLocaleTimeString(i18n.language, {
     hour: '2-digit',
     minute: '2-digit',
   });
@@ -554,7 +566,7 @@ function HistoryTransactionRow({
       <View style={styles.transactionContent}>
         <View style={styles.transactionTitleRow}>
           <Txt variant="body" weight="700">
-            {transactionLabel(transaction, compactLabel ? null : transaction.item_name)}
+            {transactionLabel(transaction, compactLabel ? null : transaction.item_name, t)}
           </Txt>
           {lotLabel ? (
             <View style={styles.lotTag}>
@@ -579,17 +591,17 @@ function HistoryTransactionRow({
       <View style={styles.amountColumn}>
         <Txt variant="body" weight="700" style={styles.amount}>
           {quantityPrefix}
-          {formatAmount(transaction.quantity, transaction.item_unit ?? '')}
+          {formatAmount(transaction.quantity, transaction.item_unit ?? '', t, i18n.language)}
         </Txt>
         {undoAvailable && onUndo ? (
           <Press
             disabled={undoPending}
             onPress={() => onUndo(transaction)}
             accessibilityRole="button"
-            accessibilityLabel={transactionUndoLabel(transaction)}
+            accessibilityLabel={transactionUndoLabel(transaction, t)}
             accessibilityState={{ disabled: undoPending }}>
             <Txt variant="caption" color={colors.accent} weight="700">
-              Rückgängig
+              {t('inventory.history.undo')}
             </Txt>
           </Press>
         ) : null}

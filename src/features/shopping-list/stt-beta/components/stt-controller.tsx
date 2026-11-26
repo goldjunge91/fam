@@ -2,6 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import * as Crypto from 'expo-crypto';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 
 import { useSession } from '@/features/auth/session-provider';
@@ -38,6 +39,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
   householdId,
   stores,
 }: NaturalLanguageAdditionControllerProps) {
+  const { t } = useTranslation();
   const { session } = useSession();
   const { isFeatureEnabled } = useFeatureAccess();
   const speechEnabled = isFeatureEnabled('shoppingStt');
@@ -152,11 +154,18 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       };
 
       Alert.alert(
-        'Intelligente Zuordnung',
-        'Du hast mehrere Artikel einzelnen Listen zugeordnet. Sollen bekannte Artikel künftig automatisch der passenden Liste zugeordnet werden? Du kannst das jederzeit in den Einstellungen ändern.',
+        t('shoppingList.speechBeta.controller.autoAssignTitle'),
+        t('shoppingList.speechBeta.controller.autoAssignMessage'),
         [
-          { text: 'Später', style: 'cancel', onPress: () => savePreference('off') },
-          { text: 'Aktivieren', onPress: () => savePreference('on') },
+          {
+            text: t('shoppingList.speechBeta.controller.later'),
+            style: 'cancel',
+            onPress: () => savePreference('off'),
+          },
+          {
+            text: t('shoppingList.speechBeta.controller.enable'),
+            onPress: () => savePreference('on'),
+          },
         ],
       );
     });
@@ -165,7 +174,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
   function finishSpeechError(message: string) {
     voiceLaunchRef.current = false;
     setVoiceOpen(false);
-    Alert.alert('Spracheingabe fehlgeschlagen', message);
+    Alert.alert(t('shoppingList.speechBeta.controller.failedTitle'), message);
   }
 
   function handleVoiceFallback(result: Exclude<SpeechInputResult, { status: 'transcript' }>) {
@@ -190,8 +199,8 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       voiceLaunchRef.current = false;
       setVoiceOpen(false);
       Alert.alert(
-        'Spracheingabe nicht verfügbar',
-        'Lege zuerst einen Markt für die Einkaufsliste an.',
+        t('shoppingList.speechBeta.controller.unavailableTitle'),
+        t('shoppingList.speechBeta.controller.noStoreMessage'),
       );
       return;
     }
@@ -223,7 +232,7 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       voiceLaunchRef.current = false;
       setVoiceOpen(false);
       const message = error instanceof Error ? error.message : String(error);
-      Alert.alert('Spracheingabe fehlgeschlagen', message);
+      Alert.alert(t('shoppingList.speechBeta.controller.failedTitle'), message);
     }
   }
 
@@ -278,7 +287,10 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
     } catch (error) {
       if (!isCurrentPreviewRequest(requestId)) return;
       const message = error instanceof Error ? error.message : String(error);
-      Alert.alert('Artikel konnten nicht neu geprüft werden', message);
+      Alert.alert(
+        t('shoppingList.speechBeta.controller.failedTitle'),
+        t('shoppingList.speechBeta.controller.recheckFailed', { error: message }),
+      );
     }
   }
 
@@ -307,8 +319,10 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
     } catch (error) {
       if (isCurrentPreviewRequest(requestId)) {
         Alert.alert(
-          'Korrektur fehlgeschlagen',
-          error instanceof Error ? error.message : String(error),
+          t('shoppingList.speechBeta.controller.failedTitle'),
+          t('shoppingList.speechBeta.controller.correctionFailed', {
+            error: error instanceof Error ? error.message : String(error),
+          }),
         );
       }
     } finally {
@@ -328,8 +342,10 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
     } catch (error) {
       if (isCurrentPreviewRequest(requestId)) {
         Alert.alert(
-          'Löschen fehlgeschlagen',
-          error instanceof Error ? error.message : String(error),
+          t('shoppingList.speechBeta.controller.failedTitle'),
+          t('shoppingList.speechBeta.controller.deleteFailed', {
+            error: error instanceof Error ? error.message : String(error),
+          }),
         );
       }
     } finally {
@@ -366,13 +382,16 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
         }
         presentPreview(refreshedPreview);
         Alert.alert(
-          'Einkaufslisten aktualisiert',
-          'Die verfügbaren Märkte haben sich geändert. Bitte prüfe die Zuordnung erneut.',
+          t('shoppingList.speechBeta.controller.listsUpdatedTitle'),
+          t('shoppingList.speechBeta.controller.listsUpdatedMessage'),
         );
       } catch (error) {
         if (!isCurrentPreviewRequest(requestId)) return;
         const message = error instanceof Error ? error.message : String(error);
-        Alert.alert('Artikel konnten nicht neu geprüft werden', message);
+        Alert.alert(
+          t('shoppingList.speechBeta.controller.failedTitle'),
+          t('shoppingList.speechBeta.controller.recheckFailed', { error: message }),
+        );
       }
       return;
     }
@@ -416,7 +435,10 @@ export const NaturalLanguageAdditionController = memo(function NaturalLanguageAd
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      Alert.alert('Artikel konnten nicht hinzugefügt werden', message);
+      Alert.alert(
+        t('shoppingList.speechBeta.controller.failedTitle'),
+        t('shoppingList.speechBeta.controller.addFailed', { error: message }),
+      );
     } finally {
       releaseWriteProducer();
       confirmInFlightRef.current = false;

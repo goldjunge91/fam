@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import ReanimatedSwipeable, {
   type SwipeableMethods,
@@ -9,7 +10,7 @@ import { useTheme } from '@/components/theme/ThemeProvider';
 import { Press, Txt } from '@/constants/ui';
 import { formatAmount, formatPackageHint } from '@/lib/format/package-size';
 
-import type { ExpiryBucket } from '../expiry';
+import { type ExpiryBucket, formatExpiryRowStatus } from '../expiry';
 import { groupInventoryItems, type InventoryItemGroup } from '../grouped-items';
 import type { LocalInventoryItem } from '../use-inventory-items';
 
@@ -81,6 +82,7 @@ export const InventoryItemRow = memo(function InventoryItemRow({
   onLongPress,
   onRemove,
 }: InventoryItemRowProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const group = toGroup(item);
   const expiry = group.expiry;
@@ -93,23 +95,23 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         : borderColorKey === 'warning'
           ? colors.warning
           : colors.success;
-  const expiryLabel =
-    expiry.daysLeft === null
-      ? null
-      : expiry.daysLeft < 0
-        ? expiry.label
-        : expiry.daysLeft === 0
-          ? 'heute'
-          : expiry.daysLeft === 1
-            ? 'morgen'
-            : `in ${expiry.daysLeft} Tagen`;
+  const expiryLabel = expiry.daysLeft === null ? null : formatExpiryRowStatus(expiry, t);
   const groupMeta =
     group.lots.length > 1
-      ? [expiryLabel ?? 'Kein Datum hinterlegt', `${group.lots.length} MHD-Einträge`].join(' · ')
-      : (expiryLabel ?? 'Kein Datum hinterlegt');
-  const packageHint = formatPackageHint(group.package_size, group.package_size_unit);
-  const amount = formatAmount(group.quantity, group.unit);
-  const removeLabel = group.lots.length > 1 ? 'MHDs anzeigen' : 'Entfernen';
+      ? [
+          expiryLabel ?? t('inventory.row.noDate'),
+          t('inventory.row.lotsCount', { count: group.lots.length }),
+        ].join(' · ')
+      : (expiryLabel ?? t('inventory.row.noDate'));
+  const packageHint = formatPackageHint(
+    group.package_size,
+    group.package_size_unit,
+    t,
+    i18n.language,
+  );
+  const amount = formatAmount(group.quantity, group.unit, t, i18n.language);
+  const removeLabel =
+    group.lots.length > 1 ? t('inventory.row.showLots') : t('inventory.row.remove');
 
   function renderRemoveAction(
     _progress: unknown,
@@ -121,7 +123,10 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         containerStyle={styles.removeActionContainer}
         style={[styles.removeAction, { backgroundColor: colors.danger }]}
         accessibilityRole="button"
-        accessibilityLabel={`${group.name} ${removeLabel.toLocaleLowerCase('de-DE')}`}
+        accessibilityLabel={t('inventory.row.actionAccessibility', {
+          name: group.name,
+          action: removeLabel.toLocaleLowerCase(i18n.language),
+        })}
         onPress={() => {
           swipeable.close();
           onRemove();
@@ -150,8 +155,17 @@ export const InventoryItemRow = memo(function InventoryItemRow({
         onPress={onPress}
         onLongPress={onLongPress}
         accessibilityRole="button"
-        accessibilityLabel={`${group.name}, ${amount}${group.lots.length > 1 ? `, ${group.lots.length} MHD-Einträge` : packageHint ? `, ${packageHint}` : ''}`}
-        accessibilityHint="Tippen für Aktionen, lang drücken für Produktinformationen, nach links wischen zum Entfernen">
+        accessibilityLabel={t('inventory.row.itemAccessibility', {
+          name: group.name,
+          amount,
+          lots:
+            group.lots.length > 1
+              ? `, ${t('inventory.row.lotsCount', { count: group.lots.length })}`
+              : packageHint
+                ? `, ${packageHint}`
+                : '',
+        })}
+        accessibilityHint={t('inventory.row.accessibilityHint')}>
         {/* MHD-Ampel — linker farbiger Streifen, Farbe pro Item dynamisch. */}
         <View style={[styles.expiryBar, { backgroundColor: borderColor }]} />
 

@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Keyboard, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -22,6 +23,7 @@ import { usePreferredProductMarketName } from '@/features/product-search/preferr
 import type { CatalogProduct } from '@/features/product-search/types';
 import { trackAnalyticsEvent } from '@/lib/analytics';
 import { getResultBucket } from '@/lib/telemetry/buckets';
+import { getUnitLabel } from '@/lib/units';
 
 type FoodSearchDropdownProps = {
   mealType: MealType;
@@ -113,6 +115,7 @@ export function FoodSearchDropdown({
   onProductSelect,
   onHistorySelect,
 }: FoodSearchDropdownProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const { session } = useSession();
   const activeHousehold = useOptionalActiveHousehold();
@@ -217,8 +220,8 @@ export function FoodSearchDropdown({
       <View testID="food-search-row" style={styles.searchRow}>
         <View style={styles.flex}>
           <TextField
-            label="Lebensmittel suchen"
-            placeholder="Wonach suchst du?"
+            label={t('calorieTracking.search.label')}
+            placeholder={t('calorieTracking.search.placeholder')}
             value={displayedValue}
             onFocus={focusSearch}
             onChangeText={changeSearchText}
@@ -227,7 +230,7 @@ export function FoodSearchDropdown({
         <Press
           onPress={() => setShowScanner(true)}
           accessibilityRole="button"
-          accessibilityLabel="Barcode scannen"
+          accessibilityLabel={t('calorieTracking.search.barcode')}
           style={styles.scanButton}>
           <Txt variant="glyph" tone="primary">
             📷
@@ -239,10 +242,10 @@ export function FoodSearchDropdown({
         <ItemSourceFilterRow
           source={source}
           onSourceChange={setSource}
-          sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+          sourceAccessibilityLabel={t('calorieTracking.search.sourceAccessibility')}
           suggestionFilter={historyTab}
           onSuggestionFilterChange={setHistoryTab}
-          suggestionAccessibilityLabel="Verlaufsfilter"
+          suggestionAccessibilityLabel={t('calorieTracking.search.suggestionAccessibility')}
         />
       ) : null}
 
@@ -256,20 +259,20 @@ export function FoodSearchDropdown({
             ) : results.length === 0 && searchFailed ? (
               <View style={styles.failedBox}>
                 <Txt variant="body" tone="warning" center>
-                  Open Food Facts ist gerade nicht erreichbar. Versuch's gleich nochmal.
+                  {t('calorieTracking.search.failed')}
                 </Txt>
                 <Press
                   onPress={retrySearch}
                   accessibilityRole="button"
-                  accessibilityLabel="Suche erneut versuchen">
+                  accessibilityLabel={t('calorieTracking.search.retry')}>
                   <Txt variant="body" tone="primary" weight="700">
-                    Erneut versuchen
+                    {t('calorieTracking.search.retry')}
                   </Txt>
                 </Press>
               </View>
             ) : results.length === 0 ? (
               <Txt variant="body" tone="secondary" center style={styles.centered}>
-                Keine Treffer für „{query}".
+                {t('calorieTracking.search.noResults', { query })}
               </Txt>
             ) : (
               <>
@@ -285,13 +288,13 @@ export function FoodSearchDropdown({
                     onPress={loadMoreResults}
                     disabled={loadingMore}
                     accessibilityRole="button"
-                    accessibilityLabel="Mehr anzeigen"
+                    accessibilityLabel={t('calorieTracking.search.more')}
                     style={styles.moreButton}>
                     {loadingMore ? (
                       <ActivityIndicator color={colors.accent} />
                     ) : (
                       <Txt variant="body" tone="primary" weight="700">
-                        Mehr anzeigen
+                        {t('calorieTracking.search.more')}
                       </Txt>
                     )}
                   </Press>
@@ -304,7 +307,7 @@ export function FoodSearchDropdown({
             </View>
           ) : historyList.length === 0 ? (
             <Txt variant="body" tone="secondary" center style={styles.centered}>
-              Noch keine Einträge. Suche oben nach einem Lebensmittel.
+              {t('calorieTracking.search.noHistory')}
             </Txt>
           ) : (
             historyList.map((entry) => (
@@ -330,6 +333,7 @@ export function FoodSearchDropdown({
 }
 
 function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: () => void }) {
+  const { t, i18n } = useTranslation();
   return (
     <Press
       onPress={onPress}
@@ -352,7 +356,11 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
         <Txt variant="body" tone="secondary" numberOfLines={1}>
           {product.brand ? `${product.brand} · ` : ''}
           {product.caloriesPer100g !== undefined
-            ? `${Math.round(product.caloriesPer100g)} kcal/100g`
+            ? t('calorieTracking.search.caloriesPer100g', {
+                value: new Intl.NumberFormat(i18n.language).format(
+                  Math.round(product.caloriesPer100g),
+                ),
+              })
             : ''}
         </Txt>
       </View>
@@ -361,6 +369,7 @@ function ProductRow({ product, onPress }: { product: CatalogProduct; onPress: ()
 }
 
 function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () => void }) {
+  const { t, i18n } = useTranslation();
   return (
     <Press
       onPress={onPress}
@@ -377,8 +386,10 @@ function HistoryRow({ entry, onPress }: { entry: FoodHistoryEntry; onPress: () =
           {entry.name}
         </Txt>
         <Txt variant="body" tone="secondary" numberOfLines={1}>
-          {entry.quantity} {entry.unit}
-          {entry.kcal !== null ? ` · ${Math.round(entry.kcal)} kcal` : ''}
+          {entry.quantity} {getUnitLabel(entry.unit, t)}
+          {entry.kcal !== null
+            ? ` · ${new Intl.NumberFormat(i18n.language).format(Math.round(entry.kcal))} kcal`
+            : ''}
         </Txt>
       </View>
     </Press>

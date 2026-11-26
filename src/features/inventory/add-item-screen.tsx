@@ -3,6 +3,7 @@ import * as Crypto from 'expo-crypto';
 import { Image } from 'expo-image';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Keyboard, View } from 'react-native';
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -41,8 +42,9 @@ import { useProductBarcodeLookup } from '@/features/product-search/hooks/use-pro
 import type { CatalogProduct } from '@/features/product-search/types';
 import { getDatabase } from '@/lib/db/local-client';
 import { recordProductUsage } from '@/lib/db/product-usage';
+import { formatAmount } from '@/lib/format/package-size';
 import { debugError } from '@/lib/observability/debug-log';
-import { normalizeUnit, UNIT_OPTIONS } from '@/lib/units';
+import { getUnitOptions, normalizeUnit } from '@/lib/units';
 
 function formatOffsetDate(days: number): string {
   const d = new Date();
@@ -58,12 +60,12 @@ function formatOffsetMonths(months: number): string {
 
 type QuickDateKey = 'd3' | 'd7' | 'd14' | 'm1' | 'none';
 
-const QUICK_DATE_OPTIONS: { value: QuickDateKey; label: string }[] = [
-  { value: 'd3', label: '+ 3 Tage' },
-  { value: 'd7', label: '+ 7 Tage' },
-  { value: 'd14', label: '+ 14 Tage' },
-  { value: 'm1', label: '+ 1 Monat' },
-];
+const QUICK_DATE_OPTIONS = [
+  { value: 'd3', key: 'threeDays' },
+  { value: 'd7', key: 'sevenDays' },
+  { value: 'd14', key: 'fourteenDays' },
+  { value: 'm1', key: 'oneMonth' },
+] as const;
 
 function quickDateOffset(key: QuickDateKey): string {
   switch (key) {
@@ -168,6 +170,7 @@ const styles = StyleSheet.create((theme, rt) => ({
 }));
 
 export function AddItemScreen() {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const { activeHousehold } = useActiveHousehold();
   const currentHousehold = activeHousehold;
@@ -206,6 +209,10 @@ export function AddItemScreen() {
   const selectedQuickDate =
     QUICK_DATE_OPTIONS.find((option) => quickDateOffset(option.value) === expiryDate)?.value ??
     'none';
+  const quickDateOptions = QUICK_DATE_OPTIONS.map((option) => ({
+    value: option.value,
+    label: t(`inventory.add.quickDate.${option.key}`),
+  }));
 
   const handleSelectProduct = useCallback((product: CatalogProduct) => {
     // Muss VOR `setName` passieren — sonst haelt der Such-Effekt in
@@ -334,8 +341,11 @@ export function AddItemScreen() {
           accessible={false}>
           <View style={styles.modalHandle} />
           <View style={styles.modalHeader}>
-            <Txt variant="heading">Artikel hinzufügen</Txt>
-            <HeaderIconButton label="Schließen" onPress={() => router.back()} variant="modal-close">
+            <Txt variant="heading">{t('inventory.add.title')}</Txt>
+            <HeaderIconButton
+              label={t('inventory.add.close')}
+              onPress={() => router.back()}
+              variant="modal-close">
               <Image
                 source="sf:xmark"
                 contentFit="contain"
@@ -357,7 +367,11 @@ export function AddItemScreen() {
           <ProductSearchDropdown
             ref={productSearchRef}
             label=""
-            placeholder={source === 'dish' ? 'Gericht suchen…' : 'z. B. Milch oder Barcode-Name'}
+            placeholder={
+              source === 'dish'
+                ? t('inventory.add.searchDishPlaceholder')
+                : t('inventory.add.searchFoodPlaceholder')
+            }
             value={name}
             onChangeText={(text) => {
               setName(text);
@@ -368,7 +382,7 @@ export function AddItemScreen() {
             trailingPlacement="outside"
             trailing={
               <HeaderIconButton
-                label="Barcode scannen"
+                label={t('inventory.add.barcode')}
                 onPress={() => setShowScanner(true)}
                 style={styles.scannerButton}>
                 <FamIcon name="camera" size={space.xxl} color={colors.accent} />
@@ -380,10 +394,10 @@ export function AddItemScreen() {
           <ItemSourceFilterRow
             source={source}
             onSourceChange={setSource}
-            sourceAccessibilityLabel="Quelle: Lebensmittel oder Gerichte"
+            sourceAccessibilityLabel={t('inventory.add.sourceAccessibility')}
             suggestionFilter={suggestionMode}
             onSuggestionFilterChange={setSuggestionMode}
-            suggestionAccessibilityLabel="Vorschlagsfilter"
+            suggestionAccessibilityLabel={t('inventory.add.suggestionFilterAccessibility')}
             testIDPrefix="inventory-add-item-filter"
           />
 
@@ -403,15 +417,19 @@ export function AddItemScreen() {
                   {name.trim()}
                 </Txt>
                 <Txt variant="body" tone="secondary" numberOfLines={1}>
-                  {selectedProduct?.brand ?? 'Manueller Eintrag'}
+                  {selectedProduct?.brand ?? t('inventory.add.manualEntry')}
                 </Txt>
               </View>
               <View style={styles.productQuantity}>
                 <Txt variant="body" weight="700">
-                  {packageSize ? `${packageSize} ${packageSizeUnit}` : `${quantity} ${unit}`}
+                  {packageSize !== null
+                    ? formatAmount(packageSize, packageSizeUnit ?? unit, t, i18n.language)
+                    : formatAmount(Number.parseFloat(quantity) || 1, unit, t, i18n.language)}
                 </Txt>
                 <Txt variant="body" tone="secondary">
-                  {packageSize ? 'Packungsinhalt' : 'Menge'}
+                  {packageSize
+                    ? t('inventory.add.packageContent')
+                    : t('inventory.add.quantitySummary')}
                 </Txt>
               </View>
             </View>
@@ -421,24 +439,24 @@ export function AddItemScreen() {
           <View style={styles.controlsRow}>
             <View style={styles.controlColumn}>
               <Txt variant="body" tone="secondary">
-                Menge
+                {t('inventory.add.quantity')}
               </Txt>
               <QuantityStepper
                 value={Number.parseInt(quantity, 10) || 1}
                 onChange={(value) => setQuantity(String(value))}
                 max={999}
-                label="Menge"
+                label={t('inventory.add.quantity')}
                 size="large"
               />
             </View>
             <View style={styles.controlColumn}>
               {locationsLoading ? (
                 <Txt variant="body" tone="secondary">
-                  Lädt Lagerorte…
+                  {t('inventory.add.loadingLocations')}
                 </Txt>
               ) : locationOptions.length > 0 ? (
                 <WheelPickerField
-                  label="Lagerort"
+                  label={t('inventory.add.location')}
                   value={activeLocationId ?? ''}
                   options={locationOptions}
                   onChange={setLocationId}
@@ -446,7 +464,7 @@ export function AddItemScreen() {
                 />
               ) : (
                 <Txt variant="body" tone="secondary">
-                  Kein Lagerort
+                  {t('inventory.add.noLocation')}
                 </Txt>
               )}
             </View>
@@ -459,21 +477,21 @@ export function AddItemScreen() {
               accessibilityRole="button"
               style={styles.selfStart}>
               <Txt variant="body" tone="primary" weight="700">
-                + Neuer Lagerort
+                {t('inventory.add.newLocation')}
               </Txt>
             </Press>
           ) : (
             <View style={styles.newLocationBox}>
               <TextField
-                label="Name des Lagerorts"
-                placeholder="z.B. Keller, Regalfach, Gefrierfach"
+                label={t('inventory.add.locationName')}
+                placeholder={t('inventory.add.locationPlaceholder')}
                 value={newLocationName}
                 onChangeText={setNewLocationName}
               />
               <View style={styles.buttonRow}>
                 <View style={styles.flex}>
                   <Button
-                    title="Erstellen"
+                    title={t('inventory.add.create')}
                     onPress={handleAddLocation}
                     loading={addLocationMutation.isPending}
                     disabled={!newLocationName.trim()}
@@ -481,7 +499,7 @@ export function AddItemScreen() {
                 </View>
                 <View style={styles.flex}>
                   <Button
-                    title="Abbrechen"
+                    title={t('inventory.add.cancel')}
                     variant="secondary"
                     onPress={() => {
                       setShowAddLocation(false);
@@ -497,12 +515,14 @@ export function AddItemScreen() {
           <Press
             onPress={() => setDetailsOpen((current) => !current)}
             accessibilityRole="button"
-            accessibilityLabel={`${detailsOpen ? 'Weitere Angaben schließen' : 'Weitere Angaben öffnen'}`}
+            accessibilityLabel={
+              detailsOpen ? t('inventory.add.moreDetailsClose') : t('inventory.add.moreDetailsOpen')
+            }
             accessibilityState={{ expanded: detailsOpen }}
             style={styles.detailsToggle}>
             <Txt tone="secondary">{detailsOpen ? '⌄' : '›'}</Txt>
             <Txt variant="body" tone="primary">
-              Weitere Angaben
+              {t('inventory.add.moreDetails')}
             </Txt>
           </Press>
 
@@ -510,21 +530,21 @@ export function AddItemScreen() {
             <View style={styles.details}>
               {/* Einheitenauswahl */}
               <WheelPickerField
-                label="Einheit"
+                label={t('inventory.add.unit')}
                 value={unit}
-                options={UNIT_OPTIONS}
+                options={getUnitOptions(t)}
                 onChange={setUnit}
                 size="large"
               />
               {/* Datumsauswahl & Schnellbuttons für MHD */}
               <DateWheelField
-                label="Mindesthaltbarkeitsdatum (MHD)"
+                label={t('inventory.add.expiry')}
                 value={expiryDate}
                 onChange={setExpiryDate}
               />
               <FilterChipBar
-                label="Schnellauswahl MHD"
-                options={QUICK_DATE_OPTIONS}
+                label={t('inventory.add.quickExpiry')}
+                options={quickDateOptions}
                 selected={selectedQuickDate}
                 onSelect={(value) => setExpiryDate(quickDateOffset(value))}
               />
@@ -533,7 +553,7 @@ export function AddItemScreen() {
 
           {/* Haupt-Speicher-Button */}
           <Button
-            title="Zum Vorrat hinzufügen"
+            title={t('inventory.add.submit')}
             onPress={handleSave}
             loading={mutation.isPending}
             disabled={!name.trim()}

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -93,6 +94,7 @@ export function DiaryWeekStrip({
   selectedDate: string;
   onSelect: (isoDate: string) => void;
 }) {
+  const { t } = useTranslation();
   const stripRef = useRef<ScrollView>(null);
   const hasScrolledToToday = useRef(false);
   const selectedDay = days.find((day) => day.isoDate === selectedDate) ?? days[days.length - 1];
@@ -108,7 +110,7 @@ export function DiaryWeekStrip({
   return (
     <>
       <Txt variant="caption" tone="secondary" weight="600" style={styles.hint} center>
-        Tippe auf einen Tag · wische für ältere Tage
+        {t('calorieTracking.diary.dayHint')}
       </Txt>
       <View style={styles.strip}>
         <ScrollView

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { radius, space } from '@/components/theme/index';
@@ -89,10 +90,11 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
   const triggerRef = useRef<View>(null);
-  const options = [{ id: 'all', name: 'Alle' }, ...locations];
+  const options = [{ id: 'all', name: t('inventory.tabs.all') }, ...locations];
   const activeLocation = options.find((location) => location.id === activeTab);
 
   function toggleMenu() {
@@ -128,9 +130,11 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
         fallbackStyle={styles.triggerFallback}
         onPress={toggleMenu}
         accessibilityRole="button"
-        accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}>
+        accessibilityLabel={t('inventory.tabs.current', {
+          location: activeLocation?.name ?? t('inventory.tabs.none'),
+        })}>
         <Txt variant="body" weight="700">
-          {activeLocation?.name ?? 'Lagerort auswählen'}
+          {activeLocation?.name ?? t('inventory.tabs.choose')}
         </Txt>
         {}
         <View style={[styles.chevron, { transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }]}>
@@ -151,7 +155,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
           containerStyle={styles.overlay}
           style={styles.overlay}
           accessibilityRole="button"
-          accessibilityLabel="Menü schließen"
+          accessibilityLabel={t('inventory.tabs.closeMenu')}
           onPress={() => setIsOpen(false)}>
           {isOpen ? (
             <View

@@ -1,72 +1,135 @@
+import type { TFunction } from 'i18next';
 import type { PaywallTier } from './types';
+
+export type TierBenefitId =
+  | 'guidedCooking'
+  | 'directShopping'
+  | 'autoRestock'
+  | 'recipeSuggestions'
+  | 'weeklyPlan';
 
 export interface TierBenefit {
   icon: string;
-  title: string;
-  hint: string;
+  id: TierBenefitId;
 }
 
 export interface TierContent {
-  /** Beschriftung des Segmented-Tab-Segments für dieses Tier. */
-  tabLabel: string;
-  heroTitleActive: string;
-  heroTitleInactive: string;
-  heroSubtitleActive: string;
-  heroSubtitleInactive: string;
-  activeLabel: string;
-  benefits: TierBenefit[];
-  /** Titel/Hint dieses Tiers als Upgrade-Banner, wenn das andere Tier bereits aktiv ist. */
-  crossSellTitle: string;
-  crossSellHint: string;
+  id: PaywallTier;
+  benefits: readonly TierBenefit[];
 }
 
-/**
- * Copy und Vorteile je Tier für die Plus-/AI-Paywall mit Segmented Tabs
- * (Variante 1 des UI-Mock-Reviews zu fam-yu6.6). Plus und AI sind unabhängige
- * Entitlements ohne Enthalten-Beziehung — die Upgrade-Texte werben additiv
- * für das jeweils andere Abo, statt eines als Obermenge des anderen zu verkaufen.
- */
 export const TIER_CONTENT: Record<PaywallTier, TierContent> = {
   plus: {
-    tabLabel: 'Plus',
-    heroTitleInactive: 'Mehr für euren Haushalt',
-    heroTitleActive: 'Plus ist aktiv',
-    heroSubtitleInactive: 'Ein Abo schaltet Plus für alle Mitglieder des Haushalts frei.',
-    heroSubtitleActive: 'Euer Haushalt nutzt alle Plus-Funktionen.',
-    activeLabel: 'Plus aktiv',
+    id: 'plus',
     benefits: [
-      {
-        icon: '👨‍🍳',
-        title: 'Geführter Kochmodus',
-        hint: 'Schritte, automatische Timer und Medien',
-      },
-      {
-        icon: '➕',
-        title: 'Fehlendes direkt einkaufen',
-        hint: 'Aus Rezepten und dem Essensplan übernehmen',
-      },
-      {
-        icon: '🔄',
-        title: 'Bestände automatisch ergänzen',
-        hint: 'Niedrige Vorräte auf die Einkaufsliste setzen',
-      },
+      { icon: '👨‍🍳', id: 'guidedCooking' },
+      { icon: '➕', id: 'directShopping' },
+      { icon: '🔄', id: 'autoRestock' },
     ],
-    crossSellTitle: 'Mit Plus kombinieren',
-    crossSellHint: 'Geführter Kochmodus, Direkteinkauf und Auto-Ergänzung',
   },
   ai: {
-    tabLabel: 'KI',
-    heroTitleInactive: 'Kochen mit KI',
-    heroTitleActive: 'KI ist aktiv',
-    heroSubtitleInactive:
-      'KI-Rezeptvorschläge und ein automatischer Wochenplan für euren Haushalt.',
-    heroSubtitleActive: 'Euer Haushalt nutzt alle KI-Funktionen.',
-    activeLabel: 'KI aktiv',
+    id: 'ai',
     benefits: [
-      { icon: '🧠', title: 'KI-Rezeptvorschläge', hint: 'Passend zu eurem Bestand' },
-      { icon: '🗓️', title: 'Automatischer Wochenplan', hint: 'KI stellt den Essensplan zusammen' },
+      { icon: '🧠', id: 'recipeSuggestions' },
+      { icon: '🗓️', id: 'weeklyPlan' },
     ],
-    crossSellTitle: 'Auf KI upgraden',
-    crossSellHint: 'KI-Rezeptvorschläge und automatischer Wochenplan',
   },
 };
+
+function getTierLabel(t: TFunction, tier: PaywallTier): string {
+  return tier === 'plus' ? t('premium.tabs.plus') : t('premium.tabs.ai');
+}
+
+function getTierText(
+  t: TFunction,
+  tier: PaywallTier,
+  kind:
+    | 'heroActive'
+    | 'heroInactive'
+    | 'subtitleActive'
+    | 'subtitleInactive'
+    | 'active'
+    | 'crossSellTitle'
+    | 'crossSellHint',
+): string {
+  if (tier === 'plus') {
+    switch (kind) {
+      case 'heroActive':
+        return t('premium.plus.heroActive');
+      case 'heroInactive':
+        return t('premium.plus.heroInactive');
+      case 'subtitleActive':
+        return t('premium.plus.subtitleActive');
+      case 'subtitleInactive':
+        return t('premium.plus.subtitleInactive');
+      case 'active':
+        return t('premium.plus.active');
+      case 'crossSellTitle':
+        return t('premium.plus.crossSellTitle');
+      case 'crossSellHint':
+        return t('premium.plus.crossSellHint');
+    }
+  }
+
+  switch (kind) {
+    case 'heroActive':
+      return t('premium.ai.heroActive');
+    case 'heroInactive':
+      return t('premium.ai.heroInactive');
+    case 'subtitleActive':
+      return t('premium.ai.subtitleActive');
+    case 'subtitleInactive':
+      return t('premium.ai.subtitleInactive');
+    case 'active':
+      return t('premium.ai.active');
+    case 'crossSellTitle':
+      return t('premium.ai.crossSellTitle');
+    case 'crossSellHint':
+      return t('premium.ai.crossSellHint');
+  }
+}
+
+function getBenefitText(t: TFunction, id: TierBenefitId, kind: 'title' | 'hint'): string {
+  switch (id) {
+    case 'guidedCooking':
+      return kind === 'title'
+        ? t('premium.plus.benefits.guidedCooking.title')
+        : t('premium.plus.benefits.guidedCooking.hint');
+    case 'directShopping':
+      return kind === 'title'
+        ? t('premium.plus.benefits.directShopping.title')
+        : t('premium.plus.benefits.directShopping.hint');
+    case 'autoRestock':
+      return kind === 'title'
+        ? t('premium.plus.benefits.autoRestock.title')
+        : t('premium.plus.benefits.autoRestock.hint');
+    case 'recipeSuggestions':
+      return kind === 'title'
+        ? t('premium.ai.benefits.recipeSuggestions.title')
+        : t('premium.ai.benefits.recipeSuggestions.hint');
+    case 'weeklyPlan':
+      return kind === 'title'
+        ? t('premium.ai.benefits.weeklyPlan.title')
+        : t('premium.ai.benefits.weeklyPlan.hint');
+  }
+}
+
+export function getTierContent(t: TFunction, tier: PaywallTier) {
+  const benefits = TIER_CONTENT[tier].benefits.map((benefit) => ({
+    icon: benefit.icon,
+    title: getBenefitText(t, benefit.id, 'title'),
+    hint: getBenefitText(t, benefit.id, 'hint'),
+  }));
+
+  return {
+    tabLabel: getTierLabel(t, tier),
+    heroTitleActive: getTierText(t, tier, 'heroActive'),
+    heroTitleInactive: getTierText(t, tier, 'heroInactive'),
+    heroSubtitleActive: getTierText(t, tier, 'subtitleActive'),
+    heroSubtitleInactive: getTierText(t, tier, 'subtitleInactive'),
+    activeLabel: getTierText(t, tier, 'active'),
+    benefits,
+    crossSellTitle: getTierText(t, tier, 'crossSellTitle'),
+    crossSellHint: getTierText(t, tier, 'crossSellHint'),
+  };
+}

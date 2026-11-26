@@ -7,6 +7,8 @@ import {
   findProductionHardcodedUiTextReferences,
   findProductionTranslationReferences,
   formatHardcodedUiTextReport,
+  isDeveloperOnlyPath,
+  isTranslationReferenceInScope,
   type LocaleCatalogSnapshot,
   loadLocaleCatalogs,
   parseLocaleCatalog,
@@ -18,10 +20,87 @@ import {
 
 describe('i18n-Konventionen', () => {
   it('entdeckt aktive Sprachen und alle zugehörigen Katalogdateien', () => {
-    const discovery = discoverLocaleCatalogs();
+    const discovery = discoverLocaleCatalogs('main-app');
 
     expect(discovery.languages).toEqual(expect.arrayContaining(['de', 'en']));
     expect(discovery.features).toEqual([...discovery.features].sort());
+  });
+
+  it('grenzt den Developer-Scope vom Main-App-Scope ab', () => {
+    const mainDiscovery = discoverLocaleCatalogs('main-app');
+    const developerDiscovery = discoverLocaleCatalogs('developer-only');
+    const mainReferences = findProductionTranslationReferences('main-app');
+    const developerReferences = findProductionTranslationReferences('developer-only');
+    const mainDynamicReferences = findProductionDynamicTranslationReferences('main-app');
+    const developerDynamicReferences = findProductionDynamicTranslationReferences('developer-only');
+    const mainHardcoded = findProductionHardcodedUiTextReferences('main-app');
+    const developerHardcoded = findProductionHardcodedUiTextReferences('developer-only');
+
+    expect(mainDiscovery.features).not.toContain('dev');
+    expect(developerDiscovery.features).toEqual(['dev']);
+    expect(mainReferences.some((reference) => !isDeveloperOnlyPath(reference.path))).toBe(true);
+    expect(
+      mainReferences.some(
+        (reference) =>
+          isDeveloperOnlyPath(reference.path) &&
+          reference.key !== 'dev' &&
+          !reference.key.startsWith('dev.'),
+      ),
+    ).toBe(true);
+    expect(mainReferences).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          key: 'common.actions.cancel',
+          path: 'src/features/settings/dev/dev-tools-screen.tsx',
+        }),
+      ]),
+    );
+    expect(developerReferences.length).toBeGreaterThan(0);
+    expect(
+      developerReferences.every(
+        (reference) => reference.key === 'dev' || reference.key.startsWith('dev.'),
+      ),
+    ).toBe(true);
+    expect(developerReferences.some((reference) => isDeveloperOnlyPath(reference.path))).toBe(true);
+    expect(
+      developerDynamicReferences.some(
+        (reference) => reference.path === 'src/features/settings/settings-screen.tsx',
+      ),
+    ).toBe(true);
+    expect(
+      mainDynamicReferences.some(
+        (reference) => reference.path === 'src/features/settings/settings-screen.tsx',
+      ),
+    ).toBe(false);
+    expect(mainHardcoded.every((reference) => !isDeveloperOnlyPath(reference.path))).toBe(true);
+    expect(developerHardcoded.length).toBeGreaterThan(0);
+    expect(developerHardcoded.every((reference) => isDeveloperOnlyPath(reference.path))).toBe(true);
+
+    const productDevReference: TranslationReference = {
+      key: 'dev.missing',
+      line: 1,
+      path: 'src/features/profile/example.tsx',
+    };
+    const developerDevReference: TranslationReference = {
+      key: 'dev.missing',
+      line: 1,
+      path: 'src/features/settings/dev/example.tsx',
+    };
+    const sharedDeveloperReference: TranslationReference = {
+      key: 'common.missing',
+      line: 1,
+      path: 'src/features/settings/dev/example.tsx',
+    };
+
+    expect(isTranslationReferenceInScope(productDevReference, 'main-app')).toBe(true);
+    expect(isTranslationReferenceInScope(productDevReference, 'developer-only')).toBe(false);
+    expect(isTranslationReferenceInScope(developerDevReference, 'main-app')).toBe(false);
+    expect(isTranslationReferenceInScope(developerDevReference, 'developer-only')).toBe(true);
+    expect(isTranslationReferenceInScope(sharedDeveloperReference, 'main-app')).toBe(true);
+    expect(isTranslationReferenceInScope(sharedDeveloperReference, 'developer-only')).toBe(false);
+    expect(
+      validateTranslationReferences([productDevReference], loadLocaleCatalogs('main-app')),
+    ).toHaveLength(2);
   });
 
   it('meldet einen Schlüssel, der in einem Locale fehlt', () => {
@@ -56,7 +135,7 @@ describe('i18n-Konventionen', () => {
   });
 
   it('akzeptiert die aktuellen Kataloge mit ihren Platzhaltern', () => {
-    expect(validateLocaleCatalogs(loadLocaleCatalogs())).toEqual([]);
+    expect(validateLocaleCatalogs(loadLocaleCatalogs('main-app'))).toEqual([]);
   });
 
   it('meldet unterschiedliche Platzhalter zwischen Locales', () => {
@@ -167,17 +246,20 @@ describe('i18n-Konventionen', () => {
 
   it('akzeptiert alle aktuellen literalen Produktionsreferenzen', () => {
     expect(
-      validateTranslationReferences(findProductionTranslationReferences(), loadLocaleCatalogs()),
+      validateTranslationReferences(
+        findProductionTranslationReferences('main-app'),
+        loadLocaleCatalogs('main-app'),
+      ),
     ).toEqual([]);
   });
 
   it('prüft den Auth-Produktionsscope separat auf statische und dynamische Keys', () => {
-    const catalogs = loadLocaleCatalogs();
-    const staticReferences = findProductionTranslationReferences().filter((reference) =>
+    const catalogs = loadLocaleCatalogs('main-app');
+    const staticReferences = findProductionTranslationReferences('main-app').filter((reference) =>
       reference.path.startsWith('src/features/auth/'),
     );
-    const dynamicReferences = findProductionDynamicTranslationReferences().filter((reference) =>
-      reference.path.startsWith('src/features/auth/'),
+    const dynamicReferences = findProductionDynamicTranslationReferences('main-app').filter(
+      (reference) => reference.path.startsWith('src/features/auth/'),
     );
 
     expect(staticReferences.length).toBeGreaterThan(0);
@@ -193,7 +275,7 @@ describe('i18n-Konventionen', () => {
       path: 'src/features/settings/example.tsx',
     };
 
-    const errors = validateTranslationReferences([reference], loadLocaleCatalogs());
+    const errors = validateTranslationReferences([reference], loadLocaleCatalogs('main-app'));
 
     expect(errors).toHaveLength(2);
     expect(errors[0]).toEqual(expect.stringContaining('src/features/settings/example.tsx:12'));
@@ -203,11 +285,13 @@ describe('i18n-Konventionen', () => {
   });
 
   it('prüft alle aktuellen dynamischen Referenzen über ihre endlichen Typwerte', () => {
-    const references = findProductionDynamicTranslationReferences();
+    const references = findProductionDynamicTranslationReferences('main-app');
 
     expect(references.length).toBeGreaterThan(0);
     expect(references.every((reference) => reference.keys?.length)).toBe(true);
-    expect(validateDynamicTranslationReferences(references, loadLocaleCatalogs())).toEqual([]);
+    expect(
+      validateDynamicTranslationReferences(references, loadLocaleCatalogs('main-app')),
+    ).toEqual([]);
   });
 
   it('meldet einen fehlenden konkret expandierten dynamischen Key', () => {
@@ -218,7 +302,10 @@ describe('i18n-Konventionen', () => {
       path: 'src/features/settings/example.tsx',
     };
 
-    const errors = validateDynamicTranslationReferences([reference], loadLocaleCatalogs());
+    const errors = validateDynamicTranslationReferences(
+      [reference],
+      loadLocaleCatalogs('main-app'),
+    );
 
     expect(errors).toHaveLength(2);
     expect(errors.join('\n')).toEqual(
@@ -237,9 +324,9 @@ describe('i18n-Konventionen', () => {
       path: 'src/features/example.tsx',
     };
 
-    expect(validateDynamicTranslationReferences([reference], loadLocaleCatalogs())).toEqual([
-      'Untestable dynamic translation key at src/features/example.tsx:7: serverValue',
-    ]);
+    expect(
+      validateDynamicTranslationReferences([reference], loadLocaleCatalogs('main-app')),
+    ).toEqual(['Untestable dynamic translation key at src/features/example.tsx:7: serverValue']);
   });
 
   it('erkennt sichtbare hartcodierte JSX- und Alert-Texte mit Position', () => {
@@ -264,7 +351,7 @@ describe('i18n-Konventionen', () => {
   });
 
   it('gibt bestehende Hardcode-Funde report-only aus', () => {
-    const references = findProductionHardcodedUiTextReferences();
+    const references = findProductionHardcodedUiTextReferences('main-app');
 
     expect(Array.isArray(references)).toBe(true);
     if (references.length > 0) {
@@ -325,11 +412,9 @@ describe('i18n-Konventionen', () => {
     expect(report).toContain('- src/a-screen.tsx:8 [attribute:title] "Speichern"');
   });
 
-  it('blockiert reportbare Hardcode-Funde im abgeschlossenen Auth-Produktionsscope', () => {
-    const references = findProductionHardcodedUiTextReferences().filter((reference) =>
-      reference.path.startsWith('src/features/auth/'),
-    );
+  it('blockiert reportbare Hardcode-Funde im abgeschlossenen Produktionsscope', () => {
+    const references = findProductionHardcodedUiTextReferences('main-app');
 
-    expect(references).toEqual([]);
+    expect(references).toHaveLength(0);
   });
 });

@@ -1,10 +1,12 @@
+import type { TFunction } from 'i18next';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { withAlpha } from '@/components/theme/index';
 import { MIN_TOUCH_SIZE, Press, Txt } from '@/constants/ui';
 import type { MealPlanEntry, MealSlot } from '../use-meal-plans';
-import { dateLabel, MEAL_SLOTS, weekdayLabel } from '../week';
+import { dateLabel, getMealSlotLabel, MEAL_SLOTS, weekdayLabel } from '../week';
 
 type WeekGridProps = {
   dates: readonly string[];
@@ -13,14 +15,9 @@ type WeekGridProps = {
   onTapEmptyCell: (date: string, slot: MealSlot) => void;
 };
 
-const SLOT_LABELS: Record<MealSlot, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittag',
-  dinner: 'Abendessen',
-};
-
-// Die Kalendergeometrie bleibt lokal; große untere Insets verwenden den
-// gemeinsamen xxxxl-Spacing-Token.
+function portionLabel(portions: number, t: TFunction) {
+  return t('mealPlanner.week.portion', { count: portions });
+}
 const styles = StyleSheet.create((theme) => ({
   root: {
     flex: 1,
@@ -88,11 +85,8 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-function portionLabel(portions: number) {
-  return `${portions} ${portions === 1 ? 'Portion' : 'Portionen'}`;
-}
-
 export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGridProps) {
+  const { t, i18n } = useTranslation();
   const entriesByCell = new Map<string, MealPlanEntry[]>();
   for (const entry of entries) {
     const key = `${entry.entry_date}|${entry.meal_slot}`;
@@ -110,9 +104,9 @@ export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGri
         {dates.map((date) => (
           <View key={date} style={styles.dayCard}>
             <View style={styles.dayHeader}>
-              <Txt variant="heading">{weekdayLabel(date)}</Txt>
+              <Txt variant="heading">{weekdayLabel(date, i18n.language)}</Txt>
               <Txt variant="caption" tone="secondary">
-                {dateLabel(date)}
+                {dateLabel(date, i18n.language)}
               </Txt>
             </View>
 
@@ -123,32 +117,37 @@ export function WeekGrid({ dates, entries, onTapEntry, onTapEmptyCell }: WeekGri
                 return (
                   <View key={slot} style={[styles.slot, slotIndex > 0 && styles.slotDivider]}>
                     <Txt variant="eyebrow" tone="secondary" weight="700" style={styles.slotLabel}>
-                      {SLOT_LABELS[slot]}
+                      {getMealSlotLabel(t, slot)}
                     </Txt>
 
                     {cellEntries.map((entry) => (
                       <Press
                         key={entry.id}
                         accessibilityRole="button"
-                        accessibilityLabel={`${entry.recipe_title}, ${portionLabel(entry.portions)}`}
+                        accessibilityLabel={`${entry.recipe_title}, ${portionLabel(entry.portions, t)}`}
                         onPress={() => onTapEntry(entry)}
                         style={styles.entryChip}>
                         <Txt variant="label" weight="700" numberOfLines={1}>
                           {entry.recipe_title}
                         </Txt>
                         <Txt variant="caption" tone="secondary">
-                          {portionLabel(entry.portions)}
+                          {portionLabel(entry.portions, t)}
                         </Txt>
                       </Press>
                     ))}
 
                     <Press
                       accessibilityRole="button"
-                      accessibilityLabel={`${SLOT_LABELS[slot]} am ${weekdayLabel(date)}, Gericht hinzufügen`}
+                      accessibilityLabel={t('mealPlanner.week.addAccessibility', {
+                        slot: getMealSlotLabel(t, slot),
+                        weekday: weekdayLabel(date, i18n.language),
+                      })}
                       onPress={() => onTapEmptyCell(date, slot)}
                       style={styles.addButton}>
                       <Txt variant="label" tone="primary" weight="700">
-                        {cellEntries.length > 0 ? '+ Weiteres' : '+ Gericht'}
+                        {cellEntries.length > 0
+                          ? t('mealPlanner.week.addAnother')
+                          : t('mealPlanner.week.addDish')}
                       </Txt>
                     </Press>
                   </View>

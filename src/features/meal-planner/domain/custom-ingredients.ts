@@ -1,21 +1,47 @@
+import type { TFunction } from 'i18next';
 import { z } from 'zod';
 
-import { UNIT_OPTIONS } from '@/lib/units';
+import { UNIT_VALUES, type UnitValue } from '@/lib/units';
 
-const isShoppingUnit = (value: string) => UNIT_OPTIONS.some((option) => option.value === value);
+const UNIT_ALIASES: Record<string, UnitValue> = {
+  piece: 'piece',
+  stk: 'piece',
+  'stk.': 'piece',
+  stück: 'piece',
+  stueck: 'piece',
+  g: 'g',
+  gramm: 'g',
+  'gramm (g)': 'g',
+  gram: 'g',
+  kg: 'kg',
+  kilogramm: 'kg',
+  kilo: 'kg',
+  'kilogram (kg)': 'kg',
+  ml: 'ml',
+  milliliter: 'ml',
+  'milliliter (ml)': 'ml',
+  l: 'l',
+  liter: 'l',
+  litre: 'l',
+  'liter (l)': 'l',
+  package: 'package',
+  packung: 'package',
+  pkg: 'package',
+  'packung (package)': 'package',
+  portion: 'portion',
+  pck: 'portion',
+};
+
+const isShoppingUnit = (value: string): value is UnitValue =>
+  UNIT_VALUES.includes(value as UnitValue);
 
 export function normalizeCustomIngredientUnit(rawUnit: string): string {
   const normalized = rawUnit.trim().toLowerCase();
-  return (
-    UNIT_OPTIONS.find(
-      (option) =>
-        option.value.toLowerCase() === normalized || option.label.toLowerCase() === normalized,
-    )?.value ?? normalized
-  );
+  return UNIT_ALIASES[normalized] ?? normalized;
 }
 
-export function customIngredientUnitLabel(unit: string): string {
-  return UNIT_OPTIONS.find((option) => option.value === unit)?.label ?? unit;
+export function customIngredientUnitLabel(unit: string, t: TFunction): string {
+  return isShoppingUnit(unit) ? t(`common.units.${unit}`) : unit;
 }
 
 export const customIngredientSchema = z

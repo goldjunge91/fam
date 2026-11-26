@@ -1,6 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
-
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
+import { i18n } from '@/i18n';
 import type { MealPlanEntry } from '../use-meal-plans';
 import { weekDates } from '../week';
 import { WeekGrid } from './week-grid';
@@ -25,6 +25,10 @@ function makeEntry(overrides: Partial<MealPlanEntry>): MealPlanEntry {
 const WEEK = weekDates('2026-08-17');
 
 describe('WeekGrid', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('zeigt die drei Mahlzeiten-Slots als Spaltenkoepfe, ohne Snack', async () => {
     await render(
       <WeekGrid dates={WEEK} entries={[]} onTapEntry={jest.fn()} onTapEmptyCell={jest.fn()} />,
@@ -133,5 +137,24 @@ describe('WeekGrid', () => {
     expect(screen.getByText('Mittag')).toBeOnTheScreen();
     expect(screen.getByText('Abendessen')).toBeOnTheScreen();
     expect(screen.getAllByText('+ Gericht').length).toBe(3);
+  });
+
+  it('renders meal slots, dates, and portions in English', async () => {
+    await i18n.changeLanguage('en');
+    await render(
+      <WeekGrid
+        dates={['2026-08-17']}
+        entries={[makeEntry({})]}
+        onTapEntry={jest.fn()}
+        onTapEmptyCell={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('Monday')).toBeOnTheScreen();
+    expect(screen.getByText('Breakfast')).toBeOnTheScreen();
+    expect(screen.getByText('4 servings')).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', { name: 'Add a dish for Breakfast on Monday' }),
+    ).toBeOnTheScreen();
   });
 });

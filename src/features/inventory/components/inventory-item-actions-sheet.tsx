@@ -1,5 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { type ComponentProps, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Platform, ScrollView, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -135,6 +136,7 @@ export function InventoryItemActionsSheet({
   onWaste,
   onExpiryChange,
 }: InventoryItemActionsSheetProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const sheetStyle = useSheetShadowStyle();
   const lastItemRef = useRef<LocalInventoryItem | null>(null);
@@ -176,10 +178,15 @@ export function InventoryItemActionsSheet({
     );
   }
 
-  const expiry = getExpiryInfo(displayItem.expiry_date, new Date());
+  const expiry = getExpiryInfo(displayItem.expiry_date, new Date(), t);
   const expiryPair = expiryColors(expiry.themeColor, colors, !!displayItem.opened_at);
-  const amount = formatAmount(displayItem.quantity, displayItem.unit);
-  const packageHint = formatPackageHint(displayItem.package_size, displayItem.package_size_unit);
+  const amount = formatAmount(displayItem.quantity, displayItem.unit, t, i18n.language);
+  const packageHint = formatPackageHint(
+    displayItem.package_size,
+    displayItem.package_size_unit,
+    t,
+    i18n.language,
+  );
 
   return (
     <Modal
@@ -193,7 +200,7 @@ export function InventoryItemActionsSheet({
           style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Artikelaktionen schließen"
+          accessibilityLabel={t('inventory.actions.close')}
         />
         <View style={[androidStyles.sheet, sheetStyle]}>
           <View style={androidStyles.handle} />
@@ -225,29 +232,38 @@ export function InventoryItemActionsSheet({
               <QuantityStepper
                 value={displayItem.quantity}
                 onChange={onQuantityChange}
-                label="Aktuelle Menge"
+                label={t('inventory.actions.currentQuantity')}
                 size="large"
               />
               <Txt variant="body" tone="secondary">
-                {packageHint ?? `${amount} aktuelle Menge`}
+                {packageHint ?? `${amount} ${t('inventory.actions.currentQuantity')}`}
               </Txt>
             </View>
           </View>
 
           <View style={androidStyles.actionRow}>
-            <SheetAction label="Bearbeiten" onPress={onEdit} variant="neutral" />
+            <SheetAction label={t('inventory.actions.edit')} onPress={onEdit} variant="neutral" />
             {!displayItem.opened_at ? (
-              <SheetAction label="Öffnen" onPress={onOpen} variant="primary" />
+              <SheetAction label={t('inventory.actions.open')} onPress={onOpen} variant="primary" />
             ) : null}
-            <SheetAction label="Verbraucht" onPress={onConsume} variant="success" />
-            <SheetAction label="Wegwerfen" onPress={onWaste} variant="danger" />
+            <SheetAction
+              label={t('inventory.actions.consumed')}
+              onPress={onConsume}
+              variant="success"
+            />
+            <SheetAction label={t('inventory.actions.waste')} onPress={onWaste} variant="danger" />
             {onRemove ? (
-              <SheetAction label="Entfernen" onPress={onRemove} variant="danger" fullWidth />
+              <SheetAction
+                label={t('inventory.actions.remove')}
+                onPress={onRemove}
+                variant="danger"
+                fullWidth
+              />
             ) : null}
           </View>
 
           <DateWheelField
-            label="Mindesthaltbarkeitsdatum"
+            label={t('inventory.actions.expiry')}
             value={displayItem.expiry_date ?? ''}
             onChange={onExpiryChange}
           />
@@ -269,13 +285,16 @@ function IosInventoryItemActionsView({
   onWaste,
   onExpiryChange,
 }: Omit<InventoryItemActionsSheetProps, 'onRemove'>) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const styles = actionStyles;
   const insets = useSafeAreaInsets();
-  const expiry = getExpiryInfo(item?.expiry_date ?? null, new Date());
+  const expiry = getExpiryInfo(item?.expiry_date ?? null, new Date(), t);
   const expiryPair = expiryColors(expiry.themeColor, colors, !!item?.opened_at);
-  const amount = item ? formatAmount(item.quantity, item.unit) : '';
-  const packageHint = item ? formatPackageHint(item.package_size, item.package_size_unit) : null;
+  const amount = item ? formatAmount(item.quantity, item.unit, t, i18n.language) : '';
+  const packageHint = item
+    ? formatPackageHint(item.package_size, item.package_size_unit, t, i18n.language)
+    : null;
 
   if (!item) return null;
 
@@ -296,13 +315,13 @@ function IosInventoryItemActionsView({
               <BackButton label={item.name} variant="header" onPress={onClose} />
             </View>
             <Txt variant="heading" center>
-              Los-Aktionen
+              {t('inventory.actions.lotActions')}
             </Txt>
             <View style={[styles.headerSide, styles.headerRight]}>
               <IconButton
                 icon="x"
                 onPress={onClose}
-                accessibilityLabel="Artikelaktionen schließen"
+                accessibilityLabel={t('inventory.actions.close')}
                 bg={colors.danger}
                 color={colors.onDanger}
                 size={45}
@@ -320,8 +339,9 @@ function IosInventoryItemActionsView({
             <View style={styles.detailLead}>
               <Txt variant="title">{item.name}</Txt>
               <Txt variant="label" tone="secondary" style={styles.detailSubtitle}>
-                {amount} · {item.opened_at ? 'geöffnet' : 'versiegelt'} ·{' '}
-                {item.location_name ?? 'Kein Lagerort'}
+                {amount} ·{' '}
+                {item.opened_at ? t('inventory.actions.opened') : t('inventory.actions.sealed')} ·{' '}
+                {item.location_name ?? t('inventory.actions.noLocation')}
               </Txt>
             </View>
 
@@ -336,10 +356,12 @@ function IosInventoryItemActionsView({
               />
               <View style={styles.heroCopy}>
                 <Txt variant="body" weight="800">
-                  MHD {formatExpiryDate(item.expiry_date)}
+                  {t('inventory.actions.mhd')}{' '}
+                  {formatExpiryDate(item.expiry_date, i18n.language, t)}
                 </Txt>
                 <Txt variant="caption" tone="secondary" style={styles.heroHint}>
-                  {formatExpiryStatus(item)} · {item.location_name ?? 'Kein Lagerort'}
+                  {formatExpiryStatus(item, new Date(), t)} ·{' '}
+                  {item.location_name ?? t('inventory.actions.noLocation')}
                 </Txt>
               </View>
               <Txt variant="body" weight="800" style={styles.heroAmount}>
@@ -350,7 +372,7 @@ function IosInventoryItemActionsView({
             <View style={styles.quantityRow}>
               <View style={styles.quantityCopy}>
                 <Txt variant="label" weight="700">
-                  Aktuelle Menge
+                  {t('inventory.actions.currentQuantity')}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
                   {packageHint ?? amount}
@@ -359,7 +381,7 @@ function IosInventoryItemActionsView({
               <QuantityStepper
                 value={item.quantity}
                 onChange={onQuantityChange}
-                label="Aktuelle Menge"
+                label={t('inventory.actions.currentQuantity')}
                 size="large"
               />
             </View>
@@ -368,8 +390,8 @@ function IosInventoryItemActionsView({
               {!item.opened_at ? (
                 <IosActionTile
                   icon="package"
-                  label="Öffnen"
-                  hint="Menge aufteilen"
+                  label={t('inventory.actions.open')}
+                  hint={t('inventory.actions.openHint')}
                   variant="primary"
                   onPress={onOpen}
                   styles={styles}
@@ -377,23 +399,23 @@ function IosInventoryItemActionsView({
               ) : null}
               <IosActionTile
                 icon="edit-3"
-                label="Bearbeiten"
-                hint="MHD oder Ort"
+                label={t('inventory.actions.edit')}
+                hint={t('inventory.actions.expiryHint')}
                 onPress={onEdit}
                 styles={styles}
               />
               <IosActionTile
                 icon="check"
-                label="Verbrauchen"
-                hint={`${amount} aufbrauchen`}
+                label={t('inventory.actions.consume')}
+                hint={t('inventory.actions.consumeHint', { amount })}
                 variant="success"
                 onPress={onConsume}
                 styles={styles}
               />
               <IosActionTile
                 icon="trash-2"
-                label="Wegwerfen"
-                hint="Grund dokumentieren"
+                label={t('inventory.actions.waste')}
+                hint={t('inventory.actions.wasteHint')}
                 variant="danger"
                 onPress={onWaste}
                 styles={styles}
@@ -401,7 +423,7 @@ function IosInventoryItemActionsView({
             </View>
 
             <DateWheelField
-              label="Mindesthaltbarkeitsdatum"
+              label={t('inventory.actions.expiry')}
               value={item.expiry_date ?? ''}
               onChange={onExpiryChange}
             />

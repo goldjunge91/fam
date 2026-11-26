@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/react-native';
+import { i18n } from '@/i18n';
 import { debugLog } from '@/lib/observability/debug-log';
 
 import type {
@@ -59,6 +60,10 @@ function createSpeechSession() {
 }
 
 describe('NaturalLanguageAdditionVoiceOverlay', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('stops explicitly with Fertig and forwards the completed transcript', async () => {
     const speech = createSpeechSession();
     const speechAdapter: SpeechRecognitionAdapter = {
@@ -109,6 +114,28 @@ describe('NaturalLanguageAdditionVoiceOverlay', () => {
     expect(debugLog).toHaveBeenCalledWith(
       '[SpeechRecognition] 🎙️ Transkript erkannt: 3 Äpfel und Brot',
     );
+  });
+
+  it('renders voice overlay copy in English', async () => {
+    await i18n.changeLanguage('en');
+    const speech = createSpeechSession();
+    const speechAdapter: SpeechRecognitionAdapter = {
+      start: jest.fn(() => speech.session),
+    };
+
+    await render(
+      <NaturalLanguageAdditionVoiceOverlay
+        visible
+        speechAdapter={speechAdapter}
+        onCancel={jest.fn()}
+        onTranscript={jest.fn()}
+        onFallback={jest.fn()}
+      />,
+    );
+
+    expect(screen.getByText('I am listening')).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Done' })).toBeOnTheScreen();
+    expect(screen.getByRole('button', { name: 'Cancel' })).toBeOnTheScreen();
   });
 
   it('forwards a non-transcript result to the fallback flow', async () => {

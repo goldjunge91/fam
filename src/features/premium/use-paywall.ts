@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { CustomerInfo, PurchasesPackage } from 'react-native-purchases';
 
 import { useSession } from '@/features/auth/session-provider';
@@ -58,6 +59,7 @@ export interface UsePaywallResult {
  * (Aptabase & PostHog).
  */
 export function usePaywall(tier: PaywallTier): UsePaywallResult {
+  const { i18n, t } = useTranslation();
   const { refresh } = usePremium();
   const { session } = useSession();
   const activeHouseholdContext = useOptionalActiveHousehold();
@@ -89,7 +91,10 @@ export function usePaywall(tier: PaywallTier): UsePaywallResult {
     fetchPackages();
   }, [fetchPackages]);
 
-  const plans = useMemo(() => extractPaywallPlans(packages), [packages]);
+  const plans = useMemo(
+    () => extractPaywallPlans(packages, t, i18n.language),
+    [i18n.language, packages, t],
+  );
 
   const selectedPackage = useMemo(() => {
     return selectedPeriod === 'yearly' ? plans.yearly.package : plans.monthly.package;

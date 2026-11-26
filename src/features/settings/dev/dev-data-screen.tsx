@@ -1,6 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Redirect, router } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -28,6 +29,7 @@ import {
 } from './dev-screen-shared';
 
 export function DevDataScreen() {
+  const { t, i18n } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const { session } = useSession();
   const queryClient = useQueryClient();
@@ -80,7 +82,7 @@ export function DevDataScreen() {
     try {
       await action();
     } catch (error) {
-      Alert.alert('Fehlgeschlagen', error instanceof Error ? error.message : String(error));
+      Alert.alert(t('dev.states.failed'), error instanceof Error ? error.message : String(error));
     } finally {
       setBusy(null);
     }
@@ -106,24 +108,19 @@ export function DevDataScreen() {
   }
 
   function handleWipe() {
-    Alert.alert(
-      'Lokale Datenbank löschen?',
-      'Alle lokal gespiegelten Daten und die Outbox werden verworfen. Noch nicht ' +
-        'synchronisierte Änderungen gehen dabei verloren. Serverdaten bleiben unberührt.',
-      [
-        { text: 'Abbrechen', style: 'cancel' },
-        {
-          text: 'Löschen',
-          style: 'destructive',
-          onPress: () =>
-            void mitBusy('wipe', async () => {
-              await deleteLocalDatabase();
-              await queryClient.resetQueries();
-              await ladeSnapshot();
-            }),
-        },
-      ],
-    );
+    Alert.alert(t('dev.data.deleteDatabaseTitle'), t('dev.data.deleteDatabaseMessage'), [
+      { text: t('common.actions.cancel'), style: 'cancel' },
+      {
+        text: t('common.actions.delete'),
+        style: 'destructive',
+        onPress: () =>
+          void mitBusy('wipe', async () => {
+            await deleteLocalDatabase();
+            await queryClient.resetQueries();
+            await ladeSnapshot();
+          }),
+      },
+    ]);
   }
 
   if (!hasAccess) {
@@ -132,44 +129,63 @@ export function DevDataScreen() {
 
   return (
     <Screen
-      title="Daten & Synchronisation"
-      subtitle="Lokale Datenbank, Katalog-Dump und Outbox"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.data.title')}
+      subtitle={t('dev.data.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Lokale Datenbank">
+      <ContentCard title={t('dev.data.database')}>
         {dbError ? (
           <Txt variant="caption" tone="danger">
-            Nicht lesbar: {dbError}
+            {t('dev.data.dbError', { error: dbError })}
           </Txt>
         ) : (
           <>
-            <Zeile label="Gehört Nutzer" wert={ownership.label} tone={ownership.tone} />
-            <Zeile label="Schema-Version" wert={String(snapshot?.userVersion ?? '—')} />
             <Zeile
-              label="Outbox"
-              wert={`${snapshot?.pending ?? 0} offen · ${snapshot?.failed ?? 0} fehlgeschlagen`}
+              label={t('dev.data.userOwner')}
+              wert={t(
+                ownership.key,
+                'userId' in ownership ? { userId: ownership.userId } : undefined,
+              )}
+              tone={
+                ownership.key === 'dev.info.ownershipForeign'
+                  ? 'danger'
+                  : ownership.key === 'dev.info.ownershipMatches'
+                    ? 'accent'
+                    : 'warning'
+              }
+            />
+            <Zeile
+              label={t('dev.data.schemaVersion')}
+              wert={String(snapshot?.userVersion ?? '—')}
+            />
+            <Zeile
+              label={t('dev.data.outbox')}
+              wert={t('dev.data.pending', {
+                pending: snapshot?.pending ?? 0,
+                failed: snapshot?.failed ?? 0,
+              })}
               tone={snapshot && snapshot.failed > 0 ? 'danger' : undefined}
             />
             <Zeile
-              label="Zeilen"
-              wert={
-                `${snapshot?.fridgeItems ?? 0} Vorrat · ` +
-                `${snapshot?.shoppingItems ?? 0} Einkauf · ` +
-                `${snapshot?.storageLocations ?? 0} Orte`
-              }
+              label={t('dev.data.rows')}
+              wert={t('dev.data.inventoryRows', {
+                inventory: snapshot?.fridgeItems ?? 0,
+                shopping: snapshot?.shoppingItems ?? 0,
+                locations: snapshot?.storageLocations ?? 0,
+              })}
             />
           </>
         )}
 
         <View style={devStyles.actionStack}>
-          <Button title="Neu einlesen" variant="secondary" onPress={ladeSnapshot} />
+          <Button title={t('dev.data.readAgain')} variant="secondary" onPress={ladeSnapshot} />
           <Button
-            title="Sync-Diagnose & Outbox öffnen"
+            title={t('dev.data.syncDebug')}
             variant="secondary"
             onPress={() => router.push('/settings/sync-debug')}
           />
           <Button
-            title="Lokale Datenbank löschen"
+            title={t('dev.data.deleteDatabase')}
             variant="danger"
             onPress={handleWipe}
             loading={busy === 'wipe'}
@@ -177,33 +193,43 @@ export function DevDataScreen() {
         </View>
       </ContentCard>
 
-      <ContentCard title="OpenFoodFacts-Dump">
+      <ContentCard title={t('dev.data.dump')}>
         <Zeile
-          label="Heruntergeladen"
-          wert={offDump?.fileExists ? `ja · ${formatBytes(offDump.fileSizeBytes)}` : 'nein'}
+          label={t('dev.data.downloaded')}
+          wert={
+            offDump?.fileExists
+              ? t('dev.data.downloadedFile', { size: formatBytes(offDump.fileSizeBytes) })
+              : t('dev.data.no')
+          }
           tone={offDump?.fileExists ? undefined : 'warning'}
         />
-        <Zeile label="Schema-Version" wert={String(offDump?.schemaVersion ?? '—')} />
-        <Zeile label="Daten-Version" wert={formatZeitpunkt(offDump?.dataVersion ?? null)} />
+        <Zeile label={t('dev.data.schemaVersion')} wert={String(offDump?.schemaVersion ?? '—')} />
         <Zeile
-          label="Angehängt"
-          wert={offDump?.attached ? 'ja' : 'nein'}
+          label={t('dev.data.dataVersion')}
+          wert={formatZeitpunkt(offDump?.dataVersion ?? null, i18n.language)}
+        />
+        <Zeile
+          label={t('dev.data.attached')}
+          wert={offDump?.attached ? t('dev.data.yes') : t('dev.data.no')}
           tone={offDump?.attached ? undefined : 'warning'}
         />
-        <Zeile label="Letzter Check" wert={formatZeitpunkt(offDump?.lastCheckAt ?? null)} />
         <Zeile
-          label="Letztes Update"
-          wert={formatZeitpunkt(offDump?.lastSuccessfulUpdateAt ?? null)}
+          label={t('dev.data.lastCheck')}
+          wert={formatZeitpunkt(offDump?.lastCheckAt ?? null, i18n.language)}
         />
         <Zeile
-          label="Letzter Fehler"
+          label={t('dev.data.lastUpdate')}
+          wert={formatZeitpunkt(offDump?.lastSuccessfulUpdateAt ?? null, i18n.language)}
+        />
+        <Zeile
+          label={t('dev.data.lastError')}
           wert={offDump?.lastError ?? '—'}
           tone={offDump?.lastError ? 'danger' : undefined}
         />
 
         <View style={devStyles.actionStack}>
           <Button
-            title="Jetzt aktualisieren"
+            title={t('dev.data.update')}
             variant="secondary"
             onPress={() =>
               void mitBusy('off-dump-update', async () => {
@@ -213,37 +239,31 @@ export function DevDataScreen() {
             loading={busy === 'off-dump-update'}
           />
           <Button
-            title="Baseline neu installieren"
+            title={t('dev.data.baseline')}
             variant="secondary"
             onPress={() =>
-              Alert.alert(
-                'Baseline neu installieren?',
-                'Lädt den vollständigen Dump neu herunter und ersetzt die lokale Datei. Bei großem Dateiumfang kann das dauern.',
-                [
-                  { text: 'Abbrechen', style: 'cancel' },
-                  {
-                    text: 'Neu installieren',
-                    onPress: () =>
-                      void mitBusy('off-dump-baseline', async () => {
-                        await runOffDumpAction(reinstallOffDumpBaseline);
-                      }),
-                  },
-                ],
-              )
+              Alert.alert(t('dev.data.baselineTitle'), t('dev.data.baselineMessage'), [
+                { text: t('common.actions.cancel'), style: 'cancel' },
+                {
+                  text: t('dev.data.reinstall'),
+                  onPress: () =>
+                    void mitBusy('off-dump-baseline', async () => {
+                      await runOffDumpAction(reinstallOffDumpBaseline);
+                    }),
+                },
+              ])
             }
             loading={busy === 'off-dump-baseline'}
           />
           <Button
-            title="Integrität prüfen"
+            title={t('dev.data.integrity')}
             variant="secondary"
             onPress={() =>
               void mitBusy('off-dump-integrity', async () => {
                 const ok = await runOffDumpAction(checkOffDumpIntegrity);
                 Alert.alert(
-                  'Integritätsprüfung',
-                  ok
-                    ? 'Der OpenFoodFacts-Dump ist intakt.'
-                    : 'Der OpenFoodFacts-Dump ist beschädigt.',
+                  t('dev.data.integrityTitle'),
+                  ok ? t('dev.data.integrityOk') : t('dev.data.integrityFailed'),
                 );
               })
             }

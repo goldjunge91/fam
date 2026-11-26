@@ -1,5 +1,6 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { i18n } from '@/i18n';
 
 import { MissingIngredientsScreen } from './missing-ingredients-screen';
 import { MissingIngredientsScreen as MissingIngredientsScreenAndroid } from './missing-ingredients-screen.android';
@@ -154,6 +155,10 @@ function renderScreen(Component: typeof MissingIngredientsScreen = MissingIngred
     </SafeAreaProvider>,
   );
 }
+
+afterEach(async () => {
+  await i18n.changeLanguage('de');
+});
 
 beforeEach(() => {
   // `mockReset` in den Fehlerfall-Tests loescht auch die Standard-
@@ -503,5 +508,20 @@ describe('MissingIngredientsScreen', () => {
       pathname: '/settings/plus-and-ai',
       params: { tier: 'plus' },
     });
+  });
+
+  it('renders the Android transfer status in English', async () => {
+    await i18n.changeLanguage('en');
+    const user = userEvent.setup();
+    mockAddMutateAsync.mockReset();
+    mockAddMutateAsync
+      .mockRejectedValueOnce(new Error('SQLITE_BUSY'))
+      .mockResolvedValueOnce('item-2');
+
+    await renderScreen(MissingIngredientsScreenAndroid);
+    await user.press(screen.getByText('Add 2 items to the shopping list'));
+
+    expect(await screen.findByText('1 of 2 items were saved.')).toBeOnTheScreen();
+    expect(screen.getByText('1 item was added to the shopping list.')).toBeOnTheScreen();
   });
 });

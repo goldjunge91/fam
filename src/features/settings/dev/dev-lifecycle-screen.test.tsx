@@ -75,7 +75,7 @@ describe('DevLifecycleScreen', () => {
     expect(screen.getByText('Ereignisse (0)')).toBeOnTheScreen();
     expect(
       screen.getByText(
-        'Noch keine Lifecycle-Ereignisse aufgezeichnet. Wechsle die App in den Hintergrund und kehre zurueck.',
+        'Noch keine Lifecycle-Ereignisse aufgezeichnet. Wechsle die App in den Hintergrund und kehre zurück.',
       ),
     ).toBeOnTheScreen();
   });

@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { i18n } from '@/i18n';
+
 import type { LocalInventoryItem } from '../use-inventory-items';
 import { InventoryItemActionsSheet } from './inventory-item-actions-sheet';
 
@@ -33,6 +35,10 @@ const CALLBACKS = {
   onWaste: jest.fn(),
   onExpiryChange: jest.fn(),
 };
+
+afterEach(async () => {
+  await i18n.changeLanguage('de');
+});
 
 it('meldet das Ende der nativen Schließanimation des Los-Aktions-Sheets', async () => {
   const onDismissFinished = jest.fn();
@@ -104,6 +110,28 @@ it('zeigt bei versiegeltem Artikel die Aktionen und meldet Auswahl weiter', asyn
   expect(CALLBACKS.onEdit).toHaveBeenCalled();
   expect(CALLBACKS.onConsume).toHaveBeenCalled();
   expect(CALLBACKS.onWaste).toHaveBeenCalled();
+});
+
+it('renders lot actions and localized amounts in English', async () => {
+  await i18n.changeLanguage('en');
+  await render(
+    <SafeAreaProvider
+      initialMetrics={{
+        frame: { x: 0, y: 0, width: 390, height: 844 },
+        insets: { top: 47, left: 0, right: 0, bottom: 34 },
+      }}>
+      <InventoryItemActionsSheet
+        visible
+        item={{ ...ITEM, quantity: 2, unit: 'package', package_size: 1.5, package_size_unit: 'kg' }}
+        {...CALLBACKS}
+      />
+    </SafeAreaProvider>,
+  );
+
+  expect(screen.getByRole('button', { name: 'Edit' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Open' })).toBeOnTheScreen();
+  expect(screen.getByText('2 Packages')).toBeOnTheScreen();
+  expect(screen.getByText('1.5 kg per package')).toBeOnTheScreen();
 });
 
 it('rendert ohne aktuellen oder zuvor gewählten Artikel kein Sheet', async () => {

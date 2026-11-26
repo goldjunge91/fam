@@ -1,9 +1,11 @@
 import {
   compareByExpiry,
   formatExpiryDate,
+  formatExpiryRowStatus,
   formatExpiryStatus,
   getExpiryInfo,
 } from '@/features/inventory/expiry';
+import { i18n } from '@/i18n';
 
 // Fester Bezugstag, damit die Tests unabhaengig vom Ausfuehrungszeitpunkt sind.
 const HEUTE = new Date(2026, 7, 5, 14, 30); // 5. August 2026, 14:30
@@ -118,5 +120,25 @@ describe('formatExpiryStatus', () => {
   it('liefert das passende Label fuer abgelaufene und zukunftige Daten', () => {
     expect(formatExpiryStatus('2026-08-04', HEUTE)).toBe('seit gestern abgelaufen');
     expect(formatExpiryStatus('2026-08-08', HEUTE)).toBe('noch 3 Tage');
+  });
+
+  it('uses the translator for English expiry labels', () => {
+    const t = i18n.getFixedT('en');
+
+    expect(getExpiryInfo(null, HEUTE, t).label).toBe('no best-before date');
+    expect(getExpiryInfo('2026-08-04', HEUTE, t).label).toBe('expired yesterday');
+    expect(formatExpiryStatus('2026-08-08', HEUTE, t)).toBe('3 days left');
+  });
+});
+
+describe('formatExpiryRowStatus', () => {
+  it.each([
+    ['de', 'heute', 'morgen', 'in 2 Tagen'],
+    ['en', 'today', 'tomorrow', 'in 2 days'],
+  ])('uses compact relative labels for %s', (language, today, tomorrow, inDays) => {
+    const t = i18n.getFixedT(language);
+    expect(formatExpiryRowStatus(getExpiryInfo('2026-08-05', HEUTE), t)).toBe(today);
+    expect(formatExpiryRowStatus(getExpiryInfo('2026-08-06', HEUTE), t)).toBe(tomorrow);
+    expect(formatExpiryRowStatus(getExpiryInfo('2026-08-07', HEUTE), t)).toBe(inDays);
   });
 });

@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next';
 import type { PurchasesPackage } from 'react-native-purchases';
 
 export type PlanPeriod = 'yearly' | 'monthly';
@@ -35,18 +36,29 @@ export function calculateSavingsPercent(annualPrice: number, monthlyPrice: numbe
 /**
  * Berechnet das monatliche Preis-Äquivalent für ein Jahresabo.
  */
-export function calculateMonthlyEquivalent(annualPrice: number, currencyCode = 'EUR'): string {
-  if (annualPrice <= 0) return '4,16 €';
+export function calculateMonthlyEquivalent(
+  annualPrice: number,
+  currencyCode = 'EUR',
+  locale = 'de-DE',
+): string {
+  if (annualPrice <= 0) {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currencyCode,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(0);
+  }
   const monthlyVal = annualPrice / 12;
   try {
-    return new Intl.NumberFormat('de-DE', {
+    return new Intl.NumberFormat(locale, {
       style: 'currency',
       currency: currencyCode,
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     }).format(monthlyVal);
   } catch {
-    return `${monthlyVal.toFixed(2).replace('.', ',')} €`;
+    return `${new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(monthlyVal)} ${currencyCode}`;
   }
 }
 
@@ -77,7 +89,11 @@ function findMonthlyPackage(packages: PurchasesPackage[] = []): PurchasesPackage
  * Extrahiert und formatiert die kaufbaren Pläne aus den RevenueCat-Packages.
  * Stellt saubere Standardwerte bereit, falls noch keine Packages geladen sind.
  */
-export function extractPaywallPlans(packages: PurchasesPackage[] = []): ExtractedPaywallPlans {
+export function extractPaywallPlans(
+  packages: PurchasesPackage[] = [],
+  t: TFunction,
+  locale = 'de-DE',
+): ExtractedPaywallPlans {
   const annualPkg = findAnnualPackage(packages);
   const monthlyPkg = findMonthlyPackage(packages);
 
@@ -86,25 +102,32 @@ export function extractPaywallPlans(packages: PurchasesPackage[] = []): Extracte
   const currencyCode = annualPkg?.product.currencyCode ?? monthlyPkg?.product.currencyCode ?? 'EUR';
 
   const savingsPercent = calculateSavingsPercent(annualPrice, monthlyPrice);
-  const monthlyEquivalentStr = calculateMonthlyEquivalent(annualPrice, currencyCode);
+  const monthlyEquivalentStr = calculateMonthlyEquivalent(annualPrice, currencyCode, locale);
+  const formatFallbackPrice = (price: number) =>
+    new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currencyCode,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(price);
 
   const yearlyDetails: PaywallPlanDetails = {
     period: 'yearly',
     package: annualPkg,
-    title: 'Jahresabo',
-    priceString: annualPkg?.product.priceString ?? '49,99 €',
-    periodLabel: 'pro Jahr',
-    subtext: `Entspricht ${monthlyEquivalentStr} / Monat`,
-    savingsBadge: savingsPercent ? `${savingsPercent} % Ersparnis` : '17 % Ersparnis',
+    title: t('premium.plans.yearly.title'),
+    priceString: annualPkg?.product.priceString ?? formatFallbackPrice(annualPrice),
+    periodLabel: t('premium.plans.yearly.period'),
+    subtext: t('premium.plans.yearly.subtext', { price: monthlyEquivalentStr }),
+    savingsBadge: t('premium.plans.yearly.savings', { percent: savingsPercent ?? 17 }),
   };
 
   const monthlyDetails: PaywallPlanDetails = {
     period: 'monthly',
     package: monthlyPkg,
-    title: 'Monatsabo',
-    priceString: monthlyPkg?.product.priceString ?? '4,99 €',
-    periodLabel: 'pro Monat',
-    subtext: 'Monatlich flexibel',
+    title: t('premium.plans.monthly.title'),
+    priceString: monthlyPkg?.product.priceString ?? formatFallbackPrice(monthlyPrice),
+    periodLabel: t('premium.plans.monthly.period'),
+    subtext: t('premium.plans.monthly.subtext'),
     savingsBadge: null,
   };
 

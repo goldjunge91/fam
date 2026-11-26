@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Card, Press, Txt } from '@/constants/ui';
 import type { Glp1HistoryItem } from '@/features/glp1/domain/log-history';
-import { INJECTION_SITE_LABELS, isInjectionSite } from '@/features/glp1/domain/medication-options';
+import { getInjectionSiteLabel, isInjectionSite } from '@/features/glp1/domain/medication-options';
 import type { MedicationLogRow, SymptomLogRow } from '@/features/glp1/hooks/glp1-api';
 
 type Glp1LogHistoryProps = {
@@ -43,8 +44,8 @@ const styles = StyleSheet.create((theme) => ({
   },
 }));
 
-function formatHistoryTimestamp(timestamp: string): string {
-  return new Date(timestamp).toLocaleString('de-DE', {
+function formatHistoryTimestamp(timestamp: string, locale: string): string {
+  return new Date(timestamp).toLocaleString(locale, {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
@@ -60,6 +61,7 @@ export function Glp1LogHistory({
   onEditSymptom,
   onDeleteSymptom,
 }: Glp1LogHistoryProps) {
+  const { i18n, t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (items.length === 0) return null;
@@ -68,11 +70,11 @@ export function Glp1LogHistory({
     <View style={styles.root}>
       <Press
         accessibilityRole="button"
-        accessibilityLabel={isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
+        accessibilityLabel={t(isExpanded ? 'glp1.history.hide' : 'glp1.history.show')}
         onPress={() => setIsExpanded((current) => !current)}
         style={styles.toggle}>
         <Txt variant="body" tone="secondary">
-          {isExpanded ? 'Verlauf ausblenden' : 'Bisherigen Verlauf anzeigen'}
+          {t(isExpanded ? 'glp1.history.hide' : 'glp1.history.show')}
         </Txt>
         <Txt variant="body" tone="secondary">
           {isExpanded ? '▲' : '▼'}
@@ -87,31 +89,35 @@ export function Glp1LogHistory({
               return (
                 <Card key={`medication-${log.id}`} padded={false} style={styles.entry}>
                   <Txt variant="body" weight="700">
-                    Injektion · {log.medication_name} {log.dose ?? '–'} {log.unit}
+                    {t('glp1.history.injection', {
+                      medication: log.medication_name,
+                      dose: log.dose ?? '–',
+                      unit: log.unit,
+                    })}
                   </Txt>
                   <Txt variant="caption" tone="secondary">
-                    {formatHistoryTimestamp(log.administered_at)}
+                    {formatHistoryTimestamp(log.administered_at, i18n.language)}
                     {isInjectionSite(log.injection_site)
-                      ? ` · ${INJECTION_SITE_LABELS[log.injection_site]}`
+                      ? ` · ${getInjectionSiteLabel(t, log.injection_site)}`
                       : ''}
                   </Txt>
                   {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                   <View style={styles.actions}>
                     <Button
-                      title="Bearbeiten"
+                      title={t('common.actions.edit')}
                       variant="link"
                       size="sm"
                       haptic="light"
-                      accessibilityLabel="Injektion bearbeiten"
+                      accessibilityLabel={t('glp1.history.editInjection')}
                       onPress={() => onEditMedication(log)}
                     />
                     <Button
-                      title="Löschen"
+                      title={t('common.actions.delete')}
                       variant="danger"
                       size="sm"
                       flat
                       haptic="light"
-                      accessibilityLabel="Injektion löschen"
+                      accessibilityLabel={t('glp1.history.deleteInjection')}
                       onPress={() => onDeleteMedication(log)}
                     />
                   </View>
@@ -123,11 +129,14 @@ export function Glp1LogHistory({
             return (
               <Card key={`symptom-${log.id}`} padded={false} style={styles.entry}>
                 <Txt variant="body" weight="700">
-                  Symptome · Appetit {log.appetite_level ?? '–'}/5 · Sättigung{' '}
-                  {log.satiety_level ?? '–'}/5
+                  {t('glp1.history.symptoms', {
+                    appetite: log.appetite_level ?? '–',
+                    satiety: log.satiety_level ?? '–',
+                  })}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
-                  {formatHistoryTimestamp(log.logged_at)} · Übelkeit {log.nausea_level ?? 0}/5
+                  {formatHistoryTimestamp(log.logged_at, i18n.language)} ·{' '}
+                  {t('glp1.history.nausea', { value: log.nausea_level ?? 0 })}
                 </Txt>
                 {log.side_effects.length > 0 ? (
                   <Txt variant="body">{log.side_effects.join(' · ')}</Txt>
@@ -135,20 +144,20 @@ export function Glp1LogHistory({
                 {log.notes ? <Txt variant="body">{log.notes}</Txt> : null}
                 <View style={styles.actions}>
                   <Button
-                    title="Bearbeiten"
+                    title={t('common.actions.edit')}
                     variant="link"
                     size="sm"
                     haptic="light"
-                    accessibilityLabel="Symptome bearbeiten"
+                    accessibilityLabel={t('glp1.history.editSymptoms')}
                     onPress={() => onEditSymptom(log)}
                   />
                   <Button
-                    title="Löschen"
+                    title={t('common.actions.delete')}
                     variant="danger"
                     size="sm"
                     flat
                     haptic="light"
-                    accessibilityLabel="Symptome löschen"
+                    accessibilityLabel={t('glp1.history.deleteSymptoms')}
                     onPress={() => onDeleteSymptom(log)}
                   />
                 </View>

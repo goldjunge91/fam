@@ -1,4 +1,6 @@
+import type { TFunction } from 'i18next';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Platform, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -137,7 +139,7 @@ const androidStyles = StyleSheet.create((theme) => ({
   },
 }));
 
-export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
+export function formatStateSubtitle(lots: LocalInventoryItem[], t?: TFunction): string {
   const earliest = lots.reduce<LocalInventoryItem | null>((current, lot) => {
     if (!current) return lot;
     const currentTime = current.expiry_date
@@ -148,8 +150,8 @@ export function formatStateSubtitle(lots: LocalInventoryItem[]): string {
       : Number.POSITIVE_INFINITY;
     return lotTime < currentTime ? lot : current;
   }, null);
-  if (!earliest?.expiry_date) return 'unbegrenzt haltbar';
-  return formatExpiryStatus(earliest);
+  if (!earliest?.expiry_date) return t?.('inventory.group.unlimited') ?? 'unbegrenzt haltbar';
+  return formatExpiryStatus(earliest, new Date(), t);
 }
 
 /**
@@ -179,6 +181,7 @@ function InventoryConflictPanel({
   onReconfirm: (conflict: FridgeItemConflict) => void;
   resolving: boolean;
 }) {
+  const { t, i18n } = useTranslation();
   const sheetStyle = useSheetShadowStyle();
   const conflictItemId = conflict?.itemId ?? null;
   const hasConflict = Boolean(conflict);
@@ -202,13 +205,13 @@ function InventoryConflictPanel({
           style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="Konflikt schließen"
+          accessibilityLabel={t('inventory.group.conflictClose')}
         />
         <View style={[androidStyles.sheet, sheetStyle]}>
           <View style={androidStyles.handle} />
           <Txt variant="title">{itemName}</Txt>
           <Txt variant="caption" tone="secondary">
-            Korrektur nicht übernommen
+            {t('inventory.group.conflictTitle')}
           </Txt>
 
           <View style={androidStyles.conflictSummary}>
@@ -216,18 +219,18 @@ function InventoryConflictPanel({
               <>
                 <Row justify="space-between">
                   <Txt variant="body" tone="secondary">
-                    Deine Korrektur
+                    {t('inventory.group.yourCorrection')}
                   </Txt>
                   <Txt variant="body" weight="700">
-                    {formatAmount(correction.new_quantity, unit)}
+                    {formatAmount(correction.new_quantity, unit, t, i18n.language)}
                   </Txt>
                 </Row>
                 <Row justify="space-between">
                   <Txt variant="body" tone="secondary">
-                    Erwarteter Ausgangswert
+                    {t('inventory.group.expectedValue')}
                   </Txt>
                   <Txt variant="body" weight="700">
-                    {formatAmount(correction.expected_quantity, unit)}
+                    {formatAmount(correction.expected_quantity, unit, t, i18n.language)}
                   </Txt>
                 </Row>
               </>
@@ -238,7 +241,7 @@ function InventoryConflictPanel({
           </View>
 
           <Button
-            title="Verwerfen"
+            title={t('inventory.group.discard')}
             variant="danger"
             icon="trash-2"
             loading={resolving}
@@ -247,7 +250,7 @@ function InventoryConflictPanel({
           />
           {correction ? (
             <Button
-              title={`Auf aktuellen Bestand neu bestätigen`}
+              title={t('inventory.group.reconfirm')}
               variant="primary"
               icon="check"
               loading={resolving}
@@ -256,8 +259,7 @@ function InventoryConflictPanel({
             />
           ) : (
             <Txt variant="caption" tone="secondary">
-              Diese Kette aus Mengenänderungen lässt sich nicht eindeutig neu bestätigen. Bitte
-              verwerfen und die Menge danach neu setzen.
+              {t('inventory.group.reconfirmHint')}
             </Txt>
           )}
         </View>
@@ -281,6 +283,7 @@ export function InventoryItemGroupSheet({
   onReconfirmConflict,
   resolvingConflictItemId,
 }: InventoryItemGroupSheetProps) {
+  const { t, i18n } = useTranslation();
   const sheetStyle = useSheetShadowStyle();
   const { colors } = useTheme();
   const [activeConflictLotId, setActiveConflictLotId] = useState<string | null>(null);
@@ -346,7 +349,7 @@ export function InventoryItemGroupSheet({
           style={androidStyles.backdrop}
           onPress={onClose}
           accessibilityRole="button"
-          accessibilityLabel="MHD-Details schließen"
+          accessibilityLabel={t('inventory.group.detailsClose')}
         />
         <View style={[androidStyles.sheet, sheetStyle]}>
           <View style={androidStyles.handle} />
@@ -361,15 +364,16 @@ export function InventoryItemGroupSheet({
                 {displayGroup.name}
               </Txt>
               <Txt variant="caption" tone="secondary">
-                {formatAmount(displayGroup.quantity, displayGroup.unit)} gesamt ·{' '}
-                {displayGroup.lots.length} MHD-
-                {displayGroup.lots.length === 1 ? 'Eintrag' : 'Einträge'}
+                {t('inventory.group.total', {
+                  amount: formatAmount(displayGroup.quantity, displayGroup.unit, t, i18n.language),
+                })}{' '}
+                · {t('inventory.group.lotsCount', { count: displayGroup.lots.length })}
               </Txt>
             </View>
             <IconButton
               icon="x"
               onPress={onClose}
-              accessibilityLabel="Schließen"
+              accessibilityLabel={t('inventory.group.close')}
               bg={colors.danger}
               color={colors.onDanger}
               size={45}
@@ -386,13 +390,13 @@ export function InventoryItemGroupSheet({
                   tone="secondary"
                   weight="700"
                   style={androidStyles.uppercase}>
-                  Versiegelt
+                  {t('inventory.group.sealed')}
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(sumQuantity(sealedLots), displayGroup.unit)}
+                  {formatAmount(sumQuantity(sealedLots), displayGroup.unit, t, i18n.language)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
-                  {formatStateSubtitle(sealedLots)}
+                  {formatStateSubtitle(sealedLots, t)}
                 </Txt>
               </View>
             ) : null}
@@ -403,28 +407,30 @@ export function InventoryItemGroupSheet({
                   tone="secondary"
                   weight="700"
                   style={androidStyles.uppercase}>
-                  Geöffnet
+                  {t('inventory.group.opened')}
                 </Txt>
                 <Txt variant="body" weight="700">
-                  {formatAmount(sumQuantity(openedLots), displayGroup.unit)}
+                  {formatAmount(sumQuantity(openedLots), displayGroup.unit, t, i18n.language)}
                 </Txt>
                 <Txt variant="caption" tone="secondary">
-                  {formatStateSubtitle(openedLots)}
+                  {formatStateSubtitle(openedLots, t)}
                 </Txt>
               </View>
             ) : null}
           </View>
 
           <Txt variant="caption" tone="secondary" weight="700" style={androidStyles.uppercase}>
-            MHD-Einträge
+            {t('inventory.group.lotsHeading')}
           </Txt>
 
           <Button
-            title="Produkt-Verlauf öffnen"
+            title={t('inventory.group.history')}
             variant="secondary"
             size="sm"
             onPress={onHistory}
-            accessibilityLabel={`${displayGroup.name} Verlauf öffnen`}
+            accessibilityLabel={t('inventory.group.historyAccessibility', {
+              name: displayGroup.name,
+            })}
             style={androidStyles.historyButton}
           />
 
@@ -442,15 +448,19 @@ export function InventoryItemGroupSheet({
                     key={lot.id}
                     onPress={() => setActiveConflictLotId(lot.id)}
                     accessibilityRole="button"
-                    accessibilityLabel={`${displayGroup.name}, Konflikt: ${conflict.lastError}`}
+                    accessibilityLabel={t('inventory.group.conflictAccessibility', {
+                      name: displayGroup.name,
+                      error: conflict.lastError,
+                    })}
                     style={androidStyles.lotRow}>
                     <View style={[androidStyles.lotStatus, { backgroundColor: colors.danger }]} />
                     <View style={androidStyles.lotCopy}>
                       <Txt variant="body" weight="700">
-                        MHD {formatExpiryDate(lot.expiry_date)}
+                        {t('inventory.actions.mhd')}{' '}
+                        {formatExpiryDate(lot.expiry_date, i18n.language, t)}
                       </Txt>
                       <Txt variant="caption" tone="danger" weight="700" numberOfLines={1}>
-                        Konflikt: nicht übernommen
+                        {t('inventory.group.conflict')}
                       </Txt>
                     </View>
                     <Txt
@@ -461,7 +471,7 @@ export function InventoryItemGroupSheet({
                         fontVariant: ['tabular-nums'],
                         textDecorationLine: 'line-through',
                       }}>
-                      {formatAmount(lot.quantity, lot.unit)}
+                      {formatAmount(lot.quantity, lot.unit, t, i18n.language)}
                     </Txt>
                     <Txt variant="body" tone="secondary">
                       ›
@@ -470,11 +480,16 @@ export function InventoryItemGroupSheet({
                 );
               }
 
-              const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
-              const location = lot.location_name ?? 'Kein Lagerort';
-              const amount = formatAmount(lot.quantity, lot.unit);
-              const expiryDate = formatExpiryDate(lot.expiry_date);
-              const expiry = getExpiryInfo(lot.expiry_date, new Date());
+              const packageHint = formatPackageHint(
+                lot.package_size,
+                lot.package_size_unit,
+                t,
+                i18n.language,
+              );
+              const location = lot.location_name ?? t('inventory.actions.noLocation');
+              const amount = formatAmount(lot.quantity, lot.unit, t, i18n.language);
+              const expiryDate = formatExpiryDate(lot.expiry_date, i18n.language, t);
+              const expiry = getExpiryInfo(lot.expiry_date, new Date(), t);
               const statusColor =
                 expiry.themeColor === 'danger'
                   ? colors.danger
@@ -486,16 +501,18 @@ export function InventoryItemGroupSheet({
                   key={lot.id}
                   onPress={() => onSelectLot(lot)}
                   accessibilityRole="button"
-                  accessibilityLabel={`${displayGroup.name}, ${amount}, MHD ${expiryDate}, ${location}`}
+                  accessibilityLabel={`${displayGroup.name}, ${amount}, ${t('inventory.actions.mhd')} ${expiryDate}, ${location}`}
                   style={androidStyles.lotRow}>
                   <View style={[androidStyles.lotStatus, { backgroundColor: statusColor }]} />
                   <View style={androidStyles.lotCopy}>
                     <Txt variant="body" weight="700">
-                      MHD {expiryDate}
+                      {t('inventory.actions.mhd')} {expiryDate}
                     </Txt>
                     <Txt variant="caption" tone="secondary" numberOfLines={1}>
-                      {lot.opened_at ? 'Geöffnet' : 'Versiegelt'} · {formatExpiryStatus(lot)} ·{' '}
-                      {location}
+                      {lot.opened_at
+                        ? t('inventory.actions.opened')
+                        : t('inventory.actions.sealed')}{' '}
+                      · {formatExpiryStatus(lot, new Date(), t)} · {location}
                       {packageHint ? ` · ${packageHint}` : ''}
                     </Txt>
                   </View>
@@ -546,6 +563,7 @@ function IosInventoryItemGroupView({
   onReconfirmConflict,
   resolvingConflictItemId,
 }: InventoryItemGroupSheetProps) {
+  const { t, i18n } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const styles = groupStyles;
@@ -579,7 +597,7 @@ function IosInventoryItemGroupView({
           ]}>
           <View style={styles.header}>
             <View style={styles.headerSide}>
-              <BackButton label="Vorrat" variant="header" onPress={onClose} />
+              <BackButton label={t('inventory.group.back')} variant="header" onPress={onClose} />
             </View>
             <View style={styles.headerTitle}>
               <Txt
@@ -596,7 +614,7 @@ function IosInventoryItemGroupView({
               <IconButton
                 icon="x"
                 onPress={onClose}
-                accessibilityLabel="MHD-Details schließen"
+                accessibilityLabel={t('inventory.group.detailsClose')}
                 bg={colors.danger}
                 color={colors.onDanger}
                 size={40}
@@ -614,37 +632,54 @@ function IosInventoryItemGroupView({
             ]}
             showsVerticalScrollIndicator={false}>
             <View style={styles.detailLead}>
-              <Txt variant="title">{formatAmount(group.quantity, group.unit)} gesamt</Txt>
+              <Txt variant="title">
+                {t('inventory.group.total', {
+                  amount: formatAmount(group.quantity, group.unit, t, i18n.language),
+                })}
+              </Txt>
               <Txt variant="label" tone="secondary" style={styles.detailSubtitle}>
-                {group.lots.length} MHD-
-                {group.lots.length === 1 ? 'Eintrag' : 'Einträge'} ·{' '}
-                {group.lots[0]?.location_name ?? 'Kein Lagerort'}
+                {t('inventory.group.lotsCount', { count: group.lots.length })} ·{' '}
+                {group.lots[0]?.location_name ?? t('inventory.actions.noLocation')}
               </Txt>
             </View>
 
-            <View style={styles.stateSummary} accessibilityLabel="Zustandsübersicht">
+            <View style={styles.stateSummary} accessibilityLabel={t('inventory.group.overview')}>
               <IosStateCard
-                label="Versiegelt"
+                label={t('inventory.group.sealed')}
                 amount={sumQuantity(sealedLots)}
                 unit={group.unit}
-                hint={sealedLots.length ? formatStateSubtitle(sealedLots) : 'Keine Einträge'}
+                hint={
+                  sealedLots.length
+                    ? formatStateSubtitle(sealedLots, t)
+                    : t('inventory.group.noEntries')
+                }
                 disabled={!sealedLots.length}
                 onPress={sealedLots.length ? () => onSelectLot(sealedLots[0]) : undefined}
                 styles={styles}
                 colors={colors}
+                t={t}
+                locale={i18n.language}
               />
               <IosStateCard
-                label="Geöffnet"
+                label={t('inventory.group.opened')}
                 amount={sumQuantity(openedLots)}
                 unit={group.unit}
-                hint={openedLots.length ? formatStateSubtitle(openedLots) : 'Keine Einträge'}
+                hint={
+                  openedLots.length
+                    ? formatStateSubtitle(openedLots, t)
+                    : t('inventory.group.noEntries')
+                }
                 disabled={!openedLots.length}
                 onPress={openedLots.length ? () => onSelectLot(openedLots[0]) : undefined}
                 actionLabel={
                   openedLots.length
-                    ? `${formatAmount(1, openedLots[0].unit)} verbrauchen ›`
+                    ? t('inventory.group.quickConsume', {
+                        amount: formatAmount(1, openedLots[0].unit, t, i18n.language),
+                      })
                     : sealedLots.length
-                      ? `${formatAmount(1, sealedLots[0].unit)} öffnen ›`
+                      ? t('inventory.group.quickOpen', {
+                          amount: formatAmount(1, sealedLots[0].unit, t, i18n.language),
+                        })
                       : undefined
                 }
                 onAction={
@@ -657,12 +692,14 @@ function IosInventoryItemGroupView({
                 actionLoading={quickActionLoading}
                 styles={styles}
                 colors={colors}
+                t={t}
+                locale={i18n.language}
                 tone="open"
               />
             </View>
 
             <Txt variant="label" tone="secondary" weight="700" style={styles.sectionLabel}>
-              MHD-Einträge
+              {t('inventory.group.lotsHeading')}
             </Txt>
 
             <View>
@@ -677,22 +714,23 @@ function IosInventoryItemGroupView({
                     onPress={() => (conflict ? setActiveConflictLotId(lot.id) : onSelectLot(lot))}
                     styles={styles}
                     colors={colors}
+                    t={t}
+                    i18n={i18n}
                   />
                 );
               })}
             </View>
 
             <Button
-              title="Produkt-Verlauf öffnen"
+              title={t('inventory.group.history')}
               variant="secondary"
               size="sm"
               onPress={onHistory}
-              accessibilityLabel={`${group.name} Verlauf öffnen`}
+              accessibilityLabel={t('inventory.group.historyAccessibility', { name: group.name })}
               style={styles.historyButton}
             />
             <Txt variant="caption" tone="secondary" style={styles.helperText}>
-              Tippe auf eine Zustandskarte oder ein MHD-Los, um genau diese Gläser zu bearbeiten
-              oder zu verbrauchen.
+              {t('inventory.group.helper')}
             </Txt>
           </ScrollView>
         </View>
@@ -733,6 +771,8 @@ function IosStateCard({
   actionLoading = false,
   styles,
   colors,
+  t,
+  locale,
   tone = 'sealed',
 }: {
   label: string;
@@ -746,6 +786,8 @@ function IosStateCard({
   actionLoading?: boolean;
   styles: typeof groupStyles;
   colors: ReturnType<typeof useTheme>['colors'];
+  t: TFunction;
+  locale: string;
   tone?: 'sealed' | 'open';
 }) {
   return (
@@ -762,7 +804,10 @@ function IosStateCard({
         onPress={onPress}
         disabled={disabled}
         accessibilityRole="button"
-        accessibilityLabel={`${label} ${formatAmount(amount, unit)} anzeigen`}
+        accessibilityLabel={t('inventory.group.stateShow', {
+          label,
+          amount: formatAmount(amount, unit, t, locale),
+        })}
         accessibilityState={{ disabled }}
         containerStyle={{ flex: 1 }}
         style={[styles.stateCardMain, disabled && styles.disabledStateCard]}>
@@ -770,7 +815,7 @@ function IosStateCard({
           {label}
         </Txt>
         <Txt variant="body" weight="800" style={styles.stateValue}>
-          {formatAmount(amount, unit)}
+          {formatAmount(amount, unit, t, locale)}
         </Txt>
         <Txt variant="caption" tone="secondary">
           {hint}
@@ -786,7 +831,7 @@ function IosStateCard({
           style={[styles.stateCardAction, { borderTopColor: colors.border }]}
           haptic="medium">
           <Txt variant="label" color={colors.accent} weight="800">
-            {actionLoading ? 'Wird aktualisiert …' : actionLabel}
+            {actionLoading ? t('inventory.group.updating') : actionLabel}
           </Txt>
         </Press>
       ) : null}
@@ -801,6 +846,8 @@ function IosLotRow({
   onPress,
   styles,
   colors,
+  t,
+  i18n,
 }: {
   group: InventoryItemGroup;
   lot: LocalInventoryItem;
@@ -808,6 +855,8 @@ function IosLotRow({
   onPress: () => void;
   styles: typeof groupStyles;
   colors: ReturnType<typeof useTheme>['colors'];
+  t: TFunction;
+  i18n: { language: string };
 }) {
   // Konflikt-Los: eigene Zeile statt der normalen Rueckgabe darunter, die
   // fuer diesen Fall unveraendert bestehen bleibt.
@@ -816,35 +865,38 @@ function IosLotRow({
       <Press
         onPress={onPress}
         accessibilityRole="button"
-        accessibilityLabel={`${group.name}, Konflikt: ${conflict.lastError}`}
+        accessibilityLabel={t('inventory.group.conflictAccessibility', {
+          name: group.name,
+          error: conflict.lastError,
+        })}
         style={styles.lotRow}>
         <View style={[styles.lotStatus, { backgroundColor: colors.danger }]} />
         <View style={styles.lotCopy}>
           <View style={styles.lotTitleLine}>
             <Txt variant="body" weight="800" numberOfLines={1} style={styles.lotTitle}>
-              MHD {formatExpiryDate(lot.expiry_date)}
+              {t('inventory.actions.mhd')} {formatExpiryDate(lot.expiry_date, i18n.language, t)}
             </Txt>
             <Txt
               variant="body"
               weight="800"
               tone="danger"
               style={[styles.lotAmount, { textDecorationLine: 'line-through' }]}>
-              {formatAmount(lot.quantity, lot.unit)}
+              {formatAmount(lot.quantity, lot.unit, t, i18n.language)}
             </Txt>
           </View>
           <Txt variant="caption" tone="danger" weight="700" numberOfLines={1}>
-            Konflikt: nicht übernommen
+            {t('inventory.group.conflict')}
           </Txt>
         </View>
       </Press>
     );
   }
 
-  const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit);
-  const location = lot.location_name ?? 'Kein Lagerort';
-  const amount = formatAmount(lot.quantity, lot.unit);
-  const expiryDate = formatExpiryDate(lot.expiry_date);
-  const expiry = getExpiryInfo(lot.expiry_date, new Date());
+  const packageHint = formatPackageHint(lot.package_size, lot.package_size_unit, t, i18n.language);
+  const location = lot.location_name ?? t('inventory.actions.noLocation');
+  const amount = formatAmount(lot.quantity, lot.unit, t, i18n.language);
+  const expiryDate = formatExpiryDate(lot.expiry_date, i18n.language, t);
+  const expiry = getExpiryInfo(lot.expiry_date, new Date(), t);
   const statusColor =
     expiry.themeColor === 'danger'
       ? colors.danger
@@ -856,20 +908,21 @@ function IosLotRow({
     <Press
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${group.name}, ${amount}, MHD ${expiryDate}, ${location}`}
+      accessibilityLabel={`${group.name}, ${amount}, ${t('inventory.actions.mhd')} ${expiryDate}, ${location}`}
       style={styles.lotRow}>
       <View style={[styles.lotStatus, { backgroundColor: statusColor }]} />
       <View style={styles.lotCopy}>
         <View style={styles.lotTitleLine}>
           <Txt variant="body" weight="800" numberOfLines={1} style={styles.lotTitle}>
-            MHD {expiryDate}
+            {t('inventory.actions.mhd')} {expiryDate}
           </Txt>
           <Txt variant="body" weight="800" style={styles.lotAmount}>
             {amount}
           </Txt>
         </View>
         <Txt variant="caption" tone="secondary" numberOfLines={1}>
-          {lot.opened_at ? 'Geöffnet' : 'Versiegelt'} · {formatExpiryStatus(lot)} · {location}
+          {lot.opened_at ? t('inventory.actions.opened') : t('inventory.actions.sealed')} ·{' '}
+          {formatExpiryStatus(lot, new Date(), t)} · {location}
           {packageHint ? ` · ${packageHint}` : ''}
         </Txt>
       </View>

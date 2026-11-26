@@ -1,6 +1,7 @@
 import { Observe } from 'expo-observe';
 import { Redirect } from 'expo-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Platform, View } from 'react-native';
 
 import { Screen } from '@/components/layout/screen';
@@ -22,6 +23,7 @@ import { reportError } from '@/lib/telemetry';
 import { devStyles, Zeile } from './dev-screen-shared';
 
 export function DevTelemetryScreen() {
+  const { t } = useTranslation();
   const hasAccess = useDevToolsAccess();
   const posthogFlags = useFeatureFlags();
   const posthogConfigured = isPostHogConfigured();
@@ -37,7 +39,7 @@ export function DevTelemetryScreen() {
     try {
       await action();
     } catch (error) {
-      Alert.alert('Fehlgeschlagen', error instanceof Error ? error.message : String(error));
+      Alert.alert(t('dev.states.failed'), error instanceof Error ? error.message : String(error));
     } finally {
       setBusy(null);
     }
@@ -49,77 +51,78 @@ export function DevTelemetryScreen() {
 
   return (
     <Screen
-      title="Telemetrie & Plattformtests"
-      subtitle="Testsignale, Benachrichtigungen und Logs"
-      back={{ label: 'Entwickler', href: '/settings/dev' }}
+      title={t('dev.telemetry.title')}
+      subtitle={t('dev.telemetry.subtitle')}
+      back={{ label: t('dev.tools.title'), href: '/settings/dev' }}
       backStyle="icon">
-      <ContentCard title="Testsignale">
+      <ContentCard title={t('dev.telemetry.signals')}>
         <Zeile
-          label="PostHog-Verbindung"
-          wert={posthogCheck?.label ?? 'noch nicht geprüft'}
+          label={t('dev.telemetry.connection')}
+          wert={posthogCheck?.label ?? t('dev.telemetry.notChecked')}
           tone={posthogCheck?.tone}
         />
         <Zeile
-          label="Geladene Flags"
-          wert={posthogFlags ? String(Object.keys(posthogFlags).length) : 'noch keine'}
+          label={t('dev.telemetry.flags')}
+          wert={
+            posthogFlags ? String(Object.keys(posthogFlags).length) : t('dev.telemetry.noneLoaded')
+          }
         />
         <View style={devStyles.actionStack}>
           <Button
-            title="Sentry-Testfehler senden"
+            title={t('dev.telemetry.sendSentry')}
             variant="secondary"
             onPress={() => {
               reportError(new Error('First error'), {
                 operation: 'dev_tools.error_test',
                 error_code: 'dev_tools_test_error',
               });
-              Alert.alert(
-                'Telemetrie',
-                'Testfehler ("First error") wurde an Sentry, PostHog und Aptabase gesendet.',
-              );
+              Alert.alert(t('dev.telemetry.telemetry'), t('dev.telemetry.testErrorSent'));
             }}
           />
           <Button
-            title="Test-Benachrichtigung senden"
+            title={t('dev.telemetry.sendNotification')}
             variant="secondary"
             onPress={() =>
               void mitBusy('notify', async () => {
                 const result = await sendTestNotification();
-                Alert.alert(result.success ? 'Erfolg' : 'Hinweis', result.message);
+                Alert.alert(
+                  result.success ? t('dev.states.success') : t('dev.states.notice'),
+                  result.message,
+                );
               })
             }
             loading={busy === 'notify'}
           />
           <Button
-            title="EAS-Observe-Testevent senden"
+            title={t('dev.telemetry.sendObserve')}
             variant="secondary"
             onPress={() => {
               Observe.logEvent('dev_tools.test_event', {
                 attributes: { source: 'dev-tools-screen', platform: Platform.OS },
               });
-              Alert.alert(
-                'EAS Observe',
-                'Testevent ("dev_tools.test_event") wurde geloggt. Erscheint im Observe-Dashboard nach dem naechsten Flush (Debug-Builds dispatchen nur mit dispatchInDebug).',
-              );
+              Alert.alert(t('dev.telemetry.observe'), t('dev.telemetry.observeSent'));
             }}
           />
           <Button
-            title="PostHog-Verbindung prüfen"
+            title={t('dev.telemetry.checkPosthog')}
             variant="secondary"
             onPress={() =>
               void mitBusy('posthog-reload', async () => {
                 if (!posthogConfigured) {
                   const message = posthogInitializationError
-                    ? `Client konnte nicht gestartet werden: ${posthogInitializationError}`
-                    : 'nicht aktiv: API-Key ist in diesem Build nicht vorhanden';
+                    ? t('dev.telemetry.clientUnavailable', { error: posthogInitializationError })
+                    : t('dev.telemetry.apiKeyMissing');
                   setPosthogCheck({
                     label: message,
                     tone: posthogInitializationError ? 'danger' : 'warning',
                   });
                   Alert.alert(
-                    posthogInitializationError ? 'PostHog-Clientfehler' : 'PostHog nicht aktiv',
+                    posthogInitializationError
+                      ? t('dev.telemetry.posthogClientError')
+                      : t('dev.telemetry.posthogInactive'),
                     posthogInitializationError
                       ? message
-                      : `${message}. Nach einer Änderung von .env muss Metro neu gestartet und der Dev-Build neu erstellt werden.`,
+                      : t('dev.telemetry.reloadHint', { message }),
                   );
                   return;
                 }
@@ -128,24 +131,33 @@ export function DevTelemetryScreen() {
                   const flags = await reloadPostHogFeatureFlags();
                   const client = getPostHogClient();
                   const flagCount = Object.keys(flags ?? {}).length;
-                  const distinctId = client?.getDistinctId() ?? 'unbekannt';
+                  const distinctId = client?.getDistinctId() ?? t('dev.telemetry.unknownUser');
                   setPosthogCheck({
-                    label: `erreichbar, ${flagCount} Flag(s) geladen`,
+                    label: t('dev.telemetry.flagsLoaded', { count: flagCount }),
                     tone: 'accent',
                   });
                   Alert.alert(
-                    'PostHog funktioniert',
-                    `Host: ${env.posthogHost}\n` +
-                      `Nutzer: ${distinctId}\n` +
-                      `test-feature: ${String(flags?.['test-feature'] ?? 'nicht angelegt')}\n` +
-                      `Flags: ${flagCount}`,
+                    t('dev.telemetry.posthogWorks'),
+                    [
+                      t('dev.telemetry.host', { host: env.posthogHost }),
+                      t('dev.telemetry.user', { user: distinctId }),
+                      t('dev.telemetry.testFeatureValue', {
+                        value: String(
+                          flags?.['test-feature'] ?? t('dev.telemetry.testFeatureMissing'),
+                        ),
+                      }),
+                      t('dev.telemetry.flagsValue', { count: flagCount }),
+                    ].join('\n'),
                   );
                 } catch (error) {
                   const detail = error instanceof Error ? error.message : String(error);
-                  setPosthogCheck({ label: `Fehler: ${detail}`, tone: 'danger' });
+                  setPosthogCheck({
+                    label: `${t('dev.states.failed')}: ${detail}`,
+                    tone: 'danger',
+                  });
                   Alert.alert(
-                    'PostHog nicht erreichbar',
-                    `${detail}\n\nHost: ${env.posthogHost}\nPrüfe API-Key, Host und Netzwerk.`,
+                    t('dev.telemetry.posthogUnreachable'),
+                    t('dev.telemetry.posthogNetworkHint', { detail, host: env.posthogHost }),
                   );
                 }
               })
@@ -153,14 +165,16 @@ export function DevTelemetryScreen() {
             loading={busy === 'posthog-reload'}
           />
           <Button
-            title="Telemetrie-Testevent senden"
+            title={t('dev.telemetry.sendTelemetry')}
             variant="secondary"
             onPress={() => {
               if (!isAptabaseConfigured() && !isPostHogConfigured()) {
                 const message = getAptabaseInitializationError()
-                  ? `Initialisierung fehlgeschlagen: ${getAptabaseInitializationError()}`
-                  : 'nicht aktiv: Telemetrie-API-Keys sind in diesem Build nicht vorhanden';
-                Alert.alert('Telemetrie nicht aktiv', message);
+                  ? t('dev.telemetry.telemetryInitFailed', {
+                      error: getAptabaseInitializationError(),
+                    })
+                  : t('dev.telemetry.telemetryMissing');
+                Alert.alert(t('dev.telemetry.telemetryInactive'), message);
                 return;
               }
               trackAnalyticsEvent('dev_tools.telemetry_test.completed', {
@@ -168,10 +182,7 @@ export function DevTelemetryScreen() {
                 source: 'dev-tools-screen',
                 timestamp: Date.now(),
               });
-              Alert.alert(
-                'Telemetrie',
-                'Test-Event ("dev_tools.telemetry_test.completed") wurde an PostHog und Aptabase gesendet.',
-              );
+              Alert.alert(t('dev.telemetry.telemetry'), t('dev.telemetry.telemetrySent'));
             }}
           />
         </View>

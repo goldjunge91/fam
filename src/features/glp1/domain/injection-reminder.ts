@@ -1,7 +1,6 @@
-import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
+import type { TFunction } from 'i18next';
 
-export const INJECTION_REMINDER_TITLE = 'Injektion fällig';
-export const INJECTION_REMINDER_BODY = 'Deine Injektion ist fällig.';
+import { calculateInjectionDue } from '@/features/glp1/domain/injection-due';
 
 export type InjectionReminderPlan = {
   anchorAt: string;
@@ -14,6 +13,7 @@ type InjectionReminderInput = {
   plan: InjectionReminderPlan | null;
   latestInjectionAt: string | null | undefined;
   now: Date;
+  t: TFunction;
 };
 
 export type InjectionReminderAction =
@@ -31,6 +31,7 @@ export function resolveInjectionReminder({
   plan,
   latestInjectionAt,
   now,
+  t,
 }: InjectionReminderInput): InjectionReminderAction {
   if (!plan?.reminderEnabled) {
     return { kind: 'cancel', identifier };
@@ -51,7 +52,7 @@ export function resolveInjectionReminder({
     kind: 'schedule',
     identifier,
     date,
-    title: INJECTION_REMINDER_TITLE,
-    body: INJECTION_REMINDER_BODY,
+    title: t('glp1.reminderNotification.title'),
+    body: t('glp1.reminderNotification.body'),
   };
 }

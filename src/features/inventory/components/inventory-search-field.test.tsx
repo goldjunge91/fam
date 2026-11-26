@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react-native';
 import type React from 'react';
 
+import { i18n } from '@/i18n';
+
 import { InventorySearchField, InventorySearchInput } from './inventory-search-field';
 
 jest.mock('expo-glass-effect', () => {
@@ -16,6 +18,10 @@ jest.mock('@/components/ui/glass-card', () => ({ useGlassAvailable: () => true }
 jest.mock('@/lib/platform/haptics', () => ({ medium: jest.fn() }));
 
 describe('InventorySearchField', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('de');
+  });
+
   it('renders the editable search row and forwards text changes', async () => {
     const onChangeText = jest.fn();
     await render(<InventorySearchField value="Milch" onChangeText={onChangeText} />);
@@ -24,6 +30,14 @@ describe('InventorySearchField', () => {
     expect(input).toHaveDisplayValue('Milch');
     await fireEvent.changeText(input, 'Hafermilch');
     expect(onChangeText).toHaveBeenCalledWith('Hafermilch');
+  });
+
+  it('uses English search labels', async () => {
+    await i18n.changeLanguage('en');
+    await render(<InventorySearchInput value="Milk" onChangeText={jest.fn()} />);
+
+    expect(screen.getByPlaceholderText('Search items')).toBeOnTheScreen();
+    expect(screen.getByLabelText('Search items')).toBeOnTheScreen();
   });
 
   it('uses a no-op text handler when none is provided', async () => {

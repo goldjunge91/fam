@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -80,6 +81,7 @@ const styles = StyleSheet.create((theme) => ({
 }));
 
 export function InventoryTabBar({ activeTab, onTabChange, locations }: InventoryTabBarProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [triggerPressed, setTriggerPressed] = useState(false);
   const [menuPosition, setMenuPosition] = useState<MenuPosition>(FALLBACK_MENU_POSITION);
@@ -88,7 +90,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
   const faceStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: depth.value }],
   }));
-  const options = [{ id: 'all', name: 'Alle' }, ...locations];
+  const options = [{ id: 'all', name: t('inventory.tabs.all') }, ...locations];
   const activeLocation = options.find((location) => location.id === activeTab);
 
   function toggleMenu() {
@@ -132,10 +134,12 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
               depth.value = withSpring(0, PRESS_SPRING);
             }}
             accessibilityRole="button"
-            accessibilityLabel={`Lagerort auswählen, aktuell ${activeLocation?.name ?? 'keiner'}`}
+            accessibilityLabel={t('inventory.tabs.current', {
+              location: activeLocation?.name ?? t('inventory.tabs.none'),
+            })}
             accessibilityState={{ expanded: isOpen }}>
             <Txt variant="body" weight="700">
-              {activeLocation?.name ?? 'Lagerort auswählen'}
+              {activeLocation?.name ?? t('inventory.tabs.choose')}
             </Txt>
             <Txt tone="accent">{isOpen ? '⌃' : '⌄'}</Txt>
           </Press>
@@ -153,7 +157,7 @@ export function InventoryTabBar({ activeTab, onTabChange, locations }: Inventory
           containerStyle={styles.overlay}
           style={styles.overlay}
           accessibilityRole="button"
-          accessibilityLabel="Menü schließen"
+          accessibilityLabel={t('inventory.tabs.closeMenu')}
           onPress={() => setIsOpen(false)}>
           {isOpen ? (
             <View

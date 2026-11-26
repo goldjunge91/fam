@@ -1,5 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -17,8 +18,8 @@ import {
 } from '@/features/feedback/api';
 import {
   FEEDBACK_STATUS_COLORS,
-  FEEDBACK_STATUS_LABELS,
-  FEEDBACK_TYPE_LABELS,
+  getFeedbackStatusLabel,
+  getFeedbackTypeLabel,
 } from '@/features/feedback/labels';
 import { useFeedbackRealtime } from '@/features/feedback/use-feedback-realtime';
 
@@ -57,6 +58,7 @@ const styles = StyleSheet.create((theme) => ({
 
 function MessageBubble({ message }: { message: FeedbackMessage }) {
   const { colors } = useTheme();
+  const { i18n, t } = useTranslation();
   const isStaff = message.author_type === 'staff';
 
   return (
@@ -69,7 +71,8 @@ function MessageBubble({ message }: { message: FeedbackMessage }) {
         },
       ]}>
       <Txt variant="body" tone="secondary">
-        {isStaff ? 'Team' : 'Du'} · {new Date(message.created_at).toLocaleDateString('de-DE')}
+        {isStaff ? t('feedback.detail.staff') : t('feedback.detail.user')} ·{' '}
+        {new Date(message.created_at).toLocaleDateString(i18n.language)}
       </Txt>
       <Txt variant="body">{message.body}</Txt>
     </Surface>
@@ -79,6 +82,7 @@ function MessageBubble({ message }: { message: FeedbackMessage }) {
 export function FeedbackDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const { session } = useSession();
+  const { t } = useTranslation();
   const userId = session?.user.id;
 
   const { data: ticket } = useTicket(id);
@@ -90,8 +94,8 @@ export function FeedbackDetailScreen() {
 
   const [banner, setBanner] = useState<string | null>(null);
   const onStaffReply = useCallback(() => {
-    setBanner('Das Team hat geantwortet.');
-  }, []);
+    setBanner(t('feedback.detail.realtimeReply'));
+  }, [t]);
   useFeedbackRealtime({ userId, ticketId: id, onStaffReply });
 
   useEffect(() => {
@@ -112,12 +116,14 @@ export function FeedbackDetailScreen() {
       await mutation.mutateAsync({ ticketId: id, userId, body: trimmed });
       setReply('');
     } catch (err) {
-      setErrorMsg(err instanceof Error ? err.message : 'Ein unerwarteter Fehler ist aufgetreten.');
+      setErrorMsg(err instanceof Error ? err.message : t('feedback.detail.unexpected'));
     }
   }
 
   return (
-    <Screen title={ticket ? `#${ticket.ticket_number}` : 'Ticket'} back={{ label: 'Feedback' }}>
+    <Screen
+      title={ticket ? `#${ticket.ticket_number}` : t('feedback.detail.ticket')}
+      back={{ label: t('feedback.detail.back') }}>
       {banner ? (
         <Surface tone="surface" style={styles.banner}>
           <Txt variant="body">{banner}</Txt>
@@ -131,13 +137,13 @@ export function FeedbackDetailScreen() {
             </Txt>
             <View style={styles.ticketMeta}>
               <Txt variant="body" tone="secondary">
-                {FEEDBACK_TYPE_LABELS[ticket.type]}
+                {getFeedbackTypeLabel(t, ticket.type)}
               </Txt>
               <Txt
                 variant="body"
                 weight="700"
                 tone={STATUS_TONE[FEEDBACK_STATUS_COLORS[ticket.status]]}>
-                {FEEDBACK_STATUS_LABELS[ticket.status]}
+                {getFeedbackStatusLabel(t, ticket.status)}
               </Txt>
             </View>
           </View>
@@ -152,16 +158,16 @@ export function FeedbackDetailScreen() {
 
       {isClosed ? (
         <Txt variant="body" tone="secondary">
-          Dieses Ticket ist geschlossen. Neue Antworten sind nicht mehr möglich.
+          {t('feedback.detail.closed')}
         </Txt>
       ) : (
         <ContentCard>
           <View style={styles.replyForm}>
             <TextField
-              label="Antworten"
+              label={t('feedback.detail.reply')}
               value={reply}
               onChangeText={setReply}
-              placeholder="Deine Nachricht"
+              placeholder={t('feedback.detail.replyPlaceholder')}
               multiline
               numberOfLines={3}
             />
@@ -170,7 +176,11 @@ export function FeedbackDetailScreen() {
                 {errorMsg}
               </Txt>
             ) : null}
-            <Button title="Senden" onPress={handleSend} loading={mutation.isPending} />
+            <Button
+              title={t('feedback.detail.send')}
+              onPress={handleSend}
+              loading={mutation.isPending}
+            />
           </View>
         </ContentCard>
       )}

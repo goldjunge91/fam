@@ -1,5 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Modal, View } from 'react-native';
 import Animated, {
   cancelAnimation,
@@ -48,6 +49,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
   speechAdapter = nativeSpeechRecognitionAdapter,
   locale = getDeviceSpeechLocale(),
 }: NaturalLanguageAdditionVoiceOverlayProps) {
+  const { t } = useTranslation();
   const { colors } = useTheme();
   const [status, setStatus] = useState<VoiceOverlayStatus>('listening');
   const reducedMotion = useReducedMotion();
@@ -215,7 +217,7 @@ export function NaturalLanguageAdditionVoiceOverlay({
           style={StyleSheet.absoluteFill}
           onPress={status === 'listening' ? onCancel : undefined}
           accessibilityRole="button"
-          accessibilityLabel="Spracheingabe schließen"
+          accessibilityLabel={t('shoppingList.speechBeta.overlay.close')}
         />
         <Surface tone="surface" style={styles.panel}>
           <View style={styles.micStage}>
@@ -238,22 +240,24 @@ export function NaturalLanguageAdditionVoiceOverlay({
             </Animated.View>
           </View>
           <Txt variant="title" style={styles.centerText}>
-            {status === 'processing' ? 'Ich verarbeite das …' : 'Ich höre zu'}
+            {status === 'processing'
+              ? t('shoppingList.speechBeta.overlay.processingTitle')
+              : t('shoppingList.speechBeta.overlay.listeningTitle')}
           </Txt>
           <Txt variant="body" tone="secondary" style={styles.centerText}>
             {status === 'processing'
-              ? 'Die Artikelliste wird gerade vorbereitet.'
-              : 'Nenne mehrere Einkaufsartikel. Wenn du fertig bist, tippe auf Fertig.'}
+              ? t('shoppingList.speechBeta.overlay.processingMessage')
+              : t('shoppingList.speechBeta.overlay.listeningMessage')}
           </Txt>
           <Button
-            title="Fertig"
+            title={t('shoppingList.speechBeta.overlay.done')}
             testID="Fertig"
             onPress={finishSession}
             disabled={status === 'processing'}
             full
           />
           <Button
-            title="Abbrechen"
+            title={t('shoppingList.speechBeta.overlay.cancel')}
             testID="Abbrechen"
             variant="secondary"
             onPress={onCancel}

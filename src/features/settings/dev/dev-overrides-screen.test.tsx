@@ -1,5 +1,6 @@
 import { render, screen, userEvent, waitFor } from '@testing-library/react-native';
 import { Alert } from 'react-native';
+import { i18n } from '@/i18n';
 import { analyticsToggles } from './analytics-controls';
 import { DevOverridesScreen } from './dev-overrides-screen';
 
@@ -312,7 +313,7 @@ describe('DevOverridesScreen', () => {
     );
     expect(mockRefreshPremium).toHaveBeenCalled();
     expect(alert).toHaveBeenLastCalledWith(
-      'Erfolgreich',
+      'Erfolg',
       'Plus und KI wurden für diesen Haushalt zurückgesetzt.',
     );
   });
@@ -339,13 +340,13 @@ describe('DevOverridesScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Plus-Override einschalten' }));
     expect(mockSetPremiumOverride).toHaveBeenCalledWith(true);
     await view.rerender(<DevOverridesScreen />);
-    await user.press(screen.getByRole('button', { name: /Plus-Override zurücksetzen/ }));
+    await user.press(screen.getAllByText('Override zurücksetzen (Build-Wert: aus)')[0]);
     expect(mockSetPremiumOverride).toHaveBeenLastCalledWith(null);
 
     await user.press(screen.getByRole('button', { name: 'KI-Override einschalten' }));
     expect(mockSetAiOverride).toHaveBeenCalledWith(true);
     await view.rerender(<DevOverridesScreen />);
-    await user.press(screen.getByRole('button', { name: 'KI-Override zurücksetzen' }));
+    await user.press(screen.getByText('KI-Override zurücksetzen'));
     expect(mockSetAiOverride).toHaveBeenLastCalledWith(null);
 
     await user.press(screen.getByRole('button', { name: 'Werbung einschalten' }));
@@ -355,7 +356,9 @@ describe('DevOverridesScreen', () => {
     await user.press(screen.getByRole('button', { name: 'Werbung ausschalten' }));
     expect(mockSetAdsOverride).toHaveBeenLastCalledWith(false);
     await view.rerender(<DevOverridesScreen />);
-    await user.press(screen.getByRole('button', { name: /Override zurücksetzen/ }));
+    await user.press(
+      screen.getByRole('button', { name: 'Override zurücksetzen (Build-Wert: aus)' }),
+    );
     expect(mockSetAdsOverride).toHaveBeenLastCalledWith(null);
   });
 
@@ -376,7 +379,9 @@ describe('DevOverridesScreen', () => {
       const enabled = toggle.getValue(mockAnalyticsSettings);
       await user.press(
         screen.getByRole('button', {
-          name: `${toggle.label} ${enabled ? 'ausschalten' : 'einschalten'}`,
+          name: `${i18n.t(toggle.labelKey)} ${i18n.t(
+            enabled ? 'dev.featureFlags.turnOff' : 'dev.featureFlags.turnOn',
+          )}`,
         }),
       );
     }

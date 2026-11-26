@@ -1,5 +1,7 @@
 import { router } from 'expo-router';
+import type { TFunction } from 'i18next';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { PlusIcon } from '@/components/icons/fam-icon';
@@ -26,16 +28,25 @@ import { getLogicalDateForTimestamp } from '@/features/calorie-tracking/domain/d
 import { Glp1Card } from '@/features/glp1/components/glp1-card';
 import { useNavigationChrome } from '@/features/navigation/navigation-chrome-provider';
 import { useProfile } from '@/features/profile/api';
+import { i18n } from '@/i18n';
 import { parseIsoDate, toIsoDate } from '@/lib/format/format-date';
+import { getUnitLabel } from '@/lib/units';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 const WEEK_DAYS = 14;
-export const MEAL_LABELS: Record<MealType, string> = {
-  breakfast: 'Frühstück',
-  lunch: 'Mittagessen',
-  dinner: 'Abendessen',
-  snack: 'Snacks',
-};
+
+export function getMealLabel(t: TFunction, meal: MealType): string {
+  switch (meal) {
+    case 'breakfast':
+      return t('calorieTracking.meal.breakfast');
+    case 'lunch':
+      return t('calorieTracking.meal.lunch');
+    case 'dinner':
+      return t('calorieTracking.meal.dinner');
+    case 'snack':
+      return t('calorieTracking.meal.snack');
+  }
+}
 
 const styles = StyleSheet.create((theme) => ({
   content: {
@@ -133,34 +144,35 @@ function addDays(iso: string, delta: number): string {
   return toIsoDate(date);
 }
 
-function relativeDateLabel(iso: string, todayLogicalDate: string): string {
-  if (iso === todayLogicalDate) return 'Heute';
-  if (iso === addDays(todayLogicalDate, -1)) return 'Gestern';
-  if (iso === addDays(todayLogicalDate, 1)) return 'Morgen';
-  return parseIsoDate(iso).toLocaleDateString('de-DE', {
+function relativeDateLabel(iso: string, todayLogicalDate: string, t: TFunction): string {
+  if (iso === todayLogicalDate) return t('calorieTracking.diary.today');
+  if (iso === addDays(todayLogicalDate, -1)) return t('calorieTracking.diary.yesterday');
+  if (iso === addDays(todayLogicalDate, 1)) return t('calorieTracking.diary.tomorrow');
+  return parseIsoDate(iso).toLocaleDateString(i18n.language, {
     day: 'numeric',
     month: 'long',
   });
 }
 
-function fullDateLabel(iso: string): string {
-  return parseIsoDate(iso).toLocaleDateString('de-DE', {
+function fullDateLabel(iso: string, locale: string): string {
+  return parseIsoDate(iso).toLocaleDateString(locale, {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
   });
 }
 
-function weekdayLabel(iso: string): string {
-  return parseIsoDate(iso).toLocaleDateString('de-DE', { weekday: 'short' }).replace('.', '');
+function weekdayLabel(iso: string, locale: string): string {
+  return parseIsoDate(iso).toLocaleDateString(locale, { weekday: 'short' }).replace('.', '');
 }
 
-function formatKcal(value: number): string {
-  return `${Math.round(value).toLocaleString('de-DE')} kcal`;
+function formatKcal(value: number, t: TFunction): string {
+  return `${Math.round(value).toLocaleString(i18n.language)} ${t('calorieTracking.units.kcal')}`;
 }
 
 function MacroChip({ label, value, target }: { label: string; value: number; target: number }) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const exceeded = target > 0 && value > target;
 
   return (
@@ -170,14 +182,22 @@ function MacroChip({ label, value, target }: { label: string; value: number; tar
       accessibilityRole="progressbar"
       accessibilityLabel={
         target > 0
-          ? `${label}: ${Math.round(value)} von ${Math.round(target)} Gramm`
-          : `${label}: ${Math.round(value)} Gramm, kein Ziel gesetzt`
+          ? t('calorieTracking.diary.macroAccessibility', {
+              label,
+              value: Math.round(value),
+              target: Math.round(target),
+            })
+          : t('calorieTracking.diary.macroAccessibilityNoGoal', {
+              label,
+              value: Math.round(value),
+            })
       }>
       <Txt variant="caption" weight="700">
         {label}
       </Txt>
       <Txt variant="label" tone="secondary" weight="700">
-        {Math.round(value)} / {target > 0 ? Math.round(target) : '–'} g
+        {Math.round(value)} / {target > 0 ? Math.round(target) : '–'}{' '}
+        {t('calorieTracking.units.gramShort')}
       </Txt>
       <ProgressBar
         value={target > 0 ? value / target : 0}
@@ -199,21 +219,22 @@ type MealSectionProps = {
 
 function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps) {
   const { colors } = useTheme();
+  const { t } = useTranslation();
   const mealKcal = entries.reduce((sum, entry) => sum + (entry.kcal ?? 0), 0);
 
   return (
     <View style={!isLast ? styles.mealSection : undefined}>
       <View style={styles.mealHeader}>
         <View style={styles.mealHeading}>
-          <Txt variant="subheading">{MEAL_LABELS[meal]}</Txt>
+          <Txt variant="subheading">{getMealLabel(t, meal)}</Txt>
           <Txt variant="caption" tone="secondary" style={styles.textOffset}>
-            {formatKcal(mealKcal)}
+            {formatKcal(mealKcal, t)}
           </Txt>
         </View>
         <Press
           onPress={onAdd}
           accessibilityRole="button"
-          accessibilityLabel={`Zu ${MEAL_LABELS[meal]} hinzufügen`}
+          accessibilityLabel={t('calorieTracking.meal.add', { meal: getMealLabel(t, meal) })}
           hitSlop={8}
           style={styles.addButton}>
           <PlusIcon size={18} color={colors.onAccent} />
@@ -224,7 +245,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
           key={entry.id}
           onPress={() => onEntry(entry.id)}
           accessibilityRole="button"
-          accessibilityLabel={`${entry.name} bearbeiten`}
+          accessibilityLabel={t('calorieTracking.diary.entryEdit', { name: entry.name })}
           hitSlop={4}
           style={styles.entryRow}>
           <View style={styles.entryInfo}>
@@ -237,11 +258,16 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
               weight="500"
               style={styles.textOffset}
               numberOfLines={1}>
-              {entry.quantity} {entry.unit}
+              {t('calorieTracking.diary.entryQuantity', {
+                quantity: entry.quantity,
+                unit: getUnitLabel(entry.unit, t),
+              })}
             </Txt>
           </View>
           <Txt variant="caption" tone="secondary" weight="600">
-            {entry.kcal !== null ? formatKcal(entry.kcal) : '–'}
+            {entry.kcal !== null
+              ? formatKcal(entry.kcal, t)
+              : t('calorieTracking.diary.noCalories')}
           </Txt>
         </Press>
       ))}
@@ -252,6 +278,7 @@ function MealSection({ meal, entries, isLast, onAdd, onEntry }: MealSectionProps
 /** Tagebuch: Tagesbilanz, Makros und kompakte Mahlzeitenliste. */
 export function DiaryScreen() {
   const { colors } = useTheme();
+  const { t, i18n } = useTranslation();
   const { openDrawer } = useNavigationChrome();
   const { session } = useSession();
   const userId = session?.user.id;
@@ -302,11 +329,11 @@ export function DiaryScreen() {
     const kcal = weekCalories.get(isoDate) ?? 0;
     return {
       isoDate,
-      weekday: weekdayLabel(isoDate),
-      relativeLabel: relativeDateLabel(isoDate, todayLogicalDate),
-      fullLabel: fullDateLabel(isoDate),
+      weekday: weekdayLabel(isoDate, i18n.language),
+      relativeLabel: relativeDateLabel(isoDate, todayLogicalDate, t),
+      fullLabel: fullDateLabel(isoDate, i18n.language),
       kcal,
-      kcalLabel: kcal > 0 ? formatKcal(kcal) : 'keine Einträge',
+      kcalLabel: kcal > 0 ? formatKcal(kcal, t) : t('calorieTracking.diary.dayHasNoEntries'),
       overGoal: calorieGoal > 0 && kcal > calorieGoal,
     };
   });
@@ -335,13 +362,13 @@ export function DiaryScreen() {
   return (
     <HubScreen
       header={{
-        title: 'Tagebuch',
+        title: t('calorieTracking.diary.title'),
         align: 'center',
         leading: <MenuButton onPress={openDrawer} />,
         trailing: (
           <IconButton
             icon="activity"
-            accessibilityLabel="Gewichtsverlauf öffnen"
+            accessibilityLabel={t('calorieTracking.diary.weightTrend')}
             onPress={() => router.push('/weight')}
             size={39}
             iconSize={19}
@@ -366,19 +393,34 @@ export function DiaryScreen() {
           accessibilityRole="text"
           accessibilityLabel={
             calorieGoal > 0
-              ? `${formatKcal(Math.abs(remaining))} ${remaining < 0 ? 'über dem Tagesziel' : 'übrig'}, Ziel ${formatKcal(calorieGoal)}`
-              : `${formatKcal(totals.kcal)} gegessen, kein Tagesziel hinterlegt`
+              ? t('calorieTracking.diary.heroAccessibilityRemaining', {
+                  value: formatKcal(Math.abs(remaining), t),
+                  status:
+                    remaining < 0
+                      ? t('calorieTracking.diary.overDayGoal')
+                      : t('calorieTracking.diary.remainingShort'),
+                  goal: formatKcal(calorieGoal, t),
+                })
+              : t('calorieTracking.diary.heroAccessibilityEaten', {
+                  value: formatKcal(totals.kcal, t),
+                })
           }>
           <View style={styles.heroRow}>
             <Txt variant="title" weight="700">
               {Math.round(calorieGoal > 0 ? Math.abs(remaining) : totals.kcal).toLocaleString(
-                'de-DE',
+                i18n.language,
               )}
             </Txt>
             <Txt variant="label" tone="secondary" weight="600">
               {calorieGoal > 0
-                ? `kcal ${remaining < 0 ? 'über Ziel' : 'übrig'} · von ${Math.round(calorieGoal).toLocaleString('de-DE')}`
-                : 'kcal gegessen · kein Tagesziel'}
+                ? t('calorieTracking.diary.heroRemaining', {
+                    status:
+                      remaining < 0
+                        ? t('calorieTracking.diary.overShort')
+                        : t('calorieTracking.diary.remainingShort'),
+                    goal: Math.round(calorieGoal).toLocaleString(i18n.language),
+                  })
+                : t('calorieTracking.diary.heroEaten')}
             </Txt>
           </View>
           <View style={styles.heroBar}>
@@ -393,13 +435,21 @@ export function DiaryScreen() {
 
         {/* Makronährstoff-Chips (Protein, Kohlenhydrate, Fett) */}
         <View style={styles.macroGrid}>
-          <MacroChip label="Protein" value={totals.proteinG} target={currentGoal?.protein_g ?? 0} />
           <MacroChip
-            label="Kohlenhydrate"
+            label={t('calorieTracking.diary.macroProtein')}
+            value={totals.proteinG}
+            target={currentGoal?.protein_g ?? 0}
+          />
+          <MacroChip
+            label={t('calorieTracking.diary.macroCarbs')}
             value={totals.carbsG}
             target={currentGoal?.carbs_g ?? 0}
           />
-          <MacroChip label="Fett" value={totals.fatG} target={currentGoal?.fat_g ?? 0} />
+          <MacroChip
+            label={t('calorieTracking.diary.macroFat')}
+            value={totals.fatG}
+            target={currentGoal?.fat_g ?? 0}
+          />
         </View>
 
         {/* GLP-1 Tracking-Karte (optional) */}
@@ -416,14 +466,14 @@ export function DiaryScreen() {
 
         {!isLoading && entries.length === 0 ? (
           <Txt variant="caption" tone="secondary" weight="600" style={styles.emptyState} center>
-            Keine Einträge an diesem Tag
+            {t('calorieTracking.diary.noEntries')}
           </Txt>
         ) : null}
 
         {/* Mahlzeiten-Abschnitte (Frühstück, Mittagessen, Abendessen, Snacks) */}
         {isLoading ? (
           <Txt variant="caption" tone="secondary" style={styles.loadingText}>
-            Lade Tagebuch...
+            {t('calorieTracking.diary.loading')}
           </Txt>
         ) : (
           MEAL_ORDER.map((meal, index) => (

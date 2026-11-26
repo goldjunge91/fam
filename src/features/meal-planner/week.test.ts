@@ -1,5 +1,6 @@
 import {
   addDays,
+  dateLabel,
   defaultWeekPlanName,
   getWeekStart,
   nextWeekStart,
@@ -69,6 +70,11 @@ describe('weekdayLabel', () => {
     expect(weekdayLabel('2026-08-17')).toBe('Montag');
     expect(weekdayLabel('2026-08-23')).toBe('Sonntag');
   });
+
+  it('uses the requested locale for weekday and date labels', () => {
+    expect(weekdayLabel('2026-08-17', 'en-US')).toBe('Monday');
+    expect(dateLabel('2026-08-17', 'en-US')).toBe('Aug 17');
+  });
 });
 
 describe('defaultWeekPlanName', () => {
@@ -78,6 +84,10 @@ describe('defaultWeekPlanName', () => {
 
   it('nutzt den Monat des Wochenendes bei einem Monatswechsel', () => {
     expect(defaultWeekPlanName('2026-08-31')).toBe('Woche 31.–6. Sep.');
+  });
+
+  it('formats week names in the requested locale', () => {
+    expect(defaultWeekPlanName('2026-08-17', 'en-US')).toBe('Week 17–23 Aug');
   });
 });
 

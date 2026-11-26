@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -80,6 +81,8 @@ function ShadowExample({
 }
 
 function GlassCardExample({ label }: { label: string }) {
+  const { t } = useTranslation();
+
   return (
     <GlassCard
       tinted
@@ -88,58 +91,60 @@ function GlassCardExample({ label }: { label: string }) {
       fallbackStyle={styles.card}>
       <Txt variant="subheading">{label}</Txt>
       <Txt variant="caption" tone="secondary">
-        Beide sind getönt.
+        {t('dev.design.shadows.bothTinted')}
       </Txt>
     </GlassCard>
   );
 }
 
 export function ShadowsShowcase() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.page}>
       <View style={styles.example}>
-        <Txt variant="title">Schatten in der App</Txt>
+        <Txt variant="title">{t('dev.design.shadows.title')}</Txt>
         <Txt variant="body" tone="secondary">
-          Die Beispiele verwenden die Produktionskomponenten ohne Schatten.
+          {t('dev.design.shadows.hint')}
         </Txt>
       </View>
 
       <ShadowExample
-        label="DashboardCardShell"
-        badge="ohne Schatten"
+        label={t('dev.design.shadows.dashboard')}
+        badge={t('dev.design.shadows.withoutShadow')}
         tone="saved"
-        description="Dashboard-Karten bleiben ohne Schatten. tinted steuert nur die Hintergrundtönung."
+        description={t('dev.design.shadows.tintedHint')}
         code={'<DashboardCardShell size="small">…</DashboardCardShell>'}>
-        <DashboardCardShell size="small" accessibilityLabel="Beispiel Dashboard-Karte">
+        <DashboardCardShell size="small" accessibilityLabel={t('dev.design.shadows.dashboardCard')}>
           <View style={styles.dashboardContent}>
-            <Txt variant="subheading">Dashboard-Karte</Txt>
+            <Txt variant="subheading">{t('dev.design.shadows.dashboardCard')}</Txt>
             <Txt variant="caption" tone="secondary">
-              ohne Schatten
+              {t('dev.design.shadows.withoutShadow')}
             </Txt>
           </View>
         </DashboardCardShell>
       </ShadowExample>
 
       <ShadowExample
-        label="GlassCard mit expliziter Auswahl"
-        badge="ohne Schatten"
+        label={t('dev.design.shadows.glass')}
+        badge={t('dev.design.shadows.withoutShadow')}
         tone="nourish"
-        description="Beide Flächen haben tinted und keinen Schatten."
+        description={t('dev.design.shadows.bothTinted')}
         code={'<GlassCard tinted … />'}>
-        <GlassCardExample label="Normale Karte" />
-        <GlassCardExample label="Prominente Karte" />
+        <GlassCardExample label={t('dev.design.shadows.normal')} />
+        <GlassCardExample label={t('dev.design.shadows.prominent')} />
       </ShadowExample>
 
       <ShadowExample
-        label="Von unten kommendes Sheet"
-        badge="ohne Schatten"
+        label={t('dev.design.shadows.sheet')}
+        badge={t('dev.design.shadows.withoutShadow')}
         tone="nourish"
-        description="Die Sheet-Fläche bleibt ohne Schatten."
+        description={t('dev.design.shadows.sheetHint')}
         code={'style={styles.sheet}'}>
         <View style={styles.sheet}>
-          <Txt variant="subheading">Sheet-Fläche</Txt>
+          <Txt variant="subheading">{t('dev.design.shadows.sheetSurface')}</Txt>
           <Txt variant="caption" tone="secondary">
-            Keine Schatten-Geometrie in der Oberfläche.
+            {t('dev.design.shadows.noShadowGeometry')}
           </Txt>
         </View>
       </ShadowExample>

@@ -1,4 +1,6 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+
+import { i18n } from '@/i18n';
 import { TrackingMethodControls } from './tracking-method-controls';
 
 let mockOverrides: Record<string, boolean> = {};
@@ -20,7 +22,8 @@ jest.mock('@/lib/observability/providers/posthog', () => ({
 }));
 
 describe('TrackingMethodControls', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    await i18n.changeLanguage('de');
     mockOverrides = {};
     mockFlags = {
       'tracking-method-fasting': false,
@@ -38,14 +41,30 @@ describe('TrackingMethodControls', () => {
     const user = userEvent.setup();
     await render(<TrackingMethodControls />);
 
-    expect(screen.getByRole('button', { name: 'Klassisch (CICO) ausschalten' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Intervallfasten einschalten' })).toBeOnTheScreen();
-    expect(screen.getByRole('button', { name: 'Low-Carb ausschalten' })).toBeOnTheScreen();
     expect(
-      screen.queryByRole('button', { name: 'Tracking-Methoden-Overrides zurücksetzen' }),
+      screen.getByRole('button', {
+        name: `${i18n.t('profile.tracking.methods.standard.label')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', {
+        name: `${i18n.t('profile.tracking.methods.fasting.label')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.getByRole('button', {
+        name: `${i18n.t('profile.tracking.methods.lowCarb.label')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      }),
+    ).toBeOnTheScreen();
+    expect(
+      screen.queryByRole('button', { name: i18n.t('dev.tracking.reset') }),
     ).not.toBeOnTheScreen();
 
-    await user.press(screen.getByRole('button', { name: 'Intervallfasten einschalten' }));
+    await user.press(
+      screen.getByRole('button', {
+        name: `${i18n.t('profile.tracking.methods.fasting.label')} ${i18n.t('dev.featureFlags.turnOn')}`,
+      }),
+    );
 
     expect(mockSetOverride).toHaveBeenCalledWith('fasting', true);
   });
@@ -56,12 +75,14 @@ describe('TrackingMethodControls', () => {
     const user = userEvent.setup();
     await render(<TrackingMethodControls />);
 
-    await user.press(screen.getByRole('button', { name: 'Intervallfasten ausschalten' }));
+    await user.press(
+      screen.getByRole('button', {
+        name: `${i18n.t('profile.tracking.methods.fasting.label')} ${i18n.t('dev.featureFlags.turnOff')}`,
+      }),
+    );
     expect(mockSetOverride).toHaveBeenCalledWith('fasting', false);
 
-    await user.press(
-      screen.getByRole('button', { name: 'Tracking-Methoden-Overrides zurücksetzen' }),
-    );
+    await user.press(screen.getByRole('button', { name: i18n.t('dev.tracking.reset') }));
     expect(mockResetOverrides).toHaveBeenCalledTimes(1);
   });
 });

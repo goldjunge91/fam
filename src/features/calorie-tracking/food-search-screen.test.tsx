@@ -329,7 +329,7 @@ describe('FoodSearchScreen', () => {
       hasMore: false,
       failed: false,
     });
-    await fireEvent.press(screen.getByText('Erneut versuchen'));
+    await fireEvent.press(screen.getByText('Suche erneut versuchen'));
 
     expect(screen.getByText('Haferflocken')).toBeTruthy();
 

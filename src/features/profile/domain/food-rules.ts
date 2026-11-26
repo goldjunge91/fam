@@ -1,3 +1,4 @@
+import type { TFunction } from 'i18next';
 import { z } from 'zod';
 
 export const ALLERGY_CODES = [
@@ -27,39 +28,51 @@ export const INTOLERANCE_CODES = [
 export type AllergyCode = (typeof ALLERGY_CODES)[number];
 export type IntoleranceCode = (typeof INTOLERANCE_CODES)[number];
 
-const ALLERGY_LABELS: Record<AllergyCode, string> = {
-  'gluten-containing-cereals': 'Glutenhaltiges Getreide',
-  crustaceans: 'Krebstiere',
-  eggs: 'Eier',
-  fish: 'Fisch',
-  peanuts: 'Erdnüsse',
-  soybeans: 'Soja',
-  milk: 'Milch / Milcheiweiß',
-  'tree-nuts': 'Schalenfrüchte',
-  celery: 'Sellerie',
-  mustard: 'Senf',
-  sesame: 'Sesam',
-  'sulphur-dioxide-sulphites': 'Schwefeldioxid und Sulfite',
-  lupin: 'Lupinen',
-  molluscs: 'Weichtiere',
-};
+export const ALLERGY_PRESETS = ALLERGY_CODES.map((code) => ({ code }));
+export const INTOLERANCE_PRESETS = INTOLERANCE_CODES.map((code) => ({ code }));
 
-const INTOLERANCE_LABELS: Record<IntoleranceCode, string> = {
-  lactose: 'Laktose',
-  'fructose-malabsorption': 'Fruktosemalabsorption',
-  'sorbitol-malabsorption': 'Sorbitmalabsorption',
-  'celiac-gluten': 'Zöliakie / Gluten strikt meiden',
-};
-
-export const ALLERGY_PRESETS = ALLERGY_CODES.map((code) => ({
-  code,
-  label: ALLERGY_LABELS[code],
-}));
-
-export const INTOLERANCE_PRESETS = INTOLERANCE_CODES.map((code) => ({
-  code,
-  label: INTOLERANCE_LABELS[code],
-}));
+export function getFoodRuleLabel(t: TFunction, code: string): string {
+  switch (code) {
+    case 'gluten-containing-cereals':
+      return t('profile.foodRules.glutenContainingCereals');
+    case 'crustaceans':
+      return t('profile.foodRules.crustaceans');
+    case 'eggs':
+      return t('profile.foodRules.eggs');
+    case 'fish':
+      return t('profile.foodRules.fish');
+    case 'peanuts':
+      return t('profile.foodRules.peanuts');
+    case 'soybeans':
+      return t('profile.foodRules.soybeans');
+    case 'milk':
+      return t('profile.foodRules.milk');
+    case 'tree-nuts':
+      return t('profile.foodRules.treeNuts');
+    case 'celery':
+      return t('profile.foodRules.celery');
+    case 'mustard':
+      return t('profile.foodRules.mustard');
+    case 'sesame':
+      return t('profile.foodRules.sesame');
+    case 'sulphur-dioxide-sulphites':
+      return t('profile.foodRules.sulphurDioxideSulphites');
+    case 'lupin':
+      return t('profile.foodRules.lupin');
+    case 'molluscs':
+      return t('profile.foodRules.molluscs');
+    case 'lactose':
+      return t('profile.foodRules.lactose');
+    case 'fructose-malabsorption':
+      return t('profile.foodRules.fructoseMalabsorption');
+    case 'sorbitol-malabsorption':
+      return t('profile.foodRules.sorbitolMalabsorption');
+    case 'celiac-gluten':
+      return t('profile.foodRules.celiacGluten');
+    default:
+      return code;
+  }
+}
 
 export type CustomFoodSelection = {
   source: 'custom';

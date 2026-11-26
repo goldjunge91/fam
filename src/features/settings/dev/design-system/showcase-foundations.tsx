@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -57,33 +58,34 @@ export function FoundationsShowcase({ category }: { category: FoundationCategory
 }
 
 function ThemeShowcase() {
+  const { t } = useTranslation();
   const { mode, pref, setPref, colors } = useTheme();
 
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Theme-Laufzeit"
-        contract="System, Hell und Dunkel werden ausschließlich vom ThemeProvider aufgelöst. Komponenten lesen semantische Farben über useTheme()."
-        source="ThemeProvider.tsx und index.ts"
+        title={t('dev.design.foundations.themeTitle')}
+        contract={t('dev.design.foundations.themeContract')}
+        source={t('dev.design.foundations.themeSource')}
       />
-      <Subsection title="Aktiver Zustand">
+      <Subsection title={t('dev.design.foundations.activeState')}>
         <TokenGrid>
           <TokenItem name="pref" value={pref} />
           <TokenItem name="mode" value={mode} />
         </TokenGrid>
         <View style={styles.buttonStack}>
           <Button
-            title="System"
+            title={t('dev.design.foundations.system')}
             variant={pref === 'system' ? 'primary' : 'secondary'}
             onPress={() => setPref('system')}
           />
           <Button
-            title="Hell"
+            title={t('dev.design.light')}
             variant={pref === 'light' ? 'primary' : 'secondary'}
             onPress={() => setPref('light')}
           />
           <Button
-            title="Dunkel"
+            title={t('dev.design.dark')}
             variant={pref === 'dark' ? 'primary' : 'secondary'}
             onPress={() => setPref('dark')}
           />
@@ -96,16 +98,16 @@ function ThemeShowcase() {
               styles.themePreview,
               { backgroundColor: colors.backgroundElement, borderColor: colors.border },
             ]}>
-            <Txt variant="heading">Semantische Oberfläche</Txt>
-            <Txt tone="secondary">Wechselt vollständig mit dem aktiven Theme.</Txt>
+            <Txt variant="heading">{t('dev.design.foundations.semanticSurface')}</Txt>
+            <Txt tone="secondary">{t('dev.design.foundations.themeChanges')}</Txt>
           </View>
         }
         incorrect={
           <View style={[styles.themePreview, styles.hardcodedPreview]}>
             <Txt color="#20C776" style={styles.badText}>
-              Fest verdrahtetes Grün
+              {t('dev.design.foundations.hardcodedGreen')}
             </Txt>
-            <Txt color="#666666">Bleibt unabhängig vom Theme gleich.</Txt>
+            <Txt color="#666666">{t('dev.design.foundations.hardcodedTheme')}</Txt>
           </View>
         }
         correctCode={'const { colors } = useTheme();\n<Surface tone="surface">…</Surface>'}
@@ -116,16 +118,17 @@ function ThemeShowcase() {
 }
 
 function ColorShowcase() {
+  const { t } = useTranslation();
   const { colors, accent } = useTheme();
 
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Farben und Töne"
-        contract="Screens wählen eine semantische Rolle. Produktbereiche verwenden Accent-Domains und keine zufälligen Hexwerte."
-        source="index.ts: Palette und makeAccent()"
+        title={t('dev.design.foundations.colorsTitle')}
+        contract={t('dev.design.foundations.colorsContract')}
+        source={t('dev.design.foundations.colorsSource')}
       />
-      <Subsection title="Aktive Palette">
+      <Subsection title={t('dev.design.foundations.activePalette')}>
         <TokenGrid>
           {entries(colors).map(([name, value]) => (
             <TokenItem
@@ -137,7 +140,7 @@ function ColorShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Kanonische Fam-Palette: Hell und Dunkel">
+      <Subsection title={t('dev.design.foundations.canonicalPalette')}>
         <TokenGrid>
           {entries(Colors.light).map(([name, lightValue]) => {
             const darkValue = Colors.dark[name];
@@ -157,7 +160,7 @@ function ColorShowcase() {
           })}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Akzente nach Domäne">
+      <Subsection title={t('dev.design.foundations.accents')}>
         <TokenGrid>
           {entries(accent).map(([name, value]) => (
             <TokenItem
@@ -170,8 +173,8 @@ function ColorShowcase() {
         </TokenGrid>
       </Subsection>
       <ExamplePair
-        correct={<Txt tone="success">Erfolgreich gespeichert</Txt>}
-        incorrect={<Txt color="#2FBF71">Grün bedeutet hier versehentlich Navigation</Txt>}
+        correct={<Txt tone="success">{t('dev.design.foundations.success')}</Txt>}
+        incorrect={<Txt color="#2FBF71">{t('dev.design.foundations.navigationGreen')}</Txt>}
         correctCode={'<Txt tone="success">Erfolgreich gespeichert</Txt>'}
         incorrectCode={'<Txt color="#2FBF71">Übersicht</Txt>'}
       />
@@ -180,30 +183,29 @@ function ColorShowcase() {
 }
 
 function TypographyShowcase() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Typografie"
-        contract="Schriftgröße, Zeilenhöhe und Standardgewicht kommen gemeinsam aus einer Txt-Variante. Tone beschreibt Bedeutung, nicht Dekoration."
-        source="ui.tsx: Txt, TxtVariant und TxtTone"
+        title={t('dev.design.foundations.typographyTitle')}
+        contract={t('dev.design.foundations.typographyContract')}
+        source={t('dev.design.foundations.typographySource')}
       />
-      <Subsection title="Alle Varianten">
+      <Subsection title={t('dev.design.foundations.allVariants')}>
         <View style={styles.typeList}>
           {TYPOGRAPHY_VARIANTS.map((variant) => (
             <View key={variant} style={[styles.typeRow, { borderBottomColor: colors.border }]}>
               <Txt variant="caption" tone="secondary">
                 {variant}
               </Txt>
-              <Txt variant={variant}>
-                Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.
-              </Txt>
+              <Txt variant={variant}>{t('dev.design.foundations.sampleText')}</Txt>
             </View>
           ))}
         </View>
       </Subsection>
-      <Subsection title="Alle Töne">
+      <Subsection title={t('dev.design.foundations.allTones')}>
         <View style={[styles.toneBox, { backgroundColor: colors.accent }]}>
           {TEXT_TONES.map((tone) => (
             <Txt key={tone} tone={tone} variant="body" weight="600">
@@ -215,19 +217,19 @@ function TypographyShowcase() {
       <ExamplePair
         correct={
           <View>
-            <Txt variant="subheading">Mahlzeit</Txt>
+            <Txt variant="subheading">{t('dev.design.foundations.meal')}</Txt>
             <Txt variant="body" tone="secondary">
-              0 kcal
+              {t('dev.design.foundations.zeroCalories')}
             </Txt>
           </View>
         }
         incorrect={
           <View>
             <Txt style={{ fontSize: 20, lineHeight: 16, fontWeight: '700' }}>
-              Abgeschnittene Überschrift
+              {t('dev.design.foundations.cutHeading')}
             </Txt>
             <Txt color="#777" style={{ fontSize: 13 }}>
-              0 kcal
+              {t('dev.design.foundations.zeroCalories')}
             </Txt>
           </View>
         }
@@ -241,16 +243,17 @@ function TypographyShowcase() {
 }
 
 function TokenShowcase() {
+  const { t } = useTranslation();
   const { colors } = useTheme();
 
   return (
     <View style={styles.page}>
       <ContractIntro
-        title="Abstände, Formen und Effekte"
-        contract="Wiederkehrende Maße stammen aus Tokens. Layout nutzt native StyleSheets; dynamische Farben kommen aus dem Theme."
-        source="index.ts: space, radius, font und responsive Werte"
+        title={t('dev.design.foundations.tokensTitle')}
+        contract={t('dev.design.foundations.tokensContract')}
+        source={t('dev.design.foundations.tokensSource')}
       />
-      <Subsection title="Spacing">
+      <Subsection title={t('dev.design.foundations.spacing')}>
         <TokenGrid>
           {entries(space).map(([name, value]) => (
             <TokenItem
@@ -269,7 +272,7 @@ function TokenShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Radien">
+      <Subsection title={t('dev.design.foundations.radii')}>
         <TokenGrid>
           {entries(radius).map(([name, value]) => (
             <TokenItem
@@ -288,17 +291,17 @@ function TokenShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Plattformfonts">
+      <Subsection title={t('dev.design.foundations.platformFonts')}>
         <TokenGrid>
           {entries(Fonts ?? {}).map(([name, value]) => (
             <TokenItem key={String(name)} name={`Fonts.${String(name)}`} value={String(value)} />
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Responsive Werte">
+      <Subsection title={t('dev.design.foundations.responsive')}>
         <CodeSample>{`SCREEN_W = ${SCREEN_W}\nIS_TABLET = ${IS_TABLET}\nCONTENT_MAX_WIDTH = ${CONTENT_MAX_WIDTH}\nfont.sizes.base = ${font.sizes.base}`}</CodeSample>
       </Subsection>
-      <Subsection title="Font-Größen">
+      <Subsection title={t('dev.design.foundations.fontSizes')}>
         <TokenGrid>
           {entries(font.sizes).map(([name, value]) => (
             <TokenItem
@@ -314,7 +317,7 @@ function TokenShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Zeilenhöhen">
+      <Subsection title={t('dev.design.foundations.lineHeights')}>
         <TokenGrid>
           {entries(font.lineHeights).map(([name, value]) => (
             <TokenItem
@@ -331,7 +334,7 @@ function TokenShowcase() {
           ))}
         </TokenGrid>
       </Subsection>
-      <Subsection title="Schriftgewichte">
+      <Subsection title={t('dev.design.foundations.fontWeights')}>
         <TokenGrid>
           {entries(font.weight).map(([name, value]) => (
             <TokenItem
@@ -350,14 +353,14 @@ function TokenShowcase() {
       <ExamplePair
         correct={
           <View style={{ gap: space.md }}>
-            <Txt>Erste Zeile</Txt>
-            <Txt>Zweite Zeile</Txt>
+            <Txt>{t('dev.design.foundations.spacingFirst')}</Txt>
+            <Txt>{t('dev.design.foundations.spacingSecond')}</Txt>
           </View>
         }
         incorrect={
           <View style={{ gap: 11 }}>
-            <Txt>Erste Zeile</Txt>
-            <Txt>Zufälliger Abstand: 11</Txt>
+            <Txt>{t('dev.design.foundations.spacingFirst')}</Txt>
+            <Txt>{t('dev.design.foundations.randomSpacing')}</Txt>
           </View>
         }
         correctCode={'<View style={{ gap: space.md }}>…</View>'}

@@ -3,13 +3,13 @@ import { fireEvent, render, screen, userEvent, waitFor } from '@testing-library/
 import { router } from 'expo-router';
 import type { ReactNode } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
 import { colorsLight, radius, space } from '@/components/theme';
 import { MIN_TOUCH_SIZE } from '@/constants/ui';
 import {
   consumePendingProductSelection,
   setPendingProductSelection,
 } from '@/features/inventory/pending-product-selection';
+import { i18n } from '@/i18n';
 
 import { AddItemScreen } from './add-item-screen';
 
@@ -38,6 +38,8 @@ const mockGetFirstAsync = jest.fn().mockResolvedValue(null);
 let mockLocations: { id: string; name: string }[] = [];
 let mockHousehold: { id: string; name: string } | null = { id: 'hh-1', name: 'Zuhause' };
 let mockSession: { user: { id: string } } | null = { user: { id: 'user-1' } };
+let mockProductQuantity = 1;
+let mockProductUnit = 'l';
 
 jest.mock('expo-router', () => ({
   router: { back: jest.fn(), canGoBack: () => false },
@@ -118,8 +120,8 @@ jest.mock('@/features/inventory/product-search-dropdown', () => {
               barcode: '4001234567890',
               name: 'Hafermilch Barista',
               brand: 'Oatly',
-              quantity: 1,
-              unit: 'l',
+              quantity: mockProductQuantity,
+              unit: mockProductUnit,
               caloriesPer100g: 59,
               proteinsPer100g: 1.1,
               carbsPer100g: 6.6,
@@ -138,6 +140,8 @@ beforeEach(() => {
   mockLocations = [];
   mockHousehold = { id: 'hh-1', name: 'Zuhause' };
   mockSession = { user: { id: 'user-1' } };
+  mockProductQuantity = 1;
+  mockProductUnit = 'l';
   mockAddStorageLocationMutateAsync.mockResolvedValue({ id: 'location-1' });
   mockRecordProductUsage.mockResolvedValue(undefined);
   consumePendingProductSelection();
@@ -145,6 +149,33 @@ beforeEach(() => {
   mockAddProductMutateAsync.mockClear();
   mockGetFirstAsync.mockClear();
   mockGetFirstAsync.mockResolvedValue(null);
+});
+
+afterEach(async () => {
+  await i18n.changeLanguage('de');
+});
+
+it('renders the add-item controls in English', async () => {
+  await i18n.changeLanguage('en');
+  await renderScreen();
+
+  expect(screen.getByText('Add item')).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Add to pantry' })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: 'Close' })).toBeOnTheScreen();
+});
+
+it.each([
+  ['de', '1,5 kg'],
+  ['en', '1.5 kg'],
+] as const)('formats fractional package contents in %s', async (locale, expected) => {
+  mockProductQuantity = 1.5;
+  mockProductUnit = 'kg';
+  await i18n.changeLanguage(locale);
+  await renderScreen();
+
+  await fireEvent(screen.getByTestId('name-field'), 'focus');
+
+  expect(screen.getByText(expected)).toBeOnTheScreen();
 });
 
 it('verwendet die zentralen Modal-Schließen-Tokens', async () => {
